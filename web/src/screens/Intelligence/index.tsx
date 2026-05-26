@@ -93,40 +93,42 @@ function HeroSection({ isAdmin }: { isAdmin: boolean }) {
 
 function WeeklyBriefSection({ brief }: { brief: IntelligenceWeeklyBrief }) {
   return (
-    <section className="py-ed-section-sm">
-      <div className="flex items-baseline justify-between mb-6 flex-wrap gap-3">
-        <div className="text-ed-eyebrow uppercase text-ed-text-muted">Weekly Brief</div>
-        <div className="text-ed-meta text-ed-text-muted">
-          {brief.period_start} → {brief.period_end}
-        </div>
-      </div>
-      <h2 className="text-[2rem] font-semibold leading-tight text-ed-text-primary mb-8 max-w-[900px]">
-        {brief.headline}
-      </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-        {brief.highlights.slice(0, 3).map((h, i) => (
-          <div
-            key={i}
-            className={[
-              'py-5',
-              i > 0 ? 'border-t border-ed-hairline md:border-t-0 md:border-l md:pl-8' : '',
-              i === 0 ? 'md:pr-8' : '',
-              i === 1 ? 'lg:pr-8' : '',
-            ].join(' ')}
-          >
-            <p className="text-[11px] uppercase tracking-widest text-ed-text-muted mb-2">
-              {extractHighlightRegion(h)}
-            </p>
-            <p className="text-[14px] text-ed-text-secondary leading-[1.55]">
-              {h}
-            </p>
+    <section className="py-4 relative w-screen left-1/2 -translate-x-1/2 bg-ed-surface-cool">
+      <div className="max-w-[1200px] mx-auto px-8">
+        <div className="flex items-baseline justify-between mb-6 flex-wrap gap-3">
+          <div className="text-ed-eyebrow uppercase text-ed-text-muted">Weekly Brief</div>
+          <div className="text-ed-meta text-ed-text-muted">
+            {brief.period_start} → {brief.period_end}
           </div>
-        ))}
-      </div>
-      <div className="mt-6 text-right">
-        <span className="text-[11px] text-ed-text-faint tracking-wide">
-          AI summary · verify against source
-        </span>
+        </div>
+        <h2 className="text-[2rem] font-semibold leading-tight text-ed-text-primary mb-8 max-w-[900px]">
+          {brief.headline}
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+          {brief.highlights.slice(0, 3).map((h, i) => (
+            <div
+              key={i}
+              className={[
+                'py-5',
+                i > 0 ? 'border-t border-ed-hairline md:border-t-0 md:border-l md:pl-8' : '',
+                i === 0 ? 'md:pr-8' : '',
+                i === 1 ? 'lg:pr-8' : '',
+              ].join(' ')}
+            >
+              <p className="text-[11px] uppercase tracking-widest text-ed-text-muted mb-2">
+                {extractHighlightRegion(h)}
+              </p>
+              <p className="text-[14px] text-ed-text-secondary leading-[1.55]">
+                {h}
+              </p>
+            </div>
+          ))}
+        </div>
+        <div className="mt-6 text-right">
+          <span className="text-[11px] text-ed-text-faint tracking-wide">
+            AI summary · verify against source
+          </span>
+        </div>
       </div>
     </section>
   );
