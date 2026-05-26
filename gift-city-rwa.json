@@ -1,0 +1,88 @@
+{
+  "slug": "gift-city-rwa",
+  "name": "IFSCA GIFT City Tokenization Framework",
+  "short_name": "GIFT City RWA",
+  "website": "https://www.ifsca.gov.in",
+  "asset_class": "infrastructure",
+  "jurisdiction": "India (IFSC, Gujarat)",
+  "chain": "TBD per sandbox participant",
+  "status": "announced",
+  "launched_at": "2024-04-01",
+  "tvl_usd": 0,
+  "entity_map": {
+    "issuer": {
+      "name": "International Financial Services Centres Authority (IFSCA)",
+      "type": "Indian unified financial regulator for IFSC",
+      "url": "https://www.ifsca.gov.in"
+    },
+    "custodian": {
+      "name": "",
+      "type": ""
+    },
+    "chain_infra": {
+      "name": "",
+      "type": ""
+    },
+    "oracle": {
+      "name": "",
+      "type": ""
+    },
+    "law_firm": {
+      "name": "",
+      "type": ""
+    },
+    "auditor": {
+      "name": "",
+      "type": ""
+    },
+    "regulator": {
+      "name": "IFSCA (unified regulator for banking, capital markets, insurance, fund management in IFSC)",
+      "type": "Unified financial regulator"
+    },
+    "token_standard": "TBD per participant"
+  },
+  "asset_slug": "",
+  "summary": "India's GIFT City (Gujarat International Finance Tec-City) operates as an offshore financial center with regulatory autonomy under IFSCA. Multiple tokenization initiatives announced: tokenized fund administration framework (2024), regulatory sandbox accepting tokenization use cases, and proposals for tokenized fund issuance for foreign investors targeting Indian assets. Significant as India's regulated entry point into tokenization — bypassing the unresolved regulatory ambiguity of mainland Indian crypto policy. Provides infrastructure for tokenized funds targeting NRI / GCC investor base.",
+  "sources": [
+    {
+      "title": "IFSCA tokenization framework consultation paper",
+      "url": "https://www.ifsca.gov.in/Document/Legal/consultation-paper-on-tokenization.pdf"
+    },
+    {
+      "title": "GIFT City IFSC regulatory sandbox",
+      "url": "https://www.ifsca.gov.in/Sandbox"
+    }
+  ],
+  "updated_at": "2026-05-19",
+  "underlying_asset": "Various — sandbox covers tokenized fund units, debt securities, real estate-backed instruments.",
+  "reserve_composition": "Per participant; framework requires backing disclosure but does not standardize.",
+  "secondary_market": "Within IFSC ecosystem; cross-border subject to RBI/SEBI coordination.",
+  "min_investment_usd": 150000,
+  "smart_contract_audit": {
+    "auditor": "Per participant",
+    "date": "",
+    "report_url": ""
+  },
+  "oracle_provider": "Per participant.",
+  "redemption_mechanism": "Per participant fund design.",
+  "upgrade_authority": "IFSCA + participant institutional governance.",
+  "timeline": [
+    {
+      "date": "2024-04-01",
+      "event": "IFSCA tokenization consultation paper published",
+      "type": "milestone"
+    },
+    {
+      "date": "2024-11-01",
+      "event": "Regulatory sandbox formally accepting tokenization applications",
+      "type": "milestone"
+    },
+    {
+      "date": "2025-Q3",
+      "event": "First tokenized fund pilots reportedly under IFSCA review (specifics not publicly disclosed)",
+      "type": "milestone"
+    }
+  ],
+  "risk_flags": [],
+  "lessons_visibility": "active_only"
+}

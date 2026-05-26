@@ -1,0 +1,88 @@
+{
+  "slug": "eib-project-venus",
+  "name": "EIB Project Venus (Inaugural Digital Bond)",
+  "short_name": "EIB Project Venus",
+  "website": "https://www.eib.org",
+  "asset_class": "gov_bond",
+  "jurisdiction": "Luxembourg",
+  "chain": "Ethereum (private deployment via Goldman Sachs DAP)",
+  "status": "active",
+  "launched_at": "2021-04-28",
+  "tvl_usd": 121000000,
+  "entity_map": {
+    "issuer": {
+      "name": "European Investment Bank (EIB)",
+      "type": "Supranational EU institution",
+      "url": "https://www.eib.org"
+    },
+    "custodian": {
+      "name": "Goldman Sachs Digital Asset Platform (DAP)",
+      "type": "G-SIB"
+    },
+    "chain_infra": {
+      "name": "Ethereum-compatible private network (Goldman DAP)",
+      "type": "Enterprise blockchain"
+    },
+    "oracle": {
+      "name": "",
+      "type": ""
+    },
+    "law_firm": {
+      "name": "Clifford Chance",
+      "type": "Lead counsel"
+    },
+    "auditor": {
+      "name": "Per EIB standard",
+      "type": "Big Four"
+    },
+    "regulator": {
+      "name": "Luxembourg CSSF (under Luxembourg blockchain law)",
+      "type": "Securities regulator"
+    },
+    "token_standard": "Goldman DAP-native"
+  },
+  "asset_slug": "",
+  "summary": "EUR 100M two-year digital bond — EIB's first ever digital bond — issued April 2021 via Goldman Sachs Digital Asset Platform. Lead managers: Goldman Sachs, Santander, Société Générale. Settled in EUR via Banque de France wCBDC experimentation. Historical importance: first major supranational issuance entirely on blockchain rails with regulatory clearance under Luxembourg's then-new blockchain law (Loi Blockchain II, 2019). Precursor to the EU's broader DLT Pilot Regime (DLTR) launched March 2023.",
+  "sources": [
+    {
+      "title": "EIB press release on Project Venus",
+      "url": "https://www.eib.org/en/press/all/2021-141-eib-issues-its-first-ever-digital-bond-on-a-public-blockchain"
+    },
+    {
+      "title": "Goldman Sachs DAP coverage",
+      "url": "https://www.goldmansachs.com/insights/digital-economy/digital-asset-platform.html"
+    }
+  ],
+  "updated_at": "2026-05-19",
+  "underlying_asset": "EIB unsecured senior debt obligation; two-year tenor; fixed coupon.",
+  "reserve_composition": "EIB general credit (AAA-rated).",
+  "secondary_market": "Limited — issued to small group of institutional investors; permissioned network.",
+  "min_investment_usd": 0,
+  "smart_contract_audit": {
+    "auditor": "Goldman DAP internal audits",
+    "date": "2021",
+    "report_url": ""
+  },
+  "oracle_provider": "N/A.",
+  "redemption_mechanism": "Coupon + principal paid in EUR via wCBDC experimentation with Banque de France.",
+  "upgrade_authority": "EIB issuance terms; Goldman operates platform.",
+  "timeline": [
+    {
+      "date": "2021-04-28",
+      "event": "EIB issues first digital bond (EUR 100M) on Goldman DAP",
+      "type": "milestone"
+    },
+    {
+      "date": "2023-04-28",
+      "event": "Bond matures; principal repaid",
+      "type": "milestone"
+    },
+    {
+      "date": "2023-03-23",
+      "event": "EU DLT Pilot Regime takes effect (Project Venus a key precedent)",
+      "type": "regulatory"
+    }
+  ],
+  "risk_flags": [],
+  "lessons_visibility": "active_only"
+}

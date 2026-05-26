@@ -1,0 +1,93 @@
+{
+  "slug": "terra-ust",
+  "name": "TerraUSD (UST)",
+  "short_name": "UST",
+  "website": "https://terra.money",
+  "asset_class": "stablecoin_algorithmic",
+  "jurisdiction": "Singapore (Terraform Labs)",
+  "chain": "Terra Classic, Ethereum (bridged), BNB Chain (bridged)",
+  "status": "failed",
+  "launched_at": "2020-09-21",
+  "tvl_usd": 0,
+  "peak_tvl_usd": 18700000000,
+  "peak_tvl_date": "2022-05-05",
+  "entity_map": {
+    "issuer":        { "name": "Terraform Labs PTE Ltd", "type": "Private company (Singapore)", "url": "" },
+    "custodian":     { "name": "N/A — algorithmic, no off-chain reserves at peg", "type": "" },
+    "chain_infra":   { "name": "Terra blockchain (Tendermint/Cosmos SDK)", "type": "L1 validator network" },
+    "oracle":        { "name": "Terra native oracle (validator-reported)", "type": "Validator consensus" },
+    "law_firm":      { "name": "Dentons (post-collapse litigation)", "type": "Litigation counsel" },
+    "auditor":       { "name": "No third-party reserve audit", "type": "" },
+    "regulator":     { "name": "US SEC; South Korea prosecutors; Singapore MAS", "type": "Multi-jurisdictional enforcement" },
+    "token_standard": "Terra CW-20 / bridged ERC-20"
+  },
+  "asset_slug": "ust-terra",
+  "summary": "Algorithmic stablecoin maintained via mint/burn arbitrage with sister token LUNA. De-pegged May 9, 2022 and collapsed within 72 hours, erasing ~$45B combined market cap. The most consequential stablecoin failure to date and the catalyst for MiCA, GENIUS Act, and HK Stablecoin Ordinance.",
+  "sources": [
+    {"title": "SEC v. Terraform Labs and Do Kwon (Final Judgment, April 2024)", "url": "https://www.sec.gov/litigation/litreleases/lr-25985"},
+    {"title": "Nansen: On-chain forensics of UST de-peg", "url": "https://www.nansen.ai/research/on-chain-forensics-demystifying-terrausd-de-peg"},
+    {"title": "Chainalysis: The Collapse of Terra", "url": "https://www.chainalysis.com/blog/terra-luna-ust-crash-stablecoin-de-pegging/"}
+  ],
+  "updated_at": "2026-05-19",
+
+  "underlying_asset": "None at peg. UST was backed by reflexive demand for LUNA. Luna Foundation Guard (LFG) added ~80,000 BTC reserves in Feb-Mar 2022 (~$3B at peak), fully deployed within 48 hours of de-peg without restoring confidence.",
+  "reserve_composition": "Algorithmic at design (1 UST burnable for $1 of LUNA at oracle price); LFG BTC reserves exhausted during the run.",
+  "secondary_market": "Previously deep liquidity on Curve (UST-3pool, '4pool'); Anchor Protocol provided 19.5% yield driving 75%+ of UST demand. All venues delisted post-collapse; USTC trades at ~$0.02 on Terra Classic.",
+  "min_investment_usd": 0,
+  "smart_contract_audit": {
+    "auditor": "Cosmwasm modules audited piecemeal; no comprehensive audit of full mint/burn + Anchor + LFG system",
+    "date": "2021",
+    "report_url": ""
+  },
+  "oracle_provider": "Terra validator-set oracle. Reported prices accurately during collapse — the failure was economic, not oracle-level.",
+  "redemption_mechanism": "Algorithmic: 1 UST burnable for $1 of LUNA at oracle price. Designed assuming LUNA market cap > UST market cap. Failed when LUNA hyperinflated to absorb UST supply.",
+  "upgrade_authority": "Terraform Labs core team controlled protocol parameters; community governance was nominal as Do Kwon and TFL held effective control.",
+
+  "timeline": [
+    {"date": "2020-09-21", "event": "UST launched on Terra mainnet", "type": "milestone"},
+    {"date": "2021-03-17", "event": "Anchor Protocol launches with 19.5% UST yield", "type": "milestone"},
+    {"date": "2022-01-19", "event": "Luna Foundation Guard (LFG) established", "type": "milestone"},
+    {"date": "2022-02-22", "event": "LFG begins BTC accumulation (~$3B peak)", "type": "milestone"},
+    {"date": "2022-05-07", "event": "Large Anchor withdrawals; Curve 3pool imbalance", "type": "incident"},
+    {"date": "2022-05-09", "event": "UST de-pegs to $0.985; LFG deploys BTC reserves", "type": "incident"},
+    {"date": "2022-05-10", "event": "UST falls to $0.60; LUNA hyperinflation begins", "type": "incident"},
+    {"date": "2022-05-12", "event": "Terra blockchain halts; LUNA reaches $0.00001", "type": "incident"},
+    {"date": "2022-05-13", "event": "~$45B combined market cap erased", "type": "incident"},
+    {"date": "2023-02-16", "event": "SEC charges Terraform Labs and Do Kwon with fraud", "type": "regulatory"},
+    {"date": "2024-04-05", "event": "SEC jury verdict; $4.5B settlement", "type": "regulatory"},
+    {"date": "2024-12-31", "event": "Do Kwon extradited to United States", "type": "regulatory"}
+  ],
+
+  "risk_flags": ["de_pegged", "failed", "regulatory_action", "fraud_verdict"],
+
+  "lessons_visibility": "lessons_only",
+
+  "postmortem": {
+    "incident_date": "2022-05-09",
+    "root_cause": "Reflexive algorithmic peg collapsed under sustained sell pressure. UST redemptions minted LUNA at oracle price, hyperinflating LUNA supply from ~350M to 6.5 trillion tokens in 72 hours. The mechanism designed to restore the peg accelerated its destruction. ~75% of UST demand was synthetic (Anchor's 19.5% yield subsidy); LFG's BTC reserves insufficient to absorb the run; Curve 3pool concentration was a single point of liquidity failure.",
+    "what_failed": [
+      {
+        "layer": "L2",
+        "layer_name": "Asset Quality",
+        "issue": "No exogenous collateral at peg. UST was 'backed' by reflexive demand for LUNA — collateral depended on the stablecoin's own success. Late BTC reserves were a band-aid on a fundamentally flawed design."
+      },
+      {
+        "layer": "L4",
+        "layer_name": "Token & Market Structure",
+        "issue": "75%+ of demand driven by Anchor's 19.5% yield, subsidized at $4-7M/day — economically unsustainable. Liquidity concentrated in Curve 3pool; no diversified demand base."
+      },
+      {
+        "layer": "L6",
+        "layer_name": "Governance",
+        "issue": "No circuit breaker, no emergency redemption pause, no cap on LUNA minting. Governance nominally decentralized but effectively controlled by Terraform Labs."
+      },
+      {
+        "layer": "L1",
+        "layer_name": "Legal Foundation",
+        "issue": "SEC established UST and LUNA as unregistered securities; Terraform Labs made materially misleading statements about peg stability and Chai Corporation partnership. $4.5B settlement and criminal extradition followed."
+      }
+    ],
+    "outcome": "~$45B combined market cap wiped in 72 hours. Anchor TVL fell from $14B to <$100M. Cascading contagion took down Three Arrows Capital, Celsius, Voyager within 8 weeks. Catalyzed MiCA, GENIUS Act, and HK Stablecoin Ordinance.",
+    "rarm_lesson": "UST is the canonical case for RARM's AFI (Aggregate Fragility Index) layer-gating logic: L2 Asset Quality fell below the failure threshold, so subsequent layers (L3-L6) contribute zero to the aggregate score regardless of nominal quality. No governance, technology, or market structure can compensate for collateral that is reflexive to the token it backs. Secondary lesson: L4 demand-quality flag — sustainable stablecoin demand requires organic, diversified utility, not yield arbitrage from a single source."
+  }
+}

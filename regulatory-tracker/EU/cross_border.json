@@ -1,0 +1,38 @@
+{
+  "jurisdiction": "EU",
+  "issue": "cross_border",
+  "status_signal": "restricted",
+  "summary": "The European Union exercises strict extraterritorial jurisdiction over cross-border crypto-asset services targeting EU residents under the Markets in Crypto-Assets Regulation (MiCA). Non-EU (third-country) firms are prohibited from soliciting EU clients or promoting their services within the EU without a full CASP authorization. The only avenue for an unauthorized third-country firm to serve an EU resident is through the 'reverse solicitation' exemption (Article 61 of MiCA), which the European Securities and Markets Authority (ESMA) has interpreted extremely narrowly. Any form of marketing, localized language websites, EU-targeted affiliate campaigns, or proactive communication invalidates this exemption. Additionally, cross-border crypto transfers are subject to the EU Transfer of Funds Regulation (TFR / Travel Rule), requiring CASPs to collect, verify, and transmit originator and beneficiary data for all transfers regardless of the amount. The EU also enforces robust international sanctions, requiring CASPs to block transactions involving sanctioned Russian entities and other designated individuals/jurisdictions, actively mapping crypto wallet addresses to sanctioned entities.",
+  "key_requirements": [
+    "Third-country crypto firms cannot actively solicit or market to EU residents without obtaining a CASP license in an EU Member State.",
+    "EU CASPs facilitating cross-border transfers must fully comply with the TFR (Travel Rule), collecting and transmitting sender and recipient data without any minimum threshold (unlike the FATF's $1,000/$3,000 de minimis).",
+    "Cross-border transfers to/from self-hosted (unhosted) wallets exceeding \u20ac1,000 require the CASP to verify the identity of the wallet owner if owned by the CASP's client, or mitigate risks if owned by a third party.",
+    "CASPs must implement robust sanctions screening systems to prevent sanctions evasion (especially regarding Russia/Belarus and terrorist financing), matching wallet addresses against EU consolidated sanction lists.",
+    "Under ESMA's Guidelines, any subsequent offering of new products or services to a client originally acquired via reverse solicitation requires full MiCA authorization."
+  ],
+  "exemptions": [
+    "Reverse Solicitation: A third-country firm may provide crypto services to an EU client if the client initiates the service strictly at their 'own exclusive initiative'. ESMA requires this to be factual and not manufactured via contractual disclaimers."
+  ],
+  "practitioner_notes": "For non-EU exchanges and VASPs, the MiCA framework effectively closes the European market unless they establish a local regulated presence. ESMA's finalized Guidelines on reverse solicitation (issued late 2024) confirm that regulators will take a substance-over-form approach: fine-print disclaimers stating 'this service is not for EU residents' are legally meaningless if the firm runs EU-targeted marketing or partners with EU influencers. Practitioners advising offshore exchanges must recommend geo-blocking EU IP addresses and rejecting EU KYC documents if the firm wishes to remain outside MiCA's scope. Additionally, the EU's implementation of the Travel Rule is among the strictest globally due to the lack of a de minimis threshold; cross-border interactions between EU CASPs and non-EU VASPs (who might not have Travel Rule solutions) present significant operational friction, often resulting in delayed or rejected transactions.",
+  "references": [
+    {
+      "title": "Regulation (EU) 2023/1114 (MiCA) - Article 61 (Provision of crypto-asset services at the exclusive initiative of the client)",
+      "date": "2023-06-09",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32023R1114",
+      "type": "primary-statute"
+    },
+    {
+      "title": "ESMA: Final Report on Guidelines on reverse solicitation under MiCA",
+      "date": "2024-12-17",
+      "url": "https://www.esma.europa.eu/sites/default/files/2024-12/ESMA35-1872330276-1899_-_Final_report_on_GLs_on_reverse_solicitation_under_MiCA.pdf",
+      "type": "regulator-guidance"
+    },
+    {
+      "title": "Regulation (EU) 2023/1113 (Transfer of Funds Regulation - TFR)",
+      "date": "2023-06-09",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32023R1113",
+      "type": "primary-statute"
+    }
+  ],
+  "last_reviewed": "2026-05-01"
+}

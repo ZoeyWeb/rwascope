@@ -1,0 +1,394 @@
+{
+  "meta": {
+    "version": "1.0.0",
+    "last_compiled": "2026-05-18",
+    "title": "Switzerland RWA Ecosystem Map",
+    "description": "A structured overview of Switzerland's tokenized real-world asset ecosystem — mapping FINMA-regulated infrastructure, institutional private banking tokenization, and the world's first wCBDC settlement system.",
+    "disclaimer": "This map is compiled from publicly available official sources. Participant lists may be incomplete where information has not been publicly enumerated by regulators. This is an informational reference, not a regulatory register.",
+    "sources": [
+      "FINMA official publications and guidance (finma.ch)",
+      "Swiss National Bank publications and Project Helvetia reports (snb.ch)",
+      "SIX Digital Exchange official announcements (six-group.com)",
+      "Sygnum Bank and SEBA Bank public filings and press releases",
+      "Obligate and Tokeny platform disclosures",
+      "Company public filings and press releases"
+    ]
+  },
+  "stats": {
+    "regulators": 3,
+    "licensed_digital_asset_banks": 2,
+    "infrastructure_participants": 4,
+    "issuance_platforms": 5,
+    "professional_enablers": 6
+  },
+  "layers": [
+    {
+      "id": "regulatory",
+      "order": 1,
+      "label": "Regulatory Oversight",
+      "sublabel": "Licensing & Policy",
+      "color": "#818cf8",
+      "bg": "#16163a",
+      "border": "#818cf8",
+      "description": "Switzerland operates a unified federal regulatory framework for digital assets under FINMA. The DLT Act (effective February 2021) created a bespoke DLT trading facility licence, providing legal clarity for tokenized securities issuance and trading. The Swiss National Bank leads Project Helvetia, the world's first wholesale CBDC used for live digital securities settlement.",
+      "participants": [
+        {
+          "id": "finma",
+          "name": "FINMA",
+          "full_name": "Swiss Financial Market Supervisory Authority",
+          "type": "regulator",
+          "role": "Federal financial regulator; pioneer in blockchain regulatory clarity through the 2021 DLT Act (effective 1 February 2021); introduced the DLT trading facility licence category enabling fully regulated tokenized securities issuance, trading, settlement, and custody under one roof; licenses digital asset banks Sygnum and SEBA",
+          "url": "https://www.finma.ch",
+          "tags": ["regulator", "dlt-act", "fintech", "licensing", "tokenized-securities"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "snb",
+          "name": "Swiss National Bank",
+          "full_name": "Swiss National Bank (SNB)",
+          "type": "regulator",
+          "role": "Central bank; issued the world's first wholesale CBDC (wCBDC) for live digital securities settlement under Project Helvetia Phase III (2024); the wCBDC settled CHF-denominated digital bonds on SDX, demonstrating central bank money settlement of tokenized assets at institutional scale",
+          "url": "https://www.snb.ch",
+          "tags": ["cbdc", "wCBDC", "project-helvetia", "settlement", "central-bank"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "six-exchange-regulation",
+          "name": "SIX Exchange Regulation",
+          "full_name": "SIX Exchange Regulation AG",
+          "type": "regulator",
+          "role": "Self-regulatory body supervised by FINMA; responsible for admissions, listing, and ongoing supervision of participants on the SIX Swiss Exchange and SIX Digital Exchange (SDX); enforces listing rules for digital securities issued on SDX",
+          "url": "https://www.six-group.com/en/products-services/the-swiss-stock-exchange/market-data/news-tools/six-exchange-regulation.html",
+          "tags": ["self-regulatory", "sdx", "listing", "supervision", "six-group"],
+          "confidence_level": "high"
+        }
+      ]
+    },
+    {
+      "id": "financial_institutions",
+      "order": 2,
+      "label": "Financial Institutions",
+      "sublabel": "Banks & Asset Managers",
+      "color": "#4ade80",
+      "bg": "#0c2018",
+      "border": "#4ade80",
+      "description": "Switzerland's private banking tradition and globally significant asset management sector make it a natural hub for institutional RWA tokenization. Two FINMA-licensed dedicated digital asset banks coexist alongside global wealth managers actively issuing tokenized bonds and funds via SDX.",
+      "participants": [
+        {
+          "id": "ubs",
+          "name": "UBS",
+          "full_name": "UBS Group AG",
+          "type": "bank",
+          "role": "World's largest wealth manager; active SDX participant; issued tokenized fixed-income products via the SIX Digital Exchange; exploring tokenized money market funds and structured products for ultra-high-net-worth clients",
+          "tags": ["bank", "wealth-management", "sdx", "tokenized-bonds", "institutional"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "julius-baer",
+          "name": "Julius Baer",
+          "full_name": "Julius Baer Group",
+          "type": "bank",
+          "role": "Swiss private bank; early adopter of digital asset services for wealth management clients; offers digital asset custody and investment access through regulated Swiss infrastructure; active in institutional tokenized product development",
+          "tags": ["private-bank", "digital-assets", "custody", "wealth-management"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "sygnum-bank",
+          "name": "Sygnum Bank",
+          "full_name": "Sygnum Bank AG",
+          "type": "bank",
+          "role": "World's first FINMA-regulated digital asset bank (licence granted 2019), headquartered in Zurich; provides institutional digital asset banking including custody, brokerage, tokenization services, and DeFi access; issued tokenized shares of its own equity; operates Desygnate tokenization platform",
+          "url": "https://www.sygnum.com",
+          "tags": ["digital-asset-bank", "finma-licensed", "tokenization", "custody", "institutional"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "seba-bank",
+          "name": "SEBA Bank",
+          "full_name": "SEBA Bank AG",
+          "type": "bank",
+          "role": "FINMA-licensed digital asset bank based in Zug; provides regulated crypto banking, digital asset custody, tokenization, and lending for institutional and sophisticated private clients; rebranded as AMINA Bank in 2023 while retaining FINMA licence",
+          "url": "https://www.aminabank.com",
+          "tags": ["digital-asset-bank", "finma-licensed", "custody", "tokenization", "zug"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "commerzbank-sdx",
+          "name": "Commerzbank",
+          "full_name": "Commerzbank AG",
+          "type": "bank",
+          "role": "German bank; participated in SDX digital bond issuances and settlement; among the first non-Swiss institutions to issue tokenized securities on the SIX Digital Exchange, demonstrating SDX's cross-border institutional reach",
+          "tags": ["bank", "sdx", "digital-bonds", "cross-border", "institutional"],
+          "confidence_level": "high"
+        }
+      ]
+    },
+    {
+      "id": "infrastructure",
+      "order": 3,
+      "label": "Infrastructure",
+      "sublabel": "Settlement & Blockchain Networks",
+      "color": "#facc15",
+      "bg": "#1e1a02",
+      "border": "#facc15",
+      "description": "Switzerland hosts globally unique regulated financial market infrastructure for digital assets. SDX is the world's first fully FINMA-licensed DLT trading facility offering integrated issuance, trading, settlement, and custody. Project Helvetia delivered the world's first wCBDC-settled digital securities transactions.",
+      "participants": [
+        {
+          "id": "sdx",
+          "name": "SIX Digital Exchange",
+          "full_name": "SIX Digital Exchange (SDX)",
+          "type": "exchange",
+          "role": "World's first fully regulated financial market infrastructure for digital assets; holds a FINMA DLT trading facility licence; provides end-to-end services — digital securities issuance, trading, CSD settlement, and custody — on a permissioned distributed ledger; has settled digital bonds for UBS, Commerzbank, World Bank, Swiss cantons, and others; settlement integrated with SNB wCBDC under Project Helvetia Phase III",
+          "url": "https://www.sdx.com",
+          "tags": ["dlt-facility", "finma-licensed", "issuance", "trading", "settlement", "custody", "csd"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "project-helvetia",
+          "name": "Project Helvetia",
+          "full_name": "Project Helvetia",
+          "type": "cbdc",
+          "role": "SNB-led initiative; Phase III (2024) achieved the world's first live issuance and settlement of digital bonds using wholesale CBDC on SDX; participants included UBS, Zürcher Kantonalbank, Basler Kantonalbank, and Commerzbank; demonstrated that tokenized securities can settle in central bank money on a DLT platform without intermediaries",
+          "url": "https://www.bis.org/publ/work1199.htm",
+          "tags": ["wCBDC", "snb", "settlement", "sdx", "live-pilot", "central-bank-money"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "daura",
+          "name": "Daura",
+          "full_name": "Daura AG",
+          "type": "infrastructure",
+          "role": "Swiss SME equity tokenization infrastructure; enables unlisted Swiss companies to digitize share registries and issue tokenized equity; built on Ethereum; regulated under FINMA's blockchain-compatible private law framework; spun out from Swiss Stock Exchange ecosystem",
+          "url": "https://www.daura.ch",
+          "tags": ["equity-tokenization", "sme", "ethereum", "share-registry", "finma"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "ethereum-ch",
+          "name": "Ethereum",
+          "full_name": "Ethereum",
+          "type": "blockchain",
+          "role": "Primary public blockchain for Swiss tokenized bond and fund issuances outside SDX; used by Obligate for on-chain corporate bonds, Daura for equity tokenization, and Siemens for its EUR 300M digital bond; Polygon (Ethereum L2) used by Tokeny for institutional ERC-3643 token deployments",
+          "tags": ["ethereum", "polygon", "public-chain", "erc-3643", "tokenized-bonds"],
+          "confidence_level": "high"
+        }
+      ]
+    },
+    {
+      "id": "issuance",
+      "order": 4,
+      "label": "Issuance Platforms",
+      "sublabel": "Tokenization Protocols",
+      "color": "#60a5fa",
+      "bg": "#0d1c32",
+      "border": "#60a5fa",
+      "description": "Switzerland's issuance ecosystem spans regulated on-chain bond exchanges, institutional tokenization protocol providers, and landmark corporate and sovereign issuer milestones — including the world's first blockchain-native corporate bond issued by Siemens.",
+      "participants": [
+        {
+          "id": "obligate",
+          "name": "Obligate",
+          "full_name": "Obligate AG",
+          "type": "platform",
+          "role": "Swiss on-chain bond exchange enabling regulated corporate bond issuance on Ethereum; members of the VQF/FINMA-supervised AML SRO; allows institutional investors to subscribe to tokenized debt instruments with on-chain settlement and transparent audit trails; focused on European institutional capital markets",
+          "url": "https://www.obligate.com",
+          "tags": ["bond-exchange", "ethereum", "vqf", "finma-sro", "corporate-bonds", "institutional"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "tokeny",
+          "name": "Tokeny",
+          "full_name": "Tokeny Solutions",
+          "type": "platform",
+          "role": "Institutional tokenization infrastructure provider headquartered in Luxembourg with Swiss operations; leading contributor to and advocate of the ERC-3643 (T-REX) compliant token standard for regulated security tokens; platform deployed by major European asset managers and banks for tokenized fund and bond issuance",
+          "url": "https://tokeny.com",
+          "tags": ["erc-3643", "t-rex", "security-tokens", "institutional", "compliance"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "siemens-bond",
+          "name": "Siemens",
+          "full_name": "Siemens AG",
+          "type": "issuer",
+          "role": "Issued EUR 300 million one-year on-chain corporate bond in February 2023 on the Polygon blockchain — the first time a DAX-listed company issued a bond directly on a public blockchain; settled via traditional payment rails; demonstrated blockchain bond issuance without requiring an intermediary central securities depository",
+          "tags": ["corporate-bond", "polygon", "landmark", "dax", "eur-300m"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "world-bank-sdx",
+          "name": "World Bank",
+          "full_name": "World Bank (International Bank for Reconstruction and Development)",
+          "type": "issuer",
+          "role": "Issued a digital bond on SDX; the World Bank has been a pioneer in blockchain-based bond issuance since Bond-i (2018 on Ethereum); the SDX issuance extended this record to regulated DLT market infrastructure with integrated CSD settlement",
+          "tags": ["sovereign-issuer", "sdx", "digital-bond", "multilateral"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "canton-bonds",
+          "name": "Canton Municipal Bonds",
+          "full_name": "Swiss Canton Tokenized Municipal Bonds",
+          "type": "issuer",
+          "role": "Multiple Swiss cantons including Basel-Stadt, Zurich, and Lugano have issued tokenized municipal bonds via SDX; the City of Lugano has also integrated Bitcoin and USDT as payment currencies for municipal services, reflecting broad Swiss public-sector digital asset adoption",
+          "tags": ["municipal-bonds", "sdx", "canton", "basel", "zurich", "lugano", "public-sector"],
+          "confidence_level": "high"
+        }
+      ]
+    },
+    {
+      "id": "market_access",
+      "order": 5,
+      "label": "Market Access",
+      "sublabel": "Licensed Exchanges & Brokers",
+      "color": "#fb923c",
+      "bg": "#1e1102",
+      "border": "#fb923c",
+      "description": "Switzerland's market access layer combines regulated digital asset brokers serving institutional OTC clients with a listed bank offering retail digital asset access, all operating under FINMA oversight.",
+      "participants": [
+        {
+          "id": "sdx-trading",
+          "name": "SDX Trading",
+          "full_name": "SDX Trading AG",
+          "type": "exchange",
+          "role": "Regulated secondary market for digital securities on SIX Digital Exchange; FINMA DLT trading facility licence holder; provides institutional-grade order book trading for tokenized bonds and equities to admitted participants; settlement in central bank money via SNB wCBDC integration",
+          "tags": ["dlt-facility", "secondary-market", "institutional", "finma-licensed", "sdx"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "bitcoin-suisse",
+          "name": "Bitcoin Suisse",
+          "full_name": "Bitcoin Suisse AG",
+          "type": "broker",
+          "role": "Switzerland's first regulated crypto financial intermediary (since 2013); FINMA-supervised VQF SRO member; provides institutional OTC brokerage, staking, and custody services; serves Swiss institutional and UHNW clients with CHF-denominated crypto and digital asset execution",
+          "url": "https://www.bitcoinsuisse.com",
+          "tags": ["broker", "otc", "institutional", "vqf", "custody", "staking"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "crypto-finance",
+          "name": "Crypto Finance AG",
+          "full_name": "Crypto Finance AG (Deutsche Börse subsidiary)",
+          "type": "broker",
+          "role": "FINMA-licensed Swiss digital asset broker and fund manager; subsidiary of Deutsche Börse Group since 2021; provides institutional brokerage, custody, and tokenized asset investment products; connects Swiss and European institutional capital to digital asset markets",
+          "url": "https://www.cryptofinance.ch",
+          "tags": ["broker", "finma-licensed", "institutional", "deutsche-borse", "custody"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "swissquote",
+          "name": "Swissquote",
+          "full_name": "Swissquote Bank Ltd",
+          "type": "broker",
+          "role": "SIX-listed Swiss online bank and broker; holds FINMA banking licence; offers retail and professional investors access to crypto and digital assets alongside traditional securities; largest digital asset retail access point in Switzerland with over 600,000 client accounts",
+          "url": "https://www.swissquote.ch",
+          "tags": ["bank", "broker", "retail", "finma-licensed", "six-listed", "digital-assets"],
+          "confidence_level": "high"
+        }
+      ],
+      "participants_note": "SDX admitted participants are institutional only. Retail digital asset access is primarily via Swissquote and FINMA-supervised SRO members. SDX participant list is published by SIX Group."
+    },
+    {
+      "id": "enablers",
+      "order": 6,
+      "label": "Professional Enablers",
+      "sublabel": "Compliance · Custody · Audit · Legal",
+      "color": "#a78bfa",
+      "bg": "#1a1030",
+      "border": "#a78bfa",
+      "description": "Switzerland's professional services ecosystem for digital assets is among the world's most mature — featuring a Ripple-acquired institutional custody infrastructure provider, dedicated Web3 law firms, and Big Four advisory capacity supporting the full lifecycle of tokenized securities.",
+      "participants": [
+        {
+          "id": "metaco",
+          "name": "Metaco",
+          "full_name": "Metaco SA (Ripple-acquired)",
+          "type": "custody",
+          "role": "Swiss-founded institutional digital asset custody infrastructure provider; acquired by Ripple in 2023 for approximately USD 250 million; Harmonize platform provides MPC-based key management and custody orchestration used by tier-1 banks globally including Citi, BNP Paribas, and BBVA; headquartered in Lausanne",
+          "url": "https://www.metaco.com",
+          "tags": ["custody", "mpc", "institutional", "ripple", "harmonize", "tier-1-banks"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "sygnum-custody",
+          "name": "Sygnum Custody",
+          "full_name": "Sygnum Bank AG — Custody Services",
+          "type": "custody",
+          "role": "FINMA-regulated institutional digital asset custody offered by Sygnum Bank; provides segregated cold-storage custody with full banking liability; one of the few custodians offering both FINMA-regulated custody and banking services under a single licence",
+          "tags": ["custody", "finma-regulated", "segregated", "banking-licence", "sygnum"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "mme-legal",
+          "name": "MME Legal",
+          "full_name": "MME Partners AG",
+          "type": "legal",
+          "role": "Switzerland's leading Web3 and DLT law firm based in Zurich; advised on the first Swiss crypto ICO regulations, Ethereum Foundation legal structuring, and multiple tokenized securities issuances; provides FINMA licensing advisory, token classification opinions, and DLT Act compliance for RWA issuers",
+          "url": "https://www.mme.ch",
+          "tags": ["legal", "web3", "dlt", "finma-advisory", "token-classification", "ethereum-foundation"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "lenz-staehelin",
+          "name": "Lenz & Staehelin",
+          "full_name": "Lenz & Staehelin",
+          "type": "legal",
+          "role": "Top-tier Swiss law firm; advises on tokenized capital markets transactions, digital asset regulatory frameworks, and DLT Act implementation; counsel for multiple SDX digital bond issuances and Swiss canton tokenized bond programmes",
+          "url": "https://www.lenzstaehelin.com",
+          "tags": ["legal", "capital-markets", "dlt-act", "sdx", "bonds", "cantons"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "pwc-switzerland",
+          "name": "PwC Switzerland",
+          "full_name": "PricewaterhouseCoopers Switzerland",
+          "type": "audit",
+          "role": "Big Four audit and advisory firm with a dedicated digital asset and blockchain practice in Switzerland; provides financial audits for digital asset banks, tokenization platforms, and DLT-based issuances; publishes annual global crypto and digital asset industry surveys",
+          "url": "https://www.pwc.ch",
+          "tags": ["audit", "advisory", "big-four", "digital-assets", "blockchain"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "chainalysis-ch",
+          "name": "Chainalysis",
+          "full_name": "Chainalysis Inc.",
+          "type": "compliance",
+          "role": "Blockchain analytics and AML compliance platform; used by Swiss FINMA-supervised institutions, digital asset banks, and brokers for transaction monitoring, Travel Rule compliance, and sanctions screening; supports VQF SRO member compliance obligations",
+          "tags": ["aml", "analytics", "travel-rule", "sanctions", "finma", "vqf"],
+          "confidence_level": "high"
+        }
+      ],
+      "participants_note": "Professional service providers listed are active in Swiss digital asset engagements based on public disclosures, regulatory filings, and published advisory mandates. This list is illustrative, not exhaustive."
+    }
+  ],
+  "gaps": [
+    {
+      "id": "gap-market-thin-secondary-liquidity",
+      "layer_id": "market_access",
+      "type": "market_gap",
+      "severity": "high",
+      "title": "Thin Secondary Market Liquidity",
+      "description": "SDX access is limited to admitted institutional participants; no retail secondary market exists for tokenized securities issued on the exchange. The majority of digital bond issuances on SDX have been held to maturity with minimal secondary trading, constraining price discovery and limiting the liquidity premium available to issuers."
+    },
+    {
+      "id": "gap-regulatory-mica-recognition",
+      "layer_id": "regulatory",
+      "type": "market_gap",
+      "severity": "medium",
+      "title": "EU MiCA Cross-Border Recognition Gap",
+      "description": "Switzerland is not an EU member state; Swiss DLT Act digital securities licences lack mutual recognition under the EU's MiCA framework or the DLT Pilot Regime. Swiss-issued tokenized securities cannot be passported into EU member states, limiting distribution reach for SDX-listed instruments and increasing structuring costs for issuers targeting European investors."
+    },
+    {
+      "id": "gap-infrastructure-no-chf-stablecoin",
+      "layer_id": "infrastructure",
+      "type": "market_gap",
+      "severity": "medium",
+      "title": "No Regulated CHF Stablecoin",
+      "description": "No FINMA-regulated Swiss franc stablecoin exists for use in tokenized securities settlement outside the SNB wCBDC pilot scope. Commercial settlement of tokenized assets currently relies on traditional payment rails or USD/EUR stablecoins, introducing currency conversion friction and limiting the full-stack DLT settlement model to Project Helvetia participants only."
+    }
+  ],
+  "participant_type_chart": [
+    { "category": "Regulators", "count": 3, "color": "#818cf8" },
+    { "category": "Financial Institutions", "count": 5, "color": "#4ade80" },
+    { "category": "Infrastructure", "count": 4, "color": "#facc15" },
+    { "category": "Issuance Platforms", "count": 5, "color": "#60a5fa" },
+    { "category": "Market Access", "count": 4, "color": "#fb923c" },
+    { "category": "Enablers", "count": 6, "color": "#a78bfa" }
+  ]
+}

@@ -1,0 +1,1323 @@
+{
+  "matrix_version": "1.0.6",
+  "last_compiled": "2026-05-01",
+  "disclaimer": "This matrix summarizes publicly available regulatory information for educational and research purposes. It does not constitute legal advice. Practitioners should consult qualified counsel in each jurisdiction before structuring transactions.",
+  "jurisdictions": [
+    {
+      "code": "HK",
+      "name": "Hong Kong SAR",
+      "regulators": [
+        "SFC (Securities and Futures Commission)",
+        "HKMA (Hong Kong Monetary Authority)"
+      ],
+      "primary_legislation": [
+        "Securities and Futures Ordinance (Cap. 571)",
+        "Anti-Money Laundering and Counter-Terrorist Financing Ordinance (Cap. 615)",
+        "Stablecoins Ordinance (Cap. 656)",
+        "Payment Systems and Stored Value Facilities Ordinance (Cap. 584)"
+      ]
+    },
+    {
+      "code": "CN",
+      "name": "Mainland China",
+      "regulators": [
+        "PBOC (People's Bank of China)",
+        "CSRC (China Securities Regulatory Commission)",
+        "NFRA (National Financial Regulatory Administration)"
+      ],
+      "primary_legislation": [
+        "PBOC Notice 银发〔2026〕42号 (6 February 2026)",
+        "CSRC Supervisory Guidance on Offshore ABS Token Issuance (2026)",
+        "94 Announcement (2017)",
+        "237号文 (2021)"
+      ]
+    },
+    {
+      "code": "SG",
+      "name": "Singapore",
+      "regulators": [
+        "MAS (Monetary Authority of Singapore)"
+      ],
+      "primary_legislation": [
+        "Securities and Futures Act (SFA)",
+        "Payment Services Act (PSA)",
+        "MAS Stablecoin Regulatory Framework"
+      ]
+    },
+    {
+      "code": "US",
+      "name": "United States",
+      "regulators": [
+        "SEC",
+        "CFTC",
+        "OCC",
+        "Federal Reserve",
+        "FinCEN",
+        "State regulators"
+      ],
+      "primary_legislation": [
+        "Securities Act of 1933",
+        "Investment Company Act of 1940",
+        "GENIUS Act of 2025 (signed 18 July 2025)",
+        "Bank Secrecy Act",
+        "CLARITY Act (H.R. 3633, pending Senate as of Q1 2026)"
+      ]
+    },
+    {
+      "code": "EU",
+      "name": "European Union",
+      "regulators": [
+        "ESMA (European Securities and Markets Authority)",
+        "EBA (European Banking Authority)",
+        "National Competent Authorities"
+      ],
+      "primary_legislation": [
+        "Markets in Crypto-Assets Regulation (MiCA) — fully applicable from 30 December 2024",
+        "Transfer of Funds Regulation 2023/1113 (TFR)",
+        "MiFID II (for security tokens)"
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rwa_issuance",
+      "title": "RWA Issuance",
+      "description": "Compliance pathway for issuing tokenized real-world assets in or from this jurisdiction"
+    },
+    {
+      "code": "stablecoin_issuance",
+      "title": "Stablecoin Issuance",
+      "description": "Licensing requirements for issuing fiat-referenced stablecoins"
+    },
+    {
+      "code": "vasp_licensing",
+      "title": "VASP / Exchange Licensing",
+      "description": "Licensing required to operate a virtual asset trading or custody platform"
+    },
+    {
+      "code": "cross_border",
+      "title": "Cross-Border Distribution",
+      "description": "Restrictions on distributing tokenized products to investors located in this jurisdiction from abroad"
+    },
+    {
+      "code": "retail_access",
+      "title": "Retail Access",
+      "description": "Conditions under which retail investors may access tokenized products"
+    }
+  ],
+  "cells": [
+    {
+      "jurisdiction": "HK",
+      "issue": "rwa_issuance",
+      "status_signal": "open",
+      "summary": "Tokenized real-world assets are regulated under the SFC's principle of 'same business, same risks, same rules.' Tokenized securities are treated as securities under the Securities and Futures Ordinance (Cap. 571). The SFC's November 2023 circulars clarified that tokenization does not change the underlying regulatory classification, and removed the previous professional-investor-only restriction on tokenized securities, allowing distribution to retail investors subject to product authorization. In April 2026, the SFC issued further guidance enabling tokenized SFC-authorized open-ended funds to trade on licensed VATPs.",
+      "key_requirements": [
+        "Underlying product must meet applicable product authorization requirements under the SFO",
+        "Tokenization arrangement must satisfy SFC operational requirements (smart contract audit and legal opinion may be required)",
+        "Offering documents must disclose the tokenization arrangement, ownership representation, and associated risks",
+        "Issuer must have at least one competent staff member with relevant tokenization expertise",
+        "Prior consultation with SFC required for tokenized investment products",
+        "Distributors must be SFC-licensed firms following client onboarding and suitability procedures"
+      ],
+      "exemptions": [
+        "Professional investor exemption: security token offerings exclusively to PIs may be exempted from prospectus requirements",
+        "Private placement safe harbours under the SFO Schedule 1 may apply"
+      ],
+      "practitioner_notes": "Hong Kong has progressed from a professional-investor-only stance (March 2019) to permitting retail access to tokenized SFC-authorized products (November 2023) and to allowing tokenized fund secondary trading on licensed VATPs (April 2026). Practitioners should monitor SFC circulars for evolving expectations on smart contract audits and legal opinions.",
+      "references": [
+        {
+          "title": "SFC Circular on Intermediaries Engaging in Tokenised Securities-related Activities",
+          "date": "2023-11-02",
+          "url": "https://www.sfc.hk/",
+          "type": "regulator-guidance"
+        },
+        {
+          "title": "SFC Circular on Tokenisation of SFC-authorised Investment Products",
+          "date": "2023-11-02",
+          "url": "https://www.sfc.hk/",
+          "type": "regulator-guidance"
+        },
+        {
+          "title": "SFC Circular on Secondary Trading of Tokenised SFC-authorised Open-ended Funds",
+          "date": "2026-04-20",
+          "url": "https://www.sfc.hk/",
+          "type": "regulator-guidance"
+        }
+      ],
+      "last_reviewed": "2026-04-29"
+    },
+    {
+      "jurisdiction": "HK",
+      "issue": "stablecoin_issuance",
+      "status_signal": "conditional",
+      "summary": "Issuance of fiat-referenced stablecoins (FRS) requires a licence from the HKMA under the Stablecoins Ordinance (Cap. 656), which came into operation on 1 August 2025. The licensing perimeter covers issuance of FRS in Hong Kong, and issuance of HKD-referenced FRS issued anywhere in the world. As of Q1 2026, the HKMA Register of Licensees remains empty, with the first batch of licences anticipated in 2026. Pre-existing issuers may continue under transitional provisions while engaging with the HKMA Licensing Team. The status is classified as conditional rather than open because, despite a clear statutory pathway, no licences have yet been issued and the practical bar for licensing remains untested.",
+      "key_requirements": [
+        "Minimum paid-up share capital HKD 25 million (or equivalent) for non-AI licensees",
+        "Reserve assets must at all times equal par value of stablecoins in circulation",
+        "Reserve assets must be high quality, highly liquid, and segregated from other pools",
+        "Principal place of business in Hong Kong required",
+        "Robust stability mechanisms and transparent disclosure policies required",
+        "Compliance with HKMA Guideline on Supervision of Licensed Stablecoin Issuers and AML/CFT Guideline"
+      ],
+      "exemptions": [
+        "Pre-existing issuers operating before 1 August 2025 may continue activities under transitional provisions for up to three months unless engaged with the HKMA Licensing Team",
+        "Authorised institutions (AIs) regulated by the HKMA receive certain exemptions from the standalone capital and prudential requirements"
+      ],
+      "practitioner_notes": "Only specific entities may offer FRS to the Hong Kong public: licensed FRS issuers, SFC-licensed corporations, HKMA authorised institutions, and SVF licensees. Only HKMA-licensed FRS issuers may distribute to retail investors; other permitted offerors are limited to professional investors. The licensing process is by invitation and conducted in phases; application forms are not publicly available and must be obtained from the HKMA Licensing Team.",
+      "references": [
+        {
+          "title": "Stablecoins Ordinance (Cap. 656)",
+          "date": "2025-08-01",
+          "url": "https://www.elegislation.gov.hk/hk/cap656",
+          "type": "primary-statute"
+        },
+        {
+          "title": "HKMA Register of Licensees under the Stablecoins Ordinance (Cap. 656)",
+          "date": "ongoing",
+          "url": "https://www.hkma.gov.hk/eng/regulatory-resources/registers/register-of-licensed-stablecoin-issuers/",
+          "type": "regulator-register"
+        },
+        {
+          "title": "HKMA Explanatory Notes on Transitional Provisions for Pre-existing Stablecoin Issuers",
+          "date": "2025",
+          "url": "https://www.hkma.gov.hk/",
+          "type": "regulator-guidance"
+        }
+      ],
+      "last_reviewed": "2026-04-29"
+    },
+    {
+      "jurisdiction": "HK",
+      "issue": "vasp_licensing",
+      "status_signal": "open",
+      "summary": "Operation of a centralized virtual asset trading platform requires dual licensing under both the Securities and Futures Ordinance (Cap. 571) and the Anti-Money Laundering and Counter-Terrorist Financing Ordinance (Cap. 615). The VATP licensing regime came into effect on 1 June 2023. Licensed VATPs may serve retail clients subject to investor protection measures including knowledge assessment, exposure caps, and token admission criteria. Separately, a new licensing regime for virtual asset dealing, custody, advisory, and management services is expected to be enacted via legislative amendments in 2026, expanding the regulatory perimeter beyond exchange platforms.",
+      "key_requirements": [
+        "Dual licensing under SFO (Type 1 and Type 7) and AMLO (VASP licence)",
+        "Minimum paid-up capital HKD 5 million plus liquid capital HKD 3 million",
+        "Two responsible officers, one of whom must be an executive director",
+        "External assessment reports (Phase 1 and Phase 2) required for application",
+        "Token admission and monitoring criteria, including custody arrangements (private keys held in Hong Kong)",
+        "Insurance or compensation arrangement for client virtual assets (cold 100%, hot ≥50% coverage)",
+        "Reporting incidents to SFC within 24 hours"
+      ],
+      "exemptions": [
+        "Active marketing to the Hong Kong public from offshore brings the operator within the licensing perimeter regardless of physical location",
+        "Banks (HKMA-regulated authorised institutions) providing digital asset custody follow HKMA's expected standards rather than the SFC VATP regime"
+      ],
+      "practitioner_notes": "Hong Kong currently operates a dual VATP licensing regime; an expanded regime covering dealing, custody, advisory and asset management is anticipated to be introduced via amendments to the AMLO in 2026 (timing subject to legislative process). Existing licensed intermediaries and banks may receive expedited assessment under the new regime when enacted.",
+      "references": [
+        {
+          "title": "Securities and Futures Ordinance (Cap. 571)",
+          "date": "ongoing",
+          "url": "https://www.elegislation.gov.hk/hk/cap571",
+          "type": "primary-statute"
+        },
+        {
+          "title": "Anti-Money Laundering and Counter-Terrorist Financing Ordinance (Cap. 615)",
+          "date": "ongoing",
+          "url": "https://www.elegislation.gov.hk/hk/cap615",
+          "type": "primary-statute"
+        },
+        {
+          "title": "SFC Guidelines for Virtual Asset Trading Platform Operators",
+          "date": "2023-06-01",
+          "url": "https://www.sfc.hk/",
+          "type": "regulator-guidance"
+        }
+      ],
+      "last_reviewed": "2026-04-29"
+    },
+    {
+      "jurisdiction": "HK",
+      "issue": "cross_border",
+      "status_signal": "conditional",
+      "summary": "Hong Kong applies a 'Hong Kong nexus' test rather than a strict territorial approach. Offshore issuers actively marketing tokenized products or stablecoins to the Hong Kong public are brought within the licensing perimeter regardless of physical location. For tokenized securities issued offshore, distribution into Hong Kong typically requires either an SFC-licensed distributor or reliance on professional investor exemptions. For HKD-referenced stablecoins, the Stablecoins Ordinance (Cap. 656) explicitly extends to issuance occurring outside Hong Kong. Offshore VATPs may not actively market services to Hong Kong residents without Hong Kong licensing.",
+      "key_requirements": [
+        "Active marketing to the Hong Kong public triggers licensing requirements regardless of issuer location",
+        "Distribution of tokenized securities to Hong Kong investors requires an SFC-licensed intermediary unless exempted",
+        "HKD-referenced stablecoins issued anywhere globally fall within the HKMA stablecoin licensing perimeter",
+        "Offering of specified stablecoins after 31 July 2025 is restricted to permitted offerors only"
+      ],
+      "exemptions": [
+        "Reverse solicitation: passive responses to unsolicited inbound enquiries from Hong Kong investors generally do not constitute active marketing",
+        "Professional investor offerings receive prospectus and authorization exemptions",
+        "Permitted offerors under the Stablecoins Ordinance include SVF licensees, SFC-licensed corporations, and HKMA authorised institutions"
+      ],
+      "practitioner_notes": "The 'active marketing' threshold is a frequent ambiguity for offshore platforms. Targeted advertising, onboarding flows in Cantonese or traditional Chinese, or direct outreach to Hong Kong residents typically constitutes active marketing. Mainland Chinese investors are generally not expected to be solicited from Hong Kong-distributed products absent compliance with mainland rules (see Mainland China cells when populated).",
+      "references": [
+        {
+          "title": "SFC Statement on Regulatory Approach to Virtual Asset Trading Platforms",
+          "date": "2019-11-06",
+          "url": "https://www.sfc.hk/",
+          "type": "regulator-guidance"
+        },
+        {
+          "title": "Stablecoins Ordinance (Cap. 656), Section 5",
+          "date": "2025-08-01",
+          "url": "https://www.elegislation.gov.hk/hk/cap656",
+          "type": "primary-statute"
+        }
+      ],
+      "last_reviewed": "2026-04-29"
+    },
+    {
+      "jurisdiction": "HK",
+      "issue": "retail_access",
+      "status_signal": "conditional",
+      "summary": "Hong Kong has progressively expanded retail access to tokenized products. Since November 2023, tokenized SFC-authorized investment products may be offered to retail investors subject to authorization requirements. Licensed VATPs may serve retail clients in non-security tokens with knowledge assessment, suitability, and exposure caps. Spot virtual asset ETFs are available to retail investors. However, retail access to fiat-referenced stablecoins remains conditional on HKMA-licensed issuance — only HKMA-licensed FRS issuers may sell stablecoins to retail; non-licensed and non-HKD stablecoins remain restricted to professional investors. Tokenized private credit and tokenized real estate generally remain professional-investor-only.",
+      "key_requirements": [
+        "VATPs must conduct knowledge assessment and set exposure caps for each retail client based on financial situation",
+        "Risk disclosures and suitability assessment required for tokenized product distribution",
+        "Tokenized SFC-authorized open-ended funds may be traded by retail on licensed VATPs (per April 2026 SFC guidance)",
+        "Stablecoin retail access limited to HKMA-licensed FRS issuers"
+      ],
+      "exemptions": [
+        "Professional investor (PI) status (under SFO Schedule 1) lifts most retail restrictions, though suitability obligations on intermediaries persist for individuals"
+      ],
+      "practitioner_notes": "Retail access in Hong Kong should be analyzed product-by-product rather than category-by-category. A tokenized money market fund with SFC authorization may reach retail; an unauthorized tokenized private credit product cannot. The April 2026 SFC guidance on tokenized open-ended fund secondary trading is the most recent material expansion of retail access.",
+      "references": [
+        {
+          "title": "SFC Circular on Tokenisation of SFC-authorised Investment Products",
+          "date": "2023-11-02",
+          "url": "https://www.sfc.hk/",
+          "type": "regulator-guidance"
+        },
+        {
+          "title": "SFC Joint Circular on Intermediaries' Virtual Asset-related Activities",
+          "date": "2023-12-22",
+          "url": "https://www.sfc.hk/",
+          "type": "regulator-guidance"
+        },
+        {
+          "title": "SFC Circular on Secondary Trading of Tokenised SFC-authorised Open-ended Funds",
+          "date": "2026-04-20",
+          "url": "https://www.sfc.hk/",
+          "type": "regulator-guidance"
+        }
+      ],
+      "last_reviewed": "2026-04-29"
+    },
+    {
+      "jurisdiction": "CN",
+      "issue": "rwa_issuance",
+      "status_signal": "restricted",
+      "summary": "Mainland China prohibits onshore RWA tokenization activities while opening a structured offshore-issuance pathway. PBOC Notice 银发〔2026〕42号 (issued 6 February 2026) and the contemporaneous CSRC Supervisory Guidance on Offshore Asset-Backed Securities Token Issuance establish the first explicit regulatory framework for RWA in mainland China. Onshore: RWA token issuance, trading, and related intermediary services are prohibited as constituting unauthorized public securities offering or unlawful fundraising. Offshore: PRC entities may, with prior CSRC filing and inter-agency approval, conduct offshore issuance of asset-backed securities tokens collateralised by domestic Chinese assets, subject to a comprehensive look-through supervisory regime. Notice 42 supersedes 2021's Notice 237 (银发[2021]237号).",
+      "key_requirements": [
+        "Onshore RWA issuance, trading, and related intermediary services are prohibited",
+        "PRC entities (including PRC-controlled offshore entities under look-through analysis) seeking to issue offshore must file with the CSRC before issuance",
+        "Filing materials must include PRC filing entity information, underlying asset information, and full offshore issuance documentation",
+        "Underlying assets must have clear title, stable cash flow, and not fall within negative-list categories",
+        "Cross-border activities involving foreign debt must be registered with NDRC; foreign exchange procedures must comply with SAFE rules",
+        "Offering must be limited to professional investors only",
+        "Anti-money laundering and customer due diligence procedures required",
+        "Data security compliance: data classification, onshore storage, and important-data export filing",
+        "Post-issuance reporting obligations: material risk events within 3 working days; periodic reporting on asset operation and token holdings"
+      ],
+      "exemptions": [
+        "Notice 42 is silent on RWA activities by PRC entities that do not involve PRC-domiciled assets or PRC investors; such activities fall outside its express scope",
+        "PBOC-supervised wholesale CBDC and authorised digital RMB activities are governed by separate frameworks and not within the RWA prohibition"
+      ],
+      "practitioner_notes": "Notice 42 introduces a 'look-through' principle (穿透式监管) that extends jurisdiction to offshore entities controlled by PRC subjects through equity, agreement, nominee, technical leadership, or operational decision-making. Practitioners should expect substantive scrutiny of BVI, Cayman, and Singapore structures used to evade onshore prohibitions. The CSRC filing process is a substantive review (实质审查), not a formality — early projects are widely expected to face a high bar. Hong Kong has emerged as a likely preferred offshore venue for filed PRC-asset RWA tokens, given its SFC-supervised tokenization framework and proximity to mainland regulators; offshore issuance in less-regulated venues is less likely to obtain CSRC approval. As of Q1 2026, no public CSRC filing under this framework has been widely reported.",
+      "references": [
+        {
+          "title": "PBOC et al., Notice 银发〔2026〕42号 — Concerning Further Prevention and Disposition of Risks Related to Virtual Currencies",
+          "date": "2026-02-06",
+          "url": "https://www.csrc.gov.cn/csrc/c100028/c7614318/content.shtml",
+          "type": "primary-statute"
+        },
+        {
+          "title": "Han Kun Law Offices — Interpretation of Notice 42 and the New RWA Regulatory Framework",
+          "date": "2026-02-11",
+          "url": "https://www.hankunlaw.com/portal/article/index/cid/8/id/16251.html",
+          "type": "industry-media"
+        },
+        {
+          "title": "King & Wood Mallesons — RWA Token Regulation: New Cornerstone, Reflections and Opportunities",
+          "date": "2026-02-09",
+          "url": "https://www.kwm.com/cn/zh/insights/latest-thinking/new-cornerstone-of-rwa-token-regulation-in-china-reflections-and-opportunities.html",
+          "type": "industry-media"
+        }
+      ],
+      "last_reviewed": "2026-04-29"
+    },
+    {
+      "jurisdiction": "CN",
+      "issue": "stablecoin_issuance",
+      "status_signal": "restricted",
+      "summary": "Onshore issuance of stablecoins in mainland China is prohibited. Notice 42 (银发〔2026〕42号, 6 February 2026) classifies stablecoins as a category of virtual currency and reaffirms the long-standing prohibition on onshore virtual currency activities, including issuance, trading, and related intermediary services. Notice 42 further extends extraterritorial reach by prohibiting any party — onshore or offshore — from issuing CNY-pegged stablecoins offshore without authorisation from the relevant PRC authorities. Mainland China's preferred digital currency channel remains the central bank-issued e-CNY (digital RMB). Concurrently, public discourse since the 2025 Lujiazui Forum, including remarks by PBOC Governor Pan Gongsheng, has signalled openness to offshore CNH-pegged stablecoin development through Hong Kong as a controlled experimental venue, though no formal authorisation framework has been issued as of Q1 2026.",
+      "key_requirements": [
+        "Onshore issuance, distribution, and trading of stablecoins is prohibited as constituting unauthorised virtual currency activity",
+        "Issuance of CNY-pegged stablecoins offshore by any party — onshore or offshore — is prohibited absent authorisation",
+        "PRC entities and PRC-controlled offshore entities seeking authorisation must obtain prior approval from relevant PRC authorities (no formal application pathway has been publicly disclosed as of Q1 2026)",
+        "Onshore financial institutions, internet platforms, and other third parties are prohibited from providing services to stablecoin issuance or trading activities",
+        "Virtual currency mining, exchange-related activities, and stablecoin-related ICO-equivalent fundraising remain prohibited under the framework inherited from Notice 237 (2021)"
+      ],
+      "exemptions": [
+        "PBOC-issued e-CNY (digital RMB) operates under a separate central bank digital currency framework and is not subject to the stablecoin prohibition",
+        "Wholesale CBDC initiatives such as Project mBridge and authorised cross-border digital RMB pilots are governed by separate regulatory frameworks"
+      ],
+      "practitioner_notes": "The Q1 2026 regulatory position should be read alongside concurrent policy signalling. PBOC Governor Pan Gongsheng's June 2025 Lujiazui Forum remarks acknowledged that blockchain-based central bank digital currencies and stablecoins are reshaping payment systems, marking a notable softening of tone relative to the 2021 'absolute prohibition' framing. Industry and academic commentary throughout 2025 has converged on a 'first offshore, then domestic-offshore' developmental sequence — beginning with Hong Kong-issued CNH stablecoins, then expanding to mainland Free Trade Zone pilots. As of Q1 2026, the Hong Kong Stablecoins Ordinance (Cap. 656) operates as a currency-neutral framework that does not restrict the reference currency of licensed stablecoins — making it a structurally available venue for future CNH-pegged products. However, the publicly disclosed sandbox participants (JD Coinlink Technology HK, RD InnoTech with its HKDR product, and the Anchorpoint Financial consortium of Standard Chartered/Animoca/HKT) have to date focused on HKD-pegged stablecoins, and HKMA Deputy Chief Executive Arthur Yuen indicated in mid-2025 that the first batch of licences would primarily target HKD- and USD-pegged products, with offshore RMB-pegged stablecoins subject to additional considerations. The first two HKMA stablecoin licences were issued to HSBC (HKD-pegged) and Anchorpoint Financial (HKDAP, HKD-pegged); no offshore CNH-pegged stablecoin has been publicly issued under Hong Kong's regime as of Q1 2026. Practitioners should distinguish clearly between (a) the current regulatory position (offshore CNY-pegged stablecoin issuance prohibited absent PRC authorisation) and (b) policy direction signals suggesting a future controlled pathway via Hong Kong; the latter remains aspirational and has not been formalised by either PRC authorities or the HKMA.",
+      "references": [
+        {
+          "title": "PBOC et al., Notice 银发〔2026〕42号 — Concerning Further Prevention and Disposition of Risks Related to Virtual Currencies",
+          "date": "2026-02-06",
+          "url": "https://www.csrc.gov.cn/csrc/c100028/c7614318/content.shtml",
+          "type": "primary-statute"
+        },
+        {
+          "title": "Securities Times — Following the Stablecoin Wave: Proactive Action to Advance RMB Internationalisation",
+          "date": "2025-06-23",
+          "url": "https://www.stcn.com/article/detail/2194401.html",
+          "type": "industry-media"
+        },
+        {
+          "title": "Shen Jianguang — Developing Offshore RMB Stablecoins to Advance RMB Internationalisation",
+          "date": "2025-06-12",
+          "url": "https://finance.sina.cn/zl/2025-06-12/zl-inezutki8335705.d.html",
+          "type": "industry-media"
+        },
+        {
+          "title": "Fintech News HK — Hong Kong Stablecoin Licence Awarded to HSBC and Anchorpoint Financial",
+          "date": "2026-04",
+          "url": "https://fintechnews.hk/38270/blockchain/hong-kong-stablecoin-licence-hsbc-anchorpoint-hkma/",
+          "type": "industry-media"
+        }
+      ],
+      "last_reviewed": "2026-04-29"
+    },
+    {
+      "jurisdiction": "CN",
+      "issue": "vasp_licensing",
+      "status_signal": "restricted",
+      "summary": "Mainland China does not issue Virtual Asset Service Provider (VASP) licenses or any equivalent regulatory authorizations. The operation of virtual currency trading platforms, the provision of exchange services between fiat and virtual currencies, and related financial intermediation services are prohibited under the regulatory framework established by the 2017 Notice on Preventing Financial Risks of Initial Coin Offerings (94 Announcement) and reinforced by the 2021 Notice on Further Preventing and Disposing of Risks in Virtual Currency Trading Speculation (Notice 237, issued jointly by 10 government bodies including the PBOC, Supreme Court, and Supreme Procuratorate). The FATF's 2025 survey of global VASP implementation rates China's Recommendation 15 compliance as 'Not Applicable,' confirming that no licensing or registration regime exists. Offshore virtual asset platforms providing services to mainland Chinese residents via the internet are treated as engaging in illegal financial activities. Personal holding of virtual assets by individuals is not itself prohibited but carries significant legal risk when connected to platform-based trading or intermediation.",
+      "key_requirements": [
+        "No VASP licensing or registration regime exists in mainland China; virtual currency exchange platform operations are illegal",
+        "Financial institutions and non-bank payment institutions are prohibited from providing account opening, registration, clearing, settlement, or other services for virtual currency activities",
+        "Internet enterprises must not provide business premises, hosting, commercial display, marketing, or paid traffic services for virtual currency-related business",
+        "Offshore VASPs providing services to mainland Chinese residents via the internet are engaged in illegal financial activities and subject to enforcement",
+        "Virtual currency mining, exchange-related activities, and ICO-equivalent fundraising remain prohibited",
+        "Cross-border crypto-related services are generally prohibited without a license, and no such license is available to obtain",
+        "Administrative or criminal penalties may apply for operating or using unapproved platforms"
+      ],
+      "exemptions": [
+        "PBOC-authorised e-CNY (digital RMB) ecosystem participants operate under a distinct central bank digital currency framework wholly separate from decentralized virtual asset regimes",
+        "Blockchain information service providers registered with the Cyberspace Administration of China (CAC) under the Blockchain Information Service Management Provisions operate in a separate regulatory category — this is a technology service filing (备案), not a VASP license for financial asset trading or exchange",
+        "Personal holding of virtual assets as property is not expressly prohibited, provided it does not involve platform-based intermediation or exchange services"
+      ],
+      "practitioner_notes": "Practitioners should distinguish clearly between (a) enterprise blockchain technology provision and CAC filings (permitted; regulated under the Blockchain Information Service Management Provisions) and (b) virtual asset exchange or intermediation services (prohibited; no regulatory pathway exists). Offshore VASPs should maintain no physical or operational footprint in the mainland, as Chinese authorities have previously investigated and prosecuted domestic support personnel of offshore exchanges. FATF's 2025 R.15 'N/A' designation for China confirms the absence of any licensing path and underscores the structural distinction between China (absolute prohibition absent change) and jurisdictions like Hong Kong that have transitioned from prohibition to licensing.",
+      "references": [
+        {
+          "title": "PBOC et al., Notice on Further Preventing and Disposing of Risks in Virtual Currency Trading Speculation (Notice 237, 2021) — 关于进一步防范和处置虚拟货币交易炒作风险的通知",
+          "date": "2021-09-15",
+          "url": "http://www.gov.cn/zhengce/zhengceku/2021-09/24/content_5639002.htm",
+          "type": "primary-statute"
+        },
+        {
+          "title": "FATF Targeted Update on Implementation of FATF Standards on Virtual Assets and VASPs (June 2025)",
+          "date": "2025-06-01",
+          "url": "https://www.fatf-gafi.org/en/topics/virtual-assets.html",
+          "type": "international-standard"
+        },
+        {
+          "title": "Cyberspace Administration of China — Blockchain Information Service Filing (区块链信息服务备案)",
+          "date": "2019-02-15",
+          "url": "https://www.cac.gov.cn/2019-02/15/c_1124116144.htm",
+          "type": "regulator-guidance"
+        },
+        {
+          "title": "Lexology — Crypto's Global Surge: Mapping China's Stance",
+          "date": "2025-05-26",
+          "url": "https://www.lexology.com/library/detail.aspx?g=8d99956b-c840-46f5-b3b9-1dedeb7863a4",
+          "type": "industry-media"
+        }
+      ],
+      "last_reviewed": "2026-04-29"
+    },
+    {
+      "jurisdiction": "CN",
+      "issue": "cross_border",
+      "status_signal": "restricted",
+      "summary": "PRC residents are substantially restricted from participating in offshore RWA tokens, and offshore platforms are prohibited from providing RWA-related services into mainland China. Notice 42 (银发〔2026〕42号, 6 February 2026) extends mainland regulatory jurisdiction extraterritorially: offshore entities providing RWA or virtual currency services to PRC residents are subject to enforcement action, and PRC entities or individuals knowingly or negligently assisting such cross-border provision bear legal liability. The same notice prohibits any party — onshore or offshore — from issuing CNY-pegged stablecoins offshore without authorisation. Cross-border activities by PRC-domiciled assets seeking offshore tokenization fall under the parallel pathway covered in the RWA Issuance cell.",
+      "key_requirements": [
+        "Offshore platforms must not actively market or provide RWA tokenization services to PRC residents",
+        "PRC financial institutions, internet platforms, and other third parties are prohibited from providing services facilitating onshore residents' access to offshore RWA tokens",
+        "PRC entities or individuals who knowingly or with reasonable cause assist offshore provision of services into mainland China bear legal liability",
+        "Issuance of CNY-pegged stablecoins offshore is prohibited absent authorisation, applicable to onshore and offshore parties alike",
+        "Look-through principle applies: PRC-controlled offshore entities (via equity, agreement, nominee, or operational control) are treated as PRC subjects",
+        "Cross-border data flows associated with RWA activities must comply with PRC data classification, localisation, and export filing requirements"
+      ],
+      "exemptions": [
+        "No formal exemptions for cross-border distribution of RWA tokens into mainland China are documented under Notice 42",
+        "Activities that do not involve PRC subjects, PRC-domiciled assets, PRC investors, or marketing into the mainland fall outside Notice 42's express scope"
+      ],
+      "practitioner_notes": "Notice 42's extraterritorial reach is one of its most consequential features. Offshore RWA platforms intending to remain accessible to global investors should implement robust geo-fencing and KYC controls to exclude mainland Chinese residents, and should avoid Mandarin-language marketing materials targeting mainland users. The look-through principle means that nominally offshore structures (BVI, Cayman, Singapore) controlled by PRC subjects do not enjoy a safe harbour. Cross-border supervisory cooperation between mainland regulators and offshore counterparts (notably Hong Kong) has been signalled as a forward priority; practitioners should expect information-sharing arrangements to develop. Hong Kong's positioning as a CSRC-recognised offshore venue (per the RWA Issuance pathway) creates a structural distinction between Hong Kong-issued tokens (potentially CSRC-filed) and tokens from less-regulated venues, with implications for cross-border legitimacy.",
+      "references": [
+        {
+          "title": "PBOC et al., Notice 银发〔2026〕42号 — Concerning Further Prevention and Disposition of Risks Related to Virtual Currencies",
+          "date": "2026-02-06",
+          "url": "https://www.csrc.gov.cn/csrc/c100028/c7614318/content.shtml",
+          "type": "primary-statute"
+        },
+        {
+          "title": "Sina Finance — Notice 42 Implementation: China's Virtual Asset Regulatory Framework Takes Shape",
+          "date": "2026-02-08",
+          "url": "https://finance.sina.com.cn/blockchain/roll/2026-02-08/doc-inhmapyi3251371.shtml",
+          "type": "industry-media"
+        },
+        {
+          "title": "Han Kun Law Offices — Interpretation of Notice 42 and the New RWA Regulatory Framework",
+          "date": "2026-02-11",
+          "url": "https://www.hankunlaw.com/portal/article/index/cid/8/id/16251.html",
+          "type": "industry-media"
+        }
+      ],
+      "last_reviewed": "2026-04-29"
+    },
+    {
+      "jurisdiction": "CN",
+      "issue": "retail_access",
+      "status_signal": "restricted",
+      "summary": "Mainland China maintains a bifurcated regime for retail access to virtual assets. (a) Personal ownership of virtual currency as property is not prohibited under Chinese law, as confirmed by the Shanghai High People's Court in November 2024, which recognized virtual currencies as virtual commodities with property attributes. (b) Retail access through platform-based trading, exchange intermediation, or financial institution channels is strictly prohibited. Notice 237 (2021) explicitly prohibits financial institutions, payment processors, and internet platforms from providing services enabling retail access to virtual currency trading. Offshore exchanges serving mainland Chinese residents, peer-to-peer (P2P) trading platforms facilitating fiat-to-crypto conversion for retail users, and over-the-counter (OTC) desks are classified as illegal financial activities. Despite legal prohibition, retail participation through offshore exchanges and informal OTC channels remains significant by volume, with enforcement actions increasingly targeting P2P traders and OTC operators in 2025–2026.",
+      "key_requirements": [
+        "Personal holding of virtual currency as property is not illegal; individuals may assert property rights in civil proceedings",
+        "Retail access through licensed or unlicensed virtual currency exchanges is prohibited — no retail trading platform is authorized to operate onshore",
+        "Offshore exchanges providing services (including order matching, wallet provision, or customer onboarding) to mainland Chinese retail residents are engaged in illegal financial activities",
+        "Financial institutions and payment processors are prohibited from facilitating retail virtual currency transactions in any capacity",
+        "Peer-to-peer fiat-to-crypto trading and OTC brokerage services targeting mainland Chinese retail users are increasingly subject to enforcement action"
+      ],
+      "exemptions": [
+        "Personal holding, transfer as gift, and inheritance of virtual assets by individuals are not prohibited and may be recognized in civil disputes",
+        "Retail access to tokenized products issued in Hong Kong's regulated framework is not available to mainland Chinese residents without compliance with mainland regulatory requirements",
+        "The PBOC-authorised e-CNY (digital RMB) is the only digital currency accessible to retail mainland users through formal financial channels"
+      ],
+      "practitioner_notes": "Practitioners must distinguish carefully between the 'holding is legal' position (based on the Shanghai High Court's November 2024 opinion and the general civil property framework) and the 'trading via platforms is illegal' position (under Notice 237 and associated enforcement). This bifurcation creates ambiguity for retail users: civil courts may protect ownership rights in inheritance, divorce, or theft cases, while administrative and criminal penalties may apply to the same individual if they used an exchange to acquire the asset. The practical consequence is that a significant portion of mainland Chinese retail crypto participation funnels through unregulated offshore exchanges and OTC desks, creating legal exposure for both users and intermediaries. Retail access through Hong Kong-regulated venues is not a structural substitute — Hong Kong VATPs and licensed stablecoin issuers are required to implement controls excluding mainland Chinese residents, and geo-fencing expectations have been reinforced by 2025–2026 enforcement trends.",
+      "references": [
+        {
+          "title": "Shanghai High People's Court — Legal Opinion on Virtual Currency Property Attributes (November 2024)",
+          "date": "2024-11-19",
+          "url": "https://www.scmp.com/tech/blockchain/article/3287415/shanghai-court-says-crypto-ownership-legal-under-china-law-amid-bitcoin-price-surge",
+          "type": "court-ruling"
+        },
+        {
+          "title": "PBOC et al., Notice on Further Preventing and Disposing of Risks in Virtual Currency Trading Speculation (Notice 237, 2021)",
+          "date": "2021-09-15",
+          "url": "http://www.gov.cn/zhengce/zhengceku/2021-09/24/content_5639002.htm",
+          "type": "primary-statute"
+        },
+        {
+          "title": "Reuters — Bruised by stock market, Chinese rush into banned bitcoin",
+          "date": "2024-01-25",
+          "url": "https://www.reuters.com/technology/bruised-by-stock-market-chinese-rush-into-banned-bitcoin-2024-01-25/",
+          "type": "industry-media"
+        },
+        {
+          "title": "CoinLaw — Crypto Regulations in China Statistics 2026: Enforcement Surge",
+          "date": "2026-02-12",
+          "url": "https://coinlaw.io/crypto-regulations-in-china-statistics/",
+          "type": "industry-media"
+        }
+      ],
+      "last_reviewed": "2026-04-29"
+    },
+    {
+      "jurisdiction": "SG",
+      "issue": "rwa_issuance",
+      "status_signal": "open",
+      "summary": "Singapore, through the Monetary Authority of Singapore (MAS), applies a tech-neutral 'same business, same risks, same rules' approach to tokenized real-world assets. Tokenized securities that constitute capital markets products (CMPs) under the Securities and Futures Act 2001 (SFA) are regulated as securities, regardless of the technology used for issuance or settlement. Issuers and intermediaries engaging in tokenized RWA activities — including dealing in tokenized securities, operating a tokenized asset trading platform, and providing custodial services for tokenized assets — require a Capital Markets Services (CMS) licence or Recognised Market Operator (RMO) status unless an exemption applies. MAS has actively supported tokenization through Project Guardian (launched 2022, expanded 2024–2025), which pilots asset tokenization across digital structured products, tokenised investment vehicles, asset-backed securities, bonds, and bank liabilities. In November 2025, MAS announced it would publish a guide on the tokenization of capital markets products, offering case studies and disclosure guidance. The regulatory sandbox is available for novel tokenization structures.",
+      "key_requirements": [
+        "Tokenized securities that constitute CMPs (shares, debentures, units in a CIS) under the SFA are regulated as securities and subject to all applicable SFA requirements",
+        "Dealing in tokenized capital markets products requires a CMS licence for dealing in capital markets products, unless an exemption applies",
+        "Operating a platform for secondary trading of tokenized securities requires RMO status or approval as an approved exchange",
+        "Providing custodial services for tokenized assets that constitute CMPs falls within the CMS licensing framework for custodial services",
+        "Public offers of tokenized securities require a MAS-registered prospectus with prescribed disclosure, unless an exemption applies",
+        "All licensed entities must comply with MAS AML/CFT Notice 101 and applicable technology risk management guidelines"
+      ],
+      "exemptions": [
+        "Offers of tokenized securities limited to accredited investors, expert investors, and institutional investors are exempt from prospectus requirements under the SFA",
+        "Certain fund management activities involving tokenized assets may benefit from licensing exemptions under the Second Schedule to the SF(LCB)R",
+        "The MAS regulatory sandbox (FinTech Regulatory Sandbox) provides temporary regulatory flexibility for novel tokenization structures",
+        "Foreign tokenized securities marketed into Singapore solely to institutional investors may fall outside the licensing perimeter under certain conditions"
+      ],
+      "practitioner_notes": "Singapore's tech-neutral approach means that the regulatory classification of a tokenized asset depends on its economic substance and rights, not its label or technology. Practitioners should conduct a case-by-case assessment to determine whether a token constitutes a CMP under the SFA. The CMS licence application process typically takes 4–6 months. Project Guardian industry pilots have generated significant practical guidance on structuring tokenized products, and the forthcoming MAS guide on tokenization of capital markets products (expected 2026) is expected to provide further clarity on disclosure expectations and operational standards. The Recognised Market Operator (RMO) framework is the most commonly used pathway for operating a tokenized asset secondary market platform catering to institutional and accredited investors.",
+      "references": [
+        {
+          "title": "MAS — Guidelines on Criteria for Grant of a CMS Licence (SFA 04-G01)",
+          "date": "ongoing",
+          "url": "https://www.mas.gov.sg/regulation/guidelines/guideline-sfa-04-g01-licensing-criteria-for-cms-licensees-other-than-fund-and-reit-managers",
+          "type": "regulator-guidance"
+        },
+        {
+          "title": "MAS — Project Guardian: Asset Tokenisation Industry Pilots",
+          "date": "2024-06-26",
+          "url": "https://www.mas.gov.sg/schemes-and-initiatives/project-guardian",
+          "type": "regulator-guidance"
+        },
+        {
+          "title": "MAS — Singapore to Roll Out Stablecoin Regulations, Expand CBDC Trials (Nov 2025)",
+          "date": "2025-11-13",
+          "url": "https://finance.yahoo.com/news/singapore-roll-stablecoin-regulations-expand-154931448.html",
+          "type": "industry-media"
+        },
+        {
+          "title": "Global Legal Insights — Blockchain & Cryptocurrency Laws 2026: Singapore",
+          "date": "2025-10-21",
+          "url": "https://www.globallegalinsights.com/practice-areas/blockchain-cryptocurrency-laws-and-regulations/singapore/",
+          "type": "industry-media"
+        }
+      ],
+      "last_reviewed": "2026-04-29"
+    },
+    {
+      "jurisdiction": "SG",
+      "issue": "stablecoin_issuance",
+      "status_signal": "conditional",
+      "summary": "The Monetary Authority of Singapore (MAS) finalised a regulatory framework for single-currency stablecoins (SCS) on 15 August 2023, following a public consultation in October 2022. The framework applies to stablecoins pegged to the Singapore dollar or any G10 currency and issued in Singapore. Issuers of SCS must be incorporated in Singapore, hold high-quality, highly liquid reserve assets at least equal to the par value of outstanding stablecoins, and disclose reserve composition and attestation results publicly. Non-bank issuers whose SCS circulation exceeds S$5 million must obtain a Major Payment Institution (MPI) licence under the Payment Services Act 2019 (PSA) for the new regulated activity of 'stablecoin issuance service.' The framework includes a 'MAS-regulated stablecoin' label for compliant issuers. The framework is expected to come into effect in mid-2026, with a transitional period for pre-existing issuers. Parallel efforts include trials to issue tokenised MAS bills announced in November 2025.",
+      "key_requirements": [
+        "Issuer must be incorporated in Singapore as a legal entity",
+        "Reserve assets must be held at least equal to par value of outstanding SCS at all times",
+        "Reserve assets must meet prescribed quality and liquidity standards (short-dated government securities, cash, or cash equivalents denominated in the same currency as the peg)",
+        "Reserve assets must be segregated from the issuer's own assets and held with independent custodians",
+        "Reserve composition and independent attestation results must be publicly disclosed at least semi-annually",
+        "Issuance and redemption must be at par value within one business day of a redemption request",
+        "Non-bank issuers with circulation exceeding S$5 million must hold an MPI licence under the PSA for stablecoin issuance service",
+        "Issuers must maintain a minimum base capital of S$1 million or 50% of annual operational expenses (whichever is higher)",
+        "Compliance with MAS AML/CFT Notice PSN01 and applicable technology risk management guidelines"
+      ],
+      "exemptions": [
+        "Banks licensed under the Banking Act may issue SCS subject to MAS-specified conditions without requiring a separate MPI licence",
+        "SCS issuers with total circulation not exceeding S$5 million are not required to obtain an MPI licence for stablecoin issuance",
+        "Non-G10-pegged stablecoins and algorithmic stablecoins fall outside the SCS framework and are not eligible for the 'MAS-regulated stablecoin' label"
+      ],
+      "practitioner_notes": "The SCS framework operates separately from both the Digital Payment Token (DPT) licensing regime under the PSA (for crypto exchanges) and the Securities and Futures Act (for tokenized securities). Stablecoins that qualify for the SCS framework and obtain the 'MAS-regulated stablecoin' label benefit from regulatory recognition for use in regulated payment and settlement contexts. As of Q1 2026, the framework has been finalised but not yet brought into legal effect — it is expected to come into force in mid-2026, with a transitional compliance period for pre-existing issuers. Practitioners should distinguish between (a) MAS-regulated SCS (subject to the full framework with the label), (b) stablecoins regulated under other regimes (e.g., as capital markets products under SFA if they embed investment features), and (c) unregulated stablecoins that do not meet any MAS classification.",
+      "references": [
+        {
+          "title": "MAS — MAS Finalises Stablecoin Regulatory Framework (Media Release, 15 August 2023)",
+          "date": "2023-08-15",
+          "url": "https://www.mas.gov.sg/news/media-releases/2023/mas-finalises-stablecoin-regulatory-framework",
+          "type": "regulator-guidance"
+        },
+        {
+          "title": "MAS — Consultation Paper on Stablecoin Regulatory Framework (October 2022)",
+          "date": "2022-10-01",
+          "url": "https://www.mas.gov.sg/consultations/2022/consultation-paper-on-proposed-regulatory-approach-for-stablecoin",
+          "type": "primary-statute"
+        },
+        {
+          "title": "BVNK — Global stablecoin regulations 2026: What enterprises need to know",
+          "date": "2026-01-16",
+          "url": "https://bvnk.com/blog/global-stablecoin-regulations-2026",
+          "type": "industry-media"
+        },
+        {
+          "title": "Paxos — The Regulatory Landscape for Stablecoins: What Banks and FIs Need to Know",
+          "date": "ongoing",
+          "url": "https://www.paxos.com/blog/regulatory-landscape-for-stablecoins",
+          "type": "industry-media"
+        }
+      ],
+      "last_reviewed": "2026-04-29"
+    },
+    {
+      "jurisdiction": "SG",
+      "issue": "vasp_licensing",
+      "status_signal": "open",
+      "summary": "Singapore operates a comprehensive, activity-based licensing regime for virtual asset service providers, administered by the Monetary Authority of Singapore (MAS). The primary licence for digital payment token (DPT) services provided to Singapore residents is the Major Payment Institution (MPI) licence under the Payment Services Act 2019 (PSA), which covers DPT exchange, cross-border DPT transfer, DPT custodial services, and facilitation of exchange between DPTs (added via April 2024 amendments, effective from October 2024). Minimum base capital is SGD 250,000. Separately, as of 30 June 2025, Singapore-incorporated entities providing digital token services to overseas clients must hold a Digital Token Service Provider (DTSP) licence under Part 9 of the Financial Services and Markets Act 2022 (FSMA). For virtual asset services involving securities (e.g., tokenized securities platforms), a Capital Markets Services (CMS) licence under the Securities and Futures Act is additionally or alternatively required. MAS maintains a public register of licensed DPT service providers.",
+      "key_requirements": [
+        "DPT service providers serving Singapore residents must hold an MPI licence under the PSA for the applicable payment services",
+        "Minimum base capital of SGD 250,000 for DPT service providers (higher thresholds for MPI licences covering multiple payment services)",
+        "Customer assets must be segregated and held in a trust account for the benefit of customers",
+        "External audit attestation of business activities and AML/CFT compliance required",
+        "AML/CFT compliance including MAS Notice PSN02 (Travel Rule implementation for DPT transfers)",
+        "Robust cybersecurity measures and technology risk management (MAS TRM Guidelines)",
+        "Legal opinion required for new MPI licence applications involving DPT services",
+        "Singapore-incorporated entities providing digital token services solely to overseas clients must hold a DTSP licence under FSMA Part 9 (effective 30 June 2025)",
+        "DPT custodial services require a specific licence scope under the expanded PSA framework"
+      ],
+      "exemptions": [
+        "DPT service providers whose total monthly transaction volume or average value does not exceed prescribed thresholds may operate under a Standard Payment Institution (SPI) licence with lighter requirements",
+        "Foreign DPT service providers marketing services into Singapore from overseas are brought within the licensing perimeter under the PSA's extraterritorial provisions",
+        "Banks licensed under the Banking Act may provide DPT services subject to MAS approval without requiring a separate MPI licence"
+      ],
+      "practitioner_notes": "Singapore's licensing landscape requires careful mapping of the specific virtual asset service to the correct regulatory category. Services involving payment-type tokens (e.g., bitcoin, ether, stablecoins qualifying as DPTs) fall under the PSA/DPT framework. Services involving security-type tokens fall under the SFA/CMS framework. Services involving both may require both licences. The FSMA DTSP regime (effective June 2025) closes a prior gap where Singapore-incorporated entities could serve overseas clients without a local licence — practitioners with Singapore entities serving non-Singapore clients should ensure compliance with the DTSP requirements. MAS maintains an active enforcement posture, and the application process involves substantive review including fit-and-proper assessment of directors and shareholders.",
+      "references": [
+        {
+          "title": "MAS — Expanded Scope of Regulated Payment Services and User Protection Requirements for DPT Service Providers (April 2024)",
+          "date": "2024-04-02",
+          "url": "https://www.mas.gov.sg/news/media-releases/2024/mas-expands-scope-of-regulated-payment-services",
+          "type": "primary-statute"
+        },
+        {
+          "title": "MAS — Guidelines on Provision of Digital Payment Token Services to the Public (PS-G02)",
+          "date": "ongoing",
+          "url": "https://www.mas.gov.sg/regulation/guidelines/ps-g02-guidelines-on-provision-of-digital-payment-token-services-to-the-public",
+          "type": "regulator-guidance"
+        },
+        {
+          "title": "Financial Services and Markets Act 2022 (FSMA), Part 9 — Digital Token Service Providers",
+          "date": "2025-06-30",
+          "url": "https://sso.agc.gov.sg/Act/FSMA2022",
+          "type": "primary-statute"
+        },
+        {
+          "title": "Sumsub — Singapore Crypto Regulations: All You Need to Know in 2025",
+          "date": "2025",
+          "url": "https://sumsub.com/blog/singapore-crypto-regulations-all-you-need-to-know/",
+          "type": "industry-media"
+        }
+      ],
+      "last_reviewed": "2026-04-29"
+    },
+    {
+      "jurisdiction": "SG",
+      "issue": "cross_border",
+      "status_signal": "conditional",
+      "summary": "Singapore applies a territorial licensing principle under the Payment Services Act 2019 (PSA): only crypto firms providing digital payment token (DPT) services to Singapore residents are required to hold an MPI licence. Foreign DPT service providers actively marketing or providing services to Singapore residents are brought within the PSA's licensing perimeter regardless of physical location. Separately, as of 30 June 2025, the Financial Services and Markets Act 2022 (FSMA) Part 9 introduced a Digital Token Service Provider (DTSP) licensing regime for Singapore-incorporated entities providing digital token services to overseas clients — closing a prior regulatory gap. However, MAS has publicly stated that it will 'generally not issue a licence' for DTSPs and will only do so in 'very exceptional circumstances,' making the DTSP regime effectively prohibitive for most business models. This creates an asymmetric cross-border framework: foreign firms serving Singapore residents face licensing obligations under the PSA, while Singapore entities seeking to serve overseas clients face a licensing pathway that is theoretically available but practically inaccessible.",
+      "key_requirements": [
+        "Foreign DPT service providers actively marketing or providing services to Singapore residents must hold an MPI licence under the PSA",
+        "Singapore-incorporated entities providing digital token services to overseas clients must hold a DTSP licence under FSMA Part 9 (effective 30 June 2025)",
+        "MAS will generally not issue DTSP licences — applicants must demonstrate exceptional circumstances justifying an exception",
+        "All licensed entities must comply with MAS AML/CFT requirements and ongoing supervision regardless of client location",
+        "Employer-establishment test: DTSP licensing obligations attach to the employing entity, not to individual employees"
+      ],
+      "exemptions": [
+        "Singapore residents employed by foreign companies who perform digital token services outside Singapore as part of their employment do not trigger FSMA licensing requirements",
+        "Foreign DTSPs with no physical presence in Singapore and no active marketing into Singapore may fall outside the PSA licensing perimeter (passive services only)",
+        "The PSA does not apply to foreign firms that do not provide DPT services to Singapore residents"
+      ],
+      "practitioner_notes": "Practitioners should understand the asymmetric design of Singapore's cross-border framework. The PSA governs inbound services (foreign → Singapore) and has been operational since 2020. The FSMA DTSP regime governs outbound services (Singapore → overseas) and took effect 30 June 2025. The practical effect of MAS's stated policy not to issue DTSP licences is that Singapore-based crypto firms serving overseas clients must either relocate their operations outside Singapore or restructure their business model. This differs materially from Hong Kong's approach, which permits offshore entities to serve Hong Kong residents subject to active marketing rules and reverse solicitation exemptions. The employment exemption is significant: individual Singapore residents working remotely for foreign crypto firms do not themselves face licensing obligations under FSMA, though the employing entity may face obligations in its home jurisdiction.",
+      "references": [
+        {
+          "title": "Gibson Dunn — Singapore Expands the Territorial Scope of Its Digital-Asset Regulation (July 2025)",
+          "date": "2025-07-01",
+          "url": "https://www.gibsondunn.com/singapore-expands-the-territorial-scope-of-its-digital-asset-regulation/",
+          "type": "industry-media"
+        },
+        {
+          "title": "MAS — Clarifies Regulatory Regime for Digital Token Service Providers (June 2025)",
+          "date": "2025-06-30",
+          "url": "https://www.mas.gov.sg/news/media-releases/2025/mas-clarifies-regulatory-regime-for-digital-token-service-providers",
+          "type": "regulator-guidance"
+        },
+        {
+          "title": "TRM Labs — Unpacking Singapore's Financial Services and Markets Act: What Crypto Firms Need to Know",
+          "date": "2025-06-26",
+          "url": "https://www.trmlabs.com/resources/blog/unpacking-singapores-financial-services-and-markets-act-what-crypto-firms-need-to-know",
+          "type": "industry-media"
+        },
+        {
+          "title": "CMS Law-Now — Singapore's June 30 Hard Deadline for Crypto Firms Serving Overseas Customers",
+          "date": "2025-06-26",
+          "url": "https://cms-lawnow.com/en/ealerts/2025/06/singapore-s-june-30-hard-deadline-for-crypto-firms-serving-overseas-customers",
+          "type": "industry-media"
+        }
+      ],
+      "last_reviewed": "2026-04-29"
+    },
+    {
+      "jurisdiction": "SG",
+      "issue": "retail_access",
+      "status_signal": "conditional",
+      "summary": "Singapore permits retail access to digital payment tokens (DPTs) through MAS-licensed DPT service providers, subject to a comprehensive framework of investor protection measures. Licensed DPT providers may serve retail customers but must conduct mandatory customer risk assessments and provide prescribed risk warnings before onboarding retail clients. MAS has prohibited the marketing of DPT services to the general public in Singapore through PS-G02 (Guidelines on Provision of Digital Payment Token Services to the Public, issued 17 January 2022), which restricts advertising, promotions, and public marketing of DPT services — including prohibitions on marketing in public places, use of inducements or incentives, and messages that downplay risks. Retail customers also face restrictions on credit card purchases, leverage limits, and trading incentives. For tokenized securities regulated under the Securities and Futures Act (SFA), retail access is available through licensed intermediaries but requires compliance with prospectus registration requirements unless an exemption applies (e.g., offers limited to accredited, expert, or institutional investors). The SFA's accredited investor threshold (net personal assets exceeding SGD 2 million or annual income exceeding SGD 300,000) creates a significant intermediary category between retail and institutional investors.",
+      "key_requirements": [
+        "Licensed DPT service providers must conduct mandatory customer risk assessments for all retail clients before onboarding",
+        "Prescribed risk warnings must be provided to retail customers before any DPT transaction",
+        "DPT service providers are prohibited from marketing DPT services to the general public in Singapore",
+        "Restrictions on credit card purchases of DPTs by retail customers",
+        "Leverage and trading incentives for retail customers are restricted",
+        "Public offers of tokenized securities to retail investors require a MAS-registered prospectus unless an exemption applies",
+        "Tokenized securities offered to accredited investors only are exempt from prospectus requirements"
+      ],
+      "exemptions": [
+        "Accredited investors (net personal assets > SGD 2 million or income > SGD 300,000/year) may access a broader range of DPT and tokenized securities products with fewer disclosure requirements",
+        "Institutional investors and expert investors face minimal retail-type restrictions and may access products without prospectus requirements",
+        "Small offers of tokenized securities (within prescribed thresholds) may be exempt from prospectus requirements"
+      ],
+      "practitioner_notes": "Singapore's retail access framework should be distinguished from both Hong Kong's (which imposes exposure caps and knowledge assessments for retail DPT trading) and mainland China's (which prohibits platform-based retail trading entirely). Singapore permits retail DPT trading through licensed platforms but heavily restricts how those platforms may market to and onboard retail clients. The practical effect of PS-G02's marketing restrictions is that DPT service providers cannot engage in mass-market advertising, billboard campaigns, or public events promoting DPT services — significantly limiting retail customer acquisition channels. For tokenized securities, the distinction between retail (prospectus required) and accredited investor (exempt) offerings is the primary structural division, and most tokenized security issuers structure offerings to accredited investors only.",
+      "references": [
+        {
+          "title": "MAS — Guidelines on Provision of Digital Payment Token Services to the Public (PS-G02, 17 Jan 2022)",
+          "date": "2022-01-17",
+          "url": "https://www.mas.gov.sg/regulation/guidelines/ps-g02-guidelines-on-provision-of-digital-payment-token-services-to-the-public",
+          "type": "regulator-guidance"
+        },
+        {
+          "title": "Lexology — At a glance: cryptoassets for investment and financing in Singapore (Nov 2025)",
+          "date": "2025-11-28",
+          "url": "https://www.lexology.com/library/detail.aspx?g=14d0624c-6672-4453-b6cf-63dfabf4eaaa",
+          "type": "industry-media"
+        },
+        {
+          "title": "Lexology — New MAS guidance restricts public marketing of cryptocurrencies (Feb 2022)",
+          "date": "2022-02-10",
+          "url": "https://www.lexology.com/library/detail.aspx?g=2178645c-4108-495b-b990-c27852ef67b1",
+          "type": "industry-media"
+        },
+        {
+          "title": "Securities and Futures Act 2001 — SFA Definitions of Accredited, Expert and Institutional Investors",
+          "date": "ongoing",
+          "url": "https://sso.agc.gov.sg/Act/SFA2001",
+          "type": "primary-statute"
+        }
+      ],
+      "last_reviewed": "2026-04-29"
+    },
+    {
+      "jurisdiction": "US",
+      "issue": "rwa_issuance",
+      "status_signal": "conditional",
+      "summary": "The United States regulates tokenized real-world assets through existing securities laws administered by the SEC and CFTC, depending on the asset's classification. Tokenized securities (e.g., tokenized equities, bonds, funds) are generally regulated under the Securities Act of 1933 and the Securities Exchange Act of 1934, requiring SEC registration or an available exemption (Regulation D for accredited investors, Regulation A+ for retail offerings up to $75 million, Regulation S for offshore offers). Tokenized commodities (e.g., tokenized gold, oil) fall under CFTC jurisdiction and require DCM registration for trading platforms. The SEC's Staff Accounting Bulletin 121 (SAB 121, issued March 2022) previously required entities safeguarding crypto assets to record them as balance sheet liabilities; the SEC issued SAB 122 on January 23, 2025 to rescind SAB 121, removing a significant barrier to bank participation in digital asset custody and tokenization, effective on a fully retrospective basis for annual periods beginning after December 15, 2024, with early adoption permitted. The Financial Innovation and Technology for the 21st Century Act (FIT21, H.R. 4763, 118th Congress) was passed by the House on May 22, 2024 by a 279–136 vote but lapsed at the end of the 118th Congress. Its successor, the Digital Asset Market Clarity Act of 2025 (CLARITY Act, H.R. 3633, 119th Congress), was passed by the House on July 17, 2025 by a 294–134 vote and remains under consideration in the Senate as of Q1 2026. The Senate Banking Committee released a discussion draft titled the Responsible Financial Innovation Act of 2025 (RFIA) on September 5, 2025, and the Senate Agriculture Committee released the Digital Commodity Intermediaries Act on January 21, 2026; both build on the CLARITY Act framework but introduce distinct definitions (notably ‘ancillary assets’ under the RFIA). A Senate Banking Committee markup originally scheduled for January 14, 2026 was postponed and remains pending as of Q1 2026, with stablecoin yield treatment identified as the principal outstanding issue. As of Q1 2026, no comprehensive market structure legislation has been enacted, and the legal characterisation of any given tokenized RWA continues to depend on its specific economic features and marketing context under existing securities and commodities laws.",
+      "key_requirements": [
+        "Tokenized securities must be registered with the SEC under the Securities Act of 1933 unless an exemption applies",
+        "Common exemptions include Regulation D (accredited investors only, no general solicitation unless Rule 506(c)), Regulation A+ (retail offerings up to $75 million), and Regulation S (offshore offers)",
+        "Tokenized commodities fall under CFTC jurisdiction; trading platforms must register as DCMs or operate as exempt DCMs",
+        "Tokenized asset trading platforms may be required to register as Alternative Trading Systems (ATS) under Regulation ATS or as national securities exchanges",
+        "Custody of tokenized assets by registered investment advisers must comply with the SEC's Custody Rule (Rule 206(4)-2 under the Investment Advisers Act) and state-level trust requirements",
+        "Issuers must comply with applicable state-level money transmitter laws and the federal Bank Secrecy Act (BSA) for AML/CFT compliance"
+      ],
+      "exemptions": [
+        "Regulation D Rule 506(b) and 506(c) exemptions for private placements to accredited investors with no general solicitation (506(b)) or with general solicitation and verification (506(c))",
+        "Regulation S exemption for offers and sales made outside the United States to non-US persons",
+        "Regulation A+ Tier 2 exemption for offerings up to $75 million with ongoing reporting obligations",
+        "Intrastate offering exemptions under Rule 147 and Rule 147A for offers limited to a single state"
+      ],
+      "practitioner_notes": "The US regulatory landscape for tokenized RWA remains fragmented and jurisdiction-dependent. Issuers should assume that a tokenized security is an 'investment contract' under the Howey test unless structured to clearly avoid this classification (e.g., tokenized commodities with no profit-sharing from issuer efforts). The SAB 121 rescission via SAB 122 (January 2025) is a significant positive development for bank participation in tokenized asset custody. SEC enforcement action against tokenization platforms has been driven by allegations of unregistered securities offerings rather than regulatory hostility to tokenization per se. Issuers are strongly advised to engage legal counsel experienced in both securities law and digital assets, and to conduct a federal-state licensing analysis for each state in which retail investors will be offered tokenized assets. New York's BitLicense requirement presents a specific additional hurdle for platforms serving New York residents.",
+      "references": [
+        {
+          "title": "SEC v. W.J. Howey Co., 328 U.S. 293 (1946)",
+          "date": "1946",
+          "url": "https://supreme.justia.com/cases/federal/us/328/293/",
+          "type": "court-ruling"
+        },
+        {
+          "title": "SEC — Framework for 'Investment Contract' Analysis of Digital Assets (April 2019)",
+          "date": "2019-04-03",
+          "url": "https://www.sec.gov/corpfin/framework-investment-contract-analysis-digital-assets",
+          "type": "regulator-guidance"
+        },
+        {
+          "title": "SEC — Staff Accounting Bulletin No. 122 (SAB 122, rescinding SAB 121, January 23, 2025)",
+          "date": "2025-01-23",
+          "url": "https://www.sec.gov/rules-regulations/staff-guidance/staff-accounting-bulletins/staff-accounting-bulletin-122",
+          "type": "regulator-guidance"
+        },
+        {
+          "title": "SEC — Statement on Tokenized Securities (January 28, 2026) — format does not affect application of federal securities laws",
+          "date": "2026-01-28",
+          "url": "https://www.sec.gov/newsroom/speeches-statements/corp-fin-statement-tokenized-securities-012826",
+          "type": "regulator-guidance"
+        },
+        {
+          "title": "FIT21 Act — Financial Innovation and Technology for the 21st Century Act (H.R. 4763, 118th Congress, House-passed May 22, 2024; lapsed at end of 118th Congress)",
+          "date": "2024-05-22",
+          "url": "https://www.congress.gov/bill/118th-congress/house-bill/4763",
+          "type": "legislation"
+        },
+        {
+          "title": "CLARITY Act — Digital Asset Market Clarity Act of 2025 (H.R. 3633, 119th Congress, House-passed July 17, 2025; pending in Senate)",
+          "date": "2025-07-17",
+          "url": "https://www.congress.gov/bill/119th-congress/house-bill/3633",
+          "type": "legislation"
+        }
+      ],
+      "last_reviewed": "2026-05-04"
+    },
+    {
+      "jurisdiction": "US",
+      "issue": "stablecoin_issuance",
+      "status_signal": "conditional",
+      "summary": "The United States federal regulatory framework for stablecoin issuance is established primarily by the GENIUS Act (Guiding and Establishing National Innovation for US Stablecoins, S. 1582, 119th Congress), signed into law by President Donald Trump on 18 July 2025. The Act establishes a federal licensing regime for stablecoin issuers, requiring 1:1 high-quality liquid asset reserves at least equal to the par value of outstanding stablecoins, monthly reserve attestations by an independent accounting firm, and full AML/CFT compliance including the Travel Rule. Issuers with total market capitalisation below $10 billion may choose between federal registration (OCC) or state regulation, while issuers above $10 billion are required to register with the OCC. All issuers are prohibited from paying interest or yield to stablecoin holders, and from lending reserve assets beyond what is explicitly authorised under the Act. Non-bank issuers face additional activity restrictions. State-level regimes continue to apply concurrently for issuers below the $10 billion threshold who opt for state oversight. The Act preempts state money transmitter laws for federally registered issuers (FQPSIs) but does not preempt state consumer protection laws or state-imposed prudential standards; state-qualified issuers (SQPSIs) remain subject to state licensing requirements. The OCC further confirmed bank authority to issue stablecoins in Interpretive Letter 1183 (March 7, 2025) and Interpretive Letter 1186 (November 18, 2025), which clarified that national banks may buy, sell, and issue stablecoin to facilitate customer transactions and may pay network fees on distributed ledger technology networks.",
+      "key_requirements": [
+        "Stablecoin issuers must maintain 1:1 high-quality liquid asset reserves at par value of outstanding stablecoins at all times",
+        "Monthly independent attestation of reserve composition and value by an independent accounting firm",
+        "Full AML/CFT compliance including BSA/FinCEN registration, SAR filing, and Travel Rule implementation",
+        "Issuers with market cap above $10 billion must register with the OCC; below $10 billion may choose federal or state oversight",
+        "All issuers are prohibited from paying interest, dividends, or yield to stablecoin holders (effectively banning yield-bearing stablecoins)",
+        "Issuers may not lend reserve assets beyond what is explicitly authorised under the Act; non-bank issuers face additional activity restrictions including prohibition on financing private credit with reserves",
+        "Issuers must disclose reserve composition, redemption terms, and operational risks in plain language",
+        "Redemption at par required; issuers must disclose redemption policy and terms prominently"
+      ],
+      "exemptions": [
+        "Issuers below $10 billion market cap may elect state-level oversight (e.g., NYDFS BitLicense, Wyoming SPDI) in lieu of OCC registration",
+        "Small issuers with total outstanding stablecoin value below prescribed thresholds (to be determined by OCC rulemaking) may be exempt from certain federal requirements",
+        "Foreign stablecoin issuers may serve US residents subject to compliance with federal registration requirements and applicable state money transmitter laws"
+      ],
+      "practitioner_notes": "The GENIUS Act represents the first comprehensive federal stablecoin legislation in the United States. Its most consequential structural feature is the $10 billion threshold bifurcating federal vs state jurisdiction — a design that preserves state-level innovation (notably NYDFS and Wyoming's regimes) while ensuring the largest issuers face direct OCC oversight. Banks are structurally advantaged under the GENIUS Act because they can issue stablecoins under their existing banking licence with OCC approval and are not subject to the non-bank activity restrictions. Non-bank issuers should carefully assess the activity restriction implications and prepare for potential state-level compliance obligations in multiple states. Practitioners should note that the GENIUS Act prohibits all issuers (bank and non-bank) from paying interest or yield to stablecoin holders, effectively banning yield-bearing stablecoins in the US — a structurally significant limitation. As of Q2 2026, OCC rulemaking to implement the Act is ongoing; practitioners should monitor proposed regulations for specific operational requirements including capital, liquidity, and wind-down planning standards. The OCC IL 1183 (March 2025) and IL 1186 (November 2025) provide important interpretive support for bank-based stablecoin activities.",
+      "references": [
+        {
+          "title": "GENIUS Act — Guiding and Establishing National Innovation for US Stablecoins (S. 1582, signed 18 July 2025)",
+          "date": "2025-07-18",
+          "url": "https://www.congress.gov/bill/119th-congress/senate-bill/1582",
+          "type": "primary-statute"
+        },
+        {
+          "title": "White House — Fact Sheet: President Donald J. Trump Signs GENIUS Act into Law (July 18, 2025)",
+          "date": "2025-07-18",
+          "url": "https://www.whitehouse.gov/fact-sheets/2025/07/fact-sheet-president-donald-j-trump-signs-genius-act-into-law/",
+          "type": "regulator-guidance"
+        },
+        {
+          "title": "OCC — Interpretive Letter 1183 (March 7, 2025)",
+          "date": "2025-03-07",
+          "url": "https://www.occ.gov/topics/charters-and-licensing/interpretations-and-actions/2025/int1183.pdf",
+          "type": "regulator-guidance"
+        },
+        {
+          "title": "OCC — Interpretive Letter 1186 (November 18, 2025)",
+          "date": "2025-11-18",
+          "url": "https://www.occ.gov/topics/charters-and-licensing/interpretations-and-decisions/2025/int1186.pdf",
+          "type": "regulator-guidance"
+        },
+        {
+          "title": "Mayer Brown — GENIUS Act Signed into Law: US Enacts Federal Stablecoin Legislation (July 18, 2025)",
+          "date": "2025-07-18",
+          "url": "https://www.mayerbrown.com/en/insights/publications/2025/07/genius-act-signed-into-law-us-enacts-federal-stablecoin-legislation",
+          "type": "industry-media"
+        },
+        {
+          "title": "LW.com — The GENIUS Act of 2025: Stablecoin Legislation Adopted in the US",
+          "date": "2025-07-01",
+          "url": "https://www.lw.com/en/insights/the-genius-act-of-2025-stablecoin-legislation-adopted-in-the-us",
+          "type": "industry-media"
+        },
+        {
+          "title": "Grant Thornton — What the GENIUS Act means for stablecoin issuers and banks (November 3, 2025) — confirms interest/ yield prohibition",
+          "date": "2025-11-03",
+          "url": "https://www.grantthornton.com/insights/articles/banking/2025/genius-act-means-for-banks",
+          "type": "industry-media"
+        },
+        {
+          "title": "CSBS — GENIUS Act Implementation Comment Letter (November 4, 2025) — confirms lending prohibition and state preemption scope",
+          "date": "2025-11-04",
+          "url": "https://www.csbs.org/csbs-genius-act-implementation-comment-letter",
+          "type": "industry-media"
+        },
+        {
+          "title": "White House Council of Economic Advisers — Effects of Stablecoin Yield Prohibition on Bank Lending (April 2026)",
+          "date": "2026-04-01",
+          "url": "https://www.whitehouse.gov/research/2026/04/effects-of-stablecoin-yield-prohibition-on-bank-lending/",
+          "type": "regulator-guidance"
+        }
+      ],
+      "last_reviewed": "2026-05-01"
+    },
+    {
+      "jurisdiction": "US",
+      "issue": "vasp_licensing",
+      "status_signal": "conditional",
+      "summary": "The United States does not operate a single federal VASP licensing regime. Instead, virtual asset service providers must navigate a fragmented multi-layered framework combining: (a) federal registration with FinCEN as a Money Services Business (MSB) under the Bank Secrecy Act, (b) state-level Money Transmitter Licences (MTLs) in each state where services are provided to residents, (c) the New York BitLicense (applicable to any entity serving New York residents, regardless of physical location), and (d) potential SEC or CFTC registration depending on the specific virtual asset activities. State-level MTL licensing involves separate applications, bonding requirements, minimum net worth thresholds, and compliance obligations in potentially 50+ jurisdictions. States have varied significantly in their approaches: New York requires a BitLicense, Wyoming offers the SPDI (Special Purpose Depository Institution) charter as an alternative, and Colorado has developed crypto-specific regulatory guidance. The OCC has confirmed in multiple interpretive letters (IL 1183, March 2025; IL 1184, May 2025) that national banks may engage in crypto-asset custody, execution services, stablecoin activities, and node verification as permissible banking activities. FIT21 (House-passed May 2024, not enacted) would establish federal oversight of digital asset spot markets through the CFTC and SEC, but has not been adopted as of Q2 2026, leaving the state-by-state patchwork in place.",
+      "key_requirements": [
+        "FinCEN registration as a Money Services Business (MSB) with ongoing SAR filing obligations, AML/CFT program requirements, and Currency Transaction Reporting (>$10,000)",
+        "State Money Transmitter Licences (MTLs) in each state where services are provided; NMLS streamlines multi-state applications but each state retains substantive review authority",
+        "New York BitLicense required for any entity providing virtual currency services to New York residents, regardless of physical presence",
+        "AML/CFT program with written policies, independent testing, and designated compliance officer",
+        "Travel Rule compliance for all virtual asset transfers ($3,000 threshold under FinCEN guidance for convertible virtual currencies)",
+        "State-level minimum net worth and surety bond requirements (varies by state and transaction volume, typically $10,000–$500,000)",
+        "Surety bonds ($10,000–$500,000, depending on transaction volume and risk profile) or letters of credit in each licensed state"
+      ],
+      "exemptions": [
+        "Wyoming SPDI (Special Purpose Depository Institution) charter provides an alternative to MTL licensing for qualified crypto custodians and asset service providers operating within Wyoming",
+        "Certain state-specific exemptions for blockchain technology providers not engaged in money transmission",
+        "SEC-registered broker-dealers and investment advisers may be exempt from certain state MTL requirements for activities conducted under their federal registration",
+        "OCC-chartered national banks may engage in crypto-asset activities (custody, execution, stablecoin issuance, node verification) under their existing banking licence per IL 1183 and IL 1184, without separate state MTL licensing"
+      ],
+      "practitioner_notes": "The US VASP licensing landscape is widely regarded as the most fragmented among major jurisdictions. Practitioners should assume that a virtual asset business serving US residents must comply with the BSA/MSB registration and a minimum of 1–5 state MTLs (more if actively marketing nationally). New York's BitLicense is structurally the most demanding state-level regime and materially influences national compliance strategies — many firms choose to avoid serving New York residents rather than seek a BitLicense. The NMLS system has improved multi-state efficiency but each state retains its own examination authority, fee schedule, and reporting obligations. OCC-chartered banks have a significant structural advantage following IL 1183 (March 2025) and IL 1184 (May 2025), which confirmed that crypto-asset custody, execution services, stablecoin activities, and node verification are permissible banking activities. Non-bank VASPs should monitor ongoing developments in federal preemption legislation, including the proposed Blockchain Regulatory Certainty Act.",
+      "references": [
+        {
+          "title": "FinCEN — Guidance on Application of FinCEN's Regulations to Virtual Currency Money Services Businesses (May 2019)",
+          "date": "2019-05-09",
+          "url": "https://www.fincen.gov/sites/default/files/2019-05/FinCEN%20Guidance%20CVC%20FINAL%20508.pdf",
+          "type": "regulator-guidance"
+        },
+        {
+          "title": "NYDFS — BitLicense Regulations (23 NYCRR Part 200)",
+          "date": "2015-06-24",
+          "url": "https://www.dfs.ny.gov/legal/regulations/adopted/part200-virtual-currencies",
+          "type": "primary-statute"
+        },
+        {
+          "title": "OCC — Interpretive Letter 1183 (March 7, 2025) — Crypto-asset custody, stablecoin activities, node verification",
+          "date": "2025-03-07",
+          "url": "https://www.occ.gov/topics/charters-and-licensing/interpretations-and-actions/2025/int1183.pdf",
+          "type": "regulator-guidance"
+        },
+        {
+          "title": "OCC — Interpretive Letter 1184 (May 7, 2025) — Crypto-asset custody and execution services, outsourcing",
+          "date": "2025-05-07",
+          "url": "https://www.occ.gov/topics/charters-and-licensing/interpretations-and-actions/2025/int1184.pdf",
+          "type": "regulator-guidance"
+        },
+        {
+          "title": "King & Spalding — OCC Issues Interpretive Letter Permitting Banks to Engage in Additional Crypto Activities (Nov 24, 2025)",
+          "date": "2025-11-24",
+          "url": "https://www.kslaw.com/news-and-insights/occ-issues-interpretive-letter-permitting-banks-to-engage-in-additional-crypto-activities",
+          "type": "industry-media"
+        },
+        {
+          "title": "Polsinelli — US Crypto Regulation: State-by-State Guide",
+          "date": "2025-11-01",
+          "url": "https://www.polsinelli.com/publications/us-crypto-regulation-state-guide",
+          "type": "industry-media"
+        },
+        {
+          "title": "Blockchain Regulatory Certainty Act of 2026 (S. 3611, H.R. 3533, 119th Congress) — proposed, pending",
+          "date": "2026-01-12",
+          "url": "https://www.congress.gov/bill/119th-congress/senate-bill/3611/text",
+          "type": "primary-statute"
+        }
+      ],
+      "last_reviewed": "2026-05-01"
+    },
+    {
+      "jurisdiction": "US",
+      "issue": "cross_border",
+      "status_signal": "conditional",
+      "summary": "The United States applies its regulatory framework extraterritorially to cross-border virtual asset activities. Foreign VASPs that provide services to US residents are subject to FinCEN registration and state-level MTL licensing requirements in any state where US-resident customers are located, regardless of the foreign entity's physical presence. The OFAC sanctions regime imposes extraterritorial obligations: US persons and, in certain cases, foreign entities with US nexus are prohibited from transacting with sanctioned persons, entities, or jurisdictions. As of 2026, OFAC maintains comprehensive embargoes against Cuba, Iran, North Korea (DPRK), and Syria, plus targeted sanctions programs for over 20 additional countries. OFAC has actively designated virtual currency addresses tied to North Korean IT worker networks (March 2026 action) and Russian-linked entities such as the A7A5 token and Grinex exchange (August 2025). The OCC's March 2025 Interpretive Letter 1183 confirmed that national banks may provide crypto-asset custody services, hold private keys, and engage in stablecoin activities and node verification, establishing a compliance pathway for cross-border digital asset custody through the banking system. The Treasury Department through FinCEN has continued to emphasise Travel Rule compliance for all cross-border virtual asset transfers. The OCC's Interpretive Letter 1188 (December 9, 2025) further confirmed that national banks may engage in riskless principal crypto-asset transactions as part of the business of banking.",
+      "key_requirements": [
+        "Foreign VASPs providing services to US residents must register with FinCEN as an MSB and obtain MTLs in each state with US customers",
+        "OFAC sanctions screening required for all cross-border virtual asset transactions; US persons and entities with US nexus must not transact with sanctioned entities or jurisdictions",
+        "Section 311 of the USA PATRIOT Act may be used to designate foreign jurisdictions or financial institutions as 'primary money laundering concerns,' imposing special measures",
+        "Travel Rule compliance for all cross-border virtual asset transfers (FinCEN threshold of $3,000 or equivalent)",
+        "Foreign VASPs that advertise or solicit US customers actively (rather than passive reverse solicitation) extend US regulatory jurisdiction",
+        "Enhanced due diligence for cryptocurrency services operating in Southeast Asia given DPRK IT worker fraud networks identified in OFAC March 2026 actions"
+      ],
+      "exemptions": [
+        "Foreign VASPs that do not actively market services to US residents and whose US-resident customer base arises solely through unsolicited inbound activity may argue reverse solicitation (the scope of this exemption is contested and subject to individual regulatory analysis)",
+        "Foreign VASPs serving only non-US persons and maintaining no US physical presence, US bank accounts, or US-nexus employees may operate outside the US licensing perimeter",
+        "OCC-chartered national banks may provide cross-border crypto-asset custody services under their existing banking licence per IL 1183, without separate state MTL licensing"
+      ],
+      "practitioner_notes": "Cross-border compliance is materially the most complex dimension of the US virtual asset regulatory framework. Foreign VASPs should assume that having any US-resident users creates FinCEN MSB registration obligations and, depending on the state, MTL obligations in multiple states. The NYDFS BitLicense has specific provisions regarding foreign entities that the DFS may treat as operating in New York if they serve New York residents — foreign VASPs should geo-block New York if they cannot comply. OFAC's enforcement posture has materially intensified, with targeted sanctions against virtual currency addresses (DPRK IT workers in March 2026, Russian-linked tokens in August 2025), making sanctions screening a non-delegable operational requirement. The practical effect of the fragmented US framework is that many foreign VASPs choose to block all US users entirely rather than navigate the multi-state compliance landscape. The OCC IL 1183 (March 2025) and IL 1188 (December 2025) have opened meaningful compliance pathways for bank-based cross-border digital asset custody and riskless principal transactions.",
+      "references": [
+        {
+          "title": "FinCEN — Application of FinCEN's Regulations to Persons Administering, Exchanging, or Using Virtual Currencies (2013 Guidance, updated)",
+          "date": "2013-03-18",
+          "url": "https://www.fincen.gov/resources/statutes-regulations/guidance/application-fincens-regulations-persons-administering",
+          "type": "regulator-guidance"
+        },
+        {
+          "title": "OCC — Interpretive Letter 1183 (March 7, 2025) — Crypto-asset custody, stablecoin, node verification",
+          "date": "2025-03-07",
+          "url": "https://www.occ.gov/topics/charters-and-licensing/interpretations-and-actions/2025/int1183.pdf",
+          "type": "regulator-guidance"
+        },
+        {
+          "title": "OCC — Interpretive Letter 1188 (December 9, 2025) — Riskless principal crypto-asset transactions",
+          "date": "2025-12-09",
+          "url": "https://www.occ.gov/topics/charters-and-licensing/interpretations-and-decisions/2025/int1188.pdf",
+          "type": "regulator-guidance"
+        },
+        {
+          "title": "Chainalysis — OFAC Targets DPRK IT Workers Using Crypto (March 12, 2026)",
+          "date": "2026-03-12",
+          "url": "https://www.chainalysis.com/blog/ofac-targets-north-korean-it-workers-crypto-march-2026/",
+          "type": "industry-media"
+        },
+        {
+          "title": "Chainalysis — Crypto Sanctions: 2026 Crypto Crime Report",
+          "date": "2026-04-01",
+          "url": "https://www.chainalysis.com/blog/crypto-sanctions-2026/",
+          "type": "industry-media"
+        },
+        {
+          "title": "Sanctions Lawyers — OFAC Sanctioned Countries List 2026",
+          "date": "2026-04-01",
+          "url": "https://sanctionslawyers.net/blog-en/what-are-the-7-sanctioned-countries/",
+          "type": "industry-media"
+        }
+      ],
+      "last_reviewed": "2026-05-01"
+    },
+    {
+      "jurisdiction": "US",
+      "issue": "retail_access",
+      "status_signal": "open",
+      "summary": "The United States permits retail access to virtual assets through regulated channels, with the regulatory landscape significantly clarified since 2024–2025. Retail investors may purchase and trade digital assets through FinCEN-registered and state-licensed exchanges and broker-dealers. The SEC's approval of 11 spot Bitcoin ETFs (January 10, 2024) and spot Ethereum ETFs (19b-4 approvals on May 23, 2024, with S-1 registration statements effective and trading commencing July 23, 2024) established regulated retail pathways for major cryptocurrencies through traditional brokerage accounts. The GENIUS Act (signed into law July 18, 2025) clarified that qualifying payment stablecoins are not securities for federal securities law purposes, further simplifying retail access to stablecoin products. The OCC's interpretive letter 1183 (March 2025) confirmed that national banks may provide crypto-asset custody services, enabling traditional banks to offer retail digital asset custody directly. The SEC's rescission of SAB 121 (via SAB 122, January 23, 2025) removed a major accounting barrier that had discouraged banks from offering retail crypto custody services. However, the definition of a 'security' under the Howey test remains the subject of ongoing SEC enforcement and litigation for assets beyond Bitcoin and Ethereum, creating classification risk for less established digital assets. Retail investors in the US are subject to standard investor protections including FINRA suitability requirements (for broker-dealers), SIPC insurance (for securities held through SIPC-member broker-dealers), and CFTC protections (for commodities-type digital assets traded on DCMs). The spot Ethereum ETFs were approved with a specific condition prohibiting staking of ETH via the ETFs.",
+      "key_requirements": [
+        "Retail investors may purchase virtual assets through licensed exchanges and broker-dealers subject to KYC/AML obligations",
+        "Spot Bitcoin and Ethereum ETFs are available through standard brokerage accounts, providing regulated retail access points subject to SEC disclosure requirements",
+        "FINRA suitability obligations apply to broker-dealer recommendations of digital assets to retail customers",
+        "State-level licensing obligations for platforms serving retail investors remain applicable in each state where retail customers reside",
+        "Stablecoins issued under the GENIUS Act framework are not securities for federal securities law purposes, clarifying retail tax treatment and compliance obligations",
+        "Credit card purchases and margin trading of digital assets remain subject to individual platform policies and, where applicable, state anti-money transmission limits",
+        "Spot Ethereum ETFs are prohibited from staking ETH, limiting the yield available through regulated ETF products"
+      ],
+      "exemptions": [
+        "Accredited investors qualify for private placement digital asset offerings (Regulation D) with reduced disclosure requirements",
+        "Institutional investors may access a broader range of digital asset products including pre-launch token allocations and structured products not available to retail",
+        "Self-directed IRA providers enable certain indirect digital asset investments through retirement accounts"
+      ],
+      "practitioner_notes": "The US retail access landscape has evolved materially since the 2024–2025 period. The approval of spot crypto ETFs (Bitcoin: January 2024; Ethereum: 19b-4 May 2024, trading July 2024) created regulated retail on-ramps for major cryptocurrencies through existing brokerage infrastructure — structurally the most significant retail access development in the US. The GENIUS Act's non-security classification for qualifying stablecoins (July 2025) removes a long-standing source of legal uncertainty for retail stablecoin access. The SAB 121 rescission (January 2025) and OCC IL 1183 (March 2025) have opened the door for traditional banks to offer retail crypto custody services, potentially broadening retail access beyond crypto-native platforms. The practical position as of Q2 2026 is that US retail investors have materially better regulated access to major digital assets than they did in 2023, but the fragmented state licensing landscape continues to limit the availability of certain crypto-native services (e.g., DeFi front-ends, yield products) that face SEC classification risk. Practitioners should monitor ongoing FIT21 developments, which would establish a dedicated 'digital asset' classification for assets that are neither securities nor commodities, and would materially expand the scope of assets available to US retail investors through regulated channels.",
+      "references": [
+        {
+          "title": "SEC — Statement on the Approval of Spot Bitcoin Exchange-Traded Products (January 10, 2024)",
+          "date": "2024-01-10",
+          "url": "https://www.sec.gov/newsroom/speeches-statements/gensler-statement-spot-bitcoin-011023",
+          "type": "regulator-guidance"
+        },
+        {
+          "title": "SEC — Order Approving Spot Ethereum 19b-4 Proposals (May 23, 2024)",
+          "date": "2024-05-23",
+          "url": "https://www.sec.gov/files/rules/sro/nysearca/2024/34-100224.pdf",
+          "type": "regulator-guidance"
+        },
+        {
+          "title": "GENIUS Act — Stablecoin Non-Security Classification (S. 1582, signed July 18, 2025)",
+          "date": "2025-07-18",
+          "url": "https://www.congress.gov/bill/119th-congress/senate-bill/1582",
+          "type": "primary-statute"
+        },
+        {
+          "title": "SEC — Staff Accounting Bulletin No. 122 (rescinding SAB 121, January 23, 2025)",
+          "date": "2025-01-23",
+          "url": "https://www.sec.gov/rules-regulations/staff-guidance/staff-accounting-bulletins/staff-accounting-bulletin-122",
+          "type": "regulator-guidance"
+        },
+        {
+          "title": "OCC — Interpretive Letter 1183 (March 7, 2025)",
+          "date": "2025-03-07",
+          "url": "https://www.occ.gov/topics/charters-and-licensing/interpretations-and-actions/2025/int1183.pdf",
+          "type": "regulator-guidance"
+        },
+        {
+          "title": "Mayer Brown — SEC Approves Listings of Spot Ether ETFs (September 6, 2024)",
+          "date": "2024-09-06",
+          "url": "https://www.mayerbrown.com/en/insights/publications/2024/05/sec-approves-listings-of-spot-ether-etfs-waiting-is-the-hardest-part",
+          "type": "industry-media"
+        },
+        {
+          "title": "Troutman Pepper Locke — SEC Approves Spot Ether ETFs (May 15, 2025) — confirms 9 S-1 registration statements effective July 23, 2024",
+          "date": "2025-05-15",
+          "url": "https://www.troutman.com/insights/sec-approves-spot-ether-etfs/",
+          "type": "industry-media"
+        }
+      ],
+      "last_reviewed": "2026-05-01"
+    },
+    {
+      "jurisdiction": "EU",
+      "issue": "rwa_issuance",
+      "status_signal": "conditional",
+      "summary": "The European Union regulates tokenized real-world assets through a bifurcated framework depending on whether the token qualifies as a 'financial instrument' under MiFID II (Directive 2014/65/EU). If the tokenized RWA constitutes a transferable security, money market instrument, or other financial instrument under MiFID II, it is excluded from the Markets in Crypto-Assets Regulation (MiCA) and remains subject to the existing EU capital-markets framework: MiFID II (trading venues and intermediaries), the Prospectus Regulation (public offering disclosure), and CSDR (post-trade settlement). If the tokenized RWA does not qualify as a MiFID financial instrument, it falls under MiCA, which became fully applicable on 30 December 2024 (Titles III and IV on asset-referenced tokens and e-money tokens have been effective since 30 June 2024). ESMA published guidelines in March 2025 (ESMA75-453128700-1323) establishing criteria for determining whether a crypto-asset qualifies as a financial instrument. The DLT Pilot Regime (Regulation 2022/858) provides a temporary framework permitting exemptions from certain existing financial services rules for DLT-based market infrastructures, with ESMA recommending in June 2025 that the regime be made permanent. In a significant development, the ECB decided in January 2026 that DLT-based assets issued in CSDs using DLT services will be accepted as eligible Eurosystem collateral from 30 March 2026, integrating tokenized assets into the Eurosystem's monetary policy framework.",
+      "key_requirements": [
+        "Tokenized RWAs qualifying as MiFID II financial instruments (e.g., tokenised shares, bonds, fund units) must comply with the Prospectus Regulation for public offerings, MiFID II for trading venue rules, and CSDR for post-trade settlement",
+        "Tokenized RWAs not qualifying as financial instruments fall under MiCA; issuers must publish a crypto-asset white paper (notified to the competent NCA) before offering to the public or seeking admission to trading",
+        "Asset-referenced tokens (ARTs) pegged to multiple assets or currencies require EBA authorisation and must maintain a 1:1 reserve of assets, with detailed white paper approved by the EBA",
+        "E-money tokens (EMTs) may only be issued by authorised credit institutions (CRR) or electronic money institutions under the E-Money Directive; regulated under MiCA for issuance and redeemability",
+        "The DLT Pilot Regime permits temporary exemptions from MiFID II, CSDR, and other rules for DLT multilateral trading facilities (DLT MTF), DLT settlement systems (DLT SS), and DLT trading and settlement systems (DLT TSS), subject to eligibility thresholds (bonds <EUR 1 billion; shares with market cap <EUR 200 million)",
+        "MiCA white papers must follow mandatory content and format requirements (iXBRL format) effective from 23 December 2025; must be notified to NCAs but are not subject to prior approval for non-ART/EMT tokens",
+        "The MiCA transitional period for existing CASPs operating before full applicability expires on 1 July 2026; after this date, any entity providing crypto-asset services without a MiCA licence is in breach of EU law"
+      ],
+      "exemptions": [
+        "Offers of non-ART/EMT crypto-assets addressed exclusively to fewer than 150 natural or legal persons per Member State are exempt from the white paper requirement",
+        "Offers where total consideration does not exceed EUR 1,000,000 over a 12-month period are exempt from the white paper requirement",
+        "Offers addressed exclusively to qualified investors (as defined under MiFID II) are exempt from the white paper requirement",
+        "The DLT Pilot Regime provides temporary exemptions from specific requirements under MiFID II, CSDR, and MAR for authorised DLT market infrastructures"
+      ],
+      "practitioner_notes": "The threshold question for any tokenised RWA in the EU is whether it constitutes a 'financial instrument' under MiFID II. If it does, MiCA does not apply and the full legacy capital-markets framework applies. ESMA's March 2025 guidelines provide the most current interpretive framework for this classification. If the token derives its value from reserved assets (e.g., a tokenised bond fund), it is more likely an ART under MiCA. If it represents a direct fractional interest in a specific asset (e.g., a tokenised real estate property), the analysis depends on whether that interest confers rights analogous to shares, debt instruments, or units in collective investment undertakings. The DLT Pilot Regime remains the only DLT-specific exemption pathway for tokenised securities, but its eligibility thresholds (EUR 1 billion bonds, EUR 200 million market cap for shares) limit its utility for larger issuers. The ECB's January 2026 decision to accept DLT-based assets as Eurosystem collateral is a structural development that signals growing institutional adoption. Practitioners should monitor the EC's legislative response to ESMA's June 2025 recommendation to make the DLT Pilot Regime permanent.",
+      "references": [
+        {
+          "title": "Markets in Crypto-Assets Regulation (MiCA) — Regulation (EU) 2023/1114 — fully applicable from 30 December 2024",
+          "date": "2024-12-30",
+          "url": "https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/markets-crypto-assets-regulation-mica",
+          "type": "primary-statute"
+        },
+        {
+          "title": "ESMA — Guidelines on Conditions and Criteria for Qualification of Crypto-Assets as Financial Instruments (ESMA75-453128700-1323, March 19, 2025)",
+          "date": "2025-03-19",
+          "url": "https://www.esma.europa.eu/sites/default/files/2025-03/ESMA75453128700-1323_Guidelines_on_the_conditions_and_criteria_for_the_qualification_of_CAs_as_FIs.pdf",
+          "type": "regulator-guidance"
+        },
+        {
+          "title": "DLT Pilot Regime — Regulation (EU) 2022/858",
+          "date": "2023-03-23",
+          "url": "https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/dlt-pilot-regime",
+          "type": "primary-statute"
+        },
+        {
+          "title": "ESMA — Report on DLT Pilot Regime Review (June 25, 2025) — recommends making regime permanent",
+          "date": "2025-06-25",
+          "url": "https://www.esma.europa.eu/sites/default/files/2025-06/ESMA75-117376770-460_Report_on_the_functioning_and_review_of_the_DLTR_-_Art.14.pdf",
+          "type": "regulator-guidance"
+        },
+        {
+          "title": "ECB — Decision to accept DLT-based assets as eligible Eurosystem collateral (January 27, 2026, effective 30 March 2026)",
+          "date": "2026-01-27",
+          "url": "https://www.ecb.europa.eu/press/pr/date/2026/html/ecb.pr260127_1~a946167ce1.en.html",
+          "type": "regulator-guidance"
+        },
+        {
+          "title": "White & Case — MiCA Regulation: New regulatory framework (perpetually updated)",
+          "date": "2025-01-01",
+          "url": "https://www.whitecase.com/insight-alert/mica-regulation-new-regulatory-framework-crypto-assets-issuers-and-crypto-asset",
+          "type": "industry-media"
+        },
+        {
+          "title": "LegalNodes — RWA Tokenization in the EU: Most Suitable Jurisdictions and Regulatory Frameworks (October 29, 2025)",
+          "date": "2025-10-29",
+          "url": "https://www.legalnodes.com/article/rwa-tokenization-in-the-eu-most-suitable-jurisdictions-and-regulatory-frameworks-for-2025-and-beyond",
+          "type": "industry-media"
+        }
+      ],
+      "last_reviewed": "2026-05-01"
+    },
+    {
+      "jurisdiction": "EU",
+      "issue": "stablecoin_issuance",
+      "status_signal": "conditional",
+      "summary": "The issuance of stablecoins in the European Union is comprehensively regulated under the Markets in Crypto-Assets Regulation (MiCA). The provisions governing stablecoins (Title III for Asset-Referenced Tokens and Title IV for E-Money Tokens) entered into application on 30 June 2024. MiCA establishes a strict taxonomy: E-Money Tokens (EMTs) stabilize their value by referencing a single official fiat currency, while Asset-Referenced Tokens (ARTs) reference multiple fiat currencies, commodities, or other crypto-assets. EMTs can only be issued by authorized Credit Institutions or Electronic Money Institutions (EMIs). ART issuers require specific MiCA authorization from a National Competent Authority (NCA) and an approved crypto-asset white paper. Both must maintain fully backed, highly liquid reserves segregated from the issuer's estate. MiCA expressly prohibits issuers and crypto-asset service providers (CASPs) from granting interest on EMTs and ARTs.",
+      "key_requirements": [
+        "EMT issuers must hold an EU Credit Institution or Electronic Money Institution (EMI) license.",
+        "ART issuers must obtain specific authorization from their National Competent Authority (NCA) and publish a comprehensively drafted, approved crypto-asset white paper.",
+        "Issuers must maintain a 1:1 reserve of high-quality, liquid assets. These assets must be segregated, safely kept by a qualified custodian, and fully insulated from the issuer's insolvency.",
+        "Holders of EMTs and ARTs have a permanent, direct right of redemption at par value against the issuer.",
+        "Issuers and CASPs are strictly prohibited from granting interest (yield) to holders of EMTs and ARTs.",
+        "Significant EMTs and ARTs (determined by user base, market cap, and transaction volume) are subject to stricter regulatory requirements, including higher capital buffers, and are supervised directly by the European Banking Authority (EBA)."
+      ],
+      "exemptions": [
+        "ARTs offered exclusively to qualified investors or with an outstanding value of less than €5 million over a 12-month period may benefit from a simplified authorization process.",
+        "Central Bank Digital Currencies (CBDCs) issued by the ECB or national central banks are entirely exempt from MiCA."
+      ],
+      "practitioner_notes": "MiCA has created a stark regulatory moat in the European Economic Area (EEA), forcing global stablecoin issuers to localize their operations and secure appropriate licenses (primarily EMI licenses for USD and EUR-pegged tokens). Major issuers like Circle preemptively secured EMI authorizations (e.g., in France) to ensure their tokens (USDC, EURC) remained compliant. In contrast, non-compliant stablecoins lacking an EU-licensed issuer have faced progressive delisting and restrictions by major exchanges (CASPs) servicing EEA customers. Practitioners structuring stablecoins for the EU market must be acutely aware of the prohibition on interest, which effectively bans native yield-bearing stablecoins. Furthermore, algorithmic stablecoins that do not maintain appropriate reserve assets are functionally prohibited from being offered to the public or admitted to trading as stablecoins under this framework.",
+      "references": [
+        {
+          "title": "Regulation (EU) 2023/1114 (Markets in Crypto-Assets Regulation - MiCA)",
+          "date": "2023-06-09",
+          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32023R1114",
+          "type": "primary-statute"
+        },
+        {
+          "title": "EBA: Regulatory framework for stablecoins under MiCA",
+          "date": "2024-06-13",
+          "url": "https://www.eba.europa.eu/crypto-assets",
+          "type": "regulator-guidance"
+        },
+        {
+          "title": "ESMA: Rules for Asset-Referenced Tokens and E-Money Tokens",
+          "date": "2024-06-30",
+          "url": "https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/markets-crypto-assets-regulation-mica",
+          "type": "regulator-guidance"
+        }
+      ],
+      "last_reviewed": "2026-05-01"
+    },
+    {
+      "jurisdiction": "EU",
+      "issue": "vasp_licensing",
+      "status_signal": "open",
+      "summary": "Under the Markets in Crypto-Assets Regulation (MiCA), the regulatory framework for Crypto-Asset Service Providers (CASPs) entered into application on 30 December 2024. MiCA establishes a unified licensing regime across the EU, replacing fragmented national virtual asset service provider (VASP) registrations. Any entity providing crypto-asset services (such as operating a trading platform, custody, exchange, or portfolio management) to EU residents must be authorized as a CASP by a National Competent Authority (NCA). Once licensed in one Member State, a CASP can 'passport' its services across the entire European Economic Area (EEA) without needing additional localized licenses. The regime imposes stringent requirements on governance, capital reserves, custody of client assets, IT security, and market abuse prevention. A transitional 'grandfathering' clause allows entities already registered under national laws before 30 December 2024 to continue operating until 1 July 2026, or until their MiCA application is granted or refused, subject to individual Member State discretion.",
+      "key_requirements": [
+        "CASPs must be established as a legal entity in the EU, with directors and significant shareholders passing strict fit and proper tests.",
+        "Minimum capital requirements apply depending on the service tier (e.g., €50,000 for order execution or advice, €125,000 for exchange against fiat/other crypto, €150,000 for operating a trading platform or custody).",
+        "Strict segregation of client funds and crypto-assets from the CASP's own estate is mandatory to protect users in the event of insolvency.",
+        "CASPs must implement robust IT risk management and comply with the parallel Digital Operational Resilience Act (DORA), which applies from January 2025.",
+        "Implementation of comprehensive market abuse surveillance and AML/CFT measures, including compliance with the Transfer of Funds Regulation (TFR / EU Travel Rule) which took effect concurrently with CASP rules on 30 December 2024."
+      ],
+      "exemptions": [
+        "Traditional financial institutions (e.g., credit institutions, investment firms under MiFID II, e-money institutions) are partially exempt and can provide crypto-asset services by notifying their NCA, without needing a full new CASP authorization, provided they meet specific MiCA standards.",
+        "Fully decentralized DeFi protocols operating without intermediaries or centralized control do not fall under the CASP definition, though the regulatory perimeter is strictly interpreted.",
+        "The 'reverse solicitation' exemption limits non-EU entities to providing services only at the exclusive, unprompted initiative of an EU client."
+      ],
+      "practitioner_notes": "The shift from light-touch national AML registrations to a comprehensive MiCA CASP license represents a significant compliance uplift, transforming crypto exchanges into fully regulated financial institutions resembling MiFID II firms. While the EEA passporting right is highly attractive for scaling, the licensing bar is high. Practitioners must account for varying grandfathering periods across the EU, as not all Member States chose to implement the maximum 18-month transition (ending July 2026); some countries opted for shorter transitions for existing local VASPs. Furthermore, non-EU exchanges can no longer passively solicit EU customers; ESMA has emphasized that 'reverse solicitation' is construed extremely narrowly, forcing major global exchanges to establish fully capitalized and licensed EU subsidiaries. The simultaneous implementation of DORA and TFR creates a complex operational trilemma for compliance teams.",
+      "references": [
+        {
+          "title": "Regulation (EU) 2023/1114 (Markets in Crypto-Assets Regulation - MiCA) - Title V",
+          "date": "2023-06-09",
+          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32023R1114",
+          "type": "primary-statute"
+        },
+        {
+          "title": "ESMA: MiCA implementation and timeline for CASPs",
+          "date": "2024-12-30",
+          "url": "https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/markets-crypto-assets-regulation-mica",
+          "type": "regulator-guidance"
+        },
+        {
+          "title": "ESMA Guidelines on Reverse Solicitation under MiCA",
+          "date": "2024-01-29",
+          "url": "https://www.esma.europa.eu/press-news/esma-news/esma-consults-reverse-solicitation-and-classification-crypto-assets-under",
+          "type": "regulator-guidance"
+        },
+        {
+          "title": "Regulation (EU) 2023/1113 (Transfer of Funds Regulation - TFR)",
+          "date": "2023-06-09",
+          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32023R1113",
+          "type": "primary-statute"
+        }
+      ],
+      "last_reviewed": "2026-05-01"
+    },
+    {
+      "jurisdiction": "EU",
+      "issue": "cross_border",
+      "status_signal": "restricted",
+      "summary": "The European Union exercises strict extraterritorial jurisdiction over cross-border crypto-asset services targeting EU residents under the Markets in Crypto-Assets Regulation (MiCA). Non-EU (third-country) firms are prohibited from soliciting EU clients or promoting their services within the EU without a full CASP authorization. The only avenue for an unauthorized third-country firm to serve an EU resident is through the 'reverse solicitation' exemption (Article 61 of MiCA), which the European Securities and Markets Authority (ESMA) has interpreted extremely narrowly. Any form of marketing, localized language websites, EU-targeted affiliate campaigns, or proactive communication invalidates this exemption. Additionally, cross-border crypto transfers are subject to the EU Transfer of Funds Regulation (TFR / Travel Rule), requiring CASPs to collect, verify, and transmit originator and beneficiary data for all transfers regardless of the amount. The EU also enforces robust international sanctions, requiring CASPs to block transactions involving sanctioned Russian entities and other designated individuals/jurisdictions, actively mapping crypto wallet addresses to sanctioned entities.",
+      "key_requirements": [
+        "Third-country crypto firms cannot actively solicit or market to EU residents without obtaining a CASP license in an EU Member State.",
+        "EU CASPs facilitating cross-border transfers must fully comply with the TFR (Travel Rule), collecting and transmitting sender and recipient data without any minimum threshold (unlike the FATF's $1,000/$3,000 de minimis).",
+        "Cross-border transfers to/from self-hosted (unhosted) wallets exceeding €1,000 require the CASP to verify the identity of the wallet owner if owned by the CASP's client, or mitigate risks if owned by a third party.",
+        "CASPs must implement robust sanctions screening systems to prevent sanctions evasion (especially regarding Russia/Belarus and terrorist financing), matching wallet addresses against EU consolidated sanction lists.",
+        "Under ESMA's Guidelines, any subsequent offering of new products or services to a client originally acquired via reverse solicitation requires full MiCA authorization."
+      ],
+      "exemptions": [
+        "Reverse Solicitation: A third-country firm may provide crypto services to an EU client if the client initiates the service strictly at their 'own exclusive initiative'. ESMA requires this to be factual and not manufactured via contractual disclaimers."
+      ],
+      "practitioner_notes": "For non-EU exchanges and VASPs, the MiCA framework effectively closes the European market unless they establish a local regulated presence. ESMA's finalized Guidelines on reverse solicitation (issued late 2024) confirm that regulators will take a substance-over-form approach: fine-print disclaimers stating 'this service is not for EU residents' are legally meaningless if the firm runs EU-targeted marketing or partners with EU influencers. Practitioners advising offshore exchanges must recommend geo-blocking EU IP addresses and rejecting EU KYC documents if the firm wishes to remain outside MiCA's scope. Additionally, the EU's implementation of the Travel Rule is among the strictest globally due to the lack of a de minimis threshold; cross-border interactions between EU CASPs and non-EU VASPs (who might not have Travel Rule solutions) present significant operational friction, often resulting in delayed or rejected transactions.",
+      "references": [
+        {
+          "title": "Regulation (EU) 2023/1114 (MiCA) - Article 61 (Provision of crypto-asset services at the exclusive initiative of the client)",
+          "date": "2023-06-09",
+          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32023R1114",
+          "type": "primary-statute"
+        },
+        {
+          "title": "ESMA: Final Report on Guidelines on reverse solicitation under MiCA",
+          "date": "2024-12-17",
+          "url": "https://www.esma.europa.eu/sites/default/files/2024-12/ESMA35-1872330276-1899_-_Final_report_on_GLs_on_reverse_solicitation_under_MiCA.pdf",
+          "type": "regulator-guidance"
+        },
+        {
+          "title": "Regulation (EU) 2023/1113 (Transfer of Funds Regulation - TFR)",
+          "date": "2023-06-09",
+          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32023R1113",
+          "type": "primary-statute"
+        }
+      ],
+      "last_reviewed": "2026-05-01"
+    },
+    {
+      "jurisdiction": "EU",
+      "issue": "retail_access",
+      "status_signal": "conditional",
+      "summary": "Under the Markets in Crypto-Assets Regulation (MiCA), retail access to crypto-assets in the European Union is heavily conditioned on comprehensive disclosure and strict marketing standards designed for consumer protection. The cornerstone of this regime is the 'Crypto-Asset White Paper', which must be published and notified to a National Competent Authority (NCA) before a crypto-asset can be offered to the public or admitted to a trading platform. White papers must be clear, fair, and not misleading, and must include mandatory risk warnings explicitly stating that the crypto-asset is not covered by EU investor compensation or deposit guarantee schemes. Furthermore, all marketing communications targeting retail investors must be clearly identifiable as such, be consistent with the corresponding white paper, and carry prominent standard risk warnings. MiCA grants NCAs and ESMA the power to suspend or prohibit retail offerings or marketing campaigns if they breach these requirements.",
+      "key_requirements": [
+        "A formal Crypto-Asset White Paper must be drafted, notified to the relevant NCA, and published prior to any public offering or admission to trading for retail users.",
+        "The white paper must explicitly contain the warning: 'This crypto-asset white paper has not been approved by any competent authority in any Member State of the European Union.'",
+        "All marketing communications must be clearly identifiable, fair, clear, and not misleading, and must be completely consistent with the information provided in the white paper.",
+        "Marketing materials must feature prominent risk warnings advising retail investors that crypto-assets are highly volatile and that they may lose part or all of their investment.",
+        "Crypto-assets cannot be marketed to retail investors as being 'guaranteed' or implicitly protected by traditional financial safety nets like deposit guarantee schemes (DGS) or investor compensation schemes (ICS).",
+        "Under MiCA Article 14, retail holders are granted specific withdrawal rights allowing them to cancel their purchase agreement within 14 days without incurring fees, under certain conditions."
+      ],
+      "exemptions": [
+        "Offers made exclusively to 'qualified investors' (institutional and professional clients) are exempt from the requirement to publish a white paper.",
+        "Offers of crypto-assets (other than Asset-Referenced Tokens or E-Money Tokens) that fall below a total consideration of €1,000,000 over a period of 12 months are exempt from the white paper requirement.",
+        "Crypto-assets distributed entirely for free (e.g., certain true airdrops without any counter-performance required) do not require a white paper."
+      ],
+      "practitioner_notes": "MiCA significantly raises the barrier to entry for marketing crypto to European retail investors. The 'Crypto-Asset White Paper' under MiCA is no longer a loose marketing brochure; it is a quasi-prospectus carrying statutory liability for the issuer and its management body regarding misleading or missing information. Practitioners must ensure that influencers, affiliates, and social media campaigns used for promotion do not violate MiCA's marketing communication rules, as regulators (NCAs) now have direct authority to halt non-compliant social media campaigns and fine the issuers. Furthermore, the mandatory 14-day retail withdrawal right (cooling-off period) for initial offerings creates unique liquidity and treasury management challenges for issuers during the initial launch phase.",
+      "references": [
+        {
+          "title": "Regulation (EU) 2023/1114 (MiCA) - Title II (Crypto-assets other than asset-referenced tokens or e-money tokens)",
+          "date": "2023-06-09",
+          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32023R1114",
+          "type": "primary-statute"
+        },
+        {
+          "title": "ESMA Guidelines on standard forms, formats and templates for the crypto-asset white paper",
+          "date": "2024-07-01",
+          "url": "https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/markets-crypto-assets-regulation-mica",
+          "type": "regulator-guidance"
+        }
+      ],
+      "last_reviewed": "2026-05-01"
+    }
+  ],
+  "last_updated": "2026-05-01"
+}

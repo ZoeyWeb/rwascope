@@ -1,0 +1,84 @@
+{
+  "version": "1.0.0",
+  "updated_at": "2026-05-20",
+  "disclosures": [
+    {
+      "slug": "blackrock-buidl-nav-2025-q1",
+      "issuer": "BlackRock",
+      "issuer_type": "asset_manager",
+      "doc_type": "nav_report",
+      "title": "BlackRock USD Institutional Digital Liquidity Fund (BUIDL) — NAV Statement Q1 2025",
+      "date": "2025-04-01",
+      "period_covered": "Q1 2025",
+      "summary": "Monthly NAV disclosure for BUIDL, the tokenized money market fund investing in US Treasury bills, cash, and repo agreements. Fund total assets and per-share NAV maintained at $1.00. Distributed across Ethereum, Polygon, Avalanche, Aptos, Arbitrum, Optimism, and Solana.",
+      "source_url": "https://www.blackrock.com/cash/en-us/products/buidl",
+      "asset_classes": ["gov_treasuries"],
+      "rwa_relevant": true
+    },
+    {
+      "slug": "franklin-benji-sec-filing-2025-q1",
+      "issuer": "Franklin Templeton",
+      "issuer_type": "asset_manager",
+      "doc_type": "sec_filing",
+      "title": "Franklin OnChain U.S. Government Money Fund (BENJI) — N-MFP Filing Q1 2025",
+      "date": "2025-04-15",
+      "period_covered": "Q1 2025",
+      "summary": "SEC Form N-MFP monthly portfolio holdings report for the Franklin OnChain U.S. Government Money Fund, a tokenized fund on Stellar and Polygon. Portfolio consists of US government securities and repurchase agreements. Regulatory filing publicly accessible via SEC EDGAR.",
+      "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&company=franklin+onchain",
+      "asset_classes": ["gov_treasuries"],
+      "rwa_relevant": true
+    },
+    {
+      "slug": "ondo-usdy-attestation-2025-q1",
+      "issuer": "Ondo Finance",
+      "issuer_type": "defi_protocol",
+      "doc_type": "attestation",
+      "title": "Ondo USD Yield (USDY) — Reserve Attestation Q1 2025",
+      "date": "2025-04-10",
+      "period_covered": "Q1 2025",
+      "summary": "Third-party attestation of USDY reserve composition, confirming backing by short-term US Treasury bills and bank demand deposits. Attestation conducted by Withum Smith+Brown. Reserve value confirmed to exceed total USDY supply outstanding.",
+      "source_url": "https://ondo.finance/usdy",
+      "asset_classes": ["gov_treasuries"],
+      "rwa_relevant": true
+    },
+    {
+      "slug": "paxos-paxg-attestation-2025-q1",
+      "issuer": "Paxos",
+      "issuer_type": "stablecoin_issuer",
+      "doc_type": "attestation",
+      "title": "PAX Gold (PAXG) — Monthly Attestation March 2025",
+      "date": "2025-04-01",
+      "period_covered": "March 2025",
+      "summary": "Monthly attestation confirming each PAXG token is backed by one fine troy ounce of a 400 oz London Good Delivery gold bar held in Brink's vaults in London. Total PAXG supply and corresponding physical gold ounces confirmed by Withum.",
+      "source_url": "https://paxos.com/paxgold/",
+      "asset_classes": ["commodities"],
+      "rwa_relevant": true
+    },
+    {
+      "slug": "wisdomtree-wtgxx-disclosure-2025-q1",
+      "issuer": "WisdomTree",
+      "issuer_type": "asset_manager",
+      "doc_type": "prospectus_update",
+      "title": "WisdomTree Short-Term Treasury Digital Fund (WTGXX) — Prospectus Supplement Q1 2025",
+      "date": "2025-03-20",
+      "period_covered": "Q1 2025",
+      "summary": "Prospectus supplement for WTGXX, a tokenized short-term US Treasury fund on Stellar blockchain. Supplement covers fund composition, regulatory classification under the Investment Company Act, and operational procedures for token redemption via WisdomTree Prime app.",
+      "source_url": "https://www.wisdomtree.com/investments/etfs/fixed-income/wtgxx",
+      "asset_classes": ["gov_treasuries"],
+      "rwa_relevant": true
+    },
+    {
+      "slug": "hsbc-hk-digital-bond-2024",
+      "issuer": "HKSAR Government / HSBC",
+      "issuer_type": "sovereign",
+      "doc_type": "issuance_document",
+      "title": "HKSAR Digital Green Bond — Final Terms and Settlement Confirmation 2024",
+      "date": "2024-02-20",
+      "period_covered": "2024 Issuance",
+      "summary": "Final terms for the second tranche of the HKSAR Government tokenized green bond, issued on Goldman Sachs's GS DAP platform. HKD 6 billion issuance, 2-year maturity. First multi-currency tokenized government bond globally, settling in HKD, USD, EUR, and RMB simultaneously via atomic settlement.",
+      "source_url": "https://www.hkma.gov.hk/eng/news-and-media/press-releases/2024/02/20240220-3/",
+      "asset_classes": ["gov_bonds"],
+      "rwa_relevant": true
+    }
+  ]
+}

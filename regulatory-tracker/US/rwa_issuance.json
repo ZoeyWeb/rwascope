@@ -1,0 +1,54 @@
+{
+  "jurisdiction": "US",
+  "issue": "rwa_issuance",
+  "status_signal": "conditional",
+  "summary": "The United States regulates tokenized real-world assets through existing securities laws administered by the SEC and CFTC, depending on the asset's classification. Tokenized securities (e.g., tokenized equities, bonds, funds) are generally regulated under the Securities Act of 1933 and the Securities Exchange Act of 1934, requiring SEC registration or an available exemption (Regulation D for accredited investors, Regulation A+ for retail offerings up to $75 million, Regulation S for offshore offers). Tokenized commodities (e.g., tokenized gold, oil) fall under CFTC jurisdiction and require DCM registration for trading platforms. The SEC's Staff Accounting Bulletin 121 (SAB 121, issued March 2022) previously required entities safeguarding crypto assets to record them as balance sheet liabilities; the SEC issued SAB 122 on January 23, 2025 to rescind SAB 121, removing a significant barrier to bank participation in digital asset custody and tokenization, effective on a fully retrospective basis for annual periods beginning after December 15, 2024, with early adoption permitted. The Financial Innovation and Technology for the 21st Century Act (FIT21, passed by the House in May 2024 as H.R. 4763, 118th Congress) would establish a comprehensive digital asset framework clarifying SEC vs. CFTC jurisdiction, but has not been enacted into law as of Q1 2026. The regulatory patchwork means the legal characterisation of any given tokenized RWA depends on its specific economic features and marketing context.",
+  "key_requirements": [
+    "Tokenized securities must be registered with the SEC under the Securities Act of 1933 unless an exemption applies",
+    "Common exemptions include Regulation D (accredited investors only, no general solicitation unless Rule 506(c)), Regulation A+ (retail offerings up to $75 million), and Regulation S (offshore offers)",
+    "Tokenized commodities fall under CFTC jurisdiction; trading platforms must register as DCMs or operate as exempt DCMs",
+    "Tokenized asset trading platforms may be required to register as Alternative Trading Systems (ATS) under Regulation ATS or as national securities exchanges",
+    "Custody of tokenized assets by registered investment advisers must comply with the SEC's Custody Rule (Rule 206(4)-2 under the Investment Advisers Act) and state-level trust requirements",
+    "Issuers must comply with applicable state-level money transmitter laws and the federal Bank Secrecy Act (BSA) for AML/CFT compliance"
+  ],
+  "exemptions": [
+    "Regulation D Rule 506(b) and 506(c) exemptions for private placements to accredited investors with no general solicitation (506(b)) or with general solicitation and verification (506(c))",
+    "Regulation S exemption for offers and sales made outside the United States to non-US persons",
+    "Regulation A+ Tier 2 exemption for offerings up to $75 million with ongoing reporting obligations",
+    "Intrastate offering exemptions under Rule 147 and Rule 147A for offers limited to a single state"
+  ],
+  "practitioner_notes": "The US regulatory landscape for tokenized RWA remains fragmented and jurisdiction-dependent. Issuers should assume that a tokenized security is an 'investment contract' under the Howey test unless structured to clearly avoid this classification (e.g., tokenized commodities with no profit-sharing from issuer efforts). The SAB 121 rescission via SAB 122 (January 2025) is a significant positive development for bank participation in tokenized asset custody. SEC enforcement action against tokenization platforms has been driven by allegations of unregistered securities offerings rather than regulatory hostility to tokenization per se. Issuers are strongly advised to engage legal counsel experienced in both securities law and digital assets, and to conduct a federal-state licensing analysis for each state in which retail investors will be offered tokenized assets. New York's BitLicense requirement presents a specific additional hurdle for platforms serving New York residents.",
+  "references": [
+    {
+      "title": "SEC v. W.J. Howey Co., 328 U.S. 293 (1946)",
+      "date": "1946",
+      "url": "https://supreme.justia.com/cases/federal/us/328/293/",
+      "type": "court-ruling"
+    },
+    {
+      "title": "SEC \u2014 Framework for 'Investment Contract' Analysis of Digital Assets (April 2019)",
+      "date": "2019-04-03",
+      "url": "https://www.sec.gov/corpfin/framework-investment-contract-analysis-digital-assets",
+      "type": "regulator-guidance"
+    },
+    {
+      "title": "SEC \u2014 Staff Accounting Bulletin No. 122 (SAB 122, rescinding SAB 121, January 23, 2025)",
+      "date": "2025-01-23",
+      "url": "https://www.sec.gov/rules-regulations/staff-guidance/staff-accounting-bulletins/staff-accounting-bulletin-122",
+      "type": "regulator-guidance"
+    },
+    {
+      "title": "SEC \u2014 Statement on Tokenized Securities (January 28, 2026) \u2014 format does not affect application of federal securities laws",
+      "date": "2026-01-28",
+      "url": "https://www.sec.gov/newsroom/speeches-statements/corp-fin-statement-tokenized-securities-012826",
+      "type": "regulator-guidance"
+    },
+    {
+      "title": "FIT21 Act \u2014 Financial Innovation and Technology for the 21st Century Act (H.R. 4763, House-passed May 22, 2024)",
+      "date": "2024-05-22",
+      "url": "https://www.congress.gov/bill/118th-congress/house-bill/4763",
+      "type": "primary-statute"
+    }
+  ],
+  "last_reviewed": "2026-05-01"
+}

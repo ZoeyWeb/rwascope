@@ -1,0 +1,129 @@
+{
+  "version": "1.0.0",
+  "updated_at": "2026-05-20",
+  "stablecoins": [
+    {
+      "slug": "usdc",
+      "name": "USDC",
+      "issuer": "Circle",
+      "peg": "USD",
+      "reserve_categories": ["cash_and_equivalents", "short_duration_us_treasuries"],
+      "attester": "Deloitte",
+      "snapshots": [
+        {
+          "asof_date": "2024-12-31",
+          "total_supply_usd": 44600000000,
+          "attestation_url": "https://www.circle.com/hubfs/usdc-transparency/Circle-Examination-Report-December-2024.pdf",
+          "reserves": [
+            { "category": "cash_and_equivalents", "pct": 18, "usd": 8028000000 },
+            { "category": "short_duration_us_treasuries", "pct": 82, "usd": 36572000000 }
+          ]
+        },
+        {
+          "asof_date": "2025-01-31",
+          "total_supply_usd": 47200000000,
+          "attestation_url": "https://www.circle.com/hubfs/usdc-transparency/Circle-Examination-Report-January-2025.pdf",
+          "reserves": [
+            { "category": "cash_and_equivalents", "pct": 16, "usd": 7552000000 },
+            { "category": "short_duration_us_treasuries", "pct": 84, "usd": 39648000000 }
+          ]
+        },
+        {
+          "asof_date": "2025-02-28",
+          "total_supply_usd": 52100000000,
+          "attestation_url": "https://www.circle.com/hubfs/usdc-transparency/Circle-Examination-Report-February-2025.pdf",
+          "reserves": [
+            { "category": "cash_and_equivalents", "pct": 15, "usd": 7815000000 },
+            { "category": "short_duration_us_treasuries", "pct": 85, "usd": 44285000000 }
+          ]
+        },
+        {
+          "asof_date": "2025-03-31",
+          "total_supply_usd": 58900000000,
+          "attestation_url": "https://www.circle.com/hubfs/usdc-transparency/Circle-Examination-Report-March-2025.pdf",
+          "reserves": [
+            { "category": "cash_and_equivalents", "pct": 14, "usd": 8246000000 },
+            { "category": "short_duration_us_treasuries", "pct": 86, "usd": 50654000000 }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "usdt",
+      "name": "USDT",
+      "issuer": "Tether",
+      "peg": "USD",
+      "reserve_categories": ["us_treasuries", "cash_and_bank_deposits", "secured_loans", "corporate_bonds", "precious_metals", "other"],
+      "attester": "BDO Italia",
+      "snapshots": [
+        {
+          "asof_date": "2024-09-30",
+          "total_supply_usd": 119800000000,
+          "attestation_url": "https://tether.to/en/transparency/",
+          "reserves": [
+            { "category": "us_treasuries", "pct": 83, "usd": 99334000000 },
+            { "category": "cash_and_bank_deposits", "pct": 7, "usd": 8386000000 },
+            { "category": "secured_loans", "pct": 4, "usd": 4792000000 },
+            { "category": "corporate_bonds", "pct": 1, "usd": 1198000000 },
+            { "category": "precious_metals", "pct": 4, "usd": 4792000000 },
+            { "category": "other", "pct": 1, "usd": 1198000000 }
+          ]
+        },
+        {
+          "asof_date": "2024-12-31",
+          "total_supply_usd": 137500000000,
+          "attestation_url": "https://tether.to/en/transparency/",
+          "reserves": [
+            { "category": "us_treasuries", "pct": 84, "usd": 115500000000 },
+            { "category": "cash_and_bank_deposits", "pct": 6, "usd": 8250000000 },
+            { "category": "secured_loans", "pct": 4, "usd": 5500000000 },
+            { "category": "corporate_bonds", "pct": 1, "usd": 1375000000 },
+            { "category": "precious_metals", "pct": 4, "usd": 5500000000 },
+            { "category": "other", "pct": 1, "usd": 1375000000 }
+          ]
+        },
+        {
+          "asof_date": "2025-03-31",
+          "total_supply_usd": 143600000000,
+          "attestation_url": "https://tether.to/en/transparency/",
+          "reserves": [
+            { "category": "us_treasuries", "pct": 85, "usd": 122060000000 },
+            { "category": "cash_and_bank_deposits", "pct": 6, "usd": 8616000000 },
+            { "category": "secured_loans", "pct": 3, "usd": 4308000000 },
+            { "category": "corporate_bonds", "pct": 1, "usd": 1436000000 },
+            { "category": "precious_metals", "pct": 4, "usd": 5744000000 },
+            { "category": "other", "pct": 1, "usd": 1436000000 }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "usdy",
+      "name": "USDY",
+      "issuer": "Ondo Finance",
+      "peg": "USD",
+      "reserve_categories": ["short_term_us_treasuries", "bank_demand_deposits"],
+      "attester": "Withum",
+      "snapshots": [
+        {
+          "asof_date": "2024-12-31",
+          "total_supply_usd": 520000000,
+          "attestation_url": "https://ondo.finance/usdy",
+          "reserves": [
+            { "category": "short_term_us_treasuries", "pct": 88, "usd": 457600000 },
+            { "category": "bank_demand_deposits", "pct": 12, "usd": 62400000 }
+          ]
+        },
+        {
+          "asof_date": "2025-03-31",
+          "total_supply_usd": 680000000,
+          "attestation_url": "https://ondo.finance/usdy",
+          "reserves": [
+            { "category": "short_term_us_treasuries", "pct": 89, "usd": 605200000 },
+            { "category": "bank_demand_deposits", "pct": 11, "usd": 74800000 }
+          ]
+        }
+      ]
+    }
+  ]
+}

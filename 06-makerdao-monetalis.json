@@ -1,0 +1,81 @@
+{
+  "slug": "makerdao-rwa-monetalis",
+  "name": "MakerDAO RWA Vaults (Monetalis)",
+  "short_name": "Maker Monetalis",
+  "website": "https://makerdao.com",
+  "asset_class": "gov_bond",
+  "jurisdiction": "Cayman Islands (Monetalis Clydesdale)",
+  "chain": "Ethereum",
+  "status": "active",
+  "launched_at": "2022-10-26",
+  "tvl_usd": 1100000000,
+  "peak_tvl_usd": 1250000000,
+  "peak_tvl_date": "2023-09-01",
+  "entity_map": {
+    "issuer":        { "name": "MakerDAO (DAI issuance); Monetalis Clydesdale (RWA SPV)", "type": "DAO + Cayman SPV", "url": "https://makerdao.com" },
+    "custodian":     { "name": "Coinbase Prime, Sygnum Bank (cash); BlackRock ICS, Matrixport (Treasuries)", "type": "Mixed institutional custody" },
+    "chain_infra":   { "name": "Ethereum mainnet (MakerDAO core); off-chain SPV", "type": "Hybrid on/off-chain" },
+    "oracle":        { "name": "MakerDAO oracle (DAI peg); no on-chain RWA NAV oracle", "type": "Self-managed feed" },
+    "law_firm":      { "name": "Walkers (Cayman); BCLP (UK)", "type": "SPV counsel" },
+    "auditor":       { "name": "Ankura Trust (administrator); no Big Four audit of SPV", "type": "Administrator-level" },
+    "regulator":     { "name": "Cayman Islands Monetary Authority (SPV); no securities regulator oversight of DAI itself", "type": "Limited oversight" },
+    "token_standard": "ERC-20 (DAI)"
+  },
+  "asset_slug": "dai-makerdao",
+  "summary": "MakerDAO's largest RWA allocation: $1.1B+ in short-dated US Treasuries via Monetalis Clydesdale SPV. Generated >50% of MakerDAO protocol revenue in 2023-2024. Source of major governance controversy: critics including former MakerDAO contributors and security researchers alleged limited transparency on SPV operations, conflicts of interest in Monetalis founder Allan Pedersen's prior relationships, and inadequate audit rights for MKR holders. Not a failure — included as governance lesson for RWA-DeFi integration.",
+  "sources": [
+    {"title": "MakerDAO MIP65: Monetalis Clydesdale governance proposal", "url": "https://forum.makerdao.com/t/mip65-monetalis-clydesdale-proposal/17834"},
+    {"title": "Block Analitica: Monetalis transparency analysis", "url": "https://blockanalitica.com/makerdao/rwa"}
+  ],
+  "updated_at": "2026-05-19",
+
+  "underlying_asset": "Short-dated US Treasuries (1-3 month T-bills primarily); minor cash holdings for liquidity. Held by Monetalis Clydesdale, a Cayman SPV established specifically for MakerDAO Treasury exposure.",
+  "reserve_composition": "~95% short-dated US Treasuries via BlackRock ICS money market fund; ~5% cash buffer at Coinbase Prime and Sygnum Bank for operational liquidity and rebalancing.",
+  "secondary_market": "N/A at SPV level — MKR holders have indirect economic exposure via DAI Savings Rate (DSR). DAI itself trades on all major DEXs and CEXs with deep liquidity.",
+  "min_investment_usd": 0,
+  "smart_contract_audit": {
+    "auditor": "ChainSecurity (DSS-Allocator); RWA SPV not audited at smart contract level",
+    "date": "2022-10",
+    "report_url": ""
+  },
+  "oracle_provider": "MakerDAO oracle reports DAI/USD; SPV NAV reported monthly via off-chain attestation. No real-time on-chain NAV oracle for RWA holdings.",
+  "redemption_mechanism": "MKR holders cannot directly redeem from SPV — must vote via governance to unwind. SPV redeems from BlackRock ICS T+0/T+1; cash returned to MakerDAO via wire and converted to USDC/DAI on-chain.",
+  "upgrade_authority": "MKR holder governance via on-chain voting. Material SPV decisions (asset rebalance, custodian change) require MIP-process governance vote with 7-day delay.",
+
+  "timeline": [
+    {"date": "2022-10-26", "event": "MIP65 Monetalis Clydesdale approved by MakerDAO governance", "type": "milestone"},
+    {"date": "2023-03-22", "event": "Allocation increased from $500M to $1.25B; controversy on speed of vote", "type": "milestone"},
+    {"date": "2023-06-01", "event": "Block Analitica publishes transparency analysis questioning SPV reporting", "type": "incident"},
+    {"date": "2023-09-15", "event": "MakerDAO Endgame plan announced; RWA strategy formalized", "type": "milestone"},
+    {"date": "2024-08-27", "event": "MakerDAO rebrands to Sky Protocol; DAI continues alongside USDS", "type": "milestone"},
+    {"date": "2025-02-01", "event": "Sky Protocol publishes enhanced RWA disclosure framework in response to critiques", "type": "regulatory"}
+  ],
+
+  "risk_flags": ["governance_concentration", "limited_transparency"],
+
+  "lessons_visibility": "both",
+
+  "postmortem": {
+    "incident_date": "2023-06-01",
+    "root_cause": "MakerDAO's RWA expansion outpaced its governance and disclosure infrastructure. Monetalis Clydesdale SPV held the largest single concentration of DAI backing ($1.25B at peak) under a structure where: SPV operator (Monetalis) had material control over asset selection within mandate; MKR governance approved high-level mandate but lacked real-time visibility into SPV decisions; no Big Four audit of the SPV (administrator-level attestation only); founder Allan Pedersen's prior advisory relationship with MakerDAO created perceived conflict of interest. The 'failure' here is governance opacity, not asset failure — Treasuries themselves performed as expected.",
+    "what_failed": [
+      {
+        "layer": "L6",
+        "layer_name": "Governance",
+        "issue": "Decision authority concentrated in Monetalis operator with limited MKR holder oversight. Material SPV changes governed by MIP process with 7-day delay, but day-to-day operations opaque. Conflicts of interest disclosed but not structurally mitigated."
+      },
+      {
+        "layer": "L1",
+        "layer_name": "Legal Foundation",
+        "issue": "Cayman SPV structure provides asset isolation but limited recourse for MKR holders. No clear fiduciary duty from Monetalis to MKR token holders established under Cayman law. Bankruptcy-remoteness untested."
+      },
+      {
+        "layer": "L3",
+        "layer_name": "Counterparty",
+        "issue": "Single-operator concentration (Monetalis) for $1.25B exposure. Administrator-level attestation (Ankura Trust) rather than Big Four audit. Custodian diversification adequate but operator diversification absent."
+      }
+    ],
+    "outcome": "No financial losses; assets performed as expected. Reputational and governance critique catalyzed Sky Protocol's enhanced disclosure framework (February 2025) and contributed to MakerDAO Endgame restructuring. Used as case study in MAS Project Guardian working papers on DeFi-RWA governance integration.",
+    "rarm_lesson": "Monetalis illustrates that asset-level RARM scoring is insufficient for hybrid DeFi-RWA structures. RARM AFI must evaluate the full chain: token holder → DAO governance → off-chain operator → SPV → custodian → underlying asset. Each link is a potential failure point. L6 Governance scoring for DeFi-RWA structures should require: (1) independent operator audit, not just administrator attestation; (2) real-time NAV oracle, not monthly attestation; (3) structural conflict-of-interest mitigation, not disclosure alone; (4) MKR-equivalent holder fiduciary duty established in operating jurisdiction. Without these, L6 falls below threshold and downstream L2-L5 scoring cannot compensate."
+  }
+}

@@ -1,0 +1,122 @@
+{
+  "slug": "maple-finance",
+  "name": "Maple Finance",
+  "short_name": "Maple",
+  "website": "https://maple.finance",
+  "asset_class": "private_credit",
+  "jurisdiction": "Cayman Islands (Maple Labs)",
+  "chain": "Ethereum, Solana, Base",
+  "status": "active",
+  "launched_at": "2021-05-25",
+  "tvl_usd": 800000000,
+  "entity_map": {
+    "issuer": {
+      "name": "Maple Finance (Maple Labs)",
+      "type": "Cayman entity",
+      "url": "https://maple.finance"
+    },
+    "custodian": {
+      "name": "Pool delegates manage on-chain treasury; off-chain assets via institutional custody",
+      "type": "Hybrid"
+    },
+    "chain_infra": {
+      "name": "Ethereum, Solana, Base",
+      "type": "Multi-chain L1/L2"
+    },
+    "oracle": {
+      "name": "Maple platform reports loan status; no third-party oracle",
+      "type": "Platform-reported"
+    },
+    "law_firm": {
+      "name": "",
+      "type": ""
+    },
+    "auditor": {
+      "name": "Smart contract audits by Code4rena, Spearbit",
+      "type": "Smart contract"
+    },
+    "regulator": {
+      "name": "None directly; pool delegates may be regulated entities (e.g., AQRU, Cicada)",
+      "type": "Indirect"
+    },
+    "token_standard": "ERC-20 (lending pool LP tokens)"
+  },
+  "asset_slug": "",
+  "summary": "Institutional on-chain credit marketplace. Pool delegates (regulated underwriters) originate loans to vetted institutional borrowers, financed by lender pools. Notable 2022 stress: ~$36M write-downs across pools when Orthogonal Trading and Auros defaulted following FTX collapse. Maple responded with Maple V2 (overcollateralized lending, syrupUSDC/USDT structures) and stricter underwriting. Today operates as Syrup (DeFi lending) + Maple Institutional (off-chain credit). Important case study for tokenized private credit's evolution from 'undercollateralized DeFi loans' to 'structured institutional credit'.",
+  "sources": [
+    {
+      "title": "Maple Finance documentation",
+      "url": "https://maplefinance.gitbook.io/maple"
+    },
+    {
+      "title": "Bloomberg: Maple Finance pool defaults after FTX collapse (December 2022)",
+      "url": "https://www.bloomberg.com/news/articles/2022-12-05/maple-pool-default-orthogonal"
+    },
+    {
+      "title": "Maple V2 launch announcement",
+      "url": "https://maple.finance/news/maple-v2-introducing-syrup"
+    }
+  ],
+  "updated_at": "2026-05-19",
+  "underlying_asset": "Syrup (DeFi overcollateralized loans to crypto-native institutions); Maple Institutional (off-chain receivables, treasury bills, structured credit).",
+  "reserve_composition": "Per-pool basis: each pool holds specific loan portfolio managed by pool delegate. Lenders earn proportional yield; defaults absorbed by junior tranches first.",
+  "secondary_market": "Pool LP tokens transferable on-chain; syrupUSDC integrated with Pendle, Spectra for yield strategies.",
+  "min_investment_usd": 0,
+  "smart_contract_audit": {
+    "auditor": "Code4rena, Spearbit",
+    "date": "2022-2024",
+    "report_url": ""
+  },
+  "oracle_provider": "Maple platform reports loan status and pool NAV; relies on pool delegate attestation.",
+  "redemption_mechanism": "LP tokens redeemable subject to pool liquidity (typically 30-90 day withdrawal windows).",
+  "upgrade_authority": "Maple Labs multisig + MPL governance token holders.",
+  "timeline": [
+    {
+      "date": "2021-05-25",
+      "event": "Maple Finance V1 launched on Ethereum",
+      "type": "milestone"
+    },
+    {
+      "date": "2022-12-05",
+      "event": "Orthogonal Trading default ~$31M (FTX exposure)",
+      "type": "incident"
+    },
+    {
+      "date": "2023-04-01",
+      "event": "Maple V2 launched with overcollateralized lending",
+      "type": "milestone"
+    },
+    {
+      "date": "2024-04-01",
+      "event": "Solana expansion; syrupUSDC reaches $200M+ TVL",
+      "type": "milestone"
+    }
+  ],
+  "risk_flags": [
+    "historical_pool_defaults"
+  ],
+  "lessons_visibility": "both",
+  "postmortem": {
+    "incident_date": "2022-12-05",
+    "root_cause": "Maple V1 used undercollateralized lending: pool delegates underwrote crypto-native institutions (market makers, prop trading firms) based on KYC and creditworthiness, not collateral. Following FTX collapse in November 2022, Orthogonal Trading (a Maple pool delegate AND borrower) concealed FTX exposure losses while continuing to draw from pools it managed. Auros also defaulted due to FTX losses. Cumulative ~$36M write-downs across pools.",
+    "what_failed": [
+      {
+        "layer": "L3",
+        "layer_name": "Counterparty",
+        "issue": "Same entity (Orthogonal) served as pool delegate (underwriter) and borrower — fundamental conflict of interest. KYC-based credit underwriting could not detect concealed exposure to FTX."
+      },
+      {
+        "layer": "L2",
+        "layer_name": "Asset Quality",
+        "issue": "Undercollateralized loans to crypto-native firms; concentration in entities with FTX exposure. No diversification across uncorrelated counterparties."
+      },
+      {
+        "layer": "L6",
+        "layer_name": "Governance",
+        "issue": "No protocol-level circuit breaker for delegate-conflict situations; default declaration controlled by pool delegate."
+      }
+    ],
+    "outcome": "~$36M write-downs across affected pools (Orthogonal, Auros). Maple subsequently launched V2 with overcollateralized lending (Syrup) and stricter delegate separation. Demonstrates the institutional private-credit lesson: vertical integration of underwriting and borrowing without independent verification creates structural fragility.",
+    "rarm_lesson": "Maple V1 → V2 transition is a positive case for RARM AFI temporal scoring: same protocol, materially improved L3 architecture (separation of underwriter from borrower, overcollateralization). RARM AFI for tokenized credit should require: (1) independent verification of pool delegate exposure; (2) overcollateralization or independent insurance for undercollateralized exposure; (3) protocol-level default declaration not controlled by interested parties. V1 fell below L3 threshold; V2 architecturally addresses these constraints."
+  }
+}

@@ -1,0 +1,114 @@
+{
+  "slug": "drex-brazil",
+  "name": "Drex (Brazilian Wholesale Tokenization Platform)",
+  "short_name": "Drex",
+  "website": "https://www.bcb.gov.br/en/financialstability/drex_en",
+  "asset_class": "infrastructure",
+  "jurisdiction": "Brazil",
+  "chain": "Originally Hyperledger Besu (pivoted to centralized architecture in 2025)",
+  "status": "pilot",
+  "launched_at": "2023-03-01",
+  "tvl_usd": 0,
+  "entity_map": {
+    "issuer": {
+      "name": "Banco Central do Brasil (BCB)",
+      "type": "Central bank",
+      "url": "https://www.bcb.gov.br"
+    },
+    "custodian": {
+      "name": "",
+      "type": ""
+    },
+    "chain_infra": {
+      "name": "Originally permissioned Hyperledger Besu; pivoting to centralized layer with tokenization on top (2025)",
+      "type": "Architecture under revision"
+    },
+    "oracle": {
+      "name": "",
+      "type": ""
+    },
+    "law_firm": {
+      "name": "",
+      "type": ""
+    },
+    "auditor": {
+      "name": "",
+      "type": ""
+    },
+    "regulator": {
+      "name": "Banco Central do Brasil; CVM (securities)",
+      "type": "Central bank + securities"
+    },
+    "token_standard": "Permissioned token (architecture pivoting)"
+  },
+  "asset_slug": "",
+  "summary": "Brazil's central bank tokenization platform, originally framed as 'Digital Real CBDC' with 16+ industry participants (Visa, Santander, Mastercard, Microsoft, etc.) testing tokenized deposit + government bond use cases. Major pivot announced 2025: BCB acknowledged blockchain privacy could not meet LGPD requirements at acceptable throughput (under 10 TPS with privacy vs 300+ TPS without). Phase 3 (announced June 2025) refocuses on tokenized credit, guarantees, and lien reconciliation — explicitly de-emphasizing retail CBDC and public blockchain. Important case study in central bank tokenization grappling with privacy-vs-programmability tradeoffs.",
+  "sources": [
+    {
+      "title": "BCB Drex official page",
+      "url": "https://www.bcb.gov.br/en/financialstability/drex_en"
+    },
+    {
+      "title": "Ledger Insights: Drex pilot phase 1 report (February 2025)",
+      "url": "https://www.ledgerinsights.com/drex-privacy/"
+    },
+    {
+      "title": "Drex pivot to tokenization platform (August 2025)",
+      "url": "https://news.bitcoin.com/brazilian-drex-cbdc-drops-blockchain-to-launch-next-year/"
+    },
+    {
+      "title": "Human Rights Foundation CBDC Tracker: Brazil (March 2026 update)",
+      "url": "https://cbdctracker.hrf.org/currency/brazil"
+    }
+  ],
+  "updated_at": "2026-05-19",
+  "underlying_asset": "Phase 1-2: Brazilian government bonds (LTN), tokenized commercial bank deposits, wholesale CBDC. Phase 3 onward: credit collateral and lien reconciliation focus.",
+  "reserve_composition": "Per use case; wholesale CBDC is direct BCB liability.",
+  "secondary_market": "Permissioned pilot only.",
+  "min_investment_usd": 0,
+  "smart_contract_audit": {
+    "auditor": "BCB internal + consortium",
+    "date": "2023-2025",
+    "report_url": ""
+  },
+  "oracle_provider": "N/A in pilot.",
+  "redemption_mechanism": "Per use case.",
+  "upgrade_authority": "Banco Central do Brasil.",
+  "timeline": [
+    {
+      "date": "2023-03-01",
+      "event": "Drex Pilot Phase 1 launched (originally branded as Digital Real CBDC)",
+      "type": "milestone"
+    },
+    {
+      "date": "2024-Q4",
+      "event": "Phase 2 launched with 16+ participants and expanded use cases",
+      "type": "milestone"
+    },
+    {
+      "date": "2025-02-01",
+      "event": "BCB publishes Phase 1 report flagging privacy and scaling challenges",
+      "type": "incident"
+    },
+    {
+      "date": "2025-06-01",
+      "event": "BCB pivots: Phase 3 refocuses on tokenized credit collateral, drops public-facing retail CBDC",
+      "type": "regulatory"
+    },
+    {
+      "date": "2025-08-01",
+      "event": "BCB acknowledges Drex 'is not exactly a CBDC' in traditional sense",
+      "type": "regulatory"
+    },
+    {
+      "date": "2026-03-01",
+      "event": "BCB official Fraga: 'we don't need a retail CBDC' — Drex repositioned as wholesale tokenization platform",
+      "type": "regulatory"
+    }
+  ],
+  "risk_flags": [
+    "scope_change",
+    "privacy_constraints"
+  ],
+  "lessons_visibility": "active_only"
+}

@@ -1,0 +1,528 @@
+{
+  "version": "1.1.0",
+  "updated_at": "2026-05-20",
+  "terms": [
+    {
+      "slug": "rwa",
+      "term": "Real-World Asset (RWA)",
+      "short": "A financial claim on a physical or off-chain asset represented as a blockchain token.",
+      "definition": "A real-world asset (RWA) is a financial claim on a physical or off-chain instrument — such as a government bond, real estate title, commodity, or private credit facility — that has been tokenized and recorded on a blockchain. The on-chain token does not replace the underlying legal claim; it represents or tracks it. Structural integrity depends on the issuer's custody arrangement, reserve reconciliation, and legal enforceability under the relevant jurisdiction.",
+      "rarm_layers": ["legal", "custody"],
+      "related_terms": ["tokenization", "spv", "rarm"],
+      "see_also_module": { "label": "Project anatomy", "path": "/projects" }
+    },
+    {
+      "slug": "rarm",
+      "term": "RARM (Real-World Asset Resilience Matrix)",
+      "short": "A six-layer due diligence framework for evaluating tokenized asset risk.",
+      "definition": "The Real-World Asset Resilience Matrix (RARM) is a structured analytical framework that evaluates tokenized assets across six risk layers: (1) Issuer & Entity, (2) Asset & Reserve, (3) Legal & Structural, (4) Custody & Settlement, (5) On-Chain & Protocol, and (6) Redemption & Liquidity. Each layer is assessed independently using observable signals before a composite view is formed. RARM was developed at HKUST Crypto-Fintech Lab as a peer-reviewed instrument for institutional due diligence.",
+      "rarm_layers": ["issuer", "asset", "legal", "custody", "on-chain", "redemption"],
+      "related_terms": ["sarm", "rwa", "signal"],
+      "see_also_module": { "label": "Framework", "path": "/assets/methodology" }
+    },
+    {
+      "slug": "sarm",
+      "term": "SARM (Stablecoin Architecture Resilience Matrix)",
+      "short": "A six-dimension framework for assessing stablecoin issuer risk.",
+      "definition": "The Stablecoin Architecture Resilience Matrix (SARM) evaluates stablecoin issuers across six dimensions: (1) Capital Adequacy, (2) Reserve Quality, (3) Governance, (4) Technology, (5) Redemption, and (6) Disclosure. Each dimension yields a traffic-light signal (green / yellow / red / gray) based on observable public data. SARM does not produce composite scores or letter grades; it maps structural observability. Developed at HKUST Crypto-Fintech Lab alongside RARM.",
+      "rarm_layers": [],
+      "related_terms": ["rarm", "reserve-quality", "stablecoin"],
+      "see_also_module": { "label": "Stablecoin licences", "path": "/licenses" }
+    },
+    {
+      "slug": "tokenization",
+      "term": "Tokenization",
+      "short": "The process of creating a blockchain-native digital representation of an off-chain asset or right.",
+      "definition": "Tokenization is the process of issuing a blockchain token that represents a legal claim on, or economic interest in, an off-chain asset or right. The token may be fungible (ERC-20) or non-fungible (ERC-721/1155). Crucially, tokenization does not automatically transfer legal title — the enforceability of the investor's claim depends on the issuer's legal structure (typically an SPV), the governing jurisdiction's recognition of on-chain instruments, and the quality of the custodial arrangement for the underlying asset.",
+      "rarm_layers": ["legal", "custody", "on-chain"],
+      "related_terms": ["rwa", "spv", "custody"],
+      "see_also_module": { "label": "Project anatomy", "path": "/projects" }
+    },
+    {
+      "slug": "spv",
+      "term": "Special Purpose Vehicle (SPV)",
+      "short": "A bankruptcy-remote legal entity used to isolate assets from an issuer's broader balance sheet.",
+      "definition": "A Special Purpose Vehicle (SPV) is a bankruptcy-remote legal entity created solely to hold a defined pool of assets and issue claims against them. In tokenized finance, the SPV typically holds the underlying asset (e.g., T-bills, real estate title, loan receivables) and issues tokens that represent proportional beneficial interests. The bankruptcy-remote structure is designed to protect token holders from the sponsor's insolvency — but the strength of this protection depends on jurisdiction, SPV documentation quality, and whether the asset transfer constitutes a true sale.",
+      "rarm_layers": ["legal", "issuer"],
+      "related_terms": ["rwa", "tokenization", "custody", "true-sale", "bankruptcy-remote"],
+      "see_also_module": null
+    },
+    {
+      "slug": "stablecoin",
+      "term": "Stablecoin",
+      "short": "A blockchain token designed to maintain a stable value, typically pegged to a fiat currency.",
+      "definition": "A stablecoin is a blockchain token designed to maintain price stability relative to a reference asset — most commonly the US dollar. Stability mechanisms vary: fiat-backed (reserves held in bank deposits and short-duration instruments), commodity-backed (gold, oil), crypto-collateralised (over-collateralised on-chain assets), and algorithmic (no direct reserve, relies on supply expansion/contraction). Each mechanism carries distinct reserve quality, redemption, and governance risks assessed under SARM.",
+      "rarm_layers": [],
+      "related_terms": ["sarm", "reserve-quality", "rwa", "fiat-backed-stablecoin", "algorithmic-stablecoin"],
+      "see_also_module": { "label": "Stablecoin licences", "path": "/licenses" }
+    },
+    {
+      "slug": "signal",
+      "term": "Signal (RARM / SARM)",
+      "short": "A traffic-light indicator (green / yellow / red / gray) assigned per dimension based on observable public data.",
+      "definition": "Within the RARM and SARM frameworks, a signal is a categorical assessment of a single dimension using four states: green (sufficient observable evidence of resilience), yellow (partial or conditional evidence), red (observable evidence of structural weakness or failure), gray (insufficient public data to assess). Signals are not scores — they carry no numeric weight and cannot be aggregated into a composite grade. Gray indicates data opacity, not a negative finding. Platform-generated numeric scores are never published.",
+      "rarm_layers": [],
+      "related_terms": ["rarm", "sarm"],
+      "see_also_module": { "label": "Framework", "path": "/assets/methodology" }
+    },
+    {
+      "slug": "algorithmic-stablecoin",
+      "term": "Algorithmic Stablecoin",
+      "short": "A stablecoin that maintains its peg through protocol-controlled supply adjustments rather than direct reserve backing.",
+      "definition": "An algorithmic stablecoin relies on automated supply expansion and contraction — rather than a direct fiat or asset reserve — to maintain price stability. Designs range from partially collateralised (seigniorage shares, fractional reserve) to fully endogenous (peg maintained entirely by incentive mechanics and arbitrage). The category carries the highest historical failure rate among stablecoin types: the collapse of UST/LUNA in May 2022 demonstrated how endogenous collateral models can enter a death spiral under coordinated selling pressure. Under SARM, reserve-quality and redemption signals are uniformly red or gray for purely algorithmic designs.",
+      "rarm_layers": [],
+      "related_terms": ["stablecoin", "depeg", "fiat-backed-stablecoin", "sarm"],
+      "see_also_module": { "label": "Incidents", "path": "/incidents" }
+    },
+    {
+      "slug": "aml",
+      "term": "AML (Anti-Money Laundering)",
+      "short": "A regulatory framework requiring financial institutions to detect and prevent the proceeds of crime from entering the financial system.",
+      "definition": "Anti-Money Laundering (AML) refers to the set of laws, regulations, and procedures designed to prevent criminals from disguising illegally obtained funds as legitimate income. In tokenized finance, AML obligations typically apply to Virtual Asset Service Providers (VASPs) and issuers of regulated tokens. Compliance requires customer due diligence (CDD), transaction monitoring, and suspicious transaction reporting. The FATF Travel Rule (Recommendation 16) extends AML obligations to cross-border virtual asset transfers above threshold values. AML requirements are assessed under the SARM Governance dimension.",
+      "rarm_layers": ["issuer", "legal"],
+      "related_terms": ["kyc", "vasp", "fatf", "travel-rule"],
+      "see_also_module": { "label": "Compliance Map", "path": "/compliance" }
+    },
+    {
+      "slug": "amm",
+      "term": "AMM (Automated Market Maker)",
+      "short": "A decentralized exchange mechanism that uses algorithmic pricing instead of an order book.",
+      "definition": "An Automated Market Maker (AMM) is a smart-contract-based protocol that enables asset swaps by pricing them against a liquidity pool using a mathematical formula (e.g., constant-product x·y=k used by Uniswap). Unlike a traditional order book, an AMM requires no counterparty — liquidity providers deposit paired assets and earn fees on each trade. In the RWA context, AMMs can be used to provide secondary market liquidity for tokenized assets, though regulatory treatment of such arrangements varies significantly across jurisdictions. AMM-based secondary liquidity is a relevant signal under the RARM Redemption & Liquidity layer.",
+      "rarm_layers": ["redemption", "on-chain"],
+      "related_terms": ["dex", "liquidity-pool", "tvl"],
+      "see_also_module": null
+    },
+    {
+      "slug": "attestation",
+      "term": "Attestation (Reserve)",
+      "short": "A third-party verification that a stablecoin issuer's stated reserves exist and match outstanding token supply.",
+      "definition": "A reserve attestation is an agreed-upon procedure report issued by an independent accounting firm confirming that a stablecoin issuer's reserve assets, at a specific point in time, equal or exceed outstanding token supply. Attestations are weaker than a full audit: the auditor tests only whether stated reserves exist at the attestation date, not whether they have been continuously maintained or accurately categorised. Key issuers including Tether, Circle, and Paxos publish monthly or real-time attestations. Under SARM, the frequency, auditor independence, and completeness of attestations are evaluated in the Reserve Quality and Disclosure dimensions.",
+      "rarm_layers": ["asset"],
+      "related_terms": ["proof-of-reserves", "reserve-quality", "stablecoin", "sarm"],
+      "see_also_module": { "label": "Stablecoin licences", "path": "/licenses" }
+    },
+    {
+      "slug": "bankruptcy-remote",
+      "term": "Bankruptcy-Remote Structure",
+      "short": "A legal design that insulates a pool of assets from the insolvency of the entity that created or manages it.",
+      "definition": "A bankruptcy-remote structure ensures that a defined pool of assets — and the claims of investors against those assets — cannot be seized by creditors of the sponsor or manager if that entity becomes insolvent. In tokenized finance, bankruptcy remoteness is typically achieved through a special purpose vehicle (SPV) that holds the underlying asset, combined with a true-sale transfer of the asset from the originator. The effectiveness depends on jurisdiction: some courts can re-characterise purported sales as secured loans, collapsing the remote structure. Bankruptcy remoteness is a primary evaluation criterion under the RARM Legal & Structural layer.",
+      "rarm_layers": ["legal"],
+      "related_terms": ["spv", "true-sale", "governing-law"],
+      "see_also_module": null
+    },
+    {
+      "slug": "beneficial-interest",
+      "term": "Beneficial Interest",
+      "short": "The equitable right to the economic benefits of an asset, as distinct from legal title.",
+      "definition": "A beneficial interest is the right to receive economic benefits from an asset — income, appreciation, or liquidation proceeds — without holding legal title. In tokenized structures, investors commonly hold beneficial interests in an SPV or trust rather than direct legal ownership of the underlying asset. This distinction matters for insolvency: a beneficial interest holder's claim depends on the quality of the trust or SPV structure, the governing jurisdiction's trust law, and whether the structure has been legally tested. RARM Legal & Structural layer analysis evaluates the strength and enforceability of the beneficial interest granted by the issuer.",
+      "rarm_layers": ["legal"],
+      "related_terms": ["spv", "true-sale", "governing-law", "tokenization"],
+      "see_also_module": null
+    },
+    {
+      "slug": "bridge",
+      "term": "Bridge (Cross-Chain)",
+      "short": "A protocol that enables assets or data to move between two separate blockchain networks.",
+      "definition": "A cross-chain bridge is a protocol that locks or burns assets on a source chain and mints equivalent representations on a destination chain, enabling interoperability between otherwise isolated networks. Bridges introduce a distinct risk vector: they hold large concentrations of locked assets, making them high-value targets. Multiple bridge exploits (Ronin Network: ~$625M in 2022; Nomad: ~$190M in 2022; Wormhole: ~$320M in 2022) have resulted in among the largest single losses in on-chain history. For RWA tokens that use bridges to achieve cross-chain liquidity, bridge risk is evaluated under the RARM On-Chain & Protocol layer.",
+      "rarm_layers": ["on-chain"],
+      "related_terms": ["smart-contract-risk", "smart-contract", "tokenization"],
+      "see_also_module": { "label": "Incidents", "path": "/incidents" }
+    },
+    {
+      "slug": "burn",
+      "term": "Burn (Token)",
+      "short": "The permanent removal of tokens from circulation, typically triggered upon redemption.",
+      "definition": "Token burning is the process of permanently destroying tokens by sending them to an address from which they can never be recovered (a burn address). In fiat-backed stablecoins and tokenized assets, burning is the counterpart to minting: when a holder redeems tokens for the underlying asset or fiat, the redeemed tokens are burned to keep supply aligned with reserves. Transparent burn mechanics — verifiable on-chain — support reserve quality signals under SARM and asset verification under RARM.",
+      "rarm_layers": ["on-chain", "asset"],
+      "related_terms": ["mint", "redemption", "proof-of-reserves"],
+      "see_also_module": null
+    },
+    {
+      "slug": "concentration-risk",
+      "term": "Concentration Risk",
+      "short": "The risk arising from overexposure to a single counterparty, asset, or market segment.",
+      "definition": "Concentration risk in tokenized finance refers to overexposure to a single custodian, reserve asset issuer, smart contract platform, oracle provider, or borrower. For stablecoin reserves, concentration in a single bank or money market fund creates correlated failure risk — as illustrated when Silicon Valley Bank's closure in March 2023 caused Circle's USDC to temporarily depeg due to the $3.3B of USDC reserves held at SVB. For tokenized credit products, concentration in a single borrower or sector undermines RARM Asset & Reserve layer signals.",
+      "rarm_layers": ["asset", "custody", "issuer"],
+      "related_terms": ["counterparty-risk", "reserve-quality", "depeg"],
+      "see_also_module": null
+    },
+    {
+      "slug": "counterparty-risk",
+      "term": "Counterparty Risk",
+      "short": "The risk that a party to a financial contract or arrangement fails to meet its obligations.",
+      "definition": "Counterparty risk is the probability that an entity on the other side of a transaction or contractual relationship fails to perform its obligations — whether through insolvency, fraud, operational failure, or regulatory action. In tokenized RWA structures, counterparty risk is embedded across multiple layers: issuer solvency, custodian reliability, oracle provider uptime, smart contract auditor competence, and redemption agent capacity. RARM evaluates counterparty exposures systematically across all six layers rather than treating it as a single aggregate measure.",
+      "rarm_layers": ["issuer", "custody", "on-chain", "redemption"],
+      "related_terms": ["concentration-risk", "smart-contract-risk", "custody"],
+      "see_also_module": null
+    },
+    {
+      "slug": "crypto-collateralized-stablecoin",
+      "term": "Crypto-Collateralised Stablecoin",
+      "short": "A stablecoin backed by on-chain crypto assets held in over-collateralised positions.",
+      "definition": "A crypto-collateralised stablecoin is backed by on-chain cryptocurrency (typically ETH or other liquid assets) held in smart-contract vaults at over-collateralisation ratios — commonly 150% or higher — to absorb collateral price volatility. DAI (issued by MakerDAO) is the canonical example. When the collateral value falls below the liquidation threshold, automated liquidation mechanisms sell the collateral to restore the peg. The primary risks are: collateral volatility gaps (fast crashes exceeding liquidation speed), governance concentration, and oracle manipulation. Under SARM, governance and redemption signals are key differentiators for this category.",
+      "rarm_layers": [],
+      "related_terms": ["stablecoin", "algorithmic-stablecoin", "oracle", "depeg"],
+      "see_also_module": null
+    },
+    {
+      "slug": "custody",
+      "term": "Custody",
+      "short": "The safekeeping and administration of assets on behalf of an investor or issuer.",
+      "definition": "In tokenized finance, custody refers to the secure holding and administration of both the underlying real-world asset and the private keys or wallet infrastructure that control the on-chain token. A sound custody arrangement requires segregation of client assets from the custodian's own balance sheet, legally enforceable custody agreements, and operational controls against key loss, theft, or unauthorised access. The distinction between custodial and self-custodial models is significant: custodial arrangements are regulated in most jurisdictions, while self-custody shifts responsibility to the token holder. RARM's Custody & Settlement layer assesses custodian regulatory status, insurance coverage, sub-custodian chains, and settlement finality.",
+      "rarm_layers": ["custody"],
+      "related_terms": ["spv", "tokenization", "counterparty-risk", "settlement"],
+      "see_also_module": null
+    },
+    {
+      "slug": "depeg",
+      "term": "Depeg",
+      "short": "A sustained deviation of a stablecoin's market price from its target peg value.",
+      "definition": "A depeg occurs when a stablecoin's market price persistently deviates from its reference value — typically $1.00 for USD-pegged tokens. Depegs range from minor (fractions of a cent, quickly corrected by arbitrage) to terminal (the peg is never restored and the token becomes worthless). Trigger mechanisms vary: bank runs on the redemption mechanism (e.g., USDC in March 2023), algorithmic feedback loops collapsing (UST/LUNA in May 2022), or reserve opaqueness causing confidence collapse (multiple historical cases). Depeg severity and duration are key data points in the RARM Redemption & Liquidity layer and appear in the Incidents database.",
+      "rarm_layers": ["redemption", "asset"],
+      "related_terms": ["stablecoin", "algorithmic-stablecoin", "reserve-quality", "redemption"],
+      "see_also_module": { "label": "Incidents", "path": "/incidents" }
+    },
+    {
+      "slug": "dex",
+      "term": "DEX (Decentralised Exchange)",
+      "short": "A protocol for trading tokens directly on-chain without a centralised intermediary.",
+      "definition": "A decentralised exchange (DEX) enables peer-to-peer or peer-to-pool token swaps on-chain, without a central order book operator or custodian holding user funds. Major DEX architectures include AMM-based (Uniswap, Curve), order-book DEXs (dYdX), and intent-based systems. In the RWA context, DEX availability determines secondary market liquidity depth for tokenized assets — a core signal in the RARM Redemption & Liquidity layer. Regulated tokenized securities face additional friction here: permissioned pools or KYC-gated AMMs are often required to limit transfer to authorised investors.",
+      "rarm_layers": ["redemption", "on-chain"],
+      "related_terms": ["amm", "liquidity-pool", "tvl", "redemption"],
+      "see_also_module": null
+    },
+    {
+      "slug": "ensembletx",
+      "term": "EnsembleTX",
+      "short": "HKMA's tokenisation infrastructure initiative connecting banks, asset managers, and payment systems on a shared DLT layer.",
+      "definition": "EnsembleTX is the Hong Kong Monetary Authority's tokenisation infrastructure initiative, formally launched on 13 November 2025. It provides a shared distributed ledger layer for settlement and tokenised asset transfer among participating institutions — including commercial banks, asset managers, and payment system operators. EnsembleTX is the successor to earlier HKMA exploratory tokenisation sandbox work and focuses on interbank tokenised money (wHKD), tokenised deposits, and cross-institution settlement for tokenised RWAs. Participation is verifiable from HKMA public disclosures; claimed but unverified participants should not be listed.",
+      "rarm_layers": ["custody", "on-chain", "legal"],
+      "related_terms": ["hkma", "tokenization", "settlement"],
+      "see_also_module": { "label": "EnsembleTX Tracker", "path": "/ensemble" }
+    },
+    {
+      "slug": "erc-20",
+      "term": "ERC-20",
+      "short": "The standard interface for fungible tokens on Ethereum and EVM-compatible blockchains.",
+      "definition": "ERC-20 is a technical standard defining a common interface for fungible tokens on Ethereum: transfer(), approve(), allowance(), and balanceOf() functions that any compliant token must implement. Most fiat-backed stablecoins (USDC, USDT, BUSD, FDUSD) and many tokenised assets use ERC-20 as their base layer, often with additional compliance extensions. Simplicity makes ERC-20 highly composable but provides no built-in transfer restrictions: regulated securities issuers must add controls at the application layer or switch to purpose-built standards such as ERC-1400 or ERC-3643.",
+      "rarm_layers": ["on-chain"],
+      "related_terms": ["erc-1400", "token-standard", "smart-contract", "tokenization"],
+      "see_also_module": null
+    },
+    {
+      "slug": "erc-1400",
+      "term": "ERC-1400 / ERC-3643",
+      "short": "Security token standards that add transfer restrictions, partitioning, and compliance controls to ERC-20.",
+      "definition": "ERC-1400 is a family of Ethereum security token standards that extend ERC-20 with document management, partition-level balances (e.g., restricted vs. unrestricted tranches), forced transfers (for regulatory compliance), and issuance/redemption control. ERC-3643 (T-REX) is a widely adopted implementation that adds an on-chain identity registry and transfer validation contracts enforcing investor eligibility rules. Together, these standards enable tokenised securities to maintain compliance with transfer restrictions — such as accredited investor requirements or jurisdictional whitelist rules — directly on-chain rather than relying solely on off-chain legal agreements.",
+      "rarm_layers": ["on-chain", "legal"],
+      "related_terms": ["erc-20", "token-standard", "whitelist", "smart-contract"],
+      "see_also_module": null
+    },
+    {
+      "slug": "fatf",
+      "term": "FATF (Financial Action Task Force)",
+      "short": "The global standard-setting body for anti-money laundering and counter-terrorist financing.",
+      "definition": "The Financial Action Task Force (FATF) is an intergovernmental body that sets international standards — the FATF Recommendations — for AML and counter-terrorist financing (CFT). Its 40 Recommendations cover customer due diligence, beneficial ownership transparency, and the Travel Rule. In 2019, FATF extended its framework to virtual assets, defining Virtual Asset Service Providers (VASPs) as subject entities. FATF Recommendation 16 (the Travel Rule), requiring VASPs to pass beneficiary and originator information on transfers above threshold values, is being progressively adopted across jurisdictions. FATF's June 2025 Recommendation 16 revision addressed emerging issues in cross-chain and unhosted wallet transfers.",
+      "rarm_layers": ["legal", "issuer"],
+      "related_terms": ["aml", "kyc", "travel-rule", "vasp"],
+      "see_also_module": { "label": "Compliance Map", "path": "/compliance" }
+    },
+    {
+      "slug": "fiat-backed-stablecoin",
+      "term": "Fiat-Backed Stablecoin",
+      "short": "A stablecoin whose circulating supply is collateralised by fiat currency or near-cash instruments held by an issuer.",
+      "definition": "A fiat-backed stablecoin maintains its peg by holding reserves — typically a combination of bank deposits, short-duration government securities, and money market instruments — equal to or exceeding the outstanding token supply. Users can in principle redeem tokens directly with the issuer at par. The key risks are reserve quality (what instruments are held and at which custodians), redemption accessibility (minimum thresholds, KYC requirements, operational delays), and disclosure transparency (frequency and rigour of attestations). USDT, USDC, FDUSD, and PYUSD are major examples. SARM Reserve Quality and Redemption dimensions directly evaluate these properties.",
+      "rarm_layers": [],
+      "related_terms": ["stablecoin", "reserve-quality", "attestation", "redemption", "sarm"],
+      "see_also_module": { "label": "Stablecoin licences", "path": "/licenses" }
+    },
+    {
+      "slug": "governing-law",
+      "term": "Governing Law",
+      "short": "The legal jurisdiction whose laws apply to a contract or financial instrument in the event of a dispute.",
+      "definition": "Governing law is the jurisdiction specified in a contract or issuance document whose courts and statutes will interpret the agreement and resolve disputes. For tokenized assets, governing law determines the enforceability of the investor's beneficial interest, the recognition of the SPV structure, and the rights available upon issuer insolvency. Common choices are New York law (strong creditor protections, widely recognised), Cayman Islands (favourable fund structure law), or Hong Kong law (established trust law, growing tokenization framework under Cap. 541). RARM Legal & Structural layer analysis examines whether the chosen governing law has actually tested the type of structure used and whether it recognises on-chain instruments.",
+      "rarm_layers": ["legal"],
+      "related_terms": ["spv", "beneficial-interest", "true-sale", "bankruptcy-remote"],
+      "see_also_module": null
+    },
+    {
+      "slug": "hkma",
+      "term": "HKMA (Hong Kong Monetary Authority)",
+      "short": "Hong Kong's de facto central bank, responsible for monetary stability, banking regulation, and financial infrastructure.",
+      "definition": "The Hong Kong Monetary Authority (HKMA) was established in 1993 and serves as Hong Kong's monetary authority and banking regulator. In tokenized finance and stablecoins, the HKMA plays a leading regulatory role: it launched EnsembleTX (13 November 2025) as the institutional tokenization infrastructure, oversees the stablecoin licensing regime under Cap. 656 (the Stablecoins Ordinance), and has been one of the most proactive central banks globally in engaging with tokenised asset pilots. The HKMA also co-chairs BIS Project mBridge and has issued multiple discussion papers on tokenized deposits and wholesale CBDC.",
+      "rarm_layers": ["legal", "issuer"],
+      "related_terms": ["sfc", "stablecoin-ordinance", "ensembletx"],
+      "see_also_module": { "label": "HK Observation", "path": "/intelligence/hk" }
+    },
+    {
+      "slug": "kyc",
+      "term": "KYC (Know Your Customer)",
+      "short": "Identity verification procedures required to establish the identity of customers before providing financial services.",
+      "definition": "Know Your Customer (KYC) refers to the process of verifying the identity of clients and assessing their risk profile before onboarding and on an ongoing basis. In tokenized finance, KYC is required by most regulated stablecoin issuers (for direct redemption), all licensed VATPs and VASPs, and any tokenized securities issuer subject to investor eligibility rules. On-chain KYC implementations range from off-chain attestation registries (whitelists) to decentralised identity protocols. KYC obligations interact directly with blockchain pseudonymity: failure to enforce KYC can result in regulatory sanctions and de-listing from compliant platforms.",
+      "rarm_layers": ["issuer", "legal"],
+      "related_terms": ["aml", "whitelist", "vasp", "vatp"],
+      "see_also_module": null
+    },
+    {
+      "slug": "liquidity-pool",
+      "term": "Liquidity Pool",
+      "short": "A smart-contract-held reserve of two or more tokens that enables on-chain trading via an AMM.",
+      "definition": "A liquidity pool is a smart contract that holds reserves of two (or more) tokens, allowing users to swap between them at prices set algorithmically (e.g., x·y=k). Liquidity providers (LPs) deposit equal values of both tokens and receive LP tokens representing their share; they earn a portion of swap fees but bear impermanent loss risk. In the RWA context, deep liquidity pools for tokenised assets improve the Redemption & Liquidity RARM layer signal by enabling price discovery and exit paths beyond the issuer's direct redemption window.",
+      "rarm_layers": ["redemption", "on-chain"],
+      "related_terms": ["amm", "dex", "tvl"],
+      "see_also_module": null
+    },
+    {
+      "slug": "liquidity-risk",
+      "term": "Liquidity Risk",
+      "short": "The risk of being unable to exit a position at fair value within a reasonable timeframe.",
+      "definition": "Liquidity risk in tokenized finance covers both market liquidity risk (insufficient secondary market depth to sell tokens without significant price impact) and funding liquidity risk (an issuer's inability to honour redemption requests due to illiquid underlying assets). Tokenized assets may face a structural mismatch: the token can trade 24/7 on-chain, but the underlying asset (e.g., real estate, private credit) may take weeks or months to liquidate. The RARM Redemption & Liquidity layer specifically evaluates whether the issuer's redemption mechanism, redemption queue capacity, and secondary market depth are adequate relative to the liquidity profile of the underlying asset.",
+      "rarm_layers": ["redemption"],
+      "related_terms": ["redemption", "depeg", "tvl", "concentration-risk"],
+      "see_also_module": null
+    },
+    {
+      "slug": "mica",
+      "term": "MiCA (Markets in Crypto-Assets Regulation)",
+      "short": "The EU's comprehensive regulatory framework for crypto-asset issuers and service providers, fully applicable from December 2024.",
+      "definition": "The Markets in Crypto-Assets Regulation (MiCA) is the European Union's framework for regulating crypto-asset issuers and crypto-asset service providers (CASPs). It covers asset-referenced tokens (ARTs, pegged to baskets), e-money tokens (EMTs, pegged to a single fiat currency), and other crypto-assets. MiCA imposes reserve and disclosure requirements on stablecoin issuers, authorisation requirements on CASPs, and transparency rules across the board. For global RWA issuers targeting EU investors, MiCA compliance is a material legal layer consideration. The regulation's ART and EMT categories directly overlap with the stablecoin structures evaluated under SARM.",
+      "rarm_layers": ["legal", "issuer"],
+      "related_terms": ["stablecoin", "vasp", "governing-law", "aml"],
+      "see_also_module": { "label": "Compliance Map", "path": "/compliance" }
+    },
+    {
+      "slug": "mint",
+      "term": "Mint (Token)",
+      "short": "The creation of new tokens, typically upon receipt of corresponding collateral or fiat.",
+      "definition": "Token minting is the process of creating new units of a token and adding them to circulating supply. In fiat-backed stablecoins, minting is triggered when a verified user deposits fiat with the issuer: the issuer receives the funds, adds them to reserves, and mints equivalent tokens to the depositor's wallet. In tokenized assets, minting corresponds to the issuance of new token units against newly onboarded underlying assets. Transparent, auditable minting mechanics — verifiable on-chain — support reserve quality and asset verification signals under RARM and SARM.",
+      "rarm_layers": ["on-chain", "asset"],
+      "related_terms": ["burn", "proof-of-reserves", "attestation"],
+      "see_also_module": null
+    },
+    {
+      "slug": "money-market-token",
+      "term": "Money Market Token (Tokenised MMF)",
+      "short": "A token representing a share in a money market fund, providing on-chain access to short-duration instrument yields.",
+      "definition": "A tokenised money market fund (MMF) is a digital token representing a beneficial interest in a regulated money market fund — typically one investing in short-duration US Treasuries, government agency paper, or high-grade commercial paper. Examples include BlackRock's BUIDL (launched March 2024, ~$2B AUM as of mid-2025), Franklin Templeton's BENJI, and Ondo Finance's USDY. The token accrues yield daily and can be redeemed at NAV. Tokenised MMFs represent the fastest-growing RWA category by AUM and are evaluated across all six RARM layers, with particular focus on the custodian (typically a major prime broker) and the fund's SEC or equivalent registration status.",
+      "rarm_layers": ["issuer", "asset", "legal", "custody", "on-chain", "redemption"],
+      "related_terms": ["nav", "t-bill-token", "yield-bearing-token", "rwa"],
+      "see_also_module": { "label": "Tokenized Assets", "path": "/assets" }
+    },
+    {
+      "slug": "nav",
+      "term": "NAV (Net Asset Value)",
+      "short": "The per-share or per-token value of a fund's assets minus liabilities.",
+      "definition": "Net Asset Value (NAV) is the value of a fund's total assets minus its total liabilities, typically expressed on a per-unit basis. For tokenised money market funds and other fund-structured RWAs, NAV is the primary reference price for subscriptions and redemptions. Stable NAV funds (targeting $1.00 per share) carry risk of temporary NAV deviation during market stress, which can trigger redemption surges. Variable NAV funds fluctuate daily. Disclosed NAV calculation methodology, frequency, and auditor independence are material signals in both RARM Asset & Reserve and SARM Reserve Quality dimensions.",
+      "rarm_layers": ["asset"],
+      "related_terms": ["money-market-token", "attestation", "yield-bearing-token"],
+      "see_also_module": null
+    },
+    {
+      "slug": "oracle",
+      "term": "Oracle",
+      "short": "A service that brings off-chain data (prices, NAV, interest rates) onto the blockchain for use by smart contracts.",
+      "definition": "An oracle is an infrastructure component that feeds real-world data — asset prices, NAV figures, FX rates, interest rates, regulatory status — into smart contracts that cannot natively access off-chain information. Oracles are a critical attack surface in DeFi and RWA systems: a manipulated or stale price feed can trigger wrongful liquidations, enable front-running, or cause smart contracts to execute on incorrect values. Decentralised oracle networks (Chainlink, Pyth, Chronicle) aggregate data from multiple sources to reduce single-point-of-failure risk. RARM On-Chain & Protocol layer evaluation assesses oracle provenance, update frequency, circuit breakers, and fallback mechanisms.",
+      "rarm_layers": ["on-chain"],
+      "related_terms": ["oracle-risk", "smart-contract", "nav"],
+      "see_also_module": null
+    },
+    {
+      "slug": "oracle-risk",
+      "term": "Oracle Risk",
+      "short": "The risk that incorrect or manipulated off-chain data fed to smart contracts causes unintended outcomes.",
+      "definition": "Oracle risk is the exposure arising from the possibility that data delivered to a smart contract by an oracle is wrong — whether due to manipulation (oracle attack), staleness (delayed update during volatility), or source failure (single data provider going offline). Oracle manipulation attacks have caused hundreds of millions in losses in DeFi protocols. In RWA contexts, stale NAV data can prevent accurate redemptions; manipulated price feeds can enable incorrect collateral liquidations. RARM evaluates oracle design robustness as part of the On-Chain & Protocol layer: single-source oracles receive a weaker signal than decentralised multi-source aggregators with deviation guards.",
+      "rarm_layers": ["on-chain"],
+      "related_terms": ["oracle", "smart-contract-risk", "concentration-risk"],
+      "see_also_module": null
+    },
+    {
+      "slug": "permissioned-blockchain",
+      "term": "Permissioned Blockchain",
+      "short": "A distributed ledger where participation (reading, writing, or validating) requires prior authorisation.",
+      "definition": "A permissioned blockchain restricts access to the network — participation as a validator, reader, or transaction submitter requires explicit authorisation from a governing body. In institutional RWA and CBDC contexts, permissioned ledgers (e.g., Hyperledger Fabric, R3 Corda, Quorum/Besu) offer benefits including transaction confidentiality, compliance controls, and predictable governance — but sacrifice open composability and censorship-resistance. HKMA's EnsembleTX operates on a permissioned layer. RARM On-Chain layer analysis distinguishes between public permissionless chains (higher composability, lower institutional control) and permissioned chains (higher control, lower systemic DeFi risk, but governance concentration).",
+      "rarm_layers": ["on-chain"],
+      "related_terms": ["ensembletx", "smart-contract", "tokenization"],
+      "see_also_module": null
+    },
+    {
+      "slug": "proof-of-reserves",
+      "term": "Proof of Reserves (PoR)",
+      "short": "A cryptographic or audit-based demonstration that an issuer holds reserves equal to or greater than outstanding liabilities.",
+      "definition": "Proof of Reserves (PoR) refers to mechanisms that verify an issuer holds sufficient assets to back its outstanding liabilities. Cryptographic PoR uses Merkle tree commitments to allow individual users to verify their balance is included in a total that is confirmed against an on-chain reserve address — providing near-real-time, user-verifiable evidence. Attestation-based PoR relies on periodic third-party accounting reports. Both approaches have limitations: cryptographic PoR covers on-chain assets only (off-chain reserves require separate verification); attestations are point-in-time snapshots. SARM Reserve Quality dimension evaluates the PoR methodology, frequency, and auditor reputation for each issuer.",
+      "rarm_layers": ["asset"],
+      "related_terms": ["attestation", "reserve-quality", "mint", "burn"],
+      "see_also_module": { "label": "Stablecoin licences", "path": "/licenses" }
+    },
+    {
+      "slug": "redemption",
+      "term": "Redemption",
+      "short": "The process by which a token holder exchanges tokens for the underlying asset or fiat currency.",
+      "definition": "Redemption is the mechanism by which a token holder converts on-chain tokens back into the underlying asset or its fiat equivalent. The robustness of the redemption process is central to a tokenized asset's value proposition: if holders cannot reliably exit at fair value, the token trades at a discount and the structure is effectively illiquid. Key design questions include: minimum redemption size (large minimums exclude retail holders), settlement time (T+0 vs. T+5), redemption gates (suspension during market stress), queue limits, and whether the issuer's liquid reserves match the potential volume of redemption requests. RARM Redemption & Liquidity layer evaluates all these dimensions.",
+      "rarm_layers": ["redemption"],
+      "related_terms": ["liquidity-risk", "depeg", "burn", "nav"],
+      "see_also_module": null
+    },
+    {
+      "slug": "reserve-quality",
+      "term": "Reserve Quality",
+      "short": "An assessment of the composition, liquidity, and credit quality of the assets backing a stablecoin or tokenised product.",
+      "definition": "Reserve quality refers to the safety, liquidity, and creditworthiness of the assets that back a stablecoin or tokenised product's outstanding supply. High-quality reserves are short-duration (reducing interest rate risk), liquid (can be sold quickly without significant price impact), and low-credit-risk (government obligations, insured bank deposits). Lower-quality reserves — corporate bonds, unsecured commercial paper, crypto assets, or intra-group loans — introduce credit, liquidity, and market risks that may not be visible to token holders. SARM's Reserve Quality dimension uses a traffic-light signal based on disclosed reserve composition, third-party attestation, and concentration.",
+      "rarm_layers": ["asset"],
+      "related_terms": ["attestation", "proof-of-reserves", "fiat-backed-stablecoin", "sarm"],
+      "see_also_module": { "label": "Stablecoin licences", "path": "/licenses" }
+    },
+    {
+      "slug": "sfc",
+      "term": "SFC (Securities and Futures Commission, Hong Kong)",
+      "short": "Hong Kong's independent statutory body regulating securities, futures, and virtual asset markets.",
+      "definition": "The Securities and Futures Commission (SFC) is Hong Kong's independent statutory regulator for securities and futures markets, established under the Securities and Futures Ordinance. In the virtual asset space, the SFC operates the Virtual Asset Trading Platform (VATP) licensing regime for centralised exchanges, and co-regulates tokenised securities with the HKMA. The SFC has issued guidance on tokenised investment products, STO structuring, and licensing for VA fund managers. For RWA issuers targeting Hong Kong investors, SFC regulatory clearance is a primary signal under the RARM Legal & Structural layer.",
+      "rarm_layers": ["legal", "issuer"],
+      "related_terms": ["hkma", "vatp", "stablecoin-ordinance"],
+      "see_also_module": { "label": "HK Observation", "path": "/intelligence/hk" }
+    },
+    {
+      "slug": "settlement",
+      "term": "Settlement",
+      "short": "The final transfer of assets between counterparties that extinguishes the obligations of a transaction.",
+      "definition": "Settlement is the process by which the obligations of a trade or transfer are fulfilled — the buyer receives the asset and the seller receives payment, with both legs being final and irrevocable. In traditional markets, settlement occurs T+1 or T+2 (one or two business days after trade date). Blockchain-based settlement can be atomic (both legs settle simultaneously in a single transaction, eliminating settlement risk) and near-instant. Delivery-versus-Payment (DvP) is the gold standard: asset delivery and payment happen in the same atomic transaction. RARM Custody & Settlement layer evaluates settlement finality, DvP availability, and the risk of settlement failure for each tokenized asset.",
+      "rarm_layers": ["custody"],
+      "related_terms": ["custody", "ensembletx", "smart-contract"],
+      "see_also_module": null
+    },
+    {
+      "slug": "smart-contract",
+      "term": "Smart Contract",
+      "short": "Self-executing code deployed on a blockchain that automatically enforces the terms of an agreement.",
+      "definition": "A smart contract is a program stored and executed on a blockchain that automatically carries out predefined actions when specified conditions are met — without requiring a trusted intermediary. In tokenized finance, smart contracts govern token issuance, transfer restrictions, interest accrual, redemption processing, and collateral management. The code is deterministic and (on most chains) immutable once deployed, which provides auditability and removes counterparty risk for contract execution — but also means that bugs or design flaws cannot be patched without migrating to a new contract. Smart contract code quality, audit history, and upgrade mechanisms are evaluated under the RARM On-Chain & Protocol layer.",
+      "rarm_layers": ["on-chain"],
+      "related_terms": ["smart-contract-risk", "erc-20", "erc-1400", "oracle"],
+      "see_also_module": null
+    },
+    {
+      "slug": "smart-contract-risk",
+      "term": "Smart Contract Risk",
+      "short": "The exposure to financial loss caused by bugs, design flaws, or exploits in a deployed smart contract.",
+      "definition": "Smart contract risk is the probability of financial loss arising from vulnerabilities in deployed on-chain code. Categories include: reentrancy attacks (the most common exploit vector in early DeFi), arithmetic overflows, access control flaws, logic errors in economic incentive design, and front-running via MEV (Maximal Extractable Value). Even audited contracts carry residual risk: the Euler Finance exploit in 2023 (>$195M) occurred in code that had been audited multiple times. RARM On-Chain & Protocol layer signals are weakened by: unaudited contracts, short audit history, no formal verification, concentrated admin keys without timelock, and no bug bounty programme.",
+      "rarm_layers": ["on-chain"],
+      "related_terms": ["smart-contract", "oracle-risk", "bridge"],
+      "see_also_module": { "label": "Incidents", "path": "/incidents" }
+    },
+    {
+      "slug": "stablecoin-ordinance",
+      "term": "Stablecoins Ordinance (Cap. 656, HK)",
+      "short": "Hong Kong's regulatory framework for fiat-referenced stablecoin issuers, enacted in 2025.",
+      "definition": "The Stablecoins Ordinance (Cap. 656) is Hong Kong's regulatory framework for issuers of fiat-referenced stablecoins. Under the Ordinance, any entity issuing a stablecoin pegged to the Hong Kong dollar or another currency in Hong Kong — or targeting Hong Kong persons — must hold a licence from the HKMA. Licence conditions include maintaining full reserve backing in high-quality liquid assets, publishing regular reserve attestations, meeting minimum capital requirements, and implementing robust redemption mechanisms. The HKMA issued its first two stablecoin licences in Q2 2026: to HSBC (hsbc-hkd) and Anchorpoint Financial (a Standard Chartered / Animoca / HKT consortium). The Ordinance is assessed under SARM Governance and Redemption dimensions.",
+      "rarm_layers": ["legal"],
+      "related_terms": ["hkma", "sfc", "fiat-backed-stablecoin", "sarm"],
+      "see_also_module": { "label": "Stablecoin licences", "path": "/licenses" }
+    },
+    {
+      "slug": "t-bill-token",
+      "term": "T-Bill Token (Tokenised Treasury)",
+      "short": "A token representing direct or indirect exposure to US Treasury bills, providing on-chain access to risk-free rate yield.",
+      "definition": "A T-bill token provides on-chain holders with economic exposure to US Treasury bills — typically the short end of the yield curve (1–6 months) — without the holder needing to open a brokerage account or use traditional settlement infrastructure. Structures vary: some tokens (e.g., USTB by Superstate) represent direct fund shares invested in T-bills; others (e.g., OUSG by Ondo Finance) hold a money market ETF. Yield accrues daily via rebasing or NAV appreciation. T-bill tokens are among the most structurally straightforward RWA categories: the underlying asset is liquid, the custodian is typically a regulated prime broker, and the legal structure is an established fund vehicle.",
+      "rarm_layers": ["issuer", "asset", "legal", "custody", "on-chain", "redemption"],
+      "related_terms": ["money-market-token", "nav", "yield-bearing-token", "rwa"],
+      "see_also_module": { "label": "Tokenized Assets", "path": "/assets" }
+    },
+    {
+      "slug": "token-standard",
+      "term": "Token Standard",
+      "short": "A specification defining the functions and events a token contract must implement to be compatible with wallets, exchanges, and other contracts.",
+      "definition": "A token standard is a technical specification — typically an Ethereum Improvement Proposal (EIP) — that defines the interface a token contract must expose: which functions it must have, what events it must emit, and how balances are stored. Standards enable interoperability: wallets, DEXs, and other contracts can interact with any compliant token without custom integration. For RWA and securities tokens, the choice of standard has direct compliance implications: ERC-20 provides no access controls, while ERC-1400 and ERC-3643 (T-REX) allow issuers to enforce investor eligibility checks, transfer restrictions, and forced transfers on-chain. RARM On-Chain layer evaluation notes which standard is used and whether compliance controls are enforced at the contract level.",
+      "rarm_layers": ["on-chain"],
+      "related_terms": ["erc-20", "erc-1400", "smart-contract", "whitelist"],
+      "see_also_module": null
+    },
+    {
+      "slug": "tokenized-credit",
+      "term": "Tokenised Credit",
+      "short": "Debt instruments — loans, bonds, or receivables — represented as blockchain tokens.",
+      "definition": "Tokenised credit encompasses on-chain representations of debt: private credit loans, trade finance receivables, corporate bonds, and structured credit tranches. Examples include Maple Finance (institutional undercollateralised lending), Goldfinch (real-world borrower loans), and Centrifuge (trade receivables and SME loans). These structures differ fundamentally from tokenised money market or treasury products: credit risk is the dominant variable, underwriting quality and borrower diversification are critical, and secondary market liquidity is typically limited. RARM assessment of tokenised credit emphasises Issuer & Entity (underwriting discipline), Asset & Reserve (collateral quality and LTV), and Redemption & Liquidity (lockup periods, default mechanisms).",
+      "rarm_layers": ["issuer", "asset", "legal", "custody", "on-chain", "redemption"],
+      "related_terms": ["rwa", "tokenization", "counterparty-risk", "liquidity-risk"],
+      "see_also_module": { "label": "Tokenized Assets", "path": "/assets" }
+    },
+    {
+      "slug": "tokenized-equity",
+      "term": "Tokenised Equity",
+      "short": "A security token representing a share or economic interest in a company or fund.",
+      "definition": "Tokenised equity is a digital token that confers ownership rights — voting rights, dividends, liquidation preference — equivalent to traditional equity shares, represented and settled on a blockchain. Unlike tokenised money market products, tokenised equity is subject to full securities regulation in most jurisdictions, requiring prospectus registration or exemption, investor eligibility controls, and compliance with transfer restrictions. The key legal question is whether the token itself is the security (native tokenisation) or merely a wrapper around off-chain shares. RARM Legal & Structural layer analysis examines whether the token holder's equity claim is legally enforceable and whether secondary transfer restrictions are enforced.",
+      "rarm_layers": ["legal", "issuer", "on-chain"],
+      "related_terms": ["tokenization", "spv", "erc-1400", "governing-law"],
+      "see_also_module": null
+    },
+    {
+      "slug": "tokenized-real-estate",
+      "term": "Tokenised Real Estate",
+      "short": "Property or real estate fund interests represented as blockchain tokens.",
+      "definition": "Tokenised real estate enables fractional ownership of property assets through on-chain tokens, typically structured via an SPV holding legal title to one or more properties. The investor holds beneficial interests in the SPV rather than direct title. Real estate tokenisation addresses traditional barriers to fractional property investment (illiquidity, high minimum ticket sizes) but introduces distinct risks: property valuations are periodic and illiquid, rental income collection involves off-chain processes, and forced sale mechanisms upon investor exit are complex and jurisdiction-dependent. RARM Redemption & Liquidity layer signals for real estate tokens are typically weaker than for liquid financial instruments, reflecting the underlying asset's illiquidity.",
+      "rarm_layers": ["issuer", "asset", "legal", "custody", "on-chain", "redemption"],
+      "related_terms": ["spv", "tokenization", "liquidity-risk", "beneficial-interest"],
+      "see_also_module": { "label": "Tokenized Assets", "path": "/assets" }
+    },
+    {
+      "slug": "travel-rule",
+      "term": "Travel Rule (FATF Recommendation 16)",
+      "short": "An AML rule requiring VASPs to transmit originator and beneficiary information alongside virtual asset transfers above a threshold.",
+      "definition": "The Travel Rule (FATF Recommendation 16) requires Virtual Asset Service Providers (VASPs) to collect and transmit originator and beneficiary information — name, account number, physical address, or other identifying data — when transferring virtual assets above a threshold value (typically USD/EUR 1,000 equivalent). Originally designed for wire transfers, the rule was extended to virtual assets by FATF in 2019 and is being progressively implemented by jurisdiction (the EU under MiCA, Singapore under MAS Notice PSN02, Hong Kong under AMLO). Technical challenges include the sunrise problem (counterparty jurisdictions may not have implemented the rule) and transfers to unhosted wallets. FATF issued a revision to Recommendation 16 in June 2025 addressing cross-chain transfer scenarios.",
+      "rarm_layers": ["legal", "issuer"],
+      "related_terms": ["fatf", "aml", "vasp", "kyc"],
+      "see_also_module": { "label": "Compliance Map", "path": "/compliance" }
+    },
+    {
+      "slug": "true-sale",
+      "term": "True Sale",
+      "short": "A legal transfer of asset ownership that is characterised as a sale — not a secured loan — for bankruptcy purposes.",
+      "definition": "A true sale is a transfer of assets from an originator to an SPV that courts will treat as a genuine change of legal ownership rather than as a secured lending transaction. If the transfer is re-characterised as a loan, the originator's creditors could claim the assets in insolvency, collapsing the SPV's bankruptcy-remote protection. True-sale analysis examines the economic substance of the transfer: Did the originator retain significant risks and rewards? Did the SPV pay a market price? Were the assets truly isolated from the originator's control? True-sale opinions from legal counsel are a prerequisite for sound structured finance and RWA tokenisation and are evaluated under the RARM Legal & Structural layer.",
+      "rarm_layers": ["legal"],
+      "related_terms": ["spv", "bankruptcy-remote", "beneficial-interest", "governing-law"],
+      "see_also_module": null
+    },
+    {
+      "slug": "tvl",
+      "term": "TVL (Total Value Locked)",
+      "short": "The aggregate value of assets deposited in a DeFi protocol or a category of on-chain products.",
+      "definition": "Total Value Locked (TVL) is the aggregate USD value of assets held within a smart contract system — a DeFi protocol, a tokenised asset category, or an entire blockchain ecosystem. Measured and tracked by data providers such as DeFiLlama, TVL is widely used as a proxy for protocol size and adoption. For RWA products, TVL tracks the outstanding on-chain value of tokenised assets (T-bills, real estate, private credit). Limitations: TVL double-counts assets used as collateral across multiple protocols; it conflates asset quality with asset quantity; and it is sensitive to exchange rate movements. RWAscope's Market dashboard ranks protocols by TVL as a factual field from DeFiLlama — it does not use TVL as a quality signal.",
+      "rarm_layers": [],
+      "related_terms": ["dex", "amm", "rwa"],
+      "see_also_module": { "label": "Market Dashboard", "path": "/market" }
+    },
+    {
+      "slug": "vasp",
+      "term": "VASP (Virtual Asset Service Provider)",
+      "short": "An entity that provides exchange, transfer, custody, or other services in virtual assets on a professional basis.",
+      "definition": "A Virtual Asset Service Provider (VASP) is defined by FATF as any entity that conducts exchange between virtual assets and fiat, exchange between virtual assets, transfer of virtual assets, safekeeping or administration of virtual assets, and participation in financial services related to virtual asset issuances. VASPs are subject to AML/CFT obligations under the FATF framework, including customer due diligence, transaction monitoring, and the Travel Rule. Each jurisdiction applies the VASP definition differently: the EU uses the term Crypto-Asset Service Provider (CASP) under MiCA; Hong Kong uses Virtual Asset Trading Platform (VATP) for centralised exchanges.",
+      "rarm_layers": ["issuer", "legal"],
+      "related_terms": ["vatp", "fatf", "aml", "kyc", "mica"],
+      "see_also_module": { "label": "Compliance Map", "path": "/compliance" }
+    },
+    {
+      "slug": "vatp",
+      "term": "VATP (Virtual Asset Trading Platform, HK)",
+      "short": "A centralised virtual asset exchange licensed by the SFC under Hong Kong's mandatory licensing regime.",
+      "definition": "A Virtual Asset Trading Platform (VATP) is a centralised exchange offering trading of virtual assets, subject to mandatory licensing by the Securities and Futures Commission (SFC) of Hong Kong. The VATP licensing regime, operative since August 2023, requires platforms to segregate client assets, maintain insurance, conduct token admission due diligence, and comply with AML/CFT obligations. Licensed VATPs are published on the SFC's official register; platforms operating without a licence or licence application are non-compliant. For RWA issuers seeking secondary market listing in Hong Kong, VATP platform choice is a compliance consideration under the RARM Legal & Structural layer.",
+      "rarm_layers": ["legal", "issuer"],
+      "related_terms": ["sfc", "vasp", "kyc", "aml"],
+      "see_also_module": { "label": "HK Observation", "path": "/intelligence/hk" }
+    },
+    {
+      "slug": "whitelist",
+      "term": "Whitelist (Transfer Restriction)",
+      "short": "A registry of pre-approved wallet addresses authorised to hold or receive a regulated token.",
+      "definition": "In tokenized securities and regulated stablecoin contexts, a whitelist is a registry of wallet addresses that have passed KYC/AML checks and are authorised to receive or hold tokens. Transfer attempts to non-whitelisted addresses are rejected at the smart contract level. Whitelisting is the primary mechanism by which issuers enforce investor eligibility (e.g., accredited investor only, EEA residents only) and AML compliance directly on-chain. Implementations range from simple mappings in the token contract to decentralised identity registries (Civic, Fractal ID, Polygon ID). Whitelist coverage, maintenance quality, and revocation procedures are evaluated under the RARM On-Chain & Protocol layer.",
+      "rarm_layers": ["on-chain", "legal"],
+      "related_terms": ["kyc", "erc-1400", "token-standard", "vatp"],
+      "see_also_module": null
+    },
+    {
+      "slug": "yield-bearing-token",
+      "term": "Yield-Bearing Token",
+      "short": "A token that automatically accrues or distributes income from the underlying asset to holders.",
+      "definition": "A yield-bearing token is a digital token that passes income generated by the underlying asset — interest, dividends, rent — directly to token holders, either through rebasing (token balance increases), NAV appreciation (price per token rises while supply stays constant), or periodic distributions. Tokenised T-bill funds (BUIDL, BENJI, OUSG) use the NAV appreciation model; some rebasing stablecoins (e.g., USDY by Ondo Finance) increase holder balances daily. Yield-bearing mechanics introduce tax complexity in many jurisdictions (frequent small income events may create reporting obligations) and smart contract risk (incorrect accrual calculations or distribution bugs). RARM Asset & Reserve layer considers the accuracy and transparency of the yield accrual mechanism.",
+      "rarm_layers": ["asset", "on-chain"],
+      "related_terms": ["t-bill-token", "money-market-token", "nav", "smart-contract-risk"],
+      "see_also_module": { "label": "Tokenized Assets", "path": "/assets" }
+    }
+  ]
+}

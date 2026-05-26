@@ -1,0 +1,99 @@
+{
+  "slug": "toucan-protocol",
+  "name": "Toucan Protocol (BCT / NCT)",
+  "short_name": "Toucan",
+  "website": "https://toucan.earth",
+  "asset_class": "commodity",
+  "jurisdiction": "Switzerland (Toucan Labs AG)",
+  "chain": "Polygon, Celo",
+  "status": "active",
+  "launched_at": "2021-10-22",
+  "tvl_usd": 0,
+  "entity_map": {
+    "issuer": {
+      "name": "Toucan Labs AG",
+      "type": "Swiss AG",
+      "url": "https://toucan.earth"
+    },
+    "custodian": {
+      "name": "Verra registry (retired credits); Toucan bridge smart contracts",
+      "type": "Hybrid registry + on-chain"
+    },
+    "chain_infra": {
+      "name": "Polygon, Celo",
+      "type": "L2 / L1"
+    },
+    "oracle": {
+      "name": "N/A — credits bridged 1:1 from Verra/Gold Standard",
+      "type": ""
+    },
+    "law_firm": {
+      "name": "",
+      "type": ""
+    },
+    "auditor": {
+      "name": "Smart contract audits by Code Arena, Sherlock",
+      "type": "Smart contract audit only"
+    },
+    "regulator": {
+      "name": "None — voluntary carbon market; not regulated as security",
+      "type": ""
+    },
+    "token_standard": "ERC-20 (BCT, NCT pool tokens); ERC-1155 (TCO2 carbon credit NFTs)"
+  },
+  "asset_slug": "",
+  "summary": "Largest on-chain voluntary carbon credit infrastructure. Bridges retired carbon credits from Verra and Gold Standard registries onto Polygon and Celo as TCO2 tokens, which can be pooled into BCT (Base Carbon Tonne) and NCT (Nature Carbon Tonne). At 2022 peak handled ~22M tCO2e. Volume contracted sharply after Verra in May 2022 prohibited re-tokenization of retired credits; Toucan responded by halting new bridging and developing Carbon Bridge V2 with registry alignment.",
+  "sources": [
+    {
+      "title": "Toucan Protocol documentation",
+      "url": "https://docs.toucan.earth"
+    },
+    {
+      "title": "Verra: Statement on tokenization (May 2022)",
+      "url": "https://verra.org/verra-addresses-crypto-instruments-and-tokens/"
+    },
+    {
+      "title": "Bloomberg: Crypto Carbon Market hits $4B (2022 peak coverage)",
+      "url": "https://www.bloomberg.com/news/articles/2022-04-21/crypto-carbon-market-passes-4-billion"
+    }
+  ],
+  "updated_at": "2026-05-19",
+  "underlying_asset": "Carbon credits originally issued by Verra (VCS) and Gold Standard registries, retired off-chain before tokenization. Each TCO2 represents 1 tonne CO2 equivalent.",
+  "reserve_composition": "1:1 with retired carbon credits held in original registry under Toucan's account. BCT pool requires Verra VCS credits 2008+; NCT requires nature-based credits.",
+  "secondary_market": "Active on QuickSwap, SushiSwap (Polygon); used by KlimaDAO, MCO2 retirement protocols.",
+  "min_investment_usd": 0,
+  "smart_contract_audit": {
+    "auditor": "Code Arena, Sherlock contests",
+    "date": "2021-2023",
+    "report_url": ""
+  },
+  "oracle_provider": "N/A — credits bridged from off-chain registries with manual reconciliation.",
+  "redemption_mechanism": "TCO2 tokens can be 'retired' on-chain, generating immutable retirement certificate. Original Verra credit remains retired off-chain.",
+  "upgrade_authority": "Toucan Labs multisig; community governance via $NCT and $BCT holders limited.",
+  "timeline": [
+    {
+      "date": "2021-10-22",
+      "event": "Toucan Protocol launches on Polygon",
+      "type": "milestone"
+    },
+    {
+      "date": "2022-04-01",
+      "event": "BCT/NCT TVL reaches peak ~22M tCO2e",
+      "type": "milestone"
+    },
+    {
+      "date": "2022-05-25",
+      "event": "Verra prohibits re-tokenization of retired credits",
+      "type": "incident"
+    },
+    {
+      "date": "2023-Q4",
+      "event": "Toucan announces Carbon Bridge V2 with new registry alignment",
+      "type": "milestone"
+    }
+  ],
+  "risk_flags": [
+    "registry_dispute_history"
+  ],
+  "lessons_visibility": "active_only"
+}

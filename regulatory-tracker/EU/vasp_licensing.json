@@ -1,0 +1,46 @@
+{
+  "jurisdiction": "EU",
+  "issue": "vasp_licensing",
+  "status_signal": "open",
+  "summary": "Under the Markets in Crypto-Assets Regulation (MiCA), the regulatory framework for Crypto-Asset Service Providers (CASPs) entered into application on 30 December 2024. MiCA establishes a unified licensing regime across the EU, replacing fragmented national virtual asset service provider (VASP) registrations. Any entity providing crypto-asset services (such as operating a trading platform, custody, exchange, or portfolio management) to EU residents must be authorized as a CASP by a National Competent Authority (NCA). Once licensed in one Member State, a CASP can 'passport' its services across the entire European Economic Area (EEA) without needing additional localized licenses. The regime imposes stringent requirements on governance, capital reserves, custody of client assets, IT security, and market abuse prevention. A transitional 'grandfathering' clause allows entities already registered under national laws before 30 December 2024 to continue operating until 1 July 2026, or until their MiCA application is granted or refused, subject to individual Member State discretion.",
+  "key_requirements": [
+    "CASPs must be established as a legal entity in the EU, with directors and significant shareholders passing strict fit and proper tests.",
+    "Minimum capital requirements apply depending on the service tier (e.g., \u20ac50,000 for order execution or advice, \u20ac125,000 for exchange against fiat/other crypto, \u20ac150,000 for operating a trading platform or custody).",
+    "Strict segregation of client funds and crypto-assets from the CASP's own estate is mandatory to protect users in the event of insolvency.",
+    "CASPs must implement robust IT risk management and comply with the parallel Digital Operational Resilience Act (DORA), which applies from January 2025.",
+    "Implementation of comprehensive market abuse surveillance and AML/CFT measures, including compliance with the Transfer of Funds Regulation (TFR / EU Travel Rule) which took effect concurrently with CASP rules on 30 December 2024."
+  ],
+  "exemptions": [
+    "Traditional financial institutions (e.g., credit institutions, investment firms under MiFID II, e-money institutions) are partially exempt and can provide crypto-asset services by notifying their NCA, without needing a full new CASP authorization, provided they meet specific MiCA standards.",
+    "Fully decentralized DeFi protocols operating without intermediaries or centralized control do not fall under the CASP definition, though the regulatory perimeter is strictly interpreted.",
+    "The 'reverse solicitation' exemption limits non-EU entities to providing services only at the exclusive, unprompted initiative of an EU client."
+  ],
+  "practitioner_notes": "The shift from light-touch national AML registrations to a comprehensive MiCA CASP license represents a significant compliance uplift, transforming crypto exchanges into fully regulated financial institutions resembling MiFID II firms. While the EEA passporting right is highly attractive for scaling, the licensing bar is high. Practitioners must account for varying grandfathering periods across the EU, as not all Member States chose to implement the maximum 18-month transition (ending July 2026); some countries opted for shorter transitions for existing local VASPs. Furthermore, non-EU exchanges can no longer passively solicit EU customers; ESMA has emphasized that 'reverse solicitation' is construed extremely narrowly, forcing major global exchanges to establish fully capitalized and licensed EU subsidiaries. The simultaneous implementation of DORA and TFR creates a complex operational trilemma for compliance teams.",
+  "references": [
+    {
+      "title": "Regulation (EU) 2023/1114 (Markets in Crypto-Assets Regulation - MiCA) - Title V",
+      "date": "2023-06-09",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32023R1114",
+      "type": "primary-statute"
+    },
+    {
+      "title": "ESMA: MiCA implementation and timeline for CASPs",
+      "date": "2024-12-30",
+      "url": "https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/markets-crypto-assets-regulation-mica",
+      "type": "regulator-guidance"
+    },
+    {
+      "title": "ESMA Guidelines on Reverse Solicitation under MiCA",
+      "date": "2024-01-29",
+      "url": "https://www.esma.europa.eu/press-news/esma-news/esma-consults-reverse-solicitation-and-classification-crypto-assets-under",
+      "type": "regulator-guidance"
+    },
+    {
+      "title": "Regulation (EU) 2023/1113 (Transfer of Funds Regulation - TFR)",
+      "date": "2023-06-09",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32023R1113",
+      "type": "primary-statute"
+    }
+  ],
+  "last_reviewed": "2026-05-01"
+}

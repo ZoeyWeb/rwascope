@@ -1,0 +1,31 @@
+{
+  "_note_for_implementation": "This is the postmortem patch to be merged into the existing centrifuge.json. The active project record already exists with full RARM 6-layer fields. Add lessons_visibility='both' and append the postmortem block below.",
+
+  "slug": "centrifuge",
+  "lessons_visibility": "both",
+  "risk_flags": ["historical_pool_defaults", "early_underwriting_issues"],
+
+  "postmortem": {
+    "incident_date": "2022-08-15",
+    "root_cause": "Several early Tinlake pools experienced underwriting failures and delinquencies during 2022 crypto downturn and 2023 SME credit stress. Most notable: ConsolFreight (CF4 pool) and Harbor Trade Credit pools experienced material write-downs. Underlying issue: early Tinlake architecture allowed Asset Originators (AOs) to onboard receivables with limited independent underwriting verification. AOs had operational control over loan origination, valuation, and default declaration — creating principal-agent risk. Junior tranche (TIN) holders absorbed losses as designed, but the cumulative pattern revealed structural underwriting weaknesses.",
+    "what_failed": [
+      {
+        "layer": "L3",
+        "layer_name": "Counterparty",
+        "issue": "Asset Originators served as both originator and servicer with limited independent oversight. No third-party loan tape verification at pool launch. Default determinations made by AO with delayed transparency to investors."
+      },
+      {
+        "layer": "L2",
+        "layer_name": "Asset Quality",
+        "issue": "SME receivables and trade finance assets in early pools lacked diversification and standardized credit scoring. Concentrated exposure to single counterparties within pools (e.g., single shipping company freight receivables)."
+      },
+      {
+        "layer": "L6",
+        "layer_name": "Governance",
+        "issue": "Early Centrifuge governance lacked formal AO due diligence framework. Pool launches approved by community vote without standardized credit committee or independent rating."
+      }
+    ],
+    "outcome": "Cumulative write-downs of ~$15M across affected pools (small relative to protocol scale, but material for individual TIN holders). No protocol-level insolvency. Centrifuge subsequently launched Centrifuge V3 with structural improvements: mandatory independent loan tape audits, standardized AO onboarding framework, formal credit committee for new pools, real-time default reporting, and migration to Centrifuge Chain (Substrate) for improved on-chain transparency.",
+    "rarm_lesson": "Centrifuge V1/V2 pools demonstrate the structural risk of vertically-integrated DeFi credit protocols where originator and servicer are the same entity without independent verification. RARM AFI for tokenized credit must enforce L3 separation of duties: independent loan tape verification, independent default declaration mechanism, and independent valuation oracle. Centrifuge V3's redesign is a positive case study — same protocol, materially improved L3+L6 architecture. Demonstrates that RARM scores must be temporally specific (V1 ≠ V3) and that protocol upgrades are legitimate path to improved AFI scores. This is the canonical RWA private-credit lesson and the reason why RARM private-credit indicators emphasize originator/servicer separation."
+  }
+}

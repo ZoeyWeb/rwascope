@@ -1,0 +1,78 @@
+{
+  "slug": "circle-usdc",
+  "name": "USD Coin (USDC)",
+  "short_name": "USDC",
+  "website": "https://www.circle.com/usdc",
+  "asset_class": "stablecoin_fiat_backed",
+  "jurisdiction": "United States (Circle Internet Financial)",
+  "chain": "Ethereum, Solana, Base, Arbitrum, Polygon, Avalanche, +20 chains",
+  "status": "active",
+  "launched_at": "2018-09-26",
+  "tvl_usd": 60000000000,
+  "peak_tvl_usd": 56000000000,
+  "peak_tvl_date": "2022-06-01",
+  "entity_map": {
+    "issuer":        { "name": "Circle Internet Financial, LLC", "type": "Delaware LLC (NYSE: CRCL post-IPO)", "url": "https://www.circle.com" },
+    "custodian":     { "name": "BNY Mellon, BlackRock (Circle Reserve Fund)", "type": "Bank + asset manager" },
+    "chain_infra":   { "name": "Multi-chain native; CCTP cross-chain", "type": "Native issuance" },
+    "oracle":        { "name": "Chainlink Proof of Reserve", "type": "Independent oracle" },
+    "law_firm":      { "name": "Disclosed in SEC filings: Goodwin Procter, Sullivan & Cromwell", "type": "Securities + corporate counsel" },
+    "auditor":       { "name": "Deloitte (monthly attestation)", "type": "Big Four attestation" },
+    "regulator":     { "name": "NYDFS (BitLicense), US Treasury (FinCEN), MiCA EMI license (France)", "type": "Multi-jurisdictional" },
+    "token_standard": "ERC-20 + chain-native variants"
+  },
+  "asset_slug": "usdc-circle",
+  "summary": "Largest regulated fiat-backed stablecoin. De-pegged to $0.87 on March 11, 2023 when $3.3B of reserves were trapped at the failed Silicon Valley Bank. Recovered to peg within 72 hours after FDIC guaranteed all SVB deposits. Included in Lessons Learned as the canonical 'survived major incident' case — demonstrates how L3 Counterparty concentration risk can crystallize even for well-regulated issuers, and how regulatory intervention rather than design alone restored confidence.",
+  "sources": [
+    {"title": "Circle: USDC reserves and SVB exposure (March 11, 2023 statement)", "url": "https://www.circle.com/blog/an-update-on-usdc-and-silicon-valley-bank"},
+    {"title": "Deloitte: USDC Reserve Attestation Reports (monthly)", "url": "https://www.circle.com/transparency"}
+  ],
+  "updated_at": "2026-05-19",
+
+  "underlying_asset": "100% cash + short-dated US Treasuries. Treasury portion held in Circle Reserve Fund (managed by BlackRock); cash held at BNY Mellon and previously a network of US banks.",
+  "reserve_composition": "Post-2023: ~80% short-dated US Treasuries in Circle Reserve Fund (BlackRock-managed, daily NAV); ~20% cash at BNY Mellon and other Tier 1 banks. Pre-SVB had distributed cash across multiple smaller banks including SVB ($3.3B exposure).",
+  "secondary_market": "Deep liquidity on all major CEXs (Binance, Coinbase) and DEXs (Curve 3pool, Uniswap V3). Cross-chain liquidity via CCTP. Daily volume $5-10B.",
+  "min_investment_usd": 0,
+  "smart_contract_audit": {
+    "auditor": "ChainSecurity, Halborn, others (per chain)",
+    "date": "Ongoing",
+    "report_url": ""
+  },
+  "oracle_provider": "Chainlink Proof of Reserve verifies reserve attestation on-chain; Circle publishes monthly Deloitte attestation.",
+  "redemption_mechanism": "Direct 1:1 USD redemption via Circle Mint for institutional clients (T+0/T+1). Retail access via Coinbase and other partners. No gating mechanism currently disclosed.",
+  "upgrade_authority": "Circle multisig controls minting/burning and contract upgrades; subject to NYDFS oversight and BitLicense conditions.",
+
+  "timeline": [
+    {"date": "2018-09-26", "event": "USDC launched by Centre Consortium (Circle + Coinbase)", "type": "milestone"},
+    {"date": "2022-08-16", "event": "Centre Consortium dissolved; Circle becomes sole issuer", "type": "milestone"},
+    {"date": "2023-03-10", "event": "SVB closed by California regulators; Circle holds $3.3B at SVB", "type": "incident"},
+    {"date": "2023-03-11", "event": "Circle confirms SVB exposure; USDC de-pegs to $0.87", "type": "incident"},
+    {"date": "2023-03-12", "event": "FDIC guarantees all SVB deposits; USDC recovers to $0.99", "type": "incident"},
+    {"date": "2023-03-13", "event": "USDC fully repegs; Circle confirms 100% reserves accessible", "type": "incident"},
+    {"date": "2024-07-01", "event": "Circle obtains EMI license under MiCA (France); first major stablecoin issuer licensed under MiCA", "type": "regulatory"},
+    {"date": "2025-06-05", "event": "Circle IPO on NYSE (CRCL)", "type": "milestone"}
+  ],
+
+  "risk_flags": ["de_peg_history", "counterparty_concentration_resolved"],
+
+  "lessons_visibility": "both",
+
+  "postmortem": {
+    "incident_date": "2023-03-11",
+    "root_cause": "Pre-SVB reserve management distributed USDC cash reserves across a network of US banks, including $3.3B (~8% of reserves) at SVB. When SVB was closed by California regulators on March 10, 2023, Circle could not access those reserves. Market priced in the worst case (no FDIC recovery beyond $250K limit) and USDC fell to $0.87. The peg was restored not by Circle's design but by federal intervention: Treasury, Fed, and FDIC invoked systemic risk exception to guarantee all SVB deposits. The de-peg lasted ~36 hours.",
+    "what_failed": [
+      {
+        "layer": "L3",
+        "layer_name": "Counterparty",
+        "issue": "Cash reserve concentration at a single mid-sized bank (SVB ~$3.3B / 8% of reserves). Despite SVB being FDIC-insured, the $250K per-account insurance cap was irrelevant at this scale. Diversification across banks did not eliminate single-bank concentration risk."
+      },
+      {
+        "layer": "L4",
+        "layer_name": "Token & Market Structure",
+        "issue": "DEX liquidity (Curve 3pool) acted as forced price discovery during the de-peg, amplifying panic. Curve 3pool imbalance reached >75% USDC vs DAI/USDT, demonstrating how DEX liquidity concentration becomes contagion vector during incidents."
+      }
+    ],
+    "outcome": "Peg restored within 72 hours; zero customer losses. Circle subsequently restructured reserves: cash moved primarily to BNY Mellon (G-SIB tier); Treasury allocation increased to ~80% in BlackRock-managed money market fund. Catalyzed Hong Kong Stablecoin Ordinance (June 2025) reserve segregation requirements and MiCA Article 36 reserve diversification rules.",
+    "rarm_lesson": "USDC demonstrates that L3 Counterparty risk is irreducible for fiat-backed stablecoins — even with full regulatory compliance and Big Four attestation, banking system fragility transmits directly to the peg. RARM AFI requires L3 evaluation to consider both regulated-counterparty failure (SVB was solvent on paper) and tail-risk concentration metrics, not just nominal diversification. The 'survived' outcome should not be attributed to USDC's design — it was attributable to government intervention. RARM scoring should treat externally-rescued de-pegs as evidence of latent L3 fragility, not as evidence of design resilience. This case justifies why RARM maintains a 'de_peg_history' risk flag on USDC despite full recovery — historical fragility remains relevant signal."
+  }
+}

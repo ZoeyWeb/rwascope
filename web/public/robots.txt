@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /score
+Disallow: /api/
+
+Sitemap: https://rwa-index.com/sitemap.xml

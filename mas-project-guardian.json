@@ -1,0 +1,92 @@
+{
+  "slug": "mas-project-guardian",
+  "name": "MAS Project Guardian (Asset Tokenization Pilots)",
+  "short_name": "Project Guardian",
+  "website": "https://www.mas.gov.sg/schemes-and-initiatives/project-guardian",
+  "asset_class": "infrastructure",
+  "jurisdiction": "Singapore (with cross-border pilots: UK FCA, Japan FSA, Switzerland FINMA)",
+  "chain": "Multiple (Ethereum, Polygon, Avalanche, ConsenSys Quorum per pilot)",
+  "status": "pilot",
+  "launched_at": "2022-05-31",
+  "tvl_usd": 0,
+  "entity_map": {
+    "issuer": {
+      "name": "Monetary Authority of Singapore (MAS) + industry consortium",
+      "type": "Central bank + industry pilots"
+    },
+    "custodian": {
+      "name": "",
+      "type": ""
+    },
+    "chain_infra": {
+      "name": "Multiple per pilot stream",
+      "type": "Multi-platform"
+    },
+    "oracle": {
+      "name": "",
+      "type": ""
+    },
+    "law_firm": {
+      "name": "",
+      "type": ""
+    },
+    "auditor": {
+      "name": "",
+      "type": ""
+    },
+    "regulator": {
+      "name": "MAS + cross-border partners (UK FCA, Japan FSA, Switzerland FINMA)",
+      "type": "Multi-jurisdictional"
+    },
+    "token_standard": "Per pilot"
+  },
+  "asset_slug": "",
+  "summary": "MAS's institutional asset tokenization pilot program. Multiple workstreams: tokenized funds (JPMorgan + Apollo + WisdomTree), FX/cross-currency (DBS, JPM, SBI), wealth management (UOB + Marketnode + Schroders), trade finance (StraitsX + Ant International). 2024-2025 expansion includes formal collaboration with UK FCA, Japan FSA, and Switzerland FINMA — making Project Guardian the most internationally coordinated tokenization regulatory framework. Distinct from Project Orchid (which focuses on retail purpose-bound money). Direct counterpart to HKMA Project Ensemble; the two programs increasingly cross-reference each other.",
+  "sources": [
+    {
+      "title": "MAS Project Guardian main page",
+      "url": "https://www.mas.gov.sg/schemes-and-initiatives/project-guardian"
+    },
+    {
+      "title": "MAS: Global industry pilots on asset tokenization (2024 update)",
+      "url": "https://www.mas.gov.sg/news/media-releases/2024/global-industry-pilots-on-asset-tokenisation"
+    }
+  ],
+  "updated_at": "2026-05-19",
+  "underlying_asset": "Various per pilot: tokenized funds (money market, equity, credit), tokenized FX, trade finance receivables, wealth management products.",
+  "reserve_composition": "Per pilot; institutional-grade backing typical of underlying asset class.",
+  "secondary_market": "Per pilot; some streams aim for cross-border interoperability.",
+  "min_investment_usd": 0,
+  "smart_contract_audit": {
+    "auditor": "Per participant",
+    "date": "Ongoing",
+    "report_url": ""
+  },
+  "oracle_provider": "Per pilot use case.",
+  "redemption_mechanism": "Per pilot design.",
+  "upgrade_authority": "MAS framework governance; participants implement per institutional governance.",
+  "timeline": [
+    {
+      "date": "2022-05-31",
+      "event": "MAS announces Project Guardian",
+      "type": "milestone"
+    },
+    {
+      "date": "2022-11-02",
+      "event": "First live tokenized FX transaction: JPM Onyx + DBS + SBI",
+      "type": "milestone"
+    },
+    {
+      "date": "2024-11-04",
+      "event": "Phase 2 expansion announced; cross-border with UK FCA, Japan FSA",
+      "type": "milestone"
+    },
+    {
+      "date": "2025-Q3",
+      "event": "Cross-border tokenized fund interoperability pilots active",
+      "type": "milestone"
+    }
+  ],
+  "risk_flags": [],
+  "lessons_visibility": "active_only"
+}

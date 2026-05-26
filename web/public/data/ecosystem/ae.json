@@ -1,0 +1,391 @@
+{
+  "meta": {
+    "version": "1.0.0",
+    "last_compiled": "2026-05-18",
+    "title": "UAE RWA Ecosystem Map",
+    "description": "A structured overview of the UAE's tokenized real-world asset ecosystem — mapping multi-regulator oversight (VARA/ADGM/DFSA), real estate tokenization leadership, and Islamic finance integration.",
+    "disclaimer": "This map is compiled from publicly available official sources. Participant lists may be incomplete where information has not been publicly enumerated by regulators. This is an informational reference, not a regulatory register.",
+    "sources": [
+      "VARA press releases and licensing register (vara.ae)",
+      "ADGM/FSRA official publications (adgm.com)",
+      "DFSA regulatory notices (dfsa.ae)",
+      "HKMA/MAS cross-border disclosures",
+      "Dubai Land Department public announcements (dubailand.gov.ae)",
+      "Company public filings and press releases"
+    ]
+  },
+  "stats": {
+    "regulators": 5,
+    "licensed_vatps": 3,
+    "real_estate_tokenization_platforms": 4,
+    "infrastructure_chains": 4,
+    "professional_enablers": 6
+  },
+  "layers": [
+    {
+      "id": "regulatory",
+      "order": 1,
+      "label": "Regulatory Oversight",
+      "sublabel": "Licensing & Policy",
+      "color": "#818cf8",
+      "bg": "#16163a",
+      "border": "#818cf8",
+      "description": "UAE operates a multi-regulator framework: VARA governs Dubai virtual assets, ADGM/FSRA covers Abu Dhabi, and DFSA regulates DIFC. The federal CMA oversees broker and exchange services, while the Dubai Land Department leads real estate tokenization.",
+      "participants": [
+        {
+          "id": "vara",
+          "name": "VARA",
+          "full_name": "Virtual Assets Regulatory Authority",
+          "type": "regulator",
+          "role": "Dubai's dedicated virtual assets regulator; introduced the ARVA (Approved Real-World Virtual Assets) classification in May 2025, providing legal status for tokenized RWAs under Dubai law",
+          "url": "https://www.vara.ae",
+          "tags": ["virtual-assets", "arva", "rwa", "dubai", "licensing"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "adgm-fsra",
+          "name": "ADGM / FSRA",
+          "full_name": "Abu Dhabi Global Market — Financial Services Regulatory Authority",
+          "type": "regulator",
+          "role": "MENA's first complete virtual asset regulatory framework, operational since 2018; licenses digital asset exchanges and custodians; regulates tokenized securities within the ADGM free zone",
+          "url": "https://www.adgm.com",
+          "tags": ["virtual-assets", "abu-dhabi", "exchange-license", "tokenization"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "dfsa-difc",
+          "name": "DFSA / DIFC",
+          "full_name": "Dubai Financial Services Authority — Dubai International Financial Centre",
+          "type": "regulator",
+          "role": "Operates the DIFC Tokenisation Sandbox for institutional-grade pilot programmes; regulates tokenized financial instruments issued within DIFC jurisdiction",
+          "url": "https://www.dfsa.ae",
+          "tags": ["difc", "sandbox", "tokenization", "institutional"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "cma-uae",
+          "name": "CMA",
+          "full_name": "Securities and Commodities Authority (UAE)",
+          "type": "regulator",
+          "role": "Federal-level regulator overseeing broker and exchange services; issued Decision No. 4/R.M/2026 on digital asset brokerage; coordinates with VARA on cross-emirate licensing",
+          "url": "https://www.sca.gov.ae",
+          "tags": ["federal", "broker", "exchange", "securities"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "dld",
+          "name": "Dubai Land Department",
+          "full_name": "Dubai Land Department",
+          "type": "regulator",
+          "role": "Government body overseeing Dubai real estate registry; launched government-backed real estate tokenization pilot in May 2025, enabling fractional ownership of registered properties on-chain",
+          "url": "https://www.dubailand.gov.ae",
+          "tags": ["real-estate", "tokenization", "government", "dubai"],
+          "confidence_level": "high"
+        }
+      ]
+    },
+    {
+      "id": "financial_institutions",
+      "order": 2,
+      "label": "Financial Institutions",
+      "sublabel": "Banks & Real Estate Developers",
+      "color": "#4ade80",
+      "bg": "#0c2018",
+      "border": "#4ade80",
+      "description": "UAE's largest banks and leading real estate developers driving adoption of tokenized assets, from Islamic finance exploration to multi-billion-dollar real estate tokenization deals.",
+      "participants": [
+        {
+          "id": "emirates-nbd",
+          "name": "Emirates NBD",
+          "full_name": "Emirates NBD",
+          "type": "bank",
+          "role": "State-owned bank; one of the UAE's largest financial institutions; active digital asset strategy including tokenized trade finance and blockchain-based payment pilots",
+          "tags": ["bank", "state-owned", "digital-assets", "trade-finance"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "fab",
+          "name": "First Abu Dhabi Bank",
+          "full_name": "First Abu Dhabi Bank (FAB)",
+          "type": "bank",
+          "role": "UAE's largest bank by assets; active participant in tokenized bond issuances; exploring digital asset custody and institutional tokenization products",
+          "tags": ["bank", "tokenization", "bonds", "institutional"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "adib",
+          "name": "ADIB",
+          "full_name": "Abu Dhabi Islamic Bank",
+          "type": "bank",
+          "role": "Leading Islamic bank exploring Shariah-compliant RWA tokenization; active in sukuk digitalization and blockchain-based halal finance instruments",
+          "tags": ["islamic-finance", "sukuk", "tokenization", "halal"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "damac",
+          "name": "DAMAC Group",
+          "full_name": "DAMAC Group",
+          "type": "developer",
+          "role": "Major Dubai real estate developer; signed USD 1 billion real estate tokenization agreement with Mantra Chain in January 2025; pioneer in blockchain-based property fractionalisation",
+          "tags": ["real-estate", "tokenization", "mantra", "billion-dollar"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "mag",
+          "name": "MAG",
+          "full_name": "MAG Group",
+          "type": "developer",
+          "role": "Dubai luxury real estate developer; signed USD 3 billion tokenization agreement with MultiBank and Mavryk, including tokenization of Ritz-Carlton Dubai properties",
+          "tags": ["real-estate", "luxury", "multibank", "mavryk", "billion-dollar"],
+          "confidence_level": "high"
+        }
+      ]
+    },
+    {
+      "id": "infrastructure",
+      "order": 3,
+      "label": "Infrastructure",
+      "sublabel": "Settlement & Blockchain Networks",
+      "color": "#facc15",
+      "bg": "#1e1a02",
+      "border": "#facc15",
+      "description": "Blockchain networks and infrastructure providers underpinning UAE's RWA issuance, settlement, and secondary trading infrastructure.",
+      "participants": [
+        {
+          "id": "mantra-chain",
+          "name": "Mantra Chain",
+          "full_name": "Mantra Chain",
+          "type": "blockchain",
+          "role": "RWA-focused Layer 1 blockchain; primary infrastructure partner for DAMAC's USD 1 billion real estate tokenization; built-in VARA/ADGM compliance primitives",
+          "tags": ["l1", "rwa", "real-estate", "compliance", "vara"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "xrp-ledger",
+          "name": "XRP Ledger",
+          "full_name": "XRP Ledger (XRPL)",
+          "type": "blockchain",
+          "role": "Distributed ledger used by Prypco Mint for UAE real estate token issuance and secondary market trading; supports regulated asset tokenization with built-in DEX",
+          "tags": ["xrpl", "real-estate", "prypco", "secondary-market"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "multibank",
+          "name": "MultiBank Group",
+          "full_name": "MultiBank Group",
+          "type": "infrastructure",
+          "role": "MENA-based financial services and infrastructure provider; execution layer for MAG's USD 3 billion real estate tokenization; operates tokenization issuance and settlement rails",
+          "tags": ["infrastructure", "real-estate", "mag", "execution"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "mavryk",
+          "name": "Mavryk",
+          "full_name": "Mavryk Dynamics",
+          "type": "blockchain",
+          "role": "Blockchain infrastructure provider; MAG tokenization partner for Ritz-Carlton Dubai and other luxury real estate assets",
+          "tags": ["blockchain", "real-estate", "luxury", "mag"],
+          "confidence_level": "high"
+        }
+      ]
+    },
+    {
+      "id": "issuance",
+      "order": 4,
+      "label": "Issuance Platforms",
+      "sublabel": "Tokenization Protocols",
+      "color": "#60a5fa",
+      "bg": "#0d1c32",
+      "border": "#60a5fa",
+      "description": "Platforms enabling fractional ownership and tokenization of UAE real estate and other real-world assets, ranging from retail-accessible property tokens to institutional-grade DIFC sandbox pilots.",
+      "participants": [
+        {
+          "id": "prypco-mint",
+          "name": "Prypco Mint",
+          "full_name": "Prypco Mint",
+          "type": "platform",
+          "role": "UAE real estate tokenization platform on XRP Ledger; launched secondary market in February 2026 with over USD 5 million in Dubai properties available for trading; minimum investment AED 2,000",
+          "tags": ["real-estate", "secondary-market", "xrpl", "fractional", "retail"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "rwa-inc",
+          "name": "RWA Inc.",
+          "full_name": "RWA Inc.",
+          "type": "platform",
+          "role": "Tokenization platform partnering with Amano Invest to fractionalize luxury UAE real estate; minimum investment from EUR 100; targets retail and international investors",
+          "tags": ["real-estate", "luxury", "fractional", "retail", "international"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "difc-sandbox",
+          "name": "DIFC Tokenisation Sandbox",
+          "full_name": "DFSA DIFC Tokenisation Sandbox",
+          "type": "platform",
+          "role": "Regulatory sandbox operated by the DFSA within DIFC for institutional tokenization pilots; facilitates compliant issuance of tokenized financial instruments under DFSA oversight",
+          "tags": ["sandbox", "institutional", "difc", "dfsa", "regulated"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "smartcrowd",
+          "name": "SmartCrowd",
+          "full_name": "SmartCrowd",
+          "type": "platform",
+          "role": "DFSA-regulated real estate crowdfunding and fractional ownership platform in Dubai; enables retail investor access to tokenized UAE property with low minimum ticket sizes",
+          "tags": ["real-estate", "crowdfunding", "dfsa-regulated", "retail", "fractional"],
+          "confidence_level": "high"
+        }
+      ]
+    },
+    {
+      "id": "market_access",
+      "order": 5,
+      "label": "Market Access",
+      "sublabel": "Licensed Exchanges & VASPs",
+      "color": "#fb923c",
+      "bg": "#1e1102",
+      "border": "#fb923c",
+      "description": "VARA-licensed and ADGM-regulated virtual asset exchanges providing institutional and retail access to digital assets within the UAE regulatory framework.",
+      "participants": [
+        {
+          "id": "binance-mena",
+          "name": "Binance MENA",
+          "full_name": "Binance MENA",
+          "type": "exchange",
+          "role": "World's largest exchange by volume; holds VASP licence under VARA; operates MENA regional operations from Dubai; primary access point for regional retail and institutional flows",
+          "tags": ["exchange", "vara-licensed", "vasp", "retail", "institutional"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "okx-mena",
+          "name": "OKX MENA",
+          "full_name": "OKX MENA",
+          "type": "exchange",
+          "role": "Major global exchange with VARA licence; operates dedicated MENA platform from Dubai; institutional and retail trading with UAE-compliant KYC/AML infrastructure",
+          "tags": ["exchange", "vara-licensed", "mena", "institutional"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "bybit",
+          "name": "Bybit",
+          "full_name": "Bybit",
+          "type": "exchange",
+          "role": "Derivatives and spot exchange headquartered in Dubai; holds VARA licence; significant retail presence across MENA region",
+          "tags": ["exchange", "vara-licensed", "dubai-hq", "derivatives", "retail"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "rain",
+          "name": "Rain",
+          "full_name": "Rain Financial Inc.",
+          "type": "exchange",
+          "role": "MENA-focused regulated exchange with licences in Bahrain and UAE; provides compliant retail access to digital assets for Gulf Cooperation Council markets",
+          "tags": ["exchange", "gcc", "retail", "compliant", "bahrain"],
+          "confidence_level": "high"
+        }
+      ],
+      "participants_note": "VARA licences are publicly listed on vara.ae. ADGM/FSRA maintains a separate register for Abu Dhabi-licensed VASPs. Participant counts reflect entities with publicly confirmed active licences as of May 2026."
+    },
+    {
+      "id": "enablers",
+      "order": 6,
+      "label": "Professional Enablers",
+      "sublabel": "Compliance · Custody · Audit · Legal",
+      "color": "#a78bfa",
+      "bg": "#1a1030",
+      "border": "#a78bfa",
+      "description": "Institutional custody providers, blockchain compliance analytics firms, legal advisors, and Big Four audit firms that underpin regulatory compliance and transaction assurance for the UAE RWA ecosystem.",
+      "participants": [
+        {
+          "id": "cobo",
+          "name": "Cobo",
+          "full_name": "Cobo Global",
+          "type": "custody",
+          "role": "Institutional-grade digital asset custody provider; serves UAE-based RWA issuers and licensed exchanges with MPC wallet infrastructure and co-managed custody solutions",
+          "tags": ["custody", "mpc", "institutional", "uae"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "fireblocks",
+          "name": "Fireblocks",
+          "full_name": "Fireblocks Inc.",
+          "type": "custody",
+          "role": "Enterprise digital asset custody and transfer infrastructure; used by UAE-licensed exchanges and tokenization platforms for secure key management and settlement rails",
+          "tags": ["custody", "enterprise", "settlement", "key-management"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "ape-law",
+          "name": "APE Law",
+          "full_name": "APE Law",
+          "type": "legal",
+          "role": "Dubai-based law firm specialising in Web3 and RWA legal structuring; advises on VARA licensing, tokenization SPV formation, and cross-border digital asset transactions in the UAE",
+          "tags": ["legal", "web3", "rwa", "vara", "spv", "dubai"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "pwc-me",
+          "name": "PwC Middle East",
+          "full_name": "PricewaterhouseCoopers Middle East",
+          "type": "audit",
+          "role": "Big Four audit and advisory; provides assurance and advisory services for digital asset businesses, tokenization platforms, and VARA/ADGM-licensed entities in the UAE",
+          "tags": ["audit", "advisory", "big-four", "uae", "vara"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "deloitte-me",
+          "name": "Deloitte Middle East",
+          "full_name": "Deloitte Middle East",
+          "type": "audit",
+          "role": "Big Four audit and advisory with dedicated digital assets practice; supports UAE tokenization platforms and licensed VASPs with financial audits and regulatory compliance advisory",
+          "tags": ["audit", "advisory", "big-four", "uae", "digital-assets"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "chainalysis-ae",
+          "name": "Chainalysis",
+          "full_name": "Chainalysis Inc.",
+          "type": "compliance",
+          "role": "Blockchain analytics and AML investigation platform; used by VARA-licensed exchanges and UAE financial institutions for transaction monitoring, sanctions screening, and regulatory reporting",
+          "tags": ["aml", "analytics", "sanctions", "vara", "compliance"],
+          "confidence_level": "high"
+        }
+      ],
+      "participants_note": "Professional service providers listed are active in UAE digital asset engagements based on public disclosures. This list is illustrative, not exhaustive."
+    }
+  ],
+  "gaps": [
+    {
+      "id": "gap-infra-islamic-finance",
+      "layer_id": "infrastructure",
+      "type": "market_gap",
+      "severity": "high",
+      "title": "Islamic Finance RWA Standards Gap",
+      "description": "Sukuk tokenization lacks unified Shariah-compliant standards across VARA and ADGM jurisdictions. No cross-emirate framework defines on-chain compliance requirements for halal RWA instruments, creating structuring uncertainty for Islamic finance participants."
+    },
+    {
+      "id": "gap-regulatory-fragmentation",
+      "layer_id": "regulatory",
+      "type": "market_gap",
+      "severity": "medium",
+      "title": "Multi-Regulator Fragmentation",
+      "description": "VARA, ADGM/FSRA, and DFSA operate parallel virtual asset frameworks without cross-emirate mutual recognition. Entities requiring presence in both Dubai and Abu Dhabi must obtain separate licences under distinct regulatory regimes."
+    },
+    {
+      "id": "gap-market-foreign-access",
+      "layer_id": "market_access",
+      "type": "market_gap",
+      "severity": "medium",
+      "title": "Foreign Investor Access Restricted",
+      "description": "Prypco Mint's secondary market is limited to UAE ID holders; cross-border retail access to UAE-tokenized real estate is not yet enabled. International investors face structural barriers to participating in the UAE's real estate token market."
+    }
+  ],
+  "participant_type_chart": [
+    { "category": "Regulators", "count": 5, "color": "#818cf8" },
+    { "category": "Financial Institutions", "count": 5, "color": "#4ade80" },
+    { "category": "Infrastructure", "count": 4, "color": "#facc15" },
+    { "category": "Issuance Platforms", "count": 4, "color": "#60a5fa" },
+    { "category": "Market Access", "count": 4, "color": "#fb923c" },
+    { "category": "Enablers", "count": 6, "color": "#a78bfa" }
+  ]
+}

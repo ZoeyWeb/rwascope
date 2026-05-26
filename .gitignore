@@ -1,0 +1,60 @@
+# ── Node / Frontend ───────────────────────────────────────
+node_modules/
+dist/
+.next/
+.expo/
+.cache/
+*.local
+
+# ── Python / Backend ──────────────────────────────────────
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.eggs/
+.mypy_cache/
+.ruff_cache/
+
+# ── DB dumps (dev artifacts, never commit) ────────────────
+*.sql
+*.dump
+
+# ── Secrets ───────────────────────────────────────────────
+.env
+.env.*
+!.env.example
+
+# ── Test artifacts ────────────────────────────────────────
+test-results/
+playwright-report/
+coverage/
+
+# ── OS / Editor ───────────────────────────────────────────
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# OpenClaw agent metadata — these files belong to the OpenClaw agent runtime,
+# not to this project. They should never be committed to the rwascope repo.
+# (See ~/.openclaw/workspace/WORKFLOW.md for the agent file split.)
+/AGENTS.md
+/IDENTITY.md
+/SOUL.md
+/TOOLS.md
+/USER.md
+/HEARTBEAT.md
+/MEMORY.md
+/BOOTSTRAP.md
+/.openclaw/
+/memory/
+
+# ── Live data files (maintained by server cron, never committed) ──────────────
+web/public/data/leaderboard.json
+web/public/data/assets/assets-live.json
+
+# ── Browser testing binaries (never commit) ───────────────────────────────────
+web/chrome/
+*.app/

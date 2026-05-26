@@ -1,0 +1,96 @@
+{
+  "slug": "hashnote-usyc",
+  "name": "Hashnote US Yield Coin (USYC)",
+  "short_name": "Hashnote USYC",
+  "website": "https://www.hashnote.com",
+  "asset_class": "gov_bond",
+  "jurisdiction": "Cayman Islands (Hashnote International)",
+  "chain": "Ethereum, Canton Network",
+  "status": "active",
+  "launched_at": "2023-11-08",
+  "tvl_usd": 1400000000,
+  "entity_map": {
+    "issuer": {
+      "name": "Hashnote International Ltd (Cayman); acquired by Circle in January 2025",
+      "type": "Asset manager / wholly-owned by Circle"
+    },
+    "custodian": {
+      "name": "Cumberland (DRW affiliate) prime services; BNY Mellon for underlying T-bill custody",
+      "type": "Institutional"
+    },
+    "chain_infra": {
+      "name": "Ethereum + Canton Network",
+      "type": "Multi-chain"
+    },
+    "oracle": {
+      "name": "Daily NAV reported by Hashnote as fund administrator",
+      "type": "Administrator"
+    },
+    "law_firm": {
+      "name": "",
+      "type": ""
+    },
+    "auditor": {
+      "name": "Big Four — fund accountant per Cayman fund structure",
+      "type": "Big Four"
+    },
+    "regulator": {
+      "name": "Cayman Islands Monetary Authority (CIMA); SEC for US distribution via QIB carve-out",
+      "type": "Offshore + accredited"
+    },
+    "token_standard": "ERC-20 + Canton-native"
+  },
+  "asset_slug": "",
+  "summary": "Tokenized money market fund offering on-chain access to short-dated US Treasury repo + T-bill exposure. Originated from Cumberland Labs (DRW Holdings spinout); acquired by Circle in January 2025 to integrate with USDC liquidity infrastructure. By acquisition USYC was the second-largest tokenized money market fund behind BlackRock BUIDL. Notable for being used as on-chain collateral on derivatives platforms (Deribit, FalconX). Strategic significance: Circle's USDC + USYC integration creates closed-loop between stablecoin and yield-bearing equivalent — preview of how stablecoin issuers may bundle yield products.",
+  "sources": [
+    {
+      "title": "Circle acquires Hashnote (January 21, 2025)",
+      "url": "https://www.circle.com/blog/circle-to-acquire-hashnote"
+    },
+    {
+      "title": "Hashnote USYC product page",
+      "url": "https://www.hashnote.com/usyc"
+    },
+    {
+      "title": "RWA.xyz: USYC dashboard",
+      "url": "https://app.rwa.xyz/treasuries"
+    }
+  ],
+  "updated_at": "2026-05-19",
+  "underlying_asset": "Short-dated US Treasury bills + overnight reverse repo collateralized by US Treasuries.",
+  "reserve_composition": "100% short-dated UST + tri-party repo; segregated custody at BNY Mellon.",
+  "secondary_market": "OTC via Hashnote dealers; integrated as collateral on Deribit, FalconX, Cumberland.",
+  "min_investment_usd": 250000,
+  "smart_contract_audit": {
+    "auditor": "Halborn (Ethereum); Canton-native modules separately audited",
+    "date": "2023-2024",
+    "report_url": ""
+  },
+  "oracle_provider": "Hashnote daily NAV; Chainlink Proof of Reserve integration in progress (per Circle integration).",
+  "redemption_mechanism": "T+0 redemption to USDC (post-Circle acquisition) or USD wire; minimum redemption $250K.",
+  "upgrade_authority": "Hashnote management (now under Circle); subject to Cayman fund prospectus.",
+  "timeline": [
+    {
+      "date": "2023-11-08",
+      "event": "Hashnote USYC launched",
+      "type": "milestone"
+    },
+    {
+      "date": "2024-Q3",
+      "event": "Canton Network deployment; first cross-chain institutional MMF",
+      "type": "milestone"
+    },
+    {
+      "date": "2025-01-21",
+      "event": "Circle announces acquisition of Hashnote",
+      "type": "milestone"
+    },
+    {
+      "date": "2025-Q2",
+      "event": "USYC ↔ USDC instant conversion integration completed",
+      "type": "milestone"
+    }
+  ],
+  "risk_flags": [],
+  "lessons_visibility": "active_only"
+}

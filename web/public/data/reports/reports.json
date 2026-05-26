@@ -1,0 +1,209 @@
+[
+  {
+    "slug": "q1-2026",
+    "quarter": "Q1 2026",
+    "title": "HK Tokenization Landscape: Q1 2026 Preview",
+    "status": "published",
+    "publishedAt": "2026-04-29",
+    "lastUpdatedAt": "2026-05-05",
+    "pageCount": 28,
+    "abstract": "A preliminary review of Hong Kong's tokenized real-world asset ecosystem for Q1 2026, covering stablecoin licensing progress, the tokenized-asset risk landscape, incident activity, and key regulatory developments including the commencement of the Stablecoins Ordinance.",
+    "periodStart": "2026-01-01",
+    "periodEnd": "2026-03-31",
+    "isPreview": false,
+    "authors": ["RWA-Index Research"],
+    "sections": [
+      {
+        "id": "executive-summary",
+        "title": "Executive Summary",
+        "type": "manual",
+        "narrative": "[PREVIEW — full narrative pending final publication]\n\nThis quarterly report surveys the Hong Kong tokenized real-world asset (RWA) landscape for the period 1 January – 31 March 2026. The period is defined by continued implementation of the **Stablecoins Ordinance (Cap. 656)**, which came into operation on 1 August 2025 and represents the world's first purpose-built licensing regime for fiat-referenced stablecoin issuers.\n\n**Key findings at a glance**\n\nThe HKMA stablecoin licensing pipeline remained active in Q1 2026, with pre-existing issuers operating under transitional provisions while preparing formal licence applications under Cap. 656. Detailed data on each applicant's capital adequacy, reserve quality, governance, technology, redemption, and disclosure posture is presented in Section 3.\n\nThe global tokenized-asset universe continued to expand. Section 4 profiles eight institutional-grade products spanning tokenized treasuries, money-market funds, and commodity-backed instruments. All RARM assessments remain provisional pending review of non-public offering documents.\n\nNo incidents meeting the platform's HK-related inclusion threshold were recorded during Q1 2026. Section 5 provides all-time incident distributions for contextual reference.\n\nPolicy Watch (Section 6) covers Cap. 656 implementation progress, the EnsembleTX real-value pilot, mainland China's Notice 42 (2026) on virtual asset risks, and the CLARITY Act pending in the US Senate.\n\n[PREVIEW — conclusions and outlook pending final publication]"
+      },
+      {
+        "id": "market-overview",
+        "title": "Market Overview",
+        "type": "auto-market",
+        "manualCommentary": "[PREVIEW — analyst commentary pending final publication]\n\nThe DeFiLlama protocol dataset provides a real-time snapshot of on-chain RWA TVL. During Q1 2026 the aggregate tokenized-treasury segment sustained growth momentum established in 2024–2025, driven primarily by institutional adoption of tokenized US Treasury products. Commodity-backed tokens, led by gold, remained stable. Private-credit protocols showed divergent performance across venues.\n\nReaders should note that TVL figures are denominated in USD and reflect token redemption values, not market prices. See the Methodology section for a full discussion of measurement conventions."
+      },
+      {
+        "id": "stablecoin-licensing",
+        "title": "Stablecoin Licensing Pipeline",
+        "type": "auto-licenses",
+        "manualCommentary": "[PREVIEW — analyst commentary pending final publication]\n\nThe Stablecoins Ordinance (Cap. 656) came into operation on 1 August 2025. During Q1 2026, pre-existing issuers continued to operate under transitional provisions while engaging with the HKMA Licensing Team ahead of formal licence applications. The table above reflects SARM signal distributions as assessed from publicly available disclosure — reserve quality, governance, and redemption dimensions show the highest proportion of gray signals, reflecting the limited information available in the pre-licensing phase.\n\nIssuers are expected to publish materially more detailed prospectuses as part of their formal licence applications under Cap. 656, which will allow signal reassessment in subsequent quarters."
+      },
+      {
+        "id": "asset-risk-observatory",
+        "title": "Tokenized Asset Risk Observatory",
+        "type": "auto-assets",
+        "manualCommentary": "[PREVIEW — analyst commentary pending final publication]\n\nThe eight profiled products collectively represent an estimated USD 4–5 billion in tokenized TVL. All six RARM layers carry provisional gray signals across all profiled assets — reflecting the absence of publicly available offering documents, legal opinions, and custody attestations rather than identified deficiencies.\n\nThe dominant category by count is tokenized treasury / money market (five of eight products). Ethereum remains the primary deployment chain across all products.\n\nFormal RARM signal updates are expected as issuers publish prospectuses under the Cap. 656 regime and as third-party attestation reports become available."
+      },
+      {
+        "id": "incident-review",
+        "title": "Incident Review",
+        "type": "auto-incidents",
+        "manualCommentary": "[PREVIEW — analyst commentary pending final publication]\n\nNo incidents meeting the platform's inclusion thresholds were recorded in the Q1 2026 period. For context, the all-time incident database (2022–2025) covers 17 incidents across both global-reference and HK-related categories. The most recent incident, the Bybit SafeWallet supply-chain compromise (February 2025, USD 1.46 billion), was reviewed in the prior period.\n\nThe absence of new incidents in Q1 2026 should not be interpreted as evidence of reduced systemic risk; rather, it may reflect a maturation of security practices among the largest custodians and exchange operators following the 2025 incidents."
+      },
+      {
+        "id": "policy-watch",
+        "title": "Policy Watch",
+        "type": "mixed",
+        "narrative": "**Hong Kong Stablecoins Ordinance (Cap. 656) — Implementation Phase Continues**\n\nThe Stablecoins Ordinance (Cap. 656), which came into operation on 1 August 2025, continued its implementation phase throughout Q1 2026. As of the period end, the HKMA's Register of Licensees under the Stablecoins Ordinance remained empty, with the first batch of licences anticipated in 2026 according to public statements from HKMA leadership. Pre-existing issuers continued to operate under transitional provisions while engaging with the HKMA Licensing Team. Licence applications are assessed against the HKMA's Supervisory Policy Manual module SA-1 (Stablecoin Issuers), which operationalises each of the six SARM dimensions tracked in the RWA-Index Licenses module.\n\n**Project Ensemble — EnsembleTX Pilot in Real-Value Operation**\n\nEnsembleTX, the pilot phase of Project Ensemble launched by the HKMA on 13 November 2025, entered full real-value operation throughout Q1 2026. The pilot enables interbank settlement of tokenised deposits via the HKD Real Time Gross Settlement (RTGS) system, with initial focus on tokenised money market fund transactions and real-time liquidity management. Participating banks include Bank of China (Hong Kong), China Construction Bank (Asia), Fubon Bank (Hong Kong), Fusion Bank, Standard Chartered Bank (Hong Kong), The Bank of East Asia, and HSBC Hong Kong.\n\n**Mainland China — Notice 42 (2026) on Virtual Asset Risks**\n\nOn 6 February 2026, the People's Bank of China and other ministries jointly issued Notice 42 (银发〔2026〕42号) \"Concerning Further Prevention and Disposition of Risks Related to Virtual Currencies\", alongside CSRC supervisory guidance on offshore issuance of asset-backed security tokens collateralised by domestic Chinese assets. The framework establishes that mainland-onshore RWA tokenisation activities are generally prohibited unless undertaken with sectoral regulator approval and through specified financial infrastructure, while creating a structured pathway for cross-border RWA issuance through compliant offshore venues. The framework has direct implications for Hong Kong's positioning as a venue for mainland-asset offshore tokenisation.\n\n**United States — CLARITY Act Pending Senate Consideration**\n\nThe Digital Asset Market Clarity Act (CLARITY Act, H.R. 3633), which passed the U.S. House of Representatives on 17 July 2025 by a vote of 294–134, remained pending in the U.S. Senate during Q1 2026. The CLARITY Act would establish a comprehensive regulatory framework for digital asset market structure, complementing the GENIUS Act (signed into law 18 July 2025) which addresses payment stablecoins. Industry observers noted that Senate consideration in early 2026 would be material to U.S. tokenisation market development.",
+        "manualCommentary": "[PREVIEW — final analyst summary and assessment pending publication]"
+      },
+      {
+        "id": "outlook",
+        "title": "Outlook & Next Steps",
+        "type": "manual",
+        "narrative": "[PREVIEW — full outlook section pending final publication]\n\nThe Q2 2026 report will cover the first formal licence decisions under Cap. 656, expected mid-year. Key items to watch:\n\n**Licensing decisions**: The HKMA has indicated a target of processing first-round applications within 90 days of submission. The Q2 2026 report will update SARM signal assessments for any issuers that publish offering documents or receive in-principle approvals.\n\n**EnsembleTX expansion**: With EnsembleTX now in real-value operation, the Q2 2026 report will review any announced expansions of use cases or participating institutions. The HKMA is expected to publish a public summary of EnsembleTX operational results by Q3 2026.\n\n**CLARITY Act — US Senate**: The CLARITY Act (H.R. 3633) remains pending Senate consideration. A floor vote or committee mark-up in Q2–Q3 2026 would be material to US digital asset market structure and directly relevant to HKMA Sandbox participants managing cross-border compliance.\n\n**Mainland China Notice 42 implementation**: The PBOC Notice 42 (2026) framework creates both constraints and opportunities for Hong Kong-based RWA platforms. Q2 2026 will assess early implementation guidance and any clarifications issued by CSRC and HKMA jointly.\n\n**RARM signal updates**: As institutional tokenized-asset issuers publish their first post-Cap. 656 prospectuses, RWA-Index will conduct formal RARM reviews. The eight assets currently carrying all-gray signals are prioritised for Q2 2026 reassessment.\n\n[PREVIEW — full conclusions pending final publication]"
+      }
+    ],
+    "citations": [
+      {
+        "id": "cap656",
+        "text": "Stablecoins Ordinance (Cap. 656). Hong Kong e-Legislation, Government of the Hong Kong Special Administrative Region. In operation 1 August 2025.",
+        "url": "https://www.elegislation.gov.hk/hk/cap656"
+      },
+      {
+        "id": "hkma-sa1",
+        "text": "Hong Kong Monetary Authority. (2025). Supervisory Policy Manual SA-1: Stablecoin Issuers. HKMA.",
+        "url": "https://www.hkma.gov.hk/eng/key-functions/banking-stability/supervisory-policy-manual/"
+      },
+      {
+        "id": "ensemble-tx",
+        "text": "Hong Kong Monetary Authority. (2025, November 13). HKMA announces the new phase of Project Ensemble to support real-value transactions in tokenised deposits and digital assets [Press release]. HKMA.",
+        "url": "https://www.hkma.gov.hk/eng/news-and-media/press-releases/2025/11/20251113-3/"
+      },
+      {
+        "id": "pboc-notice42",
+        "text": "People's Bank of China et al. (2026, February 6). Notice on Further Prevention and Disposition of Risks Related to Virtual Currencies (银发〔2026〕42号). PBOC.",
+        "url": "https://www.pbc.gov.cn/"
+      },
+      {
+        "id": "genius-act-law",
+        "text": "GENIUS Act of 2025 (Guiding and Establishing National Innovation for U.S. Stablecoins Act of 2025). Public Law 119-XX. Signed 18 July 2025. 119th Congress.",
+        "url": "https://www.congress.gov/bill/119th-congress/senate-bill/394"
+      },
+      {
+        "id": "clarity-act",
+        "text": "Digital Asset Market Clarity Act (H.R. 3633). Passed U.S. House of Representatives 17 July 2025, Roll Call Vote 281, 294–134. Pending Senate consideration as of Q1 2026. 119th Congress.",
+        "url": "https://www.congress.gov/bill/119th-congress/house-bill/3633"
+      }
+    ],
+    "changelog": [
+      {
+        "date": "2026-04-29",
+        "note": "Initial preview published. Auto-aggregated sections live; manual narrative sections contain placeholder text pending editorial review."
+      },
+      {
+        "date": "2026-04-29",
+        "note": "Policy Watch section corrected: chapter number updated to Cap. 656 throughout; Project Ensemble terminology corrected to EnsembleTX; US legislation updated to reflect GENIUS Act (signed 18 Jul 2025) and CLARITY Act (pending Senate); FATF item replaced with PBOC Notice 42 (2026). Citations updated accordingly."
+      },
+      {
+        "date": "2026-05-05",
+        "note": "Status changed from preview to published. Report now live at rwa-index.com/reports/q1-2026."
+      }
+    ]
+  },
+
+  {
+    "slug": "q2-2026",
+    "quarter": "Q2 2026",
+    "title": "HK Tokenization Landscape: Q2 2026",
+    "status": "preview",
+    "publishedAt": "2026-05-07",
+    "lastUpdatedAt": "2026-05-07",
+    "abstract": "Q2 2026 marks a watershed moment for Hong Kong's tokenization framework: the HKMA issued the world's first stablecoin licences under Cap. 656 to HSBC and Anchorpoint Financial. This report also covers the expansion of the Tokenized Asset Risk Observatory to 19 products — including the first red-signal (material concern) profiles and a dedicated HK-specific product cluster.",
+    "periodStart": "2026-04-01",
+    "periodEnd": "2026-06-30",
+    "isPreview": true,
+    "authors": ["RWA-Index Research"],
+    "sections": [
+      {
+        "id": "executive-summary",
+        "title": "Executive Summary",
+        "type": "manual",
+        "narrative": "This quarterly report surveys the Hong Kong tokenized real-world asset (RWA) landscape for the period 1 April – 30 June 2026. The defining event of the quarter is the issuance by the Hong Kong Monetary Authority (HKMA) of the world's first stablecoin licences under the Stablecoins Ordinance (Cap. 656) — a milestone that marks the transition from the regulatory design phase to live supervisory enforcement.\n\n**HKMA Cap. 656 First Licences: HSBC and Anchorpoint Financial**\n\nOn 10 April 2026, the HKMA granted stablecoin licences under Cap. 656 to HSBC and Anchorpoint Financial — the first stablecoin licences issued under any purpose-built stablecoin licensing regime globally. The HSBC licence covers its planned HKD-referenced stablecoin product; Anchorpoint Financial's licence covers its own stablecoin issuance programme. All six SARM dimensions — capital adequacy, reserve quality, governance, technology, redemption, and disclosure — are now subject to ongoing HKMA supervisory review for both licensees. SARM signal assessments for these issuers will be updated in Module 1 as public disclosures become available.\n\n**Tokenized Asset Risk Observatory: Expansion and Deepening**\n\nModule 3 expanded significantly in Q2 2026, growing from 8 to 19 profiled products. For the first time, the Observatory includes red-signal profiles documenting material concerns — TrueUSD (TUSD, reserve opacity and custodian collapse) and Maple Finance (undercollateralised credit defaults) — as well as gray-signal profiles reflecting genuinely insufficient public data (Hamilton Lane SCOPE, Matrixdock STBT). Three HK-specific products are now profiled for the first time: the HKSAR Government Digital Green Bond (Project Evergreen), the HSBC Gold Token (XGT), and the ChinaAMC HKD Digital Money Market Fund — reflecting the growing depth of Hong Kong's domestic tokenized product market.\n\n**Incident Review**\n\nNo new incidents meeting the platform's inclusion thresholds have been recorded in Q2 2026 as of the publication date (7 May 2026). The all-time incident database covers 27 incidents across the 2022–2025 period.\n\n[PREVIEW — full executive conclusions and Q2-end summary pending final publication]"
+      },
+      {
+        "id": "market-overview",
+        "title": "Market Overview",
+        "type": "auto-market",
+        "manualCommentary": "[PREVIEW — Q2 2026 market commentary pending final publication]\n\nThe DeFiLlama protocol dataset provides a real-time snapshot of on-chain RWA TVL. Aggregate tokenized-treasury and money-market TVL is expected to sustain growth momentum through Q2 2026, supported by continued institutional adoption and the expansion of multi-chain deployment. The HSBC Gold Token's milestone of USD 1 billion in cumulative trades (achieved November 2025) underscores broadening retail participation in HK-domiciled tokenized assets.\n\nMarket data is updated in real time from DeFiLlama. See the Methodology section for a full discussion of TVL measurement conventions and known data gaps."
+      },
+      {
+        "id": "stablecoin-licensing",
+        "title": "Stablecoin Licensing Pipeline",
+        "type": "auto-licenses",
+        "manualCommentary": "Q2 2026 represents the decisive operational moment for the Cap. 656 licensing regime: the HKMA issued its first two stablecoin licences in April 2026 — to HSBC and Anchorpoint Financial — making these the first entities worldwide to hold a licence under a purpose-built, live stablecoin regulatory framework.\n\nThe issuance of licences to HSBC (a systemically important bank subject to HKMA direct supervision) and Anchorpoint Financial (a dedicated stablecoin issuer) establishes two distinct supervisory archetypes. For HSBC, the stablecoin licence is additive to existing banking regulation; for Anchorpoint Financial, it represents the primary authorisation for a purpose-built stablecoin operation. This distinction is expected to inform the HKMA's supervisory approach to subsequent applicants.\n\nRemaining applicants continue operating under Cap. 656 transitional provisions. The SARM table above reflects publicly available signal assessments; signal upgrades for HSBC and Anchorpoint Financial will follow publication of their Cap. 656 licence conditions and any required public disclosures.\n\n[PREVIEW — full licensing pipeline narrative pending Q2-end update]"
+      },
+      {
+        "id": "asset-risk-observatory",
+        "title": "Tokenized Asset Risk Observatory",
+        "type": "auto-assets",
+        "manualCommentary": "The Observatory expanded from 8 to 19 profiled products in Q2 2026, achieving full coverage of the six RARM signal categories for the first time. The expanded dataset reveals a markedly more differentiated risk landscape than the inaugural 8-product dataset suggested.\n\n**Signal distribution across 19 products:** 11 green aggregate (58%); 4 yellow aggregate (21%); 2 red aggregate — material concerns (11%); 2 gray aggregate — insufficient public data (11%). Three HK-specific products are counted within this distribution: HKSAR Government Digital Green Bond (green), HSBC Gold Token (yellow), ChinaAMC HKD Digital MMF (green).\n\n**Yellow aggregate profiles:** Four products carry yellow aggregates — Apollo Diversified Credit Securitize Fund (ACRED), RealToken platform, Backed Finance bCSPX, and HSBC Gold Token (XGT). Yellow reflects partial institutional transparency: sufficient public disclosure to rule out red signals, but materially incomplete information across at least two RARM layers. For ACRED and bCSPX this typically falls on secondary market liquidity and settlement finality dimensions; for RealToken on KYC/AML permissioning and custody; for XGT on the absence of independent gold reserve attestation and counterparty concentration in a single institution.\n\n**Material concern profiles (red aggregate):** TrueUSD (TUSD) carries red signals across legal, valuation, and custody dimensions, reflecting: opaque issuer ownership following transfer to Techteryx Ltd (BVI); the June 2023 collapse of Prime Trust (primary custodian) into Nevada DFI receivership; and sustained attestation gaps following Armanino LLP's November 2022 exit from crypto attestation. Maple Finance carries red signals for custody (no physical collateral for undercollateralised pools) and secondary market liquidity (pool tokens are effectively illiquid during default events), reflecting the documented USD 36M Orthogonal Trading default of December 2022.\n\n**HK-specific product cluster:** The three newly profiled HK products span the full product lifecycle — sovereign (HKSAR Green Bond), retail commodity (HSBC Gold Token), and retail money market (ChinaAMC HKD Digital MMF) — and collectively demonstrate the breadth of Hong Kong's domestic tokenized asset market. The HKSAR Green Bond and ChinaAMC HKD MMF both achieve green RARM aggregates, reflecting their strong regulatory foundations under HKMA/SFC frameworks. The HSBC Gold Token is rated yellow, primarily reflecting the concentration of issuer, custodian, and platform roles in a single counterparty (HSBC) without a published independent attestation of gold reserves.\n\n**Insufficient data profiles (gray aggregate):** Hamilton Lane SCOPE and Matrixdock STBT carry gray aggregates due to genuinely limited public disclosure across valuation, custody, and secondary market dimensions — not identified deficiencies. These profiles serve as a reminder that gray signals represent an information gap, not an adverse assessment.\n\nEstimated aggregate TVL across all 19 profiled assets exceeds USD 15 billion, with BUIDL, BENJI, PAXG, and XAUT collectively accounting for approximately USD 9 billion."
+      },
+      {
+        "id": "incident-review",
+        "title": "Incident Review",
+        "type": "auto-incidents",
+        "manualCommentary": "No new incidents meeting the platform's inclusion thresholds — HK nexus regardless of size, or global incidents with loss ≥ USD 100M or multi-jurisdictional regulatory response — have been recorded in Q2 2026 as of 7 May 2026.\n\nStatus updates for carry-over incidents from prior periods:\n\nThe **Bybit SafeWallet hack** (February 2025, USD 1.46 billion) — the largest cryptocurrency theft on record — remains under investigation. North Korea's Lazarus Group has been attributed as the perpetrator by multiple intelligence agencies. No material fund recovery has been confirmed. Bybit has continued normal operations.\n\nThe **MANTRA/OM token collapse** (April 2025) and the **Coinbase data breach** (May 2025) remain under investigation. Status updates will be incorporated as verified developments are reported.\n\n[PREVIEW — full Q2 2026 incident review pending quarter-end update]"
+      },
+      {
+        "id": "policy-watch",
+        "title": "Policy Watch",
+        "type": "mixed",
+        "narrative": "**Hong Kong — Cap. 656 First Licences: HSBC and Anchorpoint Financial (April 2026)**\n\nIn April 2026, the HKMA issued the first two stablecoin licences under the Stablecoins Ordinance (Cap. 656) to HSBC and Anchorpoint Financial — the first stablecoin licences to be issued under any purpose-built stablecoin regulatory regime globally. The licences mark the end of the transitional provisions phase and the commencement of active licence condition monitoring. Both licensees are subject to the six SARM supervisory dimensions: capital adequacy, reserve quality, governance, technology, redemption mechanism, and disclosure. The issuance of licences to entities of the calibre of HSBC and Anchorpoint Financial provides the first real-world test of Cap. 656's operational requirements and is expected to set precedent for subsequent applicants. [Note: the exact date of licence issuance and full licence conditions require verification against the HKMA Register of Licensees before citation in academic or regulatory work.]\n\n**Hong Kong — EnsembleTX Real-Value Operations Continue**\n\nEnsembleTX, launched by the HKMA on 13 November 2025, continued real-value interbank settlement operations throughout Q2 2026. The pilot enables participating banks — including Bank of China (Hong Kong), Standard Chartered Bank (Hong Kong), HSBC Hong Kong, Bank of East Asia, and others — to settle tokenised deposit transactions via the HKD RTGS system. No material operational incidents or settlement failures have been reported. The HKMA is expected to publish a public summary of EnsembleTX operational results by Q3 2026, which will inform the Q3 2026 edition of this report.\n\n**United States — GENIUS Act: Payment Stablecoin Market Develops**\n\nThe GENIUS Act (Guiding and Establishing National Innovation for U.S. Stablecoins Act of 2025), signed into law on 18 July 2025, has been in force for approximately nine months as of this report. The Act establishes a dual federal/state licensing framework for payment stablecoin issuers, with 1:1 reserve requirements, monthly attestation obligations, and customer redemption rights. Market participants in the US payment stablecoin sector are in various stages of compliance. The GENIUS Act's reserve and attestation requirements represent the most directly comparable regulatory framework to Hong Kong's Cap. 656, and cross-jurisdictional alignment between HKMA and US regulators on reserve standards is an area of active observation.\n\n**United States — CLARITY Act: Senate Status**\n\n[PREVIEW — The Digital Asset Market Clarity Act (H.R. 3633), which passed the U.S. House on 17 July 2025 by 294–134, was pending Senate consideration as of Q1 2026. Senate status as of Q2 2026 end requires fact-check before publication.]\n\n**European Union — MiCA Full Implementation**\n\nThe EU Markets in Crypto-Assets Regulation (MiCA) entered full application from December 2024, with all Title III (e-money token) and Title IV (asset-referenced token) provisions operative throughout Q2 2026. EU-based stablecoin issuers must now hold authorisation from a national competent authority, maintain 1:1 reserve requirements, and satisfy ongoing capital and disclosure requirements. The MiCA framework creates a directly comparable regulatory environment to Cap. 656 for EUR-referenced stablecoins, providing a basis for cross-border equivalence discussions between the HKMA and European Securities and Markets Authority (ESMA).",
+        "manualCommentary": "[PREVIEW — final analyst summary and Q2-end assessment pending publication]"
+      },
+      {
+        "id": "outlook",
+        "title": "Outlook & Next Steps",
+        "type": "manual",
+        "narrative": "[PREVIEW — full Q3 2026 outlook pending Q2-end update]\n\nThe Q3 2026 report will cover the full Q2 2026 period (1 April – 30 June 2026) and is expected to include:\n\n**Cap. 656 pipeline update**: Assessment of the HKMA's licence condition disclosures for HSBC and Anchorpoint Financial, SARM signal updates for newly licensed entities, and progress of remaining applicants through the formal review process.\n\n**EnsembleTX operational summary**: The HKMA is expected to publish a public operational summary of EnsembleTX results by Q3 2026. The Q3 report will cover any new participating institutions, use case expansions, or published transaction volume data.\n\n**CLARITY Act — Senate outcome**: A definitive update on the US CLARITY Act's Senate status is expected to be incorporated once confirmed.\n\n**RARM signal updates**: As licensed stablecoin issuers publish required disclosures under Cap. 656, and as tokenized asset issuers complete their next round of reserve attestations, targeted RARM signal updates will be applied across both Module 1 (Licenses) and Module 3 (Assets).\n\n**Incident monitoring**: The platform will continue monitoring for new incidents meeting inclusion thresholds through Q2 2026 end. Any qualifying Q2 incidents will be incorporated in the Q3 2026 report.\n\n[PREVIEW — full conclusions pending final publication]"
+      }
+    ],
+    "citations": [
+      {
+        "id": "cap656",
+        "text": "Stablecoins Ordinance (Cap. 656). Hong Kong e-Legislation, Government of the Hong Kong Special Administrative Region. In operation 1 August 2025.",
+        "url": "https://www.elegislation.gov.hk/hk/cap656"
+      },
+      {
+        "id": "hkma-first-licences",
+        "text": "Hong Kong Monetary Authority. (2026, April). HKMA grants first stablecoin licences under Cap. 656 [Press release]. HKMA. [Note: exact date and URL require verification against the HKMA Register of Licensees.]",
+        "url": "https://www.hkma.gov.hk/eng/news-and-media/press-releases/"
+      },
+      {
+        "id": "ensemble-tx",
+        "text": "Hong Kong Monetary Authority. (2025, November 13). HKMA announces the new phase of Project Ensemble to support real-value transactions in tokenised deposits and digital assets [Press release]. HKMA.",
+        "url": "https://www.hkma.gov.hk/eng/news-and-media/press-releases/2025/11/20251113-3/"
+      },
+      {
+        "id": "genius-act-law",
+        "text": "GENIUS Act of 2025 (Guiding and Establishing National Innovation for U.S. Stablecoins Act of 2025). Public Law 119-XX. Signed 18 July 2025. 119th Congress.",
+        "url": "https://www.congress.gov/bill/119th-congress/senate-bill/394"
+      },
+      {
+        "id": "clarity-act",
+        "text": "Digital Asset Market Clarity Act (H.R. 3633). Passed U.S. House of Representatives 17 July 2025, 294–134. Senate status as of Q2 2026 requires verification. 119th Congress.",
+        "url": "https://www.congress.gov/bill/119th-congress/house-bill/3633"
+      },
+      {
+        "id": "mica-full",
+        "text": "Regulation (EU) 2023/1114 of the European Parliament and of the Council of 31 May 2023 on markets in crypto-assets (MiCA). Full application from December 2024. Official Journal of the European Union.",
+        "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32023R1114"
+      },
+      {
+        "id": "hksar-green-bond-nov2025",
+        "text": "Hong Kong Monetary Authority. (2025, November 11). HKSAR Government's Third Digital Green Bonds Offering [Press release]. HKMA.",
+        "url": "https://www.hkma.gov.hk/eng/news-and-media/press-releases/2025/11/20251111-6/"
+      }
+    ],
+    "changelog": [
+      {
+        "date": "2026-05-07",
+        "note": "Initial Q2 2026 preview published. Executive Summary and Policy Watch contain substantive narrative for confirmed Q2 developments (Cap. 656 first licences; EnsembleTX; GENIUS Act/MiCA status). Auto-aggregated sections live. CLARITY Act Senate status and Q2-end incident review marked as PREVIEW pending confirmation."
+      }
+    ]
+  }
+]

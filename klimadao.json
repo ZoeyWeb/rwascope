@@ -1,0 +1,106 @@
+{
+  "slug": "klimadao",
+  "name": "KlimaDAO",
+  "short_name": "KlimaDAO",
+  "website": "https://www.klimadao.finance",
+  "asset_class": "commodity",
+  "jurisdiction": "DAO (no central jurisdiction; treasury operations in Cayman Islands foundation)",
+  "chain": "Polygon",
+  "status": "active",
+  "launched_at": "2021-10-18",
+  "tvl_usd": 0,
+  "peak_tvl_usd": 800000000,
+  "peak_tvl_date": "2021-11-15",
+  "entity_map": {
+    "issuer": {
+      "name": "KlimaDAO (Cayman Islands foundation)",
+      "type": "Decentralized Autonomous Organization"
+    },
+    "custodian": {
+      "name": "Treasury managed by KLIMA governance multisig",
+      "type": "DAO multisig"
+    },
+    "chain_infra": {
+      "name": "Polygon",
+      "type": "L2"
+    },
+    "oracle": {
+      "name": "On-chain pricing from SushiSwap KLIMA/BCT pool",
+      "type": "DEX TWAP"
+    },
+    "law_firm": {
+      "name": "",
+      "type": ""
+    },
+    "auditor": {
+      "name": "Smart contracts audited by Omniscia",
+      "type": "Smart contract"
+    },
+    "regulator": {
+      "name": "None — voluntary carbon market, DAO structure",
+      "type": ""
+    },
+    "token_standard": "ERC-20 (KLIMA), reserve assets BCT/NCT/MCO2"
+  },
+  "asset_slug": "",
+  "summary": "DeFi protocol designed to drive demand for tokenized carbon credits via algorithmic treasury accumulation. KLIMA token backed by basket of carbon credits (BCT, NCT, MCO2). At late-2021 peak held ~17M tonnes of carbon credits, claiming to have driven significant demand for voluntary carbon market. Significant controversy: critics argued KlimaDAO's bonding mechanism drove demand for low-quality, pre-2008 vintage credits, inflating prices without supporting genuine climate impact. Token collapsed >99% from peak following Verra's May 2022 prohibition on re-tokenization of retired credits, which disrupted KlimaDAO's supply pipeline.",
+  "sources": [
+    {
+      "title": "KlimaDAO documentation",
+      "url": "https://docs.klimadao.finance"
+    },
+    {
+      "title": "CarbonPlan: Critique of KlimaDAO carbon credit quality (2022)",
+      "url": "https://carbonplan.org/research/toucan-crypto-offsets"
+    },
+    {
+      "title": "Verra statement prohibiting retired credit tokenization (May 2022)",
+      "url": "https://verra.org/verra-addresses-crypto-instruments-and-tokens/"
+    }
+  ],
+  "updated_at": "2026-05-19",
+  "underlying_asset": "Basket of tokenized carbon credits accumulated via bonding: BCT (Base Carbon Tonne), NCT (Nature Carbon Tonne), MCO2 (Moss).",
+  "reserve_composition": "Treasury holds carbon credit tokens; KLIMA supply backed by treasury at minimum redemption price (3 BCT per KLIMA at design).",
+  "secondary_market": "SushiSwap KLIMA/USDC, KLIMA/BCT pools on Polygon.",
+  "min_investment_usd": 0,
+  "smart_contract_audit": {
+    "auditor": "Omniscia",
+    "date": "2021",
+    "report_url": ""
+  },
+  "oracle_provider": "SushiSwap DEX TWAP for carbon credit pricing.",
+  "redemption_mechanism": "KLIMA holders can stake for yield or redeem against treasury at minimum redemption price (in BCT equivalent).",
+  "upgrade_authority": "KlimaDAO governance via Snapshot voting; KLIMA token holders.",
+  "timeline": [
+    {
+      "date": "2021-10-18",
+      "event": "KlimaDAO launched on Polygon",
+      "type": "milestone"
+    },
+    {
+      "date": "2021-11-15",
+      "event": "TVL peaks ~$800M; ~17M tonnes carbon credits held",
+      "type": "milestone"
+    },
+    {
+      "date": "2022-05-25",
+      "event": "Verra prohibits retired credit tokenization; supply pipeline disrupted",
+      "type": "incident"
+    },
+    {
+      "date": "2022-Q3",
+      "event": "CarbonPlan and academic critiques on credit quality publish",
+      "type": "incident"
+    },
+    {
+      "date": "2024-Q2",
+      "event": "Pivot toward direct carbon project financing via Carbonmark partnership",
+      "type": "milestone"
+    }
+  ],
+  "risk_flags": [
+    "governance_controversy",
+    "supply_disruption"
+  ],
+  "lessons_visibility": "active_only"
+}

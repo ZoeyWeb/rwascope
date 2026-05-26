@@ -1,0 +1,92 @@
+{
+  "slug": "apollo-acred",
+  "name": "Apollo Diversified Credit Securitize Fund (ACRED)",
+  "short_name": "Apollo ACRED",
+  "website": "https://securitize.io/learn/press/apollo-and-securitize-announce-partnership-and-launch-tokenized-access-to-credit-fund",
+  "asset_class": "private_credit",
+  "jurisdiction": "United States (Delaware)",
+  "chain": "Ethereum, Solana, Polygon, Aptos, Avalanche, Ink, Sei",
+  "status": "active",
+  "launched_at": "2025-01-30",
+  "tvl_usd": 130000000,
+  "entity_map": {
+    "issuer": {
+      "name": "Apollo Global Management (NYSE: APO) via Securitize feeder fund",
+      "type": "Asset manager $730B+ AUM",
+      "url": "https://www.apollo.com"
+    },
+    "custodian": {
+      "name": "Standard institutional custody",
+      "type": "Qualified custodian"
+    },
+    "chain_infra": {
+      "name": "Multi-chain via Wormhole interoperability",
+      "type": "Multi-chain"
+    },
+    "oracle": {
+      "name": "Securitize transfer agent reports daily NAV",
+      "type": "Transfer agent"
+    },
+    "law_firm": {
+      "name": "",
+      "type": ""
+    },
+    "auditor": {
+      "name": "Big Four (per Apollo fund administration)",
+      "type": "Big Four"
+    },
+    "regulator": {
+      "name": "US SEC (Reg D accredited investor)",
+      "type": "Securities regulator"
+    },
+    "token_standard": "ERC-20 + chain-native variants"
+  },
+  "asset_slug": "",
+  "summary": "Apollo's flagship private credit fund brought on-chain. ACRED is a feeder into Apollo Diversified Credit Fund ($1B+ underlying), covering corporate direct lending, asset-backed lending, performing and dislocated credit. Notable for daily NAV (vs typical quarterly), 24/7 redemption capability, and DeFi composability via sACRED (a derivative token usable in Morpho/Compound looping strategies). Most significant institutional RWA launch of 2025: Apollo ($730B+ AUM) making a tokenized fund publicly available across 7 chains.",
+  "sources": [
+    {
+      "title": "Securitize + Apollo partnership announcement (January 30, 2025)",
+      "url": "https://www.prnewswire.com/news-releases/apollo-and-securitize-announce-partnership-and-launch-tokenized-access-to-credit-fund-on-aptos-avalanche-ethereum-ink-polygon-and-solana-networks-302364212.html"
+    },
+    {
+      "title": "CoinDesk: Apollo tokenized private credit fund coverage",
+      "url": "https://www.coindesk.com/business/2025/01/30/apollo-unveils-tokenized-private-credit-fund-as-blockchain-deepens-tradfi-links"
+    },
+    {
+      "title": "Securitize + Gauntlet leveraged ACRED DeFi strategy",
+      "url": "https://www.coindesk.com/markets/2025/04/30/tokenized-apollo-credit-fund-makes-defi-debut-with-levered-yield-strategy-by-securitize-gauntlet"
+    }
+  ],
+  "updated_at": "2026-05-19",
+  "underlying_asset": "Apollo Diversified Credit Fund: corporate direct lending, asset-backed lending, performing credit, dislocated credit, structured credit.",
+  "reserve_composition": "Feeder fund holds units of underlying Apollo Diversified Credit Fund (~$1B AUM).",
+  "secondary_market": "Securitize Markets ATS; sACRED derivative deployed on Morpho (Polygon) for DeFi leverage strategies.",
+  "min_investment_usd": 50000,
+  "smart_contract_audit": {
+    "auditor": "Securitize platform audits + Wormhole audits",
+    "date": "2024-2025",
+    "report_url": ""
+  },
+  "oracle_provider": "Securitize as transfer agent reports daily NAV.",
+  "redemption_mechanism": "Native redemptions at daily NAV via Securitize; sACRED variant enables permissionless DeFi use while maintaining Reg D compliance.",
+  "upgrade_authority": "Apollo fund management + Securitize transfer agent; sACRED smart contracts via Morpho governance.",
+  "timeline": [
+    {
+      "date": "2025-01-30",
+      "event": "ACRED launched on 6 chains: Ethereum, Solana, Polygon, Aptos, Avalanche, Ink",
+      "type": "milestone"
+    },
+    {
+      "date": "2025-04-30",
+      "event": "sACRED leveraged DeFi strategy launched on Polygon via Morpho + Gauntlet",
+      "type": "milestone"
+    },
+    {
+      "date": "2025-09-01",
+      "event": "Expansion to Sei network",
+      "type": "milestone"
+    }
+  ],
+  "risk_flags": [],
+  "lessons_visibility": "active_only"
+}

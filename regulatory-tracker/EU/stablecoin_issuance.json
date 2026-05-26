@@ -1,0 +1,40 @@
+{
+  "jurisdiction": "EU",
+  "issue": "stablecoin_issuance",
+  "status_signal": "conditional",
+  "summary": "The issuance of stablecoins in the European Union is comprehensively regulated under the Markets in Crypto-Assets Regulation (MiCA). The provisions governing stablecoins (Title III for Asset-Referenced Tokens and Title IV for E-Money Tokens) entered into application on 30 June 2024. MiCA establishes a strict taxonomy: E-Money Tokens (EMTs) stabilize their value by referencing a single official fiat currency, while Asset-Referenced Tokens (ARTs) reference multiple fiat currencies, commodities, or other crypto-assets. EMTs can only be issued by authorized Credit Institutions or Electronic Money Institutions (EMIs). ART issuers require specific MiCA authorization from a National Competent Authority (NCA) and an approved crypto-asset white paper. Both must maintain fully backed, highly liquid reserves segregated from the issuer's estate. MiCA expressly prohibits issuers and crypto-asset service providers (CASPs) from granting interest on EMTs and ARTs.",
+  "key_requirements": [
+    "EMT issuers must hold an EU Credit Institution or Electronic Money Institution (EMI) license.",
+    "ART issuers must obtain specific authorization from their National Competent Authority (NCA) and publish a comprehensively drafted, approved crypto-asset white paper.",
+    "Issuers must maintain a 1:1 reserve of high-quality, liquid assets. These assets must be segregated, safely kept by a qualified custodian, and fully insulated from the issuer's insolvency.",
+    "Holders of EMTs and ARTs have a permanent, direct right of redemption at par value against the issuer.",
+    "Issuers and CASPs are strictly prohibited from granting interest (yield) to holders of EMTs and ARTs.",
+    "Significant EMTs and ARTs (determined by user base, market cap, and transaction volume) are subject to stricter regulatory requirements, including higher capital buffers, and are supervised directly by the European Banking Authority (EBA)."
+  ],
+  "exemptions": [
+    "ARTs offered exclusively to qualified investors or with an outstanding value of less than \u20ac5 million over a 12-month period may benefit from a simplified authorization process.",
+    "Central Bank Digital Currencies (CBDCs) issued by the ECB or national central banks are entirely exempt from MiCA."
+  ],
+  "practitioner_notes": "MiCA has created a stark regulatory moat in the European Economic Area (EEA), forcing global stablecoin issuers to localize their operations and secure appropriate licenses (primarily EMI licenses for USD and EUR-pegged tokens). Major issuers like Circle preemptively secured EMI authorizations (e.g., in France) to ensure their tokens (USDC, EURC) remained compliant. In contrast, non-compliant stablecoins lacking an EU-licensed issuer have faced progressive delisting and restrictions by major exchanges (CASPs) servicing EEA customers. Practitioners structuring stablecoins for the EU market must be acutely aware of the prohibition on interest, which effectively bans native yield-bearing stablecoins. Furthermore, algorithmic stablecoins that do not maintain appropriate reserve assets are functionally prohibited from being offered to the public or admitted to trading as stablecoins under this framework.",
+  "references": [
+    {
+      "title": "Regulation (EU) 2023/1114 (Markets in Crypto-Assets Regulation - MiCA)",
+      "date": "2023-06-09",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32023R1114",
+      "type": "primary-statute"
+    },
+    {
+      "title": "EBA: Regulatory framework for stablecoins under MiCA",
+      "date": "2024-06-13",
+      "url": "https://www.eba.europa.eu/crypto-assets",
+      "type": "regulator-guidance"
+    },
+    {
+      "title": "ESMA: Rules for Asset-Referenced Tokens and E-Money Tokens",
+      "date": "2024-06-30",
+      "url": "https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/markets-crypto-assets-regulation-mica",
+      "type": "regulator-guidance"
+    }
+  ],
+  "last_reviewed": "2026-05-01"
+}

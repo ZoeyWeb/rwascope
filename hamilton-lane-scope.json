@@ -1,0 +1,83 @@
+{
+  "slug": "hamilton-lane-scope",
+  "name": "Hamilton Lane Senior Credit Opportunities Fund (SCOPE)",
+  "short_name": "Hamilton Lane SCOPE",
+  "website": "https://www.hamiltonlane.com",
+  "asset_class": "private_credit",
+  "jurisdiction": "United States (Delaware)",
+  "chain": "Polygon, Solana",
+  "status": "active",
+  "launched_at": "2023-10-25",
+  "tvl_usd": 0,
+  "entity_map": {
+    "issuer": {
+      "name": "Hamilton Lane (NASDAQ: HLNE) via Securitize feeder fund",
+      "type": "Asset manager + transfer agent",
+      "url": "https://www.hamiltonlane.com"
+    },
+    "custodian": {
+      "name": "Standard institutional custody (per Securitize platform)",
+      "type": "Qualified custodian"
+    },
+    "chain_infra": {
+      "name": "Polygon, Solana",
+      "type": "Multi-chain"
+    },
+    "oracle": {
+      "name": "",
+      "type": ""
+    },
+    "law_firm": {
+      "name": "",
+      "type": ""
+    },
+    "auditor": {
+      "name": "Big Four (per Hamilton Lane fund administration)",
+      "type": "Big Four"
+    },
+    "regulator": {
+      "name": "US SEC (Reg D 506(c) accredited investor offering)",
+      "type": "Securities regulator"
+    },
+    "token_standard": "ERC-20 (Polygon), SPL (Solana)"
+  },
+  "asset_slug": "",
+  "summary": "Tokenized feeder fund offering accredited investors access to Hamilton Lane's $948B AUM senior credit strategy. One of the first institutional-grade tokenized private credit funds. Minimum investment reduced from typical $5M to $10K via tokenization. Significant precedent: a Tier 1 asset manager bringing a flagship fund on-chain via SEC-compliant Reg D structure.",
+  "sources": [
+    {
+      "title": "Securitize: Hamilton Lane SCOPE launch announcement",
+      "url": "https://securitize.io/learn/press/securitize-hamilton-lane-launch-scope"
+    },
+    {
+      "title": "Hamilton Lane press release on tokenization partnership",
+      "url": "https://www.hamiltonlane.com/en-us/news-and-insights/news/2023-10-25-hamilton-lane-tokenization"
+    }
+  ],
+  "updated_at": "2026-05-19",
+  "underlying_asset": "Diversified senior secured private credit; portfolio of corporate direct lending positions managed by Hamilton Lane.",
+  "reserve_composition": "Feeder fund holds units of underlying Hamilton Lane Senior Credit Opportunities Fund.",
+  "secondary_market": "Securitize Markets ATS (SEC-regulated alternative trading system); limited secondary liquidity typical of Reg D.",
+  "min_investment_usd": 10000,
+  "smart_contract_audit": {
+    "auditor": "Securitize platform audits",
+    "date": "2023",
+    "report_url": ""
+  },
+  "oracle_provider": "Securitize as transfer agent reports NAV; no third-party on-chain oracle.",
+  "redemption_mechanism": "Quarterly redemption windows subject to fund liquidity (typical interval fund structure).",
+  "upgrade_authority": "Hamilton Lane fund management + Securitize as transfer agent.",
+  "timeline": [
+    {
+      "date": "2023-10-25",
+      "event": "SCOPE feeder fund launched on Polygon via Securitize",
+      "type": "milestone"
+    },
+    {
+      "date": "2024-08-01",
+      "event": "Solana deployment via Wormhole interoperability",
+      "type": "milestone"
+    }
+  ],
+  "risk_flags": [],
+  "lessons_visibility": "active_only"
+}

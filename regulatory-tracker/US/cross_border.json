@@ -1,0 +1,59 @@
+{
+  "jurisdiction": "US",
+  "issue": "cross_border",
+  "status_signal": "conditional",
+  "summary": "The United States applies its regulatory framework extraterritorially to cross-border virtual asset activities. Foreign VASPs that provide services to US residents are subject to FinCEN registration and state-level MTL licensing requirements in any state where US-resident customers are located, regardless of the foreign entity's physical presence. The OFAC sanctions regime imposes extraterritorial obligations: US persons and, in certain cases, foreign entities with US nexus are prohibited from transacting with sanctioned persons, entities, or jurisdictions. As of 2026, OFAC maintains comprehensive embargoes against Cuba, Iran, North Korea (DPRK), and Syria, plus targeted sanctions programs for over 20 additional countries. OFAC has actively designated virtual currency addresses tied to North Korean IT worker networks (March 2026 action) and Russian-linked entities such as the A7A5 token and Grinex exchange (August 2025). The OCC's March 2025 Interpretive Letter 1183 confirmed that national banks may provide crypto-asset custody services, hold private keys, and engage in stablecoin activities and node verification, establishing a compliance pathway for cross-border digital asset custody through the banking system. The Treasury Department through FinCEN has continued to emphasise Travel Rule compliance for all cross-border virtual asset transfers. The OCC's Interpretive Letter 1188 (December 9, 2025) further confirmed that national banks may engage in riskless principal crypto-asset transactions as part of the business of banking.",
+  "key_requirements": [
+    "Foreign VASPs providing services to US residents must register with FinCEN as an MSB and obtain MTLs in each state with US customers",
+    "OFAC sanctions screening required for all cross-border virtual asset transactions; US persons and entities with US nexus must not transact with sanctioned entities or jurisdictions",
+    "Section 311 of the USA PATRIOT Act may be used to designate foreign jurisdictions or financial institutions as 'primary money laundering concerns,' imposing special measures",
+    "Travel Rule compliance for all cross-border virtual asset transfers (FinCEN threshold of $3,000 or equivalent)",
+    "Foreign VASPs that advertise or solicit US customers actively (rather than passive reverse solicitation) extend US regulatory jurisdiction",
+    "Enhanced due diligence for cryptocurrency services operating in Southeast Asia given DPRK IT worker fraud networks identified in OFAC March 2026 actions"
+  ],
+  "exemptions": [
+    "Foreign VASPs that do not actively market services to US residents and whose US-resident customer base arises solely through unsolicited inbound activity may argue reverse solicitation (the scope of this exemption is contested and subject to individual regulatory analysis)",
+    "Foreign VASPs serving only non-US persons and maintaining no US physical presence, US bank accounts, or US-nexus employees may operate outside the US licensing perimeter",
+    "OCC-chartered national banks may provide cross-border crypto-asset custody services under their existing banking licence per IL 1183, without separate state MTL licensing"
+  ],
+  "practitioner_notes": "Cross-border compliance is materially the most complex dimension of the US virtual asset regulatory framework. Foreign VASPs should assume that having any US-resident users creates FinCEN MSB registration obligations and, depending on the state, MTL obligations in multiple states. The NYDFS BitLicense has specific provisions regarding foreign entities that the DFS may treat as operating in New York if they serve New York residents \u2014 foreign VASPs should geo-block New York if they cannot comply. OFAC's enforcement posture has materially intensified, with targeted sanctions against virtual currency addresses (DPRK IT workers in March 2026, Russian-linked tokens in August 2025), making sanctions screening a non-delegable operational requirement. The practical effect of the fragmented US framework is that many foreign VASPs choose to block all US users entirely rather than navigate the multi-state compliance landscape. The OCC IL 1183 (March 2025) and IL 1188 (December 2025) have opened meaningful compliance pathways for bank-based cross-border digital asset custody and riskless principal transactions.",
+  "references": [
+    {
+      "title": "FinCEN \u2014 Application of FinCEN's Regulations to Persons Administering, Exchanging, or Using Virtual Currencies (2013 Guidance, updated)",
+      "date": "2013-03-18",
+      "url": "https://www.fincen.gov/resources/statutes-regulations/guidance/application-fincens-regulations-persons-administering",
+      "type": "regulator-guidance"
+    },
+    {
+      "title": "OCC \u2014 Interpretive Letter 1183 (March 7, 2025) \u2014 Crypto-asset custody, stablecoin, node verification",
+      "date": "2025-03-07",
+      "url": "https://www.occ.gov/topics/charters-and-licensing/interpretations-and-actions/2025/int1183.pdf",
+      "type": "regulator-guidance"
+    },
+    {
+      "title": "OCC \u2014 Interpretive Letter 1188 (December 9, 2025) \u2014 Riskless principal crypto-asset transactions",
+      "date": "2025-12-09",
+      "url": "https://www.occ.gov/topics/charters-and-licensing/interpretations-and-decisions/2025/int1188.pdf",
+      "type": "regulator-guidance"
+    },
+    {
+      "title": "Chainalysis \u2014 OFAC Targets DPRK IT Workers Using Crypto (March 12, 2026)",
+      "date": "2026-03-12",
+      "url": "https://www.chainalysis.com/blog/ofac-targets-north-korean-it-workers-crypto-march-2026/",
+      "type": "industry-media"
+    },
+    {
+      "title": "Chainalysis \u2014 Crypto Sanctions: 2026 Crypto Crime Report",
+      "date": "2026-04-01",
+      "url": "https://www.chainalysis.com/blog/crypto-sanctions-2026/",
+      "type": "industry-media"
+    },
+    {
+      "title": "Sanctions Lawyers \u2014 OFAC Sanctioned Countries List 2026",
+      "date": "2026-04-01",
+      "url": "https://sanctionslawyers.net/blog-en/what-are-the-7-sanctioned-countries/",
+      "type": "industry-media"
+    }
+  ],
+  "last_reviewed": "2026-05-01"
+}

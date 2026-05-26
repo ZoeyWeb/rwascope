@@ -1,0 +1,318 @@
+{
+  "tracker_version": "1.0.0",
+  "last_compiled": "2026-04-29",
+  "current_phase": "pilot",
+  "phase_description": "EnsembleTX, the pilot phase of Project Ensemble, launched on 13 November 2025 and is operating throughout 2026. Initial focus: tokenised money market fund transactions and real-time liquidity / treasury management. Interbank settlement is initially facilitated via the HKD Real Time Gross Settlement (RTGS) system, with progressive upgrades planned to support 24/7 settlement in tokenised central bank money.",
+  "themes": [
+    {
+      "code": "fixed_income",
+      "title": "Fixed Income & Investment Funds",
+      "description": "Tokenised bond and investment fund settlement, including tokenised money market fund transactions in the EnsembleTX pilot phase. SFC co-leads tokenisation initiatives for the asset management industry under this theme."
+    },
+    {
+      "code": "liquidity_management",
+      "title": "Liquidity Management",
+      "description": "Real-time interbank liquidity and treasury management using tokenised deposits, including intraday liquidity optimisation."
+    },
+    {
+      "code": "green_finance",
+      "title": "Green & Sustainable Finance",
+      "description": "Tokenisation of green and sustainability-linked financial instruments."
+    },
+    {
+      "code": "trade_finance",
+      "title": "Trade & Supply Chain Finance",
+      "description": "Application of tokenisation to trade and supply chain finance instruments."
+    }
+  ],
+  "milestones": [
+    {
+      "date": "2024-03-07",
+      "phase": "pre-launch",
+      "type": "announcement",
+      "title": "HKMA announces Project Ensemble",
+      "description": "HKMA announces the commencement of Project Ensemble, a new wholesale central bank digital currency (wCBDC) project to support development of the Hong Kong tokenisation market. Initial focus on tokenised deposits and exploration of innovative FMI for interbank settlement of tokenised money. Builds on prior tokenised deposit experimentation conducted with HSBC, Hang Seng Bank and Ant Group in 2023.",
+      "sources": [
+        {"title": "HKMA Press Release: HKMA unveils Project Ensemble to support the development of the Hong Kong tokenisation market", "url": "https://www.hkma.gov.hk/eng/news-and-media/press-releases/2024/03/20240307-5/", "date": "2024-03-07"}
+      ],
+      "linked_themes": [],
+      "linked_institutions": ["hsbc", "hang-seng-bank", "ant-group"]
+    },
+    {
+      "date": "2024-05-01",
+      "phase": "pre-launch",
+      "type": "announcement",
+      "title": "Project Ensemble Architecture Community formed",
+      "description": "HKMA forms the Project Ensemble Architecture Community, a multi-stakeholder group of banks, technology companies, regulators (including the SFC), and academics. Aim: develop industry standards to support interoperability among wCBDC, tokenised money and tokenised assets.",
+      "sources": [
+        {"title": "HKMA — Central Bank Digital Currency (CBDC) page", "url": "https://www.hkma.gov.hk/eng/key-functions/international-financial-centre/fintech/central-bank-digital-currency/", "date": "ongoing"}
+      ],
+      "linked_themes": [],
+      "linked_institutions": []
+    },
+    {
+      "date": "2024-06-26",
+      "phase": "pre-launch",
+      "type": "cross-border",
+      "title": "HKMA and Banque de France MOU on wCBDC and tokenisation",
+      "description": "HKMA and Banque de France (BdF) sign Memorandum of Understanding to promote innovation in wholesale CBDC and tokenisation. Includes connection between Ensemble Sandbox and BdF's Distributed Ledger for Securities Settlement System (DL3S), demonstrating atomic cross-border settlement.",
+      "sources": [
+        {"title": "Norton Rose Fulbright — HKMA launches Project Ensemble Sandbox", "url": "https://www.regulationtomorrow.com/2024/09/hkma-launches-project-ensemble-sandbox-to-test-tokenisation-use-cases-in-hong-kong/", "date": "2024-09-03"}
+      ],
+      "linked_themes": [],
+      "linked_institutions": ["banque-de-france"]
+    },
+    {
+      "date": "2024-08-28",
+      "phase": "sandbox",
+      "type": "announcement",
+      "title": "Project Ensemble Sandbox launches",
+      "description": "HKMA launches the Project Ensemble Sandbox at a public ceremony with the SFC. Sandbox is designed as a new financial market infrastructure facilitating the full lifecycle of tokenised asset transactions — creation, trading, payment using tokenised commercial-bank deposits, and final interbank settlement using wCBDC. Four initial themes announced: fixed income & investment funds, liquidity management, green & sustainable finance, trade & supply chain finance.",
+      "sources": [
+        {"title": "HKMA Press Release: HKMA launches Project Ensemble Sandbox to accelerate adoption of tokenisation", "url": "https://www.hkma.gov.hk/eng/news-and-media/press-releases/2024/08/20240828-3/", "date": "2024-08-28"},
+        {"title": "Hong Kong Government Information Services announcement", "url": "https://www.info.gov.hk/gia/general/202408/28/P2024082800268.htm", "date": "2024-08-28"}
+      ],
+      "linked_themes": ["fixed_income", "liquidity_management", "green_finance", "trade_finance"],
+      "linked_institutions": []
+    },
+    {
+      "date": "2025-11-13",
+      "phase": "pilot",
+      "type": "announcement",
+      "title": "EnsembleTX pilot phase launches",
+      "description": "HKMA announces the launch of EnsembleTX, the pilot phase of Project Ensemble. EnsembleTX moves from sandbox proof-of-concept to real-value transactions in tokenised deposits and digital assets. Initial focus: tokenised money market fund transactions and real-time liquidity / treasury management. Interbank settlement initially via HKD Real Time Gross Settlement (RTGS) system, with progressive upgrades to support 24/7 settlement in tokenised central bank money. Pilot operates throughout 2026.",
+      "sources": [
+        {"title": "HKMA Press Release: HKMA announces the new phase of Project Ensemble to support real-value transactions in tokenised deposits and digital assets", "url": "https://www.hkma.gov.hk/eng/news-and-media/press-releases/2025/11/20251113-3/", "date": "2025-11-13"},
+        {"title": "The Block: Hong Kong launches tokenized deposit pilot with real-value transactions", "url": "https://www.theblock.co/post/378981/hong-kong-real-value-tokenization-pilot", "date": "2025-11-13"}
+      ],
+      "linked_themes": ["fixed_income", "liquidity_management"],
+      "linked_institutions": []
+    }
+  ],
+  "use_cases": [
+    {
+      "slug": "tokenised-mmf-settlement",
+      "title": "Tokenised Money Market Fund Transactions",
+      "theme": "fixed_income",
+      "phase": "pilot",
+      "status": "in-progress",
+      "description": "EnsembleTX pilot's primary launch use case: settlement of tokenised money market fund transactions using tokenised deposits. Enables faster and more transparent fund subscription and redemption flows.",
+      "participating_institutions_disclosed": "Annex B of the November 2025 HKMA announcement lists asset managers including BlackRock and Franklin Templeton as industry pioneers in this use case. Specific transaction volumes and counterparties are not publicly disclosed.",
+      "linked_institutions": ["blackrock", "franklin-templeton"],
+      "sources": [
+        {"title": "HKMA Press Release 2025-11-13", "url": "https://www.hkma.gov.hk/eng/news-and-media/press-releases/2025/11/20251113-3/", "date": "2025-11-13"}
+      ]
+    },
+    {
+      "slug": "real-time-liquidity-management",
+      "title": "Real-Time Liquidity & Treasury Management",
+      "theme": "liquidity_management",
+      "phase": "pilot",
+      "status": "in-progress",
+      "description": "Use of tokenised deposits to manage interbank liquidity and treasury needs in real time. Initial settlement supported by HKD RTGS, with progressive upgrade path to 24/7 tokenised central bank money settlement.",
+      "participating_institutions_disclosed": "Participating banks listed in Annex A of the November 2025 announcement.",
+      "linked_institutions": [],
+      "sources": [
+        {"title": "HKMA Press Release 2025-11-13", "url": "https://www.hkma.gov.hk/eng/news-and-media/press-releases/2025/11/20251113-3/", "date": "2025-11-13"}
+      ]
+    },
+    {
+      "slug": "sandbox-fixed-income-funds",
+      "title": "Sandbox: Fixed Income & Investment Funds (Bond Tokenisation)",
+      "theme": "fixed_income",
+      "phase": "sandbox",
+      "status": "completed",
+      "description": "Sandbox theme covering bond tokenisation and investment fund tokenisation. SFC co-led tokenisation initiatives for the asset management industry under this theme. Specific use case experiments and outcomes are not publicly itemised.",
+      "participating_institutions_disclosed": "Specific participating institutions per use case experiment were not publicly enumerated by HKMA.",
+      "linked_institutions": [],
+      "sources": [
+        {"title": "Norton Rose Fulbright — HKMA launches Project Ensemble Sandbox", "url": "https://www.regulationtomorrow.com/2024/09/hkma-launches-project-ensemble-sandbox-to-test-tokenisation-use-cases-in-hong-kong/", "date": "2024-09-03"}
+      ]
+    },
+    {
+      "slug": "sandbox-liquidity-management",
+      "title": "Sandbox: Liquidity Management",
+      "theme": "liquidity_management",
+      "phase": "sandbox",
+      "status": "completed",
+      "description": "Sandbox theme covering interbank liquidity management use cases using tokenised deposits and wCBDC. Specific participating banks tested payment-versus-payment and delivery-versus-payment settlement.",
+      "participating_institutions_disclosed": "Specific participating institutions per use case experiment were not publicly enumerated by HKMA.",
+      "linked_institutions": [],
+      "sources": [
+        {"title": "HKMA Press Release 2024-08-28", "url": "https://www.hkma.gov.hk/eng/news-and-media/press-releases/2024/08/20240828-3/", "date": "2024-08-28"}
+      ]
+    },
+    {
+      "slug": "sandbox-green-sustainable",
+      "title": "Sandbox: Green & Sustainable Finance",
+      "theme": "green_finance",
+      "phase": "sandbox",
+      "status": "completed",
+      "description": "Sandbox theme covering tokenisation of green and sustainability-linked financial instruments.",
+      "participating_institutions_disclosed": "Specific participating institutions per use case experiment were not publicly enumerated by HKMA.",
+      "linked_institutions": [],
+      "sources": [
+        {"title": "HKMA Press Release 2024-08-28", "url": "https://www.hkma.gov.hk/eng/news-and-media/press-releases/2024/08/20240828-3/", "date": "2024-08-28"}
+      ]
+    },
+    {
+      "slug": "sandbox-trade-supply-chain",
+      "title": "Sandbox: Trade & Supply Chain Finance",
+      "theme": "trade_finance",
+      "phase": "sandbox",
+      "status": "completed",
+      "description": "Sandbox theme covering tokenisation in trade and supply chain finance instruments.",
+      "participating_institutions_disclosed": "Specific participating institutions per use case experiment were not publicly enumerated by HKMA.",
+      "linked_institutions": [],
+      "sources": [
+        {"title": "HKMA Press Release 2024-08-28", "url": "https://www.hkma.gov.hk/eng/news-and-media/press-releases/2024/08/20240828-3/", "date": "2024-08-28"}
+      ]
+    },
+    {
+      "slug": "cross-border-bdf-dl3s",
+      "title": "Cross-Border Atomic Settlement (HKMA × Banque de France)",
+      "theme": "liquidity_management",
+      "phase": "sandbox",
+      "status": "completed",
+      "description": "Connection between Ensemble Sandbox and Banque de France's Distributed Ledger for Securities Settlement System (DL3S). Pilots demonstrated atomic cross-border settlement through the linked systems.",
+      "participating_institutions_disclosed": "HKMA and Banque de France as institutional counterparties.",
+      "linked_institutions": ["banque-de-france"],
+      "sources": [
+        {"title": "Norton Rose Fulbright — HKMA launches Project Ensemble Sandbox", "url": "https://www.regulationtomorrow.com/2024/09/hkma-launches-project-ensemble-sandbox-to-test-tokenisation-use-cases-in-hong-kong/", "date": "2024-09-03"}
+      ]
+    }
+  ],
+  "institutions": [
+    {
+      "slug": "hkma",
+      "name": "Hong Kong Monetary Authority",
+      "shortName": "HKMA",
+      "type": "regulator",
+      "jurisdiction": "HK",
+      "phases": ["pre-launch", "sandbox", "pilot"],
+      "role": "Project lead. Operates the wCBDC infrastructure, coordinates the Architecture Community, and oversees the EnsembleTX pilot.",
+      "themes": [],
+      "publicReferences": [
+        {"title": "Project Ensemble — Central Bank Digital Currency (CBDC) page", "url": "https://www.hkma.gov.hk/eng/key-functions/international-financial-centre/fintech/central-bank-digital-currency/", "date": "ongoing"}
+      ]
+    },
+    {
+      "slug": "sfc",
+      "name": "Securities and Futures Commission",
+      "shortName": "SFC",
+      "type": "regulator",
+      "jurisdiction": "HK",
+      "phases": ["sandbox", "pilot"],
+      "role": "Co-leads tokenisation initiatives for the asset management industry under the fixed income & investment funds theme. Member of the Architecture Community.",
+      "themes": ["fixed_income"],
+      "publicReferences": [
+        {"title": "HKMA Press Release 2024-08-28", "url": "https://www.hkma.gov.hk/eng/news-and-media/press-releases/2024/08/20240828-3/", "date": "2024-08-28"}
+      ]
+    },
+    {
+      "slug": "banque-de-france",
+      "name": "Banque de France",
+      "shortName": "BdF",
+      "type": "regulator",
+      "jurisdiction": "FR",
+      "phases": ["sandbox"],
+      "role": "Cross-border counterparty. Connected its Distributed Ledger for Securities Settlement System (DL3S) to the Ensemble Sandbox to demonstrate atomic cross-border settlement.",
+      "themes": ["liquidity_management"],
+      "publicReferences": [
+        {"title": "HKMA / BdF MOU on wCBDC and tokenisation (June 2024)", "url": "https://www.regulationtomorrow.com/2024/09/hkma-launches-project-ensemble-sandbox-to-test-tokenisation-use-cases-in-hong-kong/", "date": "2024-06-26"}
+      ]
+    },
+    {
+      "slug": "hsbc",
+      "name": "HSBC",
+      "shortName": "HSBC",
+      "type": "bank",
+      "jurisdiction": "HK",
+      "phases": ["pre-launch", "pilot"],
+      "role": "Participated in 2023 tokenised deposit experimentation that informed Project Ensemble. Listed as a participating bank (Annex A) in the EnsembleTX pilot announcement of November 2025.",
+      "themes": [],
+      "publicReferences": [
+        {"title": "HKMA Press Release 2024-03-07", "url": "https://www.hkma.gov.hk/eng/news-and-media/press-releases/2024/03/20240307-5/", "date": "2024-03-07"},
+        {"title": "HKMA Press Release 2025-11-13", "url": "https://www.hkma.gov.hk/eng/news-and-media/press-releases/2025/11/20251113-3/", "date": "2025-11-13"}
+      ]
+    },
+    {
+      "slug": "hang-seng-bank",
+      "name": "Hang Seng Bank",
+      "shortName": "Hang Seng",
+      "type": "bank",
+      "jurisdiction": "HK",
+      "phases": ["pre-launch"],
+      "role": "Participated in 2023 tokenised deposit experimentation with HKMA that informed Project Ensemble.",
+      "themes": [],
+      "publicReferences": [
+        {"title": "HKMA Press Release 2024-03-07", "url": "https://www.hkma.gov.hk/eng/news-and-media/press-releases/2024/03/20240307-5/", "date": "2024-03-07"}
+      ]
+    },
+    {
+      "slug": "ant-group",
+      "name": "Ant Group",
+      "shortName": "Ant Group",
+      "type": "technology",
+      "jurisdiction": "CN",
+      "phases": ["pre-launch"],
+      "role": "Participated in 2023 tokenised deposit experimentation with HKMA that informed Project Ensemble.",
+      "themes": [],
+      "publicReferences": [
+        {"title": "HKMA Press Release 2024-03-07", "url": "https://www.hkma.gov.hk/eng/news-and-media/press-releases/2024/03/20240307-5/", "date": "2024-03-07"}
+      ]
+    },
+    {
+      "slug": "standard-chartered",
+      "name": "Standard Chartered Bank (Hong Kong)",
+      "shortName": "Standard Chartered",
+      "type": "bank",
+      "jurisdiction": "HK",
+      "phases": ["pilot"],
+      "role": "Listed as a participating bank in the EnsembleTX pilot announcement of November 2025.",
+      "themes": [],
+      "publicReferences": [
+        {"title": "HKMA Press Release 2025-11-13", "url": "https://www.hkma.gov.hk/eng/news-and-media/press-releases/2025/11/20251113-3/", "date": "2025-11-13"}
+      ]
+    },
+    {
+      "slug": "bank-of-china-hk",
+      "name": "Bank of China (Hong Kong)",
+      "shortName": "BOCHK",
+      "type": "bank",
+      "jurisdiction": "HK",
+      "phases": ["pilot"],
+      "role": "Listed as a participating bank in the EnsembleTX pilot announcement of November 2025.",
+      "themes": [],
+      "publicReferences": [
+        {"title": "HKMA Press Release 2025-11-13", "url": "https://www.hkma.gov.hk/eng/news-and-media/press-releases/2025/11/20251113-3/", "date": "2025-11-13"}
+      ]
+    },
+    {
+      "slug": "blackrock",
+      "name": "BlackRock",
+      "shortName": "BlackRock",
+      "type": "asset-manager",
+      "jurisdiction": "US",
+      "phases": ["pilot"],
+      "role": "Listed in Annex B as an industry pioneer participant in the EnsembleTX pilot announcement of November 2025. Participation context relates to tokenised money market fund transactions.",
+      "themes": ["fixed_income"],
+      "publicReferences": [
+        {"title": "HKMA Press Release 2025-11-13", "url": "https://www.hkma.gov.hk/eng/news-and-media/press-releases/2025/11/20251113-3/", "date": "2025-11-13"}
+      ]
+    },
+    {
+      "slug": "franklin-templeton",
+      "name": "Franklin Templeton",
+      "shortName": "Franklin Templeton",
+      "type": "asset-manager",
+      "jurisdiction": "US",
+      "phases": ["pilot"],
+      "role": "Listed in Annex B as an industry pioneer participant in the EnsembleTX pilot announcement of November 2025. Participation context relates to tokenised money market fund transactions.",
+      "themes": ["fixed_income"],
+      "publicReferences": [
+        {"title": "HKMA Press Release 2025-11-13", "url": "https://www.hkma.gov.hk/eng/news-and-media/press-releases/2025/11/20251113-3/", "date": "2025-11-13"}
+      ]
+    }
+  ]
+}

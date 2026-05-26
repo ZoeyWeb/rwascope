@@ -1,0 +1,97 @@
+{
+  "slug": "partior",
+  "name": "Partior",
+  "short_name": "Partior",
+  "website": "https://www.partior.com",
+  "asset_class": "private_credit",
+  "jurisdiction": "Singapore",
+  "chain": "Permissioned (Quorum)",
+  "status": "active",
+  "launched_at": "2021-04-28",
+  "tvl_usd": 0,
+  "entity_map": {
+    "issuer": {
+      "name": "Partior Pte Ltd (JV: DBS, JPMorgan, Standard Chartered, Temasek)",
+      "type": "Bank consortium JV",
+      "url": "https://www.partior.com"
+    },
+    "custodian": {
+      "name": "Member banks act as custodians for own tokenized deposits",
+      "type": "Bank custody"
+    },
+    "chain_infra": {
+      "name": "Quorum (permissioned)",
+      "type": "Enterprise blockchain"
+    },
+    "oracle": {
+      "name": "",
+      "type": ""
+    },
+    "law_firm": {
+      "name": "",
+      "type": ""
+    },
+    "auditor": {
+      "name": "Big Four per bank participant",
+      "type": "Big Four"
+    },
+    "regulator": {
+      "name": "Monetary Authority of Singapore (MAS); part of Project Guardian",
+      "type": "Central bank"
+    },
+    "token_standard": "Permissioned token standards (consortium-defined)"
+  },
+  "asset_slug": "",
+  "summary": "Singapore-based interbank wholesale settlement network for tokenized commercial bank deposits across multiple currencies. Founded by DBS, JPMorgan, and Temasek; expanded to include Standard Chartered, Deutsche Bank, iFAST. Enables atomic 24/7 cross-border settlement in USD, SGD, EUR. Settled live transactions since 2021; processed several billion USD cumulatively. Most operationally mature institutional tokenized payment infrastructure in Asia; precursor architecture for what MAS Project Guardian aims to scale.",
+  "sources": [
+    {
+      "title": "Partior corporate website",
+      "url": "https://www.partior.com"
+    },
+    {
+      "title": "MAS: Partior featured in Project Guardian reports",
+      "url": "https://www.mas.gov.sg/news/media-releases/2024/global-industry-pilots-on-asset-tokenisation"
+    },
+    {
+      "title": "Standard Chartered joins Partior (2023)",
+      "url": "https://www.partior.com/news/partior-secures-standard-chartered-as-strategic-investor"
+    }
+  ],
+  "updated_at": "2026-05-19",
+  "underlying_asset": "Commercial bank deposit liabilities at member banks; not tokenized central bank money. Each bank issues its own tokenized version of its deposit liability.",
+  "reserve_composition": "1:1 with corresponding bank deposit at issuing bank; redeemable on-network only between member banks.",
+  "secondary_market": "Permissioned network — only member banks can hold and transfer tokens; not publicly tradable.",
+  "min_investment_usd": 0,
+  "smart_contract_audit": {
+    "auditor": "Internal + consortium audits",
+    "date": "Ongoing",
+    "report_url": ""
+  },
+  "oracle_provider": "N/A — atomic on-chain settlement between bank ledgers.",
+  "redemption_mechanism": "Atomic redemption against issuing bank's reserve at issuing bank.",
+  "upgrade_authority": "Partior Pte Ltd board (representing JV partners); changes require consortium consensus.",
+  "timeline": [
+    {
+      "date": "2021-04-28",
+      "event": "Partior launches as DBS/JPM/Temasek JV",
+      "type": "milestone"
+    },
+    {
+      "date": "2023-11-15",
+      "event": "Standard Chartered joins as strategic investor",
+      "type": "milestone"
+    },
+    {
+      "date": "2024-08-01",
+      "event": "Deutsche Bank, iFAST integration; multi-currency support expanded",
+      "type": "milestone"
+    },
+    {
+      "date": "2025-03-01",
+      "event": "Featured in MAS Project Guardian Phase 2 industry pilots",
+      "type": "milestone"
+    }
+  ],
+  "risk_flags": [],
+  "lessons_visibility": "active_only"
+}

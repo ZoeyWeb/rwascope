@@ -1,0 +1,66 @@
+{
+  "jurisdiction": "US",
+  "issue": "retail_access",
+  "status_signal": "open",
+  "summary": "The United States permits retail access to virtual assets through regulated channels, with the regulatory landscape significantly clarified since 2024\u20132025. Retail investors may purchase and trade digital assets through FinCEN-registered and state-licensed exchanges and broker-dealers. The SEC's approval of 11 spot Bitcoin ETFs (January 10, 2024) and spot Ethereum ETFs (19b-4 approvals on May 23, 2024, with S-1 registration statements effective and trading commencing July 23, 2024) established regulated retail pathways for major cryptocurrencies through traditional brokerage accounts. The GENIUS Act (signed into law July 18, 2025) clarified that qualifying payment stablecoins are not securities for federal securities law purposes, further simplifying retail access to stablecoin products. The OCC's interpretive letter 1183 (March 2025) confirmed that national banks may provide crypto-asset custody services, enabling traditional banks to offer retail digital asset custody directly. The SEC's rescission of SAB 121 (via SAB 122, January 23, 2025) removed a major accounting barrier that had discouraged banks from offering retail crypto custody services. However, the definition of a 'security' under the Howey test remains the subject of ongoing SEC enforcement and litigation for assets beyond Bitcoin and Ethereum, creating classification risk for less established digital assets. Retail investors in the US are subject to standard investor protections including FINRA suitability requirements (for broker-dealers), SIPC insurance (for securities held through SIPC-member broker-dealers), and CFTC protections (for commodities-type digital assets traded on DCMs). The spot Ethereum ETFs were approved with a specific condition prohibiting staking of ETH via the ETFs.",
+  "key_requirements": [
+    "Retail investors may purchase virtual assets through licensed exchanges and broker-dealers subject to KYC/AML obligations",
+    "Spot Bitcoin and Ethereum ETFs are available through standard brokerage accounts, providing regulated retail access points subject to SEC disclosure requirements",
+    "FINRA suitability obligations apply to broker-dealer recommendations of digital assets to retail customers",
+    "State-level licensing obligations for platforms serving retail investors remain applicable in each state where retail customers reside",
+    "Stablecoins issued under the GENIUS Act framework are not securities for federal securities law purposes, clarifying retail tax treatment and compliance obligations",
+    "Credit card purchases and margin trading of digital assets remain subject to individual platform policies and, where applicable, state anti-money transmission limits",
+    "Spot Ethereum ETFs are prohibited from staking ETH, limiting the yield available through regulated ETF products"
+  ],
+  "exemptions": [
+    "Accredited investors qualify for private placement digital asset offerings (Regulation D) with reduced disclosure requirements",
+    "Institutional investors may access a broader range of digital asset products including pre-launch token allocations and structured products not available to retail",
+    "Self-directed IRA providers enable certain indirect digital asset investments through retirement accounts"
+  ],
+  "practitioner_notes": "The US retail access landscape has evolved materially since the 2024\u20132025 period. The approval of spot crypto ETFs (Bitcoin: January 2024; Ethereum: 19b-4 May 2024, trading July 2024) created regulated retail on-ramps for major cryptocurrencies through existing brokerage infrastructure \u2014 structurally the most significant retail access development in the US. The GENIUS Act's non-security classification for qualifying stablecoins (July 2025) removes a long-standing source of legal uncertainty for retail stablecoin access. The SAB 121 rescission (January 2025) and OCC IL 1183 (March 2025) have opened the door for traditional banks to offer retail crypto custody services, potentially broadening retail access beyond crypto-native platforms. The practical position as of Q2 2026 is that US retail investors have materially better regulated access to major digital assets than they did in 2023, but the fragmented state licensing landscape continues to limit the availability of certain crypto-native services (e.g., DeFi front-ends, yield products) that face SEC classification risk. Practitioners should monitor ongoing FIT21 developments, which would establish a dedicated 'digital asset' classification for assets that are neither securities nor commodities, and would materially expand the scope of assets available to US retail investors through regulated channels.",
+  "references": [
+    {
+      "title": "SEC \u2014 Statement on the Approval of Spot Bitcoin Exchange-Traded Products (January 10, 2024)",
+      "date": "2024-01-10",
+      "url": "https://www.sec.gov/newsroom/speeches-statements/gensler-statement-spot-bitcoin-011023",
+      "type": "regulator-guidance"
+    },
+    {
+      "title": "SEC \u2014 Order Approving Spot Ethereum 19b-4 Proposals (May 23, 2024)",
+      "date": "2024-05-23",
+      "url": "https://www.sec.gov/files/rules/sro/nysearca/2024/34-100224.pdf",
+      "type": "regulator-guidance"
+    },
+    {
+      "title": "GENIUS Act \u2014 Stablecoin Non-Security Classification (S. 1582, signed July 18, 2025)",
+      "date": "2025-07-18",
+      "url": "https://www.congress.gov/bill/119th-congress/senate-bill/1582",
+      "type": "primary-statute"
+    },
+    {
+      "title": "SEC \u2014 Staff Accounting Bulletin No. 122 (rescinding SAB 121, January 23, 2025)",
+      "date": "2025-01-23",
+      "url": "https://www.sec.gov/rules-regulations/staff-guidance/staff-accounting-bulletins/staff-accounting-bulletin-122",
+      "type": "regulator-guidance"
+    },
+    {
+      "title": "OCC \u2014 Interpretive Letter 1183 (March 7, 2025)",
+      "date": "2025-03-07",
+      "url": "https://www.occ.gov/topics/charters-and-licensing/interpretations-and-actions/2025/int1183.pdf",
+      "type": "regulator-guidance"
+    },
+    {
+      "title": "Mayer Brown \u2014 SEC Approves Listings of Spot Ether ETFs (September 6, 2024)",
+      "date": "2024-09-06",
+      "url": "https://www.mayerbrown.com/en/insights/publications/2024/05/sec-approves-listings-of-spot-ether-etfs-waiting-is-the-hardest-part",
+      "type": "industry-media"
+    },
+    {
+      "title": "Troutman Pepper Locke \u2014 SEC Approves Spot Ether ETFs (May 15, 2025) \u2014 confirms 9 S-1 registration statements effective July 23, 2024",
+      "date": "2025-05-15",
+      "url": "https://www.troutman.com/insights/sec-approves-spot-ether-etfs/",
+      "type": "industry-media"
+    }
+  ],
+  "last_reviewed": "2026-05-01"
+}

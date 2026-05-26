@@ -1,0 +1,67 @@
+{
+  "jurisdiction": "EU",
+  "issue": "rwa_issuance",
+  "status_signal": "conditional",
+  "summary": "The European Union regulates tokenized real-world assets through a bifurcated framework depending on whether the token qualifies as a 'financial instrument' under MiFID II (Directive 2014/65/EU). If the tokenized RWA constitutes a transferable security, money market instrument, or other financial instrument under MiFID II, it is excluded from the Markets in Crypto-Assets Regulation (MiCA) and remains subject to the existing EU capital-markets framework: MiFID II (trading venues and intermediaries), the Prospectus Regulation (public offering disclosure), and CSDR (post-trade settlement). If the tokenized RWA does not qualify as a MiFID financial instrument, it falls under MiCA, which became fully applicable on 30 December 2024 (Titles III and IV on asset-referenced tokens and e-money tokens have been effective since 30 June 2024). ESMA published guidelines in March 2025 (ESMA75-453128700-1323) establishing criteria for determining whether a crypto-asset qualifies as a financial instrument. The DLT Pilot Regime (Regulation 2022/858) provides a temporary framework permitting exemptions from certain existing financial services rules for DLT-based market infrastructures, with ESMA recommending in June 2025 that the regime be made permanent. In a significant development, the ECB decided in January 2026 that DLT-based assets issued in CSDs using DLT services will be accepted as eligible Eurosystem collateral from 30 March 2026, integrating tokenized assets into the Eurosystem's monetary policy framework.",
+  "key_requirements": [
+    "Tokenized RWAs qualifying as MiFID II financial instruments (e.g., tokenised shares, bonds, fund units) must comply with the Prospectus Regulation for public offerings, MiFID II for trading venue rules, and CSDR for post-trade settlement",
+    "Tokenized RWAs not qualifying as financial instruments fall under MiCA; issuers must publish a crypto-asset white paper (notified to the competent NCA) before offering to the public or seeking admission to trading",
+    "Asset-referenced tokens (ARTs) pegged to multiple assets or currencies require EBA authorisation and must maintain a 1:1 reserve of assets, with detailed white paper approved by the EBA",
+    "E-money tokens (EMTs) may only be issued by authorised credit institutions (CRR) or electronic money institutions under the E-Money Directive; regulated under MiCA for issuance and redeemability",
+    "The DLT Pilot Regime permits temporary exemptions from MiFID II, CSDR, and other rules for DLT multilateral trading facilities (DLT MTF), DLT settlement systems (DLT SS), and DLT trading and settlement systems (DLT TSS), subject to eligibility thresholds (bonds <EUR 1 billion; shares with market cap <EUR 200 million)",
+    "MiCA white papers must follow mandatory content and format requirements (iXBRL format) effective from 23 December 2025; must be notified to NCAs but are not subject to prior approval for non-ART/EMT tokens",
+    "The MiCA transitional period for existing CASPs operating before full applicability expires on 1 July 2026; after this date, any entity providing crypto-asset services without a MiCA licence is in breach of EU law"
+  ],
+  "exemptions": [
+    "Offers of non-ART/EMT crypto-assets addressed exclusively to fewer than 150 natural or legal persons per Member State are exempt from the white paper requirement",
+    "Offers where total consideration does not exceed EUR 1,000,000 over a 12-month period are exempt from the white paper requirement",
+    "Offers addressed exclusively to qualified investors (as defined under MiFID II) are exempt from the white paper requirement",
+    "The DLT Pilot Regime provides temporary exemptions from specific requirements under MiFID II, CSDR, and MAR for authorised DLT market infrastructures"
+  ],
+  "practitioner_notes": "The threshold question for any tokenised RWA in the EU is whether it constitutes a 'financial instrument' under MiFID II. If it does, MiCA does not apply and the full legacy capital-markets framework applies. ESMA's March 2025 guidelines provide the most current interpretive framework for this classification. If the token derives its value from reserved assets (e.g., a tokenised bond fund), it is more likely an ART under MiCA. If it represents a direct fractional interest in a specific asset (e.g., a tokenised real estate property), the analysis depends on whether that interest confers rights analogous to shares, debt instruments, or units in collective investment undertakings. The DLT Pilot Regime remains the only DLT-specific exemption pathway for tokenised securities, but its eligibility thresholds (EUR 1 billion bonds, EUR 200 million market cap for shares) limit its utility for larger issuers. The ECB's January 2026 decision to accept DLT-based assets as Eurosystem collateral is a structural development that signals growing institutional adoption. Practitioners should monitor the EC's legislative response to ESMA's June 2025 recommendation to make the DLT Pilot Regime permanent.",
+  "references": [
+    {
+      "title": "Markets in Crypto-Assets Regulation (MiCA) \u2014 Regulation (EU) 2023/1114 \u2014 fully applicable from 30 December 2024",
+      "date": "2024-12-30",
+      "url": "https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/markets-crypto-assets-regulation-mica",
+      "type": "primary-statute"
+    },
+    {
+      "title": "ESMA \u2014 Guidelines on Conditions and Criteria for Qualification of Crypto-Assets as Financial Instruments (ESMA75-453128700-1323, March 19, 2025)",
+      "date": "2025-03-19",
+      "url": "https://www.esma.europa.eu/sites/default/files/2025-03/ESMA75453128700-1323_Guidelines_on_the_conditions_and_criteria_for_the_qualification_of_CAs_as_FIs.pdf",
+      "type": "regulator-guidance"
+    },
+    {
+      "title": "DLT Pilot Regime \u2014 Regulation (EU) 2022/858",
+      "date": "2023-03-23",
+      "url": "https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/dlt-pilot-regime",
+      "type": "primary-statute"
+    },
+    {
+      "title": "ESMA \u2014 Report on DLT Pilot Regime Review (June 25, 2025) \u2014 recommends making regime permanent",
+      "date": "2025-06-25",
+      "url": "https://www.esma.europa.eu/sites/default/files/2025-06/ESMA75-117376770-460_Report_on_the_functioning_and_review_of_the_DLTR_-_Art.14.pdf",
+      "type": "regulator-guidance"
+    },
+    {
+      "title": "ECB \u2014 Decision to accept DLT-based assets as eligible Eurosystem collateral (January 27, 2026, effective 30 March 2026)",
+      "date": "2026-01-27",
+      "url": "https://www.ecb.europa.eu/press/pr/date/2026/html/ecb.pr260127_1~a946167ce1.en.html",
+      "type": "regulator-guidance"
+    },
+    {
+      "title": "White & Case \u2014 MiCA Regulation: New regulatory framework (perpetually updated)",
+      "date": "2025-01-01",
+      "url": "https://www.whitecase.com/insight-alert/mica-regulation-new-regulatory-framework-crypto-assets-issuers-and-crypto-asset",
+      "type": "industry-media"
+    },
+    {
+      "title": "LegalNodes \u2014 RWA Tokenization in the EU: Most Suitable Jurisdictions and Regulatory Frameworks (October 29, 2025)",
+      "date": "2025-10-29",
+      "url": "https://www.legalnodes.com/article/rwa-tokenization-in-the-eu-most-suitable-jurisdictions-and-regulatory-frameworks-for-2025-and-beyond",
+      "type": "industry-media"
+    }
+  ],
+  "last_reviewed": "2026-05-01"
+}

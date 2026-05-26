@@ -1,0 +1,81 @@
+{
+  "slug": "iron-finance",
+  "name": "Iron Finance (IRON / TITAN)",
+  "short_name": "Iron Finance",
+  "website": "https://iron.finance",
+  "asset_class": "stablecoin_algorithmic",
+  "jurisdiction": "Unknown (anonymous team)",
+  "chain": "Polygon, Binance Smart Chain",
+  "status": "failed",
+  "launched_at": "2021-03-04",
+  "tvl_usd": 0,
+  "peak_tvl_usd": 2000000000,
+  "peak_tvl_date": "2021-06-16",
+  "entity_map": {
+    "issuer":        { "name": "Iron Finance (pseudonymous team)", "type": "Anonymous DeFi protocol", "url": "" },
+    "custodian":     { "name": "N/A — partially-collateralized algorithmic", "type": "" },
+    "chain_infra":   { "name": "Polygon (primary), BSC", "type": "L2 / sidechain" },
+    "oracle":        { "name": "On-chain TWAP from SushiSwap TITAN/USDC pool", "type": "DEX TWAP — single source" },
+    "law_firm":      { "name": "None disclosed", "type": "" },
+    "auditor":       { "name": "PeckShield (partial)", "type": "Smart contract audit" },
+    "regulator":     { "name": "None — operated outside regulatory perimeter", "type": "" },
+    "token_standard": "ERC-20 (Polygon)"
+  },
+  "asset_slug": "",
+  "summary": "Partially-collateralized algorithmic stablecoin (IRON, $1 peg) backed by USDC + share token TITAN. Suffered first major DeFi 'bank run' on June 16, 2021. TITAN collapsed from $64 to near-zero in hours; IRON de-pegged permanently. Most notable victim: Mark Cuban publicly disclosed losses. Earliest large-scale demonstration of partial-collateral algorithmic stablecoin failure mode.",
+  "sources": [
+    {"title": "Iron Finance official post-mortem", "url": "https://ironfinance.medium.com/iron-finance-post-mortem-17-june-2021-6a4e9ccf23f5"},
+    {"title": "Rekt News: Iron Finance analysis", "url": "https://rekt.news/iron-finance-rekt/"}
+  ],
+  "updated_at": "2026-05-19",
+
+  "underlying_asset": "IRON was 75% USDC + 25% TITAN at peg. TITAN was a free-floating governance/share token with no underlying asset.",
+  "reserve_composition": "75% USDC (exogenous, stable); 25% TITAN (reflexive). Mint/redeem mechanism: 1 IRON minted from $0.75 USDC + $0.25 worth of TITAN burned. Redemption returned same ratio.",
+  "secondary_market": "TITAN traded on SushiSwap; IRON on QuickSwap/SushiSwap. Liquidity concentrated in 1-2 DEX pools.",
+  "min_investment_usd": 0,
+  "smart_contract_audit": {
+    "auditor": "PeckShield",
+    "date": "2021-04",
+    "report_url": ""
+  },
+  "oracle_provider": "On-chain 10-minute TWAP from SushiSwap TITAN/USDC pool. Single-source oracle with no fallback.",
+  "redemption_mechanism": "1 IRON redeemable for $0.75 USDC + $0.25 worth of newly-minted TITAN. Minting TITAN to redeem created death spiral when TITAN price fell.",
+  "upgrade_authority": "Pseudonymous team multisig; no formal governance until late stage.",
+
+  "timeline": [
+    {"date": "2021-03-04", "event": "Iron Finance launches on BSC", "type": "milestone"},
+    {"date": "2021-05-13", "event": "Polygon deployment; TVL reaches $2B by June", "type": "milestone"},
+    {"date": "2021-06-16", "event": "Whales begin large IRON redemptions; TITAN sell pressure starts", "type": "incident"},
+    {"date": "2021-06-16", "event": "TWAP oracle lag creates arbitrage death spiral; TITAN $64 → $0.000001 in 4 hours", "type": "incident"},
+    {"date": "2021-06-17", "event": "IRON permanently de-pegs to ~$0.75 (USDC floor)", "type": "incident"},
+    {"date": "2021-06-17", "event": "Mark Cuban publicly discloses losses; calls for stablecoin regulation", "type": "incident"}
+  ],
+
+  "risk_flags": ["de_pegged", "failed", "oracle_failure"],
+
+  "lessons_visibility": "lessons_only",
+
+  "postmortem": {
+    "incident_date": "2021-06-16",
+    "root_cause": "Partial-collateral design (75% USDC + 25% TITAN) created reflexive death spiral when TITAN price fell. Compounding factor: TWAP oracle on SushiSwap had ~10-minute lag, so as TITAN spot price collapsed, the oracle reported stale higher prices. Redemptions arbitraged the lag — minting TITAN at stale high oracle price and dumping at lower spot price, hyperinflating TITAN supply. The mechanism designed to stabilize via arbitrage became the destruction vector.",
+    "what_failed": [
+      {
+        "layer": "L2",
+        "layer_name": "Asset Quality",
+        "issue": "25% of backing was reflexive (TITAN had no exogenous collateral). Same fundamental flaw as UST but at smaller scale and earlier in time."
+      },
+      {
+        "layer": "L5",
+        "layer_name": "Technology",
+        "issue": "Single-source TWAP oracle on a 10-minute lag with no fallback. During fast price moves, oracle lag created risk-free arbitrage that drained the system. No circuit breaker on oracle staleness."
+      },
+      {
+        "layer": "L4",
+        "layer_name": "Token & Market Structure",
+        "issue": "Liquidity concentrated in 1-2 SushiSwap pools. No deep market-making, no diversified venues. Whale redemptions could move TITAN price faster than the oracle could update."
+      }
+    ],
+    "outcome": "TITAN market cap (~$2B peak) wiped in 4 hours. IRON permanently de-pegged. First widely-publicized partial-algorithmic stablecoin collapse. Mark Cuban's public losses brought retail attention to stablecoin risks 11 months before UST.",
+    "rarm_lesson": "Iron Finance is the L5 Technology canonical case: oracle architecture is a hard constraint on any algorithmic stablecoin design. RARM AFI scoring requires L5 fallback mechanisms (multi-source oracles, staleness checks, circuit breakers) — without them, L5 falls below threshold and the entire stack scores zero. Iron Finance also pre-figured UST: any partial-algorithmic design with reflexive share token will eventually face the same death spiral. The question is not if but when."
+  }
+}

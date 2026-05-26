@@ -1,0 +1,9 @@
+[
+  { "id": "HK", "name": "Hong Kong", "status": "active", "data_file": "hk.json" },
+  { "id": "SG", "name": "Singapore", "status": "active", "data_file": "sg.json" },
+  { "id": "AE", "name": "UAE", "status": "active", "data_file": "ae.json" },
+  { "id": "CH", "name": "Switzerland", "status": "active", "data_file": "ch.json" },
+  { "id": "US", "name": "United States", "status": "active", "flag_emoji": "🇺🇸", "data_file": "us.json" },
+  { "id": "JP", "name": "Japan", "status": "active", "flag_emoji": "🇯🇵", "data_file": "jp.json" },
+  { "id": "EU", "name": "European Union", "status": "active", "flag_emoji": "🇪🇺", "data_file": "eu.json" }
+]

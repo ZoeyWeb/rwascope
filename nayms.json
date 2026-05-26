@@ -1,0 +1,88 @@
+{
+  "slug": "nayms",
+  "name": "Nayms",
+  "short_name": "Nayms",
+  "website": "https://www.nayms.com",
+  "asset_class": "insurance",
+  "jurisdiction": "Bermuda (Nayms Insurance Limited, BMA licensed)",
+  "chain": "Base",
+  "status": "active",
+  "launched_at": "2022-06-01",
+  "tvl_usd": 0,
+  "entity_map": {
+    "issuer": {
+      "name": "Nayms Insurance Limited",
+      "type": "Bermuda Class IGB licensed insurer",
+      "url": "https://www.nayms.com"
+    },
+    "custodian": {
+      "name": "On-chain custody of capital pools; off-chain reinsurance contracts",
+      "type": "Hybrid"
+    },
+    "chain_infra": {
+      "name": "Base (Coinbase L2)",
+      "type": "L2"
+    },
+    "oracle": {
+      "name": "",
+      "type": ""
+    },
+    "law_firm": {
+      "name": "",
+      "type": ""
+    },
+    "auditor": {
+      "name": "Per syndicate; smart contracts audited by Hats Finance, others",
+      "type": "Smart contract + insurance"
+    },
+    "regulator": {
+      "name": "Bermuda Monetary Authority (BMA)",
+      "type": "Insurance regulator"
+    },
+    "token_standard": "ERC-20 (per-syndicate capital tokens)"
+  },
+  "asset_slug": "",
+  "summary": "First blockchain-based commercial insurance marketplace licensed by Bermuda Monetary Authority. Operates as digital Lloyd's-style market where syndicates underwrite specialty insurance (including digital asset custody, smart contract risk, crypto exchange D&O) with capital pools held on-chain. Bridges institutional insurance with on-chain capital efficiency. Notable for being fully regulated by an established insurance jurisdiction (BMA) rather than operating in regulatory gray zone.",
+  "sources": [
+    {
+      "title": "Nayms regulatory authorization announcement",
+      "url": "https://www.nayms.com/blog/nayms-regulatory-approval"
+    },
+    {
+      "title": "Bermuda Monetary Authority: digital asset business sandbox",
+      "url": "https://www.bma.bm/digital-asset-business"
+    }
+  ],
+  "updated_at": "2026-05-19",
+  "underlying_asset": "Commercial insurance risk: specialty lines including crypto custody, smart contract, exchange D&O.",
+  "reserve_composition": "Capital pools per syndicate; tokens represent proportional capital provision.",
+  "secondary_market": "Token transferability subject to syndicate terms; limited secondary trading.",
+  "min_investment_usd": 100000,
+  "smart_contract_audit": {
+    "auditor": "Hats Finance + others",
+    "date": "2022-2024",
+    "report_url": ""
+  },
+  "oracle_provider": "Claims adjudicated through traditional insurance process; payouts triggered on-chain after claim approval.",
+  "redemption_mechanism": "Capital locked for policy duration; profit distributions on policy expiry less claims.",
+  "upgrade_authority": "Nayms board under BMA supervision.",
+  "timeline": [
+    {
+      "date": "2022-06-01",
+      "event": "Nayms Insurance Limited launched in Bermuda sandbox",
+      "type": "milestone"
+    },
+    {
+      "date": "2023-Q3",
+      "event": "First commercial syndicates onboarded",
+      "type": "milestone"
+    },
+    {
+      "date": "2024-Q2",
+      "event": "Migration to Base L2 for scaling",
+      "type": "milestone"
+    }
+  ],
+  "risk_flags": [],
+  "lessons_visibility": "active_only"
+}

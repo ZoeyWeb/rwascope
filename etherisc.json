@@ -1,0 +1,88 @@
+{
+  "slug": "etherisc",
+  "name": "Etherisc",
+  "short_name": "Etherisc",
+  "website": "https://etherisc.com",
+  "asset_class": "insurance",
+  "jurisdiction": "Germany (Etherisc GmbH)",
+  "chain": "Gnosis Chain (formerly xDai)",
+  "status": "active",
+  "launched_at": "2017-09-01",
+  "tvl_usd": 0,
+  "entity_map": {
+    "issuer": {
+      "name": "Etherisc GmbH + per-product underwriters (e.g., Chaucer Syndicate at Lloyd's)",
+      "type": "Insurance protocol + reinsurance partners",
+      "url": "https://etherisc.com"
+    },
+    "custodian": {
+      "name": "",
+      "type": ""
+    },
+    "chain_infra": {
+      "name": "Gnosis Chain",
+      "type": "L1 EVM-compatible"
+    },
+    "oracle": {
+      "name": "Chainlink (weather data), flight APIs (FlightAware) for parametric triggers",
+      "type": "Parametric oracle"
+    },
+    "law_firm": {
+      "name": "",
+      "type": ""
+    },
+    "auditor": {
+      "name": "",
+      "type": ""
+    },
+    "regulator": {
+      "name": "BaFin Germany (consumer insurance products)",
+      "type": "Insurance regulator"
+    },
+    "token_standard": "ERC-20 (DIP token), product-specific NFTs for policies"
+  },
+  "asset_slug": "",
+  "summary": "Pioneering decentralized insurance protocol focused on parametric products with automated payouts. Active products include flight delay insurance, crop insurance (Kenya — protecting smallholder farmers via ACRE Africa partnership), and natural catastrophe coverage. First widely-deployed example of blockchain enabling micro-insurance in emerging markets where traditional insurance distribution is uneconomic.",
+  "sources": [
+    {
+      "title": "Etherisc whitepaper",
+      "url": "https://etherisc.com/whitepaper"
+    },
+    {
+      "title": "ACRE Africa partnership: Kenya crop insurance",
+      "url": "https://etherisc.com/blog/decentralized-crop-insurance-kenya"
+    }
+  ],
+  "updated_at": "2026-05-19",
+  "underlying_asset": "Parametric insurance risk: flight delays, crop yields (rainfall index), natural catastrophe triggers.",
+  "reserve_composition": "Per-product capital pools backed by reinsurance from licensed underwriters.",
+  "secondary_market": "DIP governance token tradable; policy NFTs not typically resold.",
+  "min_investment_usd": 0,
+  "smart_contract_audit": {
+    "auditor": "ChainSecurity",
+    "date": "2020-2022",
+    "report_url": ""
+  },
+  "oracle_provider": "Chainlink + product-specific oracles (FlightAware for delays, satellite rainfall data for crop).",
+  "redemption_mechanism": "Parametric — automated payout on oracle trigger (e.g., flight delayed >2 hrs); no claim adjustment.",
+  "upgrade_authority": "Etherisc GmbH + DIP token governance.",
+  "timeline": [
+    {
+      "date": "2017-09-01",
+      "event": "Etherisc founded; first flight delay product launched",
+      "type": "milestone"
+    },
+    {
+      "date": "2020-Q3",
+      "event": "Kenya crop insurance launched with ACRE Africa",
+      "type": "milestone"
+    },
+    {
+      "date": "2023-Q4",
+      "event": "Hurricane Hilary parametric payouts processed in Mexico (pilot)",
+      "type": "milestone"
+    }
+  ],
+  "risk_flags": [],
+  "lessons_visibility": "active_only"
+}

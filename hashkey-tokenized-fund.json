@@ -1,0 +1,83 @@
+{
+  "slug": "hashkey-tokenized-fund",
+  "name": "HashKey Capital Tokenized Fund Series",
+  "short_name": "HashKey Tokenized Fund",
+  "website": "https://www.hashkey.capital",
+  "asset_class": "private_credit",
+  "jurisdiction": "Hong Kong SAR",
+  "chain": "Ethereum",
+  "status": "active",
+  "launched_at": "2024-04-26",
+  "tvl_usd": 0,
+  "entity_map": {
+    "issuer": {
+      "name": "HashKey Capital Limited",
+      "type": "Hong Kong SFC Type 4/9 licensed",
+      "url": "https://www.hashkey.capital"
+    },
+    "custodian": {
+      "name": "HashKey Custody / Standard Chartered SC Ventures",
+      "type": "Licensed custodian"
+    },
+    "chain_infra": {
+      "name": "Ethereum",
+      "type": "L1"
+    },
+    "oracle": {
+      "name": "",
+      "type": ""
+    },
+    "law_firm": {
+      "name": "",
+      "type": ""
+    },
+    "auditor": {
+      "name": "Big Four (specific firm not publicly disclosed)",
+      "type": "Big Four"
+    },
+    "regulator": {
+      "name": "Hong Kong SFC (Type 1, 4, 9 licensed)",
+      "type": "Securities regulator"
+    },
+    "token_standard": "ERC-20 / ERC-3643 (permissioned)"
+  },
+  "asset_slug": "",
+  "summary": "First tokenized fund licensed under Hong Kong SFC framework integrating Type 9 asset management with token-based subscription/redemption. Targets professional investors (PI) under Hong Kong SFO. Multiple sub-funds covering money market, fixed income, and digital asset exposure. Significant as HK's first concrete attempt to bridge SFC's licensed asset management regime with on-chain settlement — a key building block for HK's ambition to become a regulated tokenization hub.",
+  "sources": [
+    {
+      "title": "HashKey Capital announcement on tokenized fund",
+      "url": "https://www.hashkey.capital/news"
+    },
+    {
+      "title": "HK SFC: Circular on tokenization of investment products (November 2023)",
+      "url": "https://www.sfc.hk/en/News-and-announcements/Policy-statements-and-announcements/Circular-on-tokenisation"
+    }
+  ],
+  "updated_at": "2026-05-19",
+  "underlying_asset": "Multiple sub-funds: money market, fixed income, digital asset trackers. Underlying assets per fund prospectus.",
+  "reserve_composition": "Per-fund: typically T-bills/money market for the cash management fund; varies by fund.",
+  "secondary_market": "Token transfer restricted to whitelisted professional investors; limited secondary liquidity.",
+  "min_investment_usd": 100000,
+  "smart_contract_audit": {
+    "auditor": "Not publicly disclosed",
+    "date": "",
+    "report_url": ""
+  },
+  "oracle_provider": "Fund administrator reports NAV; no third-party on-chain oracle.",
+  "redemption_mechanism": "Subscription and redemption via HashKey platform; typically daily/weekly NAV.",
+  "upgrade_authority": "HashKey Capital fund management under SFC oversight.",
+  "timeline": [
+    {
+      "date": "2024-04-26",
+      "event": "First tokenized fund launched under HK SFC tokenization circular framework",
+      "type": "milestone"
+    },
+    {
+      "date": "2025-Q1",
+      "event": "Additional sub-funds added for fixed income and digital asset exposure",
+      "type": "milestone"
+    }
+  ],
+  "risk_flags": [],
+  "lessons_visibility": "active_only"
+}

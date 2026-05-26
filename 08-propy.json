@@ -1,0 +1,81 @@
+{
+  "slug": "propy",
+  "name": "Propy (PRO Token + Real Estate NFTs)",
+  "short_name": "Propy",
+  "website": "https://propy.com",
+  "asset_class": "real_estate",
+  "jurisdiction": "United States (Delaware) + multi-state real estate licensing",
+  "chain": "Ethereum",
+  "status": "paused",
+  "launched_at": "2017-09-15",
+  "tvl_usd": 5000000,
+  "peak_tvl_usd": 220000000,
+  "peak_tvl_date": "2022-02-01",
+  "entity_map": {
+    "issuer":        { "name": "Propy Inc.", "type": "Delaware C-Corp", "url": "https://propy.com" },
+    "custodian":     { "name": "Title held by SPVs (per-property LLC)", "type": "Legal title via SPV" },
+    "chain_infra":   { "name": "Ethereum mainnet", "type": "L1" },
+    "oracle":        { "name": "N/A — no on-chain valuation", "type": "" },
+    "law_firm":      { "name": "Per-transaction title companies; not centrally disclosed", "type": "Distributed" },
+    "auditor":       { "name": "No protocol-level audit; individual property appraisals via licensed appraisers", "type": "Per-property" },
+    "regulator":     { "name": "US state real estate commissions; SEC (PRO token classification unresolved)", "type": "State + federal" },
+    "token_standard": "ERC-20 (PRO) + ERC-721 (property NFTs)"
+  },
+  "asset_slug": "",
+  "summary": "Pioneer of real estate NFT-based ownership transfer; sold the first US home as NFT (Florida, February 2022). Initially celebrated as RWA breakthrough but secondary market for property NFTs failed to materialize. PRO governance token fell ~95% from 2022 peak. Currently operates primarily as traditional real estate transaction platform; NFT minting paused for new properties. Lessons Learned case study for tokenization-without-liquidity failure mode.",
+  "sources": [
+    {"title": "Propy: First US home sold as NFT (Feb 2022)", "url": "https://propy.com/browse/propy-completes-first-real-world-real-estate-nft-transaction-in-the-us/"},
+    {"title": "CoinDesk: Real estate NFT hype cycle analysis (2024)", "url": "https://www.coindesk.com/learn/property-nfts-the-tokenization-revolution-that-stalled"}
+  ],
+  "updated_at": "2026-05-19",
+
+  "underlying_asset": "Single-family homes in US (initially Florida, Tampa pilot). Legal ownership via per-property LLC; NFT represents membership interest in the LLC. ~20 properties tokenized total at peak.",
+  "reserve_composition": "1:1 — each NFT corresponds to a single underlying property held by a dedicated LLC. No fractionalization in original model.",
+  "secondary_market": "Theoretically tradable on OpenSea and Propy's marketplace; actual secondary trading volume <$500K cumulative across all property NFTs. Most NFTs never resold after initial minting.",
+  "min_investment_usd": 0,
+  "smart_contract_audit": {
+    "auditor": "Hacken (PRO token); individual property contracts not separately audited",
+    "date": "2018",
+    "report_url": ""
+  },
+  "oracle_provider": "N/A — no on-chain property valuation. Off-chain MLS data for marketing.",
+  "redemption_mechanism": "NFT holder must execute traditional real estate sale via Propy platform; no on-chain redemption. Transfer of NFT = transfer of LLC membership = transfer of property title (legally novel and untested at scale).",
+  "upgrade_authority": "Propy Inc. controls platform; per-property LLCs governed by Delaware LLC operating agreements.",
+
+  "timeline": [
+    {"date": "2017-09-15", "event": "Propy ICO; PRO token launched", "type": "milestone"},
+    {"date": "2022-02-10", "event": "First US home sold as NFT (Tampa, FL) — ~$650K", "type": "milestone"},
+    {"date": "2022-05-01", "event": "PRO token reaches peak ~$4.50; ~20 properties tokenized", "type": "milestone"},
+    {"date": "2023-06-01", "event": "NFT secondary trading volume effectively zero; only 1 NFT resale completed", "type": "incident"},
+    {"date": "2024-03-01", "event": "New property NFT minting paused; pivot to traditional title platform", "type": "incident"},
+    {"date": "2025-08-01", "event": "PRO token down ~95% from peak; platform focus shifts to AI title insurance", "type": "milestone"}
+  ],
+
+  "risk_flags": ["paused", "no_secondary_liquidity", "tokenization_without_demand"],
+
+  "lessons_visibility": "lessons_only",
+
+  "postmortem": {
+    "incident_date": "2023-06-01",
+    "root_cause": "Single-property NFTs failed to generate secondary market demand for structural reasons that Propy could not solve through tokenization alone: (1) Real estate transactions involve due diligence (inspection, title search, financing) that cannot be replicated in a click-to-buy NFT flow; (2) US property law requires recordation with county clerks — NFT transfer alone does not perfect title without parallel deed recording; (3) Mortgage financing for tokenized property unavailable from any major US lender; (4) Tax treatment of LLC-membership NFTs ambiguous (capital gains? real estate? collectible?). The NFT format added friction without removing the underlying transaction complexity. Demand evaporated once novelty wore off.",
+    "what_failed": [
+      {
+        "layer": "L4",
+        "layer_name": "Token & Market Structure",
+        "issue": "Single-property NFTs are non-fungible by definition — each property is unique with its own legal, financial, and physical characteristics. No buyer pool develops for an asset where every unit requires custom underwriting. Tokenization without fungibility achieves no liquidity benefit."
+      },
+      {
+        "layer": "L1",
+        "layer_name": "Legal Foundation",
+        "issue": "US property law requires county-level deed recording for legal title transfer. NFT transfer creates LLC membership transfer but does not perfect underlying real property title without parallel off-chain process. Legal effectiveness untested at scale; mortgage lenders refused to accept tokenized title as collateral."
+      },
+      {
+        "layer": "L2",
+        "layer_name": "Asset Quality",
+        "issue": "Real estate is a legitimate asset class but unsuited to whole-property NFT format. Fractionalization (REIT-style) addresses fungibility but requires different legal structure (securities offering). Propy's whole-NFT model fell between two stools."
+      }
+    ],
+    "outcome": "Propy NFT business effectively wound down; ~20 tokenized properties remain in legacy state. PRO token down ~95% from peak. Company pivoted to AI-powered title insurance and traditional transaction platform. Real estate NFT category broadly stalled — subsequent projects (Lofty.ai, Roofstock onChain) moved to fractionalized model.",
+    "rarm_lesson": "Propy is the canonical L4 case for RWA tokenization: tokenization does not create liquidity, fungibility does. RARM AFI for real estate must distinguish between (a) whole-asset NFTs (no fungibility, no liquidity premium); (b) fractionalized tokens with fungible exposure to a single property (limited fungibility within property); (c) pool-based fractionalization (true fungibility across diversified property pool, REIT-equivalent). Only (c) achieves meaningful L4 liquidity scoring. Secondary lesson at L1: tokenized real estate requires explicit legal framework integration with local property registry — Singapore Project Orchid and Hong Kong DLT property registry pilots are responses to this. Whole-property NFT without registry integration is structurally fragile."
+  }
+}

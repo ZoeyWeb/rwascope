@@ -1,0 +1,433 @@
+{
+  "meta": {
+    "version": "1.0.0",
+    "last_compiled": "2026-05-18",
+    "title": "United States RWA Ecosystem Map",
+    "description": "A structured overview of the US tokenized real-world asset ecosystem — mapping Wall Street institutional adoption, SEC-regulated tokenized Treasuries, and DeFi composability infrastructure.",
+    "disclaimer": "This map is compiled from publicly available official sources. Participant lists may be incomplete where information has not been publicly enumerated by regulators. This is an informational reference, not a regulatory register.",
+    "sources": [
+      "SEC official publications, no-action letters, and rulemaking notices (sec.gov)",
+      "CFTC official publications and guidance (cftc.gov)",
+      "OCC interpretive letters and guidance (occ.gov)",
+      "BlackRock, Franklin Templeton, and Fidelity public filings and press releases",
+      "JPMorgan Kinexys and Securitize public disclosures",
+      "Ondo Finance, Centrifuge, and Maple Finance platform disclosures",
+      "Company public filings and press releases"
+    ]
+  },
+  "stats": {
+    "regulators": 4,
+    "financial_institutions": 6,
+    "infrastructure_participants": 4,
+    "issuance_platforms": 6,
+    "market_access_participants": 4,
+    "professional_enablers": 6
+  },
+  "layers": [
+    {
+      "id": "regulatory",
+      "order": 1,
+      "label": "Regulatory Oversight",
+      "sublabel": "Licensing & Policy",
+      "color": "#818cf8",
+      "bg": "#16163a",
+      "border": "#818cf8",
+      "description": "The United States regulates tokenized assets across multiple federal agencies with overlapping jurisdictions. The SEC governs tokenized securities and has issued initial no-action letters enabling structured tokenized securities programs. The CFTC oversees derivatives markets and has launched a pilot accepting tokenized collateral. The OCC has issued digital asset custody guidance for national banks, while the Federal Reserve supervises wholesale payment infrastructure.",
+      "participants": [
+        {
+          "id": "sec",
+          "name": "SEC",
+          "full_name": "U.S. Securities and Exchange Commission",
+          "type": "regulator",
+          "role": "Federal securities regulator; issued first no-action letters for tokenized securities programs in 2025–2026, enabling broker-dealers to facilitate tokenized security issuance under existing securities law; transitioning from enforcement-led digital asset posture toward a structured framework; oversees registered investment funds such as Franklin Templeton BENJI/FOBXX and WisdomTree tokenized MMFs",
+          "url": "https://www.sec.gov",
+          "tags": ["regulator", "securities", "no-action", "tokenized-securities", "registered-funds"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "cftc",
+          "name": "CFTC",
+          "full_name": "U.S. Commodity Futures Trading Commission",
+          "type": "regulator",
+          "role": "Federal derivatives and commodities regulator; launched pilot program accepting tokenized collateral for derivatives margin in 2025; working with clearinghouses to expand eligible tokenized assets for margin posting; provides regulatory oversight of commodity-linked tokenized products",
+          "url": "https://www.cftc.gov",
+          "tags": ["regulator", "derivatives", "tokenized-collateral", "margin", "pilot"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "occ",
+          "name": "OCC",
+          "full_name": "Office of the Comptroller of the Currency",
+          "type": "regulator",
+          "role": "Federal bank regulator; issued interpretive letters authorizing national banks to provide digital asset custody services and participate in certain blockchain networks; granted the first federal digital asset bank charter to Anchorage Digital, establishing a precedent for federally chartered digital asset banking",
+          "url": "https://www.occ.gov",
+          "tags": ["regulator", "bank-charter", "custody", "interpretive-letters", "national-banks"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "federal-reserve",
+          "name": "Federal Reserve",
+          "full_name": "U.S. Federal Reserve System",
+          "type": "regulator",
+          "role": "Central bank and wholesale payment infrastructure regulator; operates FedWire, the backbone for dollar-denominated settlement underlying tokenized asset transactions; engaged in research on tokenized wholesale CBDC (Project Cedar with NYFRB) and cross-border tokenized payment interoperability",
+          "url": "https://www.federalreserve.gov",
+          "tags": ["central-bank", "wholesale-payments", "cbdc", "project-cedar", "settlement"],
+          "confidence_level": "high"
+        }
+      ]
+    },
+    {
+      "id": "financial_institutions",
+      "order": 2,
+      "label": "Financial Institutions",
+      "sublabel": "Banks & Asset Managers",
+      "color": "#4ade80",
+      "bg": "#0c2018",
+      "border": "#4ade80",
+      "description": "The United States is home to the world's largest institutional tokenized asset programs. BlackRock's BUIDL is the largest on-chain tokenized Treasury product globally. JPMorgan's Kinexys platform has processed over $900 billion in tokenized repo volume. Franklin Templeton operates the first SEC-registered mutual fund to record share ownership on a public blockchain. These Wall Street incumbents are defining the institutional adoption playbook for tokenized RWAs.",
+      "participants": [
+        {
+          "id": "blackrock",
+          "name": "BlackRock",
+          "full_name": "BlackRock, Inc.",
+          "type": "asset_manager",
+          "role": "World's largest asset manager; launched BUIDL (BlackRock USD Institutional Digital Liquidity Fund) in March 2024 via Securitize on Ethereum; AUM surpassed $1.7 billion by May 2026, making it the largest tokenized Treasury product globally; BUIDL integrated into DeFi protocols including Ondo Finance OUSG and Uniswap liquidity pools; BlackRock is the defining institutional validator of on-chain RWA adoption",
+          "url": "https://www.blackrock.com",
+          "tags": ["asset-manager", "buidl", "tokenized-treasuries", "ethereum", "securitize", "defi-integration"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "jpmorgan",
+          "name": "JPMorgan",
+          "full_name": "JPMorgan Chase & Co.",
+          "type": "bank",
+          "role": "Largest US bank by assets; operates Kinexys (formerly Onyx), its blockchain-based wholesale payment and tokenized repo platform; processed over $900 billion in tokenized repo and intraday repo transactions; Kinexys also facilitates tokenized deposit transfers and cross-border payment settlement; pioneered institutional blockchain adoption among global systemically important banks",
+          "url": "https://www.jpmorgan.com",
+          "tags": ["bank", "kinexys", "onyx", "tokenized-repo", "wholesale-payments", "gsib"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "franklin-templeton",
+          "name": "Franklin Templeton",
+          "full_name": "Franklin Templeton Investments",
+          "type": "asset_manager",
+          "role": "Asset manager; operates BENJI/FOBXX (Franklin OnChain U.S. Government Money Fund), the first SEC-registered mutual fund to record share ownership and transactions on a public blockchain (Stellar, later expanded to Polygon and Solana in 2025–2026); AUM exceeded $800 million in Q1 2026; the multi-chain BENJI deployment establishes the broadest public-blockchain footprint of any registered investment company",
+          "url": "https://www.franklintempleton.com",
+          "tags": ["asset-manager", "benji", "fobxx", "sec-registered", "stellar", "solana", "polygon", "multi-chain"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "fidelity",
+          "name": "Fidelity",
+          "full_name": "Fidelity Investments",
+          "type": "asset_manager",
+          "role": "Major US asset manager and custodian; launched FYHXX (Fidelity Treasury Digital Fund), a tokenized US Treasury product on Ethereum in early 2025; operates Fidelity Digital Assets, one of the largest institutional digital asset custody businesses in the US; provides both asset management and infrastructure services to institutional tokenized asset participants",
+          "url": "https://www.fidelity.com",
+          "tags": ["asset-manager", "fyhxx", "tokenized-treasuries", "ethereum", "institutional-custody"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "goldman-sachs",
+          "name": "Goldman Sachs",
+          "full_name": "The Goldman Sachs Group, Inc.",
+          "type": "bank",
+          "role": "Tier-1 investment bank; active in tokenized bond and private equity pilots on its proprietary digital asset platform Goldman Sachs Digital Assets (GSDA); participated in tokenized bond issuances on the European Investment Bank blockchain bond and explored on-chain private equity token structuring for institutional clients",
+          "url": "https://www.goldmansachs.com",
+          "tags": ["bank", "digital-assets", "tokenized-bonds", "private-equity", "institutional", "eib"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "morgan-stanley",
+          "name": "Morgan Stanley",
+          "full_name": "Morgan Stanley",
+          "type": "bank",
+          "role": "Tier-1 investment bank and wealth manager; significantly expanded RWA tokenization focus in 2026, exploring tokenized funds and structured products for institutional and ultra-high-net-worth clients via its wealth management and investment banking divisions; among the major Wall Street firms accelerating on-chain capital markets infrastructure investment",
+          "url": "https://www.morganstanley.com",
+          "tags": ["bank", "wealth-management", "rwa-tokenization", "institutional", "structured-products"],
+          "confidence_level": "high"
+        }
+      ]
+    },
+    {
+      "id": "infrastructure",
+      "order": 3,
+      "label": "Infrastructure",
+      "sublabel": "Settlement & Blockchain Networks",
+      "color": "#facc15",
+      "bg": "#1e1a02",
+      "border": "#facc15",
+      "description": "The US tokenized asset market is primarily built on public blockchain infrastructure. Ethereum hosts the majority of tokenized RWA value and the largest institutional products. Chainlink CCIP serves as the dominant oracle and cross-chain messaging layer. Stellar and Solana host Franklin Templeton's registered fund in its multi-chain expansion. No US wholesale CBDC exists in production; dollar settlement occurs via existing FedWire and commercial bank payment rails.",
+      "participants": [
+        {
+          "id": "ethereum-us",
+          "name": "Ethereum",
+          "full_name": "Ethereum",
+          "type": "blockchain",
+          "role": "Primary public blockchain for US institutional tokenized RWA products; hosts over 60% of all on-chain tokenized asset value globally; home to BUIDL (BlackRock), OUSG/USDY (Ondo Finance), FYHXX (Fidelity), and the majority of major tokenized Treasury and money market fund products; ERC-20 and ERC-1400 security token standards dominate institutional issuance",
+          "tags": ["ethereum", "erc-20", "erc-1400", "public-chain", "tokenized-treasuries", "dominant-rwa-chain"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "chainlink-ccip",
+          "name": "Chainlink CCIP",
+          "full_name": "Chainlink Cross-Chain Interoperability Protocol",
+          "type": "oracle",
+          "role": "Primary oracle and cross-chain messaging infrastructure for RWA products; provides price feeds, proof of reserve attestations, and cross-chain token transfer for over 60% of tokenized RWA products; used by BUIDL, CCIP integration enables multi-chain RWA deployment across Ethereum, Avalanche, Base, and other networks; the standard cross-chain layer for institutional on-chain asset management",
+          "url": "https://chain.link",
+          "tags": ["oracle", "ccip", "cross-chain", "proof-of-reserve", "price-feeds", "multi-chain"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "stellar",
+          "name": "Stellar",
+          "full_name": "Stellar Network",
+          "type": "blockchain",
+          "role": "Original issuance blockchain for Franklin Templeton's BENJI/FOBXX; chosen for its fast, low-cost settlement and native compliance features; Stellar's asset control framework enables the transfer restrictions required for SEC-registered fund shares; the first public blockchain to host a US-registered investment company share registry",
+          "url": "https://stellar.org",
+          "tags": ["stellar", "benji", "fobxx", "franklin-templeton", "registered-fund", "transfer-restrictions"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "solana-us",
+          "name": "Solana",
+          "full_name": "Solana",
+          "type": "blockchain",
+          "role": "High-throughput blockchain; Franklin Templeton expanded BENJI/FOBXX onto Solana in Q1 2026, extending the first SEC-registered on-chain fund to a third public blockchain; Solana's high transaction throughput and low fees make it attractive for tokenized fund operations requiring frequent NAV-linked transactions",
+          "tags": ["solana", "benji", "fobxx", "franklin-templeton", "multi-chain", "high-throughput"],
+          "confidence_level": "high"
+        }
+      ]
+    },
+    {
+      "id": "issuance",
+      "order": 4,
+      "label": "Issuance Platforms",
+      "sublabel": "Tokenization Protocols",
+      "color": "#60a5fa",
+      "bg": "#0d1c32",
+      "border": "#60a5fa",
+      "description": "The US issuance ecosystem is led by Securitize, which dominates institutional compliance infrastructure as transfer agent for BUIDL. Ondo Finance is the largest public-facing tokenized Treasury and yield product provider. Centrifuge pioneered real-world asset credit tokenization, while WisdomTree became the first operator of an SEC-approved tokenized MMF with genuine secondary market liquidity. Maple Finance brings institutional on-chain private credit, and RealT offers fractional real estate tokenization.",
+      "participants": [
+        {
+          "id": "securitize",
+          "name": "Securitize",
+          "full_name": "Securitize, Inc.",
+          "type": "platform",
+          "role": "Dominant institutional tokenization compliance infrastructure provider; registered SEC transfer agent; serves as transfer agent, KYC/AML provider, and investor onboarding platform for BlackRock BUIDL and multiple other institutional tokenized fund products; investment from BlackRock validates its position as the institutional compliance layer of record for US on-chain asset management",
+          "url": "https://securitize.io",
+          "tags": ["transfer-agent", "sec-registered", "kyc-aml", "buidl", "blackrock", "compliance-infrastructure"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "ondo-finance",
+          "name": "Ondo Finance",
+          "full_name": "Ondo Finance",
+          "type": "platform",
+          "role": "Largest public tokenized Treasury and yield product provider; TVL surpassed $2.5 billion in January 2026; offers OUSG (tokenized BlackRock BUIDL shares for DeFi access) and USDY (yield-bearing stablecoin-like US Treasury wrapper); pioneered DeFi-composable tokenized Treasuries enabling on-chain yield in DeFi protocols; expanding into tokenized equities and multi-chain deployments",
+          "url": "https://ondo.finance",
+          "tags": ["tokenized-treasuries", "ousg", "usdy", "defi", "composability", "yield"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "centrifuge",
+          "name": "Centrifuge",
+          "full_name": "Centrifuge",
+          "type": "platform",
+          "role": "Pioneer of real-world asset credit tokenization on-chain; has financed over $600 million in real-world assets including trade receivables, structured credit, and private loans; operates Centrifuge Prime, an institutional product offering structured access to tokenized credit pools; integrated with MakerDAO as a major off-chain collateral source, establishing the DeFi credit-to-RWA bridge",
+          "url": "https://centrifuge.io",
+          "tags": ["private-credit", "trade-receivables", "structured-credit", "makerdao", "defi-collateral"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "maple-finance",
+          "name": "Maple Finance",
+          "full_name": "Maple Finance",
+          "type": "platform",
+          "role": "Institutional on-chain private credit protocol; provides structured lending pools for institutional borrowers including crypto-native firms and fintech companies; operates Syrup, a retail-accessible product built on Maple's institutional credit infrastructure; focuses on undercollateralized institutional lending with on-chain transparency and compliance",
+          "url": "https://maple.finance",
+          "tags": ["private-credit", "institutional-lending", "syrup", "undercollateralized", "on-chain"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "wisdomtree",
+          "name": "WisdomTree",
+          "full_name": "WisdomTree, Inc.",
+          "type": "platform",
+          "role": "SEC-registered ETF and fund manager; received SEC approval for WisdomTree Prime tokenized money market funds, making it the first operator of a tokenized MMF with genuine secondary market liquidity on a public blockchain; WisdomTree Prime app provides retail access to tokenized fund shares; bridges SEC-registered investment fund compliance with blockchain-native distribution",
+          "url": "https://www.wisdomtree.com",
+          "tags": ["sec-registered", "tokenized-mmf", "secondary-market", "retail-access", "wisdomtree-prime"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "realt",
+          "name": "RealT",
+          "full_name": "RealT",
+          "type": "platform",
+          "role": "Fractional real estate tokenization platform; enables global investors to purchase tokenized ownership shares in US residential properties with entry from approximately $50 per token; properties are held in LLCs with token holders receiving proportional rental income via DAI stablecoin; one of the longest-running and largest real estate RWA tokenization operations by number of properties tokenized",
+          "url": "https://realt.co",
+          "tags": ["real-estate", "fractional", "rental-income", "dai", "residential", "llc-wrapper"],
+          "confidence_level": "high"
+        }
+      ]
+    },
+    {
+      "id": "market_access",
+      "order": 5,
+      "label": "Market Access",
+      "sublabel": "Licensed Exchanges & DeFi",
+      "color": "#fb923c",
+      "bg": "#1e1102",
+      "border": "#fb923c",
+      "description": "US market access for tokenized assets spans regulated centralized exchanges, traditional equity markets exploring 24/7 tokenized securities trading, and DeFi protocols enabling composable on-chain yield. Coinbase is the primary institutional gateway. NYSE and Nasdaq are pursuing regulated venues for tokenized equity trading, while Uniswap demonstrates DeFi composability with institutional products like BUIDL.",
+      "participants": [
+        {
+          "id": "coinbase",
+          "name": "Coinbase",
+          "full_name": "Coinbase Global, Inc.",
+          "type": "exchange",
+          "role": "Largest US regulated crypto exchange and institutional digital asset platform; operates Coinbase Prime for institutional clients including asset managers, hedge funds, and corporate treasuries; provides custody, brokerage, and staking services; Base (Coinbase L2) is increasingly used for tokenized asset deployment; key institutional on-ramp for US tokenized RWA market participation",
+          "url": "https://www.coinbase.com",
+          "tags": ["exchange", "institutional", "coinbase-prime", "base-l2", "custody", "regulated"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "nasdaq",
+          "name": "Nasdaq",
+          "full_name": "Nasdaq, Inc.",
+          "type": "exchange",
+          "role": "Global equity exchange; filed with the SEC to list tokenized equities; exploring infrastructure for regulated secondary market trading of tokenized securities alongside traditional equity markets; Nasdaq's move to list tokenized equities signals the convergence of traditional exchange infrastructure with blockchain-native asset issuance",
+          "url": "https://www.nasdaq.com",
+          "tags": ["exchange", "tokenized-equities", "sec-filing", "secondary-market", "traditional-exchange"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "nyse",
+          "name": "NYSE",
+          "full_name": "New York Stock Exchange",
+          "type": "exchange",
+          "role": "World's largest equity exchange by market capitalization; announced plans for a dedicated venue enabling 24/7 trading and settlement of tokenized securities; exploring atomic settlement for tokenized stocks and bonds to eliminate traditional T+1/T+2 settlement lag; represents the most significant traditional exchange commitment to tokenized securities infrastructure in the US market",
+          "url": "https://www.nyse.com",
+          "tags": ["exchange", "tokenized-securities", "24-7-trading", "atomic-settlement", "t0-settlement"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "uniswap",
+          "name": "Uniswap",
+          "full_name": "Uniswap Protocol",
+          "type": "exchange",
+          "role": "Largest decentralized exchange by volume; BlackRock BUIDL and Ondo OUSG are integrated into Uniswap liquidity pools, enabling permissionless DeFi composability for institutional tokenized assets; represents the DeFi composability layer of the US tokenized Treasury ecosystem — where institutional products gain programmable, on-chain liquidity access",
+          "url": "https://uniswap.org",
+          "tags": ["dex", "defi", "liquidity-pools", "buidl", "ousg", "composability", "permissionless"],
+          "confidence_level": "high"
+        }
+      ],
+      "participants_note": "Most tokenized Treasury products (BUIDL, OUSG, FYHXX) are restricted to qualified purchasers or accredited investors and are not available for retail secondary trading on centralized exchanges. Retail access is primarily via Ondo USDY, WisdomTree Prime, and Franklin Templeton BENJI on supported platforms."
+    },
+    {
+      "id": "enablers",
+      "order": 6,
+      "label": "Professional Enablers",
+      "sublabel": "Compliance · Custody · Audit · Legal",
+      "color": "#a78bfa",
+      "bg": "#1a1030",
+      "border": "#a78bfa",
+      "description": "The US professional services ecosystem for digital assets is anchored by Fireblocks, the dominant institutional custody infrastructure provider, and Anchorage Digital, the only federally chartered digital asset bank. Top-tier securities law firms advise on tokenized securities structuring, while Big Four audit firms and blockchain analytics platforms provide the compliance and audit infrastructure demanded by institutional participants.",
+      "participants": [
+        {
+          "id": "fireblocks",
+          "name": "Fireblocks",
+          "full_name": "Fireblocks Ltd.",
+          "type": "custody",
+          "role": "Leading institutional digital asset custody and transfer infrastructure; MPC-based key management platform used by over 1,800 financial institutions globally including BNY Mellon, BNP Paribas, and major US asset managers; provides the secure custody rails underlying the majority of US institutional tokenized asset operations; also offers tokenization-as-a-service for financial institutions",
+          "url": "https://www.fireblocks.com",
+          "tags": ["custody", "mpc", "institutional", "transfer-infrastructure", "tokenization-as-a-service"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "anchorage-digital",
+          "name": "Anchorage Digital",
+          "full_name": "Anchorage Digital Bank National Association",
+          "type": "custody",
+          "role": "First and only OCC-chartered federal digital asset bank in the United States (charter granted January 2021); provides federally regulated custody, trading, financing, and staking services for digital assets to institutional clients; as a nationally chartered bank, Anchorage operates under OCC supervision with the same regulatory standing as traditional national banks, enabling institutional clients to hold digital assets within a bank-grade regulatory framework",
+          "url": "https://www.anchorage.com",
+          "tags": ["federal-bank-charter", "occ", "custody", "regulated", "institutional", "staking"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "chainalysis-us",
+          "name": "Chainalysis",
+          "full_name": "Chainalysis Inc.",
+          "type": "compliance",
+          "role": "Blockchain analytics and AML compliance platform; primary compliance infrastructure for US regulated exchanges, asset managers, and banks operating in digital assets; provides transaction monitoring, Travel Rule compliance tooling, and sanctions screening; used by FinCEN, US law enforcement, and over 500 institutional customers to meet BSA/AML obligations for tokenized asset activities",
+          "url": "https://www.chainalysis.com",
+          "tags": ["aml", "analytics", "travel-rule", "sanctions", "fincen", "bsa", "compliance"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "sullivan-cromwell",
+          "name": "Sullivan & Cromwell",
+          "full_name": "Sullivan & Cromwell LLP",
+          "type": "legal",
+          "role": "Top-tier US securities and capital markets law firm; legal counsel for Ondo Finance and several institutional tokenized securities programs; advises on SEC registration, no-action letter applications, and securities law structuring for tokenized fund products; one of the leading law firms bridging traditional securities regulation with on-chain asset issuance",
+          "tags": ["legal", "securities-law", "capital-markets", "ondo", "no-action", "sec-registration"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "deloitte-us",
+          "name": "Deloitte US",
+          "full_name": "Deloitte Touche Tohmatsu Limited (US)",
+          "type": "audit",
+          "role": "Big Four audit and advisory firm with a leading digital asset and blockchain practice in the United States; provides financial audits for tokenized fund products, digital asset custodians, and blockchain-based financial institutions; advises institutional clients on tokenization strategy, custody controls, and regulatory compliance frameworks for on-chain asset management",
+          "url": "https://www.deloitte.com",
+          "tags": ["audit", "advisory", "big-four", "digital-assets", "tokenization", "institutional"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "pwc-us",
+          "name": "PwC US",
+          "full_name": "PricewaterhouseCoopers LLP (US)",
+          "type": "audit",
+          "role": "Big Four audit and advisory firm; provides audit, tax, and advisory services for digital asset firms, tokenized fund issuers, and blockchain infrastructure companies in the US; publishes annual global crypto and digital asset industry surveys; active in advising financial institutions on SEC-compliant tokenized securities programs and digital asset risk frameworks",
+          "url": "https://www.pwc.com",
+          "tags": ["audit", "advisory", "big-four", "digital-assets", "sec-compliance", "risk"],
+          "confidence_level": "high"
+        }
+      ],
+      "participants_note": "Professional service providers listed are active in US digital asset and RWA tokenization engagements based on public disclosures, regulatory filings, and published advisory mandates. This list is illustrative, not exhaustive."
+    }
+  ],
+  "gaps": [
+    {
+      "id": "gap-market-retail-access-restricted",
+      "layer_id": "market_access",
+      "type": "market_gap",
+      "severity": "high",
+      "title": "Retail Access Restricted",
+      "description": "Most tokenized Treasury and institutional fund products are restricted to qualified purchasers (generally $5 million+ in investments for BUIDL) or accredited investors, excluding the vast majority of US retail participants. Retail access is limited to indirect wrappers such as Ondo USDY, WisdomTree Prime, and Franklin Templeton BENJI on supported platforms. The lack of a clear regulatory pathway for retail tokenized securities distribution constrains the potential addressable market and limits democratization of yield-bearing on-chain assets."
+    },
+    {
+      "id": "gap-regulatory-multi-agency-overlap",
+      "layer_id": "regulatory",
+      "type": "market_gap",
+      "severity": "medium",
+      "title": "Multi-Agency Jurisdiction Overlap",
+      "description": "The SEC, CFTC, and OCC have overlapping and sometimes conflicting jurisdictions over tokenized securities, tokenized commodities, and digital asset banking activities. A unified cross-agency framework for tokenized RWA classification and regulation has not been established, creating structuring uncertainty for issuers and requiring bespoke legal analysis for each product type. Legislative proposals for comprehensive digital asset market structure legislation remained incomplete as of mid-2026."
+    },
+    {
+      "id": "gap-infrastructure-no-cross-chain-standard",
+      "layer_id": "infrastructure",
+      "type": "market_gap",
+      "severity": "medium",
+      "title": "No Cross-Chain Interoperability Standard",
+      "description": "Major US tokenized RWA products are deployed across multiple blockchains — Ethereum, Stellar, Solana, Base, and others — with no unified interoperability standard. Fragmented multi-chain deployment creates operational complexity, settlement risk when transferring assets across chains, and inconsistent investor protection across different blockchain environments. Chainlink CCIP addresses the messaging layer but does not resolve regulatory and compliance gaps in cross-chain asset transfers."
+    }
+  ],
+  "participant_type_chart": [
+    { "category": "Regulators", "count": 4, "color": "#818cf8" },
+    { "category": "Financial Institutions", "count": 6, "color": "#4ade80" },
+    { "category": "Infrastructure", "count": 4, "color": "#facc15" },
+    { "category": "Issuance Platforms", "count": 6, "color": "#60a5fa" },
+    { "category": "Market Access", "count": 4, "color": "#fb923c" },
+    { "category": "Enablers", "count": 6, "color": "#a78bfa" }
+  ]
+}

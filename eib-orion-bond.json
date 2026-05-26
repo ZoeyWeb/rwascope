@@ -1,0 +1,88 @@
+{
+  "slug": "eib-orion-bond",
+  "name": "EIB EUR Digital Bond on HSBC Orion",
+  "short_name": "EIB Orion Bond",
+  "website": "https://www.eib.org",
+  "asset_class": "gov_bond",
+  "jurisdiction": "Luxembourg (EIB issuance); UK (Orion platform)",
+  "chain": "Permissioned (HSBC Orion private DLT)",
+  "status": "active",
+  "launched_at": "2023-01-31",
+  "tvl_usd": 100000000,
+  "entity_map": {
+    "issuer": {
+      "name": "European Investment Bank (EIB)",
+      "type": "Supranational EU institution",
+      "url": "https://www.eib.org"
+    },
+    "custodian": {
+      "name": "HSBC (Orion platform custody)",
+      "type": "G-SIB"
+    },
+    "chain_infra": {
+      "name": "HSBC Orion (permissioned)",
+      "type": "Enterprise blockchain"
+    },
+    "oracle": {
+      "name": "",
+      "type": ""
+    },
+    "law_firm": {
+      "name": "Allen & Overy",
+      "type": "Lead counsel"
+    },
+    "auditor": {
+      "name": "Per EIB standard fund audit",
+      "type": "Big Four"
+    },
+    "regulator": {
+      "name": "Luxembourg CSSF (under Luxembourg blockchain law); BdF (Banque de France) for wCBDC settlement leg",
+      "type": "Multi-jurisdictional"
+    },
+    "token_standard": "HSBC Orion-native"
+  },
+  "asset_slug": "",
+  "summary": "EUR 100M two-year digital bond issued by EIB on HSBC Orion private DLT, with settlement in central bank money via experimental wCBDC from Banque de France. Lead managers: HSBC, RBC Capital Markets, Santander. Significant as one of the first EUR digital bond issuances with full central bank money settlement (not just commercial bank money). Demonstrates EU regulatory framework (Luxembourg blockchain law) for tokenized debt + ECB experimentation with wholesale settlement.",
+  "sources": [
+    {
+      "title": "EIB press release on Orion bond issuance",
+      "url": "https://www.eib.org/en/press/all/2023-022-eib-issues-its-first-ever-digital-bond-in-british-pounds"
+    },
+    {
+      "title": "HSBC: Orion platform issuance announcement",
+      "url": "https://www.gbm.hsbc.com/en-gb/insights/financing/eib-issues-its-first-digital-bond-on-hsbc-orion"
+    }
+  ],
+  "updated_at": "2026-05-19",
+  "underlying_asset": "EIB unsecured senior debt obligation; two-year tenor.",
+  "reserve_composition": "EIB general credit (AAA-rated supranational).",
+  "secondary_market": "Permissioned Orion network only; limited secondary trading among onboarded participants.",
+  "min_investment_usd": 0,
+  "smart_contract_audit": {
+    "auditor": "HSBC Orion platform audits",
+    "date": "2023",
+    "report_url": ""
+  },
+  "oracle_provider": "N/A — fixed coupon bond.",
+  "redemption_mechanism": "Coupon and principal paid at maturity in central bank money via Banque de France wCBDC experimental settlement.",
+  "upgrade_authority": "EIB issuance terms; HSBC operates platform.",
+  "timeline": [
+    {
+      "date": "2023-01-31",
+      "event": "EIB issues EUR 100M digital bond on HSBC Orion",
+      "type": "milestone"
+    },
+    {
+      "date": "2023-Q2",
+      "event": "Coupon payments completed via wCBDC experimental settlement",
+      "type": "milestone"
+    },
+    {
+      "date": "2025-01-31",
+      "event": "Bond matures; principal repaid",
+      "type": "milestone"
+    }
+  ],
+  "risk_flags": [],
+  "lessons_visibility": "active_only"
+}

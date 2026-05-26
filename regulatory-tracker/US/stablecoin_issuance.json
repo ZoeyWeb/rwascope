@@ -1,0 +1,79 @@
+{
+  "jurisdiction": "US",
+  "issue": "stablecoin_issuance",
+  "status_signal": "conditional",
+  "summary": "The United States federal regulatory framework for stablecoin issuance is established primarily by the GENIUS Act (Guiding and Establishing National Innovation for US Stablecoins, S. 1582, 119th Congress), signed into law by President Donald Trump on 18 July 2025. The Act establishes a federal licensing regime for stablecoin issuers, requiring 1:1 high-quality liquid asset reserves at least equal to the par value of outstanding stablecoins, monthly reserve attestations by an independent accounting firm, and full AML/CFT compliance including the Travel Rule. Issuers with total market capitalisation below $10 billion may choose between federal registration (OCC) or state regulation, while issuers above $10 billion are required to register with the OCC. All issuers are prohibited from paying interest or yield to stablecoin holders, and from lending reserve assets beyond what is explicitly authorised under the Act. Non-bank issuers face additional activity restrictions. State-level regimes continue to apply concurrently for issuers below the $10 billion threshold who opt for state oversight. The Act preempts state money transmitter laws for federally registered issuers (FQPSIs) but does not preempt state consumer protection laws or state-imposed prudential standards; state-qualified issuers (SQPSIs) remain subject to state licensing requirements. The OCC further confirmed bank authority to issue stablecoins in Interpretive Letter 1183 (March 7, 2025) and Interpretive Letter 1186 (November 18, 2025), which clarified that national banks may buy, sell, and issue stablecoin to facilitate customer transactions and may pay network fees on distributed ledger technology networks.",
+  "key_requirements": [
+    "Stablecoin issuers must maintain 1:1 high-quality liquid asset reserves at par value of outstanding stablecoins at all times",
+    "Monthly independent attestation of reserve composition and value by an independent accounting firm",
+    "Full AML/CFT compliance including BSA/FinCEN registration, SAR filing, and Travel Rule implementation",
+    "Issuers with market cap above $10 billion must register with the OCC; below $10 billion may choose federal or state oversight",
+    "All issuers are prohibited from paying interest, dividends, or yield to stablecoin holders (effectively banning yield-bearing stablecoins)",
+    "Issuers may not lend reserve assets beyond what is explicitly authorised under the Act; non-bank issuers face additional activity restrictions including prohibition on financing private credit with reserves",
+    "Issuers must disclose reserve composition, redemption terms, and operational risks in plain language",
+    "Redemption at par required; issuers must disclose redemption policy and terms prominently"
+  ],
+  "exemptions": [
+    "Issuers below $10 billion market cap may elect state-level oversight (e.g., NYDFS BitLicense, Wyoming SPDI) in lieu of OCC registration",
+    "Small issuers with total outstanding stablecoin value below prescribed thresholds (to be determined by OCC rulemaking) may be exempt from certain federal requirements",
+    "Foreign stablecoin issuers may serve US residents subject to compliance with federal registration requirements and applicable state money transmitter laws"
+  ],
+  "practitioner_notes": "The GENIUS Act represents the first comprehensive federal stablecoin legislation in the United States. Its most consequential structural feature is the $10 billion threshold bifurcating federal vs state jurisdiction \u2014 a design that preserves state-level innovation (notably NYDFS and Wyoming's regimes) while ensuring the largest issuers face direct OCC oversight. Banks are structurally advantaged under the GENIUS Act because they can issue stablecoins under their existing banking licence with OCC approval and are not subject to the non-bank activity restrictions. Non-bank issuers should carefully assess the activity restriction implications and prepare for potential state-level compliance obligations in multiple states. Practitioners should note that the GENIUS Act prohibits all issuers (bank and non-bank) from paying interest or yield to stablecoin holders, effectively banning yield-bearing stablecoins in the US \u2014 a structurally significant limitation. As of Q2 2026, OCC rulemaking to implement the Act is ongoing; practitioners should monitor proposed regulations for specific operational requirements including capital, liquidity, and wind-down planning standards. The OCC IL 1183 (March 2025) and IL 1186 (November 2025) provide important interpretive support for bank-based stablecoin activities.",
+  "references": [
+    {
+      "title": "GENIUS Act \u2014 Guiding and Establishing National Innovation for US Stablecoins (S. 1582, signed 18 July 2025)",
+      "date": "2025-07-18",
+      "url": "https://www.congress.gov/bill/119th-congress/senate-bill/1582",
+      "type": "primary-statute"
+    },
+    {
+      "title": "White House \u2014 Fact Sheet: President Donald J. Trump Signs GENIUS Act into Law (July 18, 2025)",
+      "date": "2025-07-18",
+      "url": "https://www.whitehouse.gov/fact-sheets/2025/07/fact-sheet-president-donald-j-trump-signs-genius-act-into-law/",
+      "type": "regulator-guidance"
+    },
+    {
+      "title": "OCC \u2014 Interpretive Letter 1183 (March 7, 2025)",
+      "date": "2025-03-07",
+      "url": "https://www.occ.gov/topics/charters-and-licensing/interpretations-and-actions/2025/int1183.pdf",
+      "type": "regulator-guidance"
+    },
+    {
+      "title": "OCC \u2014 Interpretive Letter 1186 (November 18, 2025)",
+      "date": "2025-11-18",
+      "url": "https://www.occ.gov/topics/charters-and-licensing/interpretations-and-decisions/2025/int1186.pdf",
+      "type": "regulator-guidance"
+    },
+    {
+      "title": "Mayer Brown \u2014 GENIUS Act Signed into Law: US Enacts Federal Stablecoin Legislation (July 18, 2025)",
+      "date": "2025-07-18",
+      "url": "https://www.mayerbrown.com/en/insights/publications/2025/07/genius-act-signed-into-law-us-enacts-federal-stablecoin-legislation",
+      "type": "industry-media"
+    },
+    {
+      "title": "LW.com \u2014 The GENIUS Act of 2025: Stablecoin Legislation Adopted in the US",
+      "date": "2025-07-01",
+      "url": "https://www.lw.com/en/insights/the-genius-act-of-2025-stablecoin-legislation-adopted-in-the-us",
+      "type": "industry-media"
+    },
+    {
+      "title": "Grant Thornton \u2014 What the GENIUS Act means for stablecoin issuers and banks (November 3, 2025) \u2014 confirms interest/ yield prohibition",
+      "date": "2025-11-03",
+      "url": "https://www.grantthornton.com/insights/articles/banking/2025/genius-act-means-for-banks",
+      "type": "industry-media"
+    },
+    {
+      "title": "CSBS \u2014 GENIUS Act Implementation Comment Letter (November 4, 2025) \u2014 confirms lending prohibition and state preemption scope",
+      "date": "2025-11-04",
+      "url": "https://www.csbs.org/csbs-genius-act-implementation-comment-letter",
+      "type": "industry-media"
+    },
+    {
+      "title": "White House Council of Economic Advisers \u2014 Effects of Stablecoin Yield Prohibition on Bank Lending (April 2026)",
+      "date": "2026-04-01",
+      "url": "https://www.whitehouse.gov/research/2026/04/effects-of-stablecoin-yield-prohibition-on-bank-lending/",
+      "type": "regulator-guidance"
+    }
+  ],
+  "last_reviewed": "2026-05-01"
+}

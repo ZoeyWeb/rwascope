@@ -1,0 +1,35 @@
+{
+  "jurisdiction": "EU",
+  "issue": "retail_access",
+  "status_signal": "conditional",
+  "summary": "Under the Markets in Crypto-Assets Regulation (MiCA), retail access to crypto-assets in the European Union is heavily conditioned on comprehensive disclosure and strict marketing standards designed for consumer protection. The cornerstone of this regime is the 'Crypto-Asset White Paper', which must be published and notified to a National Competent Authority (NCA) before a crypto-asset can be offered to the public or admitted to a trading platform. White papers must be clear, fair, and not misleading, and must include mandatory risk warnings explicitly stating that the crypto-asset is not covered by EU investor compensation or deposit guarantee schemes. Furthermore, all marketing communications targeting retail investors must be clearly identifiable as such, be consistent with the corresponding white paper, and carry prominent standard risk warnings. MiCA grants NCAs and ESMA the power to suspend or prohibit retail offerings or marketing campaigns if they breach these requirements.",
+  "key_requirements": [
+    "A formal Crypto-Asset White Paper must be drafted, notified to the relevant NCA, and published prior to any public offering or admission to trading for retail users.",
+    "The white paper must explicitly contain the warning: 'This crypto-asset white paper has not been approved by any competent authority in any Member State of the European Union.'",
+    "All marketing communications must be clearly identifiable, fair, clear, and not misleading, and must be completely consistent with the information provided in the white paper.",
+    "Marketing materials must feature prominent risk warnings advising retail investors that crypto-assets are highly volatile and that they may lose part or all of their investment.",
+    "Crypto-assets cannot be marketed to retail investors as being 'guaranteed' or implicitly protected by traditional financial safety nets like deposit guarantee schemes (DGS) or investor compensation schemes (ICS).",
+    "Under MiCA Article 14, retail holders are granted specific withdrawal rights allowing them to cancel their purchase agreement within 14 days without incurring fees, under certain conditions."
+  ],
+  "exemptions": [
+    "Offers made exclusively to 'qualified investors' (institutional and professional clients) are exempt from the requirement to publish a white paper.",
+    "Offers of crypto-assets (other than Asset-Referenced Tokens or E-Money Tokens) that fall below a total consideration of \u20ac1,000,000 over a period of 12 months are exempt from the white paper requirement.",
+    "Crypto-assets distributed entirely for free (e.g., certain true airdrops without any counter-performance required) do not require a white paper."
+  ],
+  "practitioner_notes": "MiCA significantly raises the barrier to entry for marketing crypto to European retail investors. The 'Crypto-Asset White Paper' under MiCA is no longer a loose marketing brochure; it is a quasi-prospectus carrying statutory liability for the issuer and its management body regarding misleading or missing information. Practitioners must ensure that influencers, affiliates, and social media campaigns used for promotion do not violate MiCA's marketing communication rules, as regulators (NCAs) now have direct authority to halt non-compliant social media campaigns and fine the issuers. Furthermore, the mandatory 14-day retail withdrawal right (cooling-off period) for initial offerings creates unique liquidity and treasury management challenges for issuers during the initial launch phase.",
+  "references": [
+    {
+      "title": "Regulation (EU) 2023/1114 (MiCA) - Title II (Crypto-assets other than asset-referenced tokens or e-money tokens)",
+      "date": "2023-06-09",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32023R1114",
+      "type": "primary-statute"
+    },
+    {
+      "title": "ESMA Guidelines on standard forms, formats and templates for the crypto-asset white paper",
+      "date": "2024-07-01",
+      "url": "https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/markets-crypto-assets-regulation-mica",
+      "type": "regulator-guidance"
+    }
+  ],
+  "last_reviewed": "2026-05-01"
+}

@@ -1,0 +1,82 @@
+{
+  "slug": "za-bank-tokenized-deposits",
+  "name": "ZA Bank Tokenized Deposits",
+  "short_name": "ZA Bank Tokenized",
+  "website": "https://www.za.bank",
+  "asset_class": "infrastructure",
+  "jurisdiction": "Hong Kong SAR",
+  "chain": "Permissioned (HKMA Project Ensemble participant infrastructure)",
+  "status": "announced",
+  "launched_at": "2024-11-01",
+  "tvl_usd": 0,
+  "entity_map": {
+    "issuer": {
+      "name": "ZA Bank Limited",
+      "type": "Hong Kong virtual bank (HKMA Type 1 banking license)"
+    },
+    "custodian": {
+      "name": "ZA Bank as issuing bank",
+      "type": "Bank custody"
+    },
+    "chain_infra": {
+      "name": "TBD per Project Ensemble integration",
+      "type": "Permissioned"
+    },
+    "oracle": {
+      "name": "",
+      "type": ""
+    },
+    "law_firm": {
+      "name": "",
+      "type": ""
+    },
+    "auditor": {
+      "name": "PwC Hong Kong (per ZA Bank annual audit)",
+      "type": "Big Four"
+    },
+    "regulator": {
+      "name": "Hong Kong Monetary Authority (HKMA)",
+      "type": "Central bank"
+    },
+    "token_standard": "Per HKMA Ensemble framework"
+  },
+  "asset_slug": "",
+  "summary": "First Hong Kong virtual bank to announce participation in tokenized deposit infrastructure. ZA Bank's product roadmap includes retail-accessible tokenized HKD deposits leveraging Project Ensemble settlement rails. Significant as virtual banks (originally formed under HKMA's 2020 virtual banking initiative) entering institutional tokenization layer — bridging the retail crypto-curious customer base with the wholesale tokenization infrastructure being built for traditional banks.",
+  "sources": [
+    {
+      "title": "ZA Bank participation in HK digital asset initiatives",
+      "url": "https://www.za.bank/en/about"
+    },
+    {
+      "title": "HKMA Project Ensemble participating institutions (Annex B)",
+      "url": "https://www.hkma.gov.hk/eng/key-functions/financial-infrastructure/project-ensemble/"
+    }
+  ],
+  "updated_at": "2026-05-19",
+  "underlying_asset": "HKD bank deposit liability at ZA Bank.",
+  "reserve_composition": "1:1 with deposit liability per HKMA supervision; ZA Bank Type 1 banking license requirements.",
+  "secondary_market": "Per Project Ensemble framework; retail accessibility TBD.",
+  "min_investment_usd": 0,
+  "smart_contract_audit": {
+    "auditor": "TBD",
+    "date": "",
+    "report_url": ""
+  },
+  "oracle_provider": "N/A.",
+  "redemption_mechanism": "1:1 redemption against ZA Bank deposit.",
+  "upgrade_authority": "ZA Bank Limited management under HKMA supervision.",
+  "timeline": [
+    {
+      "date": "2024-11-01",
+      "event": "ZA Bank announces digital asset roadmap including tokenized deposits",
+      "type": "milestone"
+    },
+    {
+      "date": "2025-11-13",
+      "event": "ZA Bank participation in EnsembleTX pilot phase begins",
+      "type": "milestone"
+    }
+  ],
+  "risk_flags": [],
+  "lessons_visibility": "active_only"
+}

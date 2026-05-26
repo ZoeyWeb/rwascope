@@ -1,0 +1,97 @@
+{
+  "slug": "agrotoken",
+  "name": "Agrotoken (SOYA / CORA / WHEA)",
+  "short_name": "Agrotoken",
+  "website": "https://agrotoken.io",
+  "asset_class": "commodity",
+  "jurisdiction": "Argentina (Agrotoken SA)",
+  "chain": "Ethereum, Polygon, Algorand",
+  "status": "active",
+  "launched_at": "2022-03-15",
+  "tvl_usd": 0,
+  "entity_map": {
+    "issuer": {
+      "name": "Agrotoken SA",
+      "type": "Argentine SA",
+      "url": "https://agrotoken.io"
+    },
+    "custodian": {
+      "name": "Grain stored in licensed warehouses; warehouse receipts as backing",
+      "type": "Physical commodity storage"
+    },
+    "chain_infra": {
+      "name": "Ethereum, Polygon, Algorand",
+      "type": "Multi-chain"
+    },
+    "oracle": {
+      "name": "Buenos Aires/Rosario grain exchange spot prices",
+      "type": "Exchange feed"
+    },
+    "law_firm": {
+      "name": "",
+      "type": ""
+    },
+    "auditor": {
+      "name": "Auren (warehouse stock attestation)",
+      "type": "Commodity auditor"
+    },
+    "regulator": {
+      "name": "Argentina CNV (securities regulator, informal engagement); Brazil CVM partnership for cross-border",
+      "type": "Emerging framework"
+    },
+    "token_standard": "ERC-20"
+  },
+  "asset_slug": "",
+  "summary": "First major agricultural commodity tokenization platform in Latin America. SOYA (soybeans), CORA (corn), and WHEA (wheat) are each 1:1 backed by physical grain stored in licensed Argentine warehouses. Farmers tokenize harvest as collateral to access stablecoin liquidity, hedge inflation (Argentina's >100% annual rate), and transact with input suppliers. Partnerships with Visa (debit card), Santander, and BBVA for fiat ramps. Represents the most concrete example of RWA addressing real economic problems in high-inflation emerging markets.",
+  "sources": [
+    {
+      "title": "Agrotoken whitepaper and product documentation",
+      "url": "https://agrotoken.io/en/whitepaper/"
+    },
+    {
+      "title": "Reuters: Argentina farmers turn to grain-backed stablecoins amid peso crisis",
+      "url": "https://www.reuters.com/markets/currencies/argentine-farmers-turn-stablecoins-peso-crisis-2023-04-12/"
+    },
+    {
+      "title": "Visa partnership announcement (June 2022)",
+      "url": "https://www.visa.com/visa-everywhere/blog/bdp/2022/06/29/agrotoken-uses-blockchain-1656524265005.html"
+    }
+  ],
+  "updated_at": "2026-05-19",
+  "underlying_asset": "Soybeans (SOYA), corn (CORA), wheat (WHEA) stored in licensed Argentine warehouses with verifiable warehouse receipts.",
+  "reserve_composition": "1:1 backed — each token represents 1 tonne of stored grain. Stored at warehouses licensed under Argentina's Ley de Warrants.",
+  "secondary_market": "Listed on Bitso, Buenbit (LatAm exchanges); usable as on-chain collateral for stablecoin loans.",
+  "min_investment_usd": 0,
+  "smart_contract_audit": {
+    "auditor": "Not publicly disclosed",
+    "date": "",
+    "report_url": ""
+  },
+  "oracle_provider": "Buenos Aires Grain Exchange and Rosario Grain Exchange spot price feeds.",
+  "redemption_mechanism": "Token holder can redeem against physical grain at warehouse, or convert to fiat/stablecoin at exchange price.",
+  "upgrade_authority": "Agrotoken SA management; no decentralized governance.",
+  "timeline": [
+    {
+      "date": "2022-03-15",
+      "event": "Agrotoken launches SOYA, CORA, WHEA in Argentina",
+      "type": "milestone"
+    },
+    {
+      "date": "2022-06-29",
+      "event": "Visa partnership for tokenized commodity-backed cards",
+      "type": "milestone"
+    },
+    {
+      "date": "2023-08-01",
+      "event": "Brazil expansion announced via CVM regulatory sandbox",
+      "type": "milestone"
+    },
+    {
+      "date": "2024-10-01",
+      "event": "Santander integration for fiat on/off-ramp",
+      "type": "milestone"
+    }
+  ],
+  "risk_flags": [],
+  "lessons_visibility": "active_only"
+}

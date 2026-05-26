@@ -1,0 +1,82 @@
+{
+  "slug": "project-pino",
+  "name": "Project Pino (Tokenized Structured Notes — DBS + SBI Digital Asset Holdings)",
+  "short_name": "Project Pino",
+  "website": "https://www.dbs.com",
+  "asset_class": "private_credit",
+  "jurisdiction": "Singapore + Japan",
+  "chain": "Permissioned (ConsenSys Quorum-based)",
+  "status": "pilot",
+  "launched_at": "2023-11-10",
+  "tvl_usd": 0,
+  "entity_map": {
+    "issuer": {
+      "name": "DBS Bank + SBI Digital Asset Holdings",
+      "type": "Bank consortium pilot"
+    },
+    "custodian": {
+      "name": "DBS / SBI institutional custody",
+      "type": "Bank custody"
+    },
+    "chain_infra": {
+      "name": "Permissioned DLT (Quorum)",
+      "type": "Enterprise blockchain"
+    },
+    "oracle": {
+      "name": "",
+      "type": ""
+    },
+    "law_firm": {
+      "name": "",
+      "type": ""
+    },
+    "auditor": {
+      "name": "Per bank participant",
+      "type": "Big Four"
+    },
+    "regulator": {
+      "name": "Monetary Authority of Singapore (MAS) — Project Guardian framework",
+      "type": "Central bank"
+    },
+    "token_standard": "Permissioned"
+  },
+  "asset_slug": "",
+  "summary": "Cross-border tokenized structured notes pilot under MAS Project Guardian. Demonstrated atomic settlement of tokenized fixed-income products between DBS (Singapore) and SBI Digital Asset Holdings (Japan). Used permissioned DLT with delivery-versus-payment settlement. Important precursor to wider cross-border tokenization corridors; one of the first concrete pilot demonstrations of Project Guardian's multi-jurisdiction interoperability ambitions.",
+  "sources": [
+    {
+      "title": "DBS + SBI Project Pino announcement (November 2023)",
+      "url": "https://www.dbs.com/newsroom/DBS_completes_pilot_with_SBI_Digital_Asset"
+    },
+    {
+      "title": "MAS Project Guardian cross-border pilots overview",
+      "url": "https://www.mas.gov.sg/schemes-and-initiatives/project-guardian"
+    }
+  ],
+  "updated_at": "2026-05-19",
+  "underlying_asset": "Tokenized structured notes with fixed-income payoffs; pilot scale rather than mass-market deployment.",
+  "reserve_composition": "Standard structured note backing (issuer credit + reference asset performance).",
+  "secondary_market": "Permissioned pilot — limited to participating institutions.",
+  "min_investment_usd": 0,
+  "smart_contract_audit": {
+    "auditor": "Per institution",
+    "date": "2023",
+    "report_url": ""
+  },
+  "oracle_provider": "Reference asset pricing per note design.",
+  "redemption_mechanism": "Atomic DvP settlement at maturity per note terms.",
+  "upgrade_authority": "Bilateral pilot governance.",
+  "timeline": [
+    {
+      "date": "2023-11-10",
+      "event": "DBS + SBI announce successful Project Pino pilot completion",
+      "type": "milestone"
+    },
+    {
+      "date": "2024-Q3",
+      "event": "Phase 2 expansion announced under broader Project Guardian",
+      "type": "milestone"
+    }
+  ],
+  "risk_flags": [],
+  "lessons_visibility": "active_only"
+}

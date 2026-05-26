@@ -1,0 +1,295 @@
+{
+  "meta": {
+    "version": "1.0.0",
+    "last_compiled": "2026-05-18",
+    "title": "Singapore RWA Ecosystem Map",
+    "description": "6-layer structured overview: Regulatory → Institutions → Infrastructure → Issuance → Market Access → Enablers",
+    "disclaimer": "This map is compiled from publicly available official sources. Participant lists may be incomplete where information has not been publicly enumerated by regulators. This is an informational reference, not a regulatory register.",
+    "sources": [
+      "MAS press releases (mas.gov.sg)",
+      "MAS Project Guardian public disclosures",
+      "MAS Payment Services Act licensing register (mas.gov.sg)",
+      "ACRA company registry (acra.gov.sg)",
+      "Company public filings and press releases"
+    ]
+  },
+  "stats": {
+    "regulators": 2,
+    "licensed_stablecoin_issuers": 0,
+    "stablecoin_applicants": 3,
+    "ensembletx_institutions": 5,
+    "licensed_vatps": 0,
+    "hk_linked_rwa_protocols": 6
+  },
+  "layers": [
+    {
+      "id": "regulatory",
+      "order": 1,
+      "label": "Regulatory Oversight",
+      "sublabel": "Licensing & Policy",
+      "color": "#818cf8",
+      "bg": "#16163a",
+      "border": "#818cf8",
+      "description": "Primary regulators governing tokenized assets, payment services, and digital assets in Singapore under the Payment Services Act and Securities and Futures Act.",
+      "participants": [
+        {
+          "id": "mas",
+          "name": "MAS",
+          "full_name": "Monetary Authority of Singapore",
+          "type": "regulator",
+          "role": "Central bank and financial regulator; administers the Payment Services Act (MPI licences for stablecoins); initiator of Project Guardian tokenization initiative",
+          "url": "https://www.mas.gov.sg",
+          "tags": ["stablecoin", "mpi", "project-guardian", "payment-services"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "acra",
+          "name": "ACRA",
+          "full_name": "Accounting and Corporate Regulatory Authority",
+          "type": "regulator",
+          "role": "Corporate registry and accounting standards; oversees entity registration for tokenization SPVs and digital asset companies incorporated in Singapore",
+          "url": "https://www.acra.gov.sg",
+          "tags": ["corporate", "registry", "governance"],
+          "confidence_level": "high"
+        }
+      ]
+    },
+    {
+      "id": "financial_institutions",
+      "order": 2,
+      "label": "Financial Institutions",
+      "sublabel": "Banks & Tokenization Participants",
+      "color": "#4ade80",
+      "bg": "#0c2018",
+      "border": "#4ade80",
+      "description": "Major Singapore banks and financial institutions active in Project Guardian tokenization pilots and digital asset initiatives.",
+      "participants": [
+        {
+          "id": "dbs",
+          "name": "DBS Bank",
+          "full_name": "DBS Bank Ltd",
+          "type": "bank",
+          "role": "Largest Singapore bank; Project Guardian founding participant; issued SGD stablecoin pilot; active in tokenized bond and fund settlement trials",
+          "tags": ["bank", "project-guardian", "stablecoin", "tokenization"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "uob",
+          "name": "UOB",
+          "full_name": "United Overseas Bank",
+          "type": "bank",
+          "role": "Project Guardian participant; exploring tokenized trade finance and cross-border payments via Partior network",
+          "tags": ["bank", "project-guardian", "trade-finance"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "ocbc",
+          "name": "OCBC",
+          "full_name": "Oversea-Chinese Banking Corporation",
+          "type": "bank",
+          "role": "Active in tokenized bond pilots; exploring digital asset custody and cross-border settlement use cases",
+          "tags": ["bank", "tokenization", "digital_assets"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "sc-libeara",
+          "name": "Standard Chartered (Libeara)",
+          "full_name": "Standard Chartered — Libeara Platform",
+          "type": "bank",
+          "role": "Libeara is Standard Chartered's tokenization platform; issued tokenized Singapore government securities; Project Guardian participant",
+          "tags": ["bank", "tokenization", "project-guardian", "libeara"],
+          "confidence_level": "high"
+        }
+      ]
+    },
+    {
+      "id": "infrastructure",
+      "order": 3,
+      "label": "Infrastructure",
+      "sublabel": "Settlement & Blockchain Networks",
+      "color": "#facc15",
+      "bg": "#1e1a02",
+      "border": "#facc15",
+      "description": "Core infrastructure for Singapore's tokenized asset ecosystem: MAS Project Guardian settlement network, Partior interbank payment blockchain, and regulated digital securities exchange.",
+      "participants": [
+        {
+          "id": "project-guardian",
+          "name": "Project Guardian",
+          "full_name": "MAS Project Guardian",
+          "type": "international_org",
+          "role": "MAS-led industry initiative for tokenization of financial assets; coordinates pilots across banks, asset managers, and DeFi protocols; launched 2022",
+          "url": "https://www.mas.gov.sg/development/fintech/project-guardian",
+          "tags": ["mas", "tokenization", "cross-border", "settlement"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "partior",
+          "name": "Partior",
+          "full_name": "Partior Pte. Ltd.",
+          "type": "issuance_platform",
+          "role": "Blockchain-based interbank settlement network founded by DBS, JPMorgan, and Standard Chartered; enables real-time multi-currency cross-border payment settlement",
+          "tags": ["settlement", "cross-border", "interbank", "blockchain"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "addx-infra",
+          "name": "ADDX (iSTOX)",
+          "full_name": "ADDX (formerly iSTOX) — Digital Securities Platform",
+          "type": "issuance_platform",
+          "role": "MAS-regulated private markets exchange; blockchain-based issuance, custody, and exchange for tokenized private market assets",
+          "tags": ["mas-regulated", "private-markets", "tokenization"],
+          "confidence_level": "high"
+        }
+      ]
+    },
+    {
+      "id": "issuance",
+      "order": 4,
+      "label": "Issuance Platforms",
+      "sublabel": "Tokenization Protocols",
+      "color": "#60a5fa",
+      "bg": "#0d1c32",
+      "border": "#60a5fa",
+      "description": "Platforms enabling tokenization of funds, carbon credits, and trade finance instruments with Singapore regulatory nexus or issued by MAS-regulated entities.",
+      "participants": [
+        {
+          "id": "benji-sg",
+          "name": "BENJI",
+          "full_name": "Franklin OnChain U.S. Government Money Fund (BENJI)",
+          "type": "fund",
+          "asset_class": "money_market_fund",
+          "issuer": "Franklin Templeton",
+          "role": "Tokenized U.S. government money fund by Franklin Templeton; Project Guardian participant in Singapore; RARM-assessed",
+          "rarm_signal": "green",
+          "asset_slug": "benji",
+          "tags": ["mmf", "treasury", "franklin", "project-guardian"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "cix",
+          "name": "Climate Impact X",
+          "full_name": "Climate Impact X (CIX)",
+          "type": "issuance_platform",
+          "role": "Singapore-based global marketplace and exchange for high-quality carbon credits; explores tokenized carbon credit issuance and settlement",
+          "tags": ["carbon", "climate", "marketplace", "sg-based"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "contour",
+          "name": "Contour Network",
+          "full_name": "Contour Network Pte. Ltd.",
+          "type": "issuance_platform",
+          "role": "Blockchain-based trade finance network enabling tokenized letters of credit and trade document digitisation; Singapore-headquartered",
+          "tags": ["trade-finance", "letters-of-credit", "blockchain", "sg-based"],
+          "confidence_level": "high"
+        }
+      ]
+    },
+    {
+      "id": "market_access",
+      "order": 5,
+      "label": "Market Access",
+      "sublabel": "Licensed Exchanges & Broker-Dealers",
+      "color": "#fb923c",
+      "bg": "#1e1102",
+      "border": "#fb923c",
+      "description": "MAS-licensed digital securities exchanges and broker-dealers providing accredited and institutional investor access to tokenized assets in Singapore.",
+      "participants": [
+        {
+          "id": "addx-exchange",
+          "name": "ADDX Exchange",
+          "full_name": "ADDX (formerly iSTOX) — Exchange",
+          "type": "vatp",
+          "role": "MAS-regulated private market exchange; provides accredited and institutional investor access to tokenized bonds, private equity, and funds",
+          "tags": ["mas-regulated", "exchange", "accredited", "institutional"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "phillip-securities",
+          "name": "Phillip Securities",
+          "full_name": "Phillip Securities Pte. Ltd.",
+          "type": "broker",
+          "role": "MAS-licensed capital markets services firm; exploring tokenized securities distribution for retail and institutional clients",
+          "tags": ["broker", "retail", "institutional", "sg-based"],
+          "confidence_level": "medium"
+        }
+      ],
+      "participants_note": "MAS uses Major Payment Institution (MPI) and Capital Markets Services (CMS) licence categories rather than a unified VATP framework. Participant counts reflect publicly disclosed MAS-licensed entities active in digital assets."
+    },
+    {
+      "id": "enablers",
+      "order": 6,
+      "label": "Professional Enablers",
+      "sublabel": "Compliance · Custody · Audit",
+      "color": "#a78bfa",
+      "bg": "#1a1030",
+      "border": "#a78bfa",
+      "description": "Digital asset custodians, compliance analytics providers, and professional service firms that underpin regulatory compliance and transaction assurance for the Singapore RWA ecosystem.",
+      "participants": [
+        {
+          "id": "propine",
+          "name": "Propine",
+          "full_name": "Propine Pte. Ltd.",
+          "type": "custody",
+          "role": "MAS-licensed digital asset custodian; institutional-grade custody for tokenized assets, digital securities, and private keys",
+          "tags": ["custody", "mas-licensed", "institutional"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "sygnum-sg",
+          "name": "Sygnum",
+          "full_name": "Sygnum Bank AG (Singapore Branch)",
+          "type": "bank",
+          "role": "Swiss-licensed digital asset bank with Singapore operations; offers digital asset banking, custody, and tokenization services to institutions",
+          "tags": ["bank", "custody", "digital_assets", "institutional"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "elliptic-sg",
+          "name": "Elliptic",
+          "full_name": "Elliptic Enterprises Limited",
+          "type": "compliance_provider",
+          "role": "Crypto AML/KYC compliance platform; serves MAS-licensed exchanges and financial institutions in Singapore for transaction monitoring and sanctions screening",
+          "tags": ["aml", "kyc", "compliance", "sanctions"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "chainalysis-sg",
+          "name": "Chainalysis",
+          "full_name": "Chainalysis Inc.",
+          "type": "compliance_provider",
+          "role": "Blockchain analytics and AML investigation platform; used by MAS-licensed virtual asset service providers for compliance and regulatory enforcement",
+          "tags": ["aml", "analytics", "regulators", "blockchain"],
+          "confidence_level": "high"
+        }
+      ],
+      "participants_note": "Professional service providers listed are active in Singapore digital asset engagements based on public disclosures. This list is illustrative, not exhaustive."
+    }
+  ],
+  "gaps": [
+    {
+      "id": "gap-enabler-rating-sg",
+      "layer_id": "enablers",
+      "type": "market_gap",
+      "severity": "high",
+      "title": "No Local Digital Asset Credit Rating Agency",
+      "description": "Singapore lacks a dedicated digital asset credit or quality rating agency. Risk assessment for tokenized assets relies on international firms without a Singapore-specific RWA methodology."
+    },
+    {
+      "id": "gap-market-retail-sg",
+      "layer_id": "market_access",
+      "type": "market_gap",
+      "severity": "medium",
+      "title": "Retail Access Gap for Tokenized RWAs",
+      "description": "MAS-licensed platforms primarily serve accredited and institutional investors. Retail investor access to tokenized real-world assets remains limited under existing regulatory frameworks."
+    }
+  ],
+  "participant_type_chart": [
+    { "category": "Regulators", "count": 2, "color": "#818cf8" },
+    { "category": "Financial Institutions", "count": 4, "color": "#4ade80" },
+    { "category": "Infrastructure", "count": 3, "color": "#facc15" },
+    { "category": "Issuance Platforms", "count": 3, "color": "#60a5fa" },
+    { "category": "Market Access", "count": 2, "color": "#fb923c" },
+    { "category": "Enablers", "count": 4, "color": "#a78bfa" }
+  ]
+}

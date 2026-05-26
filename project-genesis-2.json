@@ -1,0 +1,88 @@
+{
+  "slug": "project-genesis-2",
+  "name": "Project Genesis 2.0 (Tokenized Green Bond + Carbon Forwards)",
+  "short_name": "Project Genesis 2.0",
+  "website": "https://www.bis.org/about/bisih/topics/green_finance/genesis_2.htm",
+  "asset_class": "infrastructure",
+  "jurisdiction": "Hong Kong SAR",
+  "chain": "Permissioned (Hyperledger Besu)",
+  "status": "pilot",
+  "launched_at": "2022-10-13",
+  "tvl_usd": 0,
+  "entity_map": {
+    "issuer": {
+      "name": "HKMA + BIS Innovation Hub Hong Kong Centre + UNFCCC Climate Action",
+      "type": "Joint regulatory pilot",
+      "url": "https://www.hkma.gov.hk"
+    },
+    "custodian": {
+      "name": "",
+      "type": ""
+    },
+    "chain_infra": {
+      "name": "Hyperledger Besu (permissioned)",
+      "type": "Enterprise blockchain"
+    },
+    "oracle": {
+      "name": "MRV (Measurement, Reporting, Verification) data from IoT sensors monitoring green project output",
+      "type": "IoT-based"
+    },
+    "law_firm": {
+      "name": "",
+      "type": ""
+    },
+    "auditor": {
+      "name": "TBD per production deployment",
+      "type": ""
+    },
+    "regulator": {
+      "name": "HKMA + SFC + BIS",
+      "type": "Multi-jurisdictional pilot"
+    },
+    "token_standard": "Permissioned token (chain-native)"
+  },
+  "asset_slug": "",
+  "summary": "Joint pilot by HKMA, BIS Innovation Hub Hong Kong, and UNFCCC Climate Action exploring tokenization of green bonds linked to project-level carbon credit forwards. Prototypes attach blockchain-tracked Mitigation Outcome Interests (MOIs) to green bond cashflows: if underlying green project generates verified emission reductions, MOI holders receive corresponding carbon credit forwards. Represents one of the earliest sovereign-level RWA pilots integrating climate finance with blockchain-native MRV. Key precedent for HK's broader Project Ensemble green/sustainable finance theme.",
+  "sources": [
+    {
+      "title": "BIS Innovation Hub: Project Genesis 2.0 final report (October 2022)",
+      "url": "https://www.bis.org/publ/othp61.htm"
+    },
+    {
+      "title": "HKMA press release on Project Genesis 2.0",
+      "url": "https://www.hkma.gov.hk/eng/news-and-media/press-releases/2022/10/20221013-3/"
+    }
+  ],
+  "updated_at": "2026-05-19",
+  "underlying_asset": "Hypothetical green infrastructure projects (renewable energy, energy efficiency) with measurable emission reduction outcomes. Two prototype tokens: green bond and Mitigation Outcome Interest (MOI).",
+  "reserve_composition": "Green bond backed by bond principal; MOI backed by carbon credit forward generated from verified project emission reductions.",
+  "secondary_market": "Prototype only — not deployed in live secondary market.",
+  "min_investment_usd": 0,
+  "smart_contract_audit": {
+    "auditor": "BIS internal review",
+    "date": "2022",
+    "report_url": ""
+  },
+  "oracle_provider": "IoT sensors feeding MRV data to blockchain for automated MOI issuance upon verified emission reduction.",
+  "redemption_mechanism": "Green bond pays interest + principal at maturity; MOI converts to carbon credit forward upon verified emission reduction milestone.",
+  "upgrade_authority": "BIS + HKMA joint governance during pilot phase.",
+  "timeline": [
+    {
+      "date": "2021-06-01",
+      "event": "Project Genesis 1.0 prototype on tokenized green bonds released",
+      "type": "milestone"
+    },
+    {
+      "date": "2022-10-13",
+      "event": "Project Genesis 2.0 final report published; MOI concept introduced",
+      "type": "milestone"
+    },
+    {
+      "date": "2024-08-28",
+      "event": "Concepts feed into Project Ensemble Sandbox green finance theme",
+      "type": "milestone"
+    }
+  ],
+  "risk_flags": [],
+  "lessons_visibility": "active_only"
+}

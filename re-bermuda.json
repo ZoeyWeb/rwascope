@@ -1,0 +1,82 @@
+{
+  "slug": "re-bermuda",
+  "name": "Re (Tokenized Reinsurance Syndicate)",
+  "short_name": "Re",
+  "website": "https://re.xyz",
+  "asset_class": "insurance",
+  "jurisdiction": "Bermuda",
+  "chain": "Avalanche",
+  "status": "active",
+  "launched_at": "2023-08-15",
+  "tvl_usd": 0,
+  "entity_map": {
+    "issuer": {
+      "name": "Re Insurance Holdings (Bermuda)",
+      "type": "Bermuda Class 3A licensed reinsurer"
+    },
+    "custodian": {
+      "name": "On-chain capital pool custody + traditional reinsurance trust structures",
+      "type": "Hybrid"
+    },
+    "chain_infra": {
+      "name": "Avalanche subnet",
+      "type": "L1 subnet"
+    },
+    "oracle": {
+      "name": "",
+      "type": ""
+    },
+    "law_firm": {
+      "name": "",
+      "type": ""
+    },
+    "auditor": {
+      "name": "PwC Bermuda (per BMA requirement)",
+      "type": "Big Four"
+    },
+    "regulator": {
+      "name": "Bermuda Monetary Authority (BMA)",
+      "type": "Insurance regulator"
+    },
+    "token_standard": "ERC-20 (per syndicate)"
+  },
+  "asset_slug": "",
+  "summary": "Decentralized reinsurance platform structured as a Bermuda-licensed reinsurer with on-chain capital pools. Backed by Tribe Capital, Nascent, and traditional reinsurance industry participants. Underwrites property/casualty risk through Bermuda Class 3A framework with capital from accredited investors via tokenized syndicate participation. Differs from Nayms (primary insurance marketplace) by focusing on reinsurance specifically and operating under more established Bermuda regulatory framework.",
+  "sources": [
+    {
+      "title": "Re corporate site",
+      "url": "https://re.xyz"
+    },
+    {
+      "title": "TechCrunch: Re reinsurance Bermuda licensing coverage",
+      "url": "https://techcrunch.com/2023/08/re-tokenized-reinsurance-bermuda/"
+    }
+  ],
+  "updated_at": "2026-05-19",
+  "underlying_asset": "Reinsurance risk: property catastrophe, specialty reinsurance lines.",
+  "reserve_composition": "Capital provided by accredited investors via tokenized syndicate; backed by Bermuda Class 3A regulatory requirements.",
+  "secondary_market": "Limited — syndicate participation locked for treaty period.",
+  "min_investment_usd": 100000,
+  "smart_contract_audit": {
+    "auditor": "Not publicly disclosed",
+    "date": "2023",
+    "report_url": ""
+  },
+  "oracle_provider": "Claims adjudicated through traditional reinsurance process.",
+  "redemption_mechanism": "Capital locked for treaty period; distributions on treaty closure less claims.",
+  "upgrade_authority": "Re Insurance Holdings board under BMA supervision.",
+  "timeline": [
+    {
+      "date": "2023-08-15",
+      "event": "Re launches with Bermuda Class 3A reinsurance license",
+      "type": "milestone"
+    },
+    {
+      "date": "2024-Q1",
+      "event": "First reinsurance treaties bound and capitalized via on-chain syndicates",
+      "type": "milestone"
+    }
+  ],
+  "risk_flags": [],
+  "lessons_visibility": "active_only"
+}

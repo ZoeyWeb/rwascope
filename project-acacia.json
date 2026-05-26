@@ -1,0 +1,88 @@
+{
+  "slug": "project-acacia",
+  "name": "Project Acacia (RBA + DFCRC Wholesale CBDC + Tokenization)",
+  "short_name": "Project Acacia",
+  "website": "https://www.rba.gov.au",
+  "asset_class": "infrastructure",
+  "jurisdiction": "Australia",
+  "chain": "Multiple (pilot tests Ethereum, R3 Corda, Hedera per use case)",
+  "status": "pilot",
+  "launched_at": "2024-11-18",
+  "tvl_usd": 0,
+  "entity_map": {
+    "issuer": {
+      "name": "Reserve Bank of Australia (RBA) + Digital Finance Cooperative Research Centre (DFCRC) + Australian Treasury",
+      "type": "Central bank + research consortium + government",
+      "url": "https://www.rba.gov.au"
+    },
+    "custodian": {
+      "name": "",
+      "type": ""
+    },
+    "chain_infra": {
+      "name": "Multiple platforms tested across use cases",
+      "type": "Multi-platform pilot"
+    },
+    "oracle": {
+      "name": "",
+      "type": ""
+    },
+    "law_firm": {
+      "name": "",
+      "type": ""
+    },
+    "auditor": {
+      "name": "",
+      "type": ""
+    },
+    "regulator": {
+      "name": "RBA + ASIC + APRA",
+      "type": "Multiple Australian regulators"
+    },
+    "token_standard": "Use case dependent"
+  },
+  "asset_slug": "",
+  "summary": "RBA + Treasury joint pilot following 2023 Project Atom, exploring wholesale CBDC and asset tokenization use cases including tokenized bank bills, MMF tokenization, supply chain finance, and cross-border tokenized FX. 24 industry pilots involving major Australian banks (CBA, ANZ, Westpac, NAB) and asset managers. Significant as Australia's first comprehensive pilot integrating tokenization with central bank money — direct comparison point to HK Project Ensemble and SG Project Guardian.",
+  "sources": [
+    {
+      "title": "RBA: Project Acacia announcement",
+      "url": "https://www.rba.gov.au/payments-and-infrastructure/central-bank-digital-currency/project-acacia.html"
+    },
+    {
+      "title": "DFCRC Project Acacia program details",
+      "url": "https://dfcrc.com.au/project-acacia/"
+    }
+  ],
+  "updated_at": "2026-05-19",
+  "underlying_asset": "Various: tokenized bank bills, MMF units, supply chain receivables, cross-border FX flows (per pilot stream).",
+  "reserve_composition": "Per use case; pilot evaluates multiple settlement models including wCBDC + tokenized deposit settlement.",
+  "secondary_market": "Pilot only — not live secondary trading.",
+  "min_investment_usd": 0,
+  "smart_contract_audit": {
+    "auditor": "Per pilot platform",
+    "date": "2024-2026",
+    "report_url": ""
+  },
+  "oracle_provider": "Use case dependent.",
+  "redemption_mechanism": "Per pilot use case design.",
+  "upgrade_authority": "RBA + DFCRC governance.",
+  "timeline": [
+    {
+      "date": "2024-11-18",
+      "event": "Project Acacia announced (successor to Project Atom 2023)",
+      "type": "milestone"
+    },
+    {
+      "date": "2025-07-01",
+      "event": "24 industry pilots selected across tokenization use cases",
+      "type": "milestone"
+    },
+    {
+      "date": "2026-Q4",
+      "event": "Final report expected",
+      "type": "milestone"
+    }
+  ],
+  "risk_flags": [],
+  "lessons_visibility": "active_only"
+}

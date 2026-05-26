@@ -1,0 +1,102 @@
+{
+  "slug": "hkma-project-ensemble",
+  "name": "HKMA Project Ensemble (EnsembleTX)",
+  "short_name": "Project Ensemble",
+  "website": "https://www.hkma.gov.hk/eng/key-functions/financial-infrastructure/project-ensemble/",
+  "asset_class": "infrastructure",
+  "jurisdiction": "Hong Kong SAR",
+  "chain": "Permissioned (interbank settlement layer)",
+  "status": "pilot",
+  "launched_at": "2024-08-28",
+  "tvl_usd": 0,
+  "entity_map": {
+    "issuer": {
+      "name": "Hong Kong Monetary Authority (HKMA) + Securities and Futures Commission (SFC)",
+      "type": "Central bank + securities regulator",
+      "url": "https://www.hkma.gov.hk"
+    },
+    "custodian": {
+      "name": "Participating banks (Standard Chartered, HSBC, Bank of China HK, etc.)",
+      "type": "Licensed banks"
+    },
+    "chain_infra": {
+      "name": "Permissioned interbank layer + HKD RTGS for settlement",
+      "type": "Enterprise + RTGS integration"
+    },
+    "oracle": {
+      "name": "TBD per use case",
+      "type": ""
+    },
+    "law_firm": {
+      "name": "",
+      "type": ""
+    },
+    "auditor": {
+      "name": "Per participating institution",
+      "type": "Big Four"
+    },
+    "regulator": {
+      "name": "HKMA + SFC + BIS Innovation Hub HK Centre",
+      "type": "Multi-regulator"
+    },
+    "token_standard": "Tokenized deposit standards (per bank); wCBDC standard TBD"
+  },
+  "asset_slug": "",
+  "summary": "HKMA's flagship tokenization initiative and the operational core of Hong Kong's institutional RWA strategy. Project Ensemble Sandbox launched August 2024 with four themes (fixed income/funds, liquidity management, green/sustainable finance, trade/supply chain finance). Pilot phase EnsembleTX commenced November 2025, operating throughout 2026 with real-value transactions in tokenized deposits and tokenized money market funds. Participants include Standard Chartered, HSBC, Bank of China (Hong Kong), BlackRock, Franklin Templeton. Settlement via HKD RTGS initially; will progressively upgrade to 24/7 tokenized central bank money settlement. Currently the most operationally advanced central bank tokenization pilot in Asia.",
+  "sources": [
+    {
+      "title": "HKMA: EnsembleTX launch announcement (November 13, 2025)",
+      "url": "https://www.hkma.gov.hk/eng/news-and-media/press-releases/2025/11/20251113-3/"
+    },
+    {
+      "title": "HKMA: Project Ensemble Sandbox launch (August 28, 2024)",
+      "url": "https://www.hkma.gov.hk/eng/news-and-media/press-releases/2024/08/20240828-3/"
+    },
+    {
+      "title": "The Block: HK launches tokenized deposit pilot with real-value transactions",
+      "url": "https://www.theblock.co/post/378981/hong-kong-real-value-tokenization-pilot"
+    }
+  ],
+  "updated_at": "2026-05-19",
+  "underlying_asset": "Tokenized HKD bank deposits; tokenized money market fund units; future scope includes tokenized bonds, green finance instruments, trade finance receivables.",
+  "reserve_composition": "Tokenized deposits 1:1 with issuing bank's deposit liability; MMF units backed per fund prospectus.",
+  "secondary_market": "Permissioned interbank market initially; potential expansion to professional investor secondary trading per SFC tokenization circular framework.",
+  "min_investment_usd": 0,
+  "smart_contract_audit": {
+    "auditor": "Per participating bank",
+    "date": "Ongoing",
+    "report_url": ""
+  },
+  "oracle_provider": "Per use case; fixed income use case uses Bloomberg/Refinitiv for pricing.",
+  "redemption_mechanism": "Tokenized deposit redemption against issuing bank; MMF redemption per fund terms with atomic settlement.",
+  "upgrade_authority": "HKMA + SFC joint governance; participating institutions implement via their own infrastructure.",
+  "timeline": [
+    {
+      "date": "2024-03-07",
+      "event": "HKMA announces Project Ensemble at HK Web3 Festival",
+      "type": "milestone"
+    },
+    {
+      "date": "2024-08-28",
+      "event": "Project Ensemble Sandbox launched with 4 themes",
+      "type": "milestone"
+    },
+    {
+      "date": "2025-10-01",
+      "event": "2025 Policy Address commits to advancing Ensemble for real-value transactions",
+      "type": "regulatory"
+    },
+    {
+      "date": "2025-11-13",
+      "event": "EnsembleTX pilot phase launched; commercial bank participation finalized",
+      "type": "milestone"
+    },
+    {
+      "date": "2026",
+      "event": "EnsembleTX operates throughout 2026; CeBM 24/7 settlement upgrade planned",
+      "type": "milestone"
+    }
+  ],
+  "risk_flags": [],
+  "lessons_visibility": "active_only"
+}

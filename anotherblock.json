@@ -1,0 +1,88 @@
+{
+  "slug": "anotherblock",
+  "name": "Anotherblock",
+  "short_name": "Anotherblock",
+  "website": "https://anotherblock.io",
+  "asset_class": "ip_revenue",
+  "jurisdiction": "Sweden (EU)",
+  "chain": "Ethereum",
+  "status": "active",
+  "launched_at": "2022-09-01",
+  "tvl_usd": 0,
+  "entity_map": {
+    "issuer": {
+      "name": "Anotherblock AB",
+      "type": "Swedish AB",
+      "url": "https://anotherblock.io"
+    },
+    "custodian": {
+      "name": "Royalty rights held by SPV; Anotherblock as administrator",
+      "type": "Per-track SPV"
+    },
+    "chain_infra": {
+      "name": "Ethereum",
+      "type": "L1"
+    },
+    "oracle": {
+      "name": "",
+      "type": ""
+    },
+    "law_firm": {
+      "name": "",
+      "type": ""
+    },
+    "auditor": {
+      "name": "Royalty distribution audited by music industry administrator",
+      "type": "Industry audit"
+    },
+    "regulator": {
+      "name": "EU MiCA (asset-referenced tokens framework); Swedish FI (consumer protection)",
+      "type": "Emerging EU framework"
+    },
+    "token_standard": "ERC-1155 (per-track) or ERC-20 (per-royalty-stream)"
+  },
+  "asset_slug": "",
+  "summary": "Music royalty fractionalization platform. Acquires share of master recording royalties from artists/labels and offers fractional ownership to fans/investors. Notable catalog: The Weeknd ('Blinding Lights'), R3HAB, Rihanna, Big Sean. Tokens represent claim on streaming royalty cashflows (Spotify, Apple Music, etc.). Most operationally mature consumer-facing music IP tokenization; addresses real demand gap (retail access to royalty income previously gated by Hipgnosis-style funds).",
+  "sources": [
+    {
+      "title": "Anotherblock platform",
+      "url": "https://anotherblock.io"
+    },
+    {
+      "title": "Music Business Worldwide: Anotherblock The Weeknd royalty offering",
+      "url": "https://www.musicbusinessworldwide.com/anotherblock-the-weeknd-blinding-lights-royalty/"
+    }
+  ],
+  "updated_at": "2026-05-19",
+  "underlying_asset": "Share of master recording royalties from specific tracks; Anotherblock acquires rights from labels/artists then fractionalizes.",
+  "reserve_composition": "Per-track royalty entitlement; each token represents proportional share of net royalty income.",
+  "secondary_market": "Anotherblock internal marketplace; some secondary trading on-chain (ERC-1155 transferability).",
+  "min_investment_usd": 50,
+  "smart_contract_audit": {
+    "auditor": "Not publicly disclosed",
+    "date": "",
+    "report_url": ""
+  },
+  "oracle_provider": "N/A — royalty cashflows distributed off-chain quarterly based on industry royalty reports.",
+  "redemption_mechanism": "No principal redemption; holders earn streaming royalty distributions for duration of rights ownership.",
+  "upgrade_authority": "Anotherblock AB as platform operator.",
+  "timeline": [
+    {
+      "date": "2022-09-01",
+      "event": "Anotherblock launches with first artist offerings",
+      "type": "milestone"
+    },
+    {
+      "date": "2023-02-01",
+      "event": "The Weeknd 'Blinding Lights' fractional royalty offering",
+      "type": "milestone"
+    },
+    {
+      "date": "2024-Q3",
+      "event": "Catalog expands to ~30+ tracks; first quarterly royalty distributions paid",
+      "type": "milestone"
+    }
+  ],
+  "risk_flags": [],
+  "lessons_visibility": "active_only"
+}

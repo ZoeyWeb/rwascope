@@ -1,0 +1,32 @@
+export const colors = {
+  primary: '#5e5c75',
+  primaryDim: '#525068',
+  primaryFixed: '#e3dffd',
+  primaryContainer: '#e3dffd',
+  onPrimary: '#faf6ff',
+  surface: '#f8f9fa',
+  surfaceContainer: '#eaeff1',
+  surfaceContainerLow: '#f1f4f6',
+  surfaceContainerHigh: '#e3e9ec',
+  surfaceContainerHighest: '#dbe4e7',
+  surfaceContainerLowest: '#ffffff',
+  onSurface: '#2b3437',
+  onSurfaceVariant: '#586064',
+  outline: '#737c7f',
+  outlineVariant: '#abb3b7',
+  error: '#9e3f4e',
+  onError: '#fff7f7',
+  errorContainer: '#ff8b9a',
+  inverseOnSurface: '#9b9d9e',
+  inverseSurface: '#0c0f10',
+  navBg: '#1A1A2E',
+  navBorder: '#2B3437',
+  green: '#2E7D32',
+  blue: '#1976D2',
+  orange: '#F57C00',
+};
+
+export const fonts = {
+  headline: 'System',
+  body: 'System',
+};

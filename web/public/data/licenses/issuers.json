@@ -1,0 +1,796 @@
+[
+  {
+    "slug": "jd-coinlink",
+    "name": "JD Coinlink Technology HK",
+    "ticker": "JDSC",
+    "parent": "JD.com, Inc. (京东集团)",
+    "jurisdiction": "Hong Kong SAR",
+    "application_date": "2024-07-31",
+    "status": "under_review",
+    "peg": "HKD",
+    "type": "fiat_backed",
+    "summary": "JD Coinlink Technology Hong Kong Limited is a subsidiary of China's e-commerce giant JD.com. The entity applied for inclusion in the HKMA Stablecoin Issuer Sandbox in 2024 and subsequently submitted a formal application under the Stablecoins Ordinance. The proposed stablecoin (JDSC) would be pegged 1:1 to the Hong Kong Dollar with reserves held in HKD-denominated bank deposits and short-dated HKSAR government debt.",
+    "sarm": {
+      "capital_adequacy": {
+        "key": "capital_adequacy",
+        "label": "Capital Adequacy",
+        "signal": "gray",
+        "rationale": "The HKMA has not publicly disclosed minimum paid-up capital figures for sandbox participants. JD.com's group-level financial strength is well-documented, but the ring-fenced capital of the HK issuer entity has not been confirmed in public filings.",
+        "sources": [
+          {
+            "label": "HKMA Stablecoin Sandbox – Participant List",
+            "url": "https://www.hkma.gov.hk/eng/news-and-media/press-releases/2024/07/20240731-3/",
+            "date": "2024-07-31"
+          }
+        ]
+      },
+      "reserve_quality": {
+        "key": "reserve_quality",
+        "label": "Reserve Quality",
+        "signal": "gray",
+        "rationale": "Reserve composition and custodian arrangements have not been publicly attested. The sandbox framework requires reserves to be fully backed, but independent attestation reports have not been published.",
+        "sources": [
+          {
+            "label": "HKMA – Stablecoins Consultation Conclusions",
+            "url": "https://www.hkma.gov.hk/eng/news-and-media/press-releases/2024/07/20240731-3/",
+            "date": "2024-07-31"
+          }
+        ]
+      },
+      "governance": {
+        "key": "governance",
+        "label": "Governance",
+        "signal": "gray",
+        "rationale": "Board composition and compliance officer appointments for the Hong Kong issuer entity have not been made public. Parent company JD.com operates under PRC and US listing governance standards, but the subsidiary's standalone governance framework is undisclosed.",
+        "sources": [
+          {
+            "label": "JD.com Annual Report 2023",
+            "url": "https://ir.jd.com/annual-reports",
+            "date": "2024-04-30"
+          }
+        ]
+      },
+      "technology": {
+        "key": "technology",
+        "label": "Technology & Custody",
+        "signal": "gray",
+        "rationale": "The smart contract codebase for JDSC has not been publicly released or audited by a named third party. Custody arrangements (whether self-custodied or third-party) are undisclosed.",
+        "sources": []
+      },
+      "redemption": {
+        "key": "redemption",
+        "label": "Redemption Mechanics",
+        "signal": "gray",
+        "rationale": "Par-value redemption commitment and minimum redemption amounts have not been publicly specified. The sandbox phase is intended to test operational readiness before public issuance.",
+        "sources": []
+      },
+      "disclosure": {
+        "key": "disclosure",
+        "label": "Public Disclosure",
+        "signal": "gray",
+        "rationale": "No periodic reserve attestation or transparency reports have been published for JDSC. The HKMA sandbox terms require participants to submit reports to the regulator, but public disclosure obligations have not yet taken effect.",
+        "sources": []
+      }
+    },
+    "reserve_details": "Proposed: 100% HKD bank deposits and short-dated HKSAR government securities. Custodian TBC. No public attestation available as of review date.",
+    "governance_notes": "Parent: JD.com, Inc. (NASDAQ: JD; HKEX: 9618). The HK issuer entity is a wholly-owned subsidiary. Independent director appointments and AML/CFT compliance officer identity not disclosed.",
+    "technology_notes": "Blockchain platform not publicly confirmed. No published smart contract audit. JD.com operates blockchain infrastructure (JD Chain) but JDSC's deployment chain is unspecified.",
+    "redemption_notes": "Intended 1:1 HKD redemption. Minimum redemption threshold, processing time (T+0 vs T+1), and business-hours restrictions not yet published.",
+    "disclosure_notes": "No public reserve attestation as of April 2026. Subject to HKMA reporting requirements under the Stablecoins Ordinance once licensed.",
+    "citations": [
+      {
+        "label": "HKMA Press Release – Sandbox Participants Announced",
+        "url": "https://www.hkma.gov.hk/eng/news-and-media/press-releases/2024/07/20240731-3/",
+        "date": "2024-07-31"
+      },
+      {
+        "label": "JD.com Corporate Profile",
+        "url": "https://ir.jd.com/",
+        "date": "2024-01-01"
+      },
+      {
+        "label": "HKMA – Regulation of Stablecoin Issuers",
+        "url": "https://www.hkma.gov.hk/eng/news-and-media/insight-and-research/hkma-background-brief/hkmabackgroundbrief-no12/",
+        "date": "2024-02-29"
+      }
+    ],
+    "last_reviewed": "2026-04-29",
+    "reviewer_note": "All SARM dimensions are gray (insufficient public disclosure) pending sandbox completion and formal licensing. This profile will be updated upon publication of HKMA licensing decisions or issuer-issued prospectuses. As of April 2026, this applicant was not among the first two licensees announced by the HKMA (HSBC and Anchorpoint Financial); the HKMA has indicated the first batch of licences will be deliberately limited and that further licensing decisions will follow on a rolling basis.\n\nRevision Notes: 2026-04-29 Status confirmed as remaining under review following announcement of first two licensees (HSBC and Anchorpoint Financial)."
+  },
+  {
+    "slug": "standard-chartered-animoca-hkt",
+    "name": "Anchorpoint Financial",
+    "ticker": "HKDAP",
+    "parent": "Standard Chartered Bank (HK) / Animoca Brands / HKT",
+    "jurisdiction": "Hong Kong SAR",
+    "application_date": "2024-07-31",
+    "status": "licensed",
+    "peg": "HKD",
+    "type": "fiat_backed",
+    "summary": "Anchorpoint Financial is a joint venture between Standard Chartered Bank (Hong Kong), Animoca Brands, and Hong Kong Telecommunications (HKT). It received one of the first two stablecoin issuer licences issued by the HKMA under the Stablecoins Ordinance (Cap. 656). Its product, HKDAP (HKD At Par), is a HKD-pegged stablecoin intended to be distributed via a B2B2C model through authorised distribution partners, with use cases including settlement of tokenised real-world assets.",
+    "sarm": {
+      "capital_adequacy": {
+        "key": "capital_adequacy",
+        "label": "Capital Adequacy",
+        "signal": "gray",
+        "rationale": "The issuer SPV's capitalization has not been disclosed. Standard Chartered HK (licensed deposit-taking institution) provides implicit financial backing, but the ring-fenced issuer entity's own capital position is unconfirmed.",
+        "sources": [
+          {
+            "label": "HKMA Stablecoin Sandbox Announcement",
+            "url": "https://www.hkma.gov.hk/eng/news-and-media/press-releases/2024/07/20240731-3/",
+            "date": "2024-07-31"
+          }
+        ]
+      },
+      "reserve_quality": {
+        "key": "reserve_quality",
+        "label": "Reserve Quality",
+        "signal": "green",
+        "rationale": "Anchorpoint Financial is backed by Standard Chartered Bank (Hong Kong) Limited, one of Hong Kong's three note-issuing banks, which provides custody and trust arrangements for reserve assets. HKDAP is backed 1:1 by high-quality HKD assets held in trust under Cap. 656 requirements, segregated from Anchorpoint's operating funds. Standard Chartered's governance framework ensures reserve segregation, custody control, and reliable redemption. Monthly reserve attestation reports are filed with the HKMA but specific asset composition remains pending public disclosure ahead of the Q2 2026 phased launch.",
+        "sources": [
+          {
+            "label": "Stablecoins Ordinance - Explanatory Note on Licensing of Stablecoin Issuers (July 2025)",
+            "url": "https://www.hkma.gov.hk/media/eng/doc/key-functions/ifc/stablecoin-issuers/Explanatory_Notes_on_Licensing_of_Stablecoin_Issuers_eng.pdf",
+            "date": "2025-07-01"
+          },
+          {
+            "label": "Standard Chartered-backed Anchorpoint granted Stablecoin Issuer Licence by the Hong Kong Monetary Authority",
+            "url": "https://www.sc.com/en/press-release/standard-chartered-backed-anchorpoint-granted-stablecoin-issuer-licence-by-the-hong-kong-monetary-authority/",
+            "date": "2026-04-10"
+          },
+          {
+            "label": "Hong Kong Grants Its First Stablecoin Licenses: Traditional Finance Gets the Keys First, While Web3 Remains Outside",
+            "url": "https://wublock.substack.com/p/hong-kong-grants-its-first-stablecoin",
+            "date": "2026-04-10"
+          }
+        ]
+      },
+      "governance": {
+        "key": "governance",
+        "label": "Governance",
+        "signal": "green",
+        "rationale": "Anchorpoint Financial is a subsidiary of Standard Chartered Bank (Hong Kong) Limited, a major international bank with established governance and risk management frameworks. The entity is subject to the HKMA's Guideline on AML/CFT for Licensed Stablecoin Issuers. Standard Chartered, as largest shareholder, provides custodial oversight, compliance control, and redemption procedure governance. Specific roles and reporting lines for stablecoin operations (CRO, CCO, CTO) are pending public disclosure. Travel Rule implementation and blockchain analytics partnerships are under development ahead of the Q2 2026 launch.",
+        "sources": [
+          {
+            "label": "Stablecoins Ordinance - Explanatory Note on Licensing of Stablecoin Issuers (July 2025)",
+            "url": "https://www.hkma.gov.hk/media/eng/doc/key-functions/ifc/stablecoin-issuers/Explanatory_Notes_on_Licensing_of_Stablecoin_Issuers_eng.pdf",
+            "date": "2025-07-01"
+          },
+          {
+            "label": "Standard Chartered-backed Anchorpoint granted Stablecoin Issuer Licence by the Hong Kong Monetary Authority",
+            "url": "https://www.sc.com/en/press-release/standard-chartered-backed-anchorpoint-granted-stablecoin-issuer-licence-by-the-hong-kong-monetary-authority/",
+            "date": "2026-04-10"
+          },
+          {
+            "label": "Animoca-backed Anchorpoint granted Stablecoin Issuer Licence by the Hong Kong Monetary Authority",
+            "url": "https://www.animocabrands.com/announcement/standard-chartered-backed-anchorpoint-granted-stablecoin-issuer-licence-by-the-hong-kong-monetary-authority",
+            "date": "2026-04-10"
+          }
+        ]
+      },
+      "technology": {
+        "key": "technology",
+        "label": "Technology & Custody",
+        "signal": "gray",
+        "rationale": "Blockchain platform, smart contract architecture, and custody solution are not publicly specified. HKT's payments infrastructure (Tap & Go) may be integrated, but technical details remain undisclosed.",
+        "sources": []
+      },
+      "redemption": {
+        "key": "redemption",
+        "label": "Redemption Mechanics",
+        "signal": "yellow",
+        "rationale": "The Stablecoins Ordinance mandates redemption at par value within one business day (T+1) (Cap. 656, Section 6). Anchorpoint plans to offer redemption through a network of authorized distribution partners under a B2B2C model, with Standard Chartered providing custodial support. Initial use cases emphasize institutional settlement and tokenized RWA clearing rather than retail redemptions. Specific redemption fees, minimum transaction sizes, and detailed distributor on-ramp procedures are pending disclosure ahead of the Q2 2026 phased launch.",
+        "sources": [
+          {
+            "label": "Stablecoins Ordinance - Explanatory Note on Licensing of Stablecoin Issuers (July 2025)",
+            "url": "https://www.hkma.gov.hk/media/eng/doc/key-functions/ifc/stablecoin-issuers/Explanatory_Notes_on_Licensing_of_Stablecoin_Issuers_eng.pdf",
+            "date": "2025-07-01"
+          },
+          {
+            "label": "Standard Chartered-backed Anchorpoint granted Stablecoin Issuer Licence by the Hong Kong Monetary Authority",
+            "url": "https://www.sc.com/en/press-release/standard-chartered-backed-anchorpoint-granted-stablecoin-issuer-licence-by-the-hong-kong-monetary-authority/",
+            "date": "2026-04-10"
+          },
+          {
+            "label": "Hong Kong Grants Its First Stablecoin Licenses: Traditional Finance Gets the Keys First, While Web3 Remains Outside",
+            "url": "https://wublock.substack.com/p/hong-kong-grants-its-first-stablecoin",
+            "date": "2026-04-10"
+          }
+        ]
+      },
+      "disclosure": {
+        "key": "disclosure",
+        "label": "Public Disclosure",
+        "signal": "gray",
+        "rationale": "No transparency reports or reserve attestations published. Sandbox participation requires regulatory reporting to HKMA but public disclosure obligations commence only upon formal licensing.",
+        "sources": []
+      }
+    },
+    "reserve_details": "Not publicly disclosed. Expected to be held at Standard Chartered Bank (HK), potentially in HKD deposits and HKSAR debt instruments. No attestation published.",
+    "governance_notes": "Three-entity consortium: Standard Chartered Bank (HK) Ltd (banking license holder), Animoca Brands Corporation Ltd (ASX: AB1), and HKT Ltd (HKEX: 6823). Governance structure of the SPV/issuer entity not publicly documented.",
+    "technology_notes": "No public technical whitepaper. Likely leverages Standard Chartered's Zodia Custody infrastructure and HKT's Tap & Go payment rails. Blockchain deployment platform unspecified.",
+    "redemption_notes": "Not publicly specified. Consortium structure suggests HKT retail access points may serve as redemption channels, but this is unconfirmed.",
+    "disclosure_notes": "No public reserve attestation as of April 2026. Three-party consortium disclosure obligations under the Stablecoins Ordinance not yet defined publicly.",
+    "citations": [
+      {
+        "label": "HKMA Press Release – Sandbox Participants",
+        "url": "https://www.hkma.gov.hk/eng/news-and-media/press-releases/2024/07/20240731-3/",
+        "date": "2024-07-31"
+      },
+      {
+        "label": "Standard Chartered HK Press Release",
+        "url": "https://www.sc.com/en/media/press-release/2024/07/standard-chartered-animoca-brands-hkt-apply-hkma-stablecoin-sandbox/",
+        "date": "2024-07-31"
+      },
+      {
+        "label": "HKT Limited – Corporate Profile (HKEX: 6823)",
+        "url": "https://www.hkt.com/aboutHKT/CorporateProfile/",
+        "date": "2024-01-01"
+      },
+      {
+        "label": "HKMA Register of Licensed Stablecoin Issuers",
+        "url": "https://www.hkma.gov.hk/eng/regulatory-resources/registers/register-of-licensed-stablecoin-issuers/",
+        "date": "2026-04-29"
+      }
+    ],
+    "last_reviewed": "2026-05-05",
+    "reviewer_note": "Anchorpoint Financial Limited, a joint venture established by Standard Chartered Bank (Hong Kong), HKT, and Animoca Brands in February 2025, received an HKMA stablecoin issuer licence on 2026-04-10 under the Stablecoins Ordinance (Cap. 656). As a Standard Chartered subsidiary, it benefits from institutional-grade governance and compliance infrastructure.\n\n**Reserve Quality**: 1:1 HKD asset backing per Cap. 656. Standard Chartered provides custody and trust arrangements. Monthly attestation reports filed with HKMA; specific asset composition pending public disclosure.\n\n**Redemption Mechanics**: Cap. 656 mandates T+1 par value redemption. Anchorpoint plans phased rollout through authorized distribution partners (B2B2C model). Initial focus on institutional settlement and RWA clearing. Retail redemption procedures and fee schedules pending disclosure.\n\n**Governance**: Standard Chartered provides custodial oversight and compliance control. Subject to HKMA AML/CFT Guideline and Cap. 656. Travel Rule compliance for transfers > HK$8,000. Blockchain analytics partnerships under development. Specific organizational roles pending disclosure.\n\nLast reviewed: 2026-05-05\nEvidence: HKMA Register, press releases, regulatory guidelines"
+  },
+  {
+    "slug": "round-dollar",
+    "name": "RD InnoTech Limited",
+    "ticker": "HKDR",
+    "parent": "Round Dollar Holdings",
+    "jurisdiction": "Hong Kong SAR",
+    "application_date": "2024-07-31",
+    "status": "under_review",
+    "peg": "HKD",
+    "type": "fiat_backed",
+    "summary": "RD InnoTech Limited (Round Dollar) is a Hong Kong–incorporated fintech company focused on HKD-pegged stablecoin infrastructure for cross-border payments in the Greater Bay Area. The company participated in the HKMA Stablecoin Issuer Sandbox and has subsequently applied for a formal licence under the Stablecoins Ordinance. Round Dollar's target use case is institutional and B2B cross-border settlement between Hong Kong and mainland China.",
+    "sarm": {
+      "capital_adequacy": {
+        "key": "capital_adequacy",
+        "label": "Capital Adequacy",
+        "signal": "gray",
+        "rationale": "No publicly disclosed paid-up capital figure for the issuer entity. Round Dollar Holdings' financial statements are not publicly available.",
+        "sources": []
+      },
+      "reserve_quality": {
+        "key": "reserve_quality",
+        "label": "Reserve Quality",
+        "signal": "gray",
+        "rationale": "Reserve custodian and asset composition not publicly disclosed. No independent reserve attestation available.",
+        "sources": []
+      },
+      "governance": {
+        "key": "governance",
+        "label": "Governance",
+        "signal": "gray",
+        "rationale": "Board composition and compliance structure of RD InnoTech Limited have not been publicly described. No regulatory filings accessible for review.",
+        "sources": []
+      },
+      "technology": {
+        "key": "technology",
+        "label": "Technology & Custody",
+        "signal": "gray",
+        "rationale": "Technical whitepaper not publicly available. Smart contract platform and custody solution undisclosed.",
+        "sources": []
+      },
+      "redemption": {
+        "key": "redemption",
+        "label": "Redemption Mechanics",
+        "signal": "gray",
+        "rationale": "Redemption terms, eligible counterparties, and processing times not published. B2B focus suggests institutional-only redemption, but this is unconfirmed.",
+        "sources": []
+      },
+      "disclosure": {
+        "key": "disclosure",
+        "label": "Public Disclosure",
+        "signal": "gray",
+        "rationale": "No public reserve transparency reports. Company maintains a minimal public profile; regulatory filings not publicly accessible.",
+        "sources": []
+      }
+    },
+    "reserve_details": "Not publicly disclosed. 100% HKD backing expected per HKMA sandbox requirements. Custodian unknown.",
+    "governance_notes": "Private company. No publicly available corporate governance documentation. HKMA sandbox participation implies baseline governance standards are met, but details are not public.",
+    "technology_notes": "Focus on GBA cross-border payments suggests CIPS (Cross-border Interbank Payment System) integration may be part of the technical stack. Blockchain platform unspecified.",
+    "redemption_notes": "Likely institutional/B2B redemption channels given the stated use case. Retail redemption availability unconfirmed.",
+    "disclosure_notes": "Minimal public presence. No reserve attestations or transparency reports published as of April 2026.",
+    "citations": [
+      {
+        "label": "HKMA Press Release – Sandbox Participants",
+        "url": "https://www.hkma.gov.hk/eng/news-and-media/press-releases/2024/07/20240731-3/",
+        "date": "2024-07-31"
+      },
+      {
+        "label": "HKMA – Stablecoins Ordinance (Cap. 656)",
+        "url": "https://www.elegislation.gov.hk/hk/cap656",
+        "date": "2025-07-01"
+      }
+    ],
+    "last_reviewed": "2026-04-29",
+    "reviewer_note": "Round Dollar maintains the lowest public profile of the three sandbox participants. All dimensions gray. Will be updated upon any public filing or HKMA announcement. As of April 2026, this applicant was not among the first two licensees announced by the HKMA (HSBC and Anchorpoint Financial); the HKMA has indicated the first batch of licences will be deliberately limited and that further licensing decisions will follow on a rolling basis.\n\nRevision Notes: 2026-04-29 Status confirmed as remaining under review following announcement of first two licensees (HSBC and Anchorpoint Financial). Corrected: RD InnoTech's publicly disclosed sandbox product is HKDR, a HKD-pegged stablecoin. Earlier references to CNH/CNY-peg, if any, are removed as not supported by public disclosures."
+  },
+  {
+    "slug": "hsbc-hkd",
+    "name": "HSBC",
+    "ticker": "Pending",
+    "parent": "HSBC Holdings plc",
+    "jurisdiction": "Hong Kong SAR",
+    "application_date": "2025-01-01",
+    "status": "licensed",
+    "peg": "HKD",
+    "type": "fiat_backed",
+    "summary": "HSBC is one of Hong Kong's three note-issuing banks. It received one of the first two stablecoin issuer licences issued by the HKMA under the Stablecoins Ordinance (Cap. 656). According to public statements, HSBC intends to launch a HKD-denominated stablecoin in the second half of 2026, integrated with PayMe and the HSBC HK Mobile Banking App, initially focused on peer-to-peer and peer-to-merchant payment use cases for retail customers and merchants.",
+    "sarm": {
+      "capital_adequacy": {
+        "key": "capital_adequacy",
+        "label": "Capital Adequacy",
+        "signal": "gray",
+        "rationale": "HSBC received an HKMA stablecoin issuer licence in April 2026. Standalone capital details for the specific issuing entity are pending disclosure, though HSBC is an HKMA-authorised institution.",
+        "sources": []
+      },
+      "reserve_quality": {
+        "key": "reserve_quality",
+        "label": "Reserve Quality",
+        "signal": "green",
+        "rationale": "HSBC's HKD stablecoin will be backed 100% by high-quality liquid assets held in segregated accounts as mandated by the Stablecoins Ordinance (Cap. 656). As one of Hong Kong's three note-issuing banks and an HKMA-authorized institution, HSBC has established governance frameworks for reserve management. Monthly reserve attestation reports are filed with the HKMA but specific custodial arrangements and reserve composition details remain pending public disclosure ahead of the H2 2026 product launch.",
+        "sources": [
+          {
+            "label": "Stablecoins Ordinance - Explanatory Note on Licensing of Stablecoin Issuers (July 2025)",
+            "url": "https://www.hkma.gov.hk/media/eng/doc/key-functions/ifc/stablecoin-issuers/Explanatory_Notes_on_Licensing_of_Stablecoin_Issuers_eng.pdf",
+            "date": "2025-07-01"
+          },
+          {
+            "label": "HSBC welcomes HKMA's grant of a Hong Kong stablecoin issuer licence",
+            "url": "https://www.about.hsbc.com.hk/news-and-media/hsbc-welcomes-hkmas-grant-of-a-hong-kong-stablecoin-issuer-licence",
+            "date": "2026-04-10"
+          },
+          {
+            "label": "Hong Kong Stablecoin Regulation: HKMA Licensing Framework in 2026",
+            "url": "https://sumsub.com/blog/hong-kong-stablecoin-regulation/",
+            "date": "2026-02-09"
+          }
+        ]
+      },
+      "governance": {
+        "key": "governance",
+        "label": "Governance",
+        "signal": "green",
+        "rationale": "HSBC operates as an HKMA-authorized institution and Hong Kong note-issuing bank under established governance frameworks. The stablecoin operation is subject to the HKMA's Guideline on AML/CFT for Licensed Stablecoin Issuers and Cap. 656 requirements. Travel Rule compliance is embedded: transfers exceeding HK$8,000 require on-chain whitelisting and identity verification. Specific roles and reporting lines for stablecoin-specific risk, compliance, and technology oversight are pending disclosure.",
+        "sources": [
+          {
+            "label": "Stablecoins Ordinance - Explanatory Note on Licensing of Stablecoin Issuers (July 2025)",
+            "url": "https://www.hkma.gov.hk/media/eng/doc/key-functions/ifc/stablecoin-issuers/Explanatory_Notes_on_Licensing_of_Stablecoin_Issuers_eng.pdf",
+            "date": "2025-07-01"
+          },
+          {
+            "label": "Hong Kong awards first stablecoin licenses to HSBC and Standard Chartered-led group",
+            "url": "https://www.elliptic.co/blog/hong-kong-awards-first-stablecoin-licenses-to-hsbc-and-standard-chartered",
+            "date": "2026-04-10"
+          },
+          {
+            "label": "HSBC welcomes HKMA's grant of a Hong Kong stablecoin issuer licence",
+            "url": "https://www.about.hsbc.com.hk/news-and-media/hsbc-welcomes-hkmas-grant-of-a-hong-kong-stablecoin-issuer-licence",
+            "date": "2026-04-10"
+          }
+        ]
+      },
+      "technology": {
+        "key": "technology",
+        "label": "Technology & Custody",
+        "signal": "gray",
+        "rationale": "Technology and blockchain infrastructure for the HSBC stablecoin are pending public disclosure.",
+        "sources": []
+      },
+      "redemption": {
+        "key": "redemption",
+        "label": "Redemption Mechanics",
+        "signal": "green",
+        "rationale": "The Stablecoins Ordinance mandates redemption at par value within one business day (T+1) (Cap. 656, Section 6). HSBC will enable redemption through two established retail channels: PayMe and the HSBC HK Mobile App. The bank has confirmed that stablecoins will not bear interest and will be optimized for fast settlement. Specific redemption fees and minimum transaction amounts are pending disclosure ahead of the H2 2026 launch.",
+        "sources": [
+          {
+            "label": "Stablecoins Ordinance - Explanatory Note on Licensing of Stablecoin Issuers (July 2025)",
+            "url": "https://www.hkma.gov.hk/media/eng/doc/key-functions/ifc/stablecoin-issuers/Explanatory_Notes_on_Licensing_of_Stablecoin_Issuers_eng.pdf",
+            "date": "2025-07-01"
+          },
+          {
+            "label": "HSBC welcomes HKMA's grant of a Hong Kong stablecoin issuer licence",
+            "url": "https://www.about.hsbc.com.hk/news-and-media/hsbc-welcomes-hkmas-grant-of-a-hong-kong-stablecoin-issuer-licence",
+            "date": "2026-04-10"
+          },
+          {
+            "label": "How PayMe's 3.3 million users and Hong Kong firms could start using stablecoins",
+            "url": "https://www.scmp.com/business/banking-finance/article/3350089/how-paymes-33-million-users-and-hong-kong-firms-could-start-using-stablecoins",
+            "date": "2026-04-10"
+          }
+        ]
+      },
+      "disclosure": {
+        "key": "disclosure",
+        "label": "Public Disclosure",
+        "signal": "gray",
+        "rationale": "Public disclosure obligations will commence upon launch. Details pending.",
+        "sources": []
+      }
+    },
+    "reserve_details": "Pending public disclosure ahead of the product's expected launch in H2 2026.",
+    "governance_notes": "Subject to HSBC Group AML/CFT framework and HKMA Guideline on AML/CFT for Licensed Stablecoin Issuers.",
+    "technology_notes": "Pending public disclosure.",
+    "redemption_notes": "Pending public disclosure ahead of expected H2 2026 launch.",
+    "disclosure_notes": "Pending public disclosure.",
+    "citations": [
+      {
+        "label": "HKMA Register of Licensed Stablecoin Issuers",
+        "url": "https://www.hkma.gov.hk/eng/regulatory-resources/registers/register-of-licensed-stablecoin-issuers/",
+        "date": "2026-04-29"
+      },
+      {
+        "label": "HSBC Official Website",
+        "url": "https://www.hsbc.com.hk/",
+        "date": "2026-04-29"
+      }
+    ],
+    "last_reviewed": "2026-05-05",
+    "reviewer_note": "HSBC received an HKMA stablecoin issuer licence on 2026-04-10 under the Stablecoins Ordinance (Cap. 656). As one of Hong Kong's three note-issuing banks, HSBC has decades of established governance and reserve management experience. The bank plans to launch its HKD-denominated stablecoin in H2 2026, integrated into PayMe and the HSBC HK Mobile App.\n\n**Reserve Quality**: 100% high-quality liquid assets held in segregated accounts per Cap. 656 Section 5. Monthly attestation reports filed with HKMA; detailed reserve composition pending public disclosure.\n\n**Redemption Mechanics**: Cap. 656 mandates T+1 par value redemption. HSBC will offer redemption through PayMe and mobile app. No interest payments. Specific fee schedules pending disclosure.\n\n**Governance**: Subject to HKMA AML/CFT Guideline and Cap. 656. Travel Rule compliance for transfers > HK$8,000. Specific organizational structure pending disclosure.\n\nLast reviewed: 2026-05-05\nEvidence: HKMA Register, press releases, official guidelines"
+  },
+  {
+    "slug": "ant-group",
+    "name": "Ant Group",
+    "ticker": "pending",
+    "parent": "Ant Group Co., Ltd. (Ant International)",
+    "jurisdiction": "Hong Kong SAR",
+    "application_date": "by 2025-09-30",
+    "status": "under_review",
+    "peg": "HKD / USD",
+    "type": "fiat_backed",
+    "summary": "Ant Group's digital finance unit (Ant International) has applied for a stablecoin issuer licence in Hong Kong. Ant International is a subsidiary of Ant Group, a global financial technology leader and operator of Alipay (10+ billion users). The entity reportedly participated in the HKMA's regulatory sandbox in 2024. However, Ant remains subject to significant geopolitical constraints imposed by the PBOC, including a paused Hong Kong pilot (September 2025) and the Yinfa No. 42 directive restricting CNH-pegged stablecoins (February 2026). As of May 2026, Ant has not received a stablecoin issuer licence.",
+    "sarm": {
+      "capital_adequacy": {
+        "key": "capital_adequacy",
+        "label": "Capital Adequacy",
+        "signal": "gray",
+        "rationale": "Ant Group remains under HKMA review. Ant International possesses substantial institutional backing and capital resources at global scale, but Hong Kong-specific capital adequacy details for the stablecoin entity are pending public disclosure.",
+        "sources": []
+      },
+      "reserve_quality": {
+        "key": "reserve_quality",
+        "label": "Reserve Quality",
+        "signal": "gray",
+        "rationale": "Ant Group's digital finance unit (Ant International) has applied for a stablecoin issuer licence in Hong Kong but has not yet received approval as of May 2026. While Ant Group is a global financial technology leader with institutional backing and professional treasury operations at scale, Hong Kong-specific reserve composition, custody arrangements, and segregation procedures for any stablecoin remain pending public disclosure. The PBOC's Yinfa No. 42 directive (February 2026) restricting CNH-pegged stablecoins may influence Ant's product strategy but does not preclude HKD or USD stablecoin issuance. SARM assessment will be updated if a licence is granted and operational disclosures are made available.",
+        "sources": []
+      },
+      "governance": {
+        "key": "governance",
+        "label": "Governance",
+        "signal": "gray",
+        "rationale": "Ant Group remains under HKMA review. As a major fintech entity with significant scale, institutional governance, and AML/CFT experience, Ant possesses operational readiness for stablecoin governance. However, governance arrangements specific to Hong Kong stablecoin operations are pending public disclosure. Additionally, regulatory constraints from the PBOC (Yinfa No. 42 and paused HK pilot in September 2025) create additional governance and compliance complexity that may influence licence conditions or timeline.",
+        "sources": []
+      },
+      "technology": {
+        "key": "technology",
+        "label": "Technology & Infrastructure",
+        "signal": "gray",
+        "rationale": "Technology and blockchain infrastructure for Ant International's stablecoin are pending public disclosure.",
+        "sources": []
+      },
+      "redemption": {
+        "key": "redemption",
+        "label": "Redemption Mechanics",
+        "signal": "gray",
+        "rationale": "Redemption mechanics for any Ant Group stablecoin have not been publicly detailed. If licensed under Cap. 656, the entity will be required to meet T+1 par value redemption standards. Ant International's global Alipay ecosystem demonstrates operational payment experience at scale, but Hong Kong-specific redemption procedures for regulated stablecoins are pending public disclosure.",
+        "sources": []
+      },
+      "disclosure": {
+        "key": "disclosure",
+        "label": "Public Disclosure",
+        "signal": "gray",
+        "rationale": "Public disclosure obligations will commence upon licensing. Details pending.",
+        "sources": []
+      }
+    },
+    "reserve_details": "Pending public disclosure.",
+    "governance_notes": "Subject to HKMA regulatory framework and PBOC oversight.",
+    "technology_notes": "Pending public disclosure.",
+    "redemption_notes": "Pending public disclosure.",
+    "disclosure_notes": "Pending public disclosure.",
+    "competitor_analysis": {
+      "background_type": "fintech",
+      "approval_probability": "low_to_medium",
+      "vs_approved": {
+        "strengths": [
+          "Global scale (10+ billion Alipay users)",
+          "Professional fintech governance and compliance",
+          "Institutional backing (Ant is publicly traded, raised $5B+ institutional capital)",
+          "Direct experience with payment infrastructure at scale"
+        ],
+        "weaknesses": [
+          "PBOC constraints (Yinfa No. 42, paused HK pilot)",
+          "Geopolitical risk perception (mainland-backed tech firm)",
+          "No note-issuing bank status (unlike HSBC/SC)",
+          "Uncertain regulatory relationship with HKMA (independent entity)"
+        ],
+        "opportunities": [
+          "HKD or USD stablecoin (if PBOC agrees)",
+          "Potential for cross-border settlement with e-CNY",
+          "B2B use cases in Asia (less sensitive than retail)"
+        ],
+        "threats": [
+          "Further PBOC restrictions on stablecoin issuance",
+          "HKMA preference for bank-issued stablecoins",
+          "Long approval timeline given geopolitical uncertainty"
+        ]
+      }
+    },
+    "geopolitical_risk": {
+      "level": "high",
+      "factors": [
+        {
+          "factor": "PBOC Yinfa No. 42 directive: CNH-pegged stablecoin ban",
+          "date": "2026-02-28",
+          "impact": "Restricts Ant's ability to issue CNH-linked stablecoins; Ant must pivot to HKD or USD. Shows PBOC preference for e-CNY monopoly.",
+          "source": "Hong Kong's Stablecoin Vision: Asia's Regulated Digital Asset Hub (Substack, 2026-04-28)"
+        },
+        {
+          "factor": "PBOC ordered JD.com and Ant Group to pause Hong Kong pilots",
+          "date": "2025-09-01",
+          "impact": "Ant's HK stablecoin pilot was suspended following PBOC guidance. Signals mainland government constraints on HK fintech operations.",
+          "source": "Hong Kong's Stablecoin Vision (Substack, 2026-04-28)"
+        },
+        {
+          "factor": "Ant Group acquisition of Yau Choy Securities",
+          "date": "2026-03-01",
+          "impact": "Strategic signal: Ant continues aggressive HK expansion despite PBOC constraints. May indicate intent to pursue stablecoin licence anyway.",
+          "source": "Hong Kong's Stablecoin Vision (Substack, 2026-04-28)"
+        }
+      ]
+    },
+    "regulatory_timeline": {
+      "application_date": "by 2025-09-30",
+      "status_updates": [
+        {
+          "date": "2024-07-01",
+          "event": "Ant International reportedly participated in HKMA Stablecoin Issuer Sandbox [requires fact-check against primary HKMA disclosure]",
+          "source": "HKMA sandbox announcements"
+        },
+        {
+          "date": "2025-09-01",
+          "event": "PBOC ordered Ant Group to pause Hong Kong stablecoin pilot",
+          "source": "Hong Kong's Stablecoin Vision (Substack, 2026-04-28)"
+        },
+        {
+          "date": "2025-09-30",
+          "event": "HKMA deadline for first batch applications (Ant submitted)",
+          "source": "HKMA announcements"
+        },
+        {
+          "date": "2026-02-28",
+          "event": "PBOC issued Yinfa No. 42: CNH-pegged stablecoin ban",
+          "source": "Hong Kong's Stablecoin Vision (Substack, 2026-04-28)"
+        },
+        {
+          "date": "2026-03-01",
+          "event": "Ant Group acquired Yau Choy Securities (strategic signal)",
+          "source": "Hong Kong's Stablecoin Vision (Substack, 2026-04-28)"
+        },
+        {
+          "date": "2026-04-10",
+          "event": "First batch licences granted to HSBC & Anchorpoint; Ant not approved",
+          "source": "HKMA press release"
+        }
+      ],
+      "next_decision_expected": "2026-Q2 or Q3 (no official timeline; PBOC constraints may delay indefinitely)"
+    },
+    "sarm_upgrade_scenario": {
+      "condition": "if granted licence by HKMA (contingent on PBOC approval)",
+      "predicted_signals": {
+        "capital_adequacy": "green_possible",
+        "reserve_quality": "green_likely",
+        "governance": "yellow_possible",
+        "technology": "green_likely",
+        "redemption": "green_likely",
+        "disclosure": "yellow_possible"
+      },
+      "reasoning": "If Ant overcomes geopolitical barriers and receives a licence, its scale, fintech expertise, and institutional backing suggest it would meet reserve and redemption standards. However, any licence conditions imposed by PBOC or HKMA (e.g., reduced issuance caps, enhanced compliance) might result in governance being yellow. The key uncertainty: whether PBOC will permit Ant to operate an HKD or USD stablecoin at all, or whether the licence comes with mainland government constraints that downgrade governance readiness.",
+      "timeline": "Unlikely in next 6 months (PBOC constraints); possible by 2026-Q4 if political wind shifts"
+    },
+    "citations": [
+      {
+        "label": "HKMA Press Release - Granting of stablecoin issuer licences (April 10, 2026)",
+        "url": "https://www.hkma.gov.hk/eng/news-and-media/press-releases/2026/04/20260410-4/",
+        "date": "2026-04-10"
+      },
+      {
+        "label": "Hong Kong's Stablecoin Vision: Asia's Regulated Digital Asset Hub (Substack)",
+        "url": "https://asiastablecoin.substack.com/p/hong-kongs-stablecoin-vision-asias",
+        "date": "2026-04-28"
+      },
+      {
+        "label": "Hong Kong to Launch First Stablecoin Licenses in March 2026",
+        "url": "https://bitcoinethereumnews.com/finance/hong-kong-to-launch-first-stablecoin-licenses-in-march-2026/",
+        "date": "2026-02-25"
+      },
+      {
+        "label": "Hong Kong to Issue First Stablecoin Licenses in March 2026",
+        "url": "https://cryptonews.com/news/hong-kong-stablecoin-licenses-march-2026/",
+        "date": "2026-02-02"
+      },
+      {
+        "label": "Hong Kong Stablecoin Regulation: HKMA Licensing Framework in 2026 (Sumsub)",
+        "url": "https://sumsub.com/blog/hong-kong-stablecoin-regulation/",
+        "date": "2026-02-09"
+      }
+    ],
+    "last_reviewed": "2026-05-05",
+    "reviewer_note": "Ant Group (through Ant International) applied for a stablecoin issuer licence under the Stablecoins Ordinance (Cap. 656) and remains under HKMA review as of May 2026. The entity reportedly participated in the HKMA's regulatory sandbox in 2024 [sandbox participation requires fact-check against primary HKMA disclosure] but did not receive a licence in the first batch announced on April 10, 2026.\n\n**Regulatory Status**: Under review; licence decision pending (estimated 2026-Q2 or later).\n\n**Geopolitical Risk**: High. The PBOC issued Yinfa No. 42 (February 2026) restricting CNH-pegged stablecoins and previously ordered Ant to pause its Hong Kong stablecoin pilot (September 2025). These constraints may limit Ant's product options (HKD or USD instead of CNH) and could delay or prevent licence issuance. Ant's March 2026 acquisition of Yau Choy Securities suggests continued strategic intent despite PBOC constraints.\n\n**SARM Assessment**: All dimensions assessed as \"gray\" (insufficient public data). Ant possesses global scale, institutional governance, and AML/CFT experience, but Hong Kong-specific operational disclosures and the resolution of geopolitical constraints are pending.\n\n**Key Question**: Will the HKMA licence a mainland-backed fintech firm despite PBOC constraints? Ant's licensing outcome will be a key indicator of HKMA's regulatory independence and appetite for geopolitical complexity.\n\nSource: HKMA press releases, media reports (Substack, BitcoinEthereumNews, CryptoNews, Sumsub), regulatory guidance documents."
+  },
+  {
+    "slug": "icbc-asia",
+    "name": "ICBC (Asia)",
+    "ticker": "pending",
+    "parent": "Industrial and Commercial Bank of China (ICBC), Asia subsidiary",
+    "jurisdiction": "Hong Kong SAR",
+    "application_date": "by 2025-09-30",
+    "status": "under_review",
+    "peg": "HKD / USD / other fiat",
+    "type": "fiat_backed",
+    "summary": "ICBC (Asia) Limited, the Asia subsidiary of the Industrial and Commercial Bank of China (the world's largest bank by total assets, approximately $4.5 trillion), submitted a formal stablecoin issuer licence application to the HKMA. Unlike some sandbox participants, ICBC proceeded directly to formal application in September 2025. The entity is an HKMA-authorized institution (commercial bank) with established regulatory relationships in Hong Kong. As of May 2026, ICBC (Asia) has not received a stablecoin issuer licence.",
+    "sarm": {
+      "capital_adequacy": {
+        "key": "capital_adequacy",
+        "label": "Capital Adequacy",
+        "signal": "gray",
+        "rationale": "ICBC (Asia) remains under HKMA review. As the Asia subsidiary of the world's largest bank, the entity possesses substantial capital resources and institutional backing, but Hong Kong-specific capital adequacy arrangements for stablecoin operations are pending public disclosure.",
+        "sources": []
+      },
+      "reserve_quality": {
+        "key": "reserve_quality",
+        "label": "Reserve Quality",
+        "signal": "gray",
+        "rationale": "ICBC (Asia) Limited, a subsidiary of the Industrial and Commercial Bank of China (the world's largest bank by assets), has submitted a formal stablecoin issuer licence application to the HKMA but has not yet received approval as of May 2026. As a major global financial institution with professional treasury and asset management capabilities, ICBC possesses strong baseline competencies. However, Hong Kong-specific reserve composition, custody arrangements, and segregation procedures for stablecoins remain pending public disclosure. SARM assessment will be updated if a licence is granted and operational details are disclosed.",
+        "sources": []
+      },
+      "governance": {
+        "key": "governance",
+        "label": "Governance",
+        "signal": "gray",
+        "rationale": "ICBC (Asia) remains under HKMA review. As the Hong Kong subsidiary of the world's largest bank, the entity has established governance and risk management frameworks, and direct regulatory relationships with HKMA as an authorized institution. However, stablecoin-specific governance arrangements and any special licence conditions are pending public disclosure. The mainland-backed nature of the applicant may introduce regulatory considerations that affect governance structure.",
+        "sources": []
+      },
+      "technology": {
+        "key": "technology",
+        "label": "Technology & Infrastructure",
+        "signal": "gray",
+        "rationale": "Technology and blockchain infrastructure for ICBC (Asia)'s stablecoin are pending public disclosure.",
+        "sources": []
+      },
+      "redemption": {
+        "key": "redemption",
+        "label": "Redemption Mechanics",
+        "signal": "gray",
+        "rationale": "Redemption procedures for any ICBC (Asia) stablecoin have not been publicly outlined in detail. Upon a licensing decision (if granted), Cap. 656 requirements for T+1 par value redemption will apply. ICBC's global banking operations demonstrate reliable settlement experience, but Hong Kong-specific redemption mechanics for regulated stablecoins are pending disclosure.",
+        "sources": []
+      },
+      "disclosure": {
+        "key": "disclosure",
+        "label": "Public Disclosure",
+        "signal": "gray",
+        "rationale": "Public disclosure obligations will commence upon licensing. Details pending.",
+        "sources": []
+      }
+    },
+    "reserve_details": "Pending public disclosure.",
+    "governance_notes": "Subject to HKMA regulatory framework and potential PBOC oversight.",
+    "technology_notes": "Pending public disclosure.",
+    "redemption_notes": "Pending public disclosure.",
+    "disclosure_notes": "Pending public disclosure.",
+    "competitor_analysis": {
+      "background_type": "traditional_bank",
+      "approval_probability": "medium",
+      "vs_approved": {
+        "strengths": [
+          "World's largest bank by assets ($4.5 trillion+)",
+          "Established HKMA relationship (authorized institution)",
+          "Professional banking governance and compliance",
+          "Extensive Asian regional network"
+        ],
+        "weaknesses": [
+          "No note-issuing bank status (unlike HSBC/SC)",
+          "Mainland-backed (potential PBOC alignment concerns)",
+          "Did not participate in HKMA Sandbox (less pre-approval relationship)",
+          "Late entry (applied 2025-09, after PBOC constraints emerged)"
+        ],
+        "opportunities": [
+          "Leverage mainland banking relationships for HKD/USD stablecoin",
+          "Institutional investor focus (B2B)",
+          "Cross-border payment use cases (Asia-centric)"
+        ],
+        "threats": [
+          "HKMA preference for independent or note-issuing banks",
+          "PBOC may constrain ICBC's HK operations",
+          "Approval timeline uncertain"
+        ]
+      }
+    },
+    "geopolitical_risk": {
+      "level": "medium",
+      "factors": [
+        {
+          "factor": "Mainland-backed institution",
+          "date": "ongoing",
+          "impact": "As a subsidiary of the Industrial and Commercial Bank of China, ICBC (Asia) operates under PBOC oversight. HKMA licensing of mainland-backed stablecoin issuer may be seen as PBOC-aligned or constrained.",
+          "source": "Hong Kong Crypto Regulation Tightens With Limited Stablecoin Licenses (BitcoinEthereumNews, 2025-09-08)"
+        },
+        {
+          "factor": "PBOC interventions in HK fintech",
+          "date": "2025-2026",
+          "impact": "If PBOC continues to constrain HK stablecoin development, mainland-backed banks like ICBC may face approval delays or conditions imposed by PBOC (indirect regulatory pressure).",
+          "source": "Hong Kong's Stablecoin Vision (Substack, 2026-04-28)"
+        }
+      ]
+    },
+    "regulatory_timeline": {
+      "application_date": "by 2025-09-30",
+      "status_updates": [
+        {
+          "date": "2025-09-08",
+          "event": "ICBC (Asia) officially submitted stablecoin license application (confirmed by media)",
+          "source": "Hong Kong Crypto Regulation Tightens With Limited Stablecoin Licenses (BitcoinEthereumNews, 2025-09-08)"
+        },
+        {
+          "date": "2025-09-30",
+          "event": "HKMA deadline for first batch applications (ICBC submitted)",
+          "source": "HKMA announcements"
+        },
+        {
+          "date": "2026-04-10",
+          "event": "First batch licences granted to HSBC & Anchorpoint; ICBC (Asia) not approved",
+          "source": "HKMA press release"
+        }
+      ],
+      "next_decision_expected": "2026-Q2 or later (no official timeline; HKMA indicated 'open but cautious' to future applicants)"
+    },
+    "sarm_upgrade_scenario": {
+      "condition": "if granted licence by HKMA",
+      "predicted_signals": {
+        "capital_adequacy": "green_likely",
+        "reserve_quality": "green_likely",
+        "governance": "green_likely",
+        "technology": "green_likely",
+        "redemption": "green_likely",
+        "disclosure": "green_likely"
+      },
+      "reasoning": "As the Asia subsidiary of the world's largest bank, ICBC (Asia) would likely meet all reserve, redemption, and governance standards required by Cap. 656. Banking infrastructure, compliance capabilities, and HKMA authorized institution status all suggest readiness. However, governance might be constrained by parent-company (PBOC) oversight, which could result in yellow if PBOC imposes conditions or oversight mechanisms. The main uncertainty: whether HKMA views mainland-backed banking operations as independent enough for licensing.",
+      "timeline": "Possible in 2026-Q2 or Q3 (less political risk than Ant); could be 2026-Q4 or later if HKMA prioritizes independent or note-issuing banks"
+    },
+    "citations": [
+      {
+        "label": "HKMA Press Release - Granting of stablecoin issuer licences (April 10, 2026)",
+        "url": "https://www.hkma.gov.hk/eng/news-and-media/press-releases/2026/04/20260410-4/",
+        "date": "2026-04-10"
+      },
+      {
+        "label": "Hong Kong Crypto Regulation Tightens With Limited Stablecoin Licenses",
+        "url": "https://bitcoinethereumnews.com/crypto/hong-kong-crypto-regulation-tightens-with-limited-stablecoin-licenses/",
+        "date": "2025-09-08"
+      },
+      {
+        "label": "Hong Kong's Stablecoin Vision: Asia's Regulated Digital Asset Hub (Substack)",
+        "url": "https://asiastablecoin.substack.com/p/hong-kongs-stablecoin-vision-asias",
+        "date": "2026-04-28"
+      },
+      {
+        "label": "HKMA - Regulatory Regime for Stablecoin Issuers",
+        "url": "https://www.hkma.gov.hk/eng/key-functions/international-financial-centre/stablecoin-issuers/",
+        "date": "2026-04-10"
+      },
+      {
+        "label": "Hong Kong Stablecoin Regulation: HKMA Licensing Framework in 2026 (Sumsub)",
+        "url": "https://sumsub.com/blog/hong-kong-stablecoin-regulation/",
+        "date": "2026-02-09"
+      }
+    ],
+    "last_reviewed": "2026-05-05",
+    "reviewer_note": "ICBC (Asia) Limited (subsidiary of the Industrial and Commercial Bank of China, the world's largest bank by assets) submitted a formal stablecoin issuer licence application to the HKMA and remains under review as of May 2026. The entity did not receive a licence in the first batch announced on April 10, 2026.\n\n**Regulatory Status**: Under review; licence decision pending (estimated 2026-Q2 or Q3).\n\n**Background**: Unlike JD Coinlink and RD InnoTech (which participated in the HKMA Sandbox), ICBC (Asia) proceeded directly to formal application. As an HKMA-authorized institution (commercial bank), it has established regulatory relationships but lacks the pre-approval dialogue that sandbox participation provided to other applicants.\n\n**Geopolitical Risk**: Medium. ICBC is mainland-backed but operates as the Asia subsidiary of an international banking giant. The PBOC's constraints on HK stablecoin development may indirectly affect approval or impose special conditions, but less acutely than for tech-sector applicants like Ant.\n\n**SARM Assessment**: All dimensions assessed as \"gray\" (insufficient public data). ICBC possesses strong banking governance, professional treasury operations, and institutional credibility. If licensed, it would likely meet reserve and redemption standards; governance depends on whether PBOC oversight is reflected in licence conditions.\n\n**Key Question**: Will the HKMA prioritize note-issuing banks (HSBC, Standard Chartered) and independent institutions over mainland-backed subsidiaries? ICBC's approval timeline will signal HKMA's openness to mainland banking sector participation.\n\nSource: HKMA press releases, media reports (BitcoinEthereumNews, Substack, Sumsub), regulatory guidance documents."
+  }
+]

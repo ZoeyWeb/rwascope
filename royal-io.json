@@ -1,0 +1,135 @@
+{
+  "slug": "royal-io",
+  "name": "Royal.io",
+  "short_name": "Royal",
+  "website": "https://royal.io",
+  "asset_class": "ip_revenue",
+  "jurisdiction": "United States (Austin, TX)",
+  "chain": "Polygon",
+  "status": "paused",
+  "launched_at": "2021-05-01",
+  "tvl_usd": 0,
+  "peak_tvl_usd": 25000000,
+  "peak_tvl_date": "2022-04-01",
+  "entity_map": {
+    "issuer": {
+      "name": "Royal Markets Inc.",
+      "type": "US C-Corp (Austin, TX)"
+    },
+    "custodian": {
+      "name": "Royalty rights held by per-track structures; Royal as administrator",
+      "type": "Platform-administered"
+    },
+    "chain_infra": {
+      "name": "Polygon",
+      "type": "L2"
+    },
+    "oracle": {
+      "name": "Off-chain royalty reporting from DSPs; manual distribution",
+      "type": "Off-chain"
+    },
+    "law_firm": {
+      "name": "",
+      "type": ""
+    },
+    "auditor": {
+      "name": "Not publicly disclosed",
+      "type": ""
+    },
+    "regulator": {
+      "name": "US SEC — Reg A and Reg D drops; subsequent regulatory uncertainty over LDA classification",
+      "type": "Securities ambiguity"
+    },
+    "token_standard": "ERC-1155 (Limited Digital Assets / LDAs)"
+  },
+  "asset_slug": "",
+  "summary": "First major music royalty NFT platform. Founded by DJ Justin '3LAU' Blau and Opendoor co-founder JD Ross; raised $71M (a16z, Paradigm, Coinbase Ventures). Sold LDAs (Limited Digital Assets) representing fractional streaming royalties for tracks by Nas, Diplo, The Chainsmokers, Logic. Platform investing business shut down in 2024 due to disappointing royalty payouts (e.g., one Royce da 5'9' drop went 18+ months without payments), shifting regulatory landscape, and questions about long-term economic viability of small-track royalty fractionalization. Existing LDAs remain claimable via legacy site. Important case study in early IP/royalty RWA fragility.",
+  "sources": [
+    {
+      "title": "Royal.io current state — legacy royalty claim site",
+      "url": "https://lda.royal.io"
+    },
+    {
+      "title": "Asset Scholar: Royal.io 2024 closure analysis",
+      "url": "https://assetscholar.com/should-you-invest-on-royal-in-2024/"
+    },
+    {
+      "title": "Center for Digital Future: Royal sunsetting marketplace (April 2024)",
+      "url": "https://www.centerforadigitalfuture.org/blog/60kqfdgb4f8kljqy1j4ujvaqr1bx5y-364pg-bskhw-3prkf"
+    }
+  ],
+  "updated_at": "2026-05-19",
+  "underlying_asset": "Fractional rights to master recording streaming royalties from specific tracks. Each LDA represents proportional claim on payouts the artist receives from DSPs (Spotify, Apple Music, etc.).",
+  "reserve_composition": "No reserve — payments depend on artist actually remitting royalties received from DSPs to Royal's treasury contract.",
+  "secondary_market": "Originally Royal's marketplace + OpenSea; marketplace sunset 2024; OpenSea trading still possible but limited liquidity.",
+  "min_investment_usd": 50,
+  "smart_contract_audit": {
+    "auditor": "Not publicly disclosed",
+    "date": "",
+    "report_url": ""
+  },
+  "oracle_provider": "N/A — off-chain royalty reporting from DSPs.",
+  "redemption_mechanism": "No principal redemption. Holders earn quarterly royalty distributions for duration of rights, claimable via treasury contract.",
+  "upgrade_authority": "Royal Markets Inc. (now in reduced operations mode).",
+  "timeline": [
+    {
+      "date": "2021-05-01",
+      "event": "Royal founded by 3LAU and JD Ross",
+      "type": "milestone"
+    },
+    {
+      "date": "2021-11-01",
+      "event": "$55M Series A led by a16z",
+      "type": "milestone"
+    },
+    {
+      "date": "2022-01-15",
+      "event": "Nas drops 'Ultra Black' and 'Rare' — first major artist sale, $560K gross",
+      "type": "milestone"
+    },
+    {
+      "date": "2023-06-01",
+      "event": "Song Valuation Calculator launched; underlying royalty payouts trail expectations",
+      "type": "milestone"
+    },
+    {
+      "date": "2024-01-31",
+      "event": "Royce da 5'9' 'Caterpillar' token buyback offered after 18+ months no payments",
+      "type": "incident"
+    },
+    {
+      "date": "2024-04-01",
+      "event": "Royal announces marketplace sunset; pivot to on-chain infrastructure focus",
+      "type": "incident"
+    }
+  ],
+  "risk_flags": [
+    "paused",
+    "low_secondary_liquidity",
+    "payout_reliability"
+  ],
+  "lessons_visibility": "both",
+  "postmortem": {
+    "incident_date": "2024-04-01",
+    "root_cause": "Royal's model required artists to remit royalty payments received from DSPs to Royal's treasury for distribution to LDA holders. This created two structural fragilities: (1) Reliance on artist compliance — when payments lagged or stopped (e.g., Royce da 5'9' drop), Royal had limited enforcement mechanism; (2) Economic viability — streaming royalties for individual tracks are typically very small (~$0.003 per stream), meaning fractional LDA holders received tiny payouts that frequently didn't justify gas fees or platform overhead. Combined with crypto bear market reducing speculative demand for music NFTs, the unit economics collapsed.",
+    "what_failed": [
+      {
+        "layer": "L3",
+        "layer_name": "Counterparty",
+        "issue": "Royal had no custody over the underlying royalty stream — it depended on the artist receiving payment from DSPs and voluntarily remitting share to Royal's treasury. No legal mechanism comparable to publishing rights administration; effectively unsecured promise from artist."
+      },
+      {
+        "layer": "L4",
+        "layer_name": "Token & Market Structure",
+        "issue": "Single-track fractionalization produced LDAs with unique, small, illiquid cashflows. Each LDA was effectively a unique micro-bond with no comparable trading peer, killing secondary market liquidity."
+      },
+      {
+        "layer": "L1",
+        "layer_name": "Legal Foundation",
+        "issue": "Reg A / Reg D offerings did not provide investor protections comparable to publishing royalty trusts or music funds (Hipgnosis-style). LDA classification under US securities law remained ambiguous; KYC whitelist did not address fundamental enforceability questions."
+      }
+    ],
+    "outcome": "Platform investing business effectively closed April 2024. ~$71M VC capital largely written down. Holders of LDAs from 2021-2022 drops retain claims but receive minimal distributions. Subsequent music IP tokenization platforms (Anotherblock, JKBX) pivoted to acquiring rights upfront rather than relying on artist remittance — direct lesson from Royal's failure mode.",
+    "rarm_lesson": "Royal demonstrates RARM AFI logic at L3: when counterparty enforcement depends on voluntary remittance with no legal mechanism for capture-at-source, L3 falls below threshold regardless of how good the on-chain infrastructure is. RARM AFI for IP/royalty tokenization should require: (1) rights acquired or assigned at source, not promised by ongoing artist remittance; (2) administration via established music publishing/PRO infrastructure rather than novel platform-administered treasury; (3) unit economics check — minimum cashflow per LDA must justify distribution overhead. Anotherblock's success vs Royal's failure illustrates that the same asset class (music royalties) can be tokenized well or badly depending on whether L3 (counterparty enforcement) is structurally sound."
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "jurisdiction": "US",
+  "issue": "vasp_licensing",
+  "status_signal": "conditional",
+  "summary": "The United States does not operate a single federal VASP licensing regime. Instead, virtual asset service providers must navigate a fragmented multi-layered framework combining: (a) federal registration with FinCEN as a Money Services Business (MSB) under the Bank Secrecy Act, (b) state-level Money Transmitter Licences (MTLs) in each state where services are provided to residents, (c) the New York BitLicense (applicable to any entity serving New York residents, regardless of physical location), and (d) potential SEC or CFTC registration depending on the specific virtual asset activities. State-level MTL licensing involves separate applications, bonding requirements, minimum net worth thresholds, and compliance obligations in potentially 50+ jurisdictions. States have varied significantly in their approaches: New York requires a BitLicense, Wyoming offers the SPDI (Special Purpose Depository Institution) charter as an alternative, and Colorado has developed crypto-specific regulatory guidance. The OCC has confirmed in multiple interpretive letters (IL 1183, March 2025; IL 1184, May 2025) that national banks may engage in crypto-asset custody, execution services, stablecoin activities, and node verification as permissible banking activities. FIT21 (House-passed May 2024, not enacted) would establish federal oversight of digital asset spot markets through the CFTC and SEC, but has not been adopted as of Q2 2026, leaving the state-by-state patchwork in place.",
+  "key_requirements": [
+    "FinCEN registration as a Money Services Business (MSB) with ongoing SAR filing obligations, AML/CFT program requirements, and Currency Transaction Reporting (>$10,000)",
+    "State Money Transmitter Licences (MTLs) in each state where services are provided; NMLS streamlines multi-state applications but each state retains substantive review authority",
+    "New York BitLicense required for any entity providing virtual currency services to New York residents, regardless of physical presence",
+    "AML/CFT program with written policies, independent testing, and designated compliance officer",
+    "Travel Rule compliance for all virtual asset transfers ($3,000 threshold under FinCEN guidance for convertible virtual currencies)",
+    "State-level minimum net worth and surety bond requirements (varies by state and transaction volume, typically $10,000\u2013$500,000)",
+    "Surety bonds ($10,000\u2013$500,000, depending on transaction volume and risk profile) or letters of credit in each licensed state"
+  ],
+  "exemptions": [
+    "Wyoming SPDI (Special Purpose Depository Institution) charter provides an alternative to MTL licensing for qualified crypto custodians and asset service providers operating within Wyoming",
+    "Certain state-specific exemptions for blockchain technology providers not engaged in money transmission",
+    "SEC-registered broker-dealers and investment advisers may be exempt from certain state MTL requirements for activities conducted under their federal registration",
+    "OCC-chartered national banks may engage in crypto-asset activities (custody, execution, stablecoin issuance, node verification) under their existing banking licence per IL 1183 and IL 1184, without separate state MTL licensing"
+  ],
+  "practitioner_notes": "The US VASP licensing landscape is widely regarded as the most fragmented among major jurisdictions. Practitioners should assume that a virtual asset business serving US residents must comply with the BSA/MSB registration and a minimum of 1\u20135 state MTLs (more if actively marketing nationally). New York's BitLicense is structurally the most demanding state-level regime and materially influences national compliance strategies \u2014 many firms choose to avoid serving New York residents rather than seek a BitLicense. The NMLS system has improved multi-state efficiency but each state retains its own examination authority, fee schedule, and reporting obligations. OCC-chartered banks have a significant structural advantage following IL 1183 (March 2025) and IL 1184 (May 2025), which confirmed that crypto-asset custody, execution services, stablecoin activities, and node verification are permissible banking activities. Non-bank VASPs should monitor ongoing developments in federal preemption legislation, including the proposed Blockchain Regulatory Certainty Act.",
+  "references": [
+    {
+      "title": "FinCEN \u2014 Guidance on Application of FinCEN's Regulations to Virtual Currency Money Services Businesses (May 2019)",
+      "date": "2019-05-09",
+      "url": "https://www.fincen.gov/sites/default/files/2019-05/FinCEN%20Guidance%20CVC%20FINAL%20508.pdf",
+      "type": "regulator-guidance"
+    },
+    {
+      "title": "NYDFS \u2014 BitLicense Regulations (23 NYCRR Part 200)",
+      "date": "2015-06-24",
+      "url": "https://www.dfs.ny.gov/legal/regulations/adopted/part200-virtual-currencies",
+      "type": "primary-statute"
+    },
+    {
+      "title": "OCC \u2014 Interpretive Letter 1183 (March 7, 2025) \u2014 Crypto-asset custody, stablecoin activities, node verification",
+      "date": "2025-03-07",
+      "url": "https://www.occ.gov/topics/charters-and-licensing/interpretations-and-actions/2025/int1183.pdf",
+      "type": "regulator-guidance"
+    },
+    {
+      "title": "OCC \u2014 Interpretive Letter 1184 (May 7, 2025) \u2014 Crypto-asset custody and execution services, outsourcing",
+      "date": "2025-05-07",
+      "url": "https://www.occ.gov/topics/charters-and-licensing/interpretations-and-actions/2025/int1184.pdf",
+      "type": "regulator-guidance"
+    },
+    {
+      "title": "King & Spalding \u2014 OCC Issues Interpretive Letter Permitting Banks to Engage in Additional Crypto Activities (Nov 24, 2025)",
+      "date": "2025-11-24",
+      "url": "https://www.kslaw.com/news-and-insights/occ-issues-interpretive-letter-permitting-banks-to-engage-in-additional-crypto-activities",
+      "type": "industry-media"
+    },
+    {
+      "title": "Polsinelli \u2014 US Crypto Regulation: State-by-State Guide",
+      "date": "2025-11-01",
+      "url": "https://www.polsinelli.com/publications/us-crypto-regulation-state-guide",
+      "type": "industry-media"
+    },
+    {
+      "title": "Blockchain Regulatory Certainty Act of 2026 (S. 3611, H.R. 3533, 119th Congress) \u2014 proposed, pending",
+      "date": "2026-01-12",
+      "url": "https://www.congress.gov/bill/119th-congress/senate-bill/3611/text",
+      "type": "primary-statute"
+    }
+  ],
+  "last_reviewed": "2026-05-01"
+}

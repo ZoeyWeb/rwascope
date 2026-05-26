@@ -1,0 +1,284 @@
+{
+  "meta": {
+    "last_compiled": "2026-05-14",
+    "version": "1.0.0",
+    "disclaimer": "This tracker aggregates publicly available official regulatory announcements and editorial analysis. All content is informational only. Not investment advice. RWA-Index does not guarantee the completeness or timeliness of this information. AI-generated market-impact summaries are preliminary — always verify against the primary source document.",
+    "coverage_note": "Global regulatory events with RWA/tokenization relevance. Coverage includes US (SEC/CFTC), EU (ESMA/EBA/MiCA), HK (HKMA/SFC/HKEx), Singapore (MAS), UAE (VARA), and key FATF/IOSCO global standards. Editorial curation — not exhaustive.",
+    "regions_covered": ["us", "eu", "hk", "sg", "global"]
+  },
+  "weekly_brief": {
+    "generated_at": "2026-05-13",
+    "period_start": "2026-05-06",
+    "period_end": "2026-05-13",
+    "headline": "Global RWA Intelligence Brief — Week of 13 May 2026",
+    "highlights": [
+      "HSBC and Anchorpoint Financial hold the first two HKD stablecoin licences under HK Cap. 656 (issued April 2026), establishing a regulated settlement layer for Hong Kong RWA infrastructure.",
+      "The US GENIUS Act (signed July 18, 2025) remains the defining stablecoin legislation globally; its 1:1 reserve and monthly attestation requirements are shaping issuer compliance playbooks across jurisdictions.",
+      "EU MiCA's full application to crypto-asset service providers since December 2024 has made it the primary comparative benchmark for regulators in HK, Singapore, and the UAE finalising their own frameworks."
+    ]
+  },
+  "intelligence_items": [
+    {
+      "id": "us-genius-act-2025",
+      "category": "global_policy",
+      "region": "us",
+      "event_type": "regulation",
+      "tier": "milestone",
+      "title": "US GENIUS Act Signed — Federal Stablecoin Licensing Framework Enacted",
+      "event_date": "2025-07-18",
+      "source_url": "https://www.congress.gov/",
+      "source_name": "US Congress",
+      "policy_summary": "The Guiding and Establishing National Innovation for US Stablecoins (GENIUS) Act was signed into law on 18 July 2025. It establishes the first federal licensing framework for payment stablecoin issuers in the United States, allowing both bank and non-bank issuers to obtain federal licences and setting mandatory 1:1 reserve backing and monthly attestation requirements.",
+      "key_changes": [
+        "Federal licensing pathway created for payment stablecoin issuers — both bank subsidiaries and non-bank entities",
+        "Mandatory 1:1 reserve requirements against approved assets (US Treasuries, FDIC-insured deposits)",
+        "Monthly public attestation of reserves required from all licensed issuers",
+        "State stablecoin regimes may seek federal equivalency approval",
+        "CFTC given authority over certain stablecoin-adjacent derivatives markets"
+      ],
+      "market_impact": {
+        "benefited_sectors": ["regulated stablecoin issuers", "tokenized money market funds", "on-chain USD settlement infrastructure"],
+        "affected_entity_types": ["unlicensed stablecoin issuers", "offshore stablecoin distributors targeting US users", "DeFi protocols holding unregulated USD stablecoins"],
+        "capital_flow": "Capital expected to concentrate in GENIUS-compliant stablecoins (Circle USDC, anticipated bank-issued variants), with unlicensed alternatives losing institutional distribution. Tokenized T-bill protocols with compliant settlement rails benefit as institutional on-ramps.",
+        "hk_relevance": "GENIUS Act's reserve and attestation standards are closely aligned with HKMA's Cap. 656 requirements, creating convergent global standards. HK-licensed issuers (HSBC, Anchorpoint) whose stablecoins interact with US market participants must monitor US equivalency determinations."
+      },
+      "rwa_relevant": true,
+      "stablecoin_relevant": true,
+      "tags": ["stablecoin", "licensing", "federal-law", "reserve-requirements", "us-regulation"],
+      "timeline_significance": "First federal stablecoin law in US history; resolves years of regulatory uncertainty for USD stablecoin issuers and establishes the US as an active rule-setter alongside the EU and HK.",
+      "source_note": "GENIUS Act signing date of 18 July 2025 confirmed. Specific bill provisions should be verified against the enrolled bill text at congress.gov."
+    },
+    {
+      "id": "eu-mica-full-application-2024",
+      "category": "global_policy",
+      "region": "eu",
+      "event_type": "regulation",
+      "tier": "milestone",
+      "title": "EU MiCA Fully Applicable to Crypto-Asset Service Providers",
+      "event_date": "2024-12-30",
+      "source_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32023R1114",
+      "source_name": "Official Journal of the EU",
+      "policy_summary": "Regulation (EU) 2023/1114 on Markets in Crypto-Assets (MiCA) became fully applicable to crypto-asset service providers (CASPs) on 30 December 2024. Stablecoin provisions (Titles III and IV covering e-money tokens and asset-referenced tokens) had applied from 30 June 2024. Together, MiCA provides a harmonised licensing, disclosure, and conduct framework for crypto-assets across all 27 EU member states.",
+      "key_changes": [
+        "CASPs operating in any EU member state require authorisation under MiCA from December 2024",
+        "E-money token (EMT) and asset-referenced token (ART) issuers must meet reserve, whitepaper, and redemption requirements (applied from June 2024)",
+        "ESMA and EBA gain supervisory authority over large-volume stablecoin issuers",
+        "Passporting mechanism allows a single EU authorisation to cover all 27 member states",
+        "Transitional grandfathering periods for pre-existing operators vary by member state (up to 18 months)"
+      ],
+      "market_impact": {
+        "benefited_sectors": ["EU-authorised CASPs", "regulated EU stablecoin issuers", "tokenized securities platforms with CASP licences"],
+        "affected_entity_types": ["non-EU CASPs serving EU users without passporting", "unregistered token issuers", "DeFi front-ends accessible to EU users"],
+        "capital_flow": "Institutional EU capital is concentrating in MiCA-authorised platforms. Non-compliant offshore platforms lose access to EU institutional distribution. EUR-denominated tokenized asset issuance is growing under the regulatory certainty MiCA provides.",
+        "hk_relevance": "HKMA and SFC have cited MiCA as a comparative framework in developing Cap. 656 and VASP licensing. EU-HK regulatory dialogues on equivalency and passporting arrangements are anticipated post-MiCA implementation."
+      },
+      "rwa_relevant": true,
+      "stablecoin_relevant": true,
+      "tags": ["mica", "casp-licensing", "stablecoin", "eu-regulation", "harmonisation"],
+      "timeline_significance": "MiCA represents the world's first comprehensive crypto-asset regulatory framework at a supranational level, setting the global baseline for licensing, disclosure, and consumer protection standards.",
+      "source_note": "MiCA (Regulation EU 2023/1114) is confirmed. The December 30, 2024 full-application date for CASPs is well-established. Specific transitional grandfathering durations vary by member state — verify against ESMA's published guidance for jurisdiction-specific details."
+    },
+    {
+      "id": "fatf-r16-revision-2025",
+      "category": "global_policy",
+      "region": "global",
+      "event_type": "regulation",
+      "tier": "milestone",
+      "title": "FATF Revises Recommendation 16 — Updated Travel Rule Standards for Virtual Assets",
+      "event_date": "2025-06-01",
+      "source_url": "https://www.fatf-gafi.org/",
+      "source_name": "FATF",
+      "policy_summary": "The Financial Action Task Force (FATF) finalised revisions to Recommendation 16 in June 2025, updating Travel Rule requirements for virtual asset transfers. The revision clarifies originator and beneficiary information requirements for VASP-to-VASP transfers and addresses gaps identified in the 2019 crypto standards. HKMA incorporation of the revised R.16 into Hong Kong AML/CTF rules is pending as of May 2026.",
+      "key_changes": [
+        "Revised originator and beneficiary data fields required for virtual asset transfers above the threshold",
+        "Clarified requirements for unhosted wallet transfers (wallet attribution and risk assessment)",
+        "Stronger guidance on VASP-to-VASP Travel Rule technical implementation",
+        "Updated definitions to address new token types and DeFi intermediation",
+        "National implementation deadline set by FATF for member jurisdictions"
+      ],
+      "market_impact": {
+        "benefited_sectors": ["compliant VASPs with Travel Rule solutions", "compliance technology providers", "CASPs with robust AML infrastructure"],
+        "affected_entity_types": ["VASPs without Travel Rule capability", "cross-border RWA transfer protocols lacking data fields", "DeFi bridges handling regulated tokens"],
+        "capital_flow": "Institutional capital continues moving toward regulated, Travel Rule-compliant venues. Non-compliant corridors face increased correspondent-banking and custody restrictions from regulated financial institutions.",
+        "hk_relevance": "HKMA has signalled intent to incorporate revised R.16 into Hong Kong's AML/CTF rules for VASPs; the timeline for incorporation is not yet published. Licensed VATPs (12 as of Feb 2026) should monitor HKMA consultation on updated Travel Rule implementation."
+      },
+      "rwa_relevant": true,
+      "stablecoin_relevant": true,
+      "tags": ["fatf", "travel-rule", "aml-ctf", "vasp-compliance", "global-standards"],
+      "timeline_significance": "The 2025 R.16 revision is the most significant update to FATF's crypto standards since the 2019 guidance, directly affecting AML compliance requirements for all regulated VASPs globally.",
+      "source_note": "FATF R.16 revision in June 2025 is confirmed per RWA-Index editorial sources. The exact publication date within June 2025 and specific revised provisions should be verified at fatf-gafi.org. HKMA incorporation timeline is unconfirmed as of May 2026."
+    },
+    {
+      "id": "mas-stablecoin-framework-2023",
+      "category": "global_policy",
+      "region": "sg",
+      "event_type": "regulation",
+      "tier": "milestone",
+      "title": "MAS Finalises Singapore Stablecoin Regulatory Framework",
+      "event_date": "2023-08-15",
+      "source_url": "https://www.mas.gov.sg/news",
+      "source_name": "Monetary Authority of Singapore",
+      "policy_summary": "The Monetary Authority of Singapore (MAS) published the finalised regulatory framework for single-currency stablecoins (SCS) pegged to the Singapore dollar or G10 currencies in August 2023. The framework, implemented under the amended Payment Services Act, establishes reserve backing, capital, audit, and disclosure requirements for SCS issuers, making Singapore one of the first jurisdictions to operationalise a comprehensive stablecoin licensing regime.",
+      "key_changes": [
+        "Single-currency stablecoins pegged to SGD or G10 currencies subject to MAS licensing",
+        "High-quality liquid asset reserve requirements (par-value, low-risk assets)",
+        "Independent annual audit of reserve assets required",
+        "Minimum base capital SGD 1 million for SCS issuers",
+        "Redemption at par within five business days mandated"
+      ],
+      "market_impact": {
+        "benefited_sectors": ["SGD-pegged stablecoin issuers", "compliant payment stablecoin infrastructure", "tokenized settlement systems"],
+        "affected_entity_types": ["algorithmic or undercollateralised stablecoin issuers", "non-compliant offshore stablecoin distributors serving Singapore users"],
+        "capital_flow": "Singapore's early framework attracted regulated stablecoin activity and provided regulatory certainty for institutional tokenization projects using SGD settlement rails.",
+        "hk_relevance": "HKMA's Cap. 656 (August 2025) adopted comparable reserve and redemption standards to MAS, with both frameworks informed by each other's consultation documents. HK-Singapore regulatory cooperation on stablecoin interoperability remains an active dialogue."
+      },
+      "rwa_relevant": true,
+      "stablecoin_relevant": true,
+      "tags": ["stablecoin", "mas", "singapore", "payment-services-act", "licensing"],
+      "timeline_significance": "Singapore's 2023 framework was among the first operationalised stablecoin licensing regimes globally, predating EU MiCA stablecoin provisions (June 2024) and HK Cap. 656 (August 2025) by more than a year.",
+      "source_note": "The MAS stablecoin framework publication date of August 15, 2023 [requires verification against the exact MAS press release date at mas.gov.sg]. The framework provisions described are based on publicly available MAS consultation response documents."
+    },
+    {
+      "id": "uae-vara-regulation-2023",
+      "category": "global_policy",
+      "region": "uae",
+      "event_type": "regulation",
+      "tier": "milestone",
+      "title": "UAE VARA Publishes Comprehensive Virtual Assets Regulation — Seven Activity-Specific Rulebooks",
+      "event_date": "2023-02-01",
+      "source_url": "https://www.vara.ae/en/",
+      "source_name": "VARA (Dubai)",
+      "policy_summary": "Dubai's Virtual Assets Regulatory Authority (VARA) published its comprehensive Virtual Assets Regulation in February 2023, introducing seven activity-specific rulebooks covering advisory, broker-dealer, custody, exchange, lending and borrowing, payment, and management/investment services for virtual assets. The regulation established VARA as the primary VA regulator across all Dubai entities and free zones (excluding the DIFC, which remains under DFSA oversight), creating one of the most detailed VA licensing frameworks globally.",
+      "key_changes": [
+        "Seven activity-specific rulebooks published covering the full spectrum of virtual asset services in Dubai",
+        "Mandatory licensing required for all VA service providers in Dubai (DIFC excluded — governed by DFSA)",
+        "Anti-market manipulation and market conduct rules introduced for licensed operators",
+        "Technology and security requirements specified for custodial VA service providers",
+        "Transition period provided for existing operators to apply for VARA licences before enforcement"
+      ],
+      "market_impact": {
+        "benefited_sectors": ["regulated VA exchanges and custody providers", "compliant VA advisory and management firms", "institutional VA infrastructure providers seeking Gulf market access"],
+        "affected_entity_types": ["unlicensed VA service providers in Dubai", "offshore platforms serving Dubai users without VARA authorisation"],
+        "capital_flow": "The VARA framework attracted global VA firms to establish Dubai operations. Several major exchanges obtained VARA licences or letters of preparedness, concentrating institutional UAE-region VA activity in regulated venues and positioning Dubai alongside Singapore and Hong Kong as a regulated hub.",
+        "hk_relevance": "HKMA and SFC have monitored VARA's rulebook structure as a comparative reference. Both HK and UAE compete as Asia-Pacific and MENA hubs for regulated VA activity. VARA's activity-specific licensing model contrasts with HK's unified VATP licence approach under the SFC regime."
+      },
+      "rwa_relevant": true,
+      "stablecoin_relevant": false,
+      "tags": ["vara", "dubai", "uae", "va-regulation", "licensing"],
+      "timeline_significance": "VARA's 2023 regulation established Dubai as one of the most comprehensively regulated VA jurisdictions globally, alongside EU MiCA (June 2024) and HK's VASP regime (June 2023). Its activity-specific rulebook model is distinctive versus HK's single unified VATP licence.",
+      "source_note": "VARA Virtual Assets Regulation publication in February 2023 is confirmed. The exact publication date within February 2023 should be verified at vara.ae. DIFC remains under a separate DFSA regulatory framework — VARA jurisdiction does not extend to DIFC."
+    },
+    {
+      "id": "hk-sfc-vatp-licensing-2023",
+      "category": "hk_observation",
+      "region": "hk",
+      "event_type": "regulation",
+      "tier": "milestone",
+      "title": "SFC VATP Licensing Regime Operational — First Two Licences Granted to HashKey and OSL",
+      "event_date": "2023-06-01",
+      "source_url": "https://www.sfc.hk/en/",
+      "source_name": "SFC",
+      "policy_summary": "The SFC's mandatory virtual asset trading platform (VATP) licensing regime under the Anti-Money Laundering and Counter-Terrorist Financing Ordinance (AMLO) took effect on 1 June 2023. All centralised virtual asset trading platforms serving Hong Kong investors must apply for a VATP licence. The SFC granted the first two VATP licences to HashKey Exchange and OSL Exchange in August 2023, establishing the first licensed retail-accessible VA trading platforms in Hong Kong. As of early 2026, 12 VATPs hold SFC licences.",
+      "key_changes": [
+        "Mandatory VATP licensing under AMLO effective 1 June 2023 — all CEX platforms serving HK must apply or cease operations",
+        "HashKey Exchange and OSL Exchange became the first two licensed VATPs (August 2023)",
+        "Licensed VATPs may offer retail trading of approved large-cap virtual assets (BTC, ETH)",
+        "Minimum capital, insurance, custody segregation, and AML/CTF requirements codified for all licensees",
+        "Deemed licensing transitional period: existing platforms must obtain a licence or wind down HK operations"
+      ],
+      "market_impact": {
+        "benefited_sectors": ["licensed VATP operators", "regulated VA custody and prime brokerage providers", "compliant VA infrastructure serving institutional clients"],
+        "affected_entity_types": ["unlicensed exchanges operating in HK or serving HK retail users", "offshore VA platforms without SFC VATP authorisation"],
+        "capital_flow": "Unlicensed exchanges operating in HK must apply or exit, concentrating HK retail VA trading in licensed venues. Licensed VATPs gain regulatory legitimacy for institutional and retail distribution, and form the primary distribution channel for licensed HKD stablecoins under Cap. 656.",
+        "hk_relevance": "Core HK regulatory event. The VATP licence is the gateway for VA exchanges to legally serve HK retail investors. Licensed VATPs are also the primary distribution channel for licensed HKD stablecoins (HSBC, Anchorpoint) under Cap. 656 (effective August 2025). As of early 2026, 12 VATPs hold licences — current count should be verified at sfc.hk."
+      },
+      "rwa_relevant": true,
+      "stablecoin_relevant": false,
+      "tags": ["vatp", "sfc", "licensing", "virtual-asset", "amlo", "hk-regulation"],
+      "timeline_significance": "HK's VASP licensing regime was among the first mandatory frameworks globally for centralised VA exchanges, predating EU MiCA's CASP provisions (December 2024). The regime establishes the regulated distribution infrastructure for tokenized assets and licensed stablecoins in Hong Kong.",
+      "source_note": "VATP regime effective 1 June 2023 is confirmed from SFC. HashKey Exchange and OSL Exchange as first two licensees in August 2023 is confirmed. The VATP licence count as of early 2026 should be verified at sfc.hk for the current figure."
+    },
+    {
+      "id": "hkma-ensembletx-launch-2025",
+      "category": "hk_observation",
+      "region": "hk",
+      "event_type": "institutional",
+      "tier": "milestone",
+      "title": "HKMA Launches EnsembleTX — Tokenized Deposit Pilot with Real Value Settlement",
+      "event_date": "2025-11-13",
+      "source_url": "https://www.hkma.gov.hk/eng/news-and-media/press-releases/",
+      "source_name": "HKMA",
+      "policy_summary": "HKMA officially launched EnsembleTX, the real-value settlement phase of Project Ensemble, on 13 November 2025. Participating institutions include HSBC, Standard Chartered, Bank of China, BlackRock, and Franklin Templeton. The pilot focuses on wholesale tokenized-deposit settlement, not retail CBDC.",
+      "key_changes": [
+        "EnsembleTX moves from sandbox to live pilot with real-value transactions",
+        "Tokenized deposits used for interbank settlement between participating institutions",
+        "Wholesale focus confirmed — retail CBDC not in scope for current phase"
+      ],
+      "market_impact": {
+        "benefited_sectors": ["tokenized-deposit infrastructure", "wholesale settlement platforms", "RWA protocols targeting institutional settlement"],
+        "affected_entity_types": ["tokenized-deposit issuers", "wholesale settlement participants", "RWA protocols targeting institutional settlement"],
+        "capital_flow": "Participating banks and asset managers gain infrastructure experience with tokenized wholesale settlement. RWA protocols targeting institutional settlement infrastructure gain a relevant benchmark.",
+        "hk_relevance": "Direct HK infrastructure event. Participating institutions gain first-mover advantage in tokenized wholesale settlement. EnsembleTX participants: HSBC, Standard Chartered, Bank of China, BlackRock, Franklin Templeton."
+      },
+      "rwa_relevant": true,
+      "stablecoin_relevant": false,
+      "tags": ["ensembletx", "tokenized-deposit", "wholesale-cbdc", "pilot", "settlement"],
+      "timeline_significance": "EnsembleTX marks HK's transition from regulatory sandbox to live tokenized-deposit infrastructure, positioning HK as a leading wholesale tokenization hub in Asia."
+    },
+    {
+      "id": "hkma-stablecoins-ordinance-2025",
+      "category": "hk_observation",
+      "region": "hk",
+      "event_type": "regulation",
+      "tier": "milestone",
+      "title": "Stablecoins Ordinance (Cap. 656) Comes into Operation",
+      "event_date": "2025-08-01",
+      "source_url": "https://www.hkma.gov.hk/eng/news-and-media/press-releases/",
+      "source_name": "HKMA",
+      "policy_summary": "Hong Kong's Stablecoins Ordinance (Cap. 656) took effect on 1 August 2025. The Ordinance establishes a mandatory licensing regime for fiat-referenced stablecoin (FRS) issuers in Hong Kong or targeting HK users. HKMA is the licensing authority.",
+      "key_changes": [
+        "Mandatory licence required for FRS issuers in HK or targeting HK users",
+        "HKMA designated as licensing authority for FRS issuers",
+        "Reserve requirements, redemption obligations, and disclosure standards codified in law"
+      ],
+      "market_impact": {
+        "benefited_sectors": ["licensed FRS issuers", "compliant stablecoin infrastructure providers", "regulated tokenization platforms using HKD stablecoins"],
+        "affected_entity_types": ["unlicensed stablecoin issuers", "DeFi protocols accepting HKD-pegged stablecoins without compliance review"],
+        "capital_flow": "Unlicensed FRS issuers must apply or cease operations in HK. Post-licensing, compliant HKD stablecoins gain institutional distribution access previously unavailable.",
+        "hk_relevance": "Core HK event. Establishes mandatory licensing for HKD FRS issuers — HKMA is the authority. All FRS issuers in HK or targeting HK users must hold a licence. First applications accepted post-operationalisation."
+      },
+      "rwa_relevant": true,
+      "stablecoin_relevant": true,
+      "tags": ["stablecoin", "licensing", "cap-656", "hk-regulation"],
+      "timeline_significance": "Cap. 656 is the legislative foundation for HK's stablecoin market — the first comprehensive stablecoin law in the Asia-Pacific region, predating equivalent federal US legislation (GENIUS Act) by one year.",
+      "source_note": "Cap. 656 is confirmed. Specific HKMA press release URL requires verification at hkma.gov.hk."
+    },
+    {
+      "id": "hkma-stablecoin-licences-hsbc-anchorpoint-2026",
+      "category": "hk_observation",
+      "region": "hk",
+      "event_type": "institutional",
+      "tier": "milestone",
+      "title": "HKMA Grants First Two HKD Stablecoin Licences — HSBC and Anchorpoint Financial",
+      "event_date": "2026-04-01",
+      "source_url": "https://www.hkma.gov.hk/eng/news-and-media/press-releases/",
+      "source_name": "HKMA",
+      "policy_summary": "HKMA issued the first two licences under the Stablecoins Ordinance (Cap. 656) to HSBC (for an HKD-denominated stablecoin) and Anchorpoint Financial (a consortium of Standard Chartered, Animoca Brands, and HKT). These are the first licensed HKD stablecoins in HK, providing a regulated base layer for RWA settlement.",
+      "key_changes": [
+        "HSBC becomes a licensed HKD FRS issuer under Cap. 656",
+        "Anchorpoint Financial (Standard Chartered + Animoca Brands + HKT consortium) receives the second licence",
+        "First operational licensed stablecoins in HK establish a regulated settlement base layer for RWA transactions"
+      ],
+      "market_impact": {
+        "benefited_sectors": ["tokenized RWA settlement on HKD rails", "EnsembleTX infrastructure", "licensed VATP distribution channels"],
+        "affected_entity_types": ["unlicensed HKD stablecoin competitors", "DeFi protocols using non-licensed HKD stablecoins"],
+        "capital_flow": "Institutional capital in HK RWA settlement now has a regulated HKD stablecoin option. HSBC and Anchorpoint's licences open distribution to licensed VATPs (12 as of Feb 2026) and create HKD on-chain settlement infrastructure.",
+        "hk_relevance": "Direct: HSBC and Anchorpoint Financial are the first licensed HKD FRS issuers in HK. Their stablecoins provide the regulated settlement layer for EnsembleTX and tokenized RWA transactions targeting HK institutional markets."
+      },
+      "rwa_relevant": true,
+      "stablecoin_relevant": true,
+      "tags": ["stablecoin", "licensing", "hsbc", "anchorpoint", "hkd", "first-licence"],
+      "timeline_significance": "The issuance of HK's first two stablecoin licences operationalises Cap. 656 and creates a regulated HKD digital money infrastructure layer for the broader RWA tokenization ecosystem."
+    }
+  ]
+}

@@ -1,0 +1,417 @@
+{
+  "meta": {
+    "version": "1.0.0",
+    "last_compiled": "2026-05-19",
+    "title": "European Union RWA Ecosystem Map",
+    "description": "A structured overview of the EU's tokenized real-world asset ecosystem — mapping MiCA regulatory passporting, ECB wholesale infrastructure, and institutional tokenization led by Germany, France, and Luxembourg.",
+    "disclaimer": "This map is compiled from publicly available official sources. Participant lists may be incomplete where information has not been publicly enumerated by regulators. This is an informational reference, not a regulatory register.",
+    "sources": [
+      "European Securities and Markets Authority (ESMA) official publications and MiCA regulatory guidance (esma.europa.eu)",
+      "European Central Bank research publications, Pontes initiative announcements, and wholesale digital currency strategy (ecb.europa.eu)",
+      "BaFin official notices and KMAG MiCA implementation guidelines (bafin.de)",
+      "Commission de Surveillance du Secteur Financier (CSSF) public circulars and DLT fund guidance (cssf.lu)",
+      "Autorité des marchés financiers (AMF) DASP regime publications and MiCA guidance (amf-france.org)",
+      "Société Générale / SG-Forge public disclosures and CoinVertible product announcements",
+      "BNP Paribas public disclosures and Canton Network pilot announcements",
+      "KfW Regulated Layer One initiative public announcements (Sept 2025)",
+      "Deutsche Börse / Clearstream D7 platform announcements (Nov 2025)",
+      "Tokeny Solutions public platform disclosures and ERC-3643 standard documentation",
+      "Spiko platform public announcements and AUM disclosures (Feb 2026)"
+    ]
+  },
+  "stats": {
+    "regulators": 5,
+    "financial_institutions": 5,
+    "infrastructure_participants": 4,
+    "issuance_platforms": 4,
+    "market_access_participants": 4,
+    "professional_enablers": 6
+  },
+  "layers": [
+    {
+      "id": "regulatory",
+      "order": 1,
+      "label": "Regulatory Oversight",
+      "sublabel": "Licensing & Policy",
+      "color": "#818cf8",
+      "bg": "#16163a",
+      "border": "#818cf8",
+      "description": "The European Union's regulatory architecture for tokenized assets is anchored by the Markets in Crypto-Assets Regulation (MiCA), which became fully applicable in December 2024 and introduced a single passportable licensing regime for crypto-asset service providers (CASPs) and stablecoin issuers across all 27 member states. ESMA coordinates pan-EU implementation and has issued technical standards governing asset-referenced tokens (ARTs) and e-money tokens (EMTs). At the member-state level, Germany's BaFin leads the most active institutional tokenization market via the Electronic Securities Act (eWpG), Luxembourg's CSSF has established the most advanced fund tokenization jurisdiction, and France's AMF administers the DASP regime. The ECB's Pontes initiative, targeting a Q3 2026 launch, will connect DLT settlement platforms directly to TARGET central bank money rails.",
+      "participants": [
+        {
+          "id": "esma-ec",
+          "name": "ESMA / European Commission",
+          "full_name": "European Securities and Markets Authority / European Commission",
+          "type": "regulator",
+          "role": "ESMA is the EU's pan-European securities markets authority and the primary regulatory coordinator for MiCA implementation; MiCA became fully applicable in December 2024, introducing a single passport for crypto-asset service providers across all 27 EU member states; as of 2026, 53 CASP licenses have been granted under MiCA's unified framework, with major institutions including Bitstamp, Kraken EU, and Bitpanda among early recipients; ESMA has issued binding regulatory technical standards (RTS) governing asset-referenced tokens, e-money tokens, and CASP conduct requirements; the European Commission is also advancing the mid-2026 deadline for the DLT Pilot Regime's tokenized securities rules, aiming to catalyse institutional adoption of EU-regulated on-chain securities issuance",
+          "url": "https://www.esma.europa.eu",
+          "tags": ["regulator", "mica", "casp", "passporting", "art", "emt", "dlt-pilot-regime", "securities-tokenization"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "ecb",
+          "name": "ECB",
+          "full_name": "European Central Bank",
+          "type": "regulator",
+          "role": "The European Central Bank approved a wholesale digital asset ecosystem strategy in 2025, positioning the ECB as a central infrastructure provider for on-chain settlement in central bank money; the Pontes initiative, targeting Q3 2026 initial launch, will connect DLT-based market platforms directly to the Eurosystem's TARGET settlement infrastructure, enabling atomic delivery-versus-payment (DVP) settlement of tokenized securities transactions in central bank money without the credit risk associated with commercial bank settlement layers; the ECB is also a participant in BIS Project Agorá, exploring tokenized cross-border wholesale payments; Pontes is designed to make the EU the first major jurisdiction where institutional tokenized transactions can settle in risk-free central bank money on a DLT rail",
+          "url": "https://www.ecb.europa.eu",
+          "tags": ["central-bank", "pontes", "target-settlement", "cbdc", "wholesale-digital", "dvp", "project-agora"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "bafin",
+          "name": "BaFin",
+          "full_name": "Federal Financial Supervisory Authority of Germany",
+          "type": "regulator",
+          "role": "Germany's Federal Financial Supervisory Authority and the primary licensing body under the Electronic Securities Act (eWpG, Gesetz über elektronische Wertpapiere), which allows securities to be issued as native digital tokens on DLT without a physical certificate requirement; BaFin issued the KMAG (Kryptowertpapierregisterführungsgesetz) domestic implementation guidance in 2024, establishing Germany as the largest EU institutional tokenization market; Siemens, KfW, and multiple major German issuers have issued eWpG-compliant tokenized bonds; BaFin also supervises crypto custody institutions under Germany's Banking Act (KWG) and is the national competent authority (NCA) responsible for MiCA implementation in Germany",
+          "url": "https://www.bafin.de",
+          "tags": ["regulator", "ewpg", "electronic-securities", "kmag", "crypto-custody", "mica-nca", "germany"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "cssf",
+          "name": "CSSF",
+          "full_name": "Commission de Surveillance du Secteur Financier (Luxembourg)",
+          "type": "regulator",
+          "role": "Luxembourg's financial supervisory authority and the most advanced EU jurisdiction for tokenized fund structures; since 2023, Luxembourg law formally recognises DLT-based systems as legal securities registries, enabling funds to issue and transfer shares via blockchain; the CSSF's regulatory approach to tokenized UCITS, RAIF, and ELTIF 2.0 fund structures has made Luxembourg the primary European jurisdiction for institutional fund tokenization; major fund tokenization platforms including Tokeny, and partnerships with BNP Paribas and other global custodians, have concentrated EU fund tokenization activity in Luxembourg; CSSF is also the MiCA national competent authority for Luxembourg, including oversight of Bitstamp's EU operations",
+          "url": "https://www.cssf.lu",
+          "tags": ["regulator", "fund-tokenization", "dlt-registry", "ucits", "raif", "eltif-2", "luxembourg", "mica-nca"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "amf-france",
+          "name": "AMF",
+          "full_name": "Autorité des marchés financiers (France)",
+          "type": "regulator",
+          "role": "France's financial markets authority and the national competent authority for MiCA in France; administers the DASP (Digital Asset Service Provider) regime, which France established ahead of MiCA to provide an early-mover regulatory framework for digital asset businesses; the AMF reviews and approves MiCA-compliant ART (asset-referenced token) whitepapers submitted by stablecoin issuers targeting the European market, including SG-Forge's CoinVertible application; AMF's proactive approach to digital asset regulation and its close coordination with Banque de France's wholesale CBDC experiments have made Paris an emerging hub for institutional tokenization structuring and stablecoin compliance",
+          "url": "https://www.amf-france.org",
+          "tags": ["regulator", "dasp", "mica-nca", "art-whitepaper", "stablecoin", "france", "sg-forge"],
+          "confidence_level": "high"
+        }
+      ]
+    },
+    {
+      "id": "financial_institutions",
+      "order": 2,
+      "label": "Financial Institutions",
+      "sublabel": "Banks & Corporate Issuers",
+      "color": "#4ade80",
+      "bg": "#0c2018",
+      "border": "#4ade80",
+      "description": "The EU's institutional tokenization landscape is led by Société Générale's dedicated digital asset subsidiary SG-Forge, which has issued Europe's first institutional-grade stablecoins (EURCV/USDCV) and tokenized bonds directly on Ethereum. BNP Paribas and Deutsche Bank participate as major bank anchors in multi-institution tokenization pilots. KfW, Germany's state development bank, launched the Regulated Layer One initiative in September 2025 to build shared bank-grade blockchain infrastructure with ten European financial institutions. Corporate issuers like Siemens have validated the eWpG framework with EUR 300M on-chain bond issuances.",
+      "participants": [
+        {
+          "id": "sg-forge",
+          "name": "Société Générale / SG-Forge",
+          "full_name": "Société Générale — SG-Forge",
+          "type": "bank",
+          "role": "Société Générale's digital asset subsidiary SG-Forge is Europe's leading institutional tokenization bank and the issuer of CoinVertible — Europe's first MiCA-compliant institutional stablecoin family, comprising EURCV (euro-denominated) and USDCV (dollar-denominated); CoinVertible is deployed on the Ethereum public blockchain and used as a settlement instrument in Deutsche Börse's Clearstream D7 tokenized securities platform for both settlement and collateral management; SG-Forge has also issued multiple tranches of tokenized bonds directly on Ethereum under the French DASP regime and has partnered with Spiko, a EUR 1B+ AUM European corporate treasury fund tokenization platform; SG-Forge's AMF whitepaper approval for CoinVertible's ART status was a landmark MiCA compliance milestone for European institutional stablecoins",
+          "url": "https://www.sgforge.com",
+          "tags": ["bank", "sg-forge", "eurcv", "usdcv", "stablecoin", "ethereum", "tokenized-bonds", "clearstream-d7", "spiko", "mica-art"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "bnp-paribas",
+          "name": "BNP Paribas",
+          "full_name": "BNP Paribas S.A.",
+          "type": "bank",
+          "role": "France's largest bank by assets and a major participant in EU institutional tokenization infrastructure; BNP Paribas participates in the Canton Network through its Securities Services division, joining over 30 global financial institutions in a multi-asset tokenized bond and gold pilot; BNP Paribas Securities Services also acts as a custodian for tokenized fund structures in Luxembourg, working with Tokeny and other issuance platforms to support fund tokenization in the CSSF's DLT-registry framework; BNP Paribas is one of the anchor institutions giving institutional depth to the EU's fund and bond tokenization ecosystem alongside Société Générale",
+          "url": "https://www.bnpparibas.com",
+          "tags": ["bank", "canton-network", "tokenized-bonds", "fund-custody", "luxembourg", "securities-services"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "deutsche-bank",
+          "name": "Deutsche Bank",
+          "full_name": "Deutsche Bank AG",
+          "type": "bank",
+          "role": "Germany's largest bank; active participant in EU digital asset custody and tokenized bond issuance; Deutsche Bank has developed digital asset custody services targeting institutional clients and is a KfW Regulated Layer One initiative partner; Deutsche Bank's participation spans both primary issuance of eWpG-compliant digital bonds and digital custody infrastructure for institutional tokenized assets, positioning it as a gateway for large German corporates seeking eWpG bond issuances with institutional custody coverage",
+          "url": "https://www.db.com",
+          "tags": ["bank", "digital-custody", "ewpg", "tokenized-bonds", "regulated-layer-one", "germany"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "kfw",
+          "name": "KfW",
+          "full_name": "KfW Bankengruppe (Germany State Development Bank)",
+          "type": "bank",
+          "role": "Germany's state development bank and the orchestrator of the Regulated Layer One (RL1) initiative launched in September 2025; RL1 is a consortium initiative comprising 10 European financial institutions — including Deutsche Bank, Commerzbank, and DZ Bank — aimed at building shared, bank-grade blockchain infrastructure as a neutral European public good for institutional tokenized asset issuance and settlement; in February 2026, Baden-Württemberg's L-Bank joined as the 11th participant, expanding RL1's regional coverage; KfW itself has issued eWpG-compliant tokenized bonds and leverages RL1 as the infrastructure layer for future state development bank digital bond programs; RL1 is positioned as the EU's institutional counterpart to the US's Regulated Settlement Network (RSN) and Japan's DCC consortium",
+          "url": "https://www.kfw.de",
+          "tags": ["bank", "regulated-layer-one", "ewpg", "digital-bonds", "bank-consortium", "germany", "public-infrastructure"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "siemens",
+          "name": "Siemens",
+          "full_name": "Siemens AG",
+          "type": "issuer",
+          "role": "Germany's largest industrial conglomerate and a landmark corporate issuer in Europe's eWpG digital bond market; Siemens issued EUR 300 million in on-chain corporate bonds under the German Electronic Securities Act (eWpG) framework, using blockchain-based issuance to achieve T+0 settlement and eliminate paper-based certificate processes; the Siemens eWpG bond issuance is one of the highest-value corporate digital bond transactions in Europe and demonstrated that non-financial blue-chip corporates can access tokenized bond markets at scale, validating Germany's eWpG framework for mainstream corporate treasury applications",
+          "url": "https://www.siemens.com",
+          "tags": ["issuer", "corporate-bond", "ewpg", "eur-300m", "t0-settlement", "germany", "blue-chip"],
+          "confidence_level": "high"
+        }
+      ]
+    },
+    {
+      "id": "infrastructure",
+      "order": 3,
+      "label": "Infrastructure",
+      "sublabel": "Settlement & Blockchain Networks",
+      "color": "#facc15",
+      "bg": "#1e1a02",
+      "border": "#facc15",
+      "description": "The EU's tokenized asset infrastructure is anchored by two distinct settlement layers: the ECB's Pontes initiative (Q3 2026), which will provide central bank money settlement for DLT-based transactions via a TARGET bridge, and Deutsche Börse's Clearstream D7 platform (launched November 2025), which integrates SG-Forge's CoinVertible stablecoin for commercial bank settlement. The Canton Network serves as the multi-institution pilot infrastructure for tokenized bond and gold transactions across 30+ institutions. Ethereum is the primary public blockchain for both SG-Forge's stablecoin and bond issuances and Tokeny's ERC-3643 tokenization protocol.",
+      "participants": [
+        {
+          "id": "clearstream-d7",
+          "name": "Clearstream D7",
+          "full_name": "Clearstream D7 (Deutsche Börse Group)",
+          "type": "infrastructure",
+          "role": "Deutsche Börse's tokenized securities issuance and lifecycle management platform, launched in November 2025; D7 provides a regulated DLT-based infrastructure for issuing, settling, and managing tokenized securities under the German eWpG framework and the EU DLT Pilot Regime; D7 has integrated SG-Forge's CoinVertible stablecoin (EURCV) as a settlement currency for tokenized security transactions, enabling atomic DVP settlement using commercial bank money on-chain; Clearstream D7 is Germany's premier institutional tokenized securities platform and positions Deutsche Börse Group as the infrastructure backbone for EU regulated digital asset issuance",
+          "url": "https://www.clearstream.com",
+          "tags": ["infrastructure", "deutsche-borse", "d7", "ewpg", "dlt-pilot", "dvp", "eurcv", "tokenized-securities"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "ecb-pontes",
+          "name": "ECB Pontes",
+          "full_name": "ECB Pontes Initiative",
+          "type": "cbdc",
+          "role": "The ECB's Pontes initiative is a central bank infrastructure bridge connecting DLT-based market platforms to the Eurosystem's TARGET payment and settlement infrastructure; targeting Q3 2026 initial launch, Pontes will enable atomic delivery-versus-payment settlement of tokenized securities transactions settled in central bank money — eliminating the settlement risk associated with commercial bank or stablecoin settlement layers; Pontes is designed as a technology-neutral connector compatible with multiple DLT platforms, meaning it can serve Clearstream D7, Canton Network participants, and other EU-regulated tokenization platforms without mandating a single blockchain stack; upon launch, Pontes will make the EU the only major jurisdiction where institutional tokenized transactions can achieve risk-free central bank money settlement on a DLT rail without an intermediary wholesale CBDC token",
+          "url": "https://www.ecb.europa.eu",
+          "tags": ["cbdc", "pontes", "target", "central-bank-money", "dvp", "settlement", "q3-2026", "technology-neutral"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "canton-network-eu",
+          "name": "Canton Network",
+          "full_name": "Canton Network",
+          "type": "blockchain",
+          "role": "Privacy-enabled institutional blockchain network built on Daml smart contracts; the Canton Network hosts a multi-institution pilot involving Goldman Sachs, BNP Paribas, and 30+ global financial institutions for tokenized bond and gold transactions; EU-headquartered participants include BNP Paribas and Deutsche Börse-affiliated entities; the Canton Network's privacy-by-design architecture — where participants only see their own transactions while maintaining global state consistency — addresses the institutional confidentiality requirements that prevent EU banks from using fully transparent public blockchains for sensitive fixed-income or collateral transactions",
+          "tags": ["blockchain", "canton", "daml", "privacy", "bnp-paribas", "tokenized-bonds", "gold", "multi-institution"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "ethereum-eu",
+          "name": "Ethereum",
+          "full_name": "Ethereum",
+          "type": "blockchain",
+          "role": "Primary public blockchain for EU institutional tokenization deployments; SG-Forge deploys both its CoinVertible stablecoins (EURCV, USDCV) and tokenized bond issuances natively on Ethereum mainnet; Tokeny's ERC-3643 (T-REX) compliant token standard for regulated securities is built on Ethereum and underpins over USD 32 billion in tokenized assets across 180+ jurisdictions; Ethereum's established smart contract ecosystem, institutional custody support, and DeFi composability make it the default public chain for EU tokenization projects requiring global secondary market access and cross-chain interoperability",
+          "url": "https://ethereum.org",
+          "tags": ["blockchain", "public-chain", "sg-forge", "tokeny", "erc-3643", "stablecoin", "tokenized-bonds"],
+          "confidence_level": "high"
+        }
+      ]
+    },
+    {
+      "id": "issuance",
+      "order": 4,
+      "label": "Issuance Platforms",
+      "sublabel": "Tokenization Protocols",
+      "color": "#60a5fa",
+      "bg": "#0d1c32",
+      "border": "#60a5fa",
+      "description": "EU issuance infrastructure spans token standards, platforms, and legal structures. Tokeny's ERC-3643 (T-REX) standard has become the de facto EU standard for compliant security token issuances with over USD 32 billion deployed. Deutsche Börse's 360X is the only major EU institution to engage with the DLT Pilot Regime. Luxembourg's RAIF and ELTIF 2.0 structures have emerged as the dominant legal vehicles for EU fund tokenization, with Spiko demonstrating the institutional corporate treasury use case at EUR 1B+ AUM.",
+      "participants": [
+        {
+          "id": "tokeny",
+          "name": "Tokeny",
+          "full_name": "Tokeny Solutions",
+          "type": "platform",
+          "role": "Luxembourg-based tokenization infrastructure provider and the primary developer of the ERC-3643 (T-REX) standard for regulated security tokens on Ethereum; the T-REX standard enforces transfer restrictions, investor identity verification, and compliance controls directly on-chain, making it the EU's leading technical standard for MiCA and eWpG-compliant token issuances; as of 2026, Tokeny's platform has tokenized over USD 32 billion in assets across 180+ jurisdictions for institutional issuers including major asset managers, real estate firms, and bank-affiliated entities; Tokeny works extensively with Luxembourg CSSF-supervised fund structures and is the infrastructure provider for multiple tokenized UCITS and RAIF fund programs in Europe",
+          "url": "https://tokeny.com",
+          "tags": ["platform", "erc-3643", "t-rex", "ethereum", "regulated-securities", "usd-32b", "luxembourg", "ucits", "raif"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "360x",
+          "name": "360X",
+          "full_name": "360X (Deutsche Börse co-founded)",
+          "type": "platform",
+          "role": "Deutsche Börse-co-founded tokenization platform and the only major EU financial institution participant in the EU DLT Pilot Regime; the DLT Pilot Regime, established by EU Regulation 2022/858, allows financial market infrastructures to operate tokenized securities systems under a regulatory sandbox waiver; 360X operates at the intersection of Deutsche Börse's capital markets infrastructure and the EU's experimental tokenization sandbox, testing on-chain securities issuance and secondary trading within the temporary regulatory perimeter; the European Commission proposed raising the DLT Pilot Regime's issuance cap from EUR 6 billion to EUR 100 billion in December 2025 to boost institutional participation",
+          "url": "https://360x.io",
+          "tags": ["platform", "dlt-pilot-regime", "deutsche-borse", "sandbox", "tokenized-securities", "eu-regulation"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "spiko",
+          "name": "Spiko",
+          "full_name": "Spiko",
+          "type": "platform",
+          "role": "Paris-based tokenized fund platform targeting European corporate treasury teams; Spiko offers tokenized money market funds and short-duration instruments enabling corporates to deploy idle treasury cash into on-chain yield-bearing instruments with same-day liquidity; AUM exceeded EUR 1 billion in February 2026, establishing Spiko as Europe's largest tokenized corporate treasury platform; Spiko operates under AMF supervision and has a strategic partnership with SG-Forge, using CoinVertible as a settlement currency for subscriptions and redemptions; Spiko's growth demonstrates substantial institutional demand for MiCA-compliant on-chain yield products from European corporate finance teams",
+          "url": "https://spiko.io",
+          "tags": ["platform", "tokenized-funds", "corporate-treasury", "money-market", "eur-1b-aum", "sg-forge", "amf", "coinvertible"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "luxembourg-fund-structures",
+          "name": "Luxembourg RAIF / ELTIF 2.0",
+          "full_name": "Luxembourg RAIF and ELTIF 2.0 Fund Tokenization Structures",
+          "type": "platform",
+          "role": "Luxembourg's Reserved Alternative Investment Fund (RAIF) and the European Long-Term Investment Fund 2.0 (ELTIF 2.0) regulation have become the dominant legal structures for EU tokenized fund issuances; RAIFs can be established rapidly without direct CSSF approval, making them the fastest path to launch for tokenized alternative investment funds in Luxembourg; ELTIF 2.0, effective January 2024, removed the EUR 10,000 minimum investment requirement and expanded eligible assets, enabling semi-retail tokenized fund programs targeting European private wealth; the combination of Luxembourg's DLT registry recognition (2023) and these flexible fund vehicles has concentrated EU fund tokenization activity in Luxembourg, with Tokeny, BNP Paribas Securities Services, and Clearstream as key infrastructure providers",
+          "url": "https://www.cssf.lu",
+          "tags": ["platform", "raif", "eltif-2", "fund-tokenization", "luxembourg", "semi-retail", "dlt-registry", "tokeny"],
+          "confidence_level": "high"
+        }
+      ]
+    },
+    {
+      "id": "market_access",
+      "order": 5,
+      "label": "Market Access",
+      "sublabel": "Licensed Exchanges & Trading Venues",
+      "color": "#fb923c",
+      "bg": "#1e1102",
+      "border": "#fb923c",
+      "description": "The EU's MiCA framework has created a single passportable CASP license regime, with 53 licenses granted across member states by 2026. Euronext, Europe's largest exchange group, is exploring tokenized securities listings as the DLT Pilot Regime matures. Bitstamp, Kraken EU, and Bitpanda are among the early MiCA CASP license holders providing institutional and retail trading access. Unlike the US or Japan, the EU does not yet have a dedicated secondary market for regulated security tokens separate from the DLT Pilot Regime framework.",
+      "participants": [
+        {
+          "id": "euronext",
+          "name": "Euronext",
+          "full_name": "Euronext N.V.",
+          "type": "exchange",
+          "role": "Europe's largest exchange group by listed company market capitalisation, operating across Amsterdam, Brussels, Dublin, Lisbon, Milan, Oslo, and Paris; Euronext is actively exploring tokenized securities listings as the EU DLT Pilot Regime matures and the European Commission expands the pilot's issuance cap; Euronext's pan-European multi-market infrastructure and ESMA-regulated status position it as the natural primary listing venue for EU-regulated digital securities at scale; Euronext also operates Euronext Clearing and has been in discussions with Clearstream D7 and ECB Pontes stakeholders about integration pathways for on-chain securities settlement",
+          "url": "https://www.euronext.com",
+          "tags": ["exchange", "europe-largest", "tokenized-securities", "dlt-pilot", "multi-market", "esma-regulated"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "bitstamp",
+          "name": "Bitstamp",
+          "full_name": "Bitstamp Ltd.",
+          "type": "exchange",
+          "role": "Europe's oldest and one of its most established cryptocurrency exchanges, headquartered in Luxembourg and one of the first exchanges to receive a MiCA CASP license; Bitstamp has been CSSF-licensed in Luxembourg since 2016 and has used its established regulatory standing to position itself as the compliant institutional gateway for European financial institutions and corporate clients entering digital asset markets; Bitstamp was acquired by Robinhood in June 2024, providing additional balance sheet depth and US regulatory connectivity while maintaining its EU MiCA compliance operations independently",
+          "url": "https://www.bitstamp.net",
+          "tags": ["exchange", "luxembourg", "mica-casp", "cssf-licensed", "institutional", "oldest-eu", "robinhood"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "kraken-eu",
+          "name": "Kraken EU",
+          "full_name": "Kraken (EU Licensed Entity)",
+          "type": "exchange",
+          "role": "Major global cryptocurrency exchange with a dedicated EU licensed entity operating under MiCA's CASP regime; Kraken's EU entity provides spot and derivatives trading across major crypto assets to both retail and institutional European clients; Kraken is one of the larger global exchanges to obtain early MiCA authorization, leveraging its EU regulatory status to expand institutional relationships with European asset managers and family offices; Kraken's institutional services include OTC desk, staking, and custody-adjacent services for professional EU investors seeking compliant exposure to digital assets",
+          "url": "https://www.kraken.com",
+          "tags": ["exchange", "mica-casp", "institutional", "otc", "global", "derivatives"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "bitpanda",
+          "name": "Bitpanda",
+          "full_name": "Bitpanda GmbH",
+          "type": "exchange",
+          "role": "Vienna-headquartered pan-European digital asset investment platform and one of MiCA's earliest CASP license recipients; Bitpanda operates across 50+ European markets and targets both retail investors and institutional clients through its Bitpanda Pro and Bitpanda for Business offerings; Bitpanda also provides fractional tokenized investments in stocks, ETFs, and crypto assets through its proprietary ecosystem — making it one of the few European platforms bridging traditional tokenized equity instruments with regulated crypto asset services; Bitpanda's early MiCA compliance and multi-asset offering make it a significant retail-to-institutional pipeline in the EU digital asset market",
+          "url": "https://www.bitpanda.com",
+          "tags": ["exchange", "mica-casp", "retail-institutional", "vienna", "multi-asset", "fractional-stocks", "pan-european"],
+          "confidence_level": "high"
+        }
+      ]
+    },
+    {
+      "id": "enablers",
+      "order": 6,
+      "label": "Professional Enablers",
+      "sublabel": "Custody · Legal · Audit",
+      "color": "#a78bfa",
+      "bg": "#1a1030",
+      "border": "#a78bfa",
+      "description": "The EU's professional enabler ecosystem for tokenized assets is anchored by Clearstream as Europe's largest securities depository, providing the D7 settlement layer for tokenized securities. Fireblocks provides institutional digital asset custody infrastructure across EU deployments. Linklaters and Clifford Chance are the leading law firms for eWpG and MiCA structuring respectively. Deloitte and PwC provide MiCA compliance audit and tokenization advisory services to institutional issuers and platforms.",
+      "participants": [
+        {
+          "id": "clearstream-custody",
+          "name": "Clearstream",
+          "full_name": "Clearstream Banking S.A. (Deutsche Börse Group)",
+          "type": "custody",
+          "role": "Deutsche Börse Group's securities depository and post-trade services subsidiary, headquartered in Luxembourg; Europe's largest international central securities depository (ICSD) with over EUR 18 trillion in assets under custody; Clearstream operates the D7 tokenized securities platform and provides the settlement and custody layer for eWpG-compliant and DLT Pilot Regime digital securities; Clearstream's integration of SG-Forge's CoinVertible stablecoin for D7 settlement marks a milestone in European post-trade infrastructure adoption of on-chain commercial bank money; Clearstream's custodial and settlement infrastructure is the institutional backbone connecting EU regulated tokenized securities to the traditional financial system",
+          "url": "https://www.clearstream.com",
+          "tags": ["custody", "deutsche-borse", "icsd", "d7", "eur-18t", "settlement", "luxembourg", "eurcv-integration"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "fireblocks-eu",
+          "name": "Fireblocks",
+          "full_name": "Fireblocks",
+          "type": "custody",
+          "role": "Leading institutional digital asset custody and infrastructure platform with significant EU deployments; Fireblocks provides multi-party computation (MPC) wallet technology, transfer authorization, and settlement automation for EU financial institutions, exchanges, and tokenization platforms; multiple EU-based participants in the tokenized asset ecosystem — including exchanges and bank custodians — rely on Fireblocks for institutional-grade private key management; Fireblocks' EU deployment supports MiCA-compliant asset segregation and custody requirements for licensed CASPs and eWpG digital security custodians",
+          "url": "https://www.fireblocks.com",
+          "tags": ["custody", "mpc", "institutional", "mica-casp", "key-management", "settlement", "eu-deployment"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "linklaters",
+          "name": "Linklaters",
+          "full_name": "Linklaters LLP",
+          "type": "legal",
+          "role": "Global Magic Circle law firm and Europe's leading legal adviser for eWpG digital securities and MiCA regulatory structuring; Linklaters' Frankfurt and Luxembourg offices advise on German Electronic Securities Act (eWpG) issuance structures, prospectus requirements, and BaFin liaison for institutional tokenized bond programs including KfW's Regulated Layer One initiative participants; the firm has published extensive legal analysis of eWpG, MiCA ART/EMT structuring, and DLT Pilot Regime sandbox eligibility that serves as reference guidance for EU institutional tokenization transactions",
+          "url": "https://www.linklaters.com",
+          "tags": ["legal", "ewpg", "mica", "magic-circle", "frankfurt", "luxembourg", "bafin", "regulated-layer-one"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "clifford-chance",
+          "name": "Clifford Chance",
+          "full_name": "Clifford Chance LLP",
+          "type": "legal",
+          "role": "Global Magic Circle law firm and a leading cross-border RWA structuring adviser for EU tokenization transactions; Clifford Chance's Amsterdam, Luxembourg, and Paris offices advise on cross-border fund tokenization structures involving Luxembourg RAIFs, ELTIF 2.0 vehicles, MiCA ART compliance, and multi-jurisdictional capital markets transactions; the firm advises on Canton Network participant legal agreements, DLT Pilot Regime applications, and international investor access structuring for EU tokenized bonds and funds; Clifford Chance's cross-border reach makes it the primary adviser when EU tokenization transactions involve multiple jurisdictions or non-EU institutional investors",
+          "url": "https://www.cliffordchance.com",
+          "tags": ["legal", "cross-border", "raif", "eltif-2", "mica", "canton-network", "dlt-pilot", "multi-jurisdiction"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "deloitte-eu",
+          "name": "Deloitte EU",
+          "full_name": "Deloitte (EU Financial Services)",
+          "type": "audit",
+          "role": "Big Four audit and advisory firm with a major EU financial services practice; provides MiCA compliance audit, internal controls assessment, and regulatory readiness reviews for CASP license applicants across EU member states; Deloitte's EU tokenization advisory practice assists financial institutions with eWpG issuance readiness, MiCA ART reserve audit requirements (quarterly independent assessment mandated by MiCA for stablecoin issuers), and DLT Pilot Regime operational risk frameworks; Deloitte EU has published guidance on MiCA implementation that is used by national competent authorities and regulated entities across the EU",
+          "url": "https://www2.deloitte.com",
+          "tags": ["audit", "mica", "casp-compliance", "art-reserve-audit", "ewpg", "big-four", "regulatory-readiness"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "pwc-eu",
+          "name": "PwC EU",
+          "full_name": "PricewaterhouseCoopers (EU Financial Services)",
+          "type": "audit",
+          "role": "Big Four audit and advisory firm with a leading EU digital assets and tokenization practice; PwC EU advises financial institutions, asset managers, and tokenization platforms on MiCA compliance programs, eWpG feasibility assessments, and fund tokenization readiness under Luxembourg CSSF and ELTIF 2.0 frameworks; PwC's global digital assets team has published the EU Crypto Assets Survey and annual tokenization market sizing reports that serve as benchmark references for institutional market participants; PwC also provides assurance services for MiCA-regulated stablecoin reserve audits and CASP license internal controls evaluations",
+          "url": "https://www.pwc.com",
+          "tags": ["audit", "mica", "ewpg", "fund-tokenization", "casp-assurance", "big-four", "market-sizing"],
+          "confidence_level": "high"
+        }
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "id": "gap-infrastructure-dlt-pilot-low-adoption",
+      "layer_id": "infrastructure",
+      "type": "market_gap",
+      "severity": "high",
+      "title": "DLT Pilot Regime Low Adoption",
+      "description": "Despite being introduced in 2022, the EU DLT Pilot Regime has seen minimal institutional engagement: 360X (Deutsche Börse) is the only major EU institution to have formally entered the sandbox. In contrast, the UK's Digital Securities Sandbox, launched in 2024, has attracted Euroclear, LSEG, HSBC, and JPMorgan as participants. The EU Pilot Regime's EUR 6 billion per-operator issuance cap was cited as the primary barrier to institutional participation; the European Commission proposed raising the cap to EUR 100 billion in December 2025. Until the amended cap is enacted and operationally confirmed, the Pilot Regime remains a regulatory framework without meaningful institutional critical mass."
+    },
+    {
+      "id": "gap-regulatory-member-state-fragmentation",
+      "layer_id": "regulatory",
+      "type": "market_gap",
+      "severity": "high",
+      "title": "Cross-Member-State Fragmentation",
+      "description": "MiCA harmonizes the philosophy of EU crypto-asset regulation, but implementation varies significantly across the 27 member states: national competent authorities have discretion over licensing timelines, AML/CFT integration, and interpretation of ambiguous MiCA provisions. More critically, the enforceability of tokenized asset rights in insolvency proceedings has not been tested in European courts. Germany's eWpG provides explicit insolvency protections for electronic securities; France's ordonnance and Luxembourg's 2023 DLT registry law offer comparable protections in their jurisdictions. But for issuances governed by other member states' laws — or cross-border transactions involving multiple legal systems — investor rights in a default or insolvency scenario remain legally untested."
+    },
+    {
+      "id": "gap-infrastructure-gdpr-onchain",
+      "layer_id": "infrastructure",
+      "type": "market_gap",
+      "severity": "medium",
+      "title": "GDPR vs On-Chain Data Conflict",
+      "description": "Recording personal data or transaction identifiers on an immutable distributed ledger creates a structural conflict with the EU General Data Protection Regulation (GDPR): GDPR's data minimization principle (Article 5) and the right to erasure (Article 17) are fundamentally incompatible with blockchain immutability. For tokenized securities where investor identity or transaction metadata is written on-chain — even in pseudonymised form — no binding regulatory resolution framework has been established by ESMA or the European Data Protection Board (EDPB). Existing market practice (hashing, off-chain identity storage, zero-knowledge proofs) mitigates but does not fully resolve the legal ambiguity, creating compliance risk for EU tokenization platforms operating under both MiCA and GDPR simultaneously."
+    }
+  ],
+  "participant_type_chart": [
+    { "category": "Regulators", "count": 5, "color": "#818cf8" },
+    { "category": "Financial Institutions", "count": 5, "color": "#4ade80" },
+    { "category": "Infrastructure", "count": 4, "color": "#facc15" },
+    { "category": "Issuance Platforms", "count": 4, "color": "#60a5fa" },
+    { "category": "Market Access", "count": 4, "color": "#fb923c" },
+    { "category": "Enablers", "count": 6, "color": "#a78bfa" }
+  ]
+}

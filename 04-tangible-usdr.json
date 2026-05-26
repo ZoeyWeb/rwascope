@@ -1,0 +1,87 @@
+{
+  "slug": "tangible-usdr",
+  "name": "Tangible Real USD (USDR)",
+  "short_name": "USDR",
+  "website": "https://tangible.store",
+  "asset_class": "real_estate",
+  "jurisdiction": "British Virgin Islands (Tangible Labs)",
+  "chain": "Polygon",
+  "status": "failed",
+  "launched_at": "2022-09-19",
+  "tvl_usd": 0,
+  "peak_tvl_usd": 45000000,
+  "peak_tvl_date": "2023-09-01",
+  "entity_map": {
+    "issuer":        { "name": "Tangible Labs (BVI)", "type": "BVI BC", "url": "" },
+    "custodian":     { "name": "Tangible's UK SPV (real estate); Maker Vault (DAI)", "type": "Mixed custody" },
+    "chain_infra":   { "name": "Polygon", "type": "L2 sidechain" },
+    "oracle":        { "name": "Tangible-reported property valuations", "type": "Issuer self-reporting" },
+    "law_firm":      { "name": "Not publicly disclosed", "type": "" },
+    "auditor":       { "name": "Self-reported reserves; no Big Four audit", "type": "" },
+    "regulator":     { "name": "None — operated outside regulatory perimeter", "type": "" },
+    "token_standard": "ERC-20 (Polygon)"
+  },
+  "asset_slug": "",
+  "summary": "Stablecoin backed by tokenized UK rental real estate (TNFT) + DAI + TNGBL share token. First major RWA-backed stablecoin failure: de-pegged October 11, 2023 when DAI liquid reserves (~14.74% of backing) were exhausted by redemptions. Real estate backing (~58%) was illiquid and could not be converted to honor withdrawals. Single most important case study for RWA-backed stablecoin liquidity mismatch.",
+  "sources": [
+    {"title": "Tangible Labs post-mortem", "url": "https://medium.com/tangible-labs/usdr-post-mortem-and-recovery-plan-a4f1d9e5f7c2"},
+    {"title": "DefiLlama: USDR de-peg timeline", "url": "https://defillama.com/protocol/tangible"}
+  ],
+  "updated_at": "2026-05-19",
+
+  "underlying_asset": "Tokenized UK rental properties (~58% at de-peg), DAI (~14.74%), TNGBL governance token (~13%), POL/MATIC liquidity (~14%). Real estate held via UK SPV; tenants paid rent in GBP, converted to crypto yield.",
+  "reserve_composition": "Mixed: ~58% illiquid tokenized real estate (TNFT) + ~14.74% DAI (liquid) + ~13% TNGBL (reflexive) + remainder in POL liquidity. Liquid backing represented <30% of supply at de-peg.",
+  "secondary_market": "Curve USDR-am3CRV pool on Polygon; thin liquidity post-incident.",
+  "min_investment_usd": 0,
+  "smart_contract_audit": {
+    "auditor": "Unaudited at launch; later partial audits not publicly released",
+    "date": "",
+    "report_url": ""
+  },
+  "oracle_provider": "Tangible-reported property NAV updated quarterly; no independent oracle. Asset valuations subject to issuer discretion.",
+  "redemption_mechanism": "Direct redemption to DAI at 1:1 while DAI reserves available. Once DAI exhausted, redemption switched to TNFT real estate fractions — illiquid, non-USD denominated, with implicit haircut.",
+  "upgrade_authority": "Tangible Labs multisig controlled protocol parameters and reserve composition.",
+
+  "timeline": [
+    {"date": "2022-09-19", "event": "USDR launches on Polygon", "type": "milestone"},
+    {"date": "2023-09-01", "event": "TVL peaks at ~$45M; rental yield narrative drives growth", "type": "milestone"},
+    {"date": "2023-10-11", "event": "DAI reserves drop below 14.74%; large holder redemptions accelerate", "type": "incident"},
+    {"date": "2023-10-11", "event": "DAI reserves exhausted; USDR de-pegs to $0.51 within hours", "type": "incident"},
+    {"date": "2023-10-12", "event": "Tangible announces recovery plan; pivots to TNFT/locker distribution", "type": "incident"},
+    {"date": "2023-11-01", "event": "USDR redemptions paused; recovery process begins", "type": "incident"},
+    {"date": "2024-06-01", "event": "Recovery process ongoing; holders partially repaid in illiquid TNFTs", "type": "milestone"}
+  ],
+
+  "risk_flags": ["de_pegged", "failed", "liquidity_mismatch", "rwa_backing"],
+
+  "lessons_visibility": "lessons_only",
+
+  "postmortem": {
+    "incident_date": "2023-10-11",
+    "root_cause": "Asset-liability liquidity mismatch. USDR claimed daily redeemability against a reserve that was ~58% illiquid real estate. Only DAI portion (~14.74% at de-peg) could honor redemptions on-demand. When redemption demand exceeded DAI liquidity, the system had no mechanism to liquidate real estate quickly — UK property sales take months. Compounded by reflexive TNGBL component (~13%) that lost value as confidence dropped, and oracle dependency on issuer-reported property valuations with no independent verification.",
+    "what_failed": [
+      {
+        "layer": "L2",
+        "layer_name": "Asset Quality",
+        "issue": "Real estate is a legitimate asset class but inherently illiquid. Using it as backing for a daily-redeemable stablecoin created structural maturity mismatch. Additional reflexive TNGBL component (~13%) compounded the problem."
+      },
+      {
+        "layer": "L4",
+        "layer_name": "Token & Market Structure",
+        "issue": "Redemption mechanism promised daily 1:1 to DAI while reserves were 58% illiquid. No tiered redemption schedule, no liquidity buffer minimum, no gate mechanism for orderly wind-down."
+      },
+      {
+        "layer": "L3",
+        "layer_name": "Counterparty",
+        "issue": "UK property SPV concentration; single-jurisdiction tenant base; rental yield denominated in GBP creating FX risk against USD peg. No diversified custody."
+      },
+      {
+        "layer": "L5",
+        "layer_name": "Technology",
+        "issue": "Property valuations self-reported by Tangible Labs without independent oracle or third-party appraiser. Quarterly updates created stale-data risk between reporting periods."
+      }
+    ],
+    "outcome": "USDR de-pegged to $0.51; ~$45M peak supply trapped. Holders partially repaid in illiquid TNFTs and locker tokens. The first significant RWA-backed stablecoin failure. Cited in HKMA stablecoin consultation paper (December 2023) and Bank of England discussion paper on systemic stablecoin requirements as evidence for liquid-reserve minimums.",
+    "rarm_lesson": "USDR is the canonical RWA stablecoin liquidity-mismatch case. RARM AFI for RWA-backed stablecoins must enforce a hard L4 constraint: liquid reserve fraction must equal or exceed maximum plausible daily redemption demand. For real estate backing, this typically means 30-50% liquid buffer or tiered redemption with explicit gates. Secondary lesson: L5 oracle requirements for RWA — issuer-reported NAV is not an oracle. RARM requires independent third-party valuation (Big Four, Knight Frank, or equivalent) at minimum quarterly with monthly attestation between."
+  }
+}

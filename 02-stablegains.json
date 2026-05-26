@@ -1,0 +1,82 @@
+{
+  "slug": "stablegains",
+  "name": "Stablegains",
+  "short_name": "Stablegains",
+  "website": "https://stablegains.com",
+  "asset_class": "fintech_wrapper",
+  "jurisdiction": "United States (Delaware)",
+  "chain": "N/A — custodial fintech, off-chain ledger with Terra deposits",
+  "status": "failed",
+  "launched_at": "2021-12-15",
+  "tvl_usd": 0,
+  "peak_tvl_usd": 47000000,
+  "peak_tvl_date": "2022-05-01",
+  "entity_map": {
+    "issuer":        { "name": "Stablegains, Inc.", "type": "Delaware C-Corp", "url": "" },
+    "custodian":     { "name": "Anchor Protocol (UST deposits)", "type": "DeFi protocol — not a regulated custodian" },
+    "chain_infra":   { "name": "Terra blockchain (UST/Anchor)", "type": "External dependency" },
+    "oracle":        { "name": "N/A — relied on Anchor's reported yield", "type": "" },
+    "law_firm":      { "name": "Disclosed in class action: Kemnitzer, Barron & Krieg LLP", "type": "Plaintiff counsel" },
+    "auditor":       { "name": "No audit disclosed", "type": "" },
+    "regulator":     { "name": "US SEC (enforcement); California DFPI", "type": "Securities enforcement" },
+    "token_standard": "N/A — no token issued; USD deposits"
+  },
+  "asset_slug": "",
+  "summary": "Y Combinator-backed fintech that advertised '15% APY on USD savings' by silently routing customer deposits into Anchor Protocol's UST yield. Marketed to US retail consumers without disclosing UST exposure. Lost ~$42M of customer funds in the May 2022 Terra collapse. SEC complaint filed; class action ongoing.",
+  "sources": [
+    {"title": "Class action complaint: Wang v. Stablegains (N.D. Cal., June 2022)", "url": "https://www.classaction.org/news/stablegains-class-action-claims-fintech-quietly-funneled-customer-savings-into-collapsed-terra-stablecoin"},
+    {"title": "TechCrunch: Stablegains shutdown announcement", "url": "https://techcrunch.com/2022/06/24/stablegains-yc-backed-startup-shutters-after-terra-collapse/"}
+  ],
+  "updated_at": "2026-05-19",
+
+  "underlying_asset": "Customer USD deposits converted to UST and deposited into Anchor Protocol. Marketing materials referred to 'USD' and 'stable' without disclosing UST conversion or smart contract risk.",
+  "reserve_composition": "None held by Stablegains directly. 100% of customer funds routed to Anchor Protocol on Terra blockchain.",
+  "secondary_market": "N/A — closed system; deposits only withdrawable via Stablegains app.",
+  "min_investment_usd": 0,
+  "smart_contract_audit": {
+    "auditor": "Relied on Anchor's audits; no Stablegains-specific audit",
+    "date": "",
+    "report_url": ""
+  },
+  "oracle_provider": "N/A",
+  "redemption_mechanism": "Customer-initiated withdrawal via app; required UST→USD conversion. Withdrawals frozen on May 11, 2022 when UST de-pegged.",
+  "upgrade_authority": "Stablegains, Inc. management; no external governance.",
+
+  "timeline": [
+    {"date": "2021-12-15", "event": "Stablegains launches with YC backing", "type": "milestone"},
+    {"date": "2022-03-01", "event": "Marketing claims '15% APY on USD savings'; UST exposure not disclosed", "type": "milestone"},
+    {"date": "2022-05-09", "event": "UST de-pegs; Stablegains exposure ~$42M of customer funds", "type": "incident"},
+    {"date": "2022-05-11", "event": "Withdrawals suspended; UST conversion losses crystallize", "type": "incident"},
+    {"date": "2022-06-15", "event": "Class action filed in N.D. California", "type": "regulatory"},
+    {"date": "2022-06-24", "event": "Stablegains announces wind-down", "type": "milestone"},
+    {"date": "2023-02-10", "event": "SEC complaint alleges unregistered securities offering", "type": "regulatory"}
+  ],
+
+  "risk_flags": ["failed", "regulatory_action", "misleading_disclosure"],
+
+  "lessons_visibility": "lessons_only",
+
+  "postmortem": {
+    "incident_date": "2022-05-09",
+    "root_cause": "Stablegains marketed itself as a USD savings product while silently routing 100% of customer deposits into Anchor Protocol's UST yield farm. When UST de-pegged, customers had no recourse: deposits were denominated in collapsing UST, not USD. The company had no reserves of its own, no banking license, no securities registration, and no meaningful disclosure of underlying mechanics. A fintech wrapper that inherited 100% of the wrapped asset's tail risk while presenting none of it to customers.",
+    "what_failed": [
+      {
+        "layer": "L1",
+        "layer_name": "Legal Foundation",
+        "issue": "Operated as unregistered securities offering. Marketing 'USD savings' while delivering UST exposure constituted material misrepresentation under federal and California securities law. No banking license, no money transmitter license in most states."
+      },
+      {
+        "layer": "L3",
+        "layer_name": "Counterparty",
+        "issue": "100% counterparty concentration in a single DeFi protocol (Anchor) on a single L1 (Terra). No diversification, no insurance, no segregation of customer funds."
+      },
+      {
+        "layer": "L2",
+        "layer_name": "Asset Quality",
+        "issue": "Inherited UST's reflexive algorithmic peg risk while marketing the product as USD-backed. No independent reserve."
+      }
+    ],
+    "outcome": "~$42M customer funds lost. Stablegains wound down June 2022. Class action and SEC complaint pending. Cautionary example used in MiCA Article 49 (asset-referenced token disclosure) and US GENIUS Act consumer protection provisions.",
+    "rarm_lesson": "Demonstrates RARM AFI logic at L1: when Legal Foundation falls below threshold (unregistered securities, material misrepresentation), the entire stack scores zero regardless of underlying technology. Also illustrates why RARM treats fintech wrappers as inheriting the AFI of their underlying asset — Stablegains' L2 score was bounded by UST's L2 score, not its own marketing claims. Wrapper products should be evaluated at the consolidated risk level, not the wrapper level."
+  }
+}

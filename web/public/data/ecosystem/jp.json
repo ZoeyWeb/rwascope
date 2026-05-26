@@ -1,0 +1,412 @@
+{
+  "meta": {
+    "version": "1.0.0",
+    "last_compiled": "2026-05-18",
+    "title": "Japan RWA Ecosystem Map",
+    "description": "A structured overview of Japan's tokenized real-world asset ecosystem — mapping FSA-regulated security tokens, the Progmat/DCC bank consortium, and the world's most methodical institutional tokenization infrastructure.",
+    "disclaimer": "This map is compiled from publicly available official sources. Participant lists may be incomplete where information has not been publicly enumerated by regulators. This is an informational reference, not a regulatory register.",
+    "sources": [
+      "FSA official publications and regulatory notices (fsa.go.jp)",
+      "Bank of Japan research publications and DCJPY pilot announcements (boj.or.jp)",
+      "JVCEA public statistics and member announcements (jvcea.or.jp)",
+      "MUFG, Nomura, SBI Holdings, Daiwa Securities public disclosures and press releases",
+      "Progmat platform announcements and DCC consortium public disclosures",
+      "Osaka Digital Exchange (ODX) START platform public announcements",
+      "BOOSTRY and ibet for Fin public platform disclosures",
+      "DCC JGB Tokenization Working Group public announcements (May 2026)"
+    ]
+  },
+  "stats": {
+    "regulators": 4,
+    "financial_institutions": 6,
+    "infrastructure_participants": 4,
+    "issuance_platforms": 4,
+    "market_access_participants": 4,
+    "professional_enablers": 6
+  },
+  "layers": [
+    {
+      "id": "regulatory",
+      "order": 1,
+      "label": "Regulatory Oversight",
+      "sublabel": "Licensing & Policy",
+      "color": "#818cf8",
+      "bg": "#16163a",
+      "border": "#818cf8",
+      "description": "Japan regulates tokenized securities under the Financial Instruments and Exchange Act (FIEA), with the Financial Services Agency (FSA) as the primary licensing and supervisory authority. The FSA announced a landmark 2026 reclassification of crypto assets as financial products, aligning taxation with securities at a flat 20% rate. The JVCEA serves as the self-regulatory body overseeing 32 registered crypto asset exchanges as of March 2026. The Bank of Japan is piloting the DCJPY digital yen targeting a 2026 launch, providing wholesale digital currency infrastructure for tokenized settlement.",
+      "participants": [
+        {
+          "id": "fsa-jp",
+          "name": "FSA",
+          "full_name": "Financial Services Agency of Japan",
+          "type": "regulator",
+          "role": "Primary financial regulator and licensing authority for Japan; governs security token (ST) issuance under the Financial Instruments and Exchange Act (FIEA); announced 2026 reclassification of crypto assets as financial products with a flat 20% capital gains tax rate, replacing the prior miscellaneous income treatment with a maximum marginal rate of 55%; licenses and supervises securities firms, asset managers, and registered crypto asset exchange service providers; key policy driver for Japan's orderly institutionalisation of tokenized assets",
+          "url": "https://www.fsa.go.jp",
+          "tags": ["regulator", "fiea", "securities-tokens", "licensing", "crypto-reclassification", "20-percent-tax"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "boj",
+          "name": "Bank of Japan",
+          "full_name": "Bank of Japan",
+          "type": "regulator",
+          "role": "Japan's central bank and monetary infrastructure authority; leading the DCJPY (Digital Currency JPY) pilot project targeting a 2026 April launch as a wholesale digital settlement instrument; the DCJPY is designed to serve as tokenized payment infrastructure for security token DVP (Delivery versus Payment) settlement, enabling atomic T+0 settlement in the DCC consortium's JGB tokenization working group; BOJ also participates in BIS Project Agorá exploring tokenized cross-border wholesale payments",
+          "url": "https://www.boj.or.jp",
+          "tags": ["central-bank", "dcjpy", "digital-yen", "cbdc", "dvp-settlement", "project-agora"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "jvcea",
+          "name": "JVCEA",
+          "full_name": "Japan Virtual and Crypto Assets Exchange Association",
+          "type": "regulator",
+          "role": "FSA-recognised self-regulatory organisation for Japan's crypto asset exchange industry; oversees 32 registered crypto asset exchange service providers as of March 2026; sets compliance standards for crypto asset listing, custody, AML/CFT, and customer protection; plays a complementary role to FSA licensing, providing industry-level governance and conduct standards that underpin institutional confidence in Japan's regulated crypto market",
+          "url": "https://jvcea.or.jp",
+          "tags": ["self-regulatory", "crypto-exchanges", "aml-cft", "conduct-standards", "32-registered-exchanges"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "fiea-framework",
+          "name": "FIEA Framework",
+          "full_name": "Financial Instruments and Exchange Act Security Token Framework",
+          "type": "regulator",
+          "role": "The legal and regulatory framework governing security token (ST) issuance and trading in Japan; security tokens are classified as either Type 1 (equity-like, restricted to licensed Type 1 Financial Instruments Business operators) or Type 2 (debt/beneficiary interest, licensed Type 2 operators) under FIEA; the FIEA framework mandates prospectus disclosure, investor suitability requirements, and secondary market licensing; it is the definitive legal basis on which ODX START, Progmat, and ibet for Fin operate Japan's institutional ST market",
+          "url": "https://www.fsa.go.jp",
+          "tags": ["fiea", "security-tokens", "type-1-fi", "type-2-fi", "prospectus", "securities-law"],
+          "confidence_level": "high"
+        }
+      ]
+    },
+    {
+      "id": "financial_institutions",
+      "order": 2,
+      "label": "Financial Institutions",
+      "sublabel": "Banks & Securities Houses",
+      "color": "#4ade80",
+      "bg": "#0c2018",
+      "border": "#4ade80",
+      "description": "Japan's three megabanks — MUFG, SMBC, and Mizuho — are the anchor institutions of the Progmat and DCC consortium, making Japan's institutional tokenization infrastructure unique in its concentration of top-tier bank commitment. MUFG founded Progmat and issued Japan's first digital bond worth JPY 10 billion. Nomura, through its BOOSTRY subsidiary, leads the ibet for Fin issuance rail dominating institutional real estate STOs. SBI Holdings is the leading securities group driving retail access and ODX's secondary market.",
+      "participants": [
+        {
+          "id": "mufg",
+          "name": "MUFG",
+          "full_name": "Mitsubishi UFJ Financial Group",
+          "type": "bank",
+          "role": "Japan's largest bank by assets and the founding institution behind Progmat, Japan's core security token issuance platform; issued Japan's first digital bond worth JPY 10 billion on Progmat infrastructure; MUFG also co-invests in Progmat alongside SMBC, Mizuho, SBI, JPX, and NTT Data; the DCC consortium's 330-member institution network operates through Progmat, with MUFG Trust Bank providing the underlying tokenized trust custody structure; MUFG's institutional weight is the primary catalyst for Japan's systematic, bank-consortium-led approach to RWA tokenization",
+          "url": "https://www.mufg.jp",
+          "tags": ["bank", "progmat", "digital-bond", "dcc", "trust-custody", "megabank"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "smbc",
+          "name": "SMBC",
+          "full_name": "Sumitomo Mitsui Banking Corporation",
+          "type": "bank",
+          "role": "One of Japan's three megabanks; core investor and participant in the Progmat platform and DCC (Digital Asset Co-Creation Consortium); Sumitomo Mitsui Trust Bank, SMBC's trust banking affiliate, provides the security token trust structure used for ST issuances under the FIEA beneficiary interest framework; SMBC is also a major shareholder of Osaka Digital Exchange (ODX), Japan's first licensed ST secondary market, enabling institutional issuers to access a regulated secondary trading venue",
+          "url": "https://www.smbc.co.jp",
+          "tags": ["bank", "progmat", "dcc", "odx", "trust-structure", "megabank"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "mizuho",
+          "name": "Mizuho Bank",
+          "full_name": "Mizuho Bank, Ltd.",
+          "type": "bank",
+          "role": "One of Japan's three megabanks; Progmat investor and DCC consortium core member; participant in the DCC JGB Tokenization Working Group launched May 2026, targeting T+0 DVP settlement for Japanese government bonds; Mizuho is also participating in the Canton Network pilot for JGB digital collateral alongside Nomura and JSCC (Japan Securities Clearing Corporation), positioning the bank at the intersection of JGB market infrastructure modernisation and distributed ledger settlement",
+          "url": "https://www.mizuhobank.co.jp",
+          "tags": ["bank", "progmat", "dcc", "jgb-tokenization", "canton-network", "megabank"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "sbi-holdings",
+          "name": "SBI Holdings",
+          "full_name": "SBI Holdings, Inc.",
+          "type": "bank",
+          "role": "Japan's largest internet financial services group; strategic investor in Digital Securities (Progmat operator), holding over 20% stake; major shareholder and commercial backer of Osaka Digital Exchange (ODX), Japan's first FIEA-licensed security token secondary market; operates SBI VC Trade, a licensed crypto asset exchange; SBI Group's strategy uniquely bridges Japan's institutional ST infrastructure (Progmat/ODX) with retail digital asset market access, making it the most vertically integrated participant in Japan's tokenized asset ecosystem",
+          "url": "https://www.sbigroup.co.jp",
+          "tags": ["financial-group", "progmat", "odx", "sbi-vc-trade", "digital-securities", "retail-institutional"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "nomura",
+          "name": "Nomura",
+          "full_name": "Nomura Holdings, Inc.",
+          "type": "bank",
+          "role": "Japan's largest investment bank; parent of BOOSTRY, the operator of ibet for Fin — the dominant institutional issuance rail for Japan's real estate security token offerings; completed Japan's first DVP (Delivery versus Payment) settlement for digital bonds via Progmat in 2025, demonstrating atomic settlement for institutional bond transactions; Nomura also participates in the Canton Network JGB digital collateral pilot; BOOSTRY's infrastructure underpins the majority of institutional real estate STO issuances by asset managers and real estate firms on ODX START",
+          "url": "https://www.nomura.com",
+          "tags": ["investment-bank", "boostry", "ibet-for-fin", "dvp-settlement", "real-estate-sto", "canton-network"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "daiwa",
+          "name": "Daiwa Securities",
+          "full_name": "Daiwa Securities Group Inc.",
+          "type": "bank",
+          "role": "One of Japan's two largest securities houses; ODX (Osaka Digital Exchange) shareholder and DCC consortium member; Daiwa provides distribution and investor access capabilities for security token issuances, bridging the institutional ST market to its extensive domestic retail and institutional brokerage client base; as a major Japanese securities house, Daiwa's participation in ODX and DCC validates the mainstream capital markets adoption trajectory for Japan's ST market",
+          "url": "https://www.daiwa.jp",
+          "tags": ["securities", "odx", "dcc", "distribution", "retail-brokerage", "institutional"],
+          "confidence_level": "high"
+        }
+      ]
+    },
+    {
+      "id": "infrastructure",
+      "order": 3,
+      "label": "Infrastructure",
+      "sublabel": "Settlement & Blockchain Networks",
+      "color": "#facc15",
+      "bg": "#1e1a02",
+      "border": "#facc15",
+      "description": "Japan's tokenized asset infrastructure is defined by two dominant issuance rails — Progmat (bank-consortium model) and ibet for Fin/BOOSTRY (Nomura-led institutional model) — operating in parallel under the FIEA beneficiary interest framework. Unlike other major markets, Japan's institutional infrastructure migrated from private permissioned ledgers toward public blockchain integration: Progmat is partnering with Ava Labs to deploy on Avalanche, while the Canton Network serves as the JGB digital collateral pilot ledger. No wholesale CBDC is in production; yen settlement runs on conventional BOJ/bank rails.",
+      "participants": [
+        {
+          "id": "progmat",
+          "name": "Progmat",
+          "full_name": "Progmat, Inc.",
+          "type": "infrastructure",
+          "role": "Japan's core security token issuance and lifecycle management platform, founded by MUFG and backed by all three megabanks (MUFG, SMBC, Mizuho), SBI Holdings, JPX Group, and NTT Data; operates as the infrastructure backbone of the DCC (Digital Asset Co-Creation Consortium) with 330 member institutions as of 2026; manages the end-to-end issuance workflow for FIEA-compliant security tokens including investor onboarding, token minting, corporate actions, and redemption; target market balance exceeding JPY 1.5 trillion by end 2026; migrating the ST platform from a private ledger architecture to Avalanche public chain via partnership with Ava Labs",
+          "url": "https://progmat.co.jp",
+          "tags": ["infrastructure", "dcc", "security-tokens", "mufg", "megabanks", "avalanche", "jpy-1-5t-target"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "ibet-for-fin",
+          "name": "ibet for Fin",
+          "full_name": "ibet for Fin (BOOSTRY Co., Ltd.)",
+          "type": "infrastructure",
+          "role": "Nomura-subsidiary BOOSTRY operates ibet for Fin, the dominant institutional issuance rail for real estate security token offerings in Japan; built on a permissioned blockchain using Ethereum-compatible smart contracts; provides token issuance, investor registry management, and DVP settlement capabilities under the FIEA beneficiary interest framework; the majority of Japan's institutional real estate STO issuances — including ICHIGO Asset Management and Kenedix on ODX START — are issued and managed on ibet for Fin infrastructure",
+          "url": "https://boostry.co.jp",
+          "tags": ["infrastructure", "nomura", "real-estate-sto", "dvp", "permissioned-ledger", "ethereum-compatible"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "avalanche-jp",
+          "name": "Avalanche",
+          "full_name": "Avalanche (Ava Labs)",
+          "type": "blockchain",
+          "role": "Progmat and MUFG are partnering with Ava Labs to migrate the Progmat security token platform from its current private permissioned ledger to the Avalanche public blockchain ecosystem; the migration enables Japan's institutional ST issuances to achieve public blockchain composability, secondary market tradability on-chain, and interoperability with global DeFi and institutional on-chain infrastructure; represents Japan's strategic shift from closed consortium chains toward public-chain-anchored institutional tokenization",
+          "url": "https://www.avax.network",
+          "tags": ["blockchain", "public-chain", "progmat", "mufg", "composability", "migration"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "canton-network-jp",
+          "name": "Canton Network",
+          "full_name": "Canton Network",
+          "type": "blockchain",
+          "role": "Privacy-enabled institutional blockchain network built on Daml smart contracts; hosts Japan's JGB (Japanese Government Bond) digital collateral pilot, with Mizuho Bank, Nomura, and JSCC (Japan Securities Clearing Corporation) as Japan-side participants; the Canton Network pilot explores using tokenized JGBs as digital collateral for intraday margin and repo transactions, targeting atomic settlement and continuous collateral optimisation for Japan's institutional fixed-income market",
+          "tags": ["blockchain", "jgb", "digital-collateral", "mizuho", "nomura", "jscc", "repo", "daml"],
+          "confidence_level": "high"
+        }
+      ]
+    },
+    {
+      "id": "issuance",
+      "order": 4,
+      "label": "Issuance Platforms",
+      "sublabel": "Tokenization Protocols",
+      "color": "#60a5fa",
+      "bg": "#0d1c32",
+      "border": "#60a5fa",
+      "description": "Japan's issuance ecosystem is anchored by two institutional venues: the ODX START secondary market, which provides Japan's first FIEA-licensed platform for security token trading, and the DCC JGB Tokenization Working Group, which is building the infrastructure for T+0 settlement of Japanese government bonds. ICHIGO Asset Management and Kenedix were the first issuers to list security tokens on ODX START, with combined issuance of approximately JPY 6.3 billion establishing the real estate STO precedent.",
+      "participants": [
+        {
+          "id": "odx-start",
+          "name": "ODX / START",
+          "full_name": "Osaka Digital Exchange START Platform",
+          "type": "platform",
+          "role": "Japan's first FIEA-licensed security token secondary market, operated by Osaka Digital Exchange (ODX); backed by SBI Holdings, SMBC, Nomura, and Daiwa Securities; provides regulated secondary trading for real estate security tokens issued on ibet for Fin and Progmat; from 2026, ODX START allows retail investors to trade tokenized listed securities with a minimum investment of JPY 1, enabling 24/7 settlement; expanding its eligible asset classes beyond real estate to include aircraft, ships, and renewable energy project tokens",
+          "url": "https://odx.co.jp",
+          "tags": ["platform", "secondary-market", "fiea-licensed", "real-estate-sto", "retail-access", "24-7"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "dcc-jgb",
+          "name": "DCC JGB Tokenization",
+          "full_name": "DCC Japanese Government Bond Tokenization Working Group",
+          "type": "platform",
+          "role": "Working group launched by Progmat and the DCC consortium in May 2026 targeting the tokenization of Japanese Government Bonds (JGBs) with T+0 atomic DVP settlement; participants include BlackRock Japan and State Street alongside Japanese megabanks and securities houses; the working group aims to deploy on-chain JGB transactions by end 2026, establishing the world's largest sovereign bond tokenization program if achieved at scale; T+0 settlement is designed to eliminate overnight counterparty risk in Japan's JPY 1,000 trillion+ JGB market",
+          "tags": ["platform", "jgb", "t0-settlement", "dvp", "dcc", "progmat", "blackrock-japan", "state-street"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "ichigo-asset-mgmt",
+          "name": "ICHIGO Asset Management",
+          "full_name": "ICHIGO Asset Management Co., Ltd.",
+          "type": "issuer",
+          "role": "Japanese real estate asset manager and one of the first two issuers to list security tokens on ODX START; issued JPY 2.925 billion in real estate security tokens on ibet for Fin infrastructure, backed by commercial real estate assets; ICHIGO's ODX listing established the precedent for institutional real estate tokenization with a regulated secondary market in Japan, demonstrating investor appetite and secondary liquidity for FIEA-compliant property-backed tokens",
+          "tags": ["issuer", "real-estate", "odx-start", "ibet-for-fin", "jpy-2-925b", "commercial-real-estate"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "kenedix",
+          "name": "Kenedix",
+          "full_name": "Kenedix, Inc.",
+          "type": "issuer",
+          "role": "Leading Japanese real estate asset management company and one of the first two issuers to list security tokens on ODX START; issued JPY 3.361 billion in real estate security tokens on ibet for Fin infrastructure, representing the largest single ST issuance in Japan's ODX START history at launch; Kenedix's participation alongside ICHIGO validated the institutional real estate STO market and demonstrated that major J-REIT adjacent asset managers view tokenization as a mainstream distribution channel",
+          "tags": ["issuer", "real-estate", "odx-start", "ibet-for-fin", "jpy-3-361b", "j-reit"],
+          "confidence_level": "high"
+        }
+      ]
+    },
+    {
+      "id": "market_access",
+      "order": 5,
+      "label": "Market Access",
+      "sublabel": "Licensed Exchanges & Trading Venues",
+      "color": "#fb923c",
+      "bg": "#1e1102",
+      "border": "#fb923c",
+      "description": "Japan's market access for tokenized assets is anchored by ODX START for security token secondary trading, with SBI VC Trade, Coincheck, and bitFlyer providing regulated crypto asset exchange access. Japan has 32 registered crypto asset exchanges as of March 2026 — the world's largest number of FSA-regulated digital asset venues — reflecting the depth of Japan's retail market engagement. From 2026, ODX START enables tokenized listed equity trading from JPY 1, targeting continuous 24/7 settlement.",
+      "participants": [
+        {
+          "id": "odx-start-exchange",
+          "name": "ODX START",
+          "full_name": "Osaka Digital Exchange START (Secondary Market)",
+          "type": "exchange",
+          "role": "Japan's sole FIEA-licensed regulated secondary market for security tokens; from 2026, enabling retail investors to trade tokenized listed equity and real estate tokens with a minimum investment of JPY 1 and 24/7 settlement; backed by Japan's major securities firms and banks; the platform is expanding eligible asset classes to aircraft, ships, and renewable energy project tokens to broaden the investable token universe; represents the critical secondary market infrastructure that transforms illiquid private STO issuances into tradable on-chain securities",
+          "url": "https://odx.co.jp",
+          "tags": ["exchange", "secondary-market", "fiea-licensed", "retail-access", "jpy-1-minimum", "24-7"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "sbi-vc-trade",
+          "name": "SBI VC Trade",
+          "full_name": "SBI VC Trade Co., Ltd.",
+          "type": "exchange",
+          "role": "FSA-registered crypto asset exchange service provider operated by SBI Group; provides spot and derivative trading for crypto assets to retail and institutional clients; as part of the SBI ecosystem, SBI VC Trade bridges the regulated crypto asset exchange market with SBI's institutional tokenization investments in Progmat and ODX; a key distribution channel connecting SBI Group's ST market infrastructure with Japan's active retail crypto investor base",
+          "url": "https://www.sbivc.co.jp",
+          "tags": ["exchange", "crypto-assets", "fsa-registered", "sbi-group", "retail-institutional"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "coincheck-jp",
+          "name": "Coincheck",
+          "full_name": "Coincheck, Inc.",
+          "type": "exchange",
+          "role": "Major Japanese FSA-registered crypto asset exchange; one of Japan's most active retail trading platforms by user count; expanding partnerships with financial institutions for tokenized asset distribution; Coincheck has taken steps toward public listing via a NASDAQ merger, which if completed would make it one of the first publicly traded Japanese crypto exchanges in the US market; actively engaging with security token distribution opportunities as Japan's retail ST market matures",
+          "url": "https://coincheck.com",
+          "tags": ["exchange", "fsa-registered", "retail", "nasdaq-listing", "crypto-assets"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "bitflyer",
+          "name": "bitFlyer",
+          "full_name": "bitFlyer, Inc.",
+          "type": "exchange",
+          "role": "Japan's largest FSA-registered crypto asset exchange by trading volume; holds crypto asset exchange service provider licences in Japan, the EU, and the United States, making it one of the most extensively multi-jurisdiction licensed Japanese crypto exchanges; provides institutional and retail trading infrastructure for Bitcoin, Ethereum, and other crypto assets; bitFlyer's regulatory standing across multiple jurisdictions positions it as a compliant gateway for cross-border tokenized asset flows involving Japanese investors",
+          "url": "https://bitflyer.com",
+          "tags": ["exchange", "fsa-registered", "multi-jurisdiction", "retail-institutional", "largest-by-volume"],
+          "confidence_level": "high"
+        }
+      ],
+      "participants_note": "Security token secondary market trading (ODX START) is governed by FIEA and limited to eligible investors meeting suitability requirements. Crypto asset exchanges (SBI VC Trade, Coincheck, bitFlyer) are registered under the Payment Services Act and do not currently list FIEA-classified security tokens."
+    },
+    {
+      "id": "enablers",
+      "order": 6,
+      "label": "Professional Enablers",
+      "sublabel": "Custody · Legal · Audit",
+      "color": "#a78bfa",
+      "bg": "#1a1030",
+      "border": "#a78bfa",
+      "description": "Japan's professional enablers for tokenized assets are anchored by the trust bank system — MUFG Trust Bank, Sumitomo Mitsui Trust Bank, and State Street Trust Bank Japan — which provide the FIEA-compliant beneficiary interest trust structures that underpin all major ST issuances. Anderson Mori & Tomotsune and Nishimura & Asahi are the leading FIEA and digital asset law firms. PwC Japan provides audit and advisory services to the DCC ecosystem.",
+      "participants": [
+        {
+          "id": "mufg-trust",
+          "name": "MUFG Trust Bank",
+          "full_name": "Mitsubishi UFJ Trust and Banking Corporation",
+          "type": "custody",
+          "role": "MUFG's trust banking affiliate and the primary custody provider for tokenized trust structures on the Progmat platform; under Japan's FIEA beneficiary interest framework, ST issuances are structured as tokened fractional beneficiary interests in trust-held assets — MUFG Trust Bank acts as the trust company holding the underlying assets; provides institutional custody infrastructure that gives security token investors the same legal protection as traditional trust beneficiaries under Japanese trust law",
+          "url": "https://www.tr.mufg.jp",
+          "tags": ["custody", "trust-bank", "progmat", "beneficiary-interest", "fiea", "mufg"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "smtb",
+          "name": "Sumitomo Mitsui Trust Bank",
+          "full_name": "Sumitomo Mitsui Trust Bank, Limited",
+          "type": "custody",
+          "role": "SMBC's trust banking affiliate; provides FIEA-compliant trust structures for security token issuances, particularly for real estate STOs distributed through the ODX START platform; Sumitomo Mitsui Trust Bank's role as trustee in ICHIGO and other real estate STO structures ensures that tokenized fractional interests in commercial property carry the full legal protection of a Japanese trust deed, providing investor-side title certainty that underpins institutional participation",
+          "url": "https://www.smtb.jp",
+          "tags": ["custody", "trust-bank", "real-estate-sto", "fiea", "odx", "smbc"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "state-street-jp",
+          "name": "State Street Trust Bank Japan",
+          "full_name": "State Street Trust Bank Japan, Ltd.",
+          "type": "custody",
+          "role": "Japan-licensed trust banking subsidiary of State Street Corporation; participant in the DCC JGB Tokenization Working Group launched May 2026; State Street's participation bridges global institutional custody expertise with Japan's domestic JGB tokenization initiative; as a global custodian with deep fixed-income and fund administration capabilities, State Street Trust Bank Japan brings cross-border institutional custody standards to Japan's nascent on-chain JGB settlement infrastructure",
+          "tags": ["custody", "trust-bank", "dcc", "jgb-tokenization", "state-street", "global-custodian"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "anderson-mori",
+          "name": "Anderson Mori & Tomotsune",
+          "full_name": "Anderson Mori & Tomotsune",
+          "type": "legal",
+          "role": "One of Japan's leading full-service law firms and the top-ranked firm for digital asset and tokenized securities legal advisory; advises on FIEA structuring for security token issuances, crypto asset regulatory compliance, and blockchain transaction documentation; AMT has acted as legal counsel on multiple landmark Japanese STO transactions and has published extensively on Japan's evolving digital asset regulatory framework, making it the first point of contact for foreign firms entering Japan's ST market",
+          "url": "https://www.amt-law.com",
+          "tags": ["legal", "fiea", "sto", "digital-assets", "blockchain", "top-tier"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "nishimura-asahi",
+          "name": "Nishimura & Asahi",
+          "full_name": "Nishimura & Asahi",
+          "type": "legal",
+          "role": "Japan's largest law firm by headcount and a leading practice for FIEA compliance, financial regulation, and digital assets; advises financial institutions and asset managers on FIEA Type 1 and Type 2 financial instruments business licensing, security token prospectus structuring, and crypto asset regulatory compliance; Nishimura & Asahi's FIEA compliance counsel is widely used by domestic securities houses and foreign financial institutions seeking regulatory clearance for Japan ST market entry",
+          "url": "https://www.nishimura.com",
+          "tags": ["legal", "fiea", "financial-regulation", "type-1-fi", "prospectus", "institutional"],
+          "confidence_level": "high"
+        },
+        {
+          "id": "pwc-jp",
+          "name": "PwC Japan",
+          "full_name": "PricewaterhouseCoopers Japan Group",
+          "type": "audit",
+          "role": "Big Four audit and advisory firm in Japan; provides audit, tax, and advisory services to Progmat ecosystem participants, security token issuers, and digital asset firms; PwC Japan's financial services advisory practice has published analyses of Japan's digital asset regulatory framework and DCC consortium developments; supports financial institutions on internal controls, operational risk frameworks, and regulatory compliance for tokenized asset operations under the FSA's FIEA-based security token regime",
+          "url": "https://www.pwc.com/jp",
+          "tags": ["audit", "advisory", "big-four", "progmat", "digital-assets", "fsa-compliance"],
+          "confidence_level": "high"
+        }
+      ],
+      "participants_note": "Japan's trust bank system (MUFG Trust Bank, Sumitomo Mitsui Trust Bank, Sumitomo Trust, and others) is structurally integral to all FIEA-compliant security token issuances. Only trust banks with active DCC/ODX mandates are listed here; the broader trust bank sector participates across Japan's ST ecosystem."
+    }
+  ],
+  "gaps": [
+    {
+      "id": "gap-regulatory-investment-trust-act",
+      "layer_id": "regulatory",
+      "type": "market_gap",
+      "severity": "high",
+      "title": "Investment Trust Act Barrier",
+      "description": "Japan's Investment Trust and Investment Corporation Act currently requires physical certificates for investment trust beneficiary rights, structurally blocking the tokenization of investment trust interests — one of Japan's largest retail savings vehicles. The DCC consortium and Progmat submitted legislative reform proposals in 2026 to remove the physical certificate requirement and enable on-chain beneficiary interest tokens. Until the Act is amended, the most liquid and widely held class of Japanese retail assets cannot be tokenized, significantly limiting Japan's RWA tokenization addressable market."
+    },
+    {
+      "id": "gap-infrastructure-galapagos-risk",
+      "layer_id": "infrastructure",
+      "type": "market_gap",
+      "severity": "high",
+      "title": "Galapagos Isolation Risk",
+      "description": "The DCC consortium has explicitly warned that Japan's domestic security token standards and infrastructure risk becoming isolated from global on-chain financial markets — analogous to Japan's historical 'Galapagos' technology ecosystem problem. While Progmat is pursuing Avalanche integration and the Canton Network provides a cross-border JGB collateral bridge, Japan's FIEA trust-beneficiary-interest framework, JVCEA compliance standards, and domestic settlement rails are not yet interoperable with US, EU, or Singapore tokenized asset ecosystems. Cross-border tokenized asset transfers involving Japanese institutional investors face unresolved regulatory and technical compatibility barriers."
+    },
+    {
+      "id": "gap-market-thin-retail-secondary",
+      "layer_id": "market_access",
+      "type": "market_gap",
+      "severity": "medium",
+      "title": "Thin Retail Secondary Market",
+      "description": "The majority of Japan's security token issuances remain institutional private placements distributed through FIEA-licensed securities firms, with limited secondary market liquidity. ODX START launched retail access at JPY 1 minimum investment in 2026, but trading volumes and liquidity depth remain nascent relative to the JPY 6 billion+ already issued on the platform. Retail investor awareness of security tokens as an asset class is low compared to crypto assets and listed J-REITs. Achieving sufficient secondary market liquidity for price discovery and investor confidence is the primary market development challenge for Japan's ST ecosystem."
+    }
+  ],
+  "participant_type_chart": [
+    { "category": "Regulators", "count": 4, "color": "#818cf8" },
+    { "category": "Financial Institutions", "count": 6, "color": "#4ade80" },
+    { "category": "Infrastructure", "count": 4, "color": "#facc15" },
+    { "category": "Issuance Platforms", "count": 4, "color": "#60a5fa" },
+    { "category": "Market Access", "count": 4, "color": "#fb923c" },
+    { "category": "Enablers", "count": 6, "color": "#a78bfa" }
+  ]
+}
