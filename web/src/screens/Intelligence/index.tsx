@@ -37,6 +37,15 @@ const STATIC_FORWARD_ITEMS = [
   'MiCA: Full regulatory technical standards applicability from 30 July 2026',
 ];
 
+function extractHighlightRegion(text: string): string {
+  if (/\bHKMA\b|\bSFC\b|\bHKEx\b|\bHK\b/i.test(text)) return 'HK';
+  if (/\bSEC\b|\bCFTC\b|\bUS\b/i.test(text)) return 'US';
+  if (/\bMiCA\b|\bESMA\b|\bEU\b/i.test(text)) return 'EU';
+  if (/\bMAS\b|\bSG\b/i.test(text)) return 'SG';
+  if (/\bVARA\b|\bUAE\b/i.test(text)) return 'UAE';
+  return 'GLOBAL';
+}
+
 // ── SectionDivider ────────────────────────────────────────────────────────────
 
 function SectionDivider() {
@@ -49,7 +58,7 @@ function SectionDivider() {
 
 // ── HeroSection ───────────────────────────────────────────────────────────────
 
-function HeroSection({ totalItems, isAdmin }: { totalItems: number; isAdmin: boolean }) {
+function HeroSection({ isAdmin }: { isAdmin: boolean }) {
   return (
     <section className="pt-ed-hero pb-ed-hero">
       <div className="text-ed-eyebrow uppercase text-ed-text-muted mb-8">
@@ -60,11 +69,9 @@ function HeroSection({ totalItems, isAdmin }: { totalItems: number; isAdmin: boo
       </h1>
       <p className="text-ed-lede text-ed-text-secondary max-w-[720px] mb-12">
         A weekly read on real-world asset regulation, institutional moves,
-        and structural signals across global markets.
+        and structural shifts across global markets.
       </p>
       <div className="flex items-center gap-6 text-ed-meta text-ed-text-muted flex-wrap">
-        <span>{totalItems} milestones</span>
-        <span className="text-ed-hairline">·</span>
         <span>Updated weekly</span>
         {isAdmin && (
           <>
@@ -86,28 +93,37 @@ function HeroSection({ totalItems, isAdmin }: { totalItems: number; isAdmin: boo
 
 function WeeklyBriefSection({ brief }: { brief: IntelligenceWeeklyBrief }) {
   return (
-    <section className="py-ed-section-md">
+    <section className="py-ed-section-sm">
       <div className="flex items-baseline justify-between mb-6 flex-wrap gap-3">
-        <div className="text-ed-eyebrow uppercase text-ed-text-muted">
-          Weekly Brief
-        </div>
+        <div className="text-ed-eyebrow uppercase text-ed-text-muted">Weekly Brief</div>
         <div className="text-ed-meta text-ed-text-muted">
           {brief.period_start} → {brief.period_end}
         </div>
       </div>
-      <h2 className="text-ed-section-h2 text-ed-text-primary mb-10 max-w-[900px]">
+      <h2 className="text-[2rem] font-semibold leading-tight text-ed-text-primary mb-8 max-w-[900px]">
         {brief.headline}
       </h2>
-      <div className="space-y-8 max-w-[900px]">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {brief.highlights.slice(0, 3).map((h, i) => (
-          <div key={i} className="pl-6 border-l border-ed-hairline">
-            <p className="text-ed-body-lg text-ed-text-secondary leading-loose">
+          <div
+            key={i}
+            className={[
+              'py-5',
+              i > 0 ? 'border-t border-ed-hairline md:border-t-0 md:border-l md:pl-8' : '',
+              i === 0 ? 'md:pr-8' : '',
+              i === 1 ? 'lg:pr-8' : '',
+            ].join(' ')}
+          >
+            <p className="text-[11px] uppercase tracking-widest text-ed-text-muted mb-2">
+              {extractHighlightRegion(h)}
+            </p>
+            <p className="text-[14px] text-ed-text-secondary leading-[1.55]">
               {h}
             </p>
           </div>
         ))}
       </div>
-      <div className="mt-10 text-right">
+      <div className="mt-6 text-right">
         <span className="text-[11px] text-ed-text-faint tracking-wide">
           AI summary · verify against source
         </span>
@@ -322,18 +338,163 @@ function EditorNoteSection({ note }: { note: EditorNote }) {
   );
 }
 
+// ── ItemCard ──────────────────────────────────────────────────────────────────
+
+function ItemCard({
+  item,
+  isExpanded,
+  onToggle,
+  compact = false,
+}: {
+  item: IntelligenceItem;
+  isExpanded: boolean;
+  onToggle: () => void;
+  compact?: boolean;
+}) {
+  return (
+    <article className="group cursor-pointer" onClick={onToggle}>
+      {/* Meta row */}
+      <div className="flex items-center gap-3 mb-2 text-ed-meta text-ed-text-muted flex-wrap">
+        <time className="tabular-nums">{item.event_date}</time>
+        <span className="text-ed-hairline">·</span>
+        <span className="uppercase tracking-wider">{item.region.toUpperCase()}</span>
+        <span className="text-ed-hairline">·</span>
+        <span className="uppercase tracking-wider">
+          {EVENT_TYPE_LABELS[item.event_type ?? 'regulation'] ?? item.event_type}
+        </span>
+        {!compact && (item.significance === 'landmark' || item.significance === 'major') && (
+          <>
+            <span className="text-ed-hairline">·</span>
+            <span className="text-ed-incident uppercase tracking-wider font-medium">
+              {item.significance === 'landmark' ? 'Landmark' : 'Major'}
+            </span>
+          </>
+        )}
+      </div>
+
+      {/* Title */}
+      <h3 className={`text-ed-text-primary leading-snug group-hover:text-ed-ink-hover transition-colors max-w-[900px] ${
+        compact ? 'text-ed-item-h4 mb-1.5' : 'text-ed-block-h3 mb-3'
+      }`}>
+        {item.title}
+      </h3>
+
+      {/* Summary — truncated when collapsed */}
+      <p className={`max-w-[900px] ${
+        compact
+          ? 'text-ed-body text-ed-text-muted'
+          : 'text-ed-body text-ed-text-secondary leading-relaxed'
+      } ${isExpanded ? '' : 'truncate'}`}>
+        {item.policy_summary}
+      </p>
+
+      {/* Expanded content — grid rows trick for smooth animation */}
+      <div
+        style={{
+          display: 'grid',
+          gridTemplateRows: isExpanded ? '1fr' : '0fr',
+          transition: 'grid-template-rows 0.3s ease',
+        }}
+        onClick={e => e.stopPropagation()}
+      >
+        <div className="overflow-hidden">
+          <div className="mt-6 space-y-6 max-w-[900px]">
+            {item.key_changes && item.key_changes.length > 0 && (
+              <div>
+                <p className="text-ed-eyebrow uppercase text-ed-text-muted mb-4">Key Changes</p>
+                <ul className="space-y-3">
+                  {item.key_changes.map((c, i) => (
+                    <li key={i} className="pl-6 border-l border-ed-hairline text-ed-body text-ed-text-secondary leading-relaxed">
+                      {c}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {item.market_impact?.capital_flow && (
+              <div>
+                <p className="text-ed-eyebrow uppercase text-ed-text-muted mb-4">Policy → Market</p>
+                <p className="text-ed-body text-ed-text-secondary leading-relaxed mb-3">
+                  {item.market_impact.capital_flow as string}
+                </p>
+                {item.market_impact.hk_relevance && (
+                  <p className="pl-6 border-l border-ed-hairline text-ed-body text-ed-text-secondary leading-relaxed italic">
+                    HK: {item.market_impact.hk_relevance as string}
+                  </p>
+                )}
+                <p className="mt-3 text-[11px] text-ed-text-faint tracking-wide">
+                  AI-generated · verify against source
+                </p>
+              </div>
+            )}
+
+            {item.timeline_significance && (
+              <p className="pl-6 border-l border-ed-hairline text-ed-body text-ed-text-muted leading-relaxed italic">
+                {item.timeline_significance}
+              </p>
+            )}
+
+            <div className="pt-4 border-t border-ed-hairline-faint flex items-center justify-end gap-6 flex-wrap">
+              {!compact && (
+                <>
+                  <Link
+                    to="/projects"
+                    className="text-ed-meta text-ed-text-secondary hover:text-ed-ink transition-colors"
+                    onClick={e => e.stopPropagation()}
+                  >
+                    Related projects →
+                  </Link>
+                  {item.market_impact?.hk_relevance && (
+                    <Link
+                      to="/intelligence/hk"
+                      className="text-ed-meta text-ed-text-secondary hover:text-ed-ink transition-colors"
+                      onClick={e => e.stopPropagation()}
+                    >
+                      HK Observation →
+                    </Link>
+                  )}
+                </>
+              )}
+              {item.source_url && (
+                <a
+                  href={item.source_url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-ed-meta text-ed-text-secondary hover:text-ed-ink transition-colors"
+                  onClick={e => e.stopPropagation()}
+                >
+                  Source →
+                </a>
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+  );
+}
+
 // ── NewsSection ───────────────────────────────────────────────────────────────
 
 function NewsSection({ items }: { items: IntelligenceItem[] }) {
   const PAGE_SIZE = 20;
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
+  const [expandedIds, setExpandedIds] = useState<Set<string>>(new Set());
+
+  function toggleExpanded(id: string) {
+    setExpandedIds(prev => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id); else next.add(id);
+      return next;
+    });
+  }
 
   return (
     <section className="py-ed-section-md">
       <div className="mb-10">
-        <div className="flex items-baseline justify-between mb-4 flex-wrap gap-3">
-          <div className="text-ed-eyebrow uppercase text-ed-text-muted">News</div>
-          <span className="text-ed-meta text-ed-text-muted">{items.length} items</span>
+        <div className="mb-4">
+          <div className="text-ed-eyebrow uppercase text-ed-text-muted">Latest News</div>
         </div>
         <h2 className="text-ed-section-h2 text-ed-text-primary mb-3">Latest News</h2>
         <p className="text-ed-section-h2-light text-ed-text-muted">Recent regulatory and institutional events.</p>
@@ -346,21 +507,12 @@ function NewsSection({ items }: { items: IntelligenceItem[] }) {
           <ul className="divide-y divide-ed-hairline-faint">
             {items.slice(0, visibleCount).map(item => (
               <li key={item.id} className="py-5 first:pt-0">
-                <div className="flex items-center gap-3 mb-1.5 text-ed-meta text-ed-text-muted flex-wrap">
-                  <time className="tabular-nums">{item.event_date}</time>
-                  <span className="text-ed-hairline">·</span>
-                  <span className="uppercase tracking-wider">{item.region.toUpperCase()}</span>
-                  <span className="text-ed-hairline">·</span>
-                  <span className="uppercase tracking-wider">
-                    {EVENT_TYPE_LABELS[item.event_type ?? 'regulation'] ?? item.event_type}
-                  </span>
-                </div>
-                <h3 className="text-ed-item-h4 text-ed-text-primary mb-1.5 max-w-[900px]">
-                  {item.title}
-                </h3>
-                <p className="text-ed-body text-ed-text-muted truncate max-w-[900px]">
-                  {item.policy_summary}
-                </p>
+                <ItemCard
+                  item={item}
+                  isExpanded={expandedIds.has(item.id)}
+                  onToggle={() => toggleExpanded(item.id)}
+                  compact
+                />
               </li>
             ))}
           </ul>
@@ -371,7 +523,7 @@ function NewsSection({ items }: { items: IntelligenceItem[] }) {
                 onClick={() => setVisibleCount(c => c + PAGE_SIZE)}
                 className="text-ed-meta uppercase tracking-wider text-ed-text-secondary hover:text-ed-ink transition-colors"
               >
-                Load {Math.min(PAGE_SIZE, items.length - visibleCount)} more →
+                Load more →
               </button>
             </div>
           )}
@@ -390,7 +542,7 @@ function TimelineSection({
   onSetEventType,
   activeRegion,
   onSetRegion,
-  expandedId,
+  expandedIds,
   onToggleExpanded,
   itemRefs,
 }: {
@@ -400,7 +552,7 @@ function TimelineSection({
   onSetEventType: (t: IntelligenceEventType | 'all') => void;
   activeRegion: IntelligenceRegion | 'all';
   onSetRegion: (r: IntelligenceRegion | 'all') => void;
-  expandedId: string | null;
+  expandedIds: Set<string>;
   onToggleExpanded: (id: string) => void;
   itemRefs: React.MutableRefObject<Record<string, HTMLDivElement | null>>;
 }) {
@@ -411,7 +563,7 @@ function TimelineSection({
 
   return (
     <section>
-      {/* Count + filter rows */}
+      {/* Filter feedback count */}
       <div className="flex justify-end mb-4 text-ed-meta text-ed-text-muted">
         <span>{items.length} of {totalAll}</span>
       </div>
@@ -468,106 +620,11 @@ function TimelineSection({
             {visibleItems.map(item => (
               <li key={item.id} className="py-8 first:pt-0">
                 <div ref={el => { itemRefs.current[item.id] = el; }}>
-                  {/* Collapsed view — always visible */}
-                  <article
-                    className="group cursor-pointer"
-                    onClick={() => onToggleExpanded(item.id)}
-                  >
-                    <div className="flex items-center gap-3 mb-3 text-ed-meta text-ed-text-muted flex-wrap">
-                      <time className="tabular-nums">{item.event_date}</time>
-                      <span className="text-ed-hairline">·</span>
-                      <span className="uppercase tracking-wider">{item.region.toUpperCase()}</span>
-                      <span className="text-ed-hairline">·</span>
-                      <span className="uppercase tracking-wider">
-                        {EVENT_TYPE_LABELS[item.event_type ?? 'regulation'] ?? item.event_type}
-                      </span>
-                      {(item.significance === 'landmark' || item.significance === 'major') && (
-                        <>
-                          <span className="text-ed-hairline">·</span>
-                          <span className="text-ed-incident uppercase tracking-wider font-medium">
-                            {item.significance === 'landmark' ? 'Landmark' : 'Major'}
-                          </span>
-                        </>
-                      )}
-                    </div>
-                    <h3 className="text-ed-block-h3 text-ed-text-primary mb-3 group-hover:text-ed-ink-hover transition-colors max-w-[900px]">
-                      {item.title}
-                    </h3>
-                    <p className="text-ed-body text-ed-text-secondary leading-relaxed max-w-[900px]">
-                      {item.policy_summary}
-                    </p>
-                  </article>
-
-                  {/* Expanded content */}
-                  {expandedId === item.id && (
-                    <div className="mt-6 space-y-6 max-w-[900px]">
-                      {item.key_changes.length > 0 && (
-                        <div>
-                          <p className="text-ed-eyebrow uppercase text-ed-text-muted mb-4">Key Changes</p>
-                          <ul className="space-y-3">
-                            {item.key_changes.map((c, i) => (
-                              <li key={i} className="pl-6 border-l border-ed-hairline text-ed-body text-ed-text-secondary leading-relaxed">
-                                {c}
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      )}
-
-                      {item.market_impact?.capital_flow && (
-                        <div>
-                          <p className="text-ed-eyebrow uppercase text-ed-text-muted mb-4">Policy → Market</p>
-                          <p className="text-ed-body text-ed-text-secondary leading-relaxed mb-3">
-                            {item.market_impact.capital_flow}
-                          </p>
-                          {item.market_impact.hk_relevance && (
-                            <p className="pl-6 border-l border-ed-hairline text-ed-body text-ed-text-secondary leading-relaxed italic">
-                              HK: {item.market_impact.hk_relevance}
-                            </p>
-                          )}
-                          <p className="mt-3 text-[11px] text-ed-text-faint tracking-wide">
-                            AI-generated · verify against source
-                          </p>
-                        </div>
-                      )}
-
-                      {item.timeline_significance && (
-                        <p className="pl-6 border-l border-ed-hairline text-ed-body text-ed-text-muted leading-relaxed italic">
-                          {item.timeline_significance}
-                        </p>
-                      )}
-
-                      <div className="pt-4 border-t border-ed-hairline-faint flex items-center gap-6 flex-wrap">
-                        {item.source_url && (
-                          <a
-                            href={item.source_url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-ed-meta text-ed-text-secondary hover:text-ed-ink transition-colors"
-                            onClick={e => e.stopPropagation()}
-                          >
-                            {item.source_name ?? 'Source'} ↗
-                          </a>
-                        )}
-                        <Link
-                          to="/projects"
-                          className="text-ed-meta text-ed-text-secondary hover:text-ed-ink transition-colors"
-                          onClick={e => e.stopPropagation()}
-                        >
-                          Related projects →
-                        </Link>
-                        {item.market_impact?.hk_relevance && (
-                          <Link
-                            to="/intelligence/hk"
-                            className="text-ed-meta text-ed-text-secondary hover:text-ed-ink transition-colors"
-                            onClick={e => e.stopPropagation()}
-                          >
-                            HK Observation →
-                          </Link>
-                        )}
-                      </div>
-                    </div>
-                  )}
+                  <ItemCard
+                    item={item}
+                    isExpanded={expandedIds.has(item.id)}
+                    onToggle={() => onToggleExpanded(item.id)}
+                  />
                 </div>
               </li>
             ))}
@@ -579,7 +636,7 @@ function TimelineSection({
                 onClick={() => setVisibleCount(c => c + PAGE_SIZE)}
                 className="text-ed-meta uppercase tracking-wider text-ed-text-secondary hover:text-ed-ink transition-colors"
               >
-                Load {Math.min(PAGE_SIZE, items.length - visibleCount)} more →
+                Load more →
               </button>
             </div>
           )}
@@ -651,7 +708,7 @@ function NarrativeSection({
   onSetEventType,
   activeRegion,
   onSetRegion,
-  expandedId,
+  expandedIds,
   onToggleExpanded,
   itemRefs,
 }: {
@@ -662,26 +719,21 @@ function NarrativeSection({
   onSetEventType: (t: IntelligenceEventType | 'all') => void;
   activeRegion: IntelligenceRegion | 'all';
   onSetRegion: (r: IntelligenceRegion | 'all') => void;
-  expandedId: string | null;
+  expandedIds: Set<string>;
   onToggleExpanded: (id: string) => void;
   itemRefs: React.MutableRefObject<Record<string, HTMLDivElement | null>>;
 }) {
   return (
     <section className="py-ed-section-lg relative w-screen left-1/2 -translate-x-1/2 bg-ed-surface-sunken">
       <div className="max-w-[1200px] mx-auto px-8">
-        {/* Section header */}
-        <div className="flex items-baseline justify-between mb-8 flex-wrap gap-4">
-          <div>
-            <div className="text-ed-eyebrow uppercase text-ed-text-muted mb-4">
-              Narrative
-            </div>
-            <p className="text-ed-section-h2-light text-ed-text-muted">
-              How RWA got here, where it's going.
-            </p>
+        {/* Section header — no milestones count */}
+        <div className="mb-8">
+          <div className="text-ed-eyebrow uppercase text-ed-text-muted mb-4">
+            Narrative
           </div>
-          <span className="text-ed-meta text-ed-text-muted">
-            {totalAll} milestones
-          </span>
+          <p className="text-ed-section-h2-light text-ed-text-muted">
+            How RWA got here, where it's going.
+          </p>
         </div>
 
         {/* Horizontal region strip */}
@@ -699,7 +751,7 @@ function NarrativeSection({
           onSetEventType={onSetEventType}
           activeRegion={activeRegion}
           onSetRegion={onSetRegion}
-          expandedId={expandedId}
+          expandedIds={expandedIds}
           onToggleExpanded={onToggleExpanded}
           itemRefs={itemRefs}
         />
@@ -981,7 +1033,7 @@ export default function IntelligenceHome() {
 
   const [activeRegion, setActiveRegion] = useState<IntelligenceRegion | 'all'>('all');
   const [activeEventType, setActiveEventType] = useState<IntelligenceEventType | 'all'>('all');
-  const [expandedId, setExpandedId] = useState<string | null>(null);
+  const [expandedIds, setExpandedIds] = useState<Set<string>>(new Set());
 
   const itemRefs = useRef<Record<string, HTMLDivElement | null>>({});
   const timelineRef = useRef<HTMLDivElement | null>(null);
@@ -1006,7 +1058,6 @@ export default function IntelligenceHome() {
             intelligence_items: IntelligenceItem[];
           };
           const items = json.intelligence_items;
-          // Derive a minimal dashboard from static items
           const regionActivity = items.reduce<Record<string, number>>((acc, i) => {
             acc[i.region] = (acc[i.region] ?? 0) + 1;
             return acc;
@@ -1083,13 +1134,21 @@ export default function IntelligenceHome() {
   }, [data]);
 
   function scrollToItem(id: string) {
-    setExpandedId(id);
+    setExpandedIds(prev => new Set([...prev, id]));
     const el = itemRefs.current[id];
     if (el) {
       setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'center' }), 50);
     } else if (timelineRef.current) {
       timelineRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
+  }
+
+  function toggleExpanded(id: string) {
+    setExpandedIds(prev => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id); else next.add(id);
+      return next;
+    });
   }
 
   function handleRegionSelect(r: IntelligenceRegion | 'all') {
@@ -1118,10 +1177,7 @@ export default function IntelligenceHome() {
     <div className="bg-ed-canvas min-h-screen overflow-x-hidden">
       <div className="max-w-[1200px] mx-auto px-8">
 
-        <HeroSection
-          totalItems={totalMilestones}
-          isAdmin={user?.is_admin ?? false}
-        />
+        <HeroSection isAdmin={user?.is_admin ?? false} />
 
         {data.weekly_brief && (
           <>
@@ -1163,8 +1219,8 @@ export default function IntelligenceHome() {
             onSetEventType={setActiveEventType}
             activeRegion={activeRegion}
             onSetRegion={handleRegionSelect}
-            expandedId={expandedId}
-            onToggleExpanded={id => setExpandedId(expandedId === id ? null : id)}
+            expandedIds={expandedIds}
+            onToggleExpanded={toggleExpanded}
             itemRefs={itemRefs}
           />
         </div>
