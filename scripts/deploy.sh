@@ -37,9 +37,11 @@ deploy_frontend() {
     --filter='P data/leaderboard.json' \
     --filter='P data/assets/assets-live.json' \
     --filter='P data/snapshots/' \
+    --filter='P media/' \
     --exclude='data/leaderboard.json' \
     --exclude='data/assets/assets-live.json' \
     --exclude='data/snapshots/' \
+    --exclude='media/' \
     web/dist/ "$SERVER:$REMOTE_WEB/" \
     -e "ssh -i $SSH_KEY"
   echo "    Frontend deployed."
