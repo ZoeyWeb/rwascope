@@ -1,14 +1,6 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import type { IntelligenceItem, IntelligenceRegion } from '../../types/intelligence';
 import { REGION_META } from '../../types/intelligence';
-
-const NARRATIVE_BG: Record<string, string> = {
-  regulation:     '/bg/bg_globe.png',
-  institutional:  '/bg/bg_bank.png',
-  project:        '/bg/bg_infinity.png',
-  research:       '/bg/bg_dollar.png',
-  data_milestone: '/bg/bg_dollar.png',
-};
 
 const EVENT_TYPE_LABELS: Record<string, string> = {
   regulation:     'Policy',
@@ -28,7 +20,7 @@ function RegionChip({ region }: { region: IntelligenceRegion }) {
 }
 
 function NarrativeCard({ item }: { item: IntelligenceItem }) {
-  const bg = NARRATIVE_BG[item.event_type ?? 'regulation'] ?? '/bg/bg_globe.png';
+  const [imgErrored, setImgErrored] = useState(false);
   const isSignificant = item.significance === 'major' || item.significance === 'landmark';
 
   function handleClick() {
@@ -44,10 +36,22 @@ function NarrativeCard({ item }: { item: IntelligenceItem }) {
       ].join(' ')}
     >
       {/* Image area */}
-      <div
-        className="relative h-[200px] bg-cover bg-center"
-        style={{ backgroundImage: `url('${bg}')` }}
-      >
+      <div className="relative h-[200px] overflow-hidden bg-ed-surface-sunken">
+        {!imgErrored && item.image_url && (
+          <img
+            src={item.image_url}
+            alt=""
+            className="absolute inset-0 w-full h-full object-cover"
+            onError={() => setImgErrored(true)}
+          />
+        )}
+        {imgErrored && (
+          <div className="absolute inset-0 flex items-center justify-center">
+            <span className="text-[11px] uppercase tracking-widest text-ed-text-muted">
+              {EVENT_TYPE_LABELS[item.event_type ?? 'regulation'] ?? item.event_type}
+            </span>
+          </div>
+        )}
         {/* Bottom fade into card content */}
         <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-ed-canvas to-transparent" />
         {/* Top chips */}
