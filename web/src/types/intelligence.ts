@@ -55,6 +55,8 @@ export interface IntelligenceItem {
   tier?: 'milestone' | 'news' | 'forward';
   // Stablecoin filter (v5)
   stablecoin_relevant?: boolean;
+  // Thumbnail (v6)
+  image_url?: string | null;
 }
 
 export interface IntelligenceWeeklyBrief {

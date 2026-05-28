@@ -30,6 +30,7 @@ class IntelligenceItem(Base):
     policy_impact: Mapped[dict | None] = mapped_column(JSONB, nullable=True)
     tier: Mapped[str] = mapped_column(String(20), nullable=False, default="news")
     stablecoin_relevant: Mapped[bool] = mapped_column(Boolean, nullable=False, default=False)
+    image_url: Mapped[str | None] = mapped_column(String(500), nullable=True)
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
 
 

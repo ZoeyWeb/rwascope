@@ -25,6 +25,8 @@ import httpx
 # Allow running from the backend/ directory
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
+from scripts._image_utils import download_image, extract_image_from_entry, fetch_og_image
+
 from sqlalchemy import select, text
 from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine, async_sessionmaker
 
@@ -434,6 +436,7 @@ async def _load_entries(source: dict, cutoff: date) -> list[dict]:
             "link": getattr(e, "link", "").strip(),
             "summary": _summary(e),
             "pub_date": _parse_published(e),
+            "rss_image": extract_image_from_entry(e),
         }
         for e in feed.entries
     ]
@@ -504,19 +507,26 @@ async def process_source(
             skipped += 1
             continue
 
+        # Image: RSS media fields first, then og:image fallback
+        item_id = uuid.uuid4()
+        img_url = entry.get("rss_image") or fetch_og_image(link)
+        local_image = download_image(img_url, str(item_id)) if img_url else None
+
         await session.execute(
             text("""
                 INSERT INTO intelligence_items
                   (id, category, region, title, event_date, source_url,
                    raw_content, policy_summary, rwa_relevant, status,
-                   event_type, is_data_snapshot, source_entity, data_source, significance)
+                   event_type, is_data_snapshot, source_entity, data_source,
+                   significance, image_url)
                 VALUES
                   (:id, :category, :region, :title, :event_date, :source_url,
                    :raw_content, :policy_summary, :rwa_relevant, 'pending',
-                   :event_type, false, :source_entity, 'rss', :significance)
+                   :event_type, false, :source_entity, 'rss',
+                   :significance, :image_url)
             """),
             {
-                "id": uuid.uuid4(),
+                "id": item_id,
                 "category": "global_policy",
                 "region": classification.get("region", source["default_region"]),
                 "title": title[:500],
@@ -528,6 +538,7 @@ async def process_source(
                 "event_type": classification.get("event_type", source["default_event_type"]),
                 "source_entity": name,
                 "significance": classification.get("significance", "notable"),
+                "image_url": local_image,
             },
         )
         await session.commit()

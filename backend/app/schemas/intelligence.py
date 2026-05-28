@@ -101,6 +101,7 @@ class IntelligenceItemOut(BaseModel):
     policy_impact: Optional[dict] = None
     tier: Literal['milestone', 'news', 'forward'] = 'news'
     stablecoin_relevant: bool = False
+    image_url: Optional[str] = None
     created_at: datetime
 
 

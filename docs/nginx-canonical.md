@@ -122,6 +122,17 @@ server {
         try_files $uri $uri/ /index.html;
     }
 
+    # News thumbnail images (downloaded by fetch_rss.py ingestion pipeline)
+    # Files stored at /var/www/rwascope/media/{item_id}.{ext}
+    # Directory owner: ubuntu:www-data 2775 (backend writes, nginx reads)
+    location /media/ {
+        alias /var/www/rwascope/media/;
+        expires 30d;
+        add_header Cache-Control "public";
+        add_header X-Content-Type-Options nosniff;
+        access_log off;
+    }
+
     # Long-cache hashed assets
     location ~* ^/assets/.*\.(js|css|woff2?|png|jpg|jpeg|svg|webp)$ {
         expires    1y;

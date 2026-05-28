@@ -35,6 +35,14 @@ const EVENT_TYPE_LABELS: Record<string, string> = {
   project: 'Project', research: 'Research', data_milestone: 'Data',
 };
 
+const EVENT_TYPE_FALLBACK: Record<string, string> = {
+  institutional: '/bg/bg_bank.png',
+  regulation: '/bg/bg_globe.png',
+  project: '/bg/bg_infinity.png',
+  research: '/bg/bg_dollar.png',
+  data_milestone: '/bg/bg_dollar.png',
+};
+
 const STATIC_FORWARD_ITEMS = [
   'HKMA: Stablecoin ordinance implementation rules expected Q3 2026 — technical standards under consultation',
   'SEC: Tokenized money market fund registration guidance expected Q2–Q3 2026',
@@ -240,42 +248,68 @@ function ItemCard({
   onToggle: () => void;
   compact?: boolean;
 }) {
+  const thumbSrc = item.image_url || EVENT_TYPE_FALLBACK[item.event_type ?? 'regulation'] || '/bg/bg_globe.png';
+  const fallbackSrc = EVENT_TYPE_FALLBACK[item.event_type ?? 'regulation'] || '/bg/bg_globe.png';
+
   return (
     <article className="group cursor-pointer" onClick={onToggle}>
-      {/* Meta row */}
-      <div className="flex items-center gap-3 mb-2 text-ed-meta text-ed-text-muted flex-wrap">
-        <time className="tabular-nums">{item.event_date}</time>
-        <span className="text-ed-hairline">·</span>
-        <span className="uppercase tracking-wider">{item.region.toUpperCase()}</span>
-        <span className="text-ed-hairline">·</span>
-        <span className="uppercase tracking-wider">
-          {EVENT_TYPE_LABELS[item.event_type ?? 'regulation'] ?? item.event_type}
-        </span>
-        {!compact && (item.significance === 'landmark' || item.significance === 'major') && (
-          <>
+      {/* Main row: left content + right thumbnail (compact/news mode only) */}
+      <div className={compact ? 'flex gap-5 items-start' : ''}>
+        <div className="flex-1 min-w-0">
+          {/* Meta row */}
+          <div className="flex items-center gap-3 mb-2 text-ed-meta text-ed-text-muted flex-wrap">
+            <time className="tabular-nums">{item.event_date}</time>
             <span className="text-ed-hairline">·</span>
-            <span className="text-ed-incident uppercase tracking-wider font-medium">
-              {item.significance === 'landmark' ? 'Landmark' : 'Major'}
+            <span className="uppercase tracking-wider">{item.region.toUpperCase()}</span>
+            <span className="text-ed-hairline">·</span>
+            <span className="uppercase tracking-wider">
+              {EVENT_TYPE_LABELS[item.event_type ?? 'regulation'] ?? item.event_type}
             </span>
-          </>
+            {!compact && (item.significance === 'landmark' || item.significance === 'major') && (
+              <>
+                <span className="text-ed-hairline">·</span>
+                <span className="text-ed-incident uppercase tracking-wider font-medium">
+                  {item.significance === 'landmark' ? 'Landmark' : 'Major'}
+                </span>
+              </>
+            )}
+          </div>
+
+          {/* Title */}
+          <h3 className={`text-ed-text-primary leading-snug group-hover:text-ed-ink-hover transition-colors max-w-[900px] ${
+            compact ? 'text-ed-item-h4 mb-1.5' : 'text-ed-block-h3 mb-3'
+          }`}>
+            {item.title}
+          </h3>
+
+          {/* Summary — truncated when collapsed */}
+          <p className={`max-w-[900px] ${
+            compact
+              ? 'text-ed-body text-ed-text-muted'
+              : 'text-ed-body text-ed-text-secondary leading-relaxed'
+          } ${isExpanded ? '' : 'truncate'}`}>
+            {item.policy_summary}
+          </p>
+        </div>
+
+        {/* Thumbnail — compact/news mode only */}
+        {compact && (
+          <div className="shrink-0 w-[180px] h-[120px] border border-ed-hairline overflow-hidden">
+            <img
+              src={thumbSrc}
+              alt=""
+              loading="lazy"
+              className="w-full h-full object-cover"
+              onError={e => {
+                const img = e.currentTarget;
+                if (img.src !== window.location.origin + fallbackSrc) {
+                  img.src = fallbackSrc;
+                }
+              }}
+            />
+          </div>
         )}
       </div>
-
-      {/* Title */}
-      <h3 className={`text-ed-text-primary leading-snug group-hover:text-ed-ink-hover transition-colors max-w-[900px] ${
-        compact ? 'text-ed-item-h4 mb-1.5' : 'text-ed-block-h3 mb-3'
-      }`}>
-        {item.title}
-      </h3>
-
-      {/* Summary — truncated when collapsed */}
-      <p className={`max-w-[900px] ${
-        compact
-          ? 'text-ed-body text-ed-text-muted'
-          : 'text-ed-body text-ed-text-secondary leading-relaxed'
-      } ${isExpanded ? '' : 'truncate'}`}>
-        {item.policy_summary}
-      </p>
 
       {/* Expanded content — grid rows trick for smooth animation */}
       <div
