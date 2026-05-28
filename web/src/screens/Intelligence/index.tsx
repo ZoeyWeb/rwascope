@@ -95,7 +95,7 @@ function HeroSection({ isAdmin }: { isAdmin: boolean }) {
 function WeeklyBriefSection({ brief }: { brief: IntelligenceWeeklyBrief }) {
   return (
     <section className="py-4 relative w-screen left-1/2 -translate-x-1/2 bg-ed-surface-cool">
-      <div className="max-w-[1200px] mx-auto px-8">
+      <div className="max-w-[1400px] mx-auto px-8">
         <div className="flex items-baseline justify-between mb-6 flex-wrap gap-3">
           <Eyebrow>Weekly Brief</Eyebrow>
           <div className="text-ed-meta text-ed-text-muted">
@@ -152,7 +152,7 @@ function EditorialGrid1({
 
   return (
     <section className="py-ed-section-md relative w-screen left-1/2 -translate-x-1/2 bg-ed-surface-cool">
-      <div className="max-w-[1200px] mx-auto px-8">
+      <div className="max-w-[1400px] mx-auto px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 md:divide-x divide-ed-hairline">
           {/* Left: This Week's Highlights */}
           <div className="md:pr-16">
@@ -549,7 +549,7 @@ function NarrativeSection({
 }) {
   return (
     <section className="py-ed-section-lg relative w-screen left-1/2 -translate-x-1/2 bg-ed-surface-sunken">
-      <div className="max-w-[1200px] mx-auto px-8">
+      <div className="max-w-[1400px] mx-auto px-8">
         {/* Section header — no milestones count */}
         <div className="mb-8">
           <Eyebrow className="mb-4">Narrative</Eyebrow>
@@ -810,7 +810,7 @@ export default function IntelligenceHome() {
 
   return (
     <div className="bg-ed-canvas min-h-screen overflow-x-hidden">
-      <div className="max-w-[1200px] mx-auto px-8">
+      <div className="max-w-[1400px] mx-auto px-8">
 
         <HeroSection isAdmin={user?.is_admin ?? false} />
 

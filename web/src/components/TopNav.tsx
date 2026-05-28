@@ -180,7 +180,8 @@ export default function TopNav() {
   }
 
   return (
-    <header className="flex justify-between items-center w-full px-6 h-20 bg-[#1A1A2E] border-b border-[#2B3437] fixed top-0 z-50">
+    <header className="w-full h-20 bg-[#1A1A2E] border-b border-[#2B3437] fixed top-0 z-50">
+      <div className="max-w-[1400px] mx-auto px-8 h-full flex justify-between items-center">
       <div className="flex items-center gap-8">
         <Link to="/" className="flex items-center gap-3 group shrink-0">
           <Logo size={44} className="text-white group-hover:text-slate-300 transition-colors" />
@@ -189,14 +190,14 @@ export default function TopNav() {
           </span>
         </Link>
 
-        <nav className="hidden md:flex items-center gap-0.5">
+        <nav className="hidden md:flex items-center gap-2">
           {NAV_BLOCKS.map(block => {
             const active = isBlockActive(block);
             return (
               <div key={block.to} className="relative group">
                 <Link
                   to={block.to}
-                  className={`flex items-center gap-0.5 px-3 py-1.5 rounded text-sm font-medium transition-colors ${
+                  className={`flex items-center gap-0.5 px-3.5 py-1.5 rounded text-base font-medium transition-colors ${
                     active
                       ? 'text-white bg-[#2B3437]'
                       : 'text-slate-400 hover:text-white hover:bg-[#2B3437]/50'
@@ -204,7 +205,7 @@ export default function TopNav() {
                 >
                   {block.label}
                   {block.sub && (
-                    <span className="material-symbols-outlined text-[13px] opacity-40 group-hover:opacity-70 transition-opacity">
+                    <span className="material-symbols-outlined text-[16px] opacity-40 group-hover:opacity-70 transition-opacity">
                       expand_more
                     </span>
                   )}
@@ -310,6 +311,7 @@ export default function TopNav() {
             Sign In
           </button>
         )}
+      </div>
       </div>
     </header>
   );
