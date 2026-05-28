@@ -10,6 +10,7 @@ import { REGION_META } from '../../types/intelligence';
 import { intelligenceApi } from '../../api/client';
 import PolicyImpactCard from '../../components/PolicyImpactCard';
 import NarrativeSubscribeButton from '../../components/NarrativeSubscribeButton';
+import { Eyebrow } from '../../components/Eyebrow';
 
 const TYPE_STRIPE_HEX: Record<string, string> = {
   regulation:     '#B45309',
@@ -43,7 +44,7 @@ const EVENT_TYPE_LABELS: Record<string, string> = {
 
 function RegionChip({ region }: { region: IntelligenceRegion }) {
   return (
-    <span className="text-[11px] uppercase tracking-wide px-2 py-0.5 bg-ed-chip-bg text-ed-chip-text">
+    <span className="text-[11px] uppercase tracking-wide px-2 py-0.5 bg-ed-surface-sunken text-ed-chip-text">
       {REGION_META[region].label.split(' ')[0]}
     </span>
   );
@@ -62,7 +63,7 @@ function PastEventNode({
   const textCls = typeTextClass(item.event_type);
 
   return (
-    <div className="relative border-b border-ed-divider-faint hover:bg-ed-surface-hover transition-colors">
+    <div className="relative border-b border-ed-hairline-faint hover:bg-ed-surface-cool transition-colors">
       <div className="absolute left-0 top-0 bottom-0 w-[2px]" style={{ background: stripeHex }} />
 
       <button onClick={onToggle} className="w-full text-left pl-6 pr-10 py-4">
@@ -86,7 +87,7 @@ function PastEventNode({
       </button>
 
       {expanded && (
-        <div className="pl-6 pr-4 pb-5 pt-3 border-t border-ed-divider-faint space-y-3">
+        <div className="pl-6 pr-4 pb-5 pt-3 border-t border-ed-hairline-faint space-y-3">
           {item.policy_summary && (
             <p className="text-ed-body text-ed-text-secondary leading-relaxed">{item.policy_summary}</p>
           )}
@@ -107,7 +108,7 @@ function PastEventNode({
           )}
 
           {item.source_url && (
-            <div className="pt-2 border-t border-ed-divider-faint">
+            <div className="pt-2 border-t border-ed-hairline-faint">
               <a
                 href={item.source_url}
                 target="_blank"
@@ -127,7 +128,7 @@ function PastEventNode({
 
 function ExpectedEventNode({ event }: { event: NarrativeExpectedEvent }) {
   return (
-    <div className="relative border-b border-dashed border-ed-divider pl-6 pr-4 py-4">
+    <div className="relative border-b border-dashed border-ed-hairline pl-6 pr-4 py-4">
       <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-ed-accent opacity-30" />
       <div className="flex items-center gap-2 mb-1.5">
         <span className="text-ed-meta font-mono text-ed-accent">{event.quarter}</span>
@@ -195,7 +196,7 @@ export default function NarrativeTimelineView() {
           <div className="bg-ed-surface shadow-ed-card p-ed-block">
             <div className="flex items-start justify-between gap-4 flex-wrap">
               <div className="flex-1 min-w-0">
-                <p className="text-ed-eyebrow uppercase text-ed-text-muted mb-2">Active Narrative</p>
+                <Eyebrow className="mb-2">Active Narrative</Eyebrow>
                 <h1 className="text-ed-section-h2 text-ed-text-primary mb-2">{narrative.name}</h1>
                 {narrative.description && (
                   <p className="text-ed-body text-ed-text-secondary leading-relaxed">{narrative.description}</p>
@@ -227,8 +228,8 @@ export default function NarrativeTimelineView() {
             </div>
           ) : (
             <div className="bg-ed-surface shadow-ed-card overflow-hidden">
-              <div className="px-ed-block py-3 border-b border-ed-divider-faint">
-                <p className="text-ed-eyebrow uppercase text-ed-text-muted">Timeline · Oldest → Most Recent</p>
+              <div className="px-ed-block py-3 border-b border-ed-hairline-faint">
+                <Eyebrow>Timeline · Oldest → Most Recent</Eyebrow>
               </div>
               <div>
                 {pastEvents.map(item => (
@@ -243,10 +244,10 @@ export default function NarrativeTimelineView() {
 
               {expectedEvents.length > 0 && (
                 <>
-                  <div className="flex items-center gap-3 px-ed-block py-3 bg-ed-surface-sunken border-t border-b border-ed-divider-faint">
-                    <div className="h-px flex-1 bg-ed-divider" />
+                  <div className="flex items-center gap-3 px-ed-block py-3 bg-ed-surface-sunken border-t border-b border-ed-hairline-faint">
+                    <div className="h-px flex-1 bg-ed-hairline" />
                     <span className="text-ed-eyebrow uppercase text-ed-accent px-2">Expected Next</span>
-                    <div className="h-px flex-1 bg-ed-divider" />
+                    <div className="h-px flex-1 bg-ed-hairline" />
                   </div>
                   <div>
                     {expectedEvents.map((ev, idx) => (
@@ -268,7 +269,7 @@ export default function NarrativeTimelineView() {
             </p>
           </div>
 
-          <div className="pt-2 border-t border-ed-divider">
+          <div className="pt-2 border-t border-ed-hairline">
             <Link
               to="/intelligence"
               className="inline-flex items-center gap-1.5 text-ed-meta text-ed-accent hover:text-ed-ink transition-colors"

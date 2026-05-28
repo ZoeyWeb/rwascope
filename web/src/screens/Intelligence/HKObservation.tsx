@@ -36,7 +36,7 @@ function SourceChip({ name }: { name: string }) {
     );
   }
   return (
-    <span className="text-[11px] uppercase tracking-wide px-2 py-0.5 bg-ed-chip-bg text-ed-chip-text">
+    <span className="text-[11px] uppercase tracking-wide px-2 py-0.5 bg-ed-surface-sunken text-ed-chip-text">
       {name}
     </span>
   );
@@ -54,7 +54,7 @@ function HKPolicyCard({
   const affectedLayers = getAffectedLayers(item);
 
   return (
-    <div className="relative border-b border-ed-divider-faint hover:bg-ed-surface-hover transition-colors">
+    <div className="relative border-b border-ed-hairline-faint hover:bg-ed-surface-cool transition-colors">
       {/* HK blue left stripe */}
       <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-ed-hk-text" />
 
@@ -77,7 +77,7 @@ function HKPolicyCard({
       </button>
 
       {expanded && (
-        <div className="pl-6 pr-4 pb-6 pt-4 border-t border-ed-divider-faint space-y-5">
+        <div className="pl-6 pr-4 pb-6 pt-4 border-t border-ed-hairline-faint space-y-5">
           <p className="text-ed-body text-ed-text-secondary leading-relaxed">{item.policy_summary}</p>
 
           {item.key_changes.length > 0 && (
@@ -120,7 +120,7 @@ function HKPolicyCard({
             </div>
           )}
 
-          <div className="flex items-center gap-4 pt-2 border-t border-ed-divider-faint flex-wrap">
+          <div className="flex items-center gap-4 pt-2 border-t border-ed-hairline-faint flex-wrap">
             <a
               href={item.source_url}
               target="_blank"
@@ -135,19 +135,19 @@ function HKPolicyCard({
             )}
           </div>
 
-          <div className="pt-2 border-t border-ed-divider-faint">
+          <div className="pt-2 border-t border-ed-hairline-faint">
             <p className="text-ed-eyebrow uppercase text-ed-text-muted mb-3">Explore related</p>
             <div className="flex flex-wrap gap-2">
               <Link
                 to="/projects"
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 border border-ed-divider text-ed-meta text-ed-accent hover:border-ed-ink hover:text-ed-ink transition-colors"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 border border-ed-hairline text-ed-meta text-ed-accent hover:border-ed-ink hover:text-ed-ink transition-colors"
               >
                 <span className="material-symbols-outlined text-[13px]">folder_open</span>
                 Related projects
               </Link>
               <Link
                 to="/intelligence"
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 border border-ed-divider text-ed-meta text-ed-accent hover:border-ed-ink hover:text-ed-ink transition-colors"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 border border-ed-hairline text-ed-meta text-ed-accent hover:border-ed-ink hover:text-ed-ink transition-colors"
               >
                 <span className="material-symbols-outlined text-[13px]">public</span>
                 Global timeline
@@ -247,7 +247,7 @@ export default function HKObservation() {
           {/* RARM layer reference */}
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
             {RARM_LAYERS.map(l => (
-              <div key={l.key} className="flex items-center gap-2 px-3 py-2 bg-ed-surface-sunken border border-ed-divider">
+              <div key={l.key} className="flex items-center gap-2 px-3 py-2 bg-ed-surface-sunken border border-ed-hairline">
                 <div className="w-1.5 h-1.5 rounded-full shrink-0 bg-ed-hk-text" />
                 <span className="text-ed-meta text-ed-text-muted">{l.label}</span>
               </div>
@@ -269,7 +269,7 @@ export default function HKObservation() {
                     className={`px-3.5 py-1.5 text-ed-body font-medium transition-colors whitespace-nowrap border rounded ${
                       active
                         ? 'bg-ed-ink text-white border-ed-ink'
-                        : 'bg-transparent text-ed-text-secondary border-ed-divider hover:bg-ed-surface hover:border-ed-divider-strong'
+                        : 'bg-transparent text-ed-text-secondary border-ed-hairline hover:bg-ed-surface hover:border-ed-divider-strong'
                     }`}
                   >
                     {s === 'all' ? 'All sources' : s}
@@ -279,7 +279,7 @@ export default function HKObservation() {
               })}
             </div>
 
-            <div className="px-ed-block py-3 border-b border-ed-divider-faint">
+            <div className="px-ed-block py-3 border-b border-ed-hairline-faint">
               <p className="text-ed-meta text-ed-text-muted">
                 Showing {hkItems.length} item{hkItems.length !== 1 ? 's' : ''}
               </p>
@@ -303,7 +303,7 @@ export default function HKObservation() {
             )}
           </div>
 
-          <div className="pt-4 border-t border-ed-divider">
+          <div className="pt-4 border-t border-ed-hairline">
             <Link
               to="/intelligence"
               className="inline-flex items-center gap-1.5 text-ed-meta text-ed-accent hover:text-ed-ink transition-colors"

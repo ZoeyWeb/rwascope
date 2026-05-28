@@ -1,6 +1,5 @@
 import { useState, useEffect, useMemo, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { Sparkles, Calendar, Bell } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 import type {
   IntelligenceItem,
@@ -14,8 +13,12 @@ import type {
 } from '../../types/intelligence';
 import { REGION_META } from '../../types/intelligence';
 import PolicyImpactCard from '../../components/PolicyImpactCard';
+import { Eyebrow } from '../../components/Eyebrow';
+import { FilterPill } from '../../components/FilterPill';
+import { RegionActivityChart } from '../../components/RegionActivityChart';
 import { intelligenceApi } from '../../api/client';
 import { inferTier } from '../../utils/inferTier';
+import { usePagination } from '../../hooks/usePagination';
 
 // ── Constants ────────────────────────────────────────────────────────────────
 
@@ -61,9 +64,7 @@ function SectionDivider() {
 function HeroSection({ isAdmin }: { isAdmin: boolean }) {
   return (
     <section className="pt-ed-hero pb-ed-hero">
-      <div className="text-ed-eyebrow uppercase text-ed-text-muted mb-8">
-        Regulatory · Institutional · Market Signals
-      </div>
+      <Eyebrow className="mb-8">Regulatory · Institutional · Market Signals</Eyebrow>
       <h1 className="text-ed-page-h1 text-ed-text-primary mb-10">
         Intelligence
       </h1>
@@ -96,12 +97,12 @@ function WeeklyBriefSection({ brief }: { brief: IntelligenceWeeklyBrief }) {
     <section className="py-4 relative w-screen left-1/2 -translate-x-1/2 bg-ed-surface-cool">
       <div className="max-w-[1200px] mx-auto px-8">
         <div className="flex items-baseline justify-between mb-6 flex-wrap gap-3">
-          <div className="text-ed-eyebrow uppercase text-ed-text-muted">Weekly Brief</div>
+          <Eyebrow>Weekly Brief</Eyebrow>
           <div className="text-ed-meta text-ed-text-muted">
             {brief.period_start} → {brief.period_end}
           </div>
         </div>
-        <h2 className="text-[2rem] font-semibold leading-tight text-ed-text-primary mb-8 max-w-[900px]">
+        <h2 className="text-ed-section-h2 text-ed-text-primary mb-8 max-w-[900px]">
           {brief.headline}
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
@@ -115,17 +116,17 @@ function WeeklyBriefSection({ brief }: { brief: IntelligenceWeeklyBrief }) {
                 i === 1 ? 'lg:pr-8' : '',
               ].join(' ')}
             >
-              <p className="text-[11px] uppercase tracking-widest text-ed-text-muted mb-2">
+              <p className="text-ed-eyebrow text-ed-text-muted mb-2">
                 {extractHighlightRegion(h)}
               </p>
-              <p className="text-[14px] text-ed-text-secondary leading-[1.55]">
+              <p className="text-ed-body text-ed-text-secondary">
                 {h}
               </p>
             </div>
           ))}
         </div>
         <div className="mt-6 text-right">
-          <span className="text-[11px] text-ed-text-faint tracking-wide">
+          <span className="text-ed-meta text-ed-text-faint">
             AI summary · verify against source
           </span>
         </div>
@@ -207,127 +208,12 @@ function EditorialGrid1({
   );
 }
 
-// ── EditorialGrid2: Active Narratives | Region Activity ───────────────────────
-
-function EditorialGrid2({
-  narratives,
-  activity,
-  activeNarrative,
-  activeRegion,
-  onSelectNarrative,
-  onSelectRegion,
-}: {
-  narratives: NarrativeThread[];
-  activity: Record<string, number>;
-  activeNarrative: string | null;
-  activeRegion: IntelligenceRegion | 'all';
-  onSelectNarrative: (slug: string | null) => void;
-  onSelectRegion: (r: IntelligenceRegion | 'all') => void;
-}) {
-  const max = Math.max(...Object.values(activity), 1);
-
-  return (
-    <section>
-      <div className="grid grid-cols-1 md:grid-cols-2 md:divide-x divide-ed-hairline">
-        {/* Left: Active Narratives */}
-        <div className="md:pr-16">
-          <div className="text-ed-eyebrow uppercase text-ed-text-muted mb-10">
-            Active Narratives
-          </div>
-          {narratives.length === 0 ? (
-            <p className="text-ed-body text-ed-text-muted">No active narratives yet.</p>
-          ) : (
-            <ul className="divide-y divide-ed-hairline-faint">
-              {narratives.map(n => (
-                <li key={n.slug} className="py-5 first:pt-0 last:pb-0">
-                  <div className="flex items-baseline justify-between group">
-                    <button
-                      onClick={() => onSelectNarrative(activeNarrative === n.slug ? null : n.slug)}
-                      className="flex-1 min-w-0 text-left"
-                    >
-                      <span className={`text-ed-item-h4 transition-colors ${
-                        activeNarrative === n.slug
-                          ? 'text-ed-ink'
-                          : 'text-ed-text-primary group-hover:text-ed-ink-hover'
-                      }`}>
-                        {n.name}
-                      </span>
-                      {n.weekly_new_count > 0 && (
-                        <span className="ml-2 text-ed-meta text-ed-text-muted">
-                          +{n.weekly_new_count}
-                        </span>
-                      )}
-                    </button>
-                    <Link
-                      to={`/intelligence/narrative/${n.slug}`}
-                      className="shrink-0 text-ed-meta text-ed-text-faint hover:text-ed-text-secondary transition-colors ml-4"
-                    >
-                      Timeline →
-                    </Link>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          )}
-        </div>
-
-        {/* Right: Region Activity */}
-        <div className="md:pl-16 mt-16 md:mt-0">
-          <div className="text-ed-eyebrow uppercase text-ed-text-muted mb-10">
-            Region Activity · 30 Days
-          </div>
-          {Object.keys(activity).length === 0 ? (
-            <p className="text-ed-body text-ed-text-muted">No events in the past 30 days.</p>
-          ) : (
-            <ul className="space-y-5">
-              {REGION_ORDER.filter(r => (activity[r] ?? 0) > 0).map(r => {
-                const count = activity[r] ?? 0;
-                const pct = Math.round((count / max) * 100);
-                const isActive = activeRegion === r;
-                return (
-                  <li key={r}>
-                    <button
-                      onClick={() => onSelectRegion(isActive ? 'all' : r)}
-                      className="w-full grid grid-cols-[64px_1fr_48px] items-center gap-6"
-                    >
-                      <span className={`text-ed-meta uppercase tracking-wider text-left transition-colors ${
-                        isActive ? 'text-ed-ink font-medium' : 'text-ed-text-muted'
-                      }`}>
-                        {r.toUpperCase()}
-                      </span>
-                      <div className="h-[2px] bg-ed-hairline relative">
-                        <div
-                          className={`absolute inset-y-0 left-0 transition-all duration-300 ${
-                            isActive ? 'bg-ed-ink' : 'bg-ed-ink opacity-40'
-                          }`}
-                          style={{ width: `${pct}%` }}
-                        />
-                      </div>
-                      <span className={`text-ed-meta text-right transition-colors ${
-                        isActive ? 'text-ed-ink font-medium' : 'text-ed-text-secondary'
-                      }`}>
-                        {count}
-                      </span>
-                    </button>
-                  </li>
-                );
-              })}
-            </ul>
-          )}
-        </div>
-      </div>
-    </section>
-  );
-}
-
 // ── EditorNoteSection ─────────────────────────────────────────────────────────
 
 function EditorNoteSection({ note }: { note: EditorNote }) {
   return (
     <section className="max-w-[900px] py-ed-section-sm">
-      <div className="text-ed-eyebrow uppercase text-ed-text-muted mb-8">
-        Editor's Note
-      </div>
+      <Eyebrow className="mb-8">Editor's Note</Eyebrow>
       <blockquote className="pl-8 border-l border-ed-hairline">
         <p className="text-ed-body-lg text-ed-text-secondary leading-loose italic">
           {note.content}
@@ -403,7 +289,7 @@ function ItemCard({
           <div className="mt-6 space-y-6 max-w-[900px]">
             {item.key_changes && item.key_changes.length > 0 && (
               <div>
-                <p className="text-ed-eyebrow uppercase text-ed-text-muted mb-4">Key Changes</p>
+                <Eyebrow className="mb-4">Key Changes</Eyebrow>
                 <ul className="space-y-3">
                   {item.key_changes.map((c, i) => (
                     <li key={i} className="pl-6 border-l border-ed-hairline text-ed-body text-ed-text-secondary leading-relaxed">
@@ -416,7 +302,7 @@ function ItemCard({
 
             {item.market_impact?.capital_flow && (
               <div>
-                <p className="text-ed-eyebrow uppercase text-ed-text-muted mb-4">Policy → Market</p>
+                <Eyebrow className="mb-4">Policy → Market</Eyebrow>
                 <p className="text-ed-body text-ed-text-secondary leading-relaxed mb-3">
                   {item.market_impact.capital_flow as string}
                 </p>
@@ -480,8 +366,7 @@ function ItemCard({
 // ── NewsSection ───────────────────────────────────────────────────────────────
 
 function NewsSection({ items }: { items: IntelligenceItem[] }) {
-  const PAGE_SIZE = 20;
-  const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
+  const { visible, loadMore, canLoadMore } = usePagination(items, 20);
   const [expandedIds, setExpandedIds] = useState<Set<string>>(new Set());
 
   function toggleExpanded(id: string) {
@@ -496,7 +381,7 @@ function NewsSection({ items }: { items: IntelligenceItem[] }) {
     <section className="py-ed-section-md">
       <div className="mb-10">
         <div className="mb-4">
-          <div className="text-ed-eyebrow uppercase text-ed-text-muted">Latest News</div>
+          <Eyebrow>Latest News</Eyebrow>
         </div>
         <h2 className="text-ed-section-h2 text-ed-text-primary mb-3">Latest News</h2>
         <p className="text-ed-section-h2-light text-ed-text-muted">Recent regulatory and institutional events.</p>
@@ -507,7 +392,7 @@ function NewsSection({ items }: { items: IntelligenceItem[] }) {
       ) : (
         <>
           <ul className="divide-y divide-ed-hairline-faint">
-            {items.slice(0, visibleCount).map(item => (
+            {visible.map(item => (
               <li key={item.id} className="py-5 first:pt-0">
                 <ItemCard
                   item={item}
@@ -519,10 +404,10 @@ function NewsSection({ items }: { items: IntelligenceItem[] }) {
             ))}
           </ul>
 
-          {items.length > visibleCount && (
+          {canLoadMore && (
             <div className="flex justify-center pt-8 mt-4 border-t border-ed-hairline-faint">
               <button
-                onClick={() => setVisibleCount(c => c + PAGE_SIZE)}
+                onClick={loadMore}
                 className="text-ed-meta uppercase tracking-wider text-ed-text-secondary hover:text-ed-ink transition-colors"
               >
                 Load more →
@@ -558,10 +443,7 @@ function TimelineSection({
   onToggleExpanded: (id: string) => void;
   itemRefs: React.MutableRefObject<Record<string, HTMLDivElement | null>>;
 }) {
-  const PAGE_SIZE = 20;
-  const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
-  useEffect(() => { setVisibleCount(PAGE_SIZE); }, [items]);
-  const visibleItems = items.slice(0, visibleCount);
+  const { visible: visibleItems, loadMore, canLoadMore } = usePagination(items, 20);
 
   return (
     <section>
@@ -571,40 +453,32 @@ function TimelineSection({
       </div>
       <div className="mb-12 space-y-4 border-y border-ed-hairline py-6">
         <div className="flex items-center gap-4 flex-wrap">
-          <span className="text-ed-eyebrow uppercase text-ed-text-muted w-16 shrink-0">Type</span>
+          <Eyebrow className="w-16 shrink-0">Type</Eyebrow>
           <div className="flex flex-wrap gap-2">
             {ALL_EVENT_TYPES.map(t => (
-              <button
+              <FilterPill
                 key={t}
+                active={activeEventType === t}
                 onClick={() => onSetEventType(t)}
-                className={`px-3 py-1 text-ed-meta uppercase tracking-wider transition-colors ${
-                  activeEventType === t
-                    ? 'bg-ed-ink text-white'
-                    : 'text-ed-text-secondary hover:text-ed-ink'
-                }`}
               >
                 {EVENT_TYPE_LABELS[t]}
-              </button>
+              </FilterPill>
             ))}
           </div>
         </div>
         <div className="flex items-center gap-4 flex-wrap">
-          <span className="text-ed-eyebrow uppercase text-ed-text-muted w-16 shrink-0">Region</span>
+          <Eyebrow className="w-16 shrink-0">Region</Eyebrow>
           <div className="flex flex-wrap gap-2">
             {ALL_REGIONS.map(r => {
               const label = r === 'all' ? 'All' : r.toUpperCase();
               return (
-                <button
+                <FilterPill
                   key={r}
+                  active={activeRegion === r}
                   onClick={() => onSetRegion(r)}
-                  className={`px-3 py-1 text-ed-meta uppercase tracking-wider transition-colors ${
-                    activeRegion === r
-                      ? 'bg-ed-ink text-white'
-                      : 'text-ed-text-secondary hover:text-ed-ink'
-                  }`}
                 >
                   {label}
-                </button>
+                </FilterPill>
               );
             })}
           </div>
@@ -632,10 +506,10 @@ function TimelineSection({
             ))}
           </ul>
 
-          {items.length > visibleCount && (
+          {canLoadMore && (
             <div className="flex justify-center pt-12 mt-8 border-t border-ed-hairline-faint">
               <button
-                onClick={() => setVisibleCount(c => c + PAGE_SIZE)}
+                onClick={loadMore}
                 className="text-ed-meta uppercase tracking-wider text-ed-text-secondary hover:text-ed-ink transition-colors"
               >
                 Load more →
@@ -645,58 +519,6 @@ function TimelineSection({
         </>
       )}
     </section>
-  );
-}
-
-// ── RegionActivityStrip ───────────────────────────────────────────────────────
-
-function RegionActivityStrip({
-  activity,
-  activeRegion,
-  onSelectRegion,
-}: {
-  activity: Record<string, number>;
-  activeRegion: IntelligenceRegion | 'all';
-  onSelectRegion: (r: IntelligenceRegion | 'all') => void;
-}) {
-  const active = REGION_ORDER.filter(r => (activity[r] ?? 0) > 0);
-  const max = Math.max(...active.map(r => activity[r] ?? 0), 1);
-  if (active.length === 0) return null;
-
-  return (
-    <div className="flex items-end gap-8 flex-wrap border-b border-ed-hairline pb-6 mb-10">
-      {active.map(r => {
-        const count = activity[r] ?? 0;
-        const pct = Math.round((count / max) * 100);
-        const isActive = activeRegion === r;
-        return (
-          <button
-            key={r}
-            onClick={() => onSelectRegion(isActive ? 'all' : r)}
-            className="flex flex-col items-start gap-1.5 min-w-[40px]"
-          >
-            <span className={`text-ed-meta tabular-nums transition-colors ${
-              isActive ? 'text-ed-ink font-medium' : 'text-ed-text-secondary'
-            }`}>
-              {count}
-            </span>
-            <div className="w-10 h-[2px] bg-ed-hairline relative">
-              <div
-                className={`absolute inset-y-0 left-0 transition-all duration-300 ${
-                  isActive ? 'bg-ed-ink' : 'bg-ed-ink opacity-40'
-                }`}
-                style={{ width: `${pct}%` }}
-              />
-            </div>
-            <span className={`text-ed-eyebrow uppercase tracking-wider transition-colors ${
-              isActive ? 'text-ed-ink font-medium' : 'text-ed-text-muted'
-            }`}>
-              {r.toUpperCase()}
-            </span>
-          </button>
-        );
-      })}
-    </div>
   );
 }
 
@@ -730,19 +552,20 @@ function NarrativeSection({
       <div className="max-w-[1200px] mx-auto px-8">
         {/* Section header — no milestones count */}
         <div className="mb-8">
-          <div className="text-ed-eyebrow uppercase text-ed-text-muted mb-4">
-            Narrative
-          </div>
+          <Eyebrow className="mb-4">Narrative</Eyebrow>
           <p className="text-ed-section-h2-light text-ed-text-muted">
             How RWA got here, where it's going.
           </p>
         </div>
 
         {/* Horizontal region strip */}
-        <RegionActivityStrip
-          activity={activity}
+        <RegionActivityChart
+          variant="strip"
+          data={REGION_ORDER
+            .filter(r => (activity[r] ?? 0) > 0)
+            .map(r => ({ region: r, count: activity[r] ?? 0 }))}
           activeRegion={activeRegion}
-          onSelectRegion={onSetRegion}
+          onRegionClick={r => onSetRegion(r as IntelligenceRegion | 'all')}
         />
 
         {/* Timeline (filter row + event stream) */}
@@ -827,196 +650,6 @@ function SubscribeSection() {
     </section>
   );
 }
-
-// ── Legacy helper components (preserved, not referenced in main render) ────────
-
-function HighlightsBlock({
-  items,
-  onScrollToItem,
-}: {
-  items: IntelligenceItem[];
-  onScrollToItem: (id: string) => void;
-}) {
-  return (
-    <div className="bg-ed-surface p-8">
-      <p className="text-ed-eyebrow uppercase text-ed-text-muted mb-5">This Week's Highlights</p>
-      {items.length === 0 ? (
-        <p className="text-ed-body text-ed-text-muted">No landmark or major events in the past 7 days.</p>
-      ) : (
-        <div className="space-y-4">
-          {items.map(item => (
-            <button
-              key={item.id}
-              onClick={() => onScrollToItem(item.id)}
-              className="w-full text-left group -mx-2 px-2 py-2"
-            >
-              <div className="flex items-center gap-2 mb-1">
-                <span className="text-ed-meta tabular-nums text-ed-text-muted shrink-0">
-                  {item.event_date}
-                </span>
-                <span className="text-[11px] uppercase tracking-wide px-2 py-0.5">
-                  {REGION_META[item.region].label.split(' ')[0]}
-                </span>
-              </div>
-              <p className="text-sm font-medium text-ed-text-primary leading-snug line-clamp-2">
-                {item.title}
-              </p>
-            </button>
-          ))}
-        </div>
-      )}
-    </div>
-  );
-}
-
-function ForwardViewBlock({ items }: { items: IntelligenceItem[] }) {
-  const STATIC_ITEMS = [
-    'HKMA: Stablecoin ordinance implementation rules expected Q3 2026',
-    'SEC: Tokenized money market fund registration guidance expected Q2–Q3 2026',
-    'MiCA: Full regulatory technical standards applicability from 30 July 2026',
-  ];
-  return (
-    <div className="bg-ed-surface p-8">
-      <div className="flex items-center gap-2 mb-5">
-        <Calendar size={14} strokeWidth={1.5} className="text-ed-text-muted shrink-0" />
-        <p className="text-ed-eyebrow uppercase text-ed-text-muted">Forward View · Expected Q2–Q3 2026</p>
-      </div>
-      <ul className="space-y-3">
-        {(items.length > 0 ? items.map(i => i.title) : STATIC_ITEMS).map((text, i) => (
-          <li key={i} className="text-ed-body text-ed-text-secondary leading-relaxed">
-            {text}
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-}
-
-function NarrativesBlock({
-  narratives,
-  activeNarrative,
-  onSelect,
-}: {
-  narratives: NarrativeThread[];
-  activeNarrative: string | null;
-  onSelect: (slug: string | null) => void;
-}) {
-  return (
-    <div className="bg-ed-surface p-8">
-      <p className="text-ed-eyebrow uppercase text-ed-text-muted mb-5">Active Narratives</p>
-      {narratives.length === 0 ? (
-        <p className="text-ed-body text-ed-text-muted">No active narratives yet.</p>
-      ) : (
-        <div className="space-y-1">
-          {narratives.map(n => (
-            <div key={n.slug} className="flex items-center gap-2 -mx-2 px-2 py-2">
-              <button
-                onClick={() => onSelect(activeNarrative === n.slug ? null : n.slug)}
-                className="flex-1 min-w-0 text-left"
-              >
-                <span className={`text-sm font-medium ${
-                  activeNarrative === n.slug ? 'text-ed-ink' : 'text-ed-text-primary'
-                }`}>
-                  {n.name}
-                </span>
-              </button>
-              <Link
-                to={`/intelligence/narrative/${n.slug}`}
-                className="shrink-0 text-ed-meta text-ed-text-muted whitespace-nowrap"
-              >
-                Timeline →
-              </Link>
-              <Bell size={12} strokeWidth={1.5} className="shrink-0 text-ed-text-faint" />
-            </div>
-          ))}
-        </div>
-      )}
-    </div>
-  );
-}
-
-function RegionActivityBlock({
-  activity,
-  activeRegion,
-  onSelectRegion,
-}: {
-  activity: Record<string, number>;
-  activeRegion: IntelligenceRegion | 'all';
-  onSelectRegion: (r: IntelligenceRegion | 'all') => void;
-}) {
-  const max = Math.max(...Object.values(activity), 1);
-  return (
-    <div className="bg-ed-surface p-8">
-      <p className="text-ed-eyebrow uppercase text-ed-text-muted mb-5">Region Activity · 30 Days</p>
-      <div className="space-y-3">
-        {REGION_ORDER.filter(r => (activity[r] ?? 0) > 0).map(r => {
-          const count = activity[r] ?? 0;
-          const pct = Math.round((count / max) * 100);
-          const isActive = activeRegion === r;
-          return (
-            <button
-              key={r}
-              onClick={() => onSelectRegion(isActive ? 'all' : r)}
-              className="w-full flex items-center gap-3"
-            >
-              <span className={`text-ed-meta uppercase w-8 shrink-0 text-right ${isActive ? 'text-ed-ink font-semibold' : 'text-ed-text-muted'}`}>
-                {REGION_META[r].label.split(' ')[0].slice(0, 3)}
-              </span>
-              <div className="flex-1 bg-ed-hairline h-1.5 overflow-hidden">
-                <div
-                  className={`h-full transition-all duration-300 ${isActive ? 'bg-ed-ink' : 'bg-ed-ink opacity-40'}`}
-                  style={{ width: `${pct}%` }}
-                />
-              </div>
-              <span className={`text-ed-meta w-5 shrink-0 text-right ${isActive ? 'text-ed-ink font-semibold' : 'text-ed-text-muted'}`}>{count}</span>
-            </button>
-          );
-        })}
-      </div>
-    </div>
-  );
-}
-
-function EditorNoteBlock({ note }: { note: EditorNote | null }) {
-  if (!note) return null;
-  return (
-    <div className="bg-ed-surface border-l-2 border-ed-ink p-ed-block">
-      <p className="text-ed-eyebrow uppercase text-ed-text-muted mb-1">
-        Editor's Note · {note.week_label}
-      </p>
-      {note.title && <h3 className="text-ed-block-h3 text-ed-text-primary mb-3">{note.title}</h3>}
-      <p className="text-ed-body text-ed-text-secondary leading-relaxed">{note.content}</p>
-      <span className="text-ed-meta text-ed-text-muted mt-4 block">— {note.author}</span>
-    </div>
-  );
-}
-
-function WeeklyBriefCard({ brief }: { brief: IntelligenceWeeklyBrief }) {
-  return (
-    <div className="bg-ed-surface p-ed-block">
-      <div className="flex items-start justify-between flex-wrap gap-3">
-        <span className="text-ed-meta text-ed-text-muted tabular-nums">
-          {brief.period_start} → {brief.period_end}
-        </span>
-        <div className="flex items-center gap-1.5 text-ed-meta text-ed-text-faint">
-          <Sparkles size={12} strokeWidth={1.5} />
-          AI summary · verify against source
-        </div>
-      </div>
-      <h2 className="text-ed-section-h2 text-ed-text-primary mt-3 mb-6">{brief.headline}</h2>
-      <div className="space-y-3">
-        {brief.highlights.map((h, i) => (
-          <div key={i} className="flex items-start gap-3">
-            <span className="mt-2 w-1.5 h-1.5 rounded-full bg-ed-text-faint shrink-0" />
-            <span className="text-ed-body text-ed-text-secondary leading-relaxed">{h}</span>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-// PolicyImpactCard retained for legacy TimelineCard below
 
 // ── Main screen ───────────────────────────────────────────────────────────────
 

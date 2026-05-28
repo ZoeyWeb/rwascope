@@ -84,7 +84,6 @@ export default {
 
         // --- deprecated (kept to avoid build errors, do not use in new components) ---
         'ed-accent':         '#5E5C75',
-        'ed-accent-hover':   '#4E4C65',
         'ed-surface-hover':  '#F5F5F4',
         'ed-divider-faint':  '#F0EFEC',
         'ed-divider':        '#E7E5E4',
@@ -95,7 +94,6 @@ export default {
         'ed-type-research':    '#1D4ED8',
         'ed-type-data':        '#475569',
         'ed-type-incident':    '#B91C1C',
-        'ed-type-regulatory':  '#B45309',
         'ed-chip-bg':   '#F5F4F1',
         'ed-chip-text': '#44403C',
         'ed-info-bg':      '#F0F4FF',
@@ -120,10 +118,7 @@ export default {
         'ed-section-lg':    '4rem',    // 64px  major sub-blocks
         'ed-section-md':    '2.5rem',  // 40px  secondary blocks
         'ed-section-sm':    '1.5rem',  // 24px  compact blocks
-        'ed-block':         '2.5rem',  // 40px  (alias kept)
-        'ed-item':          '1.5rem',  // 24px
-        // deprecated aliases
-        'ed-sub':           '1.5rem',
+        'ed-section-xs':    '1rem',     // 16px  tight inline blocks
       },
       boxShadow: {
         'ed-card':       '0 1px 2px rgba(15, 15, 25, 0.04), 0 0 0 1px rgba(15, 15, 25, 0.03)',

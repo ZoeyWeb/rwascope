@@ -54,20 +54,20 @@ function EditForm({
   function field(label: string, children: React.ReactNode) {
     return (
       <div>
-        <label className="block text-[11px] font-medium text-[#737C7F] mb-1">{label}</label>
+        <label className="block text-[11px] font-medium text-ed-text-muted mb-1">{label}</label>
         {children}
       </div>
     );
   }
 
   const inputCls =
-    'w-full bg-[#F1F4F6] border border-[#DBE4E7] rounded px-2 py-1.5 text-sm text-[#2B3437] focus:outline-none focus:border-[#5E5C75]';
+    'w-full bg-ed-surface-cool border border-ed-hairline rounded px-2 py-1.5 text-sm text-ed-text-primary focus:outline-none focus:border-ed-ink';
 
   const selectCls =
-    'bg-[#F1F4F6] border border-[#DBE4E7] rounded px-2 py-1.5 text-sm text-[#2B3437] focus:outline-none focus:border-[#5E5C75]';
+    'bg-ed-surface-cool border border-ed-hairline rounded px-2 py-1.5 text-sm text-ed-text-primary focus:outline-none focus:border-ed-ink';
 
   return (
-    <div className="mt-3 p-4 bg-[#F1F4F6] rounded-lg border border-[#DBE4E7] space-y-3">
+    <div className="mt-3 p-4 bg-ed-surface-cool rounded-lg border border-ed-hairline space-y-3">
       {field(
         'Title',
         <input
@@ -150,9 +150,9 @@ function EditForm({
           type="checkbox"
           checked={draft.rwa_relevant ?? true}
           onChange={e => setDraft(d => ({ ...d, rwa_relevant: e.target.checked }))}
-          className="accent-[#5E5C75]"
+          className="accent-ed-ink"
         />
-        <label htmlFor={`rwa-${item.id}`} className="text-sm text-[#2B3437]">RWA relevant</label>
+        <label htmlFor={`rwa-${item.id}`} className="text-sm text-ed-text-primary">RWA relevant</label>
       </div>
 
       {err && <p className="text-xs text-red-600">{err}</p>}
@@ -161,13 +161,13 @@ function EditForm({
         <button
           onClick={handleSave}
           disabled={saving}
-          className="px-3 py-1.5 bg-[#5E5C75] hover:bg-[#4e4c65] text-white text-xs font-medium rounded transition-colors disabled:opacity-50"
+          className="px-3 py-1.5 bg-ed-ink hover:bg-ed-ink-hover text-white text-xs font-medium rounded transition-colors disabled:opacity-50"
         >
           {saving ? 'Saving…' : 'Save changes'}
         </button>
         <button
           onClick={onCancel}
-          className="px-3 py-1.5 border border-[#DBE4E7] text-xs text-[#737C7F] rounded hover:bg-white transition-colors"
+          className="px-3 py-1.5 border border-ed-hairline text-xs text-ed-text-muted rounded hover:bg-white transition-colors"
         >
           Cancel
         </button>
@@ -215,41 +215,43 @@ function ItemRow({
     }
   }
 
+  // admin-only semantic colour, not part of editorial system
   const sigColor: Record<string, string> = {
-    landmark: '#854F0B',
-    major: '#2B3437',
-    notable: '#737C7F',
+    landmark: '#854F0B',  // amber, admin-only
+    major: '#2B3437',     // = ed-text-primary hex
+    notable: '#737C7F',   // = ed-text-muted hex
   };
 
   return (
-    <div className="border border-[#DBE4E7] rounded-xl bg-white p-4">
+    <div className="border border-ed-hairline rounded-xl bg-white p-4">
       {/* Header row */}
       <div className="flex items-start gap-3 flex-wrap">
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2 flex-wrap mb-1">
             {item.region && (
-              <span className="text-[10px] font-medium px-2 py-0.5 rounded bg-[#F1F4F6] text-[#737C7F]">
+              <span className="text-[10px] font-medium px-2 py-0.5 rounded bg-ed-surface-cool text-ed-text-muted">
                 {item.region.toUpperCase()}
               </span>
             )}
+            {/* admin-only chip colour, not part of editorial system */}
             <span className="text-[10px] font-medium px-2 py-0.5 rounded bg-[#EEEDFE] text-[#5B21B6]">
               {item.event_type}
             </span>
             {item.significance && (
               <span
-                className="text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wide bg-[#F1F4F6]"
+                className="text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wide bg-ed-surface-cool"
                 style={{ color: sigColor[item.significance] ?? '#737C7F' }}
               >
                 {item.significance}
               </span>
             )}
-            <span className="text-[11px] text-[#737C7F] font-mono">{item.event_date ?? '—'}</span>
+            <span className="text-[11px] text-ed-text-muted font-mono">{item.event_date ?? '—'}</span>
           </div>
 
-          <p className="text-sm font-medium text-[#2B3437] leading-snug mb-1">{item.title}</p>
+          <p className="text-sm font-medium text-ed-text-primary leading-snug mb-1">{item.title}</p>
 
           {item.policy_summary && (
-            <p className="text-xs text-[#737C7F] leading-relaxed line-clamp-3">{item.policy_summary}</p>
+            <p className="text-xs text-ed-text-muted leading-relaxed line-clamp-3">{item.policy_summary}</p>
           )}
 
           {item.source_url && (
@@ -257,7 +259,7 @@ function ItemRow({
               href={item.source_url}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 text-[11px] text-[#5E5C75] hover:underline mt-1"
+              className="inline-flex items-center gap-1 text-[11px] text-ed-ink hover:underline mt-1"
             >
               <span className="material-symbols-outlined text-[12px]">open_in_new</span>
               {item.source_url.length > 60 ? item.source_url.slice(0, 60) + '…' : item.source_url}
@@ -267,6 +269,7 @@ function ItemRow({
 
         {/* Action buttons */}
         <div className="flex items-center gap-2 shrink-0">
+          {/* admin-only action colour, not part of editorial system */}
           <button
             onClick={handleApprove}
             disabled={!!actioning}
@@ -278,12 +281,13 @@ function ItemRow({
 
           <button
             onClick={() => setEditing(e => !e)}
-            className="inline-flex items-center gap-1 px-3 py-1.5 text-xs font-medium rounded-lg border border-[#DBE4E7] text-[#2B3437] hover:bg-[#F1F4F6] transition-colors"
+            className="inline-flex items-center gap-1 px-3 py-1.5 text-xs font-medium rounded-lg border border-ed-hairline text-ed-text-primary hover:bg-ed-surface-cool transition-colors"
           >
             <span className="material-symbols-outlined text-[14px]">edit</span>
             Edit
           </button>
 
+          {/* admin-only action colour, not part of editorial system */}
           <button
             onClick={handleReject}
             disabled={!!actioning}
@@ -352,7 +356,7 @@ export default function IntelligenceAdminReview() {
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-[60vh]">
-        <span className="material-symbols-outlined animate-spin text-4xl text-[#5E5C75]">progress_activity</span>
+        <span className="material-symbols-outlined animate-spin text-4xl text-ed-ink">progress_activity</span>
       </div>
     );
   }
@@ -360,8 +364,8 @@ export default function IntelligenceAdminReview() {
   if (user && !user.is_admin) {
     return (
       <div className="max-w-xl mx-auto px-4 py-16 text-center">
-        <span className="material-symbols-outlined text-4xl text-[#9e3f4e] mb-3 block">lock</span>
-        <p className="text-sm text-[#2B3437]">Administrator access required.</p>
+        <span className="material-symbols-outlined text-4xl text-ed-incident mb-3 block">lock</span>
+        <p className="text-sm text-ed-text-primary">Administrator access required.</p>
       </div>
     );
   }
@@ -370,11 +374,11 @@ export default function IntelligenceAdminReview() {
     <div className="max-w-screen-2xl mx-auto px-6 py-8">
       {/* Header */}
       <div className="mb-6">
-        <div className="text-[10px] font-bold text-[#737C7F] uppercase tracking-widest mb-1">
+        <div className="text-[10px] font-bold text-ed-text-muted uppercase tracking-widest mb-1">
           Intelligence · Admin
         </div>
-        <h1 className="text-xl font-medium text-[#2B3437] mb-1">Review Queue</h1>
-        <p className="text-xs text-[#737C7F]">
+        <h1 className="text-xl font-medium text-ed-text-primary mb-1">Review Queue</h1>
+        <p className="text-xs text-ed-text-muted">
           {items.length} pending item{items.length !== 1 ? 's' : ''}
           {' · '}Approve to publish, or reject to discard.
         </p>
@@ -387,7 +391,7 @@ export default function IntelligenceAdminReview() {
       )}
 
       {items.length === 0 && !err ? (
-        <div className="text-center py-20 text-[#737C7F]">
+        <div className="text-center py-20 text-ed-text-muted">
           <span className="material-symbols-outlined text-4xl block mb-2">done_all</span>
           <p className="text-sm">No pending items. Queue is clear.</p>
         </div>

@@ -26,7 +26,7 @@ export default function PolicyImpactCard({ eventTitle, impact }: Props) {
 
       <div className="px-4 pb-4 pt-1 space-y-0">
         {/* Layer 1 — Policy event */}
-        <div className="px-3 py-2.5 bg-ed-surface-sunken border-l border-ed-divider">
+        <div className="px-3 py-2.5 bg-ed-surface-sunken border-l border-ed-hairline">
           <span className="block text-ed-eyebrow uppercase text-ed-warn-text mb-1">① Policy event</span>
           <p className="text-ed-body font-medium leading-snug text-ed-text-primary">{eventTitle}</p>
         </div>
@@ -34,7 +34,7 @@ export default function PolicyImpactCard({ eventTitle, impact }: Props) {
         <ArrowDown />
 
         {/* Layer 2 — Benefited sectors */}
-        <div className="px-3 py-2.5 bg-ed-success-bg border-l border-ed-divider">
+        <div className="px-3 py-2.5 bg-ed-success-bg border-l border-ed-hairline">
           <span className="block text-ed-eyebrow uppercase text-ed-success-text mb-1.5">② Benefited sectors</span>
           <ul className="space-y-1">
             {impact.benefited_sectors.map((s, i) => (
@@ -49,7 +49,7 @@ export default function PolicyImpactCard({ eventTitle, impact }: Props) {
         <ArrowDown />
 
         {/* Layer 3 — Affected entity types */}
-        <div className="px-3 py-2.5 bg-ed-surface-sunken border-l border-ed-divider">
+        <div className="px-3 py-2.5 bg-ed-surface-sunken border-l border-ed-hairline">
           <span className="block text-ed-eyebrow uppercase text-ed-text-muted mb-1.5">③ Affected entity types</span>
           <ul className="space-y-1">
             {impact.affected_entities.map((e, i) => (
@@ -64,7 +64,7 @@ export default function PolicyImpactCard({ eventTitle, impact }: Props) {
         <ArrowDown />
 
         {/* Layer 4 — Capital flow */}
-        <div className="px-3 py-2.5 bg-ed-info-bg border-l border-ed-divider">
+        <div className="px-3 py-2.5 bg-ed-info-bg border-l border-ed-hairline">
           <span className="block text-ed-eyebrow uppercase text-ed-info-text mb-1.5">④ Expected capital flow</span>
           <p className="text-ed-body font-medium leading-snug text-ed-info-text">
             {impact.capital_flow.from}

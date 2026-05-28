@@ -20,7 +20,7 @@ export default function DataMilestoneCard({ item, drivers }: Props) {
       <div className="flex items-center gap-2 mb-3">
         <span className="material-symbols-outlined text-[15px] text-ed-type-research">bar_chart</span>
         <span className="text-ed-eyebrow uppercase text-ed-type-research">Data Milestone</span>
-        <span className="ml-auto bg-ed-chip-bg text-ed-chip-text text-[11px] uppercase tracking-wide px-2 py-0.5">
+        <span className="ml-auto bg-ed-surface-sunken text-ed-chip-text text-[11px] uppercase tracking-wide px-2 py-0.5">
           {regionLabel}
         </span>
       </div>
@@ -45,7 +45,7 @@ export default function DataMilestoneCard({ item, drivers }: Props) {
         </div>
       )}
 
-      <div className="mt-3 pt-2.5 border-t border-ed-divider flex items-center gap-2 flex-wrap">
+      <div className="mt-3 pt-2.5 border-t border-ed-hairline flex items-center gap-2 flex-wrap">
         <span className="text-ed-meta tabular-nums text-ed-text-muted font-mono">{item.event_date}</span>
         {item.source_url && (
           <a
