@@ -1,130 +1,26 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import type {
   IntelligenceItem,
   IntelligenceRegion,
+  IntelligenceEventType,
   NarrativeThread,
   NarrativeExpectedEvent,
 } from '../../types/intelligence';
-import { REGION_META } from '../../types/intelligence';
 import { intelligenceApi } from '../../api/client';
-import PolicyImpactCard from '../../components/PolicyImpactCard';
 import NarrativeSubscribeButton from '../../components/NarrativeSubscribeButton';
 import { Eyebrow } from '../../components/Eyebrow';
+import { FilterPill } from '../../components/FilterPill';
+import { NarrativeCarousel } from './NarrativeCarousel';
 
-const TYPE_STRIPE_HEX: Record<string, string> = {
-  regulation:     '#B45309',
-  institutional:  '#6D28D9',
-  project:        '#047857',
-  research:       '#1D4ED8',
-  data_milestone: '#475569',
-  incident:       '#B91C1C',
-};
-
-function typeTextClass(t?: string): string {
-  switch (t) {
-    case 'regulation':     return 'text-ed-type-policy';
-    case 'institutional':  return 'text-ed-type-institution';
-    case 'project':        return 'text-ed-type-project';
-    case 'research':       return 'text-ed-type-research';
-    case 'data_milestone': return 'text-ed-type-data';
-    case 'incident':       return 'text-ed-type-incident';
-    default:               return 'text-ed-type-policy';
-  }
-}
-
+const ALL_EVENT_TYPES: Array<IntelligenceEventType | 'all'> = [
+  'all', 'regulation', 'institutional', 'project', 'research', 'data_milestone',
+];
+const ALL_REGIONS: Array<IntelligenceRegion | 'all'> = ['all', 'us', 'eu', 'hk', 'sg', 'uae', 'global'];
 const EVENT_TYPE_LABELS: Record<string, string> = {
-  regulation:     'Policy',
-  institutional:  'Institution',
-  project:        'Project',
-  research:       'Research',
-  data_milestone: 'Data',
-  incident:       'Incident',
+  all: 'All', regulation: 'Policy', institutional: 'Institution',
+  project: 'Project', research: 'Research', data_milestone: 'Data',
 };
-
-function RegionChip({ region }: { region: IntelligenceRegion }) {
-  return (
-    <span className="text-[11px] uppercase tracking-wide px-2 py-0.5 bg-ed-surface-sunken text-ed-chip-text">
-      {REGION_META[region].label.split(' ')[0]}
-    </span>
-  );
-}
-
-function PastEventNode({
-  item,
-  expanded,
-  onToggle,
-}: {
-  item: IntelligenceItem;
-  expanded: boolean;
-  onToggle: () => void;
-}) {
-  const stripeHex = TYPE_STRIPE_HEX[item.event_type ?? 'regulation'] ?? '#B45309';
-  const textCls = typeTextClass(item.event_type);
-
-  return (
-    <div className="relative border-b border-ed-hairline-faint hover:bg-ed-surface-cool transition-colors">
-      <div className="absolute left-0 top-0 bottom-0 w-[2px]" style={{ background: stripeHex }} />
-
-      <button onClick={onToggle} className="w-full text-left pl-6 pr-10 py-4">
-        <div className="flex items-center gap-2 flex-wrap mb-1.5">
-          <span className="text-ed-meta tabular-nums text-ed-text-muted font-mono">{item.event_date}</span>
-          <RegionChip region={item.region} />
-          <span className={`text-[11px] uppercase tracking-wide ${textCls}`}>
-            {EVENT_TYPE_LABELS[item.event_type ?? 'regulation'] ?? 'Policy'}
-          </span>
-          <span
-            className="ml-auto text-ed-text-faint material-symbols-outlined text-[18px] transition-transform"
-            style={{ transform: expanded ? 'rotate(180deg)' : 'none' }}
-          >
-            expand_more
-          </span>
-        </div>
-        <h3 className="text-ed-block-h3 text-ed-text-primary leading-snug">{item.title}</h3>
-        {item.narrative_impact_note && (
-          <p className="text-ed-body text-ed-accent mt-1 leading-relaxed italic">{item.narrative_impact_note}</p>
-        )}
-      </button>
-
-      {expanded && (
-        <div className="pl-6 pr-4 pb-5 pt-3 border-t border-ed-hairline-faint space-y-3">
-          {item.policy_summary && (
-            <p className="text-ed-body text-ed-text-secondary leading-relaxed">{item.policy_summary}</p>
-          )}
-
-          {item.policy_impact && (
-            <PolicyImpactCard eventTitle={item.title} impact={item.policy_impact} />
-          )}
-
-          {!item.policy_impact && item.market_impact.capital_flow && (
-            <div className="bg-ed-warn-bg border-l-2 border-ed-type-policy p-3">
-              <div className="flex items-center gap-1.5 mb-2">
-                <span className="material-symbols-outlined text-ed-warn-text text-[14px]">trending_up</span>
-                <span className="text-ed-eyebrow uppercase text-ed-warn-text">Policy → Market</span>
-                <span className="ml-auto text-ed-meta text-ed-warn-text opacity-60">verify against source</span>
-              </div>
-              <p className="text-ed-body text-ed-text-secondary">{item.market_impact.capital_flow}</p>
-            </div>
-          )}
-
-          {item.source_url && (
-            <div className="pt-2 border-t border-ed-hairline-faint">
-              <a
-                href={item.source_url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-ed-meta text-ed-accent hover:text-ed-ink transition-colors font-medium"
-              >
-                <span className="material-symbols-outlined text-[13px]">open_in_new</span>
-                {item.source_name || 'Official source'}
-              </a>
-            </div>
-          )}
-        </div>
-      )}
-    </div>
-  );
-}
 
 function ExpectedEventNode({ event }: { event: NarrativeExpectedEvent }) {
   return (
@@ -152,7 +48,9 @@ export default function NarrativeTimelineView() {
   const [expectedEvents, setExpectedEvents] = useState<NarrativeExpectedEvent[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [expandedId, setExpandedId] = useState<string | null>(null);
+
+  const [activeEventType, setActiveEventType] = useState<IntelligenceEventType | 'all'>('all');
+  const [activeRegion, setActiveRegion] = useState<IntelligenceRegion | 'all'>('all');
 
   useEffect(() => {
     if (!slug) return;
@@ -165,6 +63,12 @@ export default function NarrativeTimelineView() {
       .catch(() => setError('Failed to load narrative.'))
       .finally(() => setLoading(false));
   }, [slug]);
+
+  const filteredEvents = useMemo(() => {
+    return pastEvents
+      .filter(i => activeEventType === 'all' || (i.event_type ?? 'regulation') === activeEventType)
+      .filter(i => activeRegion === 'all' || i.region === activeRegion);
+  }, [pastEvents, activeEventType, activeRegion]);
 
   if (loading) {
     return (
@@ -221,29 +125,40 @@ export default function NarrativeTimelineView() {
             </div>
           </div>
 
-          {/* Timeline */}
+          {/* Events carousel */}
           {pastEvents.length === 0 ? (
             <div className="text-center py-12 text-ed-body text-ed-text-muted">
               No events recorded for this narrative yet.
             </div>
           ) : (
-            <div className="bg-ed-surface shadow-ed-card overflow-hidden">
-              <div className="px-ed-block py-3 border-b border-ed-hairline-faint">
-                <Eyebrow>Timeline · Oldest → Most Recent</Eyebrow>
+            <div>
+              {/* Filters */}
+              <div className="mb-8 space-y-4 border-y border-ed-hairline py-6">
+                <div className="flex items-center gap-4 flex-wrap">
+                  <Eyebrow className="w-16 shrink-0">Type</Eyebrow>
+                  <div className="flex flex-wrap gap-2">
+                    {ALL_EVENT_TYPES.map(t => (
+                      <FilterPill key={t} active={activeEventType === t} onClick={() => setActiveEventType(t)}>
+                        {EVENT_TYPE_LABELS[t]}
+                      </FilterPill>
+                    ))}
+                  </div>
+                </div>
+                <div className="flex items-center gap-4 flex-wrap">
+                  <Eyebrow className="w-16 shrink-0">Region</Eyebrow>
+                  <div className="flex flex-wrap gap-2">
+                    {ALL_REGIONS.map(r => (
+                      <FilterPill key={r} active={activeRegion === r} onClick={() => setActiveRegion(r)}>
+                        {r === 'all' ? 'All' : r.toUpperCase()}
+                      </FilterPill>
+                    ))}
+                  </div>
+                </div>
               </div>
-              <div>
-                {pastEvents.map(item => (
-                  <PastEventNode
-                    key={item.id}
-                    item={item}
-                    expanded={expandedId === item.id}
-                    onToggle={() => setExpandedId(expandedId === item.id ? null : item.id)}
-                  />
-                ))}
-              </div>
+              <NarrativeCarousel items={filteredEvents} />
 
               {expectedEvents.length > 0 && (
-                <>
+                <div className="mt-8">
                   <div className="flex items-center gap-3 px-ed-block py-3 bg-ed-surface-sunken border-t border-b border-ed-hairline-faint">
                     <div className="h-px flex-1 bg-ed-hairline" />
                     <span className="text-ed-eyebrow uppercase text-ed-accent px-2">Expected Next</span>
@@ -254,7 +169,7 @@ export default function NarrativeTimelineView() {
                       <ExpectedEventNode key={idx} event={ev} />
                     ))}
                   </div>
-                </>
+                </div>
               )}
             </div>
           )}

@@ -19,6 +19,7 @@ import { RegionActivityChart } from '../../components/RegionActivityChart';
 import { intelligenceApi } from '../../api/client';
 import { inferTier } from '../../utils/inferTier';
 import { usePagination } from '../../hooks/usePagination';
+import { NarrativeCarousel } from './NarrativeCarousel';
 
 // ── Constants ────────────────────────────────────────────────────────────────
 
@@ -379,12 +380,18 @@ function NewsSection({ items }: { items: IntelligenceItem[] }) {
 
   return (
     <section className="py-ed-section-md">
-      <div className="mb-10">
-        <div className="mb-4">
-          <Eyebrow>Latest News</Eyebrow>
+      <div
+        className="relative overflow-hidden bg-no-repeat bg-cover bg-right-top mb-10 py-16"
+        style={{ backgroundImage: "url('/bg/bg_dollar.png')" }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-r from-ed-canvas via-ed-canvas/70 to-transparent pointer-events-none" />
+        <div className="relative z-10">
+          <div className="mb-4">
+            <Eyebrow>Latest News</Eyebrow>
+          </div>
+          <h2 className="text-ed-section-h2 text-ed-text-primary mb-3">Latest News</h2>
+          <p className="text-ed-section-h2-light text-ed-text-muted">Recent regulatory and institutional events.</p>
         </div>
-        <h2 className="text-ed-section-h2 text-ed-text-primary mb-3">Latest News</h2>
-        <p className="text-ed-section-h2-light text-ed-text-muted">Recent regulatory and institutional events.</p>
       </div>
 
       {items.length === 0 ? (
@@ -420,108 +427,6 @@ function NewsSection({ items }: { items: IntelligenceItem[] }) {
   );
 }
 
-// ── TimelineSection ───────────────────────────────────────────────────────────
-
-function TimelineSection({
-  items,
-  totalAll,
-  activeEventType,
-  onSetEventType,
-  activeRegion,
-  onSetRegion,
-  expandedIds,
-  onToggleExpanded,
-  itemRefs,
-}: {
-  items: IntelligenceItem[];
-  totalAll: number;
-  activeEventType: IntelligenceEventType | 'all';
-  onSetEventType: (t: IntelligenceEventType | 'all') => void;
-  activeRegion: IntelligenceRegion | 'all';
-  onSetRegion: (r: IntelligenceRegion | 'all') => void;
-  expandedIds: Set<string>;
-  onToggleExpanded: (id: string) => void;
-  itemRefs: React.MutableRefObject<Record<string, HTMLDivElement | null>>;
-}) {
-  const { visible: visibleItems, loadMore, canLoadMore } = usePagination(items, 20);
-
-  return (
-    <section>
-      {/* Filter feedback count */}
-      <div className="flex justify-end mb-4 text-ed-meta text-ed-text-muted">
-        <span>{items.length} of {totalAll}</span>
-      </div>
-      <div className="mb-12 space-y-4 border-y border-ed-hairline py-6">
-        <div className="flex items-center gap-4 flex-wrap">
-          <Eyebrow className="w-16 shrink-0">Type</Eyebrow>
-          <div className="flex flex-wrap gap-2">
-            {ALL_EVENT_TYPES.map(t => (
-              <FilterPill
-                key={t}
-                active={activeEventType === t}
-                onClick={() => onSetEventType(t)}
-              >
-                {EVENT_TYPE_LABELS[t]}
-              </FilterPill>
-            ))}
-          </div>
-        </div>
-        <div className="flex items-center gap-4 flex-wrap">
-          <Eyebrow className="w-16 shrink-0">Region</Eyebrow>
-          <div className="flex flex-wrap gap-2">
-            {ALL_REGIONS.map(r => {
-              const label = r === 'all' ? 'All' : r.toUpperCase();
-              return (
-                <FilterPill
-                  key={r}
-                  active={activeRegion === r}
-                  onClick={() => onSetRegion(r)}
-                >
-                  {label}
-                </FilterPill>
-              );
-            })}
-          </div>
-        </div>
-      </div>
-
-      {/* Timeline list */}
-      {items.length === 0 ? (
-        <p className="text-ed-body text-ed-text-muted py-16 text-center">
-          No items match the current filters.
-        </p>
-      ) : (
-        <>
-          <ul className="divide-y divide-ed-hairline-faint">
-            {visibleItems.map(item => (
-              <li key={item.id} className="py-8 first:pt-0">
-                <div ref={el => { itemRefs.current[item.id] = el; }}>
-                  <ItemCard
-                    item={item}
-                    isExpanded={expandedIds.has(item.id)}
-                    onToggle={() => onToggleExpanded(item.id)}
-                  />
-                </div>
-              </li>
-            ))}
-          </ul>
-
-          {canLoadMore && (
-            <div className="flex justify-center pt-12 mt-8 border-t border-ed-hairline-faint">
-              <button
-                onClick={loadMore}
-                className="text-ed-meta uppercase tracking-wider text-ed-text-secondary hover:text-ed-ink transition-colors"
-              >
-                Load more →
-              </button>
-            </div>
-          )}
-        </>
-      )}
-    </section>
-  );
-}
-
 // ── NarrativeSection ──────────────────────────────────────────────────────────
 
 function NarrativeSection({
@@ -532,9 +437,6 @@ function NarrativeSection({
   onSetEventType,
   activeRegion,
   onSetRegion,
-  expandedIds,
-  onToggleExpanded,
-  itemRefs,
 }: {
   items: IntelligenceItem[];
   totalAll: number;
@@ -543,22 +445,25 @@ function NarrativeSection({
   onSetEventType: (t: IntelligenceEventType | 'all') => void;
   activeRegion: IntelligenceRegion | 'all';
   onSetRegion: (r: IntelligenceRegion | 'all') => void;
-  expandedIds: Set<string>;
-  onToggleExpanded: (id: string) => void;
-  itemRefs: React.MutableRefObject<Record<string, HTMLDivElement | null>>;
 }) {
   return (
     <section className="py-ed-section-lg relative w-screen left-1/2 -translate-x-1/2 bg-ed-surface-sunken">
       <div className="max-w-[1400px] mx-auto px-8">
-        {/* Section header — no milestones count */}
-        <div className="mb-8">
-          <Eyebrow className="mb-4">Narrative</Eyebrow>
-          <p className="text-ed-section-h2-light text-ed-text-muted">
-            How RWA got here, where it's going.
-          </p>
+        {/* Section header with bg image */}
+        <div
+          className="relative overflow-hidden bg-no-repeat bg-cover bg-right-top mb-8 py-16"
+          style={{ backgroundImage: "url('/bg/bg_infinity.png')" }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-r from-ed-surface-sunken via-ed-surface-sunken/70 to-transparent pointer-events-none" />
+          <div className="relative z-10">
+            <Eyebrow className="mb-4">Narrative</Eyebrow>
+            <p className="text-ed-section-h2-light text-ed-text-muted">
+              How RWA got here, where it's going.
+            </p>
+          </div>
         </div>
 
-        {/* Horizontal region strip */}
+        {/* Region activity strip */}
         <RegionActivityChart
           variant="strip"
           data={REGION_ORDER
@@ -568,18 +473,37 @@ function NarrativeSection({
           onRegionClick={r => onSetRegion(r as IntelligenceRegion | 'all')}
         />
 
-        {/* Timeline (filter row + event stream) */}
-        <TimelineSection
-          items={items}
-          totalAll={totalAll}
-          activeEventType={activeEventType}
-          onSetEventType={onSetEventType}
-          activeRegion={activeRegion}
-          onSetRegion={onSetRegion}
-          expandedIds={expandedIds}
-          onToggleExpanded={onToggleExpanded}
-          itemRefs={itemRefs}
-        />
+        {/* Filters */}
+        <div className="my-8 space-y-4 border-y border-ed-hairline py-6">
+          <div className="flex items-center gap-4 flex-wrap">
+            <Eyebrow className="w-16 shrink-0">Type</Eyebrow>
+            <div className="flex flex-wrap gap-2">
+              {ALL_EVENT_TYPES.map(t => (
+                <FilterPill key={t} active={activeEventType === t} onClick={() => onSetEventType(t)}>
+                  {EVENT_TYPE_LABELS[t]}
+                </FilterPill>
+              ))}
+            </div>
+          </div>
+          <div className="flex items-center gap-4 flex-wrap">
+            <Eyebrow className="w-16 shrink-0">Region</Eyebrow>
+            <div className="flex flex-wrap gap-2">
+              {ALL_REGIONS.map(r => (
+                <FilterPill key={r} active={activeRegion === r} onClick={() => onSetRegion(r)}>
+                  {r === 'all' ? 'All' : r.toUpperCase()}
+                </FilterPill>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Count */}
+        <div className="flex justify-end mb-4 text-ed-meta text-ed-text-muted">
+          <span>{items.length} of {totalAll}</span>
+        </div>
+
+        {/* Horizontal carousel */}
+        <NarrativeCarousel items={items} />
       </div>
     </section>
   );
@@ -854,9 +778,6 @@ export default function IntelligenceHome() {
             onSetEventType={setActiveEventType}
             activeRegion={activeRegion}
             onSetRegion={handleRegionSelect}
-            expandedIds={expandedIds}
-            onToggleExpanded={toggleExpanded}
-            itemRefs={itemRefs}
           />
         </div>
 
