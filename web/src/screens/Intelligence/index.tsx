@@ -35,14 +35,6 @@ const EVENT_TYPE_LABELS: Record<string, string> = {
   project: 'Project', research: 'Research', data_milestone: 'Data',
 };
 
-const EVENT_TYPE_FALLBACK: Record<string, string> = {
-  institutional: '/bg/bg_bank.png',
-  regulation: '/bg/bg_globe.png',
-  project: '/bg/bg_infinity.png',
-  research: '/bg/bg_dollar.png',
-  data_milestone: '/bg/bg_dollar.png',
-};
-
 const STATIC_FORWARD_ITEMS = [
   'HKMA: Stablecoin ordinance implementation rules expected Q3 2026 — technical standards under consultation',
   'SEC: Tokenized money market fund registration guidance expected Q2–Q3 2026',
@@ -248,8 +240,7 @@ function ItemCard({
   onToggle: () => void;
   compact?: boolean;
 }) {
-  const thumbSrc = item.image_url || EVENT_TYPE_FALLBACK[item.event_type ?? 'regulation'] || '/bg/bg_globe.png';
-  const fallbackSrc = EVENT_TYPE_FALLBACK[item.event_type ?? 'regulation'] || '/bg/bg_globe.png';
+  const thumbSrc = item.image_url ?? null;
 
   return (
     <article className="group cursor-pointer" onClick={onToggle}>
@@ -293,7 +284,7 @@ function ItemCard({
         </div>
 
         {/* Thumbnail — compact/news mode only */}
-        {compact && (
+        {compact && thumbSrc && (
           <div className="shrink-0 w-[180px] h-[120px] border border-ed-hairline overflow-hidden">
             <img
               src={thumbSrc}
@@ -301,10 +292,8 @@ function ItemCard({
               loading="lazy"
               className="w-full h-full object-cover"
               onError={e => {
-                const img = e.currentTarget;
-                if (img.src !== window.location.origin + fallbackSrc) {
-                  img.src = fallbackSrc;
-                }
+                const el = e.currentTarget.parentElement as HTMLDivElement;
+                el.style.display = 'none';
               }}
             />
           </div>
@@ -414,18 +403,12 @@ function NewsSection({ items }: { items: IntelligenceItem[] }) {
 
   return (
     <section className="py-ed-section-md">
-      <div
-        className="relative overflow-hidden bg-no-repeat bg-cover bg-right-top mb-10 py-16"
-        style={{ backgroundImage: "url('/bg/bg_dollar.png')" }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-r from-ed-canvas via-ed-canvas/70 to-transparent pointer-events-none" />
-        <div className="relative z-10">
-          <div className="mb-4">
-            <Eyebrow>Latest News</Eyebrow>
-          </div>
-          <h2 className="text-ed-section-h2 text-ed-text-primary mb-3">Latest News</h2>
-          <p className="text-ed-section-h2-light text-ed-text-muted">Recent regulatory and institutional events.</p>
+      <div className="mb-10">
+        <div className="mb-4">
+          <Eyebrow>Latest News</Eyebrow>
         </div>
+        <h2 className="text-ed-section-h2 text-ed-text-primary mb-3">Latest News</h2>
+        <p className="text-ed-section-h2-light text-ed-text-muted">Recent regulatory and institutional events.</p>
       </div>
 
       {items.length === 0 ? (
@@ -483,18 +466,12 @@ function NarrativeSection({
   return (
     <section className="py-ed-section-lg relative w-screen left-1/2 -translate-x-1/2 bg-ed-surface-sunken">
       <div className="max-w-[1400px] mx-auto px-8">
-        {/* Section header with bg image */}
-        <div
-          className="relative overflow-hidden bg-no-repeat bg-cover bg-right-top mb-8 py-16"
-          style={{ backgroundImage: "url('/bg/bg_infinity.png')" }}
-        >
-          <div className="absolute inset-0 bg-gradient-to-r from-ed-surface-sunken via-ed-surface-sunken/70 to-transparent pointer-events-none" />
-          <div className="relative z-10">
-            <Eyebrow className="mb-4">Narrative</Eyebrow>
-            <p className="text-ed-section-h2-light text-ed-text-muted">
-              How RWA got here, where it's going.
-            </p>
-          </div>
+        {/* Section header */}
+        <div className="mb-8">
+          <Eyebrow className="mb-4">Narrative</Eyebrow>
+          <p className="text-ed-section-h2-light text-ed-text-muted">
+            How RWA got here, where it's going.
+          </p>
         </div>
 
         {/* Region activity strip */}

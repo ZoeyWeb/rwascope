@@ -12,6 +12,12 @@ from urllib.parse import urlparse
 import requests
 from bs4 import BeautifulSoup
 
+try:
+    import lxml  # noqa: F401
+    _LXML_AVAILABLE = True
+except ImportError:
+    _LXML_AVAILABLE = False
+
 _UA = (
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
     "AppleWebKit/537.36 (KHTML, like Gecko) "
@@ -66,7 +72,8 @@ def fetch_og_image(url: str, timeout: int = 6) -> str | None:
             return None
         if "html" not in resp.headers.get("content-type", ""):
             return None
-        soup = BeautifulSoup(resp.text[:60_000], "lxml")
+        parser = "lxml" if _LXML_AVAILABLE else "html.parser"
+        soup = BeautifulSoup(resp.text[:60_000], parser)
         for prop in ("og:image", "og:image:url", "twitter:image"):
             tag = soup.find("meta", attrs={"property": prop}) or soup.find(
                 "meta", attrs={"name": prop}

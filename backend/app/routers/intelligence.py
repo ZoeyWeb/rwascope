@@ -13,14 +13,18 @@ GET  /api/intelligence/data-milestones      recent data snapshot events (30 days
 POST /api/intelligence/refresh      admin only — trigger fetch_intelligence.py
 GET  /api/intelligence/:item_id     single item
 """
+import hashlib
 import json
 import logging
 import os
+import re
 import subprocess
 import sys
 import time
 import uuid
 from datetime import datetime, timezone, timedelta
+from functools import lru_cache
+from pathlib import Path
 from typing import Optional
 
 from fastapi import APIRouter, BackgroundTasks, Depends, HTTPException, Query
@@ -40,6 +44,58 @@ from app.schemas.intelligence import (
 
 logger = logging.getLogger(__name__)
 router = APIRouter(prefix="/intelligence", tags=["intelligence"])
+
+# ── Pool-image fallback ────────────────────────────────────────────────────────
+
+_POOL_BASE = os.environ.get("MEDIA_POOL_PATH", "/var/www/rwascope/media/pool")
+
+_TITLE_KEYWORD_MAP = [
+    (re.compile(r"stablecoin|usdc|usdt|hkd|stable", re.I), "stablecoin"),
+    (re.compile(r"treasury|bond|fund|mmf|t.bill", re.I), "treasury"),
+    (re.compile(r"\bgold\b", re.I), "gold"),
+    (re.compile(r"\bsilver\b", re.I), "silver"),
+    (re.compile(r"real estate|reit|property", re.I), "realestate"),
+    (re.compile(r"blockchain|protocol|defi|chain", re.I), "blockchain"),
+]
+
+_EVENT_TYPE_POOL = {
+    "regulation": "regulation",
+    "institutional": "institution",
+    "project": "project",
+    "research": "research",
+    "data_milestone": "research",
+}
+
+
+@lru_cache(maxsize=None)
+def _pool_files(category: str) -> tuple[str, ...]:
+    """Sorted jpg filenames for a pool category. Cached at process startup."""
+    path = Path(_POOL_BASE) / category
+    if not path.is_dir():
+        return ()
+    return tuple(sorted(f.name for f in path.iterdir() if f.suffix == ".jpg"))
+
+
+def _pool_image_url(item_id: str, title: str, event_type: str | None) -> str | None:
+    """Stable /media/pool/... URL derived from item_id hash. Same item → same image."""
+    seed = int(hashlib.md5(item_id.encode()).hexdigest(), 16)
+
+    for pattern, category in _TITLE_KEYWORD_MAP:
+        if pattern.search(title):
+            files = _pool_files(category)
+            if files:
+                return f"/media/pool/{category}/{files[seed % len(files)]}"
+
+    category = _EVENT_TYPE_POOL.get(event_type or "", "general")
+    files = _pool_files(category)
+    if files:
+        return f"/media/pool/{category}/{files[seed % len(files)]}"
+
+    files = _pool_files("general")
+    if files:
+        return f"/media/pool/general/{files[seed % len(files)]}"
+
+    return None
 
 _DATA_PATH = os.environ.get(
     "INTELLIGENCE_JSON_PATH",
@@ -99,6 +155,9 @@ def _db_item_to_dict(item: IntelligenceItem) -> dict:
         "source_entity": item.source_entity,
         "is_forward_view": False,
         "tier": item.tier or "news",
+        "image_url": item.image_url or _pool_image_url(
+            str(item.id), item.title or "", item.event_type
+        ),
     }
 
 
