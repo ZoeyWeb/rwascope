@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useRef, useState, useCallback } from 'react';
 import type { IntelligenceItem, IntelligenceRegion } from '../../types/intelligence';
 import { REGION_META } from '../../types/intelligence';
 
@@ -84,11 +84,28 @@ function NarrativeCard({ item }: { item: IntelligenceItem }) {
 
 export function NarrativeCarousel({ items }: { items: IntelligenceItem[] }) {
   const scrollRef = useRef<HTMLDivElement>(null);
+  const [currentIdx, setCurrentIdx] = useState(0);
+  // 380px card + 24px gap
+  const STEP = 404;
+
+  const handleScroll = useCallback(() => {
+    if (!scrollRef.current) return;
+    const idx = Math.round(scrollRef.current.scrollLeft / STEP);
+    setCurrentIdx(Math.min(idx, items.length - 1));
+  }, [items.length]);
 
   function scrollCards(dir: 1 | -1) {
-    // 380px card + 24px gap
-    scrollRef.current?.scrollBy({ left: dir * 404, behavior: 'smooth' });
+    scrollRef.current?.scrollBy({ left: dir * STEP, behavior: 'smooth' });
   }
+
+  const atStart = currentIdx === 0;
+  const atEnd   = currentIdx >= items.length - 1;
+
+  const btnBase =
+    'w-8 h-8 flex items-center justify-center border border-ed-hairline ' +
+    'text-ed-meta text-ed-text-secondary transition-colors leading-none select-none';
+  const btnActive  = 'hover:text-ed-ink hover:border-ed-text-muted cursor-pointer';
+  const btnDisabled = 'opacity-30 cursor-not-allowed';
 
   if (items.length === 0) {
     return (
@@ -99,34 +116,40 @@ export function NarrativeCarousel({ items }: { items: IntelligenceItem[] }) {
   }
 
   return (
-    <div className="relative">
-      {/* Arrow navigation */}
-      <div className="absolute -top-10 right-0 flex gap-2 z-10">
-        <button
-          onClick={() => scrollCards(-1)}
-          className="border border-ed-hairline px-3 py-1.5 text-ed-meta text-ed-text-secondary hover:text-ed-ink hover:border-ed-text-muted transition-colors leading-none"
-          aria-label="Previous"
-        >
-          ←
-        </button>
-        <button
-          onClick={() => scrollCards(1)}
-          className="border border-ed-hairline px-3 py-1.5 text-ed-meta text-ed-text-secondary hover:text-ed-ink hover:border-ed-text-muted transition-colors leading-none"
-          aria-label="Next"
-        >
-          →
-        </button>
-      </div>
-
+    <div className="flex flex-col gap-3">
       {/* Scrollable carousel track */}
       <div
         ref={scrollRef}
-        className="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-4 [&::-webkit-scrollbar]:hidden"
+        onScroll={handleScroll}
+        className="flex gap-6 overflow-x-auto snap-x snap-mandatory [&::-webkit-scrollbar]:hidden"
         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
       >
         {items.map(item => (
           <NarrativeCard key={item.id} item={item} />
         ))}
+      </div>
+
+      {/* Nav controls — right-aligned below track */}
+      <div className="flex items-center justify-end gap-3">
+        <button
+          onClick={() => !atStart && scrollCards(-1)}
+          disabled={atStart}
+          className={`${btnBase} ${atStart ? btnDisabled : btnActive}`}
+          aria-label="Previous"
+        >
+          ←
+        </button>
+        <span className="text-ed-meta tabular-nums text-ed-text-muted min-w-[5ch] text-center">
+          {currentIdx + 1} of {items.length}
+        </span>
+        <button
+          onClick={() => !atEnd && scrollCards(1)}
+          disabled={atEnd}
+          className={`${btnBase} ${atEnd ? btnDisabled : btnActive}`}
+          aria-label="Next"
+        >
+          →
+        </button>
       </div>
     </div>
   );
