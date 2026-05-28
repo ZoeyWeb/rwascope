@@ -45,64 +45,88 @@ function getProjectRegion(jurisdiction: string): Exclude<RegionFilter, 'all'> {
   return 'OtherEmerging';
 }
 
+// ── Logo: Clearbit + initials fallback ───────────────────────────────────────
+
+function ProjectLogo({ website, shortName, assetColor }: { website: string; shortName: string; assetColor: string }) {
+  const [failed, setFailed] = useState(false);
+  const domain = (() => {
+    try { return new URL(website).hostname.replace(/^www\./, ''); } catch { return ''; }
+  })();
+  const initials = shortName.replace(/[^A-Z0-9]/gi, '').slice(0, 2).toUpperCase();
+
+  if (!domain || failed) {
+    return (
+      <div
+        className="w-11 h-11 flex items-center justify-center text-white text-sm font-bold shrink-0"
+        style={{ background: assetColor + 'cc' }}
+      >
+        {initials}
+      </div>
+    );
+  }
+  return (
+    <img
+      src={`https://logo.clearbit.com/${domain}`}
+      alt={shortName}
+      className="w-11 h-11 object-contain shrink-0 bg-white p-1 border border-ed-hairline"
+      onError={() => setFailed(true)}
+    />
+  );
+}
+
 // ── Active project card ───────────────────────────────────────────────────────
 
 function ActiveCard({ project }: { project: Project }) {
   const isBoth = project.lessons_visibility === 'both';
   const assetMeta = ASSET_CLASS_META[project.asset_class] ?? { label: project.asset_class, color: '#78716C' };
   const statusMeta = STATUS_META[project.status] ?? { label: project.status };
-  const entityCount = Object.keys(project.entity_map).filter(k => k !== 'token_standard').length;
 
   return (
     <Link
       to={`/projects/${project.slug}`}
-      className="block border-b border-ed-hairline hover:bg-ed-surface-cool transition-colors group py-5 px-1"
+      className="flex flex-col border border-ed-hairline bg-ed-surface hover:border-ed-ink hover:shadow-sm transition-all group p-5"
       data-testid="project-card"
     >
-      <div className="flex items-start justify-between gap-4">
+      {/* Logo + meta */}
+      <div className="flex items-start gap-3 mb-4">
+        <ProjectLogo website={project.website ?? ''} shortName={project.short_name} assetColor={assetMeta.color} />
         <div className="flex-1 min-w-0">
-          {/* Top meta row */}
-          <div className="flex items-center gap-3 mb-2">
+          <div className="flex items-center gap-1.5 flex-wrap mb-1">
             <span
-              className="text-ed-eyebrow uppercase tracking-[0.12em] font-medium text-[11px]"
+              className="text-ed-eyebrow uppercase tracking-[0.10em] font-medium text-[10px]"
               style={{ color: assetMeta.color }}
             >
               {assetMeta.label}
             </span>
-            <span className="text-ed-hairline">·</span>
-            <span className="text-ed-eyebrow uppercase tracking-[0.12em] font-medium text-[11px] text-ed-text-muted">
+            <span className="text-ed-text-faint text-[10px]">·</span>
+            <span className="text-ed-eyebrow uppercase tracking-[0.10em] font-medium text-[10px] text-ed-text-muted">
               {statusMeta.label}
             </span>
             {isBoth && (
               <>
-                <span className="text-ed-hairline">·</span>
-                <span className="text-ed-eyebrow uppercase tracking-[0.12em] font-medium text-[11px] text-ed-incident">
-                  Historical Incident
+                <span className="text-ed-text-faint text-[10px]">·</span>
+                <span className="text-ed-eyebrow uppercase tracking-[0.10em] font-medium text-[10px] text-ed-incident">
+                  Incident
                 </span>
               </>
             )}
           </div>
-
-          {/* Title */}
-          <h3 className="text-ed-item-h4 font-medium text-ed-text-primary group-hover:text-ed-ink-hover leading-snug mb-1">
+          <h3 className="text-ed-item-h4 font-semibold text-ed-text-primary group-hover:text-ed-ink-hover leading-tight">
             {project.short_name}
           </h3>
-          <p className="text-ed-meta text-ed-text-muted mb-2">{project.name}</p>
-
-          {/* Summary */}
-          <p className="text-ed-body text-ed-text-secondary leading-relaxed line-clamp-2">
-            {project.summary}
-          </p>
+          <p className="text-[11px] text-ed-text-faint mt-0.5 truncate">{project.jurisdiction.split(',')[0]}</p>
         </div>
+      </div>
 
-        {/* Right meta */}
-        <div className="shrink-0 text-right hidden sm:block">
-          <p className="text-ed-meta text-ed-text-muted">{project.jurisdiction.split(',')[0]}</p>
-          <p className="text-ed-meta text-ed-text-faint mt-0.5">{project.chain.split(',')[0].trim()}</p>
-          <p className="text-ed-meta text-ed-text-faint mt-0.5">{entityCount} entities</p>
-        </div>
+      {/* Summary */}
+      <p className="text-ed-body text-ed-text-secondary leading-relaxed line-clamp-3 flex-1 mb-4">
+        {project.summary}
+      </p>
 
-        <span className="material-symbols-outlined text-[16px] text-ed-text-faint group-hover:text-ed-ink transition-colors shrink-0 mt-1">
+      {/* Footer */}
+      <div className="flex items-center justify-between pt-3 border-t border-ed-hairline">
+        <span className="text-[11px] text-ed-text-faint">{project.chain.split(',')[0].trim()}</span>
+        <span className="material-symbols-outlined text-[14px] text-ed-text-faint group-hover:text-ed-ink transition-colors">
           arrow_forward
         </span>
       </div>
@@ -114,8 +138,8 @@ function ActiveCard({ project }: { project: Project }) {
 
 function LessonsCard({ project }: { project: Project }) {
   const flags = project.risk_flags ?? [];
-  const visibleFlags = flags.slice(0, 4);
-  const extraCount = flags.length - 4;
+  const visibleFlags = flags.slice(0, 3);
+  const extraCount = flags.length - 3;
   const peakTvl = project.peak_tvl_usd
     ? project.peak_tvl_usd >= 1e9
       ? `$${(project.peak_tvl_usd / 1e9).toFixed(1)}B`
@@ -123,71 +147,68 @@ function LessonsCard({ project }: { project: Project }) {
       ? `$${(project.peak_tvl_usd / 1e6).toFixed(0)}M`
       : `$${(project.peak_tvl_usd / 1e3).toFixed(0)}K`
     : null;
-  const peakDate = project.postmortem?.incident_date ?? project.updated_at;
   const assetMeta = ASSET_CLASS_META[project.asset_class] ?? { label: project.asset_class, color: '#78716C' };
 
   return (
     <Link
       to={`/projects/${project.slug}`}
-      className="block border-b border-ed-hairline hover:bg-ed-surface-cool transition-colors group py-5 px-1"
+      className="block border border-ed-incident/20 bg-ed-surface hover:border-ed-incident/50 hover:shadow-sm transition-all group p-5 relative overflow-hidden"
       data-testid="project-card-lessons"
     >
-      <div className="flex items-start justify-between gap-4">
+      {/* Incident strip */}
+      <div className="absolute top-0 left-0 right-0 h-0.5 bg-ed-incident" />
+
+      {/* Logo + meta */}
+      <div className="flex items-start gap-3 mb-4 mt-1">
+        <ProjectLogo website={project.website ?? ''} shortName={project.short_name} assetColor="#B91C1C" />
         <div className="flex-1 min-w-0">
-          {/* Top meta */}
-          <div className="flex items-center gap-3 mb-2">
-            <span className="text-ed-eyebrow uppercase tracking-[0.12em] font-medium text-[11px] text-ed-incident">
+          <div className="flex items-center gap-2 flex-wrap mb-1">
+            <span className="text-ed-eyebrow uppercase tracking-[0.10em] font-medium text-[10px] text-ed-incident">
               Lessons Learned
             </span>
-            <span className="text-ed-hairline">·</span>
+            <span className="text-ed-text-faint text-[10px]">·</span>
             <span
-              className="text-ed-eyebrow uppercase tracking-[0.12em] font-medium text-[11px]"
+              className="text-ed-eyebrow uppercase tracking-[0.10em] font-medium text-[10px]"
               style={{ color: assetMeta.color }}
             >
               {assetMeta.label}
             </span>
-            {peakTvl && (
-              <>
-                <span className="text-ed-hairline">·</span>
-                <span className="text-ed-eyebrow uppercase tracking-[0.12em] font-medium text-[11px] text-ed-text-muted">
-                  Peak {peakTvl}
-                  {peakDate && <span className="ml-1 text-ed-text-faint">{peakDate.slice(0, 7)}</span>}
-                </span>
-              </>
-            )}
           </div>
-
-          {/* Title */}
-          <h3 className="text-ed-item-h4 font-medium text-ed-text-primary group-hover:text-ed-incident leading-snug mb-1">
+          <h3 className="text-ed-item-h4 font-semibold text-ed-text-primary group-hover:text-ed-incident leading-tight">
             {project.short_name}
           </h3>
-          <p className="text-ed-meta text-ed-text-muted mb-2">{project.name}</p>
-
-          {/* Risk flags */}
-          {flags.length > 0 && (
-            <div className="flex flex-wrap gap-1.5 mb-2">
-              {visibleFlags.map(flag => (
-                <span
-                  key={flag}
-                  className="px-2 py-0.5 text-[11px] font-medium border border-ed-incident/30 text-ed-incident bg-ed-incident/5"
-                >
-                  {RISK_FLAG_LABELS[flag] ?? flag}
-                </span>
-              ))}
-              {extraCount > 0 && (
-                <span className="px-2 py-0.5 text-[11px] font-medium text-ed-text-muted border border-ed-hairline">
-                  +{extraCount}
-                </span>
-              )}
-            </div>
+          {peakTvl && (
+            <p className="text-[11px] text-ed-text-faint mt-0.5">Peak TVL {peakTvl}</p>
           )}
-
-          <p className="text-ed-body text-ed-text-secondary leading-relaxed line-clamp-2">
-            {project.summary}
-          </p>
         </div>
+      </div>
 
-        <span className="material-symbols-outlined text-[16px] text-ed-text-faint group-hover:text-ed-incident transition-colors shrink-0 mt-1">
+      {/* Risk flags */}
+      {flags.length > 0 && (
+        <div className="flex flex-wrap gap-1 mb-3">
+          {visibleFlags.map(flag => (
+            <span
+              key={flag}
+              className="px-2 py-0.5 text-[10px] font-medium border border-ed-incident/25 text-ed-incident bg-ed-incident/5"
+            >
+              {RISK_FLAG_LABELS[flag] ?? flag}
+            </span>
+          ))}
+          {extraCount > 0 && (
+            <span className="px-2 py-0.5 text-[10px] font-medium text-ed-text-muted border border-ed-hairline">
+              +{extraCount}
+            </span>
+          )}
+        </div>
+      )}
+
+      <p className="text-ed-body text-ed-text-secondary leading-relaxed line-clamp-3 mb-4">
+        {project.summary}
+      </p>
+
+      <div className="flex items-center justify-between pt-3 border-t border-ed-hairline">
+        <span className="text-[11px] text-ed-text-faint">{project.jurisdiction.split(',')[0]}</span>
+        <span className="material-symbols-outlined text-[14px] text-ed-text-faint group-hover:text-ed-incident transition-colors">
           arrow_forward
         </span>
       </div>
@@ -524,7 +545,7 @@ export default function ProjectsList() {
           </div>
         ) : (
           <>
-            <div className="border-t border-ed-hairline">
+            <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4">
               {visible.map(p =>
                 view === 'lessons'
                   ? <LessonsCard key={p.slug} project={p} />
