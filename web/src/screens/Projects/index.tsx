@@ -1,44 +1,31 @@
 import { useState, useEffect, useMemo } from 'react';
+import { usePagination } from '../../hooks/usePagination';
 import { Link, useSearchParams } from 'react-router-dom';
 import type { Project, ProjectAssetClass, ProjectStatus } from '../../types/projects';
 import { ASSET_CLASS_META, STATUS_META } from '../../types/projects';
 import { projectsApi } from '../../api/client';
 
 const RISK_FLAG_LABELS: Record<string, string> = {
-  de_peg:                      'De-peg',
-  regulatory_action:           'Regulatory Action',
-  audit_issue:                 'Audit Issue',
-  paused:                      'Paused',
-  failed:                      'Failed',
-  historical_pool_defaults:    'Historical Pool Defaults',
-  early_underwriting_issues:   'Early Underwriting Issues',
-  silicon_valley_bank_exposure: 'SVB Exposure',
-  regulatory_uncertainty:      'Regulatory Uncertainty',
-  real_estate_liquidity_crisis: 'RE Liquidity Crisis',
-  illiquid_backing:            'Illiquid Backing',
-  defi_integration_risk:       'DeFi Integration Risk',
-  mim_liquidation_cascade:     'MIM Liquidation Cascade',
-  governance_conflict:         'Governance Conflict',
-  low_volume:                  'Low Volume',
-  nft_liquidity_risk:          'NFT Liquidity',
-  legal_uncertainty:           'Legal Uncertainty',
-  algorithmic_peg_failure:     'Algorithmic Peg Failure',
-  reflexive_collateral:        'Reflexive Collateral',
-  bank_run_dynamics:           'Bank Run Dynamics',
-  yield_sustainability:        'Yield Sustainability',
-  ponzi_dynamics:              'Ponzi Dynamics',
-  custody_risk:                'Custody Risk',
-  undercollateralisation:      'Undercollateralisation',
-  pool_default:                'Pool Default',
-  inadequate_disclosure:       'Inadequate Disclosure',
+  de_peg: 'De-peg', regulatory_action: 'Regulatory Action', audit_issue: 'Audit Issue',
+  paused: 'Paused', failed: 'Failed', historical_pool_defaults: 'Historical Pool Defaults',
+  early_underwriting_issues: 'Early Underwriting Issues', silicon_valley_bank_exposure: 'SVB Exposure',
+  regulatory_uncertainty: 'Regulatory Uncertainty', real_estate_liquidity_crisis: 'RE Liquidity Crisis',
+  illiquid_backing: 'Illiquid Backing', defi_integration_risk: 'DeFi Integration Risk',
+  mim_liquidation_cascade: 'MIM Liquidation Cascade', governance_conflict: 'Governance Conflict',
+  low_volume: 'Low Volume', nft_liquidity_risk: 'NFT Liquidity', legal_uncertainty: 'Legal Uncertainty',
+  algorithmic_peg_failure: 'Algorithmic Peg Failure', reflexive_collateral: 'Reflexive Collateral',
+  bank_run_dynamics: 'Bank Run Dynamics', yield_sustainability: 'Yield Sustainability',
+  ponzi_dynamics: 'Ponzi Dynamics', custody_risk: 'Custody Risk',
+  undercollateralisation: 'Undercollateralisation', pool_default: 'Pool Default',
+  inadequate_disclosure: 'Inadequate Disclosure',
 };
 
 type RegionFilter = 'all' | 'HongKong' | 'Singapore' | 'UnitedStates' | 'EuropeanUnion' | 'UAE' | 'Switzerland' | 'Japan' | 'Australia' | 'Brazil' | 'India' | 'OtherEmerging';
 const ALL_REGIONS: RegionFilter[] = ['all', 'HongKong', 'Singapore', 'UnitedStates', 'EuropeanUnion', 'UAE', 'Switzerland', 'Japan', 'Australia', 'Brazil', 'India', 'OtherEmerging'];
 const REGION_LABELS: Record<RegionFilter, string> = {
   all: 'All', HongKong: 'Hong Kong', Singapore: 'Singapore', UnitedStates: 'United States',
-  EuropeanUnion: 'European Union', UAE: 'UAE', Switzerland: 'Switzerland', Japan: 'Japan',
-  Australia: 'Australia', Brazil: 'Brazil', India: 'India', OtherEmerging: 'Other Emerging',
+  EuropeanUnion: 'EU', UAE: 'UAE', Switzerland: 'Switzerland', Japan: 'Japan',
+  Australia: 'Australia', Brazil: 'Brazil', India: 'India', OtherEmerging: 'Other',
 };
 
 type RiskFilter = 'all' | 'clean' | 'flagged';
@@ -58,95 +45,66 @@ function getProjectRegion(jurisdiction: string): Exclude<RegionFilter, 'all'> {
   return 'OtherEmerging';
 }
 
-// ── Status badge ──────────────────────────────────────────────────────────────
-
-function StatusBadge({ status }: { status: ProjectStatus }) {
-  const m = STATUS_META[status] ?? { label: status, color: '#737C7F', bg: 'bg-slate-800/40' };
-  return (
-    <span
-      className={`inline-flex items-center px-2 py-0.5 rounded text-[11px] font-bold border ${m.bg}`}
-      style={{ color: m.color, borderColor: m.color + '50' }}
-    >
-      <span className="w-1.5 h-1.5 rounded-full mr-1.5" style={{ background: m.color }} />
-      {m.label}
-    </span>
-  );
-}
-
-// ── Asset class badge ─────────────────────────────────────────────────────────
-
-function AssetClassBadge({ cls }: { cls: ProjectAssetClass }) {
-  const m = ASSET_CLASS_META[cls] ?? { label: cls, color: '#94a3b8' };
-  return (
-    <span
-      className="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold border"
-      style={{ color: m.color, borderColor: m.color + '40', background: m.color + '15' }}
-    >
-      {m.label}
-    </span>
-  );
-}
-
 // ── Active project card ───────────────────────────────────────────────────────
 
 function ActiveCard({ project }: { project: Project }) {
-  const entityCount = Object.keys(project.entity_map).filter(k => k !== 'token_standard').length;
   const isBoth = project.lessons_visibility === 'both';
-  const tooltipText = isBoth && project.postmortem
-    ? project.postmortem.outcome.slice(0, 100) + (project.postmortem.outcome.length > 100 ? '…' : '')
-    : '';
+  const assetMeta = ASSET_CLASS_META[project.asset_class] ?? { label: project.asset_class, color: '#78716C' };
+  const statusMeta = STATUS_META[project.status] ?? { label: project.status };
+  const entityCount = Object.keys(project.entity_map).filter(k => k !== 'token_standard').length;
 
   return (
     <Link
       to={`/projects/${project.slug}`}
-      className="block rounded-xl border border-[#2B3437] bg-[#13141f] hover:border-[#5E5C75]/60 hover:bg-[#1A1A2E] transition-all group relative"
+      className="block border-b border-ed-hairline hover:bg-ed-surface-cool transition-colors group py-5 px-1"
       data-testid="project-card"
     >
-      {isBoth && (
-        <span
-          className="absolute top-0 right-0 px-2 py-1 rounded-tr-xl rounded-bl-lg text-[10px] font-bold bg-slate-700/80 text-slate-300 border-b border-l border-[#2B3437] z-10 cursor-default"
-          title={tooltipText}
-        >
-          ⚠ Historical incident
+      <div className="flex items-start justify-between gap-4">
+        <div className="flex-1 min-w-0">
+          {/* Top meta row */}
+          <div className="flex items-center gap-3 mb-2">
+            <span
+              className="text-ed-eyebrow uppercase tracking-[0.12em] font-medium text-[11px]"
+              style={{ color: assetMeta.color }}
+            >
+              {assetMeta.label}
+            </span>
+            <span className="text-ed-hairline">·</span>
+            <span className="text-ed-eyebrow uppercase tracking-[0.12em] font-medium text-[11px] text-ed-text-muted">
+              {statusMeta.label}
+            </span>
+            {isBoth && (
+              <>
+                <span className="text-ed-hairline">·</span>
+                <span className="text-ed-eyebrow uppercase tracking-[0.12em] font-medium text-[11px] text-ed-incident">
+                  Historical Incident
+                </span>
+              </>
+            )}
+          </div>
+
+          {/* Title */}
+          <h3 className="text-ed-item-h4 font-medium text-ed-text-primary group-hover:text-ed-ink-hover leading-snug mb-1">
+            {project.short_name}
+          </h3>
+          <p className="text-ed-meta text-ed-text-muted mb-2">{project.name}</p>
+
+          {/* Summary */}
+          <p className="text-ed-body text-ed-text-secondary leading-relaxed line-clamp-2">
+            {project.summary}
+          </p>
+        </div>
+
+        {/* Right meta */}
+        <div className="shrink-0 text-right hidden sm:block">
+          <p className="text-ed-meta text-ed-text-muted">{project.jurisdiction.split(',')[0]}</p>
+          <p className="text-ed-meta text-ed-text-faint mt-0.5">{project.chain.split(',')[0].trim()}</p>
+          <p className="text-ed-meta text-ed-text-faint mt-0.5">{entityCount} entities</p>
+        </div>
+
+        <span className="material-symbols-outlined text-[16px] text-ed-text-faint group-hover:text-ed-ink transition-colors shrink-0 mt-1">
+          arrow_forward
         </span>
-      )}
-      <div className="p-5">
-        <div className="flex items-start justify-between gap-3 mb-3">
-          <div className="flex-1 min-w-0">
-            <div className="flex items-center gap-2 flex-wrap mb-1.5">
-              <StatusBadge status={project.status} />
-              <AssetClassBadge cls={project.asset_class} />
-            </div>
-            <h3 className="font-bold text-white text-sm leading-snug group-hover:text-[#5E5C75] transition-colors">
-              {project.short_name}
-            </h3>
-            <p className="text-[11px] text-slate-500 mt-0.5">{project.name}</p>
-          </div>
-        </div>
-
-        <p className="text-xs text-slate-400 leading-relaxed line-clamp-2 mb-4">
-          {project.summary}
-        </p>
-
-        <div className="flex items-center justify-between text-[10px] text-slate-600 pt-3 border-t border-[#2B3437]">
-          <div className="flex items-center gap-3">
-            <span className="flex items-center gap-1">
-              <span className="material-symbols-outlined text-[11px]">language</span>
-              {project.jurisdiction}
-            </span>
-            <span className="flex items-center gap-1">
-              <span className="material-symbols-outlined text-[11px]">hub</span>
-              {project.chain.split(',')[0].trim()}
-            </span>
-            <span className="flex items-center gap-1">
-              <span className="material-symbols-outlined text-[11px]">account_tree</span>
-              {entityCount} entities
-            </span>
-          </div>
-          <span className="material-symbols-outlined text-[14px] text-slate-600 group-hover:text-[#5E5C75] transition-colors">
-            arrow_forward
-          </span>
-        </div>
       </div>
     </Link>
   );
@@ -155,11 +113,9 @@ function ActiveCard({ project }: { project: Project }) {
 // ── Lessons Learned card ──────────────────────────────────────────────────────
 
 function LessonsCard({ project }: { project: Project }) {
-  const entityCount = Object.keys(project.entity_map).filter(k => k !== 'token_standard').length;
   const flags = project.risk_flags ?? [];
-  const visibleFlags = flags.slice(0, 3);
-  const extraCount = flags.length - 3;
-
+  const visibleFlags = flags.slice(0, 4);
+  const extraCount = flags.length - 4;
   const peakTvl = project.peak_tvl_usd
     ? project.peak_tvl_usd >= 1e9
       ? `$${(project.peak_tvl_usd / 1e9).toFixed(1)}B`
@@ -167,96 +123,104 @@ function LessonsCard({ project }: { project: Project }) {
       ? `$${(project.peak_tvl_usd / 1e6).toFixed(0)}M`
       : `$${(project.peak_tvl_usd / 1e3).toFixed(0)}K`
     : null;
-
   const peakDate = project.postmortem?.incident_date ?? project.updated_at;
+  const assetMeta = ASSET_CLASS_META[project.asset_class] ?? { label: project.asset_class, color: '#78716C' };
 
   return (
     <Link
       to={`/projects/${project.slug}`}
-      className="block rounded-xl border border-red-900/40 bg-slate-50 hover:border-red-700/60 hover:bg-white transition-all group relative overflow-hidden"
+      className="block border-b border-ed-hairline hover:bg-ed-surface-cool transition-colors group py-5 px-1"
       data-testid="project-card-lessons"
     >
-      {/* Red label strip */}
-      <div className="px-4 py-1.5 bg-red-900/80 flex items-center gap-2">
-        <span className="material-symbols-outlined text-red-300 text-[13px]">warning</span>
-        <span className="text-[10px] font-bold text-red-200 uppercase tracking-widest">
-          Lessons Learned
-        </span>
-      </div>
-
-      <div className="p-5">
-        <div className="flex items-start justify-between gap-3 mb-3">
-          <div className="flex-1 min-w-0">
-            <div className="flex items-center gap-2 flex-wrap mb-1.5">
-              <StatusBadge status={project.status} />
-              <AssetClassBadge cls={project.asset_class} />
-            </div>
-            <h3 className="font-bold text-[#2B3437] text-sm leading-snug group-hover:text-red-800 transition-colors">
-              {project.short_name}
-            </h3>
-            <p className="text-[11px] text-slate-500 mt-0.5">{project.name}</p>
-          </div>
-        </div>
-
-        {flags.length > 0 && (
-          <div className="flex flex-wrap gap-1.5 mb-3">
-            {visibleFlags.map(flag => (
-              <span
-                key={flag}
-                className="inline-flex items-center gap-0.5 px-2 py-0.5 rounded text-[10px] font-medium"
-                style={{ background: '#FEE2E2', color: '#9e3f4e' }}
-              >
-                {RISK_FLAG_LABELS[flag] ?? flag}
-              </span>
-            ))}
-            {extraCount > 0 && (
-              <span
-                className="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-medium"
-                style={{ background: '#FEE2E2', color: '#9e3f4e' }}
-              >
-                +{extraCount}
-              </span>
-            )}
-          </div>
-        )}
-
-        <p className="text-xs text-slate-500 leading-relaxed line-clamp-2 mb-4">
-          {project.summary}
-        </p>
-
-        <div className="flex items-center justify-between text-[10px] text-slate-500 pt-3 border-t border-red-100">
-          <div className="flex items-center gap-3">
-            <span className="flex items-center gap-1">
-              <span className="material-symbols-outlined text-[11px]">language</span>
-              {project.jurisdiction}
+      <div className="flex items-start justify-between gap-4">
+        <div className="flex-1 min-w-0">
+          {/* Top meta */}
+          <div className="flex items-center gap-3 mb-2">
+            <span className="text-ed-eyebrow uppercase tracking-[0.12em] font-medium text-[11px] text-ed-incident">
+              Lessons Learned
+            </span>
+            <span className="text-ed-hairline">·</span>
+            <span
+              className="text-ed-eyebrow uppercase tracking-[0.12em] font-medium text-[11px]"
+              style={{ color: assetMeta.color }}
+            >
+              {assetMeta.label}
             </span>
             {peakTvl && (
-              <span className="flex items-center gap-1">
-                <span className="material-symbols-outlined text-[11px]">show_chart</span>
-                Peak TVL: {peakTvl}
-                {peakDate && <span className="ml-1 text-slate-400">({peakDate.slice(0, 7)})</span>}
-              </span>
-            )}
-            {!peakTvl && (
-              <span className="flex items-center gap-1">
-                <span className="material-symbols-outlined text-[11px]">account_tree</span>
-                {entityCount} entities
-              </span>
+              <>
+                <span className="text-ed-hairline">·</span>
+                <span className="text-ed-eyebrow uppercase tracking-[0.12em] font-medium text-[11px] text-ed-text-muted">
+                  Peak {peakTvl}
+                  {peakDate && <span className="ml-1 text-ed-text-faint">{peakDate.slice(0, 7)}</span>}
+                </span>
+              </>
             )}
           </div>
-          <span className="material-symbols-outlined text-[14px] text-slate-400 group-hover:text-red-700 transition-colors">
-            arrow_forward
-          </span>
+
+          {/* Title */}
+          <h3 className="text-ed-item-h4 font-medium text-ed-text-primary group-hover:text-ed-incident leading-snug mb-1">
+            {project.short_name}
+          </h3>
+          <p className="text-ed-meta text-ed-text-muted mb-2">{project.name}</p>
+
+          {/* Risk flags */}
+          {flags.length > 0 && (
+            <div className="flex flex-wrap gap-1.5 mb-2">
+              {visibleFlags.map(flag => (
+                <span
+                  key={flag}
+                  className="px-2 py-0.5 text-[11px] font-medium border border-ed-incident/30 text-ed-incident bg-ed-incident/5"
+                >
+                  {RISK_FLAG_LABELS[flag] ?? flag}
+                </span>
+              ))}
+              {extraCount > 0 && (
+                <span className="px-2 py-0.5 text-[11px] font-medium text-ed-text-muted border border-ed-hairline">
+                  +{extraCount}
+                </span>
+              )}
+            </div>
+          )}
+
+          <p className="text-ed-body text-ed-text-secondary leading-relaxed line-clamp-2">
+            {project.summary}
+          </p>
         </div>
+
+        <span className="material-symbols-outlined text-[16px] text-ed-text-faint group-hover:text-ed-incident transition-colors shrink-0 mt-1">
+          arrow_forward
+        </span>
       </div>
     </Link>
   );
 }
 
+// ── Filter pill ───────────────────────────────────────────────────────────────
+
+function Pill({ active, onClick, children }: { active: boolean; onClick: () => void; children: React.ReactNode }) {
+  return (
+    <button
+      onClick={onClick}
+      className={`px-3 py-1 text-[11px] font-medium uppercase tracking-[0.08em] border transition-colors whitespace-nowrap ${
+        active
+          ? 'bg-ed-ink text-white border-ed-ink'
+          : 'bg-transparent border-ed-hairline text-ed-text-muted hover:border-ed-ink hover:text-ed-text-primary'
+      }`}
+    >
+      {children}
+    </button>
+  );
+}
+
 // ── Main screen ───────────────────────────────────────────────────────────────
 
-const ALL_ASSET_CLASSES: Array<ProjectAssetClass | 'all'> = ['all', 'gov_bond', 'real_estate', 'commodity', 'private_credit', 'ip_revenue', 'infrastructure', 'insurance'];
-const ALL_STATUSES: Array<ProjectStatus | 'all'> = ['all', 'active', 'pilot', 'announced', 'inactive'];
+const ALL_ASSET_CLASSES: Array<ProjectAssetClass | 'all'> = [
+  'all', 'gov_bond', 'real_estate', 'commodity', 'private_credit',
+  'ip_revenue', 'infrastructure', 'insurance',
+];
+const ALL_STATUSES: Array<ProjectStatus | 'all'> = [
+  'all', 'active', 'pilot', 'announced', 'inactive', 'paused', 'failed',
+];
 
 export default function ProjectsList() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -266,10 +230,10 @@ export default function ProjectsList() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  const filterClass = (searchParams.get('class') ?? 'all') as ProjectAssetClass | 'all';
+  const filterClass  = (searchParams.get('class')  ?? 'all') as ProjectAssetClass | 'all';
   const filterStatus = (searchParams.get('status') ?? 'all') as ProjectStatus | 'all';
   const filterRegion = (searchParams.get('region') ?? 'all') as RegionFilter;
-  const filterRisk = (searchParams.get('risk') ?? 'all') as RiskFilter;
+  const filterRisk   = (searchParams.get('risk')   ?? 'all') as RiskFilter;
   const [search, setSearch] = useState('');
 
   function setFilter(key: string, value: string) {
@@ -302,9 +266,7 @@ export default function ProjectsList() {
     projects.filter(p => {
       const v = p.lessons_visibility ?? 'active_only';
       return v === 'active_only' || v === 'both';
-    }),
-    [projects],
-  );
+    }), [projects]);
 
   const lessonsProjects = useMemo(() =>
     projects
@@ -313,14 +275,13 @@ export default function ProjectsList() {
         return v === 'lessons_only' || v === 'both';
       })
       .sort((a, b) => (b.peak_tvl_usd ?? 0) - (a.peak_tvl_usd ?? 0)),
-    [projects],
-  );
+    [projects]);
 
   const baseList = view === 'lessons' ? lessonsProjects : activeProjects;
 
-  const filtered = useMemo(() => {
-    return baseList
-      .filter(p => filterClass === 'all' || p.asset_class === filterClass)
+  const filtered = useMemo(() =>
+    baseList
+      .filter(p => filterClass  === 'all' || p.asset_class === filterClass)
       .filter(p => filterStatus === 'all' || p.status === filterStatus)
       .filter(p => filterRegion === 'all' || getProjectRegion(p.jurisdiction) === filterRegion)
       .filter(p => {
@@ -337,8 +298,17 @@ export default function ProjectsList() {
           p.summary.toLowerCase().includes(q) ||
           p.jurisdiction.toLowerCase().includes(q)
         );
-      });
-  }, [baseList, filterClass, filterStatus, filterRegion, filterRisk, search]);
+      }),
+    [baseList, filterClass, filterStatus, filterRegion, filterRisk, search]);
+
+  const { visible, loadMore, canLoadMore } = usePagination(filtered, 20);
+
+  const glanceStats = useMemo(() => ({
+    total:        projects.length,
+    active:       projects.filter(p => p.status === 'active').length,
+    jurisdictions: new Set(projects.map(p => p.jurisdiction)).size,
+    assetClasses: new Set(projects.map(p => p.asset_class)).size,
+  }), [projects]);
 
   function switchView(v: 'active' | 'lessons') {
     setSearchParams(v === 'active' ? {} : { view: 'lessons' }, { replace: true });
@@ -348,7 +318,7 @@ export default function ProjectsList() {
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-[60vh]">
-        <span className="material-symbols-outlined animate-spin text-4xl text-[#5E5C75]">
+        <span className="material-symbols-outlined animate-spin text-3xl text-ed-text-muted">
           progress_activity
         </span>
       </div>
@@ -357,222 +327,235 @@ export default function ProjectsList() {
 
   if (error) {
     return (
-      <div className="max-w-3xl mx-auto px-4 py-12 text-center text-red-500 text-sm">{error}</div>
+      <div className="max-w-3xl mx-auto px-8 py-16 text-center text-ed-incident text-ed-body">
+        {error}
+      </div>
     );
   }
 
   return (
-    <div className="max-w-screen-2xl mx-auto px-6 py-8">
-      {/* Header */}
-      <div className="mb-5">
-        <div className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-1">
+    <div className="bg-ed-canvas min-h-screen">
+
+      {/* ── Hero ──────────────────────────────────────────────────────────── */}
+      <section className="max-w-[1400px] mx-auto px-8 pt-16 pb-12">
+        <p className="text-ed-eyebrow uppercase tracking-[0.18em] font-medium text-ed-text-muted mb-4">
           Projects
-        </div>
-        <h1 className="text-2xl font-bold text-[#2B3437] font-headline mb-2">RWA Project Library</h1>
-        <p className="text-sm text-slate-400 leading-relaxed max-w-2xl">
-          Structured anatomy of leading RWA tokenization projects — entity maps, RARM reference
-          assessments, and regulatory context. Curated from public disclosures. Not a platform
-          rating or investment recommendation.
         </p>
-        <div className="mt-3 flex items-center gap-3 p-3 rounded-lg bg-amber-950/20 border border-amber-900/40">
-          <span className="material-symbols-outlined text-amber-500 text-sm shrink-0">info</span>
-          <p className="text-[11px] text-amber-400/80 leading-relaxed">
-            Profiles are curated from public disclosures only. No platform ratings or scores are
-            assigned. Use the{' '}
-            <Link to="/score" className="underline hover:text-amber-300">
-              Due Diligence Workbook
-            </Link>{' '}
-            to build your own private RARM assessment.
-          </p>
+        <h1 className="text-ed-hero-h1 font-semibold text-ed-text-primary leading-none mb-5 max-w-3xl">
+          RWA Project Library
+        </h1>
+        <p className="text-ed-lede text-ed-text-secondary leading-relaxed max-w-2xl mb-2">
+          Structured anatomy of leading RWA tokenization projects — entity maps, RARM reference
+          assessments, and regulatory context. Curated from public disclosures.
+        </p>
+        <p className="text-ed-body text-ed-text-muted max-w-2xl">
+          Not a platform rating or investment recommendation. Use the{' '}
+          <Link to="/score" className="underline hover:text-ed-text-primary transition-colors">
+            Due Diligence Workbook
+          </Link>{' '}
+          to build your own private RARM assessment.
+        </p>
+      </section>
+
+      {/* ── At a Glance — full-bleed cool ─────────────────────────────────── */}
+      <div className="w-screen relative left-1/2 -translate-x-1/2 bg-ed-surface-cool border-y border-ed-hairline">
+        <div className="max-w-[1400px] mx-auto px-8 py-8">
+          <div className="grid grid-cols-2 sm:grid-cols-4 divide-x divide-ed-hairline">
+            {([
+              { label: 'Total profiles',  value: glanceStats.total },
+              { label: 'Active',          value: glanceStats.active },
+              { label: 'Jurisdictions',   value: glanceStats.jurisdictions },
+              { label: 'Asset classes',   value: glanceStats.assetClasses },
+            ] as const).map(({ label, value }) => (
+              <div key={label} className="px-8 first:pl-0 last:pr-0 py-1">
+                <div className="text-ed-section-h2 font-semibold text-ed-text-primary tabular-nums leading-none mb-1">
+                  {value}
+                </div>
+                <div className="text-ed-eyebrow uppercase tracking-[0.12em] text-ed-text-muted">
+                  {label}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
-      {/* Tab bar */}
-      <div className="flex gap-1 mb-6 border-b border-[#DBE4E7]">
-        <button
-          onClick={() => switchView('active')}
-          className={`px-4 py-2 text-sm font-semibold border-b-2 -mb-px transition-colors ${
-            view === 'active'
-              ? 'border-[#5E5C75] text-[#5E5C75]'
-              : 'border-transparent text-slate-400 hover:text-[#2B3437]'
-          }`}
-        >
-          Active Projects
-          <span className="ml-1.5 text-[11px] font-normal text-slate-500">({activeProjects.length})</span>
-        </button>
-        <button
-          onClick={() => switchView('lessons')}
-          className={`px-4 py-2 text-sm font-semibold border-b-2 -mb-px transition-colors flex items-center gap-1.5 ${
-            view === 'lessons'
-              ? 'border-red-700 text-red-700'
-              : 'border-transparent text-slate-400 hover:text-[#2B3437]'
-          }`}
-        >
-          <span className="material-symbols-outlined text-[14px]">warning</span>
-          Lessons Learned
-          <span className="ml-0.5 text-[11px] font-normal text-slate-500">({lessonsProjects.length})</span>
-        </button>
-      </div>
+      {/* ── Directory ─────────────────────────────────────────────────────── */}
+      <section className="max-w-[1400px] mx-auto px-8 py-12">
 
-      {/* Lessons tab description */}
-      {view === 'lessons' && (
-        <div className="mb-5 p-4 rounded-lg bg-red-50 border border-red-200">
-          <div className="flex items-start gap-3">
-            <span className="material-symbols-outlined text-red-600 text-sm shrink-0 mt-0.5">error_outline</span>
-            <div>
-              <p className="text-sm font-semibold text-red-800 mb-1">Postmortem Case Studies</p>
-              <p className="text-xs text-red-700 leading-relaxed">
-                Historical RWA and stablecoin failures analysed through the RARM framework. Each
-                profile identifies which RARM layers failed and what structural safeguards could have
-                prevented or mitigated the incident. For educational and due-diligence purposes only.
-              </p>
+        {/* Tab bar */}
+        <div className="flex gap-0 border-b border-ed-hairline mb-8">
+          <button
+            onClick={() => switchView('active')}
+            className={`px-0 mr-8 py-3 text-ed-body-lg font-medium border-b-2 -mb-px transition-colors ${
+              view === 'active'
+                ? 'border-ed-ink text-ed-text-primary'
+                : 'border-transparent text-ed-text-muted hover:text-ed-text-primary'
+            }`}
+          >
+            Active Projects
+            <span className="ml-2 text-ed-meta text-ed-text-faint tabular-nums">
+              {activeProjects.length}
+            </span>
+          </button>
+          <button
+            onClick={() => switchView('lessons')}
+            className={`px-0 py-3 text-ed-body-lg font-medium border-b-2 -mb-px transition-colors flex items-center gap-2 ${
+              view === 'lessons'
+                ? 'border-ed-incident text-ed-incident'
+                : 'border-transparent text-ed-text-muted hover:text-ed-text-primary'
+            }`}
+          >
+            Lessons Learned
+            <span className="text-ed-meta text-ed-text-faint tabular-nums">
+              {lessonsProjects.length}
+            </span>
+          </button>
+        </div>
+
+        {/* Lessons context strip */}
+        {view === 'lessons' && (
+          <div className="mb-8 border-l-2 border-ed-incident pl-4">
+            <p className="text-ed-body text-ed-text-secondary leading-relaxed">
+              Historical RWA and stablecoin failures analysed through the RARM framework.
+              Each profile identifies which RARM layers failed and what structural safeguards
+              could have prevented or mitigated the incident.
+            </p>
+          </div>
+        )}
+
+        {/* Filter bar */}
+        <div className="mb-8 space-y-3">
+          {/* Search */}
+          <div className="relative max-w-md">
+            <span className="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-ed-text-faint text-[16px]">
+              search
+            </span>
+            <input
+              type="text"
+              placeholder="Search projects…"
+              value={search}
+              onChange={e => setSearch(e.target.value)}
+              className="w-full border border-ed-hairline bg-ed-surface pl-9 pr-4 py-2 text-ed-body text-ed-text-primary placeholder-ed-text-faint focus:outline-none focus:border-ed-ink transition-colors"
+            />
+          </div>
+
+          {/* Asset class */}
+          <div className="flex items-center gap-2 flex-wrap">
+            <span className="text-ed-eyebrow uppercase tracking-[0.12em] text-ed-text-faint w-24 shrink-0">
+              Asset class
+            </span>
+            <div className="flex flex-wrap gap-1.5">
+              {ALL_ASSET_CLASSES.map(c => (
+                <Pill key={c} active={filterClass === c} onClick={() => setFilter('class', c)}>
+                  {c === 'all' ? 'All' : ASSET_CLASS_META[c].label}
+                </Pill>
+              ))}
             </div>
           </div>
-        </div>
-      )}
 
-      {/* Filters */}
-      <div className="mb-5 space-y-2.5">
-        <div className="relative">
-          <span className="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-slate-500 text-[16px]">
-            search
-          </span>
-          <input
-            type="text"
-            placeholder="Search projects…"
-            value={search}
-            onChange={e => setSearch(e.target.value)}
-            className="w-full bg-[#1A1A2E] border border-[#2B3437] rounded-lg pl-8 pr-4 py-2 text-sm text-slate-200 placeholder-slate-600 focus:outline-none focus:border-[#5E5C75]"
-          />
-        </div>
-
-        <div className="flex items-center gap-2 flex-wrap">
-          <span className="text-xs text-slate-500 font-medium w-20 shrink-0">Asset class</span>
-          {ALL_ASSET_CLASSES.map(c => {
-            const label = c === 'all' ? 'All' : ASSET_CLASS_META[c].label;
-            const color = c !== 'all' ? ASSET_CLASS_META[c].color : '#5E5C75';
-            const active = filterClass === c;
-            return (
-              <button
-                key={c}
-                onClick={() => setFilter('class', c)}
-                className={`px-3 py-1 text-xs rounded-full font-bold transition-colors whitespace-nowrap border ${
-                  active ? 'text-white' : 'bg-transparent text-slate-400 hover:text-white'
-                }`}
-                style={active
-                  ? { background: color, borderColor: color }
-                  : { borderColor: '#2B3437' }
-                }
-              >
-                {label}
-              </button>
-            );
-          })}
-        </div>
-
-        <div className="flex items-center gap-2 flex-wrap">
-          <span className="text-xs text-slate-500 font-medium w-20 shrink-0">Status</span>
-          {ALL_STATUSES.map(s => {
-            const label = s === 'all' ? 'All' : STATUS_META[s].label;
-            const active = filterStatus === s;
-            return (
-              <button
-                key={s}
-                onClick={() => setFilter('status', s)}
-                className={`px-3 py-1 text-xs rounded-full font-bold transition-colors whitespace-nowrap border ${
-                  active
-                    ? 'bg-[#5E5C75] text-white border-[#5E5C75]'
-                    : 'bg-transparent border-[#2B3437] text-slate-400 hover:border-[#5E5C75] hover:text-white'
-                }`}
-              >
-                {label}
-              </button>
-            );
-          })}
-        </div>
-
-        <div className="flex items-center gap-2 flex-wrap">
-          <span className="text-xs text-slate-500 font-medium w-20 shrink-0">Region</span>
-          {ALL_REGIONS.map(r => {
-            const active = filterRegion === r;
-            return (
-              <button
-                key={r}
-                onClick={() => setFilter('region', r)}
-                className={`px-3 py-1 text-xs rounded-full font-bold transition-colors whitespace-nowrap border ${
-                  active
-                    ? 'bg-[#5E5C75] text-white border-[#5E5C75]'
-                    : 'bg-transparent border-[#2B3437] text-slate-400 hover:border-[#5E5C75] hover:text-white'
-                }`}
-              >
-                {REGION_LABELS[r]}
-              </button>
-            );
-          })}
-        </div>
-
-        {view !== 'lessons' && (
+          {/* Status */}
           <div className="flex items-center gap-2 flex-wrap">
-            <span className="text-xs text-slate-500 font-medium w-20 shrink-0">Risk flags</span>
-            {(['all', 'clean', 'flagged'] as RiskFilter[]).map(r => {
-              const labels: Record<RiskFilter, string> = { all: 'All', clean: 'Clean (no flags)', flagged: 'Has risk flags' };
-              const active = filterRisk === r;
-              return (
-                <button
-                  key={r}
-                  onClick={() => setFilter('risk', r)}
-                  className={`px-3 py-1 text-xs rounded-full font-bold transition-colors whitespace-nowrap border ${
-                    active
-                      ? 'bg-[#5E5C75] text-white border-[#5E5C75]'
-                      : 'bg-transparent border-[#2B3437] text-slate-400 hover:border-[#5E5C75] hover:text-white'
-                  }`}
-                >
-                  {labels[r]}
-                </button>
-              );
-            })}
+            <span className="text-ed-eyebrow uppercase tracking-[0.12em] text-ed-text-faint w-24 shrink-0">
+              Status
+            </span>
+            <div className="flex flex-wrap gap-1.5">
+              {ALL_STATUSES.map(s => (
+                <Pill key={s} active={filterStatus === s} onClick={() => setFilter('status', s)}>
+                  {s === 'all' ? 'All' : STATUS_META[s].label}
+                </Pill>
+              ))}
+            </div>
           </div>
-        )}
-      </div>
 
-      <div className="flex items-center justify-between mb-4">
-        <p className="text-xs text-slate-600">
-          Showing {filtered.length} of {baseList.length} project{baseList.length !== 1 ? 's' : ''}
-        </p>
-        {hasActiveFilters && (
-          <button
-            onClick={clearFilters}
-            className="text-xs text-slate-500 hover:text-white flex items-center gap-1 transition-colors"
-          >
-            <span className="material-symbols-outlined text-[12px]">close</span>
-            Clear filters
-          </button>
-        )}
-      </div>
+          {/* Region */}
+          <div className="flex items-center gap-2 flex-wrap">
+            <span className="text-ed-eyebrow uppercase tracking-[0.12em] text-ed-text-faint w-24 shrink-0">
+              Region
+            </span>
+            <div className="flex flex-wrap gap-1.5">
+              {ALL_REGIONS.map(r => (
+                <Pill key={r} active={filterRegion === r} onClick={() => setFilter('region', r)}>
+                  {REGION_LABELS[r]}
+                </Pill>
+              ))}
+            </div>
+          </div>
 
-      {/* Grid */}
-      {filtered.length === 0 ? (
-        <div className="text-center py-16 text-slate-500 text-sm">
-          No projects match the current filters.
-        </div>
-      ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {filtered.map(p =>
-            view === 'lessons'
-              ? <LessonsCard key={p.slug} project={p} />
-              : <ActiveCard key={p.slug} project={p} />,
+          {/* Risk flags — active tab only */}
+          {view !== 'lessons' && (
+            <div className="flex items-center gap-2 flex-wrap">
+              <span className="text-ed-eyebrow uppercase tracking-[0.12em] text-ed-text-faint w-24 shrink-0">
+                Risk flags
+              </span>
+              <div className="flex flex-wrap gap-1.5">
+                {(['all', 'clean', 'flagged'] as RiskFilter[]).map(r => {
+                  const labels: Record<RiskFilter, string> = {
+                    all: 'All', clean: 'No flags', flagged: 'Flagged',
+                  };
+                  return (
+                    <Pill key={r} active={filterRisk === r} onClick={() => setFilter('risk', r)}>
+                      {labels[r]}
+                    </Pill>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+
+          {/* Clear */}
+          {hasActiveFilters && (
+            <div>
+              <button
+                onClick={clearFilters}
+                className="text-ed-meta text-ed-text-muted hover:text-ed-text-primary flex items-center gap-1 transition-colors"
+              >
+                <span className="material-symbols-outlined text-[12px]">close</span>
+                Clear filters
+              </button>
+            </div>
           )}
         </div>
-      )}
 
-      <div className="mt-8 p-5 rounded-xl border border-[#2B3437] bg-[#1A1A2E] text-center">
-        <span className="material-symbols-outlined text-slate-600 text-3xl mb-2 block">
-          pending
-        </span>
-        <p className="text-sm text-slate-500">
-          More profiles being added. All data sourced from official project websites, regulator filings, and DeFiLlama.
-        </p>
-      </div>
+        {/* Card list */}
+        {filtered.length === 0 ? (
+          <div className="py-20 text-center text-ed-body text-ed-text-muted">
+            No projects match the current filters.
+          </div>
+        ) : (
+          <>
+            <div className="border-t border-ed-hairline">
+              {visible.map(p =>
+                view === 'lessons'
+                  ? <LessonsCard key={p.slug} project={p} />
+                  : <ActiveCard  key={p.slug} project={p} />,
+              )}
+            </div>
+            {canLoadMore && (
+              <div className="mt-8 text-center">
+                <button
+                  onClick={loadMore}
+                  className="px-6 py-2.5 text-ed-body text-ed-text-muted border border-ed-hairline hover:border-ed-ink hover:text-ed-text-primary transition-colors"
+                >
+                  Load more
+                  <span className="ml-2 text-ed-meta text-ed-text-faint tabular-nums">
+                    {filtered.length - visible.length} remaining
+                  </span>
+                </button>
+              </div>
+            )}
+          </>
+        )}
+
+        {/* Footer note */}
+        <div className="mt-16 pt-8 border-t border-ed-hairline">
+          <p className="text-ed-meta text-ed-text-faint">
+            Profiles sourced from official project websites, regulator filings, and DeFiLlama.
+            Coverage expanding.
+          </p>
+        </div>
+
+      </section>
     </div>
   );
 }
