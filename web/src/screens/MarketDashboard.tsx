@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { TokenizedAssets } from './Market/TokenizedAssets';
+import { Eyebrow } from '../components/Eyebrow';
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip,
   PieChart, Pie, Cell, ResponsiveContainer,
@@ -382,12 +383,21 @@ function MarketOverview() {
         {updated && <span>·</span>}
         <span>Data: DeFiLlama · For educational and research purposes only</span>
       </div>
+
+      {/* Protocols Directory (merged from former tab) */}
+      <section className="bg-ed-surface-cool border-t border-ed-hairline mt-8">
+        <div className="max-w-[1400px] mx-auto px-8 pt-12 pb-4">
+          <Eyebrow>Protocols</Eyebrow>
+          <h2 className="text-ed-section-h2 text-ed-ink mt-3">RWA Protocols Directory</h2>
+        </div>
+      </section>
+      <ProtocolsDirectory embedded />
     </div>
   );
 }
 
 // ── Protocols tab (filterable/searchable full directory) ──────────────────────
-function ProtocolsDirectory() {
+function ProtocolsDirectory({ embedded = false }: { embedded?: boolean } = {}) {
   const [data, setData]               = useState<DirectoryData | null>(null);
   const [loading, setLoading]         = useState(true);
   const [error, setError]             = useState<string | null>(null);
@@ -424,7 +434,7 @@ function ProtocolsDirectory() {
     });
 
   if (loading) return (
-    <div className="h-full overflow-y-auto bg-surface p-8">
+    <div className={`bg-surface p-8 ${embedded ? '' : 'h-full overflow-y-auto'}`}>
       <div className="max-w-[1400px] mx-auto space-y-6">
         <div className="h-20 bg-surface-container animate-pulse" />
         {[...Array(8)].map((_, i) => (
@@ -435,7 +445,7 @@ function ProtocolsDirectory() {
   );
 
   if (error) return (
-    <div className="h-full overflow-y-auto bg-surface p-8 flex items-center justify-center">
+    <div className={`bg-surface p-8 flex items-center justify-center ${embedded ? '' : 'h-full overflow-y-auto'}`}>
       <div className="text-center space-y-4">
         <span className="material-symbols-outlined text-5xl text-error">wifi_off</span>
         <p className="text-on-surface font-bold font-headline text-lg">Data Unavailable</p>
@@ -453,47 +463,50 @@ function ProtocolsDirectory() {
     : '';
 
   return (
-    <div className="h-full overflow-y-auto thin-scrollbar bg-surface">
+    <div className={`bg-surface ${embedded ? '' : 'h-full overflow-y-auto thin-scrollbar'}`}>
 
-      <div className="bg-amber-50 border-b border-amber-200 py-2">
-        <div className="max-w-[1400px] mx-auto px-8 flex items-center gap-3 text-xs text-amber-800">
-          <span className="material-symbols-outlined text-amber-600 text-base shrink-0">info</span>
-          <span>
-            <strong>Research tool only.</strong> Data sourced from DeFiLlama.
-            RWA-Index does not provide assessments, ratings, or investment advice.
-            This directory is for educational and research purposes only.
-          </span>
+      {!embedded && (
+        <div className="bg-amber-50 border-b border-amber-200 py-2">
+          <div className="max-w-[1400px] mx-auto px-8 flex items-center gap-3 text-xs text-amber-800">
+            <span className="material-symbols-outlined text-amber-600 text-base shrink-0">info</span>
+            <span>
+              <strong>Research tool only.</strong> Data sourced from DeFiLlama.
+              RWA-Index does not provide assessments, ratings, or investment advice.
+              This directory is for educational and research purposes only.
+            </span>
+          </div>
         </div>
-      </div>
+      )}
 
-      {/* Header */}
-      <div className="bg-[#1A1A2E] px-8 py-10">
-        <div className="max-w-[1400px] mx-auto">
-          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
-            <div>
-              <h1 className="text-4xl md:text-5xl font-extrabold font-headline text-white tracking-tight">
-                RWA Protocol <span className="text-[#5E5C75]">Directory</span>
-              </h1>
-              <p className="text-[#6B7494] mt-2 text-sm font-body max-w-xl">
-                Public market data sourced from DeFiLlama. This directory lists protocols
-                for research purposes only — RWA-Index does not evaluate, rate, or rank protocols.
-              </p>
-            </div>
-            <div className="flex gap-4 shrink-0">
-              {[
-                { label: 'Protocols', value: String(data?.total_count ?? 0) },
-                { label: 'Total RWA TVL', value: data?.total_tvl_fmt ?? '—' },
-                { label: 'Showing', value: String(protocols.length) },
-              ].map((s) => (
-                <div key={s.label} className="bg-[#2B3437] px-4 py-3 border-l-2 border-[#5E5C75] min-w-[100px]">
-                  <div className="text-[9px] font-label text-[#6B7494] uppercase tracking-widest mb-1">{s.label}</div>
-                  <div className="text-xl font-bold font-headline text-white">{s.value}</div>
-                </div>
-              ))}
+      {!embedded && (
+        <div className="bg-[#1A1A2E] px-8 py-10">
+          <div className="max-w-[1400px] mx-auto">
+            <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
+              <div>
+                <h1 className="text-4xl md:text-5xl font-extrabold font-headline text-white tracking-tight">
+                  RWA Protocol <span className="text-[#5E5C75]">Directory</span>
+                </h1>
+                <p className="text-[#6B7494] mt-2 text-sm font-body max-w-xl">
+                  Public market data sourced from DeFiLlama. This directory lists protocols
+                  for research purposes only — RWA-Index does not evaluate, rate, or rank protocols.
+                </p>
+              </div>
+              <div className="flex gap-4 shrink-0">
+                {[
+                  { label: 'Protocols', value: String(data?.total_count ?? 0) },
+                  { label: 'Total RWA TVL', value: data?.total_tvl_fmt ?? '—' },
+                  { label: 'Showing', value: String(protocols.length) },
+                ].map((s) => (
+                  <div key={s.label} className="bg-[#2B3437] px-4 py-3 border-l-2 border-[#5E5C75] min-w-[100px]">
+                    <div className="text-[9px] font-label text-[#6B7494] uppercase tracking-widest mb-1">{s.label}</div>
+                    <div className="text-xl font-bold font-headline text-white">{s.value}</div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      )}
 
       {/* Controls */}
       <div className="sticky top-0 z-10 bg-[#F1F4F6] border-b border-[#D8E2E6] px-8 py-3">
@@ -668,9 +681,8 @@ function ProtocolsDirectory() {
 
 // ── Tab bar ───────────────────────────────────────────────────────────────────
 const TABS = [
-  { key: 'overview',   label: 'Overview' },
-  { key: 'protocols',  label: 'Protocols' },
-  { key: 'tokenized',  label: 'Tokenized Assets' },
+  { key: 'overview',  label: 'Overview' },
+  { key: 'tokenized', label: 'Tokenized Assets' },
 ] as const;
 type TabKey = typeof TABS[number]['key'];
 
@@ -678,7 +690,8 @@ type TabKey = typeof TABS[number]['key'];
 export default function MarketDashboard() {
   const [searchParams, setSearchParams] = useSearchParams();
   const tab = searchParams.get('tab');
-  const activeTab: TabKey = tab === 'protocols' || tab === 'tokenized' ? tab : 'overview';
+  const activeTab: TabKey = tab === 'tokenized' ? 'tokenized' : 'overview';
+  // ?tab=protocols (old URL) naturally falls back to overview
 
   return (
     <div className="flex flex-col h-full">
@@ -705,7 +718,6 @@ export default function MarketDashboard() {
       {/* Content */}
       <div className="flex-1 min-h-0 overflow-hidden">
         {activeTab === 'overview'  && <MarketOverview />}
-        {activeTab === 'protocols' && <ProtocolsDirectory />}
         {activeTab === 'tokenized' && <TokenizedAssets />}
       </div>
     </div>
