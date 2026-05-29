@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import { TokenizedAssets } from './Market/TokenizedAssets';
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip,
   PieChart, Pie, Cell, ResponsiveContainer,
@@ -669,13 +670,15 @@ function ProtocolsDirectory() {
 const TABS = [
   { key: 'overview',   label: 'Overview' },
   { key: 'protocols',  label: 'Protocols' },
+  { key: 'tokenized',  label: 'Tokenized Assets' },
 ] as const;
 type TabKey = typeof TABS[number]['key'];
 
 // ── Main export ───────────────────────────────────────────────────────────────
 export default function MarketDashboard() {
   const [searchParams, setSearchParams] = useSearchParams();
-  const activeTab: TabKey = searchParams.get('tab') === 'protocols' ? 'protocols' : 'overview';
+  const tab = searchParams.get('tab');
+  const activeTab: TabKey = tab === 'protocols' || tab === 'tokenized' ? tab : 'overview';
 
   return (
     <div className="flex flex-col h-full">
@@ -701,7 +704,9 @@ export default function MarketDashboard() {
 
       {/* Content */}
       <div className="flex-1 min-h-0 overflow-hidden">
-        {activeTab === 'overview' ? <MarketOverview /> : <ProtocolsDirectory />}
+        {activeTab === 'overview'  && <MarketOverview />}
+        {activeTab === 'protocols' && <ProtocolsDirectory />}
+        {activeTab === 'tokenized' && <TokenizedAssets />}
       </div>
     </div>
   );

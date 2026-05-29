@@ -10,7 +10,7 @@ from slowapi.middleware import SlowAPIMiddleware
 
 from app.config import settings
 from app.core.rate_limit import limiter
-from app.routers import auth, assessments, admin, public, intelligence, projects, ecosystem, ticker
+from app.routers import auth, assessments, admin, public, intelligence, projects, ecosystem, ticker, market
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -83,6 +83,7 @@ app.include_router(intelligence.router, prefix="/api")
 app.include_router(projects.router, prefix="/api")
 app.include_router(ecosystem.router, prefix="/api")
 app.include_router(ticker.router, prefix="/api")
+app.include_router(market.router, prefix="/api")
 
 
 @app.get("/api/health")

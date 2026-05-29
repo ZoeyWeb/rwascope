@@ -21,6 +21,7 @@ import app.models.user          # noqa: F401
 import app.models.assessment    # noqa: F401
 import app.models.newsletter    # noqa: F401
 import app.models.intelligence  # noqa: F401
+import app.models.market        # noqa: F401
 
 target_metadata = Base.metadata
 
