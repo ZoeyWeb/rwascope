@@ -45,32 +45,50 @@ function getProjectRegion(jurisdiction: string): Exclude<RegionFilter, 'all'> {
   return 'OtherEmerging';
 }
 
-// ── Logo: Clearbit + initials fallback ───────────────────────────────────────
+// ── Logo: Clearbit → favicon → initials ──────────────────────────────────────
+
+type LogoStage = 'clearbit' | 'favicon' | 'initials';
 
 function ProjectLogo({ website, shortName, assetColor }: { website: string; shortName: string; assetColor: string }) {
-  const [failed, setFailed] = useState(false);
+  const [stage, setStage] = useState<LogoStage>('clearbit');
   const domain = (() => {
-    try { return new URL(website).hostname.replace(/^www\./, ''); } catch { return ''; }
+    try { return new URL(website).hostname.replace(/^\.?www\./, ''); } catch { return ''; }
   })();
   const initials = shortName.replace(/[^A-Z0-9]/gi, '').slice(0, 2).toUpperCase();
 
-  if (!domain || failed) {
+  if (!domain || stage === 'initials') {
     return (
       <div
-        className="w-11 h-11 flex items-center justify-center text-white text-sm font-bold shrink-0"
-        style={{ background: assetColor + 'cc' }}
+        className="w-12 h-12 flex items-center justify-center text-white text-sm font-bold shrink-0 rounded-sm"
+        style={{ background: assetColor + 'dd' }}
       >
         {initials}
       </div>
     );
   }
+
+  if (stage === 'favicon') {
+    return (
+      <div className="w-12 h-12 flex items-center justify-center bg-white border border-ed-hairline shrink-0 rounded-sm p-1">
+        <img
+          src={`https://www.google.com/s2/favicons?domain=${domain}&sz=64`}
+          alt={shortName}
+          className="w-8 h-8 object-contain"
+          onError={() => setStage('initials')}
+        />
+      </div>
+    );
+  }
+
   return (
-    <img
-      src={`https://logo.clearbit.com/${domain}`}
-      alt={shortName}
-      className="w-11 h-11 object-contain shrink-0 bg-white p-1 border border-ed-hairline"
-      onError={() => setFailed(true)}
-    />
+    <div className="w-12 h-12 flex items-center justify-center bg-white border border-ed-hairline shrink-0 rounded-sm p-1">
+      <img
+        src={`https://logo.clearbit.com/${domain}`}
+        alt={shortName}
+        className="w-10 h-10 object-contain"
+        onError={() => setStage('favicon')}
+      />
+    </div>
   );
 }
 
