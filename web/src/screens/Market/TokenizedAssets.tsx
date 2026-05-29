@@ -58,7 +58,7 @@ export function TokenizedAssets() {
   if (error || !data) return <ErrorState message={error ?? 'No data'} />;
 
   return (
-    <div className="bg-ed-canvas min-h-full overflow-y-auto thin-scrollbar">
+    <div className="bg-ed-canvas h-full overflow-y-auto thin-scrollbar">
       {/* Disclaimer */}
       <div className="bg-amber-50 border-b border-amber-200">
         <div className="max-w-[1400px] mx-auto px-8 py-2 text-ed-meta text-amber-900">

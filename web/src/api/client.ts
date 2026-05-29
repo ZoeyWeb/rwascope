@@ -16,6 +16,7 @@ import type {
   DashboardData,
 } from '../types/intelligence';
 import type { Project } from '../types/projects';
+import type { MarketSnapshot } from '../types/market';
 
 const BASE = (import.meta.env.VITE_API_BASE_URL as string | undefined) ?? '/api';
 
@@ -599,8 +600,6 @@ export const projectsApi = {
 };
 
 // ── Market — tokenized assets ─────────────────────────────────────────────────
-
-import type { MarketSnapshot } from '../types/market';
 
 export const marketApi = {
   tokenizedSnapshot: () => request<MarketSnapshot>('/market/tokenized'),
