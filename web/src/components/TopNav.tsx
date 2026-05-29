@@ -140,27 +140,6 @@ const NAV_BLOCKS: NavBlock[] = [
     label: 'Ecosystem',
     to: '/ecosystem',
     activePaths: ['/ecosystem'],
-    dropdownHeader: 'Ecosystem',
-    sub: [
-      {
-        to: '/ecosystem',
-        label: 'HK Ecosystem',
-        subtitle: 'Detailed ecosystem map for Hong Kong jurisdiction',
-        Icon: Globe,
-      },
-      {
-        to: '/ecosystem',
-        label: 'Compare',
-        subtitle: 'Side-by-side ecosystem comparison between two regions',
-        Icon: GitCompare,
-      },
-      {
-        to: '/ecosystem',
-        label: 'Global Network',
-        subtitle: 'Cross-region entity force-directed graph',
-        Icon: Network,
-      },
-    ],
   },
 ];
 
