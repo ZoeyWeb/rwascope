@@ -4,7 +4,6 @@
  */
 
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import type { EcosystemData, EcosystemLayer, EcosystemParticipant } from '../../types/ecosystem';
 import type { Region } from './RegionSelector';
 
@@ -68,47 +67,43 @@ function findSharedEntities(
   return results;
 }
 
-// ── Minimal region inline map ─────────────────────────────────────────────────
+// ── RARM signal colours (dots only) ──────────────────────────────────────────
 
 const RARM_COLOR: Record<string, string> = {
   green: '#4ade80',
   yellow: '#facc15',
-  red: '#f87171',
-  gray: '#737C7F',
+  red:   '#f87171',
+  gray:  '#737C7F',
 };
 
-function MiniParticipantChip({ p, color }: { p: EcosystemParticipant; color: string }) {
+// ── Mini participant chip ─────────────────────────────────────────────────────
+
+function MiniParticipantChip({ p }: { p: EcosystemParticipant }) {
   const [open, setOpen] = useState(false);
   return (
     <div className="relative inline-block">
       <button
         onClick={() => setOpen(o => !o)}
-        className="flex items-center gap-1.5 px-2.5 py-1 rounded-full border text-[11px] font-medium transition-all"
-        style={{
-          borderColor: open ? color : '#2B3437',
-          color: open ? '#fff' : '#94a3b8',
-          background: open ? color + '30' : 'transparent',
-        }}
+        className="inline-flex items-center gap-1.5 px-2.5 py-1 border border-ed-hairline text-ed-meta text-ed-text-primary hover:border-ed-ink hover:bg-ed-surface-cool transition-colors"
       >
         {p.rarm_signal && (
           <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: RARM_COLOR[p.rarm_signal] }} />
         )}
         {p.name}
-        <span className="material-symbols-outlined text-[10px]" style={{ transform: open ? 'rotate(180deg)' : 'none' }}>
-          expand_more
+        <span className="material-symbols-outlined text-[12px]">
+          {open ? 'expand_less' : 'expand_more'}
         </span>
       </button>
       {open && (
-        <div
-          className="absolute z-20 top-full mt-1 left-0 min-w-[220px] max-w-[290px] rounded-lg border p-3 bg-[#0F1117] shadow-xl text-left"
-          style={{ borderColor: color }}
-        >
-          <div className="text-[11px] font-bold text-white mb-1">{p.full_name}</div>
-          <p className="text-[10px] text-slate-400 leading-relaxed">{p.role}</p>
+        <div className="absolute z-20 top-full mt-1 left-0 min-w-[220px] max-w-[290px] border border-ed-hairline p-3 bg-ed-surface text-left">
+          <div className="text-ed-meta font-semibold text-ed-text-primary mb-1">{p.full_name}</div>
+          <p className="text-ed-meta text-ed-text-secondary leading-relaxed">{p.role}</p>
           {p.tags.length > 0 && (
             <div className="flex flex-wrap gap-1 mt-2">
               {p.tags.map(t => (
-                <span key={t} className="text-[9px] px-1.5 py-0.5 bg-[#2B3437] text-slate-500 rounded">{t}</span>
+                <span key={t} className="text-ed-eyebrow uppercase px-1.5 py-0.5 bg-ed-surface-cool text-ed-text-muted">
+                  {t}
+                </span>
               ))}
             </div>
           )}
@@ -118,41 +113,36 @@ function MiniParticipantChip({ p, color }: { p: EcosystemParticipant; color: str
   );
 }
 
+// ── Mini layer card ────────────────────────────────────────────────────────────
+
 function MiniLayerCard({ layer }: { layer: EcosystemLayer }) {
   const [expanded, setExpanded] = useState(false);
   return (
-    <div
-      className="rounded-lg border mb-2 overflow-hidden transition-all"
-      style={{ borderColor: expanded ? layer.border : layer.border + '44' }}
-    >
+    <div className="border-t border-ed-hairline">
       <button
-        className="w-full flex items-center gap-2.5 px-3 py-2.5 text-left"
+        className="w-full flex items-center gap-2.5 py-3 text-left"
         onClick={() => setExpanded(e => !e)}
-        style={{ background: expanded ? layer.bg : 'transparent' }}
       >
-        <div
-          className="w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold shrink-0"
-          style={{ background: layer.color + '20', color: layer.color, border: `1.5px solid ${layer.color}70` }}
-        >
-          {layer.order}
+        <div className="text-ed-eyebrow text-ed-text-faint tabular-nums w-5 shrink-0">
+          {String(layer.order).padStart(2, '0')}
         </div>
         <div className="flex-1 min-w-0">
-          <div className="text-[11px] font-bold leading-tight" style={{ color: layer.color }}>{layer.label}</div>
-          <div className="text-[9px] text-slate-600 mt-0.5">{layer.participants.length} participants</div>
+          <div className="text-ed-meta text-ed-text-primary leading-tight">{layer.label}</div>
+          <div className="text-ed-eyebrow text-ed-text-muted mt-0.5">{layer.participants.length} participants</div>
         </div>
         <span
-          className="material-symbols-outlined text-[14px]"
-          style={{ color: layer.color + '90', transform: expanded ? 'rotate(180deg)' : 'none' }}
+          className="material-symbols-outlined text-[14px] text-ed-text-muted"
+          style={{ transform: expanded ? 'rotate(180deg)' : 'none' }}
         >
           expand_more
         </span>
       </button>
       {expanded && (
-        <div className="px-3 pb-3 pt-1">
-          <p className="text-[10px] text-slate-500 leading-relaxed mb-2">{layer.description}</p>
+        <div className="pb-3 pl-7">
+          <p className="text-ed-meta text-ed-text-secondary leading-relaxed mb-3">{layer.description}</p>
           <div className="flex flex-wrap gap-1.5">
             {layer.participants.map(p => (
-              <MiniParticipantChip key={p.id} p={p} color={layer.color} />
+              <MiniParticipantChip key={p.id} p={p} />
             ))}
           </div>
         </div>
@@ -172,81 +162,53 @@ function SharedEntitiesStrip({
   regionAName: string;
   regionBName: string;
 }) {
-  const [expanded, setExpanded] = useState(true);
   const [openCard, setOpenCard] = useState<string | null>(null);
 
   if (entities.length === 0) return null;
 
   return (
-    <div className="mx-0 sm:mx-6 my-4">
-      <button
-        onClick={() => setExpanded(e => !e)}
-        className="w-full flex items-center gap-2 px-4 py-2.5 rounded-t-xl border border-b-0 border-[#5E5C75] bg-[#5E5C75]/10 text-left"
-      >
-        <span className="material-symbols-outlined text-[#5E5C75] text-[16px]">link</span>
-        <span className="text-xs font-bold text-[#a29bfe]">
-          {entities.length} Shared Entit{entities.length === 1 ? 'y' : 'ies'}
-        </span>
-        <span className="text-[10px] text-slate-500 ml-1">
+    <section className="border-y border-ed-hairline py-ed-section-sm my-6">
+      <div className="flex items-center gap-3 mb-4">
+        <div className="text-ed-eyebrow uppercase text-ed-text-muted">Shared Entities</div>
+        <div className="text-ed-meta text-ed-text-primary tabular-nums">{entities.length}</div>
+        <div className="text-ed-meta text-ed-text-secondary">
           — present in both {regionAName} and {regionBName}
-        </span>
-        <span
-          className="material-symbols-outlined text-slate-500 text-[16px] ml-auto"
-          style={{ transform: expanded ? 'rotate(180deg)' : 'none' }}
-        >
-          expand_more
-        </span>
-      </button>
-      {expanded && (
-        <div className="border border-[#5E5C75]/40 rounded-b-xl bg-[#0D0F18] p-4">
-          <div className="flex flex-wrap gap-2">
-            {entities.map(e => (
-              <div key={e.normalisedName} className="relative">
-                <button
-                  onClick={() => setOpenCard(openCard === e.normalisedName ? null : e.normalisedName)}
-                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border text-[11px] font-medium transition-all"
-                  style={{
-                    borderColor: openCard === e.normalisedName ? '#5E5C75' : '#3b3f50',
-                    color: openCard === e.normalisedName ? '#fff' : '#94a3b8',
-                    background: openCard === e.normalisedName ? '#5E5C7530' : 'transparent',
-                  }}
-                >
-                  <span className="material-symbols-outlined text-[12px] text-[#5E5C75]">sync_alt</span>
-                  {e.displayName.split('(')[0].trim()}
-                </button>
-                {openCard === e.normalisedName && (
-                  <div className="absolute z-20 top-full mt-1 left-0 min-w-[280px] max-w-[340px] rounded-xl border border-[#5E5C75]/60 p-4 bg-[#0F1117] shadow-xl">
-                    <div className="text-xs font-bold text-white mb-3">{e.displayName}</div>
-                    <div className="grid grid-cols-2 gap-3">
-                      <div>
-                        <div className="text-[9px] font-bold text-[#5E5C75] uppercase tracking-wider mb-1">
-                          {regionAName}
-                        </div>
-                        <p className="text-[10px] text-slate-400 leading-snug">{e.roleA}</p>
-                      </div>
-                      <div>
-                        <div className="text-[9px] font-bold text-[#5E5C75] uppercase tracking-wider mb-1">
-                          {regionBName}
-                        </div>
-                        <p className="text-[10px] text-slate-400 leading-snug">{e.roleB}</p>
-                      </div>
-                    </div>
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
         </div>
-      )}
-    </div>
+      </div>
+      <div className="flex flex-wrap gap-2">
+        {entities.map(e => (
+          <div key={e.normalisedName} className="relative">
+            <button
+              onClick={() => setOpenCard(openCard === e.normalisedName ? null : e.normalisedName)}
+              className="inline-flex items-center gap-1.5 px-2.5 py-1 border border-ed-hairline text-ed-meta text-ed-text-primary hover:border-ed-ink hover:bg-ed-surface-cool transition-colors"
+            >
+              ⇄ {e.displayName.split('(')[0].trim()}
+            </button>
+            {openCard === e.normalisedName && (
+              <div className="absolute z-20 top-full mt-1 left-0 min-w-[280px] max-w-[340px] border border-ed-hairline p-4 bg-ed-surface">
+                <div className="text-ed-meta font-semibold text-ed-text-primary mb-3">{e.displayName}</div>
+                <div className="grid grid-cols-2 gap-3">
+                  <div>
+                    <div className="text-ed-eyebrow uppercase text-ed-text-muted mb-1">{regionAName}</div>
+                    <p className="text-ed-meta text-ed-text-secondary leading-snug">{e.roleA}</p>
+                  </div>
+                  <div>
+                    <div className="text-ed-eyebrow uppercase text-ed-text-muted mb-1">{regionBName}</div>
+                    <p className="text-ed-meta text-ed-text-secondary leading-snug">{e.roleB}</p>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+    </section>
   );
 }
 
 // ── Region column ─────────────────────────────────────────────────────────────
 
 function RegionColumn({
-  id,
-  name,
   data,
   regions,
   activeId,
@@ -260,6 +222,7 @@ function RegionColumn({
   onChange: (id: string) => void;
 }) {
   const sortedLayers = [...data.layers].sort((a, b) => a.order - b.order);
+  const totalParticipants = data.layers.reduce((s, l) => s + l.participants.length, 0);
 
   return (
     <div className="flex-1 min-w-0">
@@ -271,10 +234,10 @@ function RegionColumn({
             <button
               key={r.id}
               onClick={() => onChange(r.id)}
-              className={`px-3 py-1 rounded-full border text-[11px] font-medium transition-all ${
+              className={`px-3 py-1 border text-ed-eyebrow uppercase transition-colors ${
                 r.id === activeId
-                  ? 'border-[#5E5C75] bg-[#5E5C75]/20 text-white'
-                  : 'border-[#2B3437] text-slate-500 hover:text-slate-300'
+                  ? 'border-ed-ink bg-ed-surface-cool text-ed-text-primary'
+                  : 'border-ed-hairline text-ed-text-muted hover:text-ed-text-primary hover:border-ed-ink'
               }`}
             >
               {r.id}
@@ -283,28 +246,26 @@ function RegionColumn({
       </div>
 
       {/* Region title */}
-      <div className="mb-3">
-        <div className="text-sm font-bold text-white">{data.meta.title}</div>
-        <div className="text-[10px] text-slate-600 mt-0.5">
+      <div className="mb-4">
+        <div className="text-ed-block-h3 text-ed-text-primary">{data.meta.title}</div>
+        <div className="text-ed-meta text-ed-text-muted mt-1">
           v{data.meta.version} · {new Date(data.meta.last_compiled).toLocaleDateString('en-US', { year: 'numeric', month: 'short' })}
         </div>
       </div>
 
       {/* Stats row */}
-      <div className="grid grid-cols-3 gap-2 mb-4">
-        <div className="bg-[#1A1A2E] rounded-lg p-2 text-center border border-[#2B3437]">
-          <div className="text-base font-bold text-white">{data.stats.regulators}</div>
-          <div className="text-[9px] text-slate-500">Regulators</div>
+      <div className="grid grid-cols-3 gap-6 border-t border-ed-hairline pt-ed-section-sm mb-ed-section-sm">
+        <div>
+          <div className="text-ed-eyebrow uppercase text-ed-text-muted">Regulators</div>
+          <div className="text-ed-section-h2 text-ed-text-primary mt-2 tabular-nums">{data.stats.regulators}</div>
         </div>
-        <div className="bg-[#1A1A2E] rounded-lg p-2 text-center border border-[#2B3437]">
-          <div className="text-base font-bold text-white">
-            {data.layers.reduce((s, l) => s + l.participants.length, 0)}
-          </div>
-          <div className="text-[9px] text-slate-500">Participants</div>
+        <div>
+          <div className="text-ed-eyebrow uppercase text-ed-text-muted">Participants</div>
+          <div className="text-ed-section-h2 text-ed-text-primary mt-2 tabular-nums">{totalParticipants}</div>
         </div>
-        <div className="bg-[#1A1A2E] rounded-lg p-2 text-center border border-[#2B3437]">
-          <div className="text-base font-bold text-white">{data.gaps?.length ?? 0}</div>
-          <div className="text-[9px] text-slate-500">Gaps</div>
+        <div>
+          <div className="text-ed-eyebrow uppercase text-ed-text-muted">Gaps</div>
+          <div className="text-ed-section-h2 text-ed-text-primary mt-2 tabular-nums">{data.gaps?.length ?? 0}</div>
         </div>
       </div>
 
@@ -313,6 +274,7 @@ function RegionColumn({
         {sortedLayers.map(layer => (
           <MiniLayerCard key={layer.id} layer={layer} />
         ))}
+        <div className="border-t border-ed-hairline" />
       </div>
     </div>
   );
@@ -364,28 +326,28 @@ export default function CompareView({
   const regionAName = regions.find(r => r.id === regionAId)?.name ?? regionAId;
   const regionBName = regions.find(r => r.id === regionBId)?.name ?? regionBId;
 
-  const sharedEntities =
-    dataA && dataB ? findSharedEntities(dataA, dataB) : [];
+  const sharedEntities = dataA && dataB ? findSharedEntities(dataA, dataB) : [];
 
   return (
     <div>
       {/* Header */}
-      <div className="mb-5 flex items-center gap-3">
-        <h2 className="text-base font-bold text-white">
+      <div className="mb-6">
+        <h2 className="text-ed-block-h3 text-ed-text-primary">
           {regionAName}
-          <span className="mx-2 text-[#5E5C75]">↔</span>
+          <span className="mx-2 text-ed-text-secondary">↔</span>
           {regionBName}
-          <span className="text-slate-500 font-normal text-sm ml-2">Ecosystem Comparison</span>
         </h2>
+        <div className="text-ed-meta text-ed-text-secondary mt-1">Ecosystem Comparison</div>
       </div>
 
       {loading ? (
         <div className="flex items-center justify-center h-48">
-          <span className="material-symbols-outlined animate-spin text-4xl text-[#5E5C75]">progress_activity</span>
+          <span className="material-symbols-outlined animate-spin text-4xl text-ed-accent">
+            progress_activity
+          </span>
         </div>
       ) : (
         <>
-          {/* Shared entities strip */}
           {sharedEntities.length > 0 && (
             <SharedEntitiesStrip
               entities={sharedEntities}
@@ -394,8 +356,7 @@ export default function CompareView({
             />
           )}
 
-          {/* Two-column layout */}
-          <div className="flex flex-col md:flex-row gap-6">
+          <div className="flex flex-col md:flex-row gap-8">
             {dataA && (
               <RegionColumn
                 id={regionAId}
@@ -409,9 +370,9 @@ export default function CompareView({
 
             {/* Divider */}
             <div className="hidden md:flex flex-col items-center gap-2 pt-12">
-              <div className="w-px flex-1 bg-[#2B3437]" />
-              <span className="text-[#5E5C75] font-bold text-xs rotate-0">↔</span>
-              <div className="w-px flex-1 bg-[#2B3437]" />
+              <div className="w-px flex-1 bg-ed-hairline" />
+              <span className="text-ed-text-muted text-xs">↔</span>
+              <div className="w-px flex-1 bg-ed-hairline" />
             </div>
 
             {dataB && (
