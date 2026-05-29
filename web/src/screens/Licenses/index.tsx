@@ -1,83 +1,80 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import type { Issuer, IssuerStatus } from '../../types/licenses';
-import { SIGNAL_META, STATUS_META, TYPE_LABELS, getOverallSignal, aggregateSARM } from '../../utils/sarm';
+import type { Issuer, Jurisdiction, JurisdictionCode, IssuerStatus, SARMSignal } from '../../types/licenses';
+import { SIGNAL_META, SARM_DIMENSION_KEYS, TYPE_LABELS, getOverallSignal } from '../../utils/sarm';
+import SignalDot from '../../components/SignalDot';
+import StatusBadge from '../../components/StatusBadge';
+import SARMBar from '../../components/SARMBar';
+import IssuerLogo from '../../components/IssuerLogo';
+import { Eyebrow } from '../../components/Eyebrow';
+import { FilterPill } from '../../components/FilterPill';
+import { usePagination } from '../../hooks/usePagination';
 
-// ── Traffic Light Dot ─────────────────────────────────────────────────────────
-function SignalDot({ signal, size = 10 }: { signal: string; size?: number }) {
-  const meta = SIGNAL_META[signal as keyof typeof SIGNAL_META] ?? SIGNAL_META.gray;
-  return (
-    <span
-      className="inline-block rounded-full shrink-0"
-      style={{ width: size, height: size, background: meta.color }}
-      title={meta.label}
-    />
-  );
-}
+// ── Constants ─────────────────────────────────────────────────────────────────
 
-// ── Status Badge ──────────────────────────────────────────────────────────────
-function StatusBadge({ status }: { status: string }) {
-  const m = STATUS_META[status] ?? STATUS_META.under_review;
-  return (
-    <span
-      className="inline-flex items-center px-2 py-0.5 rounded text-xs font-bold"
-      style={{ color: m.color, background: m.bg }}
-    >
-      {m.label}
-    </span>
-  );
-}
+type TabId = 'jurisdictions' | 'issuers' | 'sarm';
 
-// ── SARM mini-bar for overview row ────────────────────────────────────────────
-function SARMBar({ issuer }: { issuer: Issuer }) {
-  const summary = aggregateSARM(issuer.sarm);
-  const segs = [
-    { sig: 'green',  count: summary.green },
-    { sig: 'yellow', count: summary.yellow },
-    { sig: 'red',    count: summary.red },
-    { sig: 'gray',   count: summary.gray },
-  ].filter(s => s.count > 0);
-
-  return (
-    <div className="flex items-center gap-1" title="SARM dimension signals">
-      {segs.map(s =>
-        Array.from({ length: s.count }).map((_, i) => (
-          <SignalDot key={`${s.sig}-${i}`} signal={s.sig} size={8} />
-        ))
-      )}
-    </div>
-  );
-}
-
-// ── Status filter options ─────────────────────────────────────────────────────
-const STATUS_FILTERS: { value: IssuerStatus | 'all'; label: string }[] = [
-  { value: 'all', label: 'All' },
-  { value: 'sandbox', label: 'Sandbox' },
-  { value: 'under_review', label: 'Under Review' },
-  { value: 'licensed', label: 'Licensed' },
-  { value: 'withdrawn', label: 'Withdrawn' },
-  { value: 'rejected', label: 'Rejected' },
+const TABS: { id: TabId; label: string }[] = [
+  { id: 'jurisdictions', label: 'Jurisdictions'  },
+  { id: 'issuers',       label: 'All Issuers'    },
+  { id: 'sarm',          label: 'SARM Breakdown' },
 ];
 
+const STATUS_FILTERS: { value: IssuerStatus | 'all'; label: string }[] = [
+  { value: 'all',          label: 'All'          },
+  { value: 'sandbox',      label: 'Sandbox'      },
+  { value: 'under_review', label: 'Under Review' },
+  { value: 'licensed',     label: 'Licensed'     },
+  { value: 'withdrawn',    label: 'Withdrawn'    },
+  { value: 'rejected',     label: 'Rejected'     },
+];
+
+const JUR_CODES: JurisdictionCode[] = ['HK', 'SG', 'EU', 'UAE', 'US', 'JP'];
+
+const STATUS_SORT_ORDER: Record<IssuerStatus, number> = {
+  licensed:     0,
+  under_review: 1,
+  sandbox:      2,
+  withdrawn:    3,
+  rejected:     4,
+};
+
+const REGIME_CHIP: Record<string, { dot: string; label: string } | null> = {
+  active:     { dot: '#2E7D32', label: 'Active'     },
+  developing: { dot: '#e09d2b', label: 'Developing' },
+  proposed:   { dot: '#A8A29E', label: 'Proposed'   },
+  none:       null,
+};
+
 // ── Main Component ────────────────────────────────────────────────────────────
+
 export default function LicensesOverview() {
-  const [issuers, setIssuers] = useState<Issuer[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [statusFilter, setStatusFilter] = useState<IssuerStatus | 'all'>('all');
-  const [pegFilter, setPegFilter] = useState<string>('all');
-  const [search, setSearch] = useState('');
+  const [issuers,       setIssuers]       = useState<Issuer[]>([]);
+  const [jurisdictions, setJurisdictions] = useState<Jurisdiction[]>([]);
+  const [loading,       setLoading]       = useState(true);
+  const [activeTab,     setActiveTab]     = useState<TabId>('jurisdictions');
+  const [jurFilter,     setJurFilter]     = useState<'All' | JurisdictionCode>('All');
+  const [statusFilter,  setStatusFilter]  = useState<IssuerStatus | 'all'>('all');
+  const [pegFilter,     setPegFilter]     = useState<string>('all');
+  const [search,        setSearch]        = useState('');
 
   useEffect(() => {
-    fetch('/data/licenses/issuers.json')
-      .then(r => r.json())
-      .then((data: Issuer[]) => { setIssuers(data); setLoading(false); })
+    Promise.all([
+      fetch('/data/licenses/issuers.json').then(r => r.json()),
+      fetch('/data/licenses/jurisdictions.json').then(r => r.json()),
+    ])
+      .then(([is, jurs]: [Issuer[], Jurisdiction[]]) => {
+        setIssuers(is);
+        setJurisdictions(jurs);
+        setLoading(false);
+      })
       .catch(() => setLoading(false));
   }, []);
 
-  // Derived filters
   const pegs = Array.from(new Set(issuers.map(i => i.peg))).sort();
 
   const filtered = issuers.filter(i => {
+    if (jurFilter !== 'All' && i.jurisdiction_code !== jurFilter) return false;
     if (statusFilter !== 'all' && i.status !== statusFilter) return false;
     if (pegFilter !== 'all' && i.peg !== pegFilter) return false;
     if (search) {
@@ -91,221 +88,447 @@ export default function LicensesOverview() {
     return true;
   });
 
-  // Stats
-  const counts = {
-    total:        issuers.length,
-    sandbox:      issuers.filter(i => i.status === 'sandbox').length,
-    under_review: issuers.filter(i => i.status === 'under_review').length,
+  const { visible, loadMore, canLoadMore } = usePagination(filtered, 20);
+
+  // Global stats for ribbon
+  const globalCounts = {
     licensed:     issuers.filter(i => i.status === 'licensed').length,
+    under_review: issuers.filter(i => i.status === 'under_review').length,
+    sandbox:      issuers.filter(i => i.status === 'sandbox').length,
   };
 
   if (loading) return (
     <div className="flex items-center justify-center h-64">
-      <span className="material-symbols-outlined animate-spin text-3xl text-[#5E5C75]">progress_activity</span>
+      <span className="material-symbols-outlined animate-spin text-ed-text-muted text-ed-section-h2">
+        progress_activity
+      </span>
     </div>
   );
 
   return (
-    <div className="max-w-screen-2xl mx-auto px-6 py-8 space-y-8">
+    <div className="max-w-[1400px] mx-auto px-8">
 
-      {/* ── Header ── */}
-      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
-        <div>
-          <h1 className="text-2xl font-black text-[#2B3437]">HK Stablecoin Licence Tracker</h1>
-          <p className="text-sm text-[#737C7F] mt-1 max-w-2xl">
-            SARM-framework assessment of stablecoin issuers applying under the{' '}
-            <a
-              href="https://www.elegislation.gov.hk/hk/cap649"
-              target="_blank" rel="noopener noreferrer"
-              className="text-[#5E5C75] underline hover:text-[#2B3437]"
-            >
-              Hong Kong Stablecoins Ordinance (Cap. 649)
-            </a>
-            . Traffic lights only — no numerical scores.
-          </p>
+      {/* ── Hero (compressed) ────────────────────────────────────────────── */}
+      <section className="pt-ed-section-md pb-ed-section-sm">
+        <Eyebrow>SARM Framework</Eyebrow>
+        <h1 className="text-ed-hero-h1 text-ed-ink mt-ed-section-sm">
+          Stablecoin licence assessments
+        </h1>
+        <p className="text-ed-lede text-ed-text-secondary max-w-[720px] mt-ed-section-sm">
+          Qualitative traffic-light assessments of stablecoin issuers across six jurisdictions,
+          applying the Structural Adequacy Risk Model (SARM). Signals are research judgements,
+          not ratings.
+        </p>
+      </section>
+
+      {/* ── Stats ribbon ─────────────────────────────────────────────────── */}
+      <section className="border-y border-ed-hairline py-3 flex flex-wrap items-center gap-x-8 gap-y-2">
+        <div className="flex items-center gap-2">
+          <span className="text-ed-eyebrow text-ed-text-muted">Issuers tracked</span>
+          <span className="text-ed-body text-ed-ink tabular-nums">{issuers.length}</span>
         </div>
-        <Link
-          to="/licenses/methodology"
-          className="flex items-center gap-1.5 text-sm text-[#5E5C75] hover:text-[#2B3437] transition-colors shrink-0"
-        >
-          <span className="material-symbols-outlined text-base">info</span>
-          SARM Methodology
-        </Link>
-      </div>
+        <div className="flex items-center gap-2">
+          <span className="text-ed-eyebrow text-ed-text-muted">Jurisdictions</span>
+          <span className="text-ed-body text-ed-ink tabular-nums">{jurisdictions.length}</span>
+        </div>
+        <div className="flex items-center gap-2">
+          <span className="text-ed-eyebrow text-ed-text-muted">Licensed</span>
+          <span className="text-ed-body tabular-nums" style={{ color: globalCounts.licensed > 0 ? '#2E7D32' : '#A8A29E' }}>
+            {globalCounts.licensed}
+          </span>
+        </div>
+        <div className="flex items-center gap-2">
+          <span className="text-ed-eyebrow text-ed-text-muted">Under review</span>
+          <span className="text-ed-body tabular-nums" style={{ color: globalCounts.under_review > 0 ? '#e09d2b' : '#A8A29E' }}>
+            {globalCounts.under_review}
+          </span>
+        </div>
+        <div className="flex items-center gap-2">
+          <span className="text-ed-eyebrow text-ed-text-muted">Sandbox</span>
+          <span className="text-ed-body tabular-nums" style={{ color: globalCounts.sandbox > 0 ? '#1565C0' : '#A8A29E' }}>
+            {globalCounts.sandbox}
+          </span>
+        </div>
+      </section>
 
-      {/* ── Stats bar ── */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-        {[
-          { label: 'Total Applicants', value: counts.total,        color: '#5E5C75' },
-          { label: 'Under Review',     value: counts.under_review, color: '#e09d2b' },
-          { label: 'Sandbox',          value: counts.sandbox,      color: '#2E7D32' },
-          { label: 'Licensed',         value: counts.licensed,     color: '#1565C0' },
-        ].map(s => (
-          <div key={s.label} className="bg-white rounded-lg border border-[#DBE4E7] p-4">
-            <div className="text-xs uppercase tracking-widest font-bold text-[#737C7F] mb-1">{s.label}</div>
-            <div className="text-2xl font-black" style={{ color: s.color }}>{s.value}</div>
+      {/* ── Tab strip ────────────────────────────────────────────────────── */}
+      <div className="border-b border-ed-hairline mt-ed-section-sm">
+        <div className="flex items-end justify-between">
+          <div className="flex gap-12">
+            {TABS.map(t => (
+              <button
+                key={t.id}
+                onClick={() => setActiveTab(t.id)}
+                className={`pb-3 text-ed-item-h4 transition-colors ${
+                  activeTab === t.id
+                    ? 'text-ed-ink border-b-2 border-ed-ink -mb-px'
+                    : 'text-ed-text-secondary hover:text-ed-ink'
+                }`}
+              >
+                {t.label}
+              </button>
+            ))}
           </div>
-        ))}
-      </div>
-
-      {/* ── Filters ── */}
-      <div className="flex flex-col sm:flex-row gap-3">
-        {/* Search */}
-        <div className="relative flex-1 max-w-xs">
-          <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-[#737C7F] text-base">search</span>
-          <input
-            type="text"
-            placeholder="Search issuer or ticker…"
-            value={search}
-            onChange={e => setSearch(e.target.value)}
-            className="w-full pl-9 pr-4 py-2 text-sm border border-[#DBE4E7] rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-[#5E5C75]/30"
-          />
-        </div>
-
-        {/* Status filter */}
-        <div className="flex items-center gap-1 flex-wrap">
-          {STATUS_FILTERS.map(f => (
-            <button
-              key={f.value}
-              onClick={() => setStatusFilter(f.value)}
-              className={`px-3 py-1.5 text-xs rounded-full font-bold transition-colors ${
-                statusFilter === f.value
-                  ? 'bg-[#5E5C75] text-white'
-                  : 'bg-white border border-[#DBE4E7] text-[#737C7F] hover:border-[#5E5C75]'
-              }`}
-            >
-              {f.label}
-            </button>
-          ))}
-        </div>
-
-        {/* Peg filter */}
-        {pegs.length > 1 && (
-          <select
-            value={pegFilter}
-            onChange={e => setPegFilter(e.target.value)}
-            className="text-sm border border-[#DBE4E7] rounded-lg px-3 py-1.5 bg-white focus:outline-none focus:ring-2 focus:ring-[#5E5C75]/30"
+          <Link
+            to="/licenses/methodology"
+            className="text-ed-meta text-ed-text-muted hover:text-ed-ink pb-3 transition-colors"
           >
-            <option value="all">All pegs</option>
-            {pegs.map(p => <option key={p} value={p}>{p}</option>)}
-          </select>
-        )}
+            SARM Methodology →
+          </Link>
+        </div>
       </div>
 
-      {/* ── Table ── */}
-      {filtered.length === 0 ? (
-        <div className="text-center py-16 text-[#737C7F] text-sm">No issuers match your filters.</div>
-      ) : (
-        <div className="bg-white rounded-xl border border-[#DBE4E7] overflow-hidden">
-          {/* Desktop table */}
-          <div className="hidden md:block overflow-x-auto">
-            <table className="w-full text-sm">
-              <thead>
-                <tr className="border-b border-[#DBE4E7] bg-[#F8FAFB]">
-                  <th className="text-left px-5 py-3 text-xs uppercase tracking-widest font-bold text-[#737C7F]">Issuer</th>
-                  <th className="text-left px-5 py-3 text-xs uppercase tracking-widest font-bold text-[#737C7F]">Ticker</th>
-                  <th className="text-left px-5 py-3 text-xs uppercase tracking-widest font-bold text-[#737C7F]">Peg</th>
-                  <th className="text-left px-5 py-3 text-xs uppercase tracking-widest font-bold text-[#737C7F]">Type</th>
-                  <th className="text-left px-5 py-3 text-xs uppercase tracking-widest font-bold text-[#737C7F]">Status</th>
-                  <th className="text-left px-5 py-3 text-xs uppercase tracking-widest font-bold text-[#737C7F]">SARM</th>
-                  <th className="text-left px-5 py-3 text-xs uppercase tracking-widest font-bold text-[#737C7F]">Applied</th>
-                  <th className="px-5 py-3" />
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-[#F1F4F6]">
-                {filtered.map(issuer => {
-                  const overall = getOverallSignal(issuer);
-                  const meta = SIGNAL_META[overall];
-                  return (
-                    <tr key={issuer.slug} className="hover:bg-[#F8FAFB] transition-colors">
-                      <td className="px-5 py-4">
-                        <div className="flex items-center gap-2.5">
-                          <SignalDot signal={overall} size={10} />
-                          <div>
-                            <div className="font-bold text-[#2B3437]">{issuer.name}</div>
-                            <div className="text-xs text-[#737C7F] mt-0.5 max-w-[200px] truncate">{issuer.parent}</div>
-                          </div>
-                        </div>
-                      </td>
-                      <td className="px-5 py-4">
-                        <span className="font-mono text-xs font-bold text-[#5E5C75]">{issuer.ticker}</span>
-                      </td>
-                      <td className="px-5 py-4 text-[#2B3437] font-medium">{issuer.peg}</td>
-                      <td className="px-5 py-4 text-[#737C7F]">{TYPE_LABELS[issuer.type] ?? issuer.type}</td>
-                      <td className="px-5 py-4"><StatusBadge status={issuer.status} /></td>
-                      <td className="px-5 py-4"><SARMBar issuer={issuer} /></td>
-                      <td className="px-5 py-4 text-[#737C7F] text-xs">
-                        {issuer.application_date === 'Unknown' ? '—' : issuer.application_date}
-                      </td>
-                      <td className="px-5 py-4">
-                        <Link
-                          to={`/licenses/${issuer.slug}`}
-                          className="flex items-center gap-1 text-xs font-bold text-[#5E5C75] hover:text-[#2B3437] transition-colors"
-                        >
-                          View
-                          <span className="material-symbols-outlined text-sm">arrow_forward</span>
-                        </Link>
-                      </td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
-          </div>
+      {/* ── Tab 1: Jurisdictions ─────────────────────────────────────────── */}
+      {activeTab === 'jurisdictions' && (
+        <section className="pt-ed-section-sm pb-ed-section-md">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border-t border-l border-ed-hairline">
+            {jurisdictions.map(j => {
+              const inJur = issuers.filter(i => i.jurisdiction_code === j.code);
+              const counts = {
+                total:        inJur.length,
+                licensed:     inJur.filter(i => i.status === 'licensed').length,
+                under_review: inJur.filter(i => i.status === 'under_review').length,
+                sandbox:      inJur.filter(i => i.status === 'sandbox').length,
+              };
+              const sig: Record<SARMSignal, number> = { green: 0, yellow: 0, red: 0, gray: 0 };
+              inJur.forEach(i => SARM_DIMENSION_KEYS.forEach(k => sig[i.sarm[k].signal]++));
+              const regimeChip = REGIME_CHIP[j.regime_status] ?? null;
 
-          {/* Mobile cards */}
-          <div className="md:hidden divide-y divide-[#F1F4F6]">
-            {filtered.map(issuer => {
-              const overall = getOverallSignal(issuer);
               return (
-                <div key={issuer.slug} className="p-4 space-y-2">
+                <button
+                  key={j.code}
+                  onClick={() => { setActiveTab('issuers'); setJurFilter(j.code); }}
+                  className="border-r border-b border-ed-hairline p-5 text-left bg-ed-canvas hover:bg-ed-surface-cool transition-colors flex flex-col gap-3"
+                >
+                  {/* Row 1: name + regime chip */}
                   <div className="flex items-start justify-between gap-2">
-                    <div className="flex items-center gap-2">
-                      <SignalDot signal={overall} size={10} />
-                      <span className="font-bold text-[#2B3437] text-sm">{issuer.name}</span>
+                    <div className="min-w-0">
+                      <div className="text-ed-block-h3 text-ed-ink leading-tight">{j.name}</div>
+                      <div className="text-ed-meta text-ed-text-muted mt-0.5">{j.regulator}</div>
                     </div>
-                    <StatusBadge status={issuer.status} />
+                    {regimeChip && (
+                      <div className="flex items-center gap-1.5 flex-shrink-0">
+                        <span
+                          className="inline-block rounded-full"
+                          style={{ width: 7, height: 7, background: regimeChip.dot }}
+                        />
+                        <span className="text-ed-eyebrow text-ed-text-muted">{regimeChip.label}</span>
+                      </div>
+                    )}
                   </div>
-                  <div className="text-xs text-[#737C7F]">{issuer.parent}</div>
-                  <div className="flex items-center gap-4 text-xs text-[#737C7F]">
-                    <span className="font-mono font-bold text-[#5E5C75]">{issuer.ticker}</span>
-                    <span>{issuer.peg}</span>
-                    <span>{TYPE_LABELS[issuer.type]}</span>
+
+                  {/* Row 2: framework — 2-line clamp */}
+                  <div className="text-ed-meta text-ed-text-muted leading-snug line-clamp-2 min-h-[2.5em]">
+                    {j.framework}
                   </div>
-                  <div className="flex items-center justify-between">
-                    <SARMBar issuer={issuer} />
-                    <Link
-                      to={`/licenses/${issuer.slug}`}
-                      className="flex items-center gap-1 text-xs font-bold text-[#5E5C75]"
-                    >
-                      View profile
-                      <span className="material-symbols-outlined text-sm">arrow_forward</span>
-                    </Link>
+
+                  {/* Row 3: 4-col counts grid */}
+                  <div className="grid grid-cols-4 border-t border-ed-hairline pt-3">
+                    <div>
+                      <div className="text-ed-eyebrow text-ed-text-muted">Total</div>
+                      <div className="text-ed-item-h4 text-ed-ink tabular-nums mt-0.5">{counts.total}</div>
+                    </div>
+                    <div>
+                      <div className="text-ed-eyebrow text-ed-text-muted">Licensed</div>
+                      <div
+                        className="text-ed-item-h4 tabular-nums mt-0.5"
+                        style={{ color: counts.licensed > 0 ? '#2E7D32' : '#A8A29E' }}
+                      >
+                        {counts.licensed}
+                      </div>
+                    </div>
+                    <div>
+                      <div className="text-ed-eyebrow text-ed-text-muted">Review</div>
+                      <div
+                        className="text-ed-item-h4 tabular-nums mt-0.5"
+                        style={{ color: counts.under_review > 0 ? '#e09d2b' : '#A8A29E' }}
+                      >
+                        {counts.under_review}
+                      </div>
+                    </div>
+                    <div>
+                      <div className="text-ed-eyebrow text-ed-text-muted">Sandbox</div>
+                      <div
+                        className="text-ed-item-h4 tabular-nums mt-0.5"
+                        style={{ color: counts.sandbox > 0 ? '#1565C0' : '#A8A29E' }}
+                      >
+                        {counts.sandbox}
+                      </div>
+                    </div>
                   </div>
-                </div>
+
+                  {/* Row 4: SARM signal strip */}
+                  {counts.total > 0 ? (
+                    <div className="flex items-center justify-between gap-2 text-ed-meta text-ed-text-secondary tabular-nums border-t border-ed-hairline-faint pt-3">
+                      <span className="text-ed-eyebrow text-ed-text-muted">SARM signals</span>
+                      <div className="flex items-center gap-3">
+                        <span className="flex items-center gap-1"><SignalDot signal="green"  size={7} />{sig.green}</span>
+                        <span className="flex items-center gap-1"><SignalDot signal="yellow" size={7} />{sig.yellow}</span>
+                        <span className="flex items-center gap-1"><SignalDot signal="red"    size={7} />{sig.red}</span>
+                        <span className="flex items-center gap-1"><SignalDot signal="gray"   size={7} />{sig.gray}</span>
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="text-ed-meta text-ed-text-faint border-t border-ed-hairline-faint pt-3">
+                      No assessed issuers yet
+                    </div>
+                  )}
+                </button>
               );
             })}
           </div>
-        </div>
+        </section>
       )}
 
-      {/* ── Legend ── */}
-      <div className="flex flex-wrap items-center gap-4 text-xs text-[#737C7F]">
-        <span className="font-bold text-[#2B3437]">SARM legend:</span>
-        {(['green', 'yellow', 'red', 'gray'] as const).map(s => (
-          <span key={s} className="flex items-center gap-1.5">
-            <SignalDot signal={s} size={8} />
-            {SIGNAL_META[s].label}
-          </span>
-        ))}
-      </div>
+      {/* ── Tab 2: All Issuers ───────────────────────────────────────────── */}
+      {activeTab === 'issuers' && (
+        <section className="pt-ed-section-sm pb-ed-section-md">
 
-      {/* ── Disclaimer ── */}
-      <p className="text-xs text-[#737C7F] italic border-t border-[#DBE4E7] pt-4">
-        ⚠️ This tracker is produced for academic research purposes. Assessments are based solely on
-        publicly available information. No investment, legal, or compliance advice is intended or
-        implied. SARM signals are qualitative judgements, not scores or ratings.
-      </p>
+          {/* Jurisdiction filter */}
+          <div className="flex items-center gap-2 flex-wrap mb-ed-section-sm">
+            <span className="text-ed-eyebrow text-ed-text-muted">Jurisdiction</span>
+            <FilterPill active={jurFilter === 'All'} onClick={() => setJurFilter('All')}>All</FilterPill>
+            {JUR_CODES.map(c => (
+              <FilterPill key={c} active={jurFilter === c} onClick={() => setJurFilter(c)}>{c}</FilterPill>
+            ))}
+          </div>
+
+          {/* Status filter */}
+          <div className="flex items-center gap-2 flex-wrap mb-ed-section-sm">
+            <span className="text-ed-eyebrow text-ed-text-muted">Status</span>
+            {STATUS_FILTERS.map(f => (
+              <FilterPill
+                key={f.value}
+                active={statusFilter === f.value}
+                onClick={() => setStatusFilter(f.value)}
+              >
+                {f.label}
+              </FilterPill>
+            ))}
+          </div>
+
+          {/* Search + peg */}
+          <div className="flex flex-col sm:flex-row gap-3 mb-ed-section-sm">
+            <div className="relative flex-1 max-w-xs">
+              <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-ed-text-muted text-base">
+                search
+              </span>
+              <input
+                type="text"
+                placeholder="Search issuer or ticker…"
+                value={search}
+                onChange={e => setSearch(e.target.value)}
+                className="w-full pl-9 pr-4 py-2 text-ed-body border border-ed-hairline bg-ed-surface focus:outline-none focus:ring-1 focus:ring-ed-ink/20"
+              />
+            </div>
+            {pegs.length > 1 && (
+              <select
+                value={pegFilter}
+                onChange={e => setPegFilter(e.target.value)}
+                className="text-ed-meta border border-ed-hairline px-3 py-2 bg-ed-surface focus:outline-none focus:ring-1 focus:ring-ed-ink/20"
+              >
+                <option value="all">All pegs</option>
+                {pegs.map(p => <option key={p} value={p}>{p}</option>)}
+              </select>
+            )}
+          </div>
+
+          {/* Table / empty state */}
+          {filtered.length === 0 ? (
+            <div className="text-center py-16 text-ed-text-muted text-ed-body">
+              No issuers match your filters.
+            </div>
+          ) : (
+            <div className="border border-ed-hairline overflow-hidden">
+
+              {/* Desktop */}
+              <div className="hidden md:block overflow-x-auto">
+                <table className="w-full">
+                  <thead>
+                    <tr className="border-b border-ed-hairline bg-ed-surface-cool">
+                      <th className="text-left px-5 py-3 text-ed-eyebrow text-ed-text-muted">Issuer</th>
+                      <th className="text-left px-5 py-3 text-ed-eyebrow text-ed-text-muted">Jur.</th>
+                      <th className="text-left px-5 py-3 text-ed-eyebrow text-ed-text-muted">Ticker</th>
+                      <th className="text-left px-5 py-3 text-ed-eyebrow text-ed-text-muted">Peg</th>
+                      <th className="text-left px-5 py-3 text-ed-eyebrow text-ed-text-muted">Type</th>
+                      <th className="text-left px-5 py-3 text-ed-eyebrow text-ed-text-muted">Status</th>
+                      <th className="text-left px-5 py-3 text-ed-eyebrow text-ed-text-muted">SARM</th>
+                      <th className="text-left px-5 py-3 text-ed-eyebrow text-ed-text-muted">Applied</th>
+                      <th className="px-5 py-3" />
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-ed-hairline-faint">
+                    {visible.map(issuer => {
+                      const overall = getOverallSignal(issuer);
+                      return (
+                        <tr key={issuer.slug} className="hover:bg-ed-surface-cool transition-colors">
+                          <td className="px-5 py-4">
+                            <div className="flex items-center gap-2.5">
+                              <IssuerLogo issuer={issuer} size={24} />
+                              <div>
+                                <div className="text-ed-body text-ed-ink">{issuer.name}</div>
+                                <div className="text-ed-meta text-ed-text-muted mt-0.5 max-w-[200px] truncate">
+                                  {issuer.parent}
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+                          <td className="px-5 py-4">
+                            <span className="text-ed-meta text-ed-text-muted tabular-nums">
+                              {issuer.jurisdiction_code}
+                            </span>
+                          </td>
+                          <td className="px-5 py-4">
+                            <span className="font-mono text-ed-meta text-ed-text-secondary">
+                              {issuer.ticker}
+                            </span>
+                          </td>
+                          <td className="px-5 py-4 text-ed-body text-ed-ink">{issuer.peg}</td>
+                          <td className="px-5 py-4 text-ed-body text-ed-text-muted">
+                            {TYPE_LABELS[issuer.type] ?? issuer.type}
+                          </td>
+                          <td className="px-5 py-4"><StatusBadge status={issuer.status} /></td>
+                          <td className="px-5 py-4"><SARMBar sarm={issuer.sarm} /></td>
+                          <td className="px-5 py-4 text-ed-meta text-ed-text-muted tabular-nums">
+                            {issuer.application_date === 'Unknown' ? '—' : issuer.application_date}
+                          </td>
+                          <td className="px-5 py-4">
+                            <Link
+                              to={`/licenses/${issuer.slug}`}
+                              className="flex items-center gap-1 text-ed-meta text-ed-text-secondary hover:text-ed-ink transition-colors"
+                            >
+                              View
+                              <span className="material-symbols-outlined text-base">arrow_forward</span>
+                            </Link>
+                          </td>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
+              </div>
+
+              {/* Mobile cards */}
+              <div className="md:hidden divide-y divide-ed-hairline-faint">
+                {visible.map(issuer => {
+                  const overall = getOverallSignal(issuer);
+                  return (
+                    <div key={issuer.slug} className="p-4 space-y-2">
+                      <div className="flex items-start justify-between gap-2">
+                        <div className="flex items-center gap-2">
+                          <IssuerLogo issuer={issuer} size={24} />
+                          <div>
+                            <span className="text-ed-body text-ed-ink">{issuer.name}</span>
+                            <span className="text-ed-meta text-ed-text-faint ml-2">
+                              {issuer.jurisdiction_code}
+                            </span>
+                          </div>
+                        </div>
+                        <StatusBadge status={issuer.status} />
+                      </div>
+                      <div className="text-ed-meta text-ed-text-muted">{issuer.parent}</div>
+                      <div className="flex items-center gap-4 text-ed-meta text-ed-text-muted">
+                        <span className="font-mono text-ed-text-secondary">{issuer.ticker}</span>
+                        <span>{issuer.peg}</span>
+                        <span>{TYPE_LABELS[issuer.type]}</span>
+                      </div>
+                      <div className="flex items-center justify-between">
+                        <SARMBar sarm={issuer.sarm} />
+                        <Link
+                          to={`/licenses/${issuer.slug}`}
+                          className="flex items-center gap-1 text-ed-meta text-ed-text-secondary hover:text-ed-ink"
+                        >
+                          View profile
+                          <span className="material-symbols-outlined text-base">arrow_forward</span>
+                        </Link>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+
+          {/* Load more */}
+          {canLoadMore && (
+            <div className="mt-ed-section-sm border-t border-ed-hairline pt-ed-section-sm">
+              <button onClick={loadMore} className="text-ed-meta text-ed-ink hover:underline">
+                Load more ({filtered.length - visible.length} remaining) →
+              </button>
+            </div>
+          )}
+        </section>
+      )}
+
+      {/* ── Tab 3: SARM Breakdown ────────────────────────────────────────── */}
+      {activeTab === 'sarm' && (
+        <section className="w-screen relative left-1/2 -translate-x-1/2 bg-ed-surface-cool pt-ed-section-sm pb-ed-section">
+          <div className="max-w-[1400px] mx-auto px-8">
+            <Eyebrow>Per-issuer view</Eyebrow>
+            <h2 className="text-ed-section-h2 text-ed-ink mt-ed-section-sm">
+              SARM breakdown by issuer
+            </h2>
+            <p className="text-ed-body text-ed-text-secondary max-w-[720px] mt-ed-section-sm mb-ed-section-lg">
+              Per-issuer signal breakdown across the six SARM dimensions. Bars indicate qualitative band, not numerical score.
+            </p>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-ed-section-sm">
+              {[...issuers]
+                .sort((a, b) => (STATUS_SORT_ORDER[a.status] ?? 99) - (STATUS_SORT_ORDER[b.status] ?? 99))
+                .map(issuer => (
+                  <div key={issuer.slug} className="border border-ed-hairline p-6 bg-ed-canvas">
+                    {/* Header */}
+                    <div className="flex items-start justify-between gap-2 mb-ed-sm">
+                      <div className="flex items-center gap-3 min-w-0">
+                        <IssuerLogo issuer={issuer} size={36} />
+                        <div className="min-w-0">
+                          <div className="text-ed-item-h4 text-ed-ink truncate">{issuer.name}</div>
+                          <div className="text-ed-meta text-ed-text-muted">{issuer.jurisdiction_code} · {issuer.peg}</div>
+                        </div>
+                      </div>
+                      <StatusBadge status={issuer.status} />
+                    </div>
+
+                    {/* 6 dimension bars */}
+                    <div className="flex flex-col gap-2.5 pt-5 border-t border-ed-hairline-faint">
+                      {SARM_DIMENSION_KEYS.map(key => {
+                        const dim = issuer.sarm[key];
+                        const pct = dim.signal === 'green' ? 100 : dim.signal === 'yellow' ? 55 : dim.signal === 'red' ? 25 : 12;
+                        const color = SIGNAL_META[dim.signal].color;
+                        return (
+                          <div key={key} className="flex items-center gap-3 pr-1">
+                            <div className="text-ed-meta text-ed-text-secondary w-[120px] flex-shrink-0">{dim.label}</div>
+                            <div className="flex-1 h-1 bg-ed-hairline">
+                              <div className="h-full" style={{ width: `${pct}%`, background: color }} />
+                            </div>
+                            <SignalDot signal={dim.signal} size={8} />
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ── Shared footer: legend + disclaimer ──────────────────────────── */}
+      <section className="py-ed-section-md border-t border-ed-hairline">
+        <div className="flex items-center gap-ed-section-sm flex-wrap text-ed-meta text-ed-text-muted mb-ed-section-sm">
+          <span className="text-ed-eyebrow text-ed-text-muted">SARM signals</span>
+          <span className="flex items-center gap-1.5"><SignalDot signal="green"  size={8} />Satisfactory</span>
+          <span className="flex items-center gap-1.5"><SignalDot signal="yellow" size={8} />Partial</span>
+          <span className="flex items-center gap-1.5"><SignalDot signal="red"    size={8} />Significant Gap</span>
+          <span className="flex items-center gap-1.5"><SignalDot signal="gray"   size={8} />Insufficient Data</span>
+        </div>
+        <p className="text-ed-meta text-ed-text-muted leading-relaxed max-w-[900px]">
+          This tracker is produced for academic research purposes. Assessments are based solely on
+          publicly available information. No investment, legal, or compliance advice is intended or
+          implied. SARM signals are qualitative judgements, not scores or ratings.
+        </p>
+      </section>
+
     </div>
   );
 }

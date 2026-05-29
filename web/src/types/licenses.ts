@@ -32,6 +32,9 @@ export interface SARMBlock {
   disclosure: SARMDimension;
 }
 
+// ── Jurisdiction Code ─────────────────────────────────────────────────────────
+export type JurisdictionCode = 'HK' | 'SG' | 'EU' | 'UAE' | 'US' | 'JP';
+
 // ── Issuer Status ─────────────────────────────────────────────────────────────
 export type IssuerStatus =
   | 'under_review'
@@ -48,8 +51,10 @@ export interface Issuer {
   slug: string;
   name: string;
   ticker: string;
+  logo_url?: string;
   parent: string;
   jurisdiction: string;
+  jurisdiction_code: JurisdictionCode;
   application_date: string;   // ISO date string or "Unknown"
   status: IssuerStatus;
   peg: string;                // e.g. "HKD", "USD"
@@ -64,6 +69,21 @@ export interface Issuer {
   citations: Citation[];
   last_reviewed: string;      // ISO date string
   reviewer_note: string;
+}
+
+// ── Regime Status ─────────────────────────────────────────────────────────────
+export type RegimeStatus = 'active' | 'developing' | 'proposed' | 'none';
+
+// ── Jurisdiction ──────────────────────────────────────────────────────────────
+export interface Jurisdiction {
+  code: JurisdictionCode;
+  name: string;
+  regulator: string;
+  framework: string;
+  framework_url: string;
+  regime_status: RegimeStatus;
+  regime_effective_date: string | null;
+  summary: string;
 }
 
 // ── Aggregated SARM result ────────────────────────────────────────────────────

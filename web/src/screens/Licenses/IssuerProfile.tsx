@@ -5,6 +5,7 @@ import {
   SIGNAL_META, STATUS_META, TYPE_LABELS,
   SARM_DIMENSION_KEYS, aggregateSARM,
 } from '../../utils/sarm';
+import SignalDot from '../../components/SignalDot';
 
 // ── Citation Component ────────────────────────────────────────────────────────
 function CitationLink({ cite, index }: { cite: Citation; index: number }) {
@@ -73,7 +74,7 @@ function SARMTable({ issuer }: { issuer: Issuer }) {
       <div className="flex flex-wrap gap-3 text-xs text-[#737C7F]">
         {(['green', 'yellow', 'red', 'gray'] as SARMSignal[]).map(s => (
           <span key={s} className="flex items-center gap-1.5">
-            <span className="inline-block w-2 h-2 rounded-full" style={{ background: SIGNAL_META[s].color }} />
+            <SignalDot signal={s} size={8} />
             <span style={{ color: SIGNAL_META[s].color }} className="font-bold">{summary[s]}</span>
             {' '}{SIGNAL_META[s].label}
           </span>
@@ -184,7 +185,7 @@ export default function IssuerProfile() {
                   className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-bold"
                   style={{ color: SIGNAL_META[s].color, background: SIGNAL_META[s].bg }}
                 >
-                  <span className="inline-block w-1.5 h-1.5 rounded-full" style={{ background: SIGNAL_META[s].color }} />
+                  <SignalDot signal={s} size={6} />
                   {summary[s]}
                 </span>
               )

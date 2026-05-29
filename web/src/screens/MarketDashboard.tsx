@@ -160,12 +160,14 @@ function ChainList({ chains, total }: { chains: string[]; total: number }) {
 }
 
 const Disclaimer = () => (
-  <div className="bg-amber-50 border-b border-amber-200 px-6 py-2 flex items-center gap-3 text-xs text-amber-800 shrink-0">
-    <span className="material-symbols-outlined text-amber-600 text-base shrink-0">info</span>
-    <span>
-      <strong>Research tool only.</strong> Data sourced from DeFiLlama. RWA-Index does not provide
-      assessments, ratings, or investment advice. All information is for educational purposes only.
-    </span>
+  <div className="bg-amber-50 border-b border-amber-200 py-2 shrink-0">
+    <div className="max-w-[1400px] mx-auto px-8 flex items-center gap-3 text-xs text-amber-800">
+      <span className="material-symbols-outlined text-amber-600 text-base shrink-0">info</span>
+      <span>
+        <strong>Research tool only.</strong> Data sourced from DeFiLlama. RWA-Index does not provide
+        assessments, ratings, or investment advice. All information is for educational purposes only.
+      </span>
+    </div>
   </div>
 );
 
@@ -227,7 +229,7 @@ function MarketOverview() {
       <Disclaimer />
 
       {/* Stat cards */}
-      <div className="px-6 pt-5 grid grid-cols-2 lg:grid-cols-4 gap-3">
+      <div className="max-w-[1400px] mx-auto px-8 pt-5 grid grid-cols-2 lg:grid-cols-4 gap-3">
         {[
           {
             label: 'Total RWA TVL',
@@ -281,7 +283,7 @@ function MarketOverview() {
       </div>
 
       {/* Charts */}
-      <div className="px-6 pt-4 pb-2 grid grid-cols-1 lg:grid-cols-5 gap-4">
+      <div className="max-w-[1400px] mx-auto px-8 pt-4 pb-2 grid grid-cols-1 lg:grid-cols-5 gap-4">
 
         {/* Horizontal bar chart — top 10 protocols */}
         <div className="lg:col-span-3 bg-white border border-[#DBE4E7] p-5">
@@ -373,7 +375,7 @@ function MarketOverview() {
       </div>
 
       {/* Footer */}
-      <div className="px-6 pt-2 pb-6 flex items-center gap-3 text-[9px] text-[#737C7F]">
+      <div className="max-w-[1400px] mx-auto px-8 pt-2 pb-6 flex items-center gap-3 text-[9px] text-[#737C7F]">
         <span className="material-symbols-outlined text-[12px]">schedule</span>
         {updated && <span>Updated: {updated}</span>}
         {updated && <span>·</span>}
@@ -422,7 +424,7 @@ function ProtocolsDirectory() {
 
   if (loading) return (
     <div className="h-full overflow-y-auto bg-surface p-8">
-      <div className="max-w-screen-2xl mx-auto space-y-6">
+      <div className="max-w-[1400px] mx-auto space-y-6">
         <div className="h-20 bg-surface-container animate-pulse" />
         {[...Array(8)].map((_, i) => (
           <div key={i} className="h-16 bg-surface-container animate-pulse" style={{ opacity: 1 - i * 0.08 }} />
@@ -452,18 +454,20 @@ function ProtocolsDirectory() {
   return (
     <div className="h-full overflow-y-auto thin-scrollbar bg-surface">
 
-      <div className="bg-amber-50 border-b border-amber-200 px-8 py-2 flex items-center gap-3 text-xs text-amber-800">
-        <span className="material-symbols-outlined text-amber-600 text-base shrink-0">info</span>
-        <span>
-          <strong>Research tool only.</strong> Data sourced from DeFiLlama.
-          RWA-Index does not provide assessments, ratings, or investment advice.
-          This directory is for educational and research purposes only.
-        </span>
+      <div className="bg-amber-50 border-b border-amber-200 py-2">
+        <div className="max-w-[1400px] mx-auto px-8 flex items-center gap-3 text-xs text-amber-800">
+          <span className="material-symbols-outlined text-amber-600 text-base shrink-0">info</span>
+          <span>
+            <strong>Research tool only.</strong> Data sourced from DeFiLlama.
+            RWA-Index does not provide assessments, ratings, or investment advice.
+            This directory is for educational and research purposes only.
+          </span>
+        </div>
       </div>
 
       {/* Header */}
       <div className="bg-[#1A1A2E] px-8 py-10">
-        <div className="max-w-screen-2xl mx-auto">
+        <div className="max-w-[1400px] mx-auto">
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
             <div>
               <h1 className="text-4xl md:text-5xl font-extrabold font-headline text-white tracking-tight">
@@ -492,7 +496,7 @@ function ProtocolsDirectory() {
 
       {/* Controls */}
       <div className="sticky top-0 z-10 bg-[#F1F4F6] border-b border-[#D8E2E6] px-8 py-3">
-        <div className="max-w-screen-2xl mx-auto flex flex-col sm:flex-row gap-3 items-start sm:items-center justify-between">
+        <div className="max-w-[1400px] mx-auto flex flex-col sm:flex-row gap-3 items-start sm:items-center justify-between">
           <div className="flex flex-wrap gap-1">
             {ASSET_CLASSES.map((cls) => {
               const count = cls === 'All'
@@ -529,7 +533,7 @@ function ProtocolsDirectory() {
       </div>
 
       {/* Table */}
-      <div className="max-w-screen-2xl mx-auto px-8 py-6">
+      <div className="max-w-[1400px] mx-auto px-8 py-6">
         <div className="hidden lg:grid grid-cols-[56px_1fr_140px_120px_80px_80px_100px_40px]
                         gap-4 px-4 py-2 text-[9px] font-bold text-[#737C7F] uppercase tracking-widest
                         border-b border-[#D8E2E6]">
@@ -645,7 +649,7 @@ function ProtocolsDirectory() {
         })}
       </div>
 
-      <div className="max-w-screen-2xl mx-auto px-8 pb-8 space-y-2">
+      <div className="max-w-[1400px] mx-auto px-8 pb-8 space-y-2">
         <div className="flex items-center gap-3 text-[10px] font-label text-outline">
           <span className="material-symbols-outlined text-[14px]">schedule</span>
           <span>Last updated: {updated}</span>
@@ -677,7 +681,8 @@ export default function MarketDashboard() {
     <div className="flex flex-col h-full">
 
       {/* Tab bar */}
-      <div className="flex bg-white border-b border-[#DBE4E7] px-6 shrink-0">
+      <div className="bg-white border-b border-[#DBE4E7] shrink-0">
+        <div className="max-w-[1400px] mx-auto px-8 flex">
         {TABS.map(({ key, label }) => (
           <button
             key={key}
@@ -691,6 +696,7 @@ export default function MarketDashboard() {
             {label}
           </button>
         ))}
+        </div>
       </div>
 
       {/* Content */}

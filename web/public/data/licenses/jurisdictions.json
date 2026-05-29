@@ -1,0 +1,62 @@
+[
+  {
+    "code": "HK",
+    "name": "Hong Kong",
+    "regulator": "HKMA",
+    "framework": "Stablecoins Ordinance (Cap. 649)",
+    "framework_url": "https://www.hkma.gov.hk/eng/key-functions/financial-infrastructure/regulatory-regime-for-stablecoin-issuers/",
+    "regime_status": "active",
+    "regime_effective_date": "2025-08-01",
+    "summary": "First-mover Asian regime with full statutory licensing. HKD-referenced stablecoins prioritised; 1:1 high-quality liquid reserves; segregated trust accounts; T+1 redemption baseline."
+  },
+  {
+    "code": "SG",
+    "name": "Singapore",
+    "regulator": "MAS",
+    "framework": "Single-Currency Stablecoin (SCS) Framework under Payment Services Act",
+    "framework_url": "https://www.mas.gov.sg/regulation/payments/single-currency-stablecoin",
+    "regime_status": "active",
+    "regime_effective_date": "2023-08-15",
+    "summary": "Targets single-currency stablecoins pegged to SGD or G10 currencies. Reserve, capital, redemption (5 business days) and disclosure rules; MAS-regulated label restricted to compliant issuers."
+  },
+  {
+    "code": "EU",
+    "name": "European Union",
+    "regulator": "EBA / ESMA / national NCAs",
+    "framework": "Markets in Crypto-Assets Regulation (MiCA) — EMT & ART regimes",
+    "framework_url": "https://www.eba.europa.eu/regulation-and-policy/markets-crypto-assets-mica",
+    "regime_status": "active",
+    "regime_effective_date": "2024-06-30",
+    "summary": "EMT for e-money tokens pegged to single fiat; ART for asset-referenced tokens. Most comprehensive regime globally — passporting across 27 member states, strict reserve, redemption-at-par, and significant-token thresholds."
+  },
+  {
+    "code": "UAE",
+    "name": "United Arab Emirates",
+    "regulator": "VARA (Dubai) / CBUAE / FSRA (ADGM)",
+    "framework": "Payment Token Services Regulation + VARA Virtual Asset Rulebooks",
+    "framework_url": "https://www.centralbank.ae/",
+    "regime_status": "developing",
+    "regime_effective_date": "2024-06-01",
+    "summary": "Fragmented across CBUAE (federal), VARA (Dubai), and FSRA (ADGM). Payment Token Services Regulation issued 2024; AED-referenced stablecoins prioritised. Multiple sandbox tracks active."
+  },
+  {
+    "code": "US",
+    "name": "United States",
+    "regulator": "OCC / NYDFS / state regulators / pending federal",
+    "framework": "State trust charters + GENIUS Act / STABLE Act (pending federal)",
+    "framework_url": "https://www.federalreserve.gov/",
+    "regime_status": "developing",
+    "regime_effective_date": null,
+    "summary": "No unified federal regime. NYDFS limited-purpose trust charter remains primary path (Paxos, Gemini). GENIUS Act and STABLE Act under congressional consideration. Significant regulatory uncertainty."
+  },
+  {
+    "code": "JP",
+    "name": "Japan",
+    "regulator": "FSA",
+    "framework": "Revised Payment Services Act (2023)",
+    "framework_url": "https://www.fsa.go.jp/en/",
+    "regime_status": "active",
+    "regime_effective_date": "2023-06-01",
+    "summary": "First major economy to regulate stablecoins under banking-equivalent rules. Issuance restricted to licensed banks, fund transfer service providers, and trust companies. JPY-referenced focus."
+  }
+]
