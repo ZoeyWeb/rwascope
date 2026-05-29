@@ -598,3 +598,11 @@ export const projectsApi = {
   get: (slug: string) => request<Project>(`/projects/${slug}`),
 };
 
+// ── Market — tokenized assets ─────────────────────────────────────────────────
+
+import type { MarketSnapshot } from '../types/market';
+
+export const marketApi = {
+  tokenizedSnapshot: () => request<MarketSnapshot>('/market/tokenized'),
+};
+
