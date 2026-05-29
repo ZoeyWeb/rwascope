@@ -82,6 +82,16 @@ const GAP_SEVERITY_STYLE: Record<string, string> = {
   critical: 'border-red-700 bg-red-950/50 text-red-300',
 };
 
+const REGION_OBSERVATION: Record<string, string> = {
+  hk: "Hong Kong's ecosystem leads on licensed infrastructure but remains concentrated — ten EnsembleTX institutions sit above a thin issuer base.",
+  sg: "Singapore's Project Guardian network has produced more cross-border pilots than any other jurisdiction, yet retail access remains gated.",
+  ae: "The UAE pairs aggressive free-zone licensing with sovereign-scale custody partners, creating depth without retail breadth.",
+  ch: "Switzerland's DLT Act gives it the cleanest legal layer in Europe, but tokenization volume still trails infrastructure capacity.",
+  us: "The US holds the largest issuer count globally, concentrated in tokenized treasuries — regulatory clarity for other asset classes remains pending.",
+  jp: "Japan's revised Payment Services Act enables yen-stablecoins but bank-only issuance keeps the issuer set narrow.",
+  eu: "MiCA gives EU the most prescriptive framework, though tokenization activity clusters in Luxembourg and Germany rather than spreading evenly.",
+};
+
 // ── Sub-components ─────────────────────────────────────────────────────────────
 
 function StatCard({ value, label, sub }: { value: number | string; label: string; sub?: string }) {
@@ -217,15 +227,21 @@ function Layer3DCard({
   const navigate = useNavigate();
 
   return (
-    <article className={`border-t border-ed-hairline py-ed-section-md ${isLast ? '' : ''}`}>
-      <div className="grid grid-cols-1 md:grid-cols-[1fr_3fr] gap-8 md:gap-12">
-        {/* Left: label + description */}
-        <div>
-          <div className="w-1 h-6 mb-3" style={{ background: layer.color }} />
-          <div className="text-ed-eyebrow uppercase text-ed-text-muted">
-            Layer {layer.order}
+    <article className="border-t border-ed-hairline py-ed-section-md">
+      <div className="grid grid-cols-[80px_1fr_3fr] gap-8">
+        {/* Col 1: oversized layer number + vertical spine */}
+        <div className="relative">
+          <div className="text-[72px] leading-none font-semibold text-ed-text-faint tabular-nums">
+            {String(layer.order).padStart(2, '0')}
           </div>
-          <h3 className="text-ed-block-h3 text-ed-text-primary mt-2">{layer.label}</h3>
+          {!isLast && (
+            <div className="absolute left-[36px] top-[80px] bottom-[-128px] w-px bg-ed-hairline" />
+          )}
+        </div>
+
+        {/* Col 2: label + description */}
+        <div>
+          <h3 className="text-ed-block-h3 text-ed-text-primary">{layer.label}</h3>
           <div className="text-ed-meta text-ed-text-secondary mt-1">{layer.sublabel}</div>
           <p className="text-ed-body text-ed-text-secondary mt-ed-section-sm leading-relaxed">
             {layer.description}
@@ -249,7 +265,7 @@ function Layer3DCard({
           )}
         </div>
 
-        {/* Right: participants */}
+        {/* Col 3: participants */}
         <div className="flex flex-wrap gap-2 content-start pt-1">
           {layer.participants.map(p => (
             <ParticipantChip
@@ -416,22 +432,57 @@ export default function EcosystemMap() {
     <div className="max-w-[1400px] mx-auto px-8">
       {/* Hero */}
       <section className="py-ed-hero">
-        <div className="text-ed-eyebrow uppercase text-ed-text-muted">Regional Ecosystem</div>
-        <h1 className="text-ed-hero-h1 text-ed-text-primary mt-4">
-          {currentRegion?.name ?? 'Ecosystem Map'}
-        </h1>
-        <p className="text-ed-lede text-ed-text-secondary mt-ed-section-sm max-w-3xl">
-          Six-layer participant map across regulators, custodians, issuers, and infrastructure.
-        </p>
-        {regions.length > 0 && (
-          <div className="mt-ed-section-md">
-            <RegionSelector
-              regions={regions}
-              activeRegion={selectedRegion}
-              onChange={setSelectedRegion}
-            />
+        <div className="grid grid-cols-1 md:grid-cols-[1.2fr_1fr] gap-16 items-start">
+          <div>
+            <div className="text-ed-eyebrow uppercase text-ed-text-muted">Regional Ecosystem</div>
+            <h1 className="text-ed-hero-h1 text-ed-text-primary mt-4">
+              {currentRegion?.name ?? 'Ecosystem Map'}
+            </h1>
+            <p className="text-ed-lede text-ed-text-secondary mt-ed-section-sm max-w-3xl">
+              Six-layer participant map across regulators, custodians, issuers, and infrastructure.
+            </p>
+            {regions.length > 0 && (
+              <div className="mt-ed-section-md">
+                <RegionSelector
+                  regions={regions}
+                  activeRegion={selectedRegion}
+                  onChange={setSelectedRegion}
+                />
+              </div>
+            )}
           </div>
-        )}
+          <div className="space-y-2 md:pt-8">
+            {sortedLayers.length > 0 && (() => {
+              const maxCount = Math.max(...sortedLayers.map(l => l.participants.length));
+              return (
+                <>
+                  {sortedLayers.map((layer) => (
+                    <div key={layer.id} className="flex items-center gap-3">
+                      <div className="text-ed-eyebrow uppercase text-ed-text-muted w-7 tabular-nums">
+                        L{layer.order}
+                      </div>
+                      <div className="flex-1 h-1.5 bg-ed-hairline-faint relative">
+                        <div
+                          className="absolute inset-y-0 left-0 bg-ed-ink"
+                          style={{ width: `${(layer.participants.length / maxCount) * 100}%` }}
+                        />
+                      </div>
+                      <div className="text-ed-meta text-ed-text-primary tabular-nums w-6 text-right">
+                        {layer.participants.length}
+                      </div>
+                      <div className="hidden md:block text-ed-meta text-ed-text-secondary w-40 truncate">
+                        {layer.label}
+                      </div>
+                    </div>
+                  ))}
+                  <div className="text-ed-eyebrow uppercase text-ed-text-muted pt-4 border-t border-ed-hairline-faint">
+                    Participants per layer
+                  </div>
+                </>
+              );
+            })()}
+          </div>
+        </div>
       </section>
 
       {/* View mode tabs */}
@@ -497,12 +548,40 @@ export default function EcosystemMap() {
               <>
                 {/* Stats strip */}
                 <section className="w-screen relative left-1/2 -translate-x-1/2 bg-ed-surface-cool border-y border-ed-hairline py-ed-section-md mb-8">
-                  <div className="max-w-[1400px] mx-auto px-8 grid grid-cols-2 md:grid-cols-4 gap-12">
-                    <StatCard value={stats.regulators} label="Regulators" />
-                    <StatCard value={stats.licensed_stablecoin_issuers} label="Licensed Issuers" />
-                    <StatCard value={stats.ensembletx_institutions} label="EnsembleTX Institutions" />
-                    <StatCard value={stats.licensed_vatps} label="Licensed VATPs" />
-                  </div>
+                  {(() => {
+                    const totalParticipants = sortedLayers.reduce((acc, l) => acc + l.participants.length, 0);
+                    const secondary = [
+                      { value: stats.licensed_stablecoin_issuers, label: 'Licensed Issuers' },
+                      { value: stats.ensembletx_institutions,     label: 'EnsembleTX' },
+                      { value: stats.licensed_vatps,              label: 'Licensed VATPs' },
+                    ];
+                    const maxStat = Math.max(...secondary.map(s => s.value));
+                    return (
+                      <div className="max-w-[1400px] mx-auto px-8 grid grid-cols-2 md:grid-cols-5 gap-12">
+                        <div className="col-span-2 md:col-span-2 md:border-r md:border-ed-hairline md:pr-12">
+                          <div className="text-ed-eyebrow uppercase text-ed-text-muted">Total Participants</div>
+                          <div className="text-[80px] leading-[0.95] font-semibold text-ed-text-primary mt-3 tabular-nums">
+                            {totalParticipants}
+                          </div>
+                          <div className="text-ed-meta text-ed-text-muted mt-2">
+                            Across {sortedLayers.length} ecosystem layers
+                          </div>
+                        </div>
+                        {secondary.map(({ value, label }) => (
+                          <div key={label}>
+                            <div className="text-ed-eyebrow uppercase text-ed-text-muted">{label}</div>
+                            <div className="text-ed-section-h2 text-ed-text-primary mt-2 tabular-nums">{value}</div>
+                            <div className="h-0.5 bg-ed-hairline-faint mt-3 w-full relative">
+                              <div
+                                className="absolute inset-y-0 left-0 bg-ed-ink"
+                                style={{ width: `${(value / maxStat) * 100}%` }}
+                              />
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    );
+                  })()}
                 </section>
 
                 {/* Inner tab switcher */}
@@ -584,6 +663,21 @@ export default function EcosystemMap() {
                       ))}
                     </div>
                   </div>
+                )}
+
+                {/* Pull observation */}
+                {REGION_OBSERVATION[selectedRegion.toLowerCase()] && (
+                  <section className="w-screen left-1/2 -translate-x-1/2 relative bg-ed-surface-cool border-y border-ed-hairline py-ed-section mt-ed-section">
+                    <div className="max-w-[1100px] mx-auto px-8">
+                      <div className="text-ed-eyebrow uppercase text-ed-text-muted">Observation</div>
+                      <p className="text-ed-section-h2-light text-ed-text-primary mt-6 leading-tight">
+                        {REGION_OBSERVATION[selectedRegion.toLowerCase()]}
+                      </p>
+                      <div className="text-ed-meta text-ed-text-muted mt-6">
+                        RWAscope · Regional Analysis
+                      </div>
+                    </div>
+                  </section>
                 )}
 
                 {/* Gaps — full-bleed sunken */}

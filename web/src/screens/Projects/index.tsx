@@ -297,7 +297,12 @@ export default function ProjectsList() {
   useEffect(() => {
     projectsApi.list()
       .then(res => setProjects(res.projects))
-      .catch(() => setError('Failed to load projects data.'))
+      .catch(() =>
+        fetch('/data/projects/projects.json')
+          .then(r => r.json())
+          .then((data: Project[]) => setProjects(data))
+          .catch(() => setError('Failed to load projects data.'))
+      )
       .finally(() => setLoading(false));
   }, []);
 
