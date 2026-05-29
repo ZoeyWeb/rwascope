@@ -798,5 +798,2071 @@
     ],
     "last_reviewed": "2026-05-05",
     "reviewer_note": "ICBC (Asia) Limited (subsidiary of the Industrial and Commercial Bank of China, the world's largest bank by assets) submitted a formal stablecoin issuer licence application to the HKMA and remains under review as of May 2026. The entity did not receive a licence in the first batch announced on April 10, 2026.\n\n**Regulatory Status**: Under review; licence decision pending (estimated 2026-Q2 or Q3).\n\n**Background**: Unlike JD Coinlink and RD InnoTech (which participated in the HKMA Sandbox), ICBC (Asia) proceeded directly to formal application. As an HKMA-authorized institution (commercial bank), it has established regulatory relationships but lacks the pre-approval dialogue that sandbox participation provided to other applicants.\n\n**Geopolitical Risk**: Medium. ICBC is mainland-backed but operates as the Asia subsidiary of an international banking giant. The PBOC's constraints on HK stablecoin development may indirectly affect approval or impose special conditions, but less acutely than for tech-sector applicants like Ant.\n\n**SARM Assessment**: All dimensions assessed as \"gray\" (insufficient public data). ICBC possesses strong banking governance, professional treasury operations, and institutional credibility. If licensed, it would likely meet reserve and redemption standards; governance depends on whether PBOC oversight is reflected in licence conditions.\n\n**Key Question**: Will the HKMA prioritize note-issuing banks (HSBC, Standard Chartered) and independent institutions over mainland-backed subsidiaries? ICBC's approval timeline will signal HKMA's openness to mainland banking sector participation.\n\nSource: HKMA press releases, media reports (BitcoinEthereumNews, Substack, Sumsub), regulatory guidance documents."
+  },
+  {
+    "slug": "circle-eurc",
+    "name": "Circle (EURC)",
+    "ticker": "EURC",
+    "parent": "Circle Internet Financial",
+    "jurisdiction": "France (MiCA passport across EEA)",
+    "jurisdiction_code": "EU",
+    "application_date": "2024-07-01",
+    "status": "licensed",
+    "peg": "EUR",
+    "type": "fiat_backed",
+    "logo_url": "https://assets.coingecko.com/coins/images/26045/small/euro-coin.png",
+    "summary": "Euro-denominated e-money token issued by Circle Mint France SAS under a French ACPR Electronic Money Institution licence, passporting across the EEA under MiCA's E-Money Token (EMT) regime. 1:1 backed by euro-denominated cash and short-term reserves; redeemable at par.",
+    "sarm": {
+      "capital_adequacy": {
+        "key": "capital_adequacy",
+        "label": "Capital Adequacy",
+        "signal": "green",
+        "rationale": "Circle Mint France SAS holds a French EMI licence requiring minimum own funds of EUR 350,000 plus ongoing capital proportional to outstanding e-money under Directive 2009/110/EC. MiCA Article 35 imposes additional 2% of average outstanding e-money requirement on significant EMT issuers. Parent Circle Internet Financial has disclosed capital position via SEC filings.",
+        "sources": [
+          { "label": "ACPR register entry", "url": "https://www.regafi.fr/" },
+          { "label": "MiCA Regulation Article 35", "url": "https://eur-lex.europa.eu/eli/reg/2023/1114/oj" }
+        ]
+      },
+      "reserve_quality": {
+        "key": "reserve_quality",
+        "label": "Reserve Quality",
+        "signal": "green",
+        "rationale": "Reserves segregated at EU credit institutions plus Circle Reserve Fund (BlackRock-managed government MMF holding short-dated US Treasuries). MiCA requires 30% (60% for significant issuers) at credit institutions, remainder in highly liquid government instruments. Monthly attestations by Deloitte verify 1:1 backing.",
+        "sources": [
+          { "label": "Circle transparency portal", "url": "https://www.circle.com/transparency" },
+          { "label": "MiCA Articles 36-38", "url": "https://eur-lex.europa.eu/eli/reg/2023/1114/oj" }
+        ]
+      },
+      "governance": {
+        "key": "governance",
+        "label": "Governance",
+        "signal": "green",
+        "rationale": "Multi-jurisdiction regulatory oversight: NYDFS BitLicense and limited-purpose trust charter (US), FCA EMI registration (UK), ACPR EMI licence (France). Senior management subject to ACPR fit-and-proper assessment. Independent board members; documented internal control framework.",
+        "sources": [
+          { "label": "Circle SEC filings", "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=circle" },
+          { "label": "ACPR authorisation procedure", "url": "https://acpr.banque-france.fr/" }
+        ]
+      },
+      "technology": {
+        "key": "technology",
+        "label": "Technology & Custody",
+        "signal": "green",
+        "rationale": "EURC deployed natively on Ethereum, Avalanche, Solana, Base, and Stellar with audited smart contracts (ChainSecurity, Halborn). Role-based access controls for mint/burn/blocklist functions. Reserve custody at regulated EU credit institutions and SEC-registered MMF. HSM-based key management.",
+        "sources": [
+          { "label": "Circle smart contract audits", "url": "https://www.circle.com/blog/audit-reports" },
+          { "label": "Circle developer documentation", "url": "https://developers.circle.com/" }
+        ]
+      },
+      "redemption": {
+        "key": "redemption",
+        "label": "Redemption Mechanics",
+        "signal": "green",
+        "rationale": "MiCA Article 39 mandates redemption at par at any time without fees. Institutional Circle Mint customers (KYC-verified) redeem 1:1 against EUR deposits on T+1. Retail holders access redemption via exchanges and Circle Mint partners. No redemption fees permitted.",
+        "sources": [
+          { "label": "Circle Mint terms of service", "url": "https://www.circle.com/legal/circle-mint-terms" },
+          { "label": "MiCA Article 39", "url": "https://eur-lex.europa.eu/eli/reg/2023/1114/oj" }
+        ]
+      },
+      "disclosure": {
+        "key": "disclosure",
+        "label": "Public Disclosure",
+        "signal": "green",
+        "rationale": "Monthly third-party attestations by Deloitte per AICPA AT-C 105 standards. Weekly reserve composition reports with Treasury CUSIP-level holdings. Whitepaper notified to ACPR per MiCA Article 51. Ongoing prudential reporting to ACPR. Annual audited group financials.",
+        "sources": [
+          { "label": "Circle transparency page", "url": "https://www.circle.com/transparency" },
+          { "label": "Monthly attestation reports", "url": "https://www.circle.com/hubfs/Brand%20Investments/USDC/Reports/" }
+        ]
+      }
+    },
+    "reserve_details": "Reserves held in segregated accounts at EU credit institutions plus the Circle Reserve Fund — a SEC-registered government money market fund managed by BlackRock investing exclusively in short-dated US Treasuries (typically <3 months), repos collateralised by Treasuries, and cash. MiCA reserve segregation rules apply with bankruptcy-remote treatment under French law.",
+    "governance_notes": "French SAS structure with ACPR-approved senior management. Group-level oversight via Circle Internet Financial, subject to NYDFS supervision in the US. Independent board members; compliance function with direct reporting line to senior management. Internal audit and risk management functions separated per ACPR requirements.",
+    "technology_notes": "Multi-chain native deployment (not bridged) on Ethereum, Solana, Avalanche, Base, and Stellar. Contracts include role-based controls for minting, burning, and blacklisting addresses subject to EU sanctions. Open source contract code; periodic third-party audits.",
+    "redemption_notes": "Two-tier redemption: institutional Circle Mint customers redeem directly 1:1 with T+1 settlement; retail users redeem via secondary markets or Circle Mint partners. MiCA prohibits redemption fees. Cross-stablecoin swap available between EURC and USDC.",
+    "disclosure_notes": "Reserve composition published weekly with CUSIP-level Treasury holdings. Monthly attestation by Deloitte. ACPR receives ongoing prudential reporting. Significant-issuer thresholds under MiCA (10M users or EUR 5B in circulation) would trigger enhanced EBA supervision; EURC currently below thresholds.",
+    "citations": [
+      { "label": "ACPR public register", "url": "https://www.regafi.fr/" },
+      { "label": "Regulation (EU) 2023/1114 (MiCA)", "url": "https://eur-lex.europa.eu/eli/reg/2023/1114/oj" },
+      { "label": "Circle EURC transparency portal", "url": "https://www.circle.com/transparency" },
+      { "label": "Circle EMI authorisation announcement (Jul 2024)", "url": "https://www.circle.com/blog/circle-secures-emi-license-france-1st-global-stablecoin-issuer-to-achieve-compliance-under-mica" },
+      { "label": "EBA MiCA Title III guidance", "url": "https://www.eba.europa.eu/regulation-and-policy/markets-crypto-assets-mica" }
+    ],
+    "last_reviewed": "2026-05-29",
+    "reviewer_note": "Pilot entry for global expansion. SARM signals reflect public information; structural assessment under MiCA EMT regime. EURC market cap remains modest relative to USDC; significant-issuer thresholds not triggered."
+  },
+  {
+    "slug": "straitsx-xsgd",
+    "name": "StraitsX (XSGD)",
+    "ticker": "XSGD",
+    "parent": "StraitsX Pte. Ltd. (Fazz Financial Group)",
+    "jurisdiction": "Singapore",
+    "jurisdiction_code": "SG",
+    "application_date": "2023-11-15",
+    "status": "licensed",
+    "peg": "SGD",
+    "type": "fiat_backed",
+    "logo_url": "https://assets.coingecko.com/coins/images/12783/small/StraitsX_Logo_DLT-2.png",
+    "summary": "Singapore-dollar e-money token issued by StraitsX Pte. Ltd., the first stablecoin issuer to receive MAS Major Payment Institution licence with permission to issue Single-Currency Stablecoins (SCS) under the MAS SCS Framework. 1:1 backed by SGD cash and short-term reserves; redeemable at par within 5 business days.",
+    "sarm": {
+      "capital_adequacy": {
+        "key": "capital_adequacy",
+        "label": "Capital Adequacy",
+        "signal": "green",
+        "rationale": "MAS SCS Framework requires base capital of SGD 1 million or 50% of annual operating expenses (whichever higher). StraitsX holds a Major Payment Institution (MPI) licence under the Payment Services Act with explicit SCS issuance scope. Parent Fazz Financial Group provides additional group-level capital support.",
+        "sources": [
+          { "label": "MAS Financial Institutions Directory — StraitsX", "url": "https://eservices.mas.gov.sg/fid" },
+          { "label": "MAS SCS Framework final response paper (Aug 2023)", "url": "https://www.mas.gov.sg/publications/consultations/2022/consultation-paper-on-proposed-regulatory-approach-for-stablecoin-related-activities" }
+        ]
+      },
+      "reserve_quality": {
+        "key": "reserve_quality",
+        "label": "Reserve Quality",
+        "signal": "green",
+        "rationale": "Reserves held in segregated accounts at MAS-licensed banks (DBS, Standard Chartered). MAS SCS Framework permits cash, cash equivalents, and debt securities with residual maturity ≤3 months issued by central banks or sovereign issuers with credit rating ≥AA-. Monthly attestations by independent auditor (KPMG); reserve composition publicly disclosed.",
+        "sources": [
+          { "label": "StraitsX reserve attestations", "url": "https://www.straitsx.com/sg/transparency" },
+          { "label": "MAS SCS Framework reserve requirements", "url": "https://www.mas.gov.sg/regulation/payments/single-currency-stablecoin" }
+        ]
+      },
+      "governance": {
+        "key": "governance",
+        "label": "Governance",
+        "signal": "green",
+        "rationale": "MPI licence requires MAS fit-and-proper assessment of CEO, directors, and substantial shareholders. Documented risk management framework covering operational, technology, and compliance risks. Group-level oversight via Fazz Financial Group with regional regulatory footprint (Indonesia OJK, Singapore MAS).",
+        "sources": [
+          { "label": "MAS Payment Services Act licensee obligations", "url": "https://www.mas.gov.sg/regulation/acts/payment-services-act" },
+          { "label": "StraitsX corporate governance disclosures", "url": "https://www.straitsx.com/sg/about" }
+        ]
+      },
+      "technology": {
+        "key": "technology",
+        "label": "Technology & Custody",
+        "signal": "green",
+        "rationale": "XSGD deployed on Ethereum, Polygon, Avalanche, Hedera, and Zilliqa with audited smart contracts. Multi-signature controls for mint/burn operations. Reserve custody at MAS-licensed banks; smart contracts include freeze and blacklist functions for compliance enforcement.",
+        "sources": [
+          { "label": "StraitsX smart contract audits", "url": "https://www.straitsx.com/sg/security" },
+          { "label": "XSGD contract addresses", "url": "https://docs.straitsx.com/" }
+        ]
+      },
+      "redemption": {
+        "key": "redemption",
+        "label": "Redemption Mechanics",
+        "signal": "green",
+        "rationale": "MAS SCS Framework mandates par redemption within 5 business days of request. StraitsX customers redeem 1:1 against SGD bank deposits via StraitsX platform. Institutional customers access faster settlement; retail redemption subject to KYC verification. No redemption fees per MAS rules.",
+        "sources": [
+          { "label": "MAS SCS redemption requirements", "url": "https://www.mas.gov.sg/regulation/payments/single-currency-stablecoin" },
+          { "label": "StraitsX user terms", "url": "https://www.straitsx.com/sg/legal" }
+        ]
+      },
+      "disclosure": {
+        "key": "disclosure",
+        "label": "Public Disclosure",
+        "signal": "green",
+        "rationale": "Monthly third-party attestations by KPMG covering reserve composition and value. Public transparency portal with real-time circulation data. MAS-regulated label restricted to compliant issuers; StraitsX displays MAS-regulated marker on official channels. Whitepaper notified to MAS.",
+        "sources": [
+          { "label": "StraitsX transparency portal", "url": "https://www.straitsx.com/sg/transparency" },
+          { "label": "MAS SCS Framework disclosure requirements", "url": "https://www.mas.gov.sg/regulation/payments/single-currency-stablecoin" }
+        ]
+      }
+    },
+    "reserve_details": "Reserves held in segregated trust accounts at MAS-licensed banks (DBS Bank, Standard Chartered Bank Singapore). Composition limited to SGD cash, MAS bills, and Singapore Government Securities with residual maturity ≤3 months per SCS Framework. Bankruptcy-remote treatment under Singapore trust law.",
+    "governance_notes": "Singapore-incorporated entity under Fazz Financial Group. CEO and directors subject to MAS fit-and-proper review. Three-lines-of-defence risk framework with separate compliance and internal audit functions. Substantial shareholders disclosed to MAS per PS Act requirements.",
+    "technology_notes": "Native deployment across multiple chains with consistent contract architecture. Mint/burn controlled by multi-sig wallets under operational segregation. Smart contracts include compliance-driven freeze and blacklist functions activatable by StraitsX compliance team.",
+    "redemption_notes": "Two-tier redemption: institutional clients via direct StraitsX integration with same-day or T+1 settlement; retail users via StraitsX consumer app with redemption within 5 business days per MAS SCS rules. Cross-currency conversion available between XSGD and XUSD.",
+    "disclosure_notes": "Reserve composition published with bank-level detail. Monthly KPMG attestations per AT-C 105. MAS receives ongoing prudential reporting including liquidity and capital metrics. Public transparency portal updated monthly.",
+    "citations": [
+      { "label": "MAS Financial Institutions Directory", "url": "https://eservices.mas.gov.sg/fid" },
+      { "label": "MAS SCS Framework", "url": "https://www.mas.gov.sg/regulation/payments/single-currency-stablecoin" },
+      { "label": "StraitsX transparency portal", "url": "https://www.straitsx.com/sg/transparency" },
+      { "label": "Payment Services Act (Singapore)", "url": "https://sso.agc.gov.sg/Act/PSA2019" },
+      { "label": "StraitsX MAS in-principle approval announcement (Nov 2023)", "url": "https://www.straitsx.com/sg/blog" }
+    ],
+    "last_reviewed": "2026-05-29",
+    "reviewer_note": "First stablecoin issuer to receive MAS Major Payment Institution licence with SCS issuance scope under the Single-Currency Stablecoin Framework. Reference case for the Asian SCS-style regime."
+  },
+  {
+    "slug": "sg-forge-eurcv",
+    "name": "SG-Forge (EURCV)",
+    "ticker": "EURCV",
+    "parent": "Société Générale-FORGE (SG Group)",
+    "jurisdiction": "France (MiCA passport across EEA)",
+    "jurisdiction_code": "EU",
+    "application_date": "2024-06-15",
+    "status": "licensed",
+    "peg": "EUR",
+    "type": "fiat_backed",
+    "logo_url": "https://assets.coingecko.com/coins/images/31808/small/eurcv_logo.png",
+    "summary": "Euro-denominated e-money token issued by Société Générale-FORGE, a regulated subsidiary of Société Générale group. First bank-issued EMT under MiCA, building on SG-FORGE's prior credit institution status. Issued natively on public Ethereum and accessible to both institutional and retail users since late 2024.",
+    "sarm": {
+      "capital_adequacy": {
+        "key": "capital_adequacy",
+        "label": "Capital Adequacy",
+        "signal": "green",
+        "rationale": "SG-FORGE operates under a French credit institution licence (ACPR-authorised), subject to CRR/CRD IV capital adequacy requirements far exceeding EMI thresholds. MiCA Article 35 own funds requirement (2% of average outstanding e-money for significant issuers) is comfortably met. Group-level support from Société Générale (G-SIB) provides additional structural buffer.",
+        "sources": [
+          { "label": "ACPR register — SG-FORGE", "url": "https://www.regafi.fr/" },
+          { "label": "MiCA Article 35", "url": "https://eur-lex.europa.eu/eli/reg/2023/1114/oj" }
+        ]
+      },
+      "reserve_quality": {
+        "key": "reserve_quality",
+        "label": "Reserve Quality",
+        "signal": "green",
+        "rationale": "Reserves held on the balance sheet of Société Générale group (G-SIB, ECB-supervised) under credit institution status — providing reserve quality structurally stronger than non-bank EMT issuers since deposits are protected by CRR liquidity requirements. MiCA segregation rules ensure bankruptcy-remote treatment of token-holder claims.",
+        "sources": [
+          { "label": "SG-FORGE EURCV whitepaper", "url": "https://www.sgforge.com/" },
+          { "label": "MiCA Articles 36-38", "url": "https://eur-lex.europa.eu/eli/reg/2023/1114/oj" }
+        ]
+      },
+      "governance": {
+        "key": "governance",
+        "label": "Governance",
+        "signal": "green",
+        "rationale": "SG-FORGE governance integrated with Société Générale group risk and compliance frameworks. Subject to ECB direct supervision under SSM via parent. Independent risk management and internal audit functions. Senior management subject to ACPR fit-and-proper review plus group-level oversight.",
+        "sources": [
+          { "label": "Société Générale annual report", "url": "https://www.societegenerale.com/en/news/" },
+          { "label": "SG-FORGE corporate structure", "url": "https://www.sgforge.com/" }
+        ]
+      },
+      "technology": {
+        "key": "technology",
+        "label": "Technology & Custody",
+        "signal": "green",
+        "rationale": "EURCV deployed natively on Ethereum mainnet with publicly audited smart contracts. Token contract supports allowlist-based transfers (institutional version) and open transfers (retail version post-MiCA). Cryptographic key management under bank-grade HSM infrastructure. Smart contract upgrade controls via multi-sig governance.",
+        "sources": [
+          { "label": "SG-FORGE smart contract documentation", "url": "https://www.sgforge.com/" },
+          { "label": "EURCV Etherscan verified contract", "url": "https://etherscan.io/" }
+        ]
+      },
+      "redemption": {
+        "key": "redemption",
+        "label": "Redemption Mechanics",
+        "signal": "green",
+        "rationale": "MiCA Article 39 par-redemption right applies. SG-FORGE customers redeem 1:1 against EUR bank account credits. Bank-issuer model provides natural redemption pathway through existing banking infrastructure. No redemption fees per MiCA. Retail-accessible redemption since late 2024 expansion.",
+        "sources": [
+          { "label": "SG-FORGE terms of service", "url": "https://www.sgforge.com/" },
+          { "label": "MiCA Article 39", "url": "https://eur-lex.europa.eu/eli/reg/2023/1114/oj" }
+        ]
+      },
+      "disclosure": {
+        "key": "disclosure",
+        "label": "Public Disclosure",
+        "signal": "green",
+        "rationale": "Group-level Pillar 3 disclosures under CRR apply to SG-FORGE as part of Société Générale consolidated reporting. Whitepaper notified to ACPR per MiCA Article 51. EURCV circulation data published on-chain (Ethereum public ledger) provides real-time transparency. Annual audited group financials.",
+        "sources": [
+          { "label": "Société Générale Pillar 3 reports", "url": "https://www.societegenerale.com/en/financial-info/" },
+          { "label": "SG-FORGE transparency disclosures", "url": "https://www.sgforge.com/" }
+        ]
+      }
+    },
+    "reserve_details": "Reserves backed by deposits held on Société Générale group balance sheet — the bank-issuer model under MiCA differs structurally from non-bank EMI issuers (Circle, Banking Circle). Token-holder claims rank as e-money obligations with MiCA segregation protections; in resolution scenarios, bank resolution regime (BRRD) applies in parallel.",
+    "governance_notes": "Wholly-owned subsidiary of Société Générale, operating under group risk appetite framework. Board composition includes group-appointed and independent directors. Compliance function integrated with parent's AML/CFT, sanctions, and conduct programmes. ECB SSM oversight via parent G-SIB status.",
+    "technology_notes": "EURCV issued natively on Ethereum mainnet (no bridging from off-chain ledger). Two contract versions historically: institutional allowlist version and retail-accessible version. Bank-controlled mint/burn with HSM-protected keys. Smart contract code published and audited.",
+    "redemption_notes": "Bank-issuer redemption advantage: holders redeem via standard EUR bank credit, leveraging Société Générale group payment rails. Institutional customers via direct SG-FORGE platform; retail customers via partner integrations and exchanges.",
+    "disclosure_notes": "EURCV on-chain circulation visible via Ethereum block explorers. Group-level disclosures under CRR Pillar 3 framework provide structural transparency. ACPR receives ongoing supervisory reporting via banking regime; MiCA-specific reporting layered on top.",
+    "citations": [
+      { "label": "ACPR public register", "url": "https://www.regafi.fr/" },
+      { "label": "MiCA Regulation (EU) 2023/1114", "url": "https://eur-lex.europa.eu/eli/reg/2023/1114/oj" },
+      { "label": "Société Générale-FORGE official site", "url": "https://www.sgforge.com/" },
+      { "label": "SG-FORGE MiCA EMT announcement", "url": "https://www.societegenerale.com/en/news/newsroom/" },
+      { "label": "EBA guidance on MiCA Title III", "url": "https://www.eba.europa.eu/regulation-and-policy/markets-crypto-assets-mica" }
+    ],
+    "last_reviewed": "2026-05-29",
+    "reviewer_note": "Bank-issuer EMT under MiCA — structurally distinct from EMI-issuer model (Circle). Reference case for credit institution issuance route under MiCA Title III. CRR/CRD IV regime applies alongside MiCA, creating dual-layer prudential oversight."
+  },
+  {
+    "slug": "jpyc",
+    "name": "JPYC",
+    "ticker": "JPYC",
+    "parent": "JPYC Inc.",
+    "jurisdiction": "Japan",
+    "jurisdiction_code": "JP",
+    "application_date": "2024-09-01",
+    "status": "under_review",
+    "peg": "JPY",
+    "type": "fiat_backed",
+    "logo_url": "https://assets.coingecko.com/coins/images/17675/small/JPYC_logo.png",
+    "summary": "Japanese-yen prepaid-type stablecoin issued by JPYC Inc. Currently operating as a prepaid payment instrument under the Payment Services Act; has applied for Type II Fund Transfer Service Provider registration to transition to the 2023 revised PSA stablecoin regime that enables redemption-at-par electronic payment instrument status.",
+    "sarm": {
+      "capital_adequacy": {
+        "key": "capital_adequacy",
+        "label": "Capital Adequacy",
+        "signal": "yellow",
+        "rationale": "Currently operates under prepaid payment instrument regime with FSA registration but lower capital requirements than the Type II Fund Transfer Service Provider status it is applying for. Capital position smaller than bank or trust company issuers; transition to FTSP regime would impose stricter requirements. Independent issuer without group-level capital support comparable to bank-issued alternatives (Progmat Coin model).",
+        "sources": [
+          { "label": "JFSA Payment Services Act 2023 amendments", "url": "https://www.fsa.go.jp/en/news/" },
+          { "label": "JPYC company disclosures", "url": "https://jpyc.co.jp/" }
+        ]
+      },
+      "reserve_quality": {
+        "key": "reserve_quality",
+        "label": "Reserve Quality",
+        "signal": "yellow",
+        "rationale": "Reserves held as bank deposits and Japanese Government Bonds per prepaid payment instrument rules. Under current regime, only 50% asset preservation required (the prepaid regime — not the stablecoin regime). Transition to FTSP status would require 100% backing in qualifying assets. Public reserve transparency limited compared to MiCA/MAS-regulated peers.",
+        "sources": [
+          { "label": "JFSA prepaid payment instrument rules", "url": "https://www.fsa.go.jp/en/" },
+          { "label": "Revised PSA stablecoin requirements", "url": "https://www.fsa.go.jp/en/news/2022/20220603-2.html" }
+        ]
+      },
+      "governance": {
+        "key": "governance",
+        "label": "Governance",
+        "signal": "yellow",
+        "rationale": "Independent fintech issuer; smaller scale governance compared to bank or trust-based issuers under the revised PSA. FSA registration as prepaid payment instrument issuer requires fit-and-proper assessment of representative director and key personnel. Pending FTSP application would impose enhanced governance standards.",
+        "sources": [
+          { "label": "JPYC corporate governance", "url": "https://jpyc.co.jp/company/" },
+          { "label": "JFSA Type II FTSP requirements", "url": "https://www.fsa.go.jp/en/" }
+        ]
+      },
+      "technology": {
+        "key": "technology",
+        "label": "Technology & Custody",
+        "signal": "green",
+        "rationale": "JPYC deployed on Ethereum, Polygon, Avalanche, Astar, and Shiden with verified contracts. ERC-20 standard with mint/burn controls. Public chain deployment provides transparency on circulation. Reserve custody at Japanese banks under FSA prepaid regime asset preservation rules.",
+        "sources": [
+          { "label": "JPYC technical documentation", "url": "https://jpyc.jp/en/" },
+          { "label": "JPYC contract addresses", "url": "https://docs.jpyc.jp/" }
+        ]
+      },
+      "redemption": {
+        "key": "redemption",
+        "label": "Redemption Mechanics",
+        "signal": "red",
+        "rationale": "Under current prepaid payment instrument regime, JPYC is NOT redeemable at par for fiat cash — a structural limitation distinguishing it from bank/trust-issued stablecoins under the revised PSA. Holders can only use JPYC for goods/services within accepted merchant network or exchange via secondary markets. Par-redemption status pending FTSP registration approval.",
+        "sources": [
+          { "label": "JPYC user terms", "url": "https://jpyc.jp/en/" },
+          { "label": "JFSA prepaid payment instrument rules — no cash redemption", "url": "https://www.fsa.go.jp/en/" }
+        ]
+      },
+      "disclosure": {
+        "key": "disclosure",
+        "label": "Public Disclosure",
+        "signal": "yellow",
+        "rationale": "Periodic reserve attestations published but less frequent and less detailed than MiCA-regulated peers. FSA receives prepaid issuer regulatory reporting. On-chain circulation observable via public blockchains. Transparency would significantly improve under pending FTSP status given enhanced disclosure obligations.",
+        "sources": [
+          { "label": "JPYC transparency page", "url": "https://jpyc.jp/en/" },
+          { "label": "Revised PSA disclosure requirements", "url": "https://www.fsa.go.jp/en/" }
+        ]
+      }
+    },
+    "reserve_details": "Operates under prepaid payment instrument regime requiring 50% asset preservation rather than 100% backing. Reserve held as bank deposits and JGBs at Japanese financial institutions. Transition to Type II FTSP would require 100% backing in qualifying liquid assets and trust segregation.",
+    "governance_notes": "Tokyo-incorporated independent fintech issuer. FSA-registered prepaid payment instrument issuer with representative director and key personnel subject to fit-and-proper review. Pending application for Type II Fund Transfer Service Provider registration would impose enhanced governance, risk management, and capital requirements.",
+    "technology_notes": "Multi-chain deployment on Ethereum, Polygon, Avalanche, Astar, and Shiden using standard ERC-20 contracts. Mint/burn controlled by JPYC operational keys. Public on-chain circulation; smart contracts verified on respective block explorers.",
+    "redemption_notes": "Critical structural limitation: prepaid payment instrument status under Japanese law explicitly excludes par-redemption for cash. Holders use JPYC for in-network payments or exchange via secondary markets. This distinguishes JPYC from the bank/trust-issued stablecoin model that the 2023 PSA amendments enabled (e.g. Progmat Coin). Par-redemption status contingent on FTSP approval.",
+    "disclosure_notes": "Periodic reserve disclosures less detailed than MiCA/MAS-regulated peers. FSA receives prepaid issuer regulatory reporting. Transition to FTSP regime would substantially upgrade public transparency obligations.",
+    "citations": [
+      { "label": "JFSA Payment Services Act amendments (2023)", "url": "https://www.fsa.go.jp/en/news/2022/20220603-2.html" },
+      { "label": "JPYC official site", "url": "https://jpyc.jp/en/" },
+      { "label": "JPYC corporate page", "url": "https://jpyc.co.jp/" },
+      { "label": "JFSA stablecoin regulatory framework overview", "url": "https://www.fsa.go.jp/en/" },
+      { "label": "JPYC FTSP application announcement", "url": "https://prtimes.jp/" }
+    ],
+    "last_reviewed": "2026-05-29",
+    "reviewer_note": "Reference case for Japan's bifurcated stablecoin landscape: prepaid-type fintech issuers (JPYC) vs bank/trust-issued stablecoins under revised PSA (Progmat Coin). Structural redemption gap is regime-driven, not issuer-specific. Pending FTSP application would materially upgrade SARM signals across multiple dimensions."
+  },
+  {
+    "slug": "progmat-coin",
+    "name": "Progmat Coin",
+    "ticker": "Progmat",
+    "parent": "Progmat, Inc. (Mitsubishi UFJ Trust and Banking)",
+    "jurisdiction": "Japan",
+    "jurisdiction_code": "JP",
+    "application_date": "2023-06-01",
+    "status": "licensed",
+    "peg": "JPY",
+    "type": "fiat_backed",
+    "logo_url": "https://progmat.co.jp/wp-content/themes/progmat/assets/images/common/logo.svg",
+    "summary": "Trust-type stablecoin infrastructure operated by Progmat, Inc. (Mitsubishi UFJ Trust spin-off) under the 2023 revised Payment Services Act. Enables licensed banks and trust companies to issue JPY-pegged stablecoins backed by trust beneficiary rights. First major deployment: GMO Aozora Net Bank issuance via Progmat platform.",
+    "sarm": {
+      "capital_adequacy": {
+        "key": "capital_adequacy",
+        "label": "Capital Adequacy",
+        "signal": "green",
+        "rationale": "Issuance restricted to FSA-licensed banks, trust companies, or fund transfer service providers under the 2023 revised PSA — all subject to banking-equivalent capital requirements. Progmat itself is operated by MUFG Trust subsidiary with group-level capital backing. Trust structure provides bankruptcy-remote separation between issuer entity and stablecoin reserves.",
+        "sources": [
+          { "label": "JFSA Payment Services Act revisions (2023)", "url": "https://www.fsa.go.jp/en/news/2022/20220603-2.html" },
+          { "label": "Progmat platform documentation", "url": "https://progmat.co.jp/en/" }
+        ]
+      },
+      "reserve_quality": {
+        "key": "reserve_quality",
+        "label": "Reserve Quality",
+        "signal": "green",
+        "rationale": "Trust-type stablecoins backed 100% by JPY deposits held in segregated trust accounts at MUFG Trust Bank or equivalent licensed trust banks. Trust structure provides legal segregation under Japanese trust law — token holders hold beneficiary rights, not unsecured claims. Asset preservation requirement is 100% under revised PSA, materially stronger than prepaid issuer regime.",
+        "sources": [
+          { "label": "Revised PSA reserve requirements", "url": "https://www.fsa.go.jp/en/" },
+          { "label": "Progmat trust structure overview", "url": "https://progmat.co.jp/en/" }
+        ]
+      },
+      "governance": {
+        "key": "governance",
+        "label": "Governance",
+        "signal": "green",
+        "rationale": "MUFG group-level governance and risk management apply to Progmat platform. Issuing entities (banks/trust companies) operate under FSA banking or trust company supervision. Multi-party governance: platform operator (Progmat), issuing financial institution, and trust bank holding reserves. Senior management subject to FSA fit-and-proper assessment via banking regime.",
+        "sources": [
+          { "label": "MUFG corporate governance", "url": "https://www.mufg.jp/english/" },
+          { "label": "Progmat governance structure", "url": "https://progmat.co.jp/en/" }
+        ]
+      },
+      "technology": {
+        "key": "technology",
+        "label": "Technology & Custody",
+        "signal": "green",
+        "rationale": "Progmat Coin platform supports issuance on multiple blockchains (Polygon, Avalanche, Cosmos, R3 Corda, ethereum). Permissioned-access architecture with KYC-integrated transfer controls. Reserve custody at licensed trust banks under Japanese trust law. Smart contract architecture audited; platform-level operational controls under MUFG group security standards.",
+        "sources": [
+          { "label": "Progmat technical architecture", "url": "https://progmat.co.jp/en/" },
+          { "label": "Progmat blockchain coverage", "url": "https://progmat.co.jp/en/services/" }
+        ]
+      },
+      "redemption": {
+        "key": "redemption",
+        "label": "Redemption Mechanics",
+        "signal": "green",
+        "rationale": "Trust-type structure provides clear par-redemption right under Japanese trust law. Token holders redeem 1:1 against JPY bank deposits via issuing financial institution. Banking-rail redemption infrastructure ensures settlement reliability. Materially different from JPYC prepaid model which lacks cash-redemption right.",
+        "sources": [
+          { "label": "Revised PSA redemption requirements", "url": "https://www.fsa.go.jp/en/" },
+          { "label": "Progmat redemption mechanism", "url": "https://progmat.co.jp/en/" }
+        ]
+      },
+      "disclosure": {
+        "key": "disclosure",
+        "label": "Public Disclosure",
+        "signal": "yellow",
+        "rationale": "Issuing financial institutions subject to standard FSA banking/trust disclosures. Trust-account reserve transparency strong via trust bank statements but public-facing real-time transparency portal less developed than MiCA peers. Progmat platform publishes architecture documentation; per-token public attestation cadence varies by issuing institution.",
+        "sources": [
+          { "label": "Progmat platform disclosures", "url": "https://progmat.co.jp/en/" },
+          { "label": "FSA banking disclosure framework", "url": "https://www.fsa.go.jp/en/" }
+        ]
+      }
+    },
+    "reserve_details": "100% backing in JPY bank deposits segregated in trust accounts at licensed Japanese trust banks (primarily MUFG Trust). Trust structure provides bankruptcy-remote treatment under Japanese Trust Act — token holders hold beneficiary rights with priority over general creditors of the issuing institution. Structural advantage over both prepaid (JPYC) and EMI-type (Circle EU) models in resolution scenarios.",
+    "governance_notes": "Multi-party governance model: Progmat, Inc. (MUFG Trust subsidiary) operates the platform; FSA-licensed banks or trust companies act as issuers; trust banks hold reserves. MUFG group risk management and compliance frameworks apply to platform operations. Issuers subject to FSA banking or trust company supervision.",
+    "technology_notes": "Multi-chain platform: Polygon, Avalanche, Cosmos, Corda, Ethereum support. Permissioned-access via KYC integration with issuing financial institutions. Smart contracts include transfer restrictions enforcing AML/CFT requirements. Reserve custody managed at trust bank level with conventional banking custody standards.",
+    "redemption_notes": "Trust-beneficiary redemption right under Japanese law provides par-redemption certainty. Settlement via banking rails leveraging issuing financial institution's existing payment infrastructure. Same-day or T+1 settlement typical for institutional users; retail redemption channels depend on specific issuer.",
+    "disclosure_notes": "Standard FSA banking and trust disclosure framework applies. Public real-time transparency portal less developed than MiCA peers but trust-account reserve verification structurally robust. Periodic attestations vary by issuing financial institution.",
+    "citations": [
+      { "label": "JFSA Payment Services Act amendments (2023)", "url": "https://www.fsa.go.jp/en/news/2022/20220603-2.html" },
+      { "label": "Progmat official site", "url": "https://progmat.co.jp/en/" },
+      { "label": "Mitsubishi UFJ Trust and Banking", "url": "https://www.tr.mufg.jp/english/" },
+      { "label": "Japan Trust Act overview", "url": "https://www.japaneselawtranslation.go.jp/" },
+      { "label": "GMO Aozora Net Bank stablecoin announcement", "url": "https://gmo-aozora.com/" }
+    ],
+    "last_reviewed": "2026-05-29",
+    "reviewer_note": "Reference case for Japan's bank/trust-issuer stablecoin model under the revised PSA — structurally distinct from prepaid-type issuers (JPYC). The bifurcation between trust-type and prepaid-type is the defining feature of Japan's regulatory architecture and a useful comparator for jurisdictions designing hybrid regimes."
+  },
+  {
+    "slug": "ae-coin",
+    "name": "AE Coin",
+    "ticker": "AEC",
+    "parent": "AED Stablecoin LLC",
+    "jurisdiction": "United Arab Emirates",
+    "jurisdiction_code": "UAE",
+    "application_date": "2024-08-01",
+    "status": "licensed",
+    "peg": "AED",
+    "type": "fiat_backed",
+    "logo_url": "https://aedstablecoin.com/wp-content/uploads/2024/06/AE-Coin-Logo.svg",
+    "summary": "AED-pegged stablecoin issued by AED Stablecoin LLC under in-principle approval from the Central Bank of the UAE (CBUAE) under the Payment Token Services Regulation (2024). First AED-referenced regulated stablecoin; targets domestic UAE payment use cases and dirham-denominated tokenized asset settlement.",
+    "sarm": {
+      "capital_adequacy": {
+        "key": "capital_adequacy",
+        "label": "Capital Adequacy",
+        "signal": "yellow",
+        "rationale": "CBUAE Payment Token Services Regulation imposes minimum capital requirements on licensed issuers, with detailed thresholds published in supporting CBUAE rulebooks. AED Stablecoin LLC is an independent issuer without group-level bank backing; capital adequacy assessment limited by absence of public financial disclosures comparable to MiCA/MAS-regulated peers. Regime is new (2024), implementation precedents still developing.",
+        "sources": [
+          { "label": "CBUAE Payment Token Services Regulation (2024)", "url": "https://www.centralbank.ae/" },
+          { "label": "AE Coin issuer disclosures", "url": "https://aedstablecoin.com/" }
+        ]
+      },
+      "reserve_quality": {
+        "key": "reserve_quality",
+        "label": "Reserve Quality",
+        "signal": "yellow",
+        "rationale": "CBUAE rules require 100% backing in AED-denominated cash and qualifying liquid assets held at UAE-licensed banks. AE Coin reserves reportedly held at major UAE banks. However, public reserve composition disclosures are less granular than MiCA/MAS peers, and independent third-party attestation cadence not yet established publicly. Reserve quality contingent on ongoing CBUAE supervisory enforcement.",
+        "sources": [
+          { "label": "CBUAE Payment Token Services rulebook", "url": "https://www.centralbank.ae/" },
+          { "label": "AE Coin reserve disclosures", "url": "https://aedstablecoin.com/" }
+        ]
+      },
+      "governance": {
+        "key": "governance",
+        "label": "Governance",
+        "signal": "yellow",
+        "rationale": "CBUAE in-principle approval requires fit-and-proper assessment of senior management and substantial shareholders. Independent issuer structure without integration into established banking group governance frameworks. Risk management and compliance functions documented at licensing stage but limited public disclosure of independent board composition or audit arrangements.",
+        "sources": [
+          { "label": "CBUAE governance requirements for payment token issuers", "url": "https://www.centralbank.ae/" },
+          { "label": "AE Coin corporate disclosures", "url": "https://aedstablecoin.com/" }
+        ]
+      },
+      "technology": {
+        "key": "technology",
+        "label": "Technology & Custody",
+        "signal": "yellow",
+        "rationale": "AE Coin deployed on permissioned and public chain rails (specific chain coverage developing). Smart contract architecture and audit reports not as publicly documented as established peers. Reserve custody at UAE-licensed banks per CBUAE requirements. Technology stack maturity assessed as developing given regime is in early implementation.",
+        "sources": [
+          { "label": "AE Coin technical documentation", "url": "https://aedstablecoin.com/" },
+          { "label": "CBUAE technology requirements", "url": "https://www.centralbank.ae/" }
+        ]
+      },
+      "redemption": {
+        "key": "redemption",
+        "label": "Redemption Mechanics",
+        "signal": "yellow",
+        "rationale": "CBUAE Payment Token Services Regulation requires par-redemption right. AE Coin issuer commits to 1:1 redemption against AED bank credit. Settlement mechanics rely on UAE domestic banking rails. Public-facing redemption terms documented but operational track record limited given recent licensing. Cross-border redemption pathways less established than USD-pegged peers.",
+        "sources": [
+          { "label": "CBUAE redemption requirements", "url": "https://www.centralbank.ae/" },
+          { "label": "AE Coin user terms", "url": "https://aedstablecoin.com/" }
+        ]
+      },
+      "disclosure": {
+        "key": "disclosure",
+        "label": "Public Disclosure",
+        "signal": "gray",
+        "rationale": "CBUAE supervisory reporting required but public-facing disclosure standards (attestation cadence, reserve composition granularity, independent auditor reports) not yet established at MiCA/MAS levels. Insufficient public data to assess disclosure quality with confidence. Status reflects regime newness and operational ramp rather than identified deficiency.",
+        "sources": [
+          { "label": "CBUAE disclosure framework", "url": "https://www.centralbank.ae/" },
+          { "label": "AE Coin transparency disclosures", "url": "https://aedstablecoin.com/" }
+        ]
+      }
+    },
+    "reserve_details": "100% AED-denominated backing required under CBUAE Payment Token Services Regulation. Reserves held at UAE-licensed banks under segregation requirements. Public composition disclosures less granular than MiCA/MAS issuers; independent attestation framework still developing under new regime.",
+    "governance_notes": "Independent UAE-incorporated entity under CBUAE supervision. Senior management subject to CBUAE fit-and-proper review. Risk and compliance functions established at licensing stage. Limited public disclosure of board composition and independent oversight arrangements.",
+    "technology_notes": "Multi-chain deployment with focus on UAE domestic payment infrastructure compatibility. Reserve custody at UAE-licensed banks. Smart contract documentation and third-party audit reports less publicly accessible than established global peers.",
+    "redemption_notes": "Par-redemption right per CBUAE regulation. Settlement via UAE banking rails. Operational track record limited given recent (2024) licensing. Cross-border redemption infrastructure less developed than USD/EUR-pegged peers.",
+    "disclosure_notes": "Supervisory reporting to CBUAE required but public disclosure cadence and granularity below MiCA/MAS standards. Regime is in early implementation; market standards expected to mature with broader licensing and operational scale.",
+    "citations": [
+      { "label": "Central Bank of the UAE", "url": "https://www.centralbank.ae/" },
+      { "label": "CBUAE Payment Token Services Regulation (2024)", "url": "https://www.centralbank.ae/en/our-operations/payment-systems/" },
+      { "label": "AED Stablecoin LLC official site", "url": "https://aedstablecoin.com/" },
+      { "label": "AE Coin in-principle approval announcement", "url": "https://www.centralbank.ae/en/news/" },
+      { "label": "VARA Virtual Asset Rulebooks (Dubai)", "url": "https://www.vara.ae/" }
+    ],
+    "last_reviewed": "2026-05-29",
+    "reviewer_note": "Reference case for UAE's federal payment token regime under CBUAE. Note distinct from VARA virtual asset framework (Dubai) and FSRA framework (ADGM) — UAE regulatory landscape fragments across multiple competent authorities. AE Coin signals reflect regime newness rather than identified structural deficiency; expect signal upgrades as operational track record and disclosure cadence develop."
+  },
+  {
+    "slug": "paxos-usdp",
+    "name": "Paxos (USDP)",
+    "ticker": "USDP",
+    "parent": "Paxos Trust Company, LLC",
+    "jurisdiction": "United States (New York)",
+    "jurisdiction_code": "US",
+    "application_date": "2018-09-10",
+    "status": "licensed",
+    "peg": "USD",
+    "type": "fiat_backed",
+    "logo_url": "https://assets.coingecko.com/coins/images/6013/small/Pax_Dollar.png",
+    "summary": "US-dollar stablecoin issued by Paxos Trust Company under a New York State Department of Financial Services (NYDFS) limited-purpose trust charter. One of the earliest regulated USD stablecoins (launched 2018). NYDFS framework imposes trust-company prudential requirements including 1:1 reserve backing, monthly attestations, and direct state supervision.",
+    "sarm": {
+      "capital_adequacy": {
+        "key": "capital_adequacy",
+        "label": "Capital Adequacy",
+        "signal": "green",
+        "rationale": "Paxos Trust Company holds NYDFS limited-purpose trust charter subject to NY Banking Law Article III-A requirements, including minimum capital and ongoing prudential standards. NYDFS imposes additional stablecoin-specific guidance (June 2022) on reserve requirements and capital adequacy. Group-level support via Paxos parent entity.",
+        "sources": [
+          { "label": "NYDFS Virtual Currency Stablecoin Guidance (June 2022)", "url": "https://www.dfs.ny.gov/industry_guidance/industry_letters/il20220608_issuance_stablecoins" },
+          { "label": "NYDFS Paxos Trust Company licensing", "url": "https://www.dfs.ny.gov/" }
+        ]
+      },
+      "reserve_quality": {
+        "key": "reserve_quality",
+        "label": "Reserve Quality",
+        "signal": "green",
+        "rationale": "NYDFS stablecoin guidance requires 1:1 backing in qualifying high-quality liquid assets: US Treasury bills with ≤3-month maturity, overnight reverse repos collateralised by Treasuries, and insured deposits at US banks. Paxos publishes monthly reserve composition reports. Bankruptcy-remote treatment under NY Banking Law trust provisions provides structural protection to token holders.",
+        "sources": [
+          { "label": "Paxos USDP transparency reports", "url": "https://paxos.com/transparency/" },
+          { "label": "NYDFS reserve requirements guidance", "url": "https://www.dfs.ny.gov/industry_guidance/industry_letters/il20220608_issuance_stablecoins" }
+        ]
+      },
+      "governance": {
+        "key": "governance",
+        "label": "Governance",
+        "signal": "green",
+        "rationale": "Trust company structure imposes fiduciary duties to token holders under NY Banking Law. NYDFS direct supervision with ongoing examination cycle. Senior management subject to NYDFS fit-and-proper review; independent board members; documented risk management and compliance framework. Additional regulatory footprint via MAS (Singapore) and ADGM FSRA (Abu Dhabi).",
+        "sources": [
+          { "label": "Paxos corporate governance", "url": "https://paxos.com/about/" },
+          { "label": "NY Banking Law Article III-A (trust company supervision)", "url": "https://www.nysenate.gov/legislation/laws/BNK/A3-A" }
+        ]
+      },
+      "technology": {
+        "key": "technology",
+        "label": "Technology & Custody",
+        "signal": "green",
+        "rationale": "USDP deployed on Ethereum with verified, audited smart contracts. Mint/burn controls via Paxos Trust operational keys with multi-sig governance. Reserve custody self-custodied as trust company (Paxos is itself a qualified custodian under NY Banking Law). Smart contract includes freeze and blacklist functions for sanctions compliance.",
+        "sources": [
+          { "label": "Paxos smart contract audits", "url": "https://paxos.com/security/" },
+          { "label": "USDP Etherscan verified contract", "url": "https://etherscan.io/token/0x8E870D67F660D95d5be530380D0eC0bd388289E1" }
+        ]
+      },
+      "redemption": {
+        "key": "redemption",
+        "label": "Redemption Mechanics",
+        "signal": "green",
+        "rationale": "Paxos provides 1:1 USD redemption to verified Paxos account holders, typically same-day for institutional and T+1 for retail. NYDFS trust framework imposes redemption obligation as fiduciary duty. No redemption fees for standard transactions. Bank-grade settlement infrastructure leverages Paxos's trust company banking relationships.",
+        "sources": [
+          { "label": "Paxos terms of service", "url": "https://paxos.com/terms-and-conditions/" },
+          { "label": "NYDFS redemption framework guidance", "url": "https://www.dfs.ny.gov/industry_guidance/industry_letters/il20220608_issuance_stablecoins" }
+        ]
+      },
+      "disclosure": {
+        "key": "disclosure",
+        "label": "Public Disclosure",
+        "signal": "green",
+        "rationale": "Monthly third-party attestations by independent registered public accounting firm. Public reserve composition reports with CUSIP-level detail on Treasury holdings. NYDFS receives ongoing supervisory reporting. Paxos publishes annual transparency reports. Disclosure cadence comparable to MiCA-regulated peers.",
+        "sources": [
+          { "label": "Paxos transparency portal", "url": "https://paxos.com/transparency/" },
+          { "label": "Monthly attestation reports archive", "url": "https://paxos.com/transparency/" }
+        ]
+      }
+    },
+    "reserve_details": "1:1 backing in NYDFS-qualifying assets: US Treasury bills with residual maturity ≤3 months, overnight reverse repurchase agreements fully collateralised by Treasury securities, and FDIC-insured deposits at US banks. Assets held in segregated trust accounts under NY Banking Law fiduciary segregation rules — bankruptcy-remote from Paxos Trust general creditors.",
+    "governance_notes": "NYDFS limited-purpose trust charter subjects Paxos to NY Banking Law Article III-A trust company supervision. Fiduciary duties to token holders embedded in trust structure. Independent board members; risk management, compliance, and internal audit functions with direct reporting lines to senior management and board. Senior management subject to NYDFS fit-and-proper review.",
+    "technology_notes": "USDP issued natively on Ethereum mainnet (no off-chain ledger backing the on-chain supply). Mint/burn operations controlled by Paxos Trust multi-sig keys. Smart contract supports compliance-driven freeze and blacklist functions enforceable by Paxos against sanctioned addresses. Public verified contract; periodic third-party security audits.",
+    "redemption_notes": "Direct 1:1 USD redemption available to Paxos account holders with KYC verification. Settlement via Paxos trust company banking relationships — typically same-day for institutional clients, T+1 for retail. Secondary market redemption via exchanges. No redemption fees on standard transactions.",
+    "disclosure_notes": "Monthly attestations by independent auditor with reserve composition published at CUSIP level. NYDFS receives ongoing supervisory and prudential reporting. Annual transparency reports. Disclosure standards established prior to MiCA framework and broadly comparable.",
+    "citations": [
+      { "label": "NYDFS Virtual Currency Stablecoin Guidance (Jun 2022)", "url": "https://www.dfs.ny.gov/industry_guidance/industry_letters/il20220608_issuance_stablecoins" },
+      { "label": "NY Banking Law Article III-A", "url": "https://www.nysenate.gov/legislation/laws/BNK/A3-A" },
+      { "label": "Paxos transparency portal", "url": "https://paxos.com/transparency/" },
+      { "label": "Paxos Trust Company NYDFS charter", "url": "https://www.dfs.ny.gov/" },
+      { "label": "GENIUS Act (federal stablecoin framework, pending)", "url": "https://www.congress.gov/" }
+    ],
+    "last_reviewed": "2026-05-29",
+    "reviewer_note": "Reference case for US state-trust model (NYDFS limited-purpose trust charter). Structurally analogous to Japan's trust-type stablecoin model under revised PSA. Federal stablecoin framework (GENIUS Act / STABLE Act) under congressional consideration would supersede state-only regimes if enacted; Paxos positioned to transition under either path."
+  },
+  {
+    "slug": "paypal-pyusd",
+    "name": "PayPal USD (PYUSD)",
+    "ticker": "PYUSD",
+    "parent": "Paxos Trust Company (issuer) / PayPal Holdings (brand)",
+    "jurisdiction": "United States (New York)",
+    "jurisdiction_code": "US",
+    "application_date": "2023-08-07",
+    "status": "licensed",
+    "peg": "USD",
+    "type": "fiat_backed",
+    "logo_url": "https://assets.coingecko.com/coins/images/31212/small/PYUSD_Logo_%282%29.png",
+    "summary": "US-dollar stablecoin issued by Paxos Trust Company under NYDFS limited-purpose trust charter, branded and distributed by PayPal Holdings. Platform-issuer separation structure: regulatory and reserve responsibility sits with Paxos; consumer-facing wallet, distribution, and brand sit with PayPal. First major US payments platform to launch a regulated stablecoin (2023).",
+    "sarm": {
+      "capital_adequacy": {
+        "key": "capital_adequacy",
+        "label": "Capital Adequacy",
+        "signal": "green",
+        "rationale": "Issuance entity Paxos Trust Company subject to NYDFS limited-purpose trust charter prudential requirements under NY Banking Law Article III-A. Distinct from PayPal Holdings (the brand partner) which itself is regulated as a money transmitter across US states but does not hold reserve obligations. Capital adequacy inherits from Paxos Trust framework, well-established since 2018.",
+        "sources": [
+          { "label": "NYDFS Paxos Trust supervision", "url": "https://www.dfs.ny.gov/" },
+          { "label": "NYDFS Stablecoin Guidance (Jun 2022)", "url": "https://www.dfs.ny.gov/industry_guidance/industry_letters/il20220608_issuance_stablecoins" }
+        ]
+      },
+      "reserve_quality": {
+        "key": "reserve_quality",
+        "label": "Reserve Quality",
+        "signal": "green",
+        "rationale": "Reserves managed by Paxos Trust under NYDFS guidance: US Treasury bills (≤3 months), overnight reverse repos collateralised by Treasuries, and insured USD deposits at US banks. Bankruptcy-remote trust segregation under NY Banking Law. Monthly third-party attestations by WithumSmith+Brown PC published on Paxos transparency portal.",
+        "sources": [
+          { "label": "PYUSD transparency reports", "url": "https://paxos.com/pyusd-transparency/" },
+          { "label": "NYDFS reserve qualifying assets guidance", "url": "https://www.dfs.ny.gov/industry_guidance/industry_letters/il20220608_issuance_stablecoins" }
+        ]
+      },
+      "governance": {
+        "key": "governance",
+        "label": "Governance",
+        "signal": "yellow",
+        "rationale": "Paxos Trust governance well-established and NYDFS-supervised (positive). However, platform-issuer separation creates governance complexity: consumer-facing risk management, communications, and incident response are bifurcated between Paxos (regulated entity) and PayPal (brand partner). Public clarity on responsibility allocation during stress scenarios less developed than vertically integrated issuers (Circle, Tether).",
+        "sources": [
+          { "label": "Paxos-PayPal stablecoin partnership terms", "url": "https://newsroom.paypal-corp.com/" },
+          { "label": "NYDFS Paxos governance oversight", "url": "https://www.dfs.ny.gov/" }
+        ]
+      },
+      "technology": {
+        "key": "technology",
+        "label": "Technology & Custody",
+        "signal": "green",
+        "rationale": "PYUSD deployed on Ethereum and Solana with audited smart contracts. Mint/burn controlled by Paxos Trust multi-sig operational keys. Reserve custody self-custodied by Paxos as NYDFS-qualified custodian. Smart contracts include sanctions-compliance freeze and blacklist functions.",
+        "sources": [
+          { "label": "PYUSD smart contract on Etherscan", "url": "https://etherscan.io/token/0x6c3ea9036406852006290770BEdFcAbA0e23A0e8" },
+          { "label": "Paxos security and audits", "url": "https://paxos.com/security/" }
+        ]
+      },
+      "redemption": {
+        "key": "redemption",
+        "label": "Redemption Mechanics",
+        "signal": "yellow",
+        "rationale": "Direct 1:1 redemption available to Paxos account holders with KYC verification (T+1 typical). PayPal-side redemption pathway differs: PayPal users redeem PYUSD via in-app conversion to USD account balance, with conversion settled via Paxos. Two-tier redemption introduces operational dependency on PayPal availability for retail users — a structural distinction from direct-issuer redemption models.",
+        "sources": [
+          { "label": "PayPal PYUSD user terms", "url": "https://www.paypal.com/us/legal/pyusd-terms" },
+          { "label": "Paxos terms of service", "url": "https://paxos.com/terms-and-conditions/" }
+        ]
+      },
+      "disclosure": {
+        "key": "disclosure",
+        "label": "Public Disclosure",
+        "signal": "green",
+        "rationale": "Monthly attestations by WithumSmith+Brown PC published on Paxos transparency portal with reserve composition at CUSIP level. NYDFS ongoing supervisory reporting. PayPal Holdings public-company disclosures (10-K, 10-Q) provide additional brand-partner transparency. Disclosure cadence comparable to direct-issuer stablecoins.",
+        "sources": [
+          { "label": "PYUSD transparency portal", "url": "https://paxos.com/pyusd-transparency/" },
+          { "label": "Monthly attestation archive", "url": "https://paxos.com/pyusd-transparency/" }
+        ]
+      }
+    },
+    "reserve_details": "1:1 backing in NYDFS-qualifying assets managed by Paxos Trust: short-dated US Treasury bills, overnight reverse repos collateralised by Treasuries, and FDIC-insured USD deposits. Assets held in segregated trust accounts under NY Banking Law fiduciary segregation — bankruptcy-remote from both Paxos Trust general creditors and PayPal Holdings.",
+    "governance_notes": "Platform-issuer separation: Paxos Trust Company is the regulated issuer and reserve holder; PayPal Holdings is the brand partner and distribution channel. Paxos governance under NYDFS limited-purpose trust framework; PayPal under various US state money transmitter licences. Coordination during stress scenarios depends on bilateral contract terms not publicly disclosed in full detail.",
+    "technology_notes": "PYUSD deployed natively on Ethereum and Solana. ERC-20 standard on Ethereum with sanctions-compliance freeze functions. Mint/burn controlled by Paxos Trust multi-sig keys; PayPal does not hold mint authority. Reserve custody self-managed by Paxos as NYDFS-qualified custodian.",
+    "redemption_notes": "Bifurcated redemption pathways: institutional Paxos account holders redeem directly at 1:1 (T+1 typical). PayPal app users convert PYUSD to USD balance within PayPal infrastructure, with settlement between PayPal and Paxos. Retail users rely on PayPal availability and terms; operational dependency is a structural feature of platform-issuer separation.",
+    "disclosure_notes": "Monthly attestations on Paxos transparency portal with CUSIP-level Treasury detail. NYDFS ongoing prudential reporting. PayPal Holdings 10-K/10-Q SEC filings provide additional brand-partner financial transparency. Disclosure framework inherits from Paxos USDP infrastructure.",
+    "citations": [
+      { "label": "NYDFS Stablecoin Guidance (Jun 2022)", "url": "https://www.dfs.ny.gov/industry_guidance/industry_letters/il20220608_issuance_stablecoins" },
+      { "label": "PYUSD transparency portal", "url": "https://paxos.com/pyusd-transparency/" },
+      { "label": "PayPal PYUSD product page", "url": "https://www.paypal.com/us/digital-wallet/manage-money/crypto/pyusd" },
+      { "label": "NY Banking Law Article III-A", "url": "https://www.nysenate.gov/legislation/laws/BNK/A3-A" },
+      { "label": "Paxos-PayPal partnership announcement (Aug 2023)", "url": "https://newsroom.paypal-corp.com/" }
+    ],
+    "last_reviewed": "2026-05-29",
+    "reviewer_note": "Reference case for platform-issuer separation architecture in US stablecoin market — distinct structural archetype from vertically integrated issuers (Circle, Tether) and pure regulated trust issuers (Paxos USDP). Governance and redemption signals reflect operational complexity of bifurcated responsibility model, not deficiency in either entity."
+  },
+  {
+    "slug": "circle-usdc",
+    "name": "Circle (USDC)",
+    "ticker": "USDC",
+    "parent": "Circle Internet Financial, Inc.",
+    "jurisdiction": "United States (multi-state)",
+    "jurisdiction_code": "US",
+    "application_date": "2018-09-26",
+    "status": "licensed",
+    "peg": "USD",
+    "type": "fiat_backed",
+    "logo_url": "https://assets.coingecko.com/coins/images/6319/small/usdc.png",
+    "summary": "US-dollar stablecoin issued by Circle Internet Financial. Operates under a patchwork of US state money transmitter licences (MTLs) across ~46 states, NYDFS BitLicense, and federal AML/CFT registrations. Largest fully-reserved USD stablecoin by market capitalisation. Distinct legal entity from Circle Mint France SAS (EURC issuer).",
+    "sarm": {
+      "capital_adequacy": {
+        "key": "capital_adequacy",
+        "label": "Capital Adequacy",
+        "signal": "yellow",
+        "rationale": "Operates under state MTL framework which imposes net-worth and surety bond requirements but is materially less stringent than trust company charter (Paxos) or MiCA EMT regime (EURC). NYDFS BitLicense imposes additional capital floor. Federal stablecoin framework (GENIUS Act / STABLE Act) pending. Circle Internet Financial's SEC filings disclose group capital position. State-by-state patchwork creates supervisory gaps relative to single-licence regimes.",
+        "sources": [
+          { "label": "Circle Internet Financial SEC filings", "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=circle" },
+          { "label": "NYDFS BitLicense framework", "url": "https://www.dfs.ny.gov/apps_and_licensing/virtual_currency_businesses" }
+        ]
+      },
+      "reserve_quality": {
+        "key": "reserve_quality",
+        "label": "Reserve Quality",
+        "signal": "green",
+        "rationale": "Reserves held in segregated accounts at US banks plus Circle Reserve Fund — a SEC-registered government MMF (ticker USDXX) managed by BlackRock investing in short-dated US Treasuries, repos collateralised by Treasuries, and cash. Post-SVB (March 2023) reserve concentration was reduced; current structure diversified across multiple custodian banks. Monthly attestations by Deloitte.",
+        "sources": [
+          { "label": "Circle transparency portal", "url": "https://www.circle.com/transparency" },
+          { "label": "Circle Reserve Fund prospectus", "url": "https://www.blackrock.com/cash/" }
+        ]
+      },
+      "governance": {
+        "key": "governance",
+        "label": "Governance",
+        "signal": "green",
+        "rationale": "Multi-jurisdictional regulatory oversight: NYDFS BitLicense, ~46 state MTLs, FCA EMI registration (UK), ACPR EMI licence (France via Circle Mint France subsidiary). Public company structure post-SEC filings provides board independence, audit committee, and disclosure obligations. Senior management subject to NYDFS and state regulator fit-and-proper assessments.",
+        "sources": [
+          { "label": "Circle SEC filings", "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=circle" },
+          { "label": "Circle corporate governance", "url": "https://www.circle.com/en/governance" }
+        ]
+      },
+      "technology": {
+        "key": "technology",
+        "label": "Technology & Custody",
+        "signal": "green",
+        "rationale": "USDC deployed natively on 15+ blockchains including Ethereum, Solana, Avalanche, Base, Arbitrum, Polygon, with native cross-chain transfer protocol (CCTP) replacing legacy bridges. Audited smart contracts (ChainSecurity, Halborn). Reserve custody at regulated US banks and SEC-registered MMF. Role-based controls for mint/burn/blocklist functions; HSM-based key management.",
+        "sources": [
+          { "label": "Circle smart contract audits", "url": "https://www.circle.com/blog/audit-reports" },
+          { "label": "CCTP documentation", "url": "https://developers.circle.com/stablecoins/docs/cctp-getting-started" }
+        ]
+      },
+      "redemption": {
+        "key": "redemption",
+        "label": "Redemption Mechanics",
+        "signal": "green",
+        "rationale": "Direct 1:1 USD redemption available to Circle Mint customers (KYC-verified institutions) with T+1 settlement and no fees. Retail holders redeem via exchanges and licensed partners. Post-SVB stress test (March 2023): USDC briefly traded below peg for ~3 days while redemption was paused due to Federal Reserve banking holiday weekend; full redemption restored on T+3. Demonstrated resilience but also revealed off-hour banking dependency.",
+        "sources": [
+          { "label": "Circle Mint terms", "url": "https://www.circle.com/legal/circle-mint-terms" },
+          { "label": "Circle SVB incident response (Mar 2023)", "url": "https://www.circle.com/blog/an-update-on-usdc-and-silicon-valley-bank" }
+        ]
+      },
+      "disclosure": {
+        "key": "disclosure",
+        "label": "Public Disclosure",
+        "signal": "green",
+        "rationale": "Monthly third-party attestations by Deloitte covering reserve composition and value. Weekly publication of reserve composition with CUSIP-level Treasury holdings. NYDFS receives ongoing supervisory reporting. SEC public-company filings provide audited annual financials. Disclosure cadence sets industry benchmark; post-SVB incident disclosures were timely and substantive.",
+        "sources": [
+          { "label": "Circle transparency portal", "url": "https://www.circle.com/transparency" },
+          { "label": "Circle SEC filings", "url": "https://www.sec.gov/" }
+        ]
+      }
+    },
+    "reserve_details": "Reserves diversified across multiple US-regulated bank deposits and the Circle Reserve Fund (SEC-registered government MMF managed by BlackRock investing in short-dated Treasuries, Treasury repos, and cash). Post-March 2023 SVB incident, custodian concentration reduced; current structure spreads bank deposits across multiple G-SIB and large US banks. Bankruptcy-remote treatment depends on state-by-state MTL framework rather than single uniform trust law — a structural difference from NYDFS trust issuers (Paxos USDP).",
+    "governance_notes": "Public-company governance via SEC filings — independent board, audit committee, disclosure controls. Multi-jurisdiction regulatory footprint: NYDFS, ~46 state MTLs, FCA UK EMI registration, French ACPR EMI licence (Circle Mint France SAS for EURC). Cross-border group structure adds complexity but also provides diversified supervisory coverage.",
+    "technology_notes": "Native multi-chain deployment via Circle's Cross-Chain Transfer Protocol (CCTP) — replaces legacy bridge architecture with burn-and-mint mechanism. 15+ supported chains. Audited smart contracts with role-based access controls. Sanctions-compliance freeze and blacklist functions enforceable globally.",
+    "redemption_notes": "Two-tier redemption: institutional Circle Mint clients redeem directly 1:1 with T+1 settlement; retail via exchanges and licensed partners. March 2023 SVB event demonstrated both resilience (full redemption restored within 3 days) and structural dependency on US banking hours — a known limitation of bank-deposit-backed stablecoins relative to MMF-only or central-bank-reserve models.",
+    "disclosure_notes": "Industry-benchmark disclosure cadence: monthly Deloitte attestations, weekly reserve composition with CUSIP-level Treasury detail, real-time on-chain circulation. SEC public-company disclosures add layer of audited annual transparency. Post-SVB incident communication was timely and substantive — a positive stress-test of the disclosure regime.",
+    "citations": [
+      { "label": "Circle transparency portal", "url": "https://www.circle.com/transparency" },
+      { "label": "NYDFS Virtual Currency Stablecoin Guidance (Jun 2022)", "url": "https://www.dfs.ny.gov/industry_guidance/industry_letters/il20220608_issuance_stablecoins" },
+      { "label": "Circle SEC filings", "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=circle" },
+      { "label": "Circle SVB incident retrospective", "url": "https://www.circle.com/blog/an-update-on-usdc-and-silicon-valley-bank" },
+      { "label": "GENIUS Act / STABLE Act federal stablecoin frameworks (pending)", "url": "https://www.congress.gov/" }
+    ],
+    "last_reviewed": "2026-05-29",
+    "reviewer_note": "Largest USD stablecoin and benchmark for multi-jurisdiction operating model. Note structural distinction between Circle's US entity (state MTL + NYDFS BitLicense framework) and EU entity (Circle Mint France SAS under MiCA EMT) — same group, two regulatory wrappers, materially different prudential floors. SVB March 2023 event is the most studied stress test of a major regulated stablecoin and is documented in the Lessons Learned section."
+  },
+  {
+    "slug": "paxos-usdg",
+    "name": "Paxos Digital (USDG)",
+    "ticker": "USDG",
+    "parent": "Paxos Digital Singapore Pte. Ltd. (Paxos Group)",
+    "jurisdiction": "Singapore",
+    "jurisdiction_code": "SG",
+    "application_date": "2024-07-01",
+    "status": "licensed",
+    "peg": "USD",
+    "type": "fiat_backed",
+    "logo_url": "https://assets.coingecko.com/coins/images/40328/small/usdg.png",
+    "summary": "US-dollar stablecoin issued by Paxos Digital Singapore under MAS Major Payment Institution licence with Single-Currency Stablecoin (SCS) issuance scope. Designed for compliance with the Global Dollar Network — a consortium model that shares stablecoin economics with distribution partners. Distinct from Paxos USDP (US/NYDFS) despite shared parent group.",
+    "sarm": {
+      "capital_adequacy": {
+        "key": "capital_adequacy",
+        "label": "Capital Adequacy",
+        "signal": "green",
+        "rationale": "MAS SCS Framework requires base capital of SGD 1 million or 50% of annual operating expenses (whichever higher). Paxos Digital Singapore operates under Major Payment Institution licence with explicit SCS scope. Group-level support from Paxos Trust Company (US NYDFS-regulated parent affiliate) provides additional structural backing.",
+        "sources": [
+          { "label": "MAS Financial Institutions Directory", "url": "https://eservices.mas.gov.sg/fid" },
+          { "label": "MAS SCS Framework final response", "url": "https://www.mas.gov.sg/regulation/payments/single-currency-stablecoin" }
+        ]
+      },
+      "reserve_quality": {
+        "key": "reserve_quality",
+        "label": "Reserve Quality",
+        "signal": "green",
+        "rationale": "Reserves held in segregated accounts at MAS-licensed banks. MAS SCS Framework permits cash, cash equivalents, and short-term debt securities (≤3-month residual maturity) issued by central banks or sovereigns with credit rating ≥AA-. Monthly attestations by independent auditor; reserve composition publicly disclosed via Paxos transparency framework.",
+        "sources": [
+          { "label": "USDG transparency reports", "url": "https://paxos.com/usdg-transparency/" },
+          { "label": "MAS SCS Framework reserve requirements", "url": "https://www.mas.gov.sg/regulation/payments/single-currency-stablecoin" }
+        ]
+      },
+      "governance": {
+        "key": "governance",
+        "label": "Governance",
+        "signal": "green",
+        "rationale": "MPI licence requires MAS fit-and-proper assessment of CEO, directors, substantial shareholders. Singapore-incorporated entity with MAS-supervised local management. Group-level oversight via Paxos Group; cross-jurisdictional regulatory footprint (NYDFS US, FSRA Abu Dhabi). Risk management and compliance functions documented at licensing stage.",
+        "sources": [
+          { "label": "MAS Payment Services Act licensee obligations", "url": "https://www.mas.gov.sg/regulation/acts/payment-services-act" },
+          { "label": "Paxos corporate governance", "url": "https://paxos.com/about/" }
+        ]
+      },
+      "technology": {
+        "key": "technology",
+        "label": "Technology & Custody",
+        "signal": "green",
+        "rationale": "USDG deployed on Ethereum and Solana with audited smart contracts. Mint/burn controlled by Paxos operational keys with multi-sig governance. Reserve custody at MAS-licensed banks. Smart contracts include compliance-driven freeze and blacklist functions. Inherits Paxos Group security architecture established for USDP and PYUSD.",
+        "sources": [
+          { "label": "Paxos security and audits", "url": "https://paxos.com/security/" },
+          { "label": "USDG contract addresses", "url": "https://paxos.com/usdg-transparency/" }
+        ]
+      },
+      "redemption": {
+        "key": "redemption",
+        "label": "Redemption Mechanics",
+        "signal": "green",
+        "rationale": "MAS SCS Framework mandates par redemption within 5 business days of request. Paxos Digital Singapore customers redeem 1:1 against USD bank deposits. Institutional customers via direct Paxos integration; retail via partner exchanges in the Global Dollar Network consortium. No redemption fees per MAS SCS rules.",
+        "sources": [
+          { "label": "MAS SCS redemption requirements", "url": "https://www.mas.gov.sg/regulation/payments/single-currency-stablecoin" },
+          { "label": "USDG terms of service", "url": "https://paxos.com/usdg/" }
+        ]
+      },
+      "disclosure": {
+        "key": "disclosure",
+        "label": "Public Disclosure",
+        "signal": "green",
+        "rationale": "Monthly third-party attestations published on Paxos transparency portal with reserve composition. MAS-regulated label restricted to compliant issuers; USDG displays MAS-regulated marker. MAS receives ongoing prudential reporting. Whitepaper filed with MAS. Disclosure cadence consistent with Paxos Group standards established for USDP/PYUSD.",
+        "sources": [
+          { "label": "USDG transparency portal", "url": "https://paxos.com/usdg-transparency/" },
+          { "label": "MAS SCS Framework disclosure requirements", "url": "https://www.mas.gov.sg/regulation/payments/single-currency-stablecoin" }
+        ]
+      }
+    },
+    "reserve_details": "Reserves held in segregated accounts at MAS-licensed banks per SCS Framework. Composition limited to USD cash, cash equivalents, and short-dated debt securities (≤3-month residual maturity) from qualifying sovereign or central bank issuers with ≥AA- credit rating. Bankruptcy-remote treatment under Singapore trust law applicable to segregated payment account assets.",
+    "governance_notes": "Singapore-incorporated subsidiary under Paxos Group. CEO, directors, and substantial shareholders subject to MAS fit-and-proper review. Risk management and compliance functions established at licensing; group-level oversight via Paxos US affiliate provides additional governance coordination. Substantial shareholders disclosed to MAS per PS Act.",
+    "technology_notes": "USDG deployed on Ethereum and Solana; expansion to additional chains planned. Mint/burn controlled by Paxos multi-sig keys with operational segregation. Smart contracts include freeze and blacklist functions for compliance enforcement. Security architecture inherits from Paxos Group infrastructure validated through USDP and PYUSD operations.",
+    "redemption_notes": "Two-tier redemption: institutional Paxos Digital clients redeem directly with T+1 typical settlement; retail users access redemption via Global Dollar Network consortium exchange partners. MAS SCS rules cap redemption settlement at 5 business days with no fees permitted.",
+    "disclosure_notes": "Monthly attestations on Paxos transparency portal — same framework as USDP and PYUSD. MAS-regulated marker visible on official USDG channels. MAS receives ongoing prudential and operational reporting. Public real-time circulation observable on supported blockchains.",
+    "citations": [
+      { "label": "MAS Financial Institutions Directory", "url": "https://eservices.mas.gov.sg/fid" },
+      { "label": "MAS SCS Framework", "url": "https://www.mas.gov.sg/regulation/payments/single-currency-stablecoin" },
+      { "label": "USDG transparency portal", "url": "https://paxos.com/usdg-transparency/" },
+      { "label": "Global Dollar Network announcement", "url": "https://paxos.com/" },
+      { "label": "Payment Services Act (Singapore)", "url": "https://sso.agc.gov.sg/Act/PSA2019" }
+    ],
+    "last_reviewed": "2026-05-29",
+    "reviewer_note": "Second major MAS SCS-licensed issuer. Reference case for consortium-economics model: Global Dollar Network shares stablecoin yield with distribution partners (exchanges, wallets) — a structurally distinct business model from direct-issuer-monopoly stablecoins (USDC, USDT). MAS SCS scope at the issuer level is functionally similar to MiCA EMT; key differences are redemption window (5 business days vs MiCA's at-any-time) and reserve eligibility criteria."
+  },
+  {
+    "slug": "tether-usdt",
+    "name": "Tether (USDT)",
+    "ticker": "USDT",
+    "parent": "Tether Holdings Limited (BVI) / Tether International Limited (El Salvador)",
+    "jurisdiction": "British Virgin Islands / El Salvador (re-domiciled 2025)",
+    "jurisdiction_code": "US",
+    "application_date": "2014-10-06",
+    "status": "under_review",
+    "peg": "USD",
+    "type": "fiat_backed",
+    "logo_url": "https://assets.coingecko.com/coins/images/325/small/Tether.png",
+    "summary": "US-dollar stablecoin issued by Tether group, the largest stablecoin by market capitalisation globally. Operates without licensing under MiCA, MAS SCS, or NYDFS frameworks. Re-domiciled key operations to El Salvador (Digital Assets framework) in 2025. Not authorised for distribution to EEA users under MiCA from 2025; remains widely used in offshore and emerging markets. Included as reference case for unregulated-incumbent structural archetype.",
+    "sarm": {
+      "capital_adequacy": {
+        "key": "capital_adequacy",
+        "label": "Capital Adequacy",
+        "signal": "gray",
+        "rationale": "Tether discloses substantial excess reserves and group equity via quarterly attestations, but operates outside any major prudential supervisor with binding capital requirements. El Salvador Digital Assets framework imposes lighter prudential floor than MiCA, MAS SCS, or NYDFS trust regimes. Absence of independent supervisory enforcement makes capital adequacy assessment dependent on issuer self-disclosure rather than verifiable regulatory floors.",
+        "sources": [
+          { "label": "Tether quarterly attestations", "url": "https://tether.to/en/transparency/" },
+          { "label": "El Salvador Digital Assets Issuance Law", "url": "https://www.cnad.gob.sv/" }
+        ]
+      },
+      "reserve_quality": {
+        "key": "reserve_quality",
+        "label": "Reserve Quality",
+        "signal": "yellow",
+        "rationale": "Recent attestations report majority US Treasury bill holdings plus cash, repos, and money market funds — a material improvement over the commercial-paper-heavy composition disclosed in 2021. However, attestations are not full audits, are produced by smaller accounting firms relative to peers (BDO replacing prior firms), and historical reserve-quality disclosures included assets (commercial paper, secured loans, precious metals, other investments) that would not qualify under MiCA/MAS/NYDFS reserve eligibility rules. Disclosure granularity below MiCA-regulated peers.",
+        "sources": [
+          { "label": "Tether transparency portal", "url": "https://tether.to/en/transparency/" },
+          { "label": "Tether reserve composition disclosures", "url": "https://tether.to/en/reserve-disclosure/" }
+        ]
+      },
+      "governance": {
+        "key": "governance",
+        "label": "Governance",
+        "signal": "red",
+        "rationale": "No supervisory authority with binding fit-and-proper assessment of senior management. NYDFS and CFTC enforcement actions (2021) cited material misrepresentations regarding USDT backing; settled without admission of liability. Group structure spans BVI, El Salvador, and various operating affiliates with limited public disclosure of consolidated governance framework. Independent board composition not publicly documented at standards comparable to MiCA/MAS/NYDFS issuers.",
+        "sources": [
+          { "label": "NYDFS settlement with Tether (2021)", "url": "https://www.dfs.ny.gov/reports_and_publications/press_releases/pr202102231" },
+          { "label": "CFTC enforcement order (2021)", "url": "https://www.cftc.gov/PressRoom/PressReleases/8450-21" }
+        ]
+      },
+      "technology": {
+        "key": "technology",
+        "label": "Technology & Custody",
+        "signal": "yellow",
+        "rationale": "USDT deployed on 14+ blockchains. Smart contracts include freeze and blacklist functions used cooperatively with law enforcement requests. Reserve custody arrangements disclosed in attestations but third-party audit reports on smart contract security less publicly accessible than peers. Multi-chain deployment includes legacy chains (Omni, Liquid) with operational complexity.",
+        "sources": [
+          { "label": "Tether contract addresses", "url": "https://tether.to/en/supported-protocols/" },
+          { "label": "Tether transparency disclosures", "url": "https://tether.to/en/transparency/" }
+        ]
+      },
+      "redemption": {
+        "key": "redemption",
+        "label": "Redemption Mechanics",
+        "signal": "yellow",
+        "rationale": "Direct redemption available only to verified Tether clients with minimum USD 100,000 transaction sizes and 0.1% fee — materially more restrictive than MiCA/MAS/NYDFS issuers which mandate at-par redemption without fees and without minimum thresholds. Retail holders depend on secondary market liquidity. Past periods (May 2022 stress event) saw USDT briefly trade below peg before recovering; redemption infrastructure absorbed the stress but the redemption-friction model is structurally distinct from regulated peers.",
+        "sources": [
+          { "label": "Tether redemption terms", "url": "https://tether.to/en/legal/" },
+          { "label": "May 2022 USDT depeg analysis", "url": "https://www.theblock.co/" }
+        ]
+      },
+      "disclosure": {
+        "key": "disclosure",
+        "label": "Public Disclosure",
+        "signal": "yellow",
+        "rationale": "Quarterly attestations by BDO Italia covering reserve composition at category level (not CUSIP-level). No full annual audit despite repeated public commitments. Disclosure cadence and granularity materially below MiCA/MAS/NYDFS-regulated peers. Group financial statements not subject to public-company SEC disclosure regime. Self-published transparency reports useful directionally but insufficient for full structural verification.",
+        "sources": [
+          { "label": "Tether transparency portal", "url": "https://tether.to/en/transparency/" },
+          { "label": "Tether quarterly attestations archive", "url": "https://tether.to/en/transparency/" }
+        ]
+      }
+    },
+    "reserve_details": "Recent attestations report majority allocation to US Treasury bills (held directly and via repo arrangements) plus cash, MMFs, secured loans, precious metals (gold), Bitcoin, and other investments. Composition includes assets (gold, BTC, secured loans, other investments) that would not qualify under MiCA, MAS SCS, or NYDFS reserve eligibility rules. Reserve segregation arrangements disclosed at high level but not subject to enforceable supervisory segregation requirements equivalent to MiCA Article 36-38 or NYDFS guidance.",
+    "governance_notes": "Multi-entity group structure (Tether Holdings BVI, Tether International El Salvador, Tether Operations Limited, various operating affiliates) with limited public consolidated governance disclosure. CEO and senior management identifiable but not subject to binding fit-and-proper assessment by major prudential supervisor. NYDFS and CFTC 2021 enforcement actions resulted in monetary settlements and ongoing reserve attestation obligations under NY Attorney General agreement (terminated 2023).",
+    "technology_notes": "Multi-chain deployment across Ethereum, Tron, Solana, Avalanche, Algorand, Liquid, Omni, and others. Tron currently hosts majority of circulating supply. Smart contract freeze and blacklist functions used cooperatively with law enforcement requests (US DOJ, OFAC). Public smart contract code; third-party security audit reports less prominently published than peers.",
+    "redemption_notes": "Friction-based redemption model: USD 100,000 minimum transaction, 0.1% fee, verified-client-only access. Retail holders rely on secondary market liquidity rather than direct redemption — a structural distinction from at-par-no-fee redemption mandated under MiCA, MAS SCS, and NYDFS frameworks. May 2022 stress event saw temporary depeg; redemption infrastructure absorbed the stress within days.",
+    "disclosure_notes": "Quarterly attestations (not audits) by BDO Italia covering reserve composition at category level. No full annual audit by Big Four accounting firm despite repeated public commitments since 2017. NY Attorney General settlement (2021) required quarterly attestations through 2023 (now expired). Self-published reports useful directionally but insufficient for structural verification at MiCA/MAS/NYDFS standards.",
+    "citations": [
+      { "label": "Tether transparency portal", "url": "https://tether.to/en/transparency/" },
+      { "label": "NYDFS settlement with Tether (Feb 2021)", "url": "https://www.dfs.ny.gov/reports_and_publications/press_releases/pr202102231" },
+      { "label": "CFTC Tether enforcement order (Oct 2021)", "url": "https://www.cftc.gov/PressRoom/PressReleases/8450-21" },
+      { "label": "MiCA non-authorisation guidance (EBA/ESMA)", "url": "https://www.eba.europa.eu/regulation-and-policy/markets-crypto-assets-mica" },
+      { "label": "El Salvador Digital Assets Issuance Law", "url": "https://www.cnad.gob.sv/" }
+    ],
+    "last_reviewed": "2026-05-29",
+    "reviewer_note": "Reference case for unregulated-incumbent structural archetype. Tether's market dominance (largest stablecoin by circulation) coexists with the weakest supervisory coverage among major USD stablecoins. Critical comparator for analyzing the policy trade-off between regulated market shares (Circle, Paxos) and unregulated liquidity (Tether) — a recurring theme in stablecoin policy discourse. Status marked 'under_review' rather than 'rejected' or 'licensed' reflects ongoing regulatory ambiguity: not authorised under MiCA, not licensed by MAS or NYDFS, but not formally prohibited globally."
+  },
+  {
+    "slug": "gemini-gusd",
+    "name": "Gemini Dollar (GUSD)",
+    "ticker": "GUSD",
+    "parent": "Gemini Trust Company, LLC",
+    "jurisdiction": "United States (New York)",
+    "jurisdiction_code": "US",
+    "application_date": "2018-09-10",
+    "status": "licensed",
+    "peg": "USD",
+    "type": "fiat_backed",
+    "logo_url": "https://assets.coingecko.com/coins/images/5992/small/gemini-dollar-gusd.png",
+    "summary": "US-dollar stablecoin issued by Gemini Trust Company under New York State Department of Financial Services limited-purpose trust charter. Approved alongside Paxos USDP in September 2018 as one of the first two NYDFS-regulated USD stablecoins. Operated by Gemini exchange's regulated trust company subsidiary; smaller circulation than Paxos USDP but identical regulatory framework.",
+    "sarm": {
+      "capital_adequacy": {
+        "key": "capital_adequacy",
+        "label": "Capital Adequacy",
+        "signal": "green",
+        "rationale": "Gemini Trust Company holds NYDFS limited-purpose trust charter subject to NY Banking Law Article III-A capital and prudential requirements. NYDFS June 2022 stablecoin guidance applies. Trust company status imposes ongoing capital adequacy assessment by NYDFS examiners. Group-level support from Gemini exchange parent, though parent has reduced workforce significantly during 2022-2024 crypto market contraction.",
+        "sources": [
+          { "label": "NYDFS Gemini Trust Company supervision", "url": "https://www.dfs.ny.gov/" },
+          { "label": "NYDFS Stablecoin Guidance (Jun 2022)", "url": "https://www.dfs.ny.gov/industry_guidance/industry_letters/il20220608_issuance_stablecoins" }
+        ]
+      },
+      "reserve_quality": {
+        "key": "reserve_quality",
+        "label": "Reserve Quality",
+        "signal": "green",
+        "rationale": "Reserves held in segregated accounts at US banks per NYDFS guidance: US Treasury bills (≤3-month maturity), overnight reverse repos collateralised by Treasuries, and insured deposits at US banks. Monthly third-party attestations by BPM LLP. Bankruptcy-remote treatment under NY Banking Law trust segregation provisions.",
+        "sources": [
+          { "label": "Gemini Dollar transparency reports", "url": "https://www.gemini.com/dollar" },
+          { "label": "NYDFS reserve requirements", "url": "https://www.dfs.ny.gov/industry_guidance/industry_letters/il20220608_issuance_stablecoins" }
+        ]
+      },
+      "governance": {
+        "key": "governance",
+        "label": "Governance",
+        "signal": "yellow",
+        "rationale": "Trust company structure imposes fiduciary duties to token holders under NY Banking Law. NYDFS direct supervision with ongoing examination cycle. However, parent Gemini exchange faced enforcement actions and customer fund disputes via Genesis lending product (Earn programme) — separate from GUSD reserves but raising group-level governance concerns. Senior management subject to NYDFS fit-and-proper review at trust company level.",
+        "sources": [
+          { "label": "NYDFS Gemini Earn settlement (Feb 2024)", "url": "https://www.dfs.ny.gov/" },
+          { "label": "Gemini corporate governance", "url": "https://www.gemini.com/about" }
+        ]
+      },
+      "technology": {
+        "key": "technology",
+        "label": "Technology & Custody",
+        "signal": "green",
+        "rationale": "GUSD deployed on Ethereum with verified, audited smart contracts. ERC-20 standard with mint/burn controls under Gemini Trust operational keys. Smart contract supports freeze and blacklist functions for sanctions compliance. Reserve custody at US banks per NYDFS qualifying custodian requirements.",
+        "sources": [
+          { "label": "GUSD Etherscan contract", "url": "https://etherscan.io/token/0x056Fd409E1d7A124BD7017459dFEa2F387b6d5Cd" },
+          { "label": "Gemini security framework", "url": "https://www.gemini.com/security" }
+        ]
+      },
+      "redemption": {
+        "key": "redemption",
+        "label": "Redemption Mechanics",
+        "signal": "green",
+        "rationale": "Gemini provides 1:1 USD redemption to verified Gemini account holders, typically same-day for institutional and T+1 for retail. NYDFS trust framework imposes redemption obligation as fiduciary duty. Banking-rail settlement via Gemini Trust banking relationships. Same structural framework as Paxos USDP.",
+        "sources": [
+          { "label": "Gemini Dollar terms", "url": "https://www.gemini.com/dollar" },
+          { "label": "NYDFS redemption guidance", "url": "https://www.dfs.ny.gov/industry_guidance/industry_letters/il20220608_issuance_stablecoins" }
+        ]
+      },
+      "disclosure": {
+        "key": "disclosure",
+        "label": "Public Disclosure",
+        "signal": "green",
+        "rationale": "Monthly third-party attestations by BPM LLP covering reserve composition and value. Reserve composition published on Gemini Dollar transparency page. NYDFS receives ongoing supervisory reporting. Disclosure cadence comparable to Paxos USDP (the closest peer under identical regulatory framework).",
+        "sources": [
+          { "label": "Gemini Dollar transparency portal", "url": "https://www.gemini.com/dollar" },
+          { "label": "BPM monthly attestation reports", "url": "https://www.gemini.com/dollar" }
+        ]
+      }
+    },
+    "reserve_details": "1:1 backing in NYDFS-qualifying assets: US Treasury bills with residual maturity ≤3 months, overnight reverse repos collateralised by Treasuries, and FDIC-insured deposits at US banks. Held in segregated trust accounts under NY Banking Law fiduciary segregation — bankruptcy-remote from Gemini Trust general creditors. Reserve structure identical in framework to Paxos USDP.",
+    "governance_notes": "NYDFS limited-purpose trust charter subjects Gemini Trust Company to NY Banking Law Article III-A trust company supervision. Fiduciary duties to token holders embedded in trust structure. Senior management subject to NYDFS fit-and-proper assessment. Group-level governance concerns: parent Gemini's Earn programme dispute (resolved February 2024 via NYDFS settlement) sits at exchange-affiliate level, not GUSD reserves — but informs broader assessment of parent risk culture.",
+    "technology_notes": "GUSD issued natively on Ethereum mainnet. Mint/burn operations controlled by Gemini Trust multi-sig keys. Smart contract supports compliance-driven freeze and blacklist functions. Public verified contract; smaller multi-chain footprint than peers (Ethereum-only) reflects design choice and smaller circulation.",
+    "redemption_notes": "Direct 1:1 USD redemption to Gemini account holders. Settlement via Gemini Trust banking relationships. Institutional clients typically same-day; retail T+1. Secondary market redemption via exchanges with smaller liquidity depth than larger peer stablecoins (USDC, USDP).",
+    "disclosure_notes": "Monthly attestations by BPM LLP with reserve composition disclosure. NYDFS receives ongoing supervisory and prudential reporting. Disclosure framework structurally identical to Paxos USDP; both established under September 2018 NYDFS approval as templates for the regulated USD stablecoin model.",
+    "citations": [
+      { "label": "NYDFS Stablecoin Guidance (Jun 2022)", "url": "https://www.dfs.ny.gov/industry_guidance/industry_letters/il20220608_issuance_stablecoins" },
+      { "label": "Gemini Dollar product page", "url": "https://www.gemini.com/dollar" },
+      { "label": "NY Banking Law Article III-A", "url": "https://www.nysenate.gov/legislation/laws/BNK/A3-A" },
+      { "label": "NYDFS Gemini Trust Company charter", "url": "https://www.dfs.ny.gov/" },
+      { "label": "NYDFS Gemini Earn settlement (Feb 2024)", "url": "https://www.dfs.ny.gov/" }
+    ],
+    "last_reviewed": "2026-05-29",
+    "reviewer_note": "Co-pioneer of NYDFS-regulated USD stablecoin model alongside Paxos USDP (both approved September 2018). Useful direct comparator under identical regulatory framework: GUSD-USDP signal differences isolate issuer-specific factors (governance, scale) from regime-level factors. Smaller circulation than USDP reflects market dynamics rather than supervisory differences."
+  },
+  {
+    "slug": "banking-circle-euri",
+    "name": "Banking Circle (EURI)",
+    "ticker": "EURI",
+    "parent": "Banking Circle Group S.A. (Luxembourg)",
+    "jurisdiction": "Luxembourg (MiCA passport across EEA)",
+    "jurisdiction_code": "EU",
+    "application_date": "2024-09-01",
+    "status": "licensed",
+    "peg": "EUR",
+    "type": "fiat_backed",
+    "logo_url": "https://assets.coingecko.com/coins/images/40788/small/euri.png",
+    "summary": "Euro-denominated e-money token issued by Banking Circle Group under MiCA EMT regime via Luxembourg authorisation. Banking Circle operates as a fully licensed bank in Luxembourg (CSSF-supervised), making EURI a bank-issued EMT structurally similar to SG-Forge EURCV. Targets payments and settlement use cases within Banking Circle's institutional client base.",
+    "sarm": {
+      "capital_adequacy": {
+        "key": "capital_adequacy",
+        "label": "Capital Adequacy",
+        "signal": "green",
+        "rationale": "Banking Circle Group operates under Luxembourg credit institution licence (CSSF-authorised), subject to CRR/CRD IV capital adequacy requirements far exceeding EMI thresholds. MiCA Article 35 own funds requirement is comfortably met within bank prudential framework. Direct ECB supervision via SSM applies to significant credit institutions in the eurozone.",
+        "sources": [
+          { "label": "CSSF register of authorised institutions", "url": "https://supervisedentities.apps.cssf.lu/" },
+          { "label": "MiCA Article 35", "url": "https://eur-lex.europa.eu/eli/reg/2023/1114/oj" }
+        ]
+      },
+      "reserve_quality": {
+        "key": "reserve_quality",
+        "label": "Reserve Quality",
+        "signal": "green",
+        "rationale": "Reserves held on Banking Circle's balance sheet under credit institution status — providing reserve quality structurally stronger than non-bank EMT issuers since deposits are protected by CRR liquidity coverage and net stable funding requirements. MiCA segregation rules ensure bankruptcy-remote treatment of token-holder claims under Luxembourg law.",
+        "sources": [
+          { "label": "Banking Circle EURI whitepaper", "url": "https://www.bankingcircle.com/" },
+          { "label": "MiCA Articles 36-38", "url": "https://eur-lex.europa.eu/eli/reg/2023/1114/oj" }
+        ]
+      },
+      "governance": {
+        "key": "governance",
+        "label": "Governance",
+        "signal": "green",
+        "rationale": "Banking Circle governance under CSSF supervision per Luxembourg banking law. Senior management subject to fit-and-proper review. Documented risk management, compliance, and internal audit functions per CRD IV requirements. Owned by EQT (private equity) with institutional governance practices. Banking-grade governance standards apply.",
+        "sources": [
+          { "label": "Banking Circle corporate governance", "url": "https://www.bankingcircle.com/about-us" },
+          { "label": "CSSF banking supervision framework", "url": "https://www.cssf.lu/en/banks/" }
+        ]
+      },
+      "technology": {
+        "key": "technology",
+        "label": "Technology & Custody",
+        "signal": "green",
+        "rationale": "EURI deployed on Ethereum and Solana with audited smart contracts. Mint/burn controlled by Banking Circle operational keys under banking-grade key management infrastructure. Reserve custody on bank balance sheet — leveraging existing banking custody framework. Smart contracts include compliance-driven freeze functions.",
+        "sources": [
+          { "label": "Banking Circle EURI documentation", "url": "https://www.bankingcircle.com/" },
+          { "label": "EURI contract addresses", "url": "https://etherscan.io/" }
+        ]
+      },
+      "redemption": {
+        "key": "redemption",
+        "label": "Redemption Mechanics",
+        "signal": "green",
+        "rationale": "MiCA Article 39 par-redemption right applies. Banking Circle customers redeem 1:1 against EUR bank account credits via existing banking payment rails. Bank-issuer model provides natural redemption infrastructure leveraging Banking Circle's institutional banking client base. No redemption fees per MiCA prohibition.",
+        "sources": [
+          { "label": "Banking Circle terms of service", "url": "https://www.bankingcircle.com/legal" },
+          { "label": "MiCA Article 39", "url": "https://eur-lex.europa.eu/eli/reg/2023/1114/oj" }
+        ]
+      },
+      "disclosure": {
+        "key": "disclosure",
+        "label": "Public Disclosure",
+        "signal": "green",
+        "rationale": "Group-level Pillar 3 disclosures under CRR apply to Banking Circle as Luxembourg credit institution. Whitepaper notified to CSSF per MiCA Article 51. Annual audited financial statements published. EURI on-chain circulation observable via public blockchain. CSSF receives ongoing supervisory reporting.",
+        "sources": [
+          { "label": "Banking Circle annual reports", "url": "https://www.bankingcircle.com/about-us" },
+          { "label": "Banking Circle transparency disclosures", "url": "https://www.bankingcircle.com/" }
+        ]
+      }
+    },
+    "reserve_details": "Reserves backed by deposits on Banking Circle credit institution balance sheet. Bank-issuer model differs structurally from non-bank EMI issuers (Circle): token-holder claims rank as e-money obligations with MiCA segregation protections; in resolution scenarios, BRRD (Bank Recovery and Resolution Directive) applies in parallel. CRR liquidity coverage and net stable funding requirements provide structural reserve quality assurance beyond MiCA minimums.",
+    "governance_notes": "Wholly-owned subsidiary structure under EQT (private equity ownership). Luxembourg-incorporated bank with CSSF as home-state supervisor. Board composition includes group-appointed and independent directors per CRD IV. Risk and compliance functions established under banking framework; MiCA-specific compliance layered on top.",
+    "technology_notes": "EURI issued natively on Ethereum and Solana. Mint/burn controlled by Banking Circle multi-sig keys with banking-grade HSM protection. Smart contracts support compliance freeze functions. Public verified contracts; multi-chain deployment supports Banking Circle's payment rail integration use case.",
+    "redemption_notes": "Bank-issuer redemption advantage: holders redeem via standard EUR bank credit through Banking Circle's institutional banking infrastructure. Targeted at institutional clients; retail redemption through partner exchanges. MiCA prohibits redemption fees; Banking Circle's existing payment rail relationships provide efficient settlement.",
+    "disclosure_notes": "Group-level CRR Pillar 3 disclosures provide structural transparency. Whitepaper filed with CSSF per MiCA Article 51. Annual audited group financials. EURI on-chain circulation observable via Ethereum and Solana block explorers. CSSF receives ongoing supervisory reporting under dual banking + MiCA framework.",
+    "citations": [
+      { "label": "CSSF register of authorised institutions", "url": "https://supervisedentities.apps.cssf.lu/" },
+      { "label": "MiCA Regulation (EU) 2023/1114", "url": "https://eur-lex.europa.eu/eli/reg/2023/1114/oj" },
+      { "label": "Banking Circle official site", "url": "https://www.bankingcircle.com/" },
+      { "label": "Banking Circle EURI launch announcement", "url": "https://www.bankingcircle.com/newsroom" },
+      { "label": "EBA MiCA Title III guidance", "url": "https://www.eba.europa.eu/regulation-and-policy/markets-crypto-assets-mica" }
+    ],
+    "last_reviewed": "2026-05-29",
+    "reviewer_note": "Second bank-issued EMT under MiCA (alongside SG-Forge EURCV). Reference case for Luxembourg authorisation path. CSSF-supervised credit institution issuance route under MiCA Title III provides structurally robust EMT issuance template. Banking Circle's institutional payment client base distinguishes use case from retail-oriented EMT issuers (Circle EURC)."
+  },
+  {
+    "slug": "osl-stablecoin-hk",
+    "name": "OSL Stablecoin (HK)",
+    "ticker": "Pending",
+    "parent": "OSL Group Limited (HKEX: 863)",
+    "jurisdiction": "Hong Kong SAR",
+    "jurisdiction_code": "HK",
+    "application_date": "2025-09-30",
+    "status": "rejected",
+    "peg": "HKD",
+    "type": "fiat_backed",
+    "summary": "HKD-pegged stablecoin proposal by OSL Group, a Hong Kong-listed digital asset platform operator. Widely tipped as a first-batch contender given OSL's SFC Type 1 and Type 7 licences for virtual asset trading. Not selected in the first batch of HKMA stablecoin issuer licences announced 10 April 2026; OSL acknowledged the outcome publicly and indicated continued engagement with the regulatory framework.",
+    "sarm": {
+      "capital_adequacy": {
+        "key": "capital_adequacy",
+        "label": "Capital Adequacy",
+        "signal": "yellow",
+        "rationale": "OSL Group is HKEX-listed (stock code 863) with public-company capital disclosures via interim and annual reports. However, group-level capital position has been volatile relative to bank-issuer competitors (HSBC, Standard Chartered consortium) selected in the first batch. HKMA application materials not public; rejection rationale not officially disclosed but media reporting cited preference for issuers with deep traditional finance and risk management track records.",
+        "sources": [
+          { "label": "OSL Group HKEX filings", "url": "https://www1.hkexnews.hk/" },
+          { "label": "HKMA first-batch licence announcement (Apr 2026)", "url": "https://www.hkma.gov.hk/eng/news-and-media/press-releases/" }
+        ]
+      },
+      "reserve_quality": {
+        "key": "reserve_quality",
+        "label": "Reserve Quality",
+        "signal": "gray",
+        "rationale": "Reserve composition design not publicly disclosed at application stage. Stablecoins Ordinance Cap. 649 requires 1:1 backing in high-quality liquid assets held at HKMA-authorised institutions. Without public attestation framework or operational track record, reserve quality assessment is not feasible from available information.",
+        "sources": [
+          { "label": "Stablecoins Ordinance Cap. 649", "url": "https://www.elegislation.gov.hk/hk/cap649" },
+          { "label": "HKMA stablecoin reserve requirements", "url": "https://www.hkma.gov.hk/eng/key-functions/international-financial-centre/stablecoin-issuers/" }
+        ]
+      },
+      "governance": {
+        "key": "governance",
+        "label": "Governance",
+        "signal": "yellow",
+        "rationale": "HKEX-listed public company governance applies — independent non-executive directors, audit committee, listing-rule disclosures. SFC Type 1 and Type 7 licences impose conduct and capital requirements. However, HKMA's first-batch selection criteria reportedly prioritised traditional banking risk management depth; OSL's profile as a digital-asset-native operator was disadvantaged relative to HSBC and Standard Chartered consortium. Governance gap is regulatory-preference-driven rather than structural deficiency.",
+        "sources": [
+          { "label": "OSL Group corporate governance reports", "url": "https://www.osl.com/en/" },
+          { "label": "HKMA deputy CE Darryl Chan remarks on selection criteria", "url": "https://www.hkma.gov.hk/eng/news-and-media/speeches/" }
+        ]
+      },
+      "technology": {
+        "key": "technology",
+        "label": "Technology & Custody",
+        "signal": "yellow",
+        "rationale": "OSL operates regulated digital asset trading and custody infrastructure under SFC oversight, providing technological capability foundation. Specific stablecoin smart contract architecture, custody arrangements, and audit reports not public. Stablecoin issuance would have leveraged existing regulated custody framework but operational track record for stablecoin-specific infrastructure not yet established.",
+        "sources": [
+          { "label": "OSL custody and trading infrastructure", "url": "https://www.osl.com/en/" },
+          { "label": "SFC virtual asset platform licensing", "url": "https://www.sfc.hk/" }
+        ]
+      },
+      "redemption": {
+        "key": "redemption",
+        "label": "Redemption Mechanics",
+        "signal": "gray",
+        "rationale": "Redemption design not publicly disclosed at application stage. Stablecoins Ordinance requires par-redemption framework. Without authorised issuance, redemption mechanics remain hypothetical; no operational track record available for assessment.",
+        "sources": [
+          { "label": "Stablecoins Ordinance Cap. 649 — redemption", "url": "https://www.elegislation.gov.hk/hk/cap649" },
+          { "label": "HKMA stablecoin framework", "url": "https://www.hkma.gov.hk/eng/key-functions/international-financial-centre/stablecoin-issuers/" }
+        ]
+      },
+      "disclosure": {
+        "key": "disclosure",
+        "label": "Public Disclosure",
+        "signal": "yellow",
+        "rationale": "HKEX-listed public-company disclosure regime applies at parent level — interim and annual reports, continuing disclosure obligations under Listing Rules. SFC supervision adds further disclosure cadence. Stablecoin-specific transparency framework not yet operationalised given non-licensure. Public-company disclosure baseline exists but stablecoin-specific reserve attestation framework not yet implemented.",
+        "sources": [
+          { "label": "OSL HKEX disclosures", "url": "https://www1.hkexnews.hk/" },
+          { "label": "HKEX Listing Rules disclosure obligations", "url": "https://en-rules.hkex.com.hk/" }
+        ]
+      }
+    },
+    "reserve_details": "Reserve composition design not publicly disclosed at application stage. Under Stablecoins Ordinance Cap. 649, licensed issuers would be required to maintain 1:1 backing in high-quality liquid assets at HKMA-authorised institutions with bankruptcy-remote segregation. OSL's non-selection in first batch means no operational reserve arrangement exists for SARM evaluation.",
+    "governance_notes": "HKEX-listed (stock code 863) with public-company governance: independent directors, audit committee, Listing Rules disclosures. SFC Type 1 (dealing in securities) and Type 7 (providing automated trading services) regulated activities. HKMA first-batch selection reportedly prioritised traditional bank risk management depth over digital-asset-native operator profiles — a regulatory preference signalling about the HK regime's structural direction.",
+    "technology_notes": "OSL operates SFC-regulated digital asset trading and custody infrastructure with operational track record. Stablecoin-specific smart contract architecture and custody design not implemented given non-licensure. Existing digital asset custody framework would have provided foundation for stablecoin operations.",
+    "redemption_notes": "Hypothetical only — non-licensure means no operational redemption arrangement exists. Stablecoins Ordinance par-redemption requirement would have applied if licensed.",
+    "disclosure_notes": "Parent-level HKEX listed disclosure regime provides baseline transparency: interim and annual reports, continuing disclosure obligations under Listing Rules, SFC supervision. Stablecoin-specific transparency framework not operationalised given non-licensure.",
+    "citations": [
+      { "label": "HKMA first-batch stablecoin licence announcement (Apr 2026)", "url": "https://www.hkma.gov.hk/eng/news-and-media/press-releases/" },
+      { "label": "OSL Group HKEX listing", "url": "https://www1.hkexnews.hk/" },
+      { "label": "Stablecoins Ordinance Cap. 649", "url": "https://www.elegislation.gov.hk/hk/cap649" },
+      { "label": "HKMA stablecoin regulatory regime page", "url": "https://www.hkma.gov.hk/eng/key-functions/international-financial-centre/stablecoin-issuers/" },
+      { "label": "OSL Group public response to HKMA decision", "url": "https://www.osl.com/en/" }
+    ],
+    "last_reviewed": "2026-05-29",
+    "reviewer_note": "First documented HKMA stablecoin licence rejection. Useful as reference case for analysing HKMA's first-batch selection criteria. Reportedly 36 applications were received; only 2 licences granted (HSBC, Anchorpoint Financial). OSL's non-selection signals HKMA preference for traditional bank issuers over digital-asset-native operators in the inaugural batch. Status may evolve if OSL re-applies in subsequent rounds or if regulatory framework expands eligible issuer categories. Multiple SARM dimensions marked 'gray' (insufficient data) reflect non-licensure rather than deficient assessment — operational arrangements simply do not exist for review."
+  },
+  {
+    "slug": "gmo-aozora-jpyw",
+    "name": "GMO Aozora JPY Coin",
+    "ticker": "JPYW",
+    "parent": "GMO Aozora Net Bank, Ltd.",
+    "jurisdiction": "Japan",
+    "jurisdiction_code": "JP",
+    "application_date": "2024-12-01",
+    "status": "licensed",
+    "peg": "JPY",
+    "type": "fiat_backed",
+    "logo_url": "https://gmo-aozora.com/assets/img/common/logo.svg",
+    "summary": "Japanese-yen stablecoin issued by GMO Aozora Net Bank under the revised Payment Services Act bank-issuance route, deployed via Progmat Coin platform. First major bank-issued JPY stablecoin operationalised under the 2023 PSA revisions. Distinct from Progmat platform itself: GMO Aozora is the licensed issuer; Progmat provides the issuance infrastructure and trust-bank coordination.",
+    "sarm": {
+      "capital_adequacy": {
+        "key": "capital_adequacy",
+        "label": "Capital Adequacy",
+        "signal": "green",
+        "rationale": "GMO Aozora Net Bank operates under FSA banking licence subject to full banking capital adequacy requirements (Basel III implementation in Japan). Stablecoin issuance under revised PSA does not relax bank prudential floors. Group-level support from GMO Internet Group and Aozora Bank parent (one of Japan's regional banks).",
+        "sources": [
+          { "label": "FSA bank supervisory framework", "url": "https://www.fsa.go.jp/en/" },
+          { "label": "GMO Aozora Net Bank disclosures", "url": "https://gmo-aozora.com/" }
+        ]
+      },
+      "reserve_quality": {
+        "key": "reserve_quality",
+        "label": "Reserve Quality",
+        "signal": "green",
+        "rationale": "100% backing in JPY deposits segregated in trust accounts at MUFG Trust under Progmat Coin platform. Revised PSA requires full asset preservation in trust structure. Bankruptcy-remote treatment under Japanese Trust Act — token holders hold beneficiary rights over reserve assets. Structural reserve quality stronger than prepaid-type issuers (JPYC) under same jurisdiction.",
+        "sources": [
+          { "label": "Progmat trust segregation framework", "url": "https://progmat.co.jp/en/" },
+          { "label": "Japan Trust Act (信託法)", "url": "https://www.japaneselawtranslation.go.jp/" }
+        ]
+      },
+      "governance": {
+        "key": "governance",
+        "label": "Governance",
+        "signal": "green",
+        "rationale": "GMO Aozora Net Bank governance under FSA banking supervision per Banking Act. Senior management subject to FSA fit-and-proper review. Independent board members; risk management and internal audit functions per banking framework. Multi-party operational governance: GMO Aozora as issuer, Progmat as platform operator, MUFG Trust as reserve custodian.",
+        "sources": [
+          { "label": "GMO Aozora corporate governance", "url": "https://gmo-aozora.com/about/" },
+          { "label": "FSA Banking Act supervision", "url": "https://www.fsa.go.jp/en/" }
+        ]
+      },
+      "technology": {
+        "key": "technology",
+        "label": "Technology & Custody",
+        "signal": "green",
+        "rationale": "Deployed via Progmat Coin platform supporting multiple blockchains (Polygon, Avalanche, Ethereum). Permissioned-access architecture with KYC-integrated transfer controls per Japanese regulatory requirements. Reserve custody at MUFG Trust under Japanese trust law. Banking-grade key management for mint/burn operations.",
+        "sources": [
+          { "label": "Progmat technical architecture", "url": "https://progmat.co.jp/en/services/" },
+          { "label": "GMO Aozora JPYW launch documentation", "url": "https://gmo-aozora.com/" }
+        ]
+      },
+      "redemption": {
+        "key": "redemption",
+        "label": "Redemption Mechanics",
+        "signal": "green",
+        "rationale": "Trust-beneficiary par-redemption right under Japanese trust law. Holders redeem 1:1 against JPY bank deposits at GMO Aozora Net Bank. Banking-rail settlement infrastructure provides reliable redemption pathway. Same-day or T+1 typical for institutional clients via Progmat platform integration.",
+        "sources": [
+          { "label": "Revised PSA redemption requirements", "url": "https://www.fsa.go.jp/en/" },
+          { "label": "GMO Aozora JPYW terms", "url": "https://gmo-aozora.com/" }
+        ]
+      },
+      "disclosure": {
+        "key": "disclosure",
+        "label": "Public Disclosure",
+        "signal": "yellow",
+        "rationale": "Bank-level disclosures under FSA banking framework provide structural transparency. Trust-account reserve verification robust at trust bank level. However, stablecoin-specific public attestation cadence less established than MiCA/MAS/NYDFS regimes; per-token transparency portal more limited than international peers. Operational track record short given recent launch.",
+        "sources": [
+          { "label": "GMO Aozora disclosure framework", "url": "https://gmo-aozora.com/about/" },
+          { "label": "FSA banking disclosure rules", "url": "https://www.fsa.go.jp/en/" }
+        ]
+      }
+    },
+    "reserve_details": "100% backing in JPY deposits at GMO Aozora Net Bank, segregated into trust accounts at MUFG Trust Bank under Japanese trust law. Trust beneficiary rights provide bankruptcy-remote treatment for token holders. Structural advantage over prepaid-type issuers (JPYC) which lack trust segregation.",
+    "governance_notes": "GMO Aozora Net Bank — Japanese commercial bank under FSA Banking Act supervision. Multi-party operational governance with Progmat (platform) and MUFG Trust (reserve custodian). Senior management subject to FSA fit-and-proper assessment. Banking risk management framework applies; MiCA-style stablecoin-specific disclosure layer still developing.",
+    "technology_notes": "Issuance via Progmat Coin platform with multi-chain support (Polygon, Avalanche, Ethereum). Permissioned-access architecture with KYC integration enforces Japanese regulatory transfer restrictions. Reserve custody under banking infrastructure standards at MUFG Trust.",
+    "redemption_notes": "Trust-beneficiary par-redemption via GMO Aozora Net Bank rails. Settlement leverages bank's existing payment infrastructure. Institutional clients via Progmat integration; retail access channels expanding as platform matures.",
+    "disclosure_notes": "Bank-level disclosure framework under FSA Banking Act provides quarterly and annual financial reporting. Trust-account reserve verification structurally robust. Public stablecoin-specific transparency portal less developed than international peers; expected to mature with operational scale.",
+    "citations": [
+      { "label": "JFSA Payment Services Act revisions (2023)", "url": "https://www.fsa.go.jp/en/news/2022/20220603-2.html" },
+      { "label": "GMO Aozora Net Bank", "url": "https://gmo-aozora.com/" },
+      { "label": "Progmat platform", "url": "https://progmat.co.jp/en/" },
+      { "label": "GMO Aozora JPY stablecoin launch announcement", "url": "https://gmo-aozora.com/news/" },
+      { "label": "Japan Banking Act (銀行法)", "url": "https://www.japaneselawtranslation.go.jp/" }
+    ],
+    "last_reviewed": "2026-05-29",
+    "reviewer_note": "First operationalised bank-issued JPY stablecoin under revised PSA — distinct from Progmat (platform-only) entry. Demonstrates the bank/trust issuance route in practice. Useful comparator with JPYC (prepaid-type, same jurisdiction) for analysing structural reserve quality and redemption-right differences within a single regulatory environment."
+  },
+  {
+    "slug": "quantoz-eurq",
+    "name": "Quantoz (EURQ)",
+    "ticker": "EURQ",
+    "parent": "Quantoz Payments B.V.",
+    "jurisdiction": "Netherlands (MiCA passport across EEA)",
+    "jurisdiction_code": "EU",
+    "application_date": "2024-08-01",
+    "status": "licensed",
+    "peg": "EUR",
+    "type": "fiat_backed",
+    "logo_url": "https://assets.coingecko.com/coins/images/51246/small/eurq.png",
+    "summary": "Euro-denominated e-money token issued by Quantoz Payments B.V. under Dutch Central Bank (DNB) Electronic Money Institution licence, passporting across the EEA under MiCA EMT regime. Quantoz also issues USDQ (USD-pegged EMT). Designed for compliance-first integration with major exchanges; distributed through partnerships including Kraken and Bitfinex.",
+    "sarm": {
+      "capital_adequacy": {
+        "key": "capital_adequacy",
+        "label": "Capital Adequacy",
+        "signal": "green",
+        "rationale": "Quantoz Payments B.V. holds Dutch EMI licence under DNB supervision, subject to E-Money Directive 2009/110/EC own funds requirements (minimum EUR 350,000 plus ongoing capital proportional to outstanding e-money). MiCA Article 35 additional 2% requirement for significant issuers applies if thresholds met. Independent EMI structure without bank parent — capital adequacy assessment relies on DNB ongoing supervision.",
+        "sources": [
+          { "label": "DNB register of authorised institutions", "url": "https://www.dnb.nl/en/login/registers/" },
+          { "label": "MiCA Article 35", "url": "https://eur-lex.europa.eu/eli/reg/2023/1114/oj" }
+        ]
+      },
+      "reserve_quality": {
+        "key": "reserve_quality",
+        "label": "Reserve Quality",
+        "signal": "green",
+        "rationale": "Reserves held in segregated accounts at EU credit institutions per MiCA requirements (≥30% at credit institutions for non-significant issuers, ≥60% for significant; remainder in highly liquid government instruments). DNB supervisory oversight of segregation. Monthly attestations published; reserve composition publicly disclosed. Reserve quality framework structurally equivalent to Circle EURC.",
+        "sources": [
+          { "label": "Quantoz reserve attestations", "url": "https://www.quantoz.com/transparency" },
+          { "label": "MiCA Articles 36-38", "url": "https://eur-lex.europa.eu/eli/reg/2023/1114/oj" }
+        ]
+      },
+      "governance": {
+        "key": "governance",
+        "label": "Governance",
+        "signal": "yellow",
+        "rationale": "DNB-supervised EMI with fit-and-proper assessment of senior management and substantial shareholders. Independent EMI structure (no bank parent). Smaller operational scale than Circle or Banking Circle; governance maturity assessment limited by shorter operational track record and less public disclosure of board composition and audit arrangements relative to public-company peers.",
+        "sources": [
+          { "label": "DNB EMI supervisory framework", "url": "https://www.dnb.nl/en/sector-information/" },
+          { "label": "Quantoz corporate governance", "url": "https://www.quantoz.com/" }
+        ]
+      },
+      "technology": {
+        "key": "technology",
+        "label": "Technology & Custody",
+        "signal": "green",
+        "rationale": "EURQ deployed on Ethereum, Solana, and other major chains with audited smart contracts. Mint/burn controlled by Quantoz operational keys with multi-sig governance. Reserve custody at EU credit institutions per MiCA segregation rules. Smart contracts include compliance-driven freeze and blacklist functions for EU sanctions enforcement.",
+        "sources": [
+          { "label": "Quantoz technical documentation", "url": "https://www.quantoz.com/" },
+          { "label": "EURQ contract addresses", "url": "https://etherscan.io/" }
+        ]
+      },
+      "redemption": {
+        "key": "redemption",
+        "label": "Redemption Mechanics",
+        "signal": "green",
+        "rationale": "MiCA Article 39 par-redemption right applies. Quantoz customers redeem 1:1 against EUR bank account credits. Institutional partners (Kraken, Bitfinex) provide additional retail redemption pathways through exchange-level conversions. No redemption fees per MiCA prohibition.",
+        "sources": [
+          { "label": "Quantoz terms of service", "url": "https://www.quantoz.com/legal" },
+          { "label": "MiCA Article 39", "url": "https://eur-lex.europa.eu/eli/reg/2023/1114/oj" }
+        ]
+      },
+      "disclosure": {
+        "key": "disclosure",
+        "label": "Public Disclosure",
+        "signal": "green",
+        "rationale": "Monthly third-party attestations published on Quantoz transparency portal. Whitepaper notified to DNB per MiCA Article 51. DNB receives ongoing prudential reporting. On-chain circulation observable via public blockchain. Disclosure cadence aligned with MiCA framework requirements; granularity comparable to peer EMI issuers.",
+        "sources": [
+          { "label": "Quantoz transparency portal", "url": "https://www.quantoz.com/transparency" },
+          { "label": "MiCA disclosure requirements", "url": "https://eur-lex.europa.eu/eli/reg/2023/1114/oj" }
+        ]
+      }
+    },
+    "reserve_details": "Reserves held in segregated accounts at EU credit institutions per MiCA Articles 36-38. Composition: cash deposits at multiple EU banks plus highly liquid government securities with short residual maturity. DNB supervisory oversight of segregation arrangements. Bankruptcy-remote treatment under Dutch law for segregated e-money funds.",
+    "governance_notes": "Dutch-incorporated EMI under DNB supervision. Senior management and substantial shareholders subject to DNB fit-and-proper review. Independent EMI structure without integration into bank or public-company governance frameworks. Smaller operational scale and shorter track record than Circle/Banking Circle peers; governance disclosure relatively less public.",
+    "technology_notes": "Multi-chain deployment (Ethereum, Solana, additional EVM chains). Native EURQ contracts (not bridged from off-chain ledger). Mint/burn controlled by Quantoz multi-sig keys. Smart contracts include freeze and blacklist functions for EU sanctions and MiCA compliance enforcement.",
+    "redemption_notes": "Par-redemption per MiCA Article 39. Direct Quantoz customer redemption 1:1 against EUR bank deposits. Exchange partnerships (Kraken, Bitfinex) provide retail redemption access. No redemption fees per MiCA prohibition.",
+    "disclosure_notes": "Monthly attestations on Quantoz transparency portal. Whitepaper filed with DNB. DNB receives ongoing supervisory and prudential reporting per MiCA + EMI dual framework. On-chain circulation transparency via public blockchain.",
+    "citations": [
+      { "label": "DNB register of authorised institutions", "url": "https://www.dnb.nl/en/login/registers/" },
+      { "label": "MiCA Regulation (EU) 2023/1114", "url": "https://eur-lex.europa.eu/eli/reg/2023/1114/oj" },
+      { "label": "Quantoz Payments official site", "url": "https://www.quantoz.com/" },
+      { "label": "Quantoz MiCA EMT launch announcement", "url": "https://www.quantoz.com/news/" },
+      { "label": "EBA MiCA Title III guidance", "url": "https://www.eba.europa.eu/regulation-and-policy/markets-crypto-assets-mica" }
+    ],
+    "last_reviewed": "2026-05-29",
+    "reviewer_note": "Reference case for Dutch DNB authorisation path under MiCA. Independent EMI structure (no bank parent, no public-company governance) — useful comparator showing MiCA EMT regime's diversity: bank-issuers (SG-Forge, Banking Circle), publicly-listed group EMI (Circle), and independent EMI (Quantoz) all operate under same regulatory framework with structural differences in capital base and governance depth."
+  },
+  {
+    "slug": "straitsx-xusd",
+    "name": "StraitsX (XUSD)",
+    "ticker": "XUSD",
+    "parent": "StraitsX Pte. Ltd. (Fazz Financial Group)",
+    "jurisdiction": "Singapore",
+    "jurisdiction_code": "SG",
+    "application_date": "2024-04-01",
+    "status": "licensed",
+    "peg": "USD",
+    "type": "fiat_backed",
+    "logo_url": "https://assets.coingecko.com/coins/images/35596/small/XUSD_Logo_New.png",
+    "summary": "US-dollar e-money token issued by StraitsX Pte. Ltd. under MAS Major Payment Institution licence with Single-Currency Stablecoin issuance scope. Companion product to StraitsX XSGD (SGD-pegged). Same issuer, same regulatory framework, different peg — provides useful single-issuer reserve composition comparison across SGD and USD operations.",
+    "sarm": {
+      "capital_adequacy": {
+        "key": "capital_adequacy",
+        "label": "Capital Adequacy",
+        "signal": "green",
+        "rationale": "Same MPI licence and capital framework as XSGD. MAS SCS Framework requires base capital SGD 1 million or 50% of annual operating expenses (whichever higher). Issuance of multiple SCS products under single MPI licence is permitted; capital adequacy assessed at entity level across combined operations. Group-level support from Fazz Financial Group.",
+        "sources": [
+          { "label": "MAS Financial Institutions Directory — StraitsX", "url": "https://eservices.mas.gov.sg/fid" },
+          { "label": "MAS SCS Framework", "url": "https://www.mas.gov.sg/regulation/payments/single-currency-stablecoin" }
+        ]
+      },
+      "reserve_quality": {
+        "key": "reserve_quality",
+        "label": "Reserve Quality",
+        "signal": "green",
+        "rationale": "USD reserves held in segregated accounts at MAS-licensed banks. MAS SCS Framework permits cash, cash equivalents, and short-term debt securities (≤3-month residual maturity) from sovereigns or central banks with ≥AA- credit rating. US Treasury bills qualify. Monthly attestations by independent auditor; reserve composition publicly disclosed alongside XSGD.",
+        "sources": [
+          { "label": "StraitsX transparency portal", "url": "https://www.straitsx.com/sg/transparency" },
+          { "label": "MAS SCS reserve requirements", "url": "https://www.mas.gov.sg/regulation/payments/single-currency-stablecoin" }
+        ]
+      },
+      "governance": {
+        "key": "governance",
+        "label": "Governance",
+        "signal": "green",
+        "rationale": "Same governance framework as XSGD (single issuer entity). MPI licence requires MAS fit-and-proper assessment. Multi-product operations under single regulated entity simplify governance vs multi-entity group structures (Paxos Group). Risk management framework covers both SGD and USD operations.",
+        "sources": [
+          { "label": "MAS Payment Services Act licensee obligations", "url": "https://www.mas.gov.sg/regulation/acts/payment-services-act" },
+          { "label": "StraitsX governance disclosures", "url": "https://www.straitsx.com/sg/about" }
+        ]
+      },
+      "technology": {
+        "key": "technology",
+        "label": "Technology & Custody",
+        "signal": "green",
+        "rationale": "XUSD deployed on Ethereum, Polygon, Avalanche, and additional chains with audited smart contracts. Same security architecture as XSGD. Multi-sig controls for mint/burn operations; HSM-based key management. Reserve custody at MAS-licensed banks holding USD deposits.",
+        "sources": [
+          { "label": "StraitsX security and audits", "url": "https://www.straitsx.com/sg/security" },
+          { "label": "XUSD contract addresses", "url": "https://docs.straitsx.com/" }
+        ]
+      },
+      "redemption": {
+        "key": "redemption",
+        "label": "Redemption Mechanics",
+        "signal": "green",
+        "rationale": "MAS SCS Framework mandates par redemption within 5 business days of request. XUSD customers redeem 1:1 against USD bank deposits via StraitsX platform. Cross-currency conversion available between XUSD and XSGD. No redemption fees per MAS SCS rules.",
+        "sources": [
+          { "label": "MAS SCS redemption requirements", "url": "https://www.mas.gov.sg/regulation/payments/single-currency-stablecoin" },
+          { "label": "StraitsX user terms", "url": "https://www.straitsx.com/sg/legal" }
+        ]
+      },
+      "disclosure": {
+        "key": "disclosure",
+        "label": "Public Disclosure",
+        "signal": "green",
+        "rationale": "Monthly third-party attestations covering both XSGD and XUSD reserve composition. Public transparency portal with real-time circulation data per token. MAS-regulated label visible on official channels. Whitepaper notified to MAS. Disclosure cadence consistent with XSGD operations.",
+        "sources": [
+          { "label": "StraitsX transparency portal", "url": "https://www.straitsx.com/sg/transparency" },
+          { "label": "MAS SCS disclosure requirements", "url": "https://www.mas.gov.sg/regulation/payments/single-currency-stablecoin" }
+        ]
+      }
+    },
+    "reserve_details": "USD reserves segregated at MAS-licensed banks under SCS Framework. Composition: USD cash deposits and short-dated US Treasury bills (≤3-month residual maturity) — Treasuries qualify under MAS SCS rules for AA-rated sovereign instruments. Bankruptcy-remote treatment under Singapore trust law for segregated payment account assets.",
+    "governance_notes": "Single MPI licence covers both XSGD and XUSD operations under unified StraitsX governance framework. MAS supervision applies across combined operations. Multi-currency stablecoin product line under single regulated entity simplifies regulatory coordination relative to multi-entity group structures.",
+    "technology_notes": "Multi-chain deployment with consistent contract architecture across XUSD and XSGD. Mint/burn under multi-sig operational controls. Smart contracts include compliance freeze and blacklist functions. Native deployment on each supported chain (not bridged).",
+    "redemption_notes": "Two-tier redemption: institutional clients via direct StraitsX integration with same-day or T+1 settlement; retail via StraitsX consumer app within 5 business days per MAS SCS rules. Cross-currency conversion between XUSD and XSGD available within StraitsX platform.",
+    "disclosure_notes": "Monthly attestations cover both XSGD and XUSD reserves with composition breakdown per token. Public transparency portal updated monthly. MAS receives ongoing prudential reporting at entity level.",
+    "citations": [
+      { "label": "MAS Financial Institutions Directory", "url": "https://eservices.mas.gov.sg/fid" },
+      { "label": "MAS SCS Framework", "url": "https://www.mas.gov.sg/regulation/payments/single-currency-stablecoin" },
+      { "label": "StraitsX transparency portal", "url": "https://www.straitsx.com/sg/transparency" },
+      { "label": "Payment Services Act (Singapore)", "url": "https://sso.agc.gov.sg/Act/PSA2019" },
+      { "label": "StraitsX XUSD launch announcement", "url": "https://www.straitsx.com/sg/blog" }
+    ],
+    "last_reviewed": "2026-05-29",
+    "reviewer_note": "Companion product to XSGD under same StraitsX MPI licence. Useful single-issuer multi-peg comparator: identical regulatory framework, governance, and operational infrastructure applied to SGD and USD reserves separately. MAS SCS Framework permits multi-currency operation under single licence — a regulatory architecture distinct from MiCA (where each significant token may trigger separate thresholds) and from NYDFS trust charters (which similarly accommodate multiple stablecoins under single trust company)."
+  },
+  {
+    "slug": "membrane-euroe",
+    "name": "Membrane Finance (EUROe)",
+    "ticker": "EUROe",
+    "parent": "Membrane Finance Oy",
+    "jurisdiction": "Finland (MiCA passport across EEA)",
+    "jurisdiction_code": "EU",
+    "application_date": "2023-02-01",
+    "status": "licensed",
+    "peg": "EUR",
+    "type": "fiat_backed",
+    "logo_url": "https://assets.coingecko.com/coins/images/29350/small/euroe.png",
+    "summary": "Euro-denominated e-money token issued by Membrane Finance Oy under Finnish Financial Supervisory Authority (FIN-FSA) Electronic Money Institution licence, passporting across the EEA under MiCA EMT regime. One of the earliest fully-regulated EUR stablecoins (launched February 2023, pre-MiCA implementation). Operated under Finnish EMI framework before MiCA went live; transitioned to MiCA EMT status in 2024.",
+    "sarm": {
+      "capital_adequacy": {
+        "key": "capital_adequacy",
+        "label": "Capital Adequacy",
+        "signal": "green",
+        "rationale": "Membrane Finance holds Finnish EMI licence under FIN-FSA supervision per E-Money Directive 2009/110/EC, with minimum own funds EUR 350,000 plus ongoing capital proportional to outstanding e-money. MiCA Article 35 own funds requirement applies post-MiCA transition. Independent EMI structure; FIN-FSA supervision provides Nordic regulatory rigor.",
+        "sources": [
+          { "label": "FIN-FSA register of authorised institutions", "url": "https://www.finanssivalvonta.fi/en/" },
+          { "label": "MiCA Article 35", "url": "https://eur-lex.europa.eu/eli/reg/2023/1114/oj" }
+        ]
+      },
+      "reserve_quality": {
+        "key": "reserve_quality",
+        "label": "Reserve Quality",
+        "signal": "green",
+        "rationale": "Reserves held in segregated accounts at EU credit institutions per MiCA Articles 36-38. Composition: cash deposits at major EU banks plus highly liquid government securities (predominantly short-dated euro-area sovereign bonds). Monthly attestations published. FIN-FSA supervisory oversight of segregation arrangements per MiCA + EMI dual framework.",
+        "sources": [
+          { "label": "EUROe reserve attestations", "url": "https://www.euroe.com/transparency" },
+          { "label": "MiCA Articles 36-38", "url": "https://eur-lex.europa.eu/eli/reg/2023/1114/oj" }
+        ]
+      },
+      "governance": {
+        "key": "governance",
+        "label": "Governance",
+        "signal": "yellow",
+        "rationale": "FIN-FSA-supervised EMI with fit-and-proper assessment of senior management. Finnish corporate governance baseline. Independent EMI structure without bank parent or public-company governance overlay. Operational scale modest relative to Circle EURC or bank-issuer peers; board composition and audit arrangements less publicly disclosed than larger peers.",
+        "sources": [
+          { "label": "FIN-FSA EMI supervisory framework", "url": "https://www.finanssivalvonta.fi/en/" },
+          { "label": "Membrane Finance corporate page", "url": "https://www.membrane.fi/" }
+        ]
+      },
+      "technology": {
+        "key": "technology",
+        "label": "Technology & Custody",
+        "signal": "green",
+        "rationale": "EUROe deployed on Ethereum, Polygon, Avalanche, Solana, and additional EVM chains with audited smart contracts. Native deployment per chain (not bridged). Mint/burn controlled by Membrane operational keys with multi-sig governance. Reserve custody at EU credit institutions per MiCA segregation. Smart contracts include compliance-driven freeze and blacklist functions.",
+        "sources": [
+          { "label": "EUROe technical documentation", "url": "https://dev.euroe.com/" },
+          { "label": "EUROe smart contract audits", "url": "https://www.euroe.com/" }
+        ]
+      },
+      "redemption": {
+        "key": "redemption",
+        "label": "Redemption Mechanics",
+        "signal": "green",
+        "rationale": "MiCA Article 39 par-redemption right applies. EUROe customers redeem 1:1 against EUR bank account credits via Membrane Finance platform. No redemption fees per MiCA prohibition. Settlement via SEPA bank rails for institutional and verified retail customers.",
+        "sources": [
+          { "label": "Membrane Finance terms of service", "url": "https://www.euroe.com/legal" },
+          { "label": "MiCA Article 39", "url": "https://eur-lex.europa.eu/eli/reg/2023/1114/oj" }
+        ]
+      },
+      "disclosure": {
+        "key": "disclosure",
+        "label": "Public Disclosure",
+        "signal": "green",
+        "rationale": "Monthly third-party attestations published on EUROe transparency portal. Whitepaper notified to FIN-FSA per MiCA Article 51. FIN-FSA receives ongoing prudential reporting under dual EMI + MiCA framework. On-chain circulation observable via supported blockchains. Disclosure cadence aligned with MiCA Title III requirements.",
+        "sources": [
+          { "label": "EUROe transparency portal", "url": "https://www.euroe.com/transparency" },
+          { "label": "MiCA disclosure framework", "url": "https://eur-lex.europa.eu/eli/reg/2023/1114/oj" }
+        ]
+      }
+    },
+    "reserve_details": "Reserves held in segregated accounts at EU credit institutions per MiCA Articles 36-38. Composition: cash deposits at major EU banks plus highly liquid government securities — predominantly short-dated euro-area sovereign bonds qualifying under MiCA reserve eligibility rules. Bankruptcy-remote treatment under Finnish law for segregated e-money funds; FIN-FSA supervisory oversight provides additional segregation enforcement.",
+    "governance_notes": "Finnish EMI under FIN-FSA supervision. Senior management subject to fit-and-proper assessment. Independent EMI structure without integration into bank or public-company governance frameworks. Smaller operational scale than Circle/Banking Circle peers; governance disclosure follows Finnish corporate transparency norms with limited public board composition information.",
+    "technology_notes": "Multi-chain native deployment across Ethereum, Polygon, Avalanche, Solana, and additional EVM chains. Mint/burn controlled by Membrane multi-sig operational keys. Smart contracts include freeze and blacklist functions for EU sanctions and MiCA compliance enforcement. Public verified contracts.",
+    "redemption_notes": "Par-redemption per MiCA Article 39 via Membrane Finance platform direct integration. Settlement through SEPA rails for institutional and verified retail customers. No redemption fees. Secondary market redemption available via partner exchanges.",
+    "disclosure_notes": "Monthly attestations on EUROe transparency portal with reserve composition breakdown. Whitepaper filed with FIN-FSA. FIN-FSA receives ongoing supervisory and prudential reporting under dual EMI + MiCA framework. On-chain circulation transparency via public blockchains.",
+    "citations": [
+      { "label": "FIN-FSA register", "url": "https://www.finanssivalvonta.fi/en/" },
+      { "label": "MiCA Regulation (EU) 2023/1114", "url": "https://eur-lex.europa.eu/eli/reg/2023/1114/oj" },
+      { "label": "Membrane Finance official site", "url": "https://www.euroe.com/" },
+      { "label": "EUROe MiCA transition announcement", "url": "https://www.euroe.com/blog" },
+      { "label": "EBA MiCA Title III guidance", "url": "https://www.eba.europa.eu/regulation-and-policy/markets-crypto-assets-mica" }
+    ],
+    "last_reviewed": "2026-05-29",
+    "reviewer_note": "Reference case for early-mover Finnish/Nordic MiCA EMT path. Notable as one of the earliest fully-regulated EUR stablecoins (launched February 2023, pre-MiCA), demonstrating that the regulated EMT model is not exclusive to large established issuers. EU MiCA dataset now spans bank-issuers (SG-Forge FR, Banking Circle LU), publicly-listed group EMI (Circle FR), independent EMI (Quantoz NL), and small-scale early-mover EMI (Membrane FI) — full structural diversity within single regulatory framework."
+  },
+  {
+    "slug": "ripple-rlusd",
+    "name": "Ripple USD (RLUSD)",
+    "ticker": "RLUSD",
+    "parent": "Standard Custody & Trust Company, LLC (Ripple subsidiary)",
+    "jurisdiction": "United States (New York)",
+    "jurisdiction_code": "US",
+    "application_date": "2024-08-01",
+    "status": "licensed",
+    "peg": "USD",
+    "type": "fiat_backed",
+    "logo_url": "https://assets.coingecko.com/coins/images/39651/small/RLUSD200x200.png",
+    "summary": "US-dollar stablecoin issued by Standard Custody & Trust Company (Ripple's NYDFS limited-purpose trust company subsidiary) under New York State Department of Financial Services trust charter. Launched December 2024 with explicit dual-chain deployment on Ethereum and XRP Ledger. Fourth USD stablecoin operating under NYDFS limited-purpose trust framework alongside Paxos USDP, Gemini GUSD, and PayPal PYUSD.",
+    "sarm": {
+      "capital_adequacy": {
+        "key": "capital_adequacy",
+        "label": "Capital Adequacy",
+        "signal": "green",
+        "rationale": "Standard Custody & Trust Company holds NYDFS limited-purpose trust charter subject to NY Banking Law Article III-A capital and prudential requirements. NYDFS June 2022 stablecoin guidance applies. Group-level support from Ripple Labs — Ripple Labs reported significant cash reserves and treasury holdings per past disclosures, providing structural backing to the trust subsidiary.",
+        "sources": [
+          { "label": "NYDFS Standard Custody & Trust Company supervision", "url": "https://www.dfs.ny.gov/" },
+          { "label": "NYDFS Stablecoin Guidance (Jun 2022)", "url": "https://www.dfs.ny.gov/industry_guidance/industry_letters/il20220608_issuance_stablecoins" }
+        ]
+      },
+      "reserve_quality": {
+        "key": "reserve_quality",
+        "label": "Reserve Quality",
+        "signal": "green",
+        "rationale": "Reserves held in segregated accounts per NYDFS qualifying assets framework: US Treasury bills (≤3-month maturity), overnight reverse repos collateralised by Treasuries, and insured deposits at US banks. Monthly third-party attestations published. Bankruptcy-remote treatment under NY Banking Law trust segregation provisions — identical framework to Paxos USDP and Gemini GUSD.",
+        "sources": [
+          { "label": "Ripple USD transparency reports", "url": "https://ripple.com/ripple-usd/" },
+          { "label": "NYDFS reserve requirements", "url": "https://www.dfs.ny.gov/industry_guidance/industry_letters/il20220608_issuance_stablecoins" }
+        ]
+      },
+      "governance": {
+        "key": "governance",
+        "label": "Governance",
+        "signal": "yellow",
+        "rationale": "NYDFS-supervised trust company governance applies — fit-and-proper assessment, ongoing examination cycle, fiduciary duties to token holders. However, Ripple Labs parent group has ongoing SEC litigation history (XRP institutional sales ruling 2023, appeals pending). Litigation overhang does not directly affect RLUSD reserves or trust company operations — Standard Custody is bankruptcy-remote — but creates group-level governance complexity not present in cleaner peer profiles.",
+        "sources": [
+          { "label": "Ripple Labs SEC litigation status", "url": "https://www.sec.gov/" },
+          { "label": "Standard Custody NYDFS charter", "url": "https://www.dfs.ny.gov/" }
+        ]
+      },
+      "technology": {
+        "key": "technology",
+        "label": "Technology & Custody",
+        "signal": "green",
+        "rationale": "RLUSD deployed natively on Ethereum (ERC-20) and XRP Ledger — dual-chain native deployment without bridging. Audited smart contracts on Ethereum. XRP Ledger native issuance leverages built-in token issuance primitives without smart contract complexity. Mint/burn controlled by Standard Custody operational keys. Reserve custody self-custodied as NYDFS-qualified custodian.",
+        "sources": [
+          { "label": "RLUSD technical documentation", "url": "https://ripple.com/ripple-usd/" },
+          { "label": "RLUSD smart contract on Etherscan", "url": "https://etherscan.io/" }
+        ]
+      },
+      "redemption": {
+        "key": "redemption",
+        "label": "Redemption Mechanics",
+        "signal": "green",
+        "rationale": "Direct 1:1 USD redemption available to Standard Custody account holders with KYC verification, typically T+1 settlement. NYDFS trust framework imposes redemption obligation as fiduciary duty. Banking-rail settlement infrastructure. Same structural framework as Paxos USDP and Gemini GUSD.",
+        "sources": [
+          { "label": "Ripple USD terms", "url": "https://ripple.com/ripple-usd/" },
+          { "label": "NYDFS redemption guidance", "url": "https://www.dfs.ny.gov/industry_guidance/industry_letters/il20220608_issuance_stablecoins" }
+        ]
+      },
+      "disclosure": {
+        "key": "disclosure",
+        "label": "Public Disclosure",
+        "signal": "green",
+        "rationale": "Monthly third-party attestations covering reserve composition and value. Reserve composition published on Ripple USD transparency portal. NYDFS receives ongoing supervisory reporting. Disclosure cadence aligned with NYDFS guidance peer standard set by Paxos USDP and Gemini GUSD.",
+        "sources": [
+          { "label": "Ripple USD transparency portal", "url": "https://ripple.com/ripple-usd/" },
+          { "label": "Monthly attestation reports", "url": "https://ripple.com/ripple-usd/" }
+        ]
+      }
+    },
+    "reserve_details": "1:1 backing in NYDFS-qualifying assets: US Treasury bills with residual maturity ≤3 months, overnight reverse repos collateralised by Treasuries, and FDIC-insured deposits at US banks. Held in segregated trust accounts under NY Banking Law fiduciary segregation — bankruptcy-remote from Standard Custody general creditors and from Ripple Labs parent group. Reserve structure structurally identical to Paxos USDP and Gemini GUSD.",
+    "governance_notes": "NYDFS limited-purpose trust charter for Standard Custody & Trust Company under NY Banking Law Article III-A. Fiduciary duties to token holders. Senior management subject to NYDFS fit-and-proper review at trust company level. Parent group (Ripple Labs) regulatory profile complicated by ongoing SEC litigation regarding XRP token sales — but RLUSD reserves and trust company operations are bankruptcy-remote from parent group risk.",
+    "technology_notes": "Dual-chain native deployment: Ethereum (ERC-20) and XRP Ledger (native token). No bridge dependency — native issuance on each chain. Mint/burn controlled by Standard Custody multi-sig keys. Ethereum smart contracts audited and verified. XRP Ledger issuance uses native protocol primitives with built-in trust line and freeze functionality.",
+    "redemption_notes": "Direct 1:1 USD redemption to Standard Custody account holders. T+1 typical settlement via banking rails. Secondary market redemption via exchanges. Cross-chain redemption: holders on either Ethereum or XRP Ledger can redeem to USD through Standard Custody platform.",
+    "disclosure_notes": "Monthly attestations on Ripple USD transparency portal with reserve composition breakdown. NYDFS receives ongoing supervisory and prudential reporting. Disclosure cadence consistent with NYDFS trust peer group (USDP, GUSD, PYUSD).",
+    "citations": [
+      { "label": "NYDFS Stablecoin Guidance (Jun 2022)", "url": "https://www.dfs.ny.gov/industry_guidance/industry_letters/il20220608_issuance_stablecoins" },
+      { "label": "Ripple USD product page", "url": "https://ripple.com/ripple-usd/" },
+      { "label": "NY Banking Law Article III-A", "url": "https://www.nysenate.gov/legislation/laws/BNK/A3-A" },
+      { "label": "Standard Custody NYDFS charter announcement", "url": "https://www.dfs.ny.gov/" },
+      { "label": "Ripple Labs corporate page", "url": "https://ripple.com/" }
+    ],
+    "last_reviewed": "2026-05-29",
+    "reviewer_note": "Fourth USD stablecoin operationalised under NYDFS limited-purpose trust framework (alongside USDP, GUSD, PYUSD). Distinguishing feature: dual-chain native deployment on Ethereum and XRP Ledger — most peers deploy on Ethereum primarily. NYDFS framework provides clean structural assessment template; group-level Ripple Labs litigation overhang documented as governance-yellow without affecting trust company reserve assessment. Useful as fourth data point in NYDFS trust comparator set."
+  },
+  {
+    "slug": "diem-libra",
+    "name": "Diem (formerly Libra)",
+    "ticker": "DIEM",
+    "parent": "Diem Association (formerly Libra Association) / Meta Platforms (initiator)",
+    "jurisdiction": "United States (final phase) / Switzerland (initial registration)",
+    "jurisdiction_code": "US",
+    "application_date": "2019-06-18",
+    "status": "withdrawn",
+    "peg": "USD (single-currency pivot, 2020) / basket (original design, 2019)",
+    "type": "fiat_backed",
+    "summary": "Stablecoin project initiated by Meta (then Facebook) in June 2019, originally as a multi-currency basket-backed token, repivoted to single-currency design in 2020. Despite well-resourced consortium governance and explicit regulatory engagement, the project failed to achieve authorisation under any major framework. Diem Association wound down in January 2022; remaining technology and reserves sold to Silvergate Capital (subsequently failed during 2023 US banking crisis). Reference case for failed regulatory authorisation despite substantial institutional sponsorship.",
+    "sarm": {
+      "capital_adequacy": {
+        "key": "capital_adequacy",
+        "label": "Capital Adequacy",
+        "signal": "gray",
+        "rationale": "Diem Association reported substantial committed capital from consortium members at peak ($1.65B raised across members). However, governance and reserve obligations were never operationalised under a binding supervisor with capital adequacy enforcement. Capital adequacy assessment is moot for a withdrawn issuer; status reflects regime gap rather than identified deficiency at design stage.",
+        "sources": [
+          { "label": "Diem Association final wind-down statement (Jan 2022)", "url": "https://www.diem.com/" },
+          { "label": "FSB report on Libra/Diem (2019)", "url": "https://www.fsb.org/" }
+        ]
+      },
+      "reserve_quality": {
+        "key": "reserve_quality",
+        "label": "Reserve Quality",
+        "signal": "gray",
+        "rationale": "Design intended 1:1 backing in a basket of low-volatility assets (initial design) or single-currency cash plus short-dated government debt (2020 revised design). Reserves never operationalised at scale. Diem reserve framework was never tested under live conditions; assessment is structurally moot.",
+        "sources": [
+          { "label": "Diem reserve whitepaper (v2, 2020)", "url": "https://www.diem.com/" },
+          { "label": "BIS Project Helvetia commentary on Libra", "url": "https://www.bis.org/" }
+        ]
+      },
+      "governance": {
+        "key": "governance",
+        "label": "Governance",
+        "signal": "red",
+        "rationale": "Despite Geneva-based Diem Association structure with named consortium members and documented governance bylaws, the project faced sustained regulatory and political opposition globally. G7 statement (2019) and FSB high-level recommendations effectively foreclosed authorisation paths. US Federal Reserve, Treasury, and Congressional opposition made Federal Reserve master account access infeasible. Multiple consortium members (Visa, Mastercard, PayPal, Stripe, eBay) withdrew during 2019-2020. Governance structure proved insufficient to overcome jurisdiction-by-jurisdiction regulatory resistance.",
+        "sources": [
+          { "label": "G7 working group report on stablecoins (Oct 2019)", "url": "https://www.bis.org/cpmi/publ/d187.htm" },
+          { "label": "FSB high-level recommendations on global stablecoins (2020)", "url": "https://www.fsb.org/" },
+          { "label": "US Congressional hearings on Libra (2019)", "url": "https://www.congress.gov/" }
+        ]
+      },
+      "technology": {
+        "key": "technology",
+        "label": "Technology & Custody",
+        "signal": "yellow",
+        "rationale": "Diem developed proprietary Move-based blockchain (later open-sourced; technology lives on in Aptos and Sui as derivative chains). Custody arrangements with Silvergate Bank operationalised but limited live deployment. Technical architecture was advanced relative to peers but never operationally validated at retail scale under regulated conditions.",
+        "sources": [
+          { "label": "Diem technical whitepaper", "url": "https://www.diem.com/" },
+          { "label": "Move language documentation", "url": "https://github.com/diem/" }
+        ]
+      },
+      "redemption": {
+        "key": "redemption",
+        "label": "Redemption Mechanics",
+        "signal": "gray",
+        "rationale": "Redemption mechanism never operationalised. Designs included direct redemption to authorised resellers (institutional) with retail redemption via wallet providers (Novi/Calibra). Assessment is structurally moot given non-launch.",
+        "sources": [
+          { "label": "Diem redemption design documentation", "url": "https://www.diem.com/" }
+        ]
+      },
+      "disclosure": {
+        "key": "disclosure",
+        "label": "Public Disclosure",
+        "signal": "yellow",
+        "rationale": "Diem Association published whitepapers (v1 2019, v2 2020), governance documents, technical specifications, and periodic public updates — disclosure baseline was high relative to typical pre-launch stablecoin projects. Member roster and contributions publicly disclosed. However, given non-operationalisation, no live reserve attestation or supervisory reporting framework existed.",
+        "sources": [
+          { "label": "Diem whitepaper archives", "url": "https://www.diem.com/" },
+          { "label": "Diem governance documentation", "url": "https://www.diem.com/" }
+        ]
+      }
+    },
+    "reserve_details": "Designed but not operationalised: initial multi-currency basket model (USD, EUR, GBP, JPY, SGD) — abandoned 2020. Revised single-currency design (Diem USD, Diem EUR etc., each 1:1 backed by cash and short-dated government securities of respective currency). Custody arrangements with Silvergate Bank operationalised in pre-launch phase. Reserves never deployed at retail scale.",
+    "governance_notes": "Diem Association — Geneva-incorporated non-profit consortium with rotating board, named founding members, and documented governance bylaws. Initial 28 members at launch (2019) declined to 21 by 2020 after high-profile withdrawals (Visa, Mastercard, PayPal, Stripe, eBay, Mercado Pago). G7 and FSB regulatory engagement extensive; US Federal Reserve, Treasury, and Congressional opposition decisive. Wind-down formally announced January 31, 2022; remaining IP and reserves sold to Silvergate Capital for $182M.",
+    "technology_notes": "Diem blockchain built on proprietary Move smart contract language — open-sourced post-wind-down. Move language and Diem architecture forked into Aptos and Sui blockchain projects (both launched 2022). Custody integration with Silvergate Bank operationalised. Technical architecture was advanced; regulatory rather than technical factors caused project failure.",
+    "redemption_notes": "Designed but not operationalised: institutional authorised resellers would mint/burn against fiat deposits with Diem Association; retail users would redeem via wallet providers (Novi/Calibra). Mechanism never tested under live conditions.",
+    "disclosure_notes": "Pre-launch disclosure baseline was high: detailed whitepapers, governance documents, member rosters, technical specifications publicly available throughout project lifetime. Final wind-down statement published January 2022. No operational reserve attestation or supervisory disclosure framework given non-launch.",
+    "citations": [
+      { "label": "Diem Association wind-down statement (Jan 2022)", "url": "https://www.diem.com/" },
+      { "label": "FSB Regulation of Global Stablecoins (Oct 2020)", "url": "https://www.fsb.org/2020/10/regulation-supervision-and-oversight-of-global-stablecoin-arrangements/" },
+      { "label": "G7 Working Group Report on Stablecoins (Oct 2019)", "url": "https://www.bis.org/cpmi/publ/d187.htm" },
+      { "label": "US Congressional Libra hearings (Jul 2019)", "url": "https://www.congress.gov/" },
+      { "label": "Silvergate acquisition of Diem assets announcement (Jan 2022)", "url": "https://www.silvergate.com/" }
+    ],
+    "last_reviewed": "2026-05-29",
+    "reviewer_note": "Most important withdrawn-stablecoin case study. Demonstrates that institutional sponsorship and technical sophistication are insufficient absent regulatory authorisation pathway. Particularly relevant context for understanding why post-2022 stablecoin regulatory frameworks (MiCA, MAS SCS, HK Ordinance, NYDFS guidance) emphasise pre-authorisation supervisory engagement and explicit license requirements. Many SARM signals marked 'gray' (insufficient data) reflect non-operationalisation rather than substantive deficiency — Diem withdrawal was a regulatory outcome, not a structural failure of the specific design proposed. Closely connected to Lessons Learned postmortem case studies (TerraUSD, Iron Finance) as taxonomy of stablecoin failure modes."
+  },
+  {
+    "slug": "bochk-hkd",
+    "name": "Bank of China (Hong Kong)",
+    "ticker": "Pending",
+    "parent": "Bank of China (Hong Kong) Limited (HKEX: 2388 — BOC Hong Kong Holdings)",
+    "jurisdiction": "Hong Kong SAR",
+    "jurisdiction_code": "HK",
+    "application_date": "2025-09-30",
+    "status": "under_review",
+    "peg": "HKD",
+    "type": "fiat_backed",
+    "summary": "Hong Kong-dollar stablecoin proposal by Bank of China (Hong Kong) — the third of Hong Kong's three banknote-issuing banks (alongside HSBC and Standard Chartered). Among the reported pool of 36 first-window applicants under the Stablecoins Ordinance Cap. 649. Not in the first batch of licences announced 10 April 2026 (HSBC and Anchorpoint Financial); status under review for subsequent batches. As one of three statutory HKD banknote issuers, BOCHK represents the most institutionally significant pending applicant.",
+    "sarm": {
+      "capital_adequacy": {
+        "key": "capital_adequacy",
+        "label": "Capital Adequacy",
+        "signal": "green",
+        "rationale": "BOC Hong Kong operates under HKMA banking supervision with full Basel III capital adequacy requirements. As one of three HKD banknote-issuing banks (statutory note-issuance privilege), BOCHK occupies a category of institutional significance distinct from non-bank issuers. HKEX-listed (stock code 2388) with public-company capital disclosures. Group support from Bank of China (Beijing) — a Chinese G-SIB.",
+        "sources": [
+          { "label": "HKMA banking supervision framework", "url": "https://www.hkma.gov.hk/eng/key-functions/banking/banking-policy-and-supervision/" },
+          { "label": "BOC Hong Kong Holdings annual reports", "url": "https://www.bochk.com/" }
+        ]
+      },
+      "reserve_quality": {
+        "key": "reserve_quality",
+        "label": "Reserve Quality",
+        "signal": "gray",
+        "rationale": "Specific reserve composition design not publicly disclosed at application stage. Stablecoins Ordinance Cap. 649 requires 1:1 backing in high-quality liquid assets held at HKMA-authorised institutions. As a HKMA-supervised commercial bank, BOCHK has direct access to optimal reserve quality infrastructure (HKMA deposits, Exchange Fund Bills). Operational reserve framework would inherit from banking treasury operations once licensed.",
+        "sources": [
+          { "label": "Stablecoins Ordinance Cap. 649", "url": "https://www.elegislation.gov.hk/hk/cap649" },
+          { "label": "HKMA stablecoin framework", "url": "https://www.hkma.gov.hk/eng/key-functions/international-financial-centre/stablecoin-issuers/" }
+        ]
+      },
+      "governance": {
+        "key": "governance",
+        "label": "Governance",
+        "signal": "green",
+        "rationale": "Full HKMA banking supervision under Banking Ordinance Cap. 155. Bank-grade governance: independent directors, audit committee, board risk committee. HKEX-listed public company with Listing Rules disclosure obligations. Group oversight via Bank of China Limited (Beijing) — a Chinese state-owned G-SIB with broad regulatory footprint. Senior management subject to HKMA fit-and-proper assessment.",
+        "sources": [
+          { "label": "BOC Hong Kong corporate governance", "url": "https://www.bochk.com/en/aboutus/cgovernance.html" },
+          { "label": "HKMA Banking Ordinance Cap. 155", "url": "https://www.elegislation.gov.hk/hk/cap155" }
+        ]
+      },
+      "technology": {
+        "key": "technology",
+        "label": "Technology & Custody",
+        "signal": "yellow",
+        "rationale": "BOCHK operates mature banking technology infrastructure with established custody and settlement capabilities. Specific stablecoin smart contract architecture and blockchain deployment not publicly disclosed at application stage. Banking-grade key management and HSM infrastructure expected. Technical implementation would inherit from existing institutional digital asset and trade finance pilots.",
+        "sources": [
+          { "label": "BOC Hong Kong digital banking infrastructure", "url": "https://www.bochk.com/" },
+          { "label": "HKMA stablecoin technical requirements", "url": "https://www.hkma.gov.hk/eng/key-functions/international-financial-centre/stablecoin-issuers/" }
+        ]
+      },
+      "redemption": {
+        "key": "redemption",
+        "label": "Redemption Mechanics",
+        "signal": "gray",
+        "rationale": "Redemption design not publicly disclosed at application stage. As a HKD banknote-issuing bank, BOCHK has unique structural redemption capability via direct access to HKMA Exchange Fund and Real Time Gross Settlement (RTGS) systems. Stablecoins Ordinance requires par-redemption framework once licensed. Operational redemption framework moot pending authorisation.",
+        "sources": [
+          { "label": "Stablecoins Ordinance redemption framework", "url": "https://www.elegislation.gov.hk/hk/cap649" },
+          { "label": "HKMA RTGS settlement infrastructure", "url": "https://www.hkma.gov.hk/eng/key-functions/financial-infrastructure/" }
+        ]
+      },
+      "disclosure": {
+        "key": "disclosure",
+        "label": "Public Disclosure",
+        "signal": "green",
+        "rationale": "HKEX-listed public company subject to Listing Rules disclosure obligations: interim and annual reports, continuing disclosure of material events. HKMA banking supervision adds prudential reporting cadence. Stablecoin-specific public attestation framework would be operationalised post-licensure per HKMA requirements.",
+        "sources": [
+          { "label": "BOC Hong Kong Holdings HKEX filings", "url": "https://www1.hkexnews.hk/" },
+          { "label": "HKMA disclosure framework", "url": "https://www.hkma.gov.hk/" }
+        ]
+      }
+    },
+    "reserve_details": "Reserve composition design not publicly disclosed at application stage. As HKMA-supervised commercial bank with HKD banknote-issuance privilege, BOCHK has direct access to optimal HKD reserve infrastructure: HKMA settlement accounts, Exchange Fund Bills and Notes, and segregated trust accounts within bank balance sheet structure. Stablecoins Ordinance Cap. 649 requires 1:1 backing in high-quality liquid assets at HKMA-authorised institutions — a requirement BOCHK would naturally satisfy through internal treasury operations.",
+    "governance_notes": "Full HKMA bank supervision under Banking Ordinance Cap. 155. HKEX-listed (stock code 2388, BOC Hong Kong Holdings). Independent board members, audit committee, board risk committee under HKMA Supervisory Policy Manual. Group oversight via Bank of China Limited (Beijing) — Chinese state-owned G-SIB. Senior management subject to HKMA fit-and-proper assessment under Banking Ordinance.",
+    "technology_notes": "Banking-grade infrastructure with established custody, settlement, and payment processing capabilities. Specific stablecoin smart contract architecture not publicly disclosed. Likely to leverage HKMA Project mBridge / Ensemble pilot experience for cross-border and tokenised deposit interoperability. HSM-based key management and bank-standard cybersecurity controls expected.",
+    "redemption_notes": "Structural redemption advantage as HKD banknote issuer: direct access to HKMA Exchange Fund settlement, HKD RTGS rails, and Currency Board operating mechanism. Stablecoins Ordinance requires par-redemption infrastructure once licensed; design specifics not yet public.",
+    "disclosure_notes": "HKEX Listing Rules disclosure regime provides baseline transparency. HKMA banking supervision adds prudential reporting. Stablecoin-specific disclosure framework to be operationalised post-authorisation per HKMA requirements (monthly reserve attestations, public composition disclosure).",
+    "citations": [
+      { "label": "HKMA Stablecoins Ordinance regime page", "url": "https://www.hkma.gov.hk/eng/key-functions/international-financial-centre/stablecoin-issuers/" },
+      { "label": "Stablecoins Ordinance Cap. 649", "url": "https://www.elegislation.gov.hk/hk/cap649" },
+      { "label": "BOC Hong Kong Holdings", "url": "https://www.bochk.com/" },
+      { "label": "HKMA first-batch licence announcement (Apr 2026)", "url": "https://www.hkma.gov.hk/eng/news-and-media/press-releases/" },
+      { "label": "Hong Kong banknote-issuing banks framework", "url": "https://www.hkma.gov.hk/eng/key-functions/money/hong-kong-dollar/" }
+    ],
+    "last_reviewed": "2026-05-29",
+    "reviewer_note": "Third of Hong Kong's three HKD banknote-issuing banks (alongside HSBC, Standard Chartered consortium via Anchorpoint Financial). Not in HKMA first batch (April 2026) but widely reported in the 36-applicant pool. Status as banknote issuer with direct HKMA settlement infrastructure access provides structural advantage in subsequent licensure rounds. Useful comparator within HK dataset for analysing how the three banknote-issuing banks navigate the stablecoin regime differently — HSBC standalone, Standard Chartered consortium, BOCHK pending. Several SARM signals marked 'gray' reflect pre-authorisation status rather than substantive deficiency."
+  },
+  {
+    "slug": "wisdomtree-wusd",
+    "name": "WisdomTree (WUSD)",
+    "ticker": "WUSD",
+    "parent": "WisdomTree Digital Trust Company, LLC (WisdomTree, Inc. — NYSE: WT)",
+    "jurisdiction": "United States (New York)",
+    "jurisdiction_code": "US",
+    "application_date": "2022-12-01",
+    "status": "licensed",
+    "peg": "USD",
+    "type": "fiat_backed",
+    "logo_url": "https://assets.coingecko.com/coins/images/29307/small/wisdomtree.png",
+    "summary": "US-dollar stablecoin issued by WisdomTree Digital Trust Company under New York State Department of Financial Services limited-purpose trust charter. Sister product to WisdomTree Prime's broader tokenized fund and digital asset platform. Parent WisdomTree, Inc. is a publicly-listed traditional asset manager (NYSE: WT) with $100B+ AUM in ETF and fund products — distinct origin story from crypto-native peer issuers.",
+    "sarm": {
+      "capital_adequacy": {
+        "key": "capital_adequacy",
+        "label": "Capital Adequacy",
+        "signal": "green",
+        "rationale": "WisdomTree Digital Trust Company holds NYDFS limited-purpose trust charter under NY Banking Law Article III-A capital requirements. NYDFS June 2022 stablecoin guidance applies. Group-level support from WisdomTree, Inc. — a NYSE-listed traditional asset manager with substantial corporate capital, SEC-registered fund operations, and established regulatory infrastructure. Capital adequacy framework structurally robust.",
+        "sources": [
+          { "label": "NYDFS WisdomTree Digital Trust supervision", "url": "https://www.dfs.ny.gov/" },
+          { "label": "NYDFS Stablecoin Guidance (Jun 2022)", "url": "https://www.dfs.ny.gov/industry_guidance/industry_letters/il20220608_issuance_stablecoins" }
+        ]
+      },
+      "reserve_quality": {
+        "key": "reserve_quality",
+        "label": "Reserve Quality",
+        "signal": "green",
+        "rationale": "Reserves held per NYDFS qualifying assets framework: US Treasury bills (≤3-month maturity), overnight reverse repos collateralised by Treasuries, and insured deposits at US banks. Monthly third-party attestations published. Bankruptcy-remote trust segregation under NY Banking Law. WisdomTree's traditional asset management expertise provides institutional-grade treasury operations.",
+        "sources": [
+          { "label": "WUSD transparency reports", "url": "https://www.wisdomtree.com/" },
+          { "label": "NYDFS reserve requirements", "url": "https://www.dfs.ny.gov/industry_guidance/industry_letters/il20220608_issuance_stablecoins" }
+        ]
+      },
+      "governance": {
+        "key": "governance",
+        "label": "Governance",
+        "signal": "green",
+        "rationale": "NYDFS-supervised trust company governance with fiduciary duties to token holders. Public-company parent (WisdomTree, Inc., NYSE: WT) provides additional governance layer: SEC reporting, independent board, audit committee, Sarbanes-Oxley controls. Senior management subject to NYDFS fit-and-proper review. Traditional asset management governance standards applied to stablecoin operations.",
+        "sources": [
+          { "label": "WisdomTree, Inc. SEC filings", "url": "https://ir.wisdomtree.com/" },
+          { "label": "WisdomTree corporate governance", "url": "https://ir.wisdomtree.com/governance/" }
+        ]
+      },
+      "technology": {
+        "key": "technology",
+        "label": "Technology & Custody",
+        "signal": "green",
+        "rationale": "WUSD deployed on Ethereum and Stellar with audited smart contracts. Mint/burn controlled by WisdomTree Digital Trust operational keys with multi-sig governance. Reserve custody self-custodied as NYDFS-qualified custodian. Smart contracts include compliance freeze and blacklist functions. Integration with WisdomTree Prime app for retail wallet access.",
+        "sources": [
+          { "label": "WisdomTree Prime platform", "url": "https://www.wisdomtreeprime.com/" },
+          { "label": "WUSD contract addresses", "url": "https://www.wisdomtree.com/" }
+        ]
+      },
+      "redemption": {
+        "key": "redemption",
+        "label": "Redemption Mechanics",
+        "signal": "green",
+        "rationale": "Direct 1:1 USD redemption available to WisdomTree Prime account holders with KYC verification. T+1 typical settlement via banking rails. NYDFS trust framework imposes redemption obligation as fiduciary duty. Same structural framework as other NYDFS trust stablecoins (USDP, GUSD, RLUSD).",
+        "sources": [
+          { "label": "WisdomTree Prime terms", "url": "https://www.wisdomtreeprime.com/" },
+          { "label": "NYDFS redemption guidance", "url": "https://www.dfs.ny.gov/industry_guidance/industry_letters/il20220608_issuance_stablecoins" }
+        ]
+      },
+      "disclosure": {
+        "key": "disclosure",
+        "label": "Public Disclosure",
+        "signal": "green",
+        "rationale": "Monthly third-party attestations covering reserve composition. NYDFS receives ongoing supervisory reporting. Parent WisdomTree, Inc. public-company SEC disclosures (10-K, 10-Q, 8-K) provide additional group-level transparency. Disclosure cadence consistent with NYDFS trust peer standards.",
+        "sources": [
+          { "label": "WUSD transparency portal", "url": "https://www.wisdomtree.com/" },
+          { "label": "WisdomTree SEC filings", "url": "https://ir.wisdomtree.com/" }
+        ]
+      }
+    },
+    "reserve_details": "1:1 backing in NYDFS-qualifying assets: US Treasury bills with residual maturity ≤3 months, overnight reverse repos collateralised by Treasuries, and FDIC-insured deposits at US banks. Held in segregated trust accounts under NY Banking Law fiduciary segregation — bankruptcy-remote from WisdomTree Digital Trust general creditors and from WisdomTree, Inc. parent. Reserve structure structurally identical to peer NYDFS trust stablecoins.",
+    "governance_notes": "NYDFS limited-purpose trust charter for WisdomTree Digital Trust Company. Public-company parent (NYSE: WT) provides additional layer of governance: SEC reporting, Sarbanes-Oxley controls, independent board, audit committee. Traditional asset management governance heritage (~$100B AUM across ETF and fund products) brings institutional rigor distinct from crypto-native peer issuers.",
+    "technology_notes": "WUSD issued natively on Ethereum and Stellar. Mint/burn controlled by WisdomTree Digital Trust multi-sig keys. Smart contract supports compliance-driven freeze and blacklist functions. Retail-facing wallet integration via WisdomTree Prime mobile app — a fully integrated tokenized finance platform spanning stablecoins, tokenized funds, and digital asset trading.",
+    "redemption_notes": "Direct 1:1 USD redemption to WisdomTree Prime account holders with KYC verification. T+1 settlement via WisdomTree Digital Trust banking relationships. Secondary market redemption via exchanges with smaller liquidity depth than larger peer stablecoins (USDC, USDP).",
+    "disclosure_notes": "Monthly attestations on WUSD transparency portal with reserve composition. NYDFS ongoing supervisory reporting. WisdomTree, Inc. SEC filings (10-K, 10-Q) provide audited group financials and stablecoin operations disclosure as material business segment. Dual-layer transparency: trust company level + public-company level.",
+    "citations": [
+      { "label": "NYDFS Stablecoin Guidance (Jun 2022)", "url": "https://www.dfs.ny.gov/industry_guidance/industry_letters/il20220608_issuance_stablecoins" },
+      { "label": "WisdomTree, Inc. SEC filings", "url": "https://ir.wisdomtree.com/" },
+      { "label": "NY Banking Law Article III-A", "url": "https://www.nysenate.gov/legislation/laws/BNK/A3-A" },
+      { "label": "WisdomTree Prime platform", "url": "https://www.wisdomtreeprime.com/" },
+      { "label": "WisdomTree Digital Trust Company NYDFS charter", "url": "https://www.dfs.ny.gov/" }
+    ],
+    "last_reviewed": "2026-05-29",
+    "reviewer_note": "Fifth USD stablecoin under NYDFS limited-purpose trust framework (USDP, GUSD, PYUSD, RLUSD, WUSD). Distinguishing feature: parent is NYSE-listed traditional asset manager (WisdomTree, Inc.), representing the largest TradFi entry into regulated USD stablecoins to date. Useful comparator showing that NYDFS framework accommodates issuers ranging from crypto-native (Paxos, Gemini), platform-issuer split (PayPal/Paxos), to traditional asset management (WisdomTree). NYDFS trust template is the most established multi-issuer regulated stablecoin framework globally."
+  },
+  {
+    "slug": "sbi-jpys",
+    "name": "SBI VC Trade (JPYS)",
+    "ticker": "JPYS",
+    "parent": "SBI VC Trade Co., Ltd. (SBI Holdings)",
+    "jurisdiction": "Japan",
+    "jurisdiction_code": "JP",
+    "application_date": "2024-11-01",
+    "status": "under_review",
+    "peg": "JPY",
+    "type": "fiat_backed",
+    "summary": "Japanese-yen stablecoin proposal by SBI VC Trade, the crypto asset exchange subsidiary of SBI Holdings (one of Japan's largest online financial services groups). Application pending under the revised Payment Services Act framework. SBI Group has publicly committed to JPY stablecoin issuance across multiple business lines including remittances, brokerage settlement, and Web3 integration; specific issuance route (Type II Fund Transfer Service Provider vs trust-type via Progmat) subject to ongoing regulatory engagement.",
+    "sarm": {
+      "capital_adequacy": {
+        "key": "capital_adequacy",
+        "label": "Capital Adequacy",
+        "signal": "green",
+        "rationale": "SBI VC Trade operates as registered crypto asset exchange under JVCEA self-regulation and FSA supervision. Parent SBI Holdings is TSE-listed (stock code 8473) with substantial group capital across banking (SBI Sumishin Net Bank), securities (SBI Securities), and insurance subsidiaries. Stablecoin issuance under revised PSA would inherit banking-equivalent capital requirements via FTSP or trust-bank issuance route.",
+        "sources": [
+          { "label": "SBI Holdings annual report", "url": "https://www.sbigroup.co.jp/english/" },
+          { "label": "JFSA crypto asset exchange supervision", "url": "https://www.fsa.go.jp/en/" }
+        ]
+      },
+      "reserve_quality": {
+        "key": "reserve_quality",
+        "label": "Reserve Quality",
+        "signal": "gray",
+        "rationale": "Specific reserve composition design not publicly disclosed at application stage. Revised PSA bank/trust route would require 100% backing in qualifying liquid assets with trust segregation under Japanese trust law. FTSP route would impose similar 100% backing requirement. Operational reserve framework moot pending licensure approval.",
+        "sources": [
+          { "label": "Revised PSA reserve requirements", "url": "https://www.fsa.go.jp/en/" },
+          { "label": "SBI VC Trade corporate page", "url": "https://www.sbivc.co.jp/" }
+        ]
+      },
+      "governance": {
+        "key": "governance",
+        "label": "Governance",
+        "signal": "yellow",
+        "rationale": "SBI VC Trade governance under JVCEA and FSA crypto asset exchange supervision. Group oversight via SBI Holdings — TSE-listed public company with conglomerate governance structure. Multi-business-line group structure adds complexity; stablecoin-specific governance arrangements not yet operationalised. Senior management subject to FSA fit-and-proper review at exchange level; banking-equivalent review would apply post-FTSP or trust route approval.",
+        "sources": [
+          { "label": "SBI Group governance", "url": "https://www.sbigroup.co.jp/english/" },
+          { "label": "JVCEA self-regulatory framework", "url": "https://jvcea.or.jp/" }
+        ]
+      },
+      "technology": {
+        "key": "technology",
+        "label": "Technology & Custody",
+        "signal": "yellow",
+        "rationale": "SBI VC Trade operates regulated crypto asset exchange infrastructure with operational track record. Specific stablecoin smart contract architecture and chain deployment plan not publicly disclosed. Group expertise in financial technology, brokerage settlement systems, and digital asset custody. Technical implementation would inherit from existing exchange infrastructure and group fintech capabilities.",
+        "sources": [
+          { "label": "SBI VC Trade exchange infrastructure", "url": "https://www.sbivc.co.jp/" },
+          { "label": "SBI Group fintech operations", "url": "https://www.sbigroup.co.jp/english/" }
+        ]
+      },
+      "redemption": {
+        "key": "redemption",
+        "label": "Redemption Mechanics",
+        "signal": "gray",
+        "rationale": "Redemption design not publicly disclosed at application stage. Revised PSA bank/trust or FTSP routes both require par-redemption framework. SBI Group's existing banking infrastructure (SBI Sumishin Net Bank) provides natural redemption rail capability. Operational redemption framework moot pending authorisation.",
+        "sources": [
+          { "label": "Revised PSA redemption requirements", "url": "https://www.fsa.go.jp/en/" },
+          { "label": "SBI Sumishin Net Bank", "url": "https://www.netbk.co.jp/" }
+        ]
+      },
+      "disclosure": {
+        "key": "disclosure",
+        "label": "Public Disclosure",
+        "signal": "yellow",
+        "rationale": "SBI Holdings TSE-listed disclosure regime provides baseline group transparency. Crypto asset exchange disclosures under JVCEA framework. Stablecoin-specific public attestation framework not yet operationalised given pre-authorisation status. Group-level financial transparency strong; entity-level stablecoin transparency to be developed.",
+        "sources": [
+          { "label": "SBI Holdings TSE filings", "url": "https://www.sbigroup.co.jp/english/investors/" },
+          { "label": "JVCEA disclosure requirements", "url": "https://jvcea.or.jp/" }
+        ]
+      }
+    },
+    "reserve_details": "Reserve composition design not publicly disclosed at application stage. Revised PSA imposes 100% backing requirement in qualifying liquid assets under either trust-bank issuance route (segregated trust accounts at licensed trust banks) or Type II FTSP route (asset preservation requirements). SBI Group has access to SBI Sumishin Net Bank for treasury operations if pursuing bank-issuance pathway.",
+    "governance_notes": "SBI VC Trade — crypto asset exchange subsidiary under SBI Holdings (TSE-listed conglomerate). Multi-business-line group structure includes banking (SBI Sumishin Net Bank), securities (SBI Securities), insurance, and asset management subsidiaries. Stablecoin operations governance arrangement subject to which entity becomes licensed issuer. FSA fit-and-proper review at relevant entity level upon licensure.",
+    "technology_notes": "Crypto exchange infrastructure with operational track record. SBI Group has invested in multiple blockchain and digital asset initiatives including Ripple partnership for cross-border remittances. Specific stablecoin issuance technology (chains, custody, mint/burn architecture) not yet public.",
+    "redemption_notes": "Hypothetical only — pre-authorisation. Revised PSA par-redemption requirement applies once licensed. SBI Group's existing banking infrastructure (SBI Sumishin Net Bank) provides natural redemption rail capability under bank-issuance route.",
+    "disclosure_notes": "SBI Holdings TSE-listed disclosure framework provides baseline transparency. Crypto exchange operations subject to JVCEA self-regulatory disclosure standards. Stablecoin-specific transparency framework to be operationalised post-authorisation per FSA requirements.",
+    "citations": [
+      { "label": "JFSA Payment Services Act revisions (2023)", "url": "https://www.fsa.go.jp/en/news/2022/20220603-2.html" },
+      { "label": "SBI Holdings corporate page", "url": "https://www.sbigroup.co.jp/english/" },
+      { "label": "SBI VC Trade", "url": "https://www.sbivc.co.jp/" },
+      { "label": "JVCEA self-regulatory body", "url": "https://jvcea.or.jp/" },
+      { "label": "SBI Group stablecoin strategy announcements", "url": "https://www.sbigroup.co.jp/english/news/" }
+    ],
+    "last_reviewed": "2026-05-29",
+    "reviewer_note": "Reference case for Japan's conglomerate-fintech stablecoin entry pathway. Distinct from bank-issuance (GMO Aozora, Progmat infrastructure) and prepaid-fintech (JPYC) archetypes — SBI Group represents the multi-business-line financial conglomerate model. Application currently under review; eventual issuance entity and route (FTSP vs trust-bank via Progmat) not yet finalised in public disclosures. Several SARM signals marked 'gray' reflect pre-authorisation status."
   }
 ]
