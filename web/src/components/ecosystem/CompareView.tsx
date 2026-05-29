@@ -1,13 +1,13 @@
 /**
  * CompareView — side-by-side ecosystem map for two regions,
- * with a "Shared Entities" central strip.
+ * with a "Shared Entities" full-bleed anchor strip.
  */
 
 import { useState, useEffect } from 'react';
 import type { EcosystemData, EcosystemLayer, EcosystemParticipant } from '../../types/ecosystem';
 import type { Region } from './RegionSelector';
 
-// ── Entity-name normalisation (matches GlobalNetworkView) ─────────────────────
+// ── Entity-name normalisation ─────────────────────────────────────────────────
 function normaliseEntityName(raw: string): string {
   return raw
     .replace(/\s*[—–]\s*.+$/, '')
@@ -22,7 +22,7 @@ function normaliseEntityName(raw: string): string {
     .toLowerCase();
 }
 
-// ── Compute shared entities ────────────────────────────────────────────────────
+// ── Shared-entity type ────────────────────────────────────────────────────────
 interface SharedEntity {
   normalisedName: string;
   displayName: string;
@@ -31,22 +31,18 @@ interface SharedEntity {
   participant: EcosystemParticipant;
 }
 
-function findSharedEntities(
-  dataA: EcosystemData,
-  dataB: EcosystemData,
-): SharedEntity[] {
+function findSharedEntities(dataA: EcosystemData, dataB: EcosystemData): SharedEntity[] {
   const mapB = new Map<string, EcosystemParticipant>();
-  for (const layer of dataB.layers) {
+  for (const layer of dataB.layers)
     for (const p of layer.participants) {
       const key = normaliseEntityName(p.full_name || p.name);
       if (key.length >= 3) mapB.set(key, p);
     }
-  }
 
   const seen = new Set<string>();
   const results: SharedEntity[] = [];
 
-  for (const layer of dataA.layers) {
+  for (const layer of dataA.layers)
     for (const p of layer.participants) {
       const key = normaliseEntityName(p.full_name || p.name);
       if (key.length < 3 || seen.has(key)) continue;
@@ -62,13 +58,11 @@ function findSharedEntities(
         });
       }
     }
-  }
 
   return results;
 }
 
-// ── RARM signal colours (dots only) ──────────────────────────────────────────
-
+// ── RARM dot colours ──────────────────────────────────────────────────────────
 const RARM_COLOR: Record<string, string> = {
   green: '#4ade80',
   yellow: '#facc15',
@@ -76,8 +70,7 @@ const RARM_COLOR: Record<string, string> = {
   gray:  '#737C7F',
 };
 
-// ── Mini participant chip ─────────────────────────────────────────────────────
-
+// ── Mini participant chip (with popup) ────────────────────────────────────────
 function MiniParticipantChip({ p }: { p: EcosystemParticipant }) {
   const [open, setOpen] = useState(false);
   return (
@@ -113,14 +106,18 @@ function MiniParticipantChip({ p }: { p: EcosystemParticipant }) {
   );
 }
 
-// ── Mini layer card ────────────────────────────────────────────────────────────
-
+// ── Mini layer accordion row ──────────────────────────────────────────────────
 function MiniLayerCard({ layer }: { layer: EcosystemLayer }) {
   const [expanded, setExpanded] = useState(false);
   return (
     <div className="border-t border-ed-hairline">
       <button
-        className="w-full flex items-center gap-2.5 py-3 text-left"
+        className={`w-full flex items-center gap-2.5 py-ed-section-sm text-left
+          border-l-2 transition-colors pl-3
+          ${expanded
+            ? 'border-ed-ink bg-ed-surface-sunken'
+            : 'border-transparent hover:bg-ed-surface-sunken hover:border-ed-ink'
+          }`}
         onClick={() => setExpanded(e => !e)}
       >
         <div className="text-ed-eyebrow text-ed-text-faint tabular-nums w-5 shrink-0">
@@ -131,14 +128,14 @@ function MiniLayerCard({ layer }: { layer: EcosystemLayer }) {
           <div className="text-ed-eyebrow text-ed-text-muted mt-0.5">{layer.participants.length} participants</div>
         </div>
         <span
-          className="material-symbols-outlined text-[14px] text-ed-text-muted"
+          className="material-symbols-outlined text-[14px] text-ed-text-muted mr-2"
           style={{ transform: expanded ? 'rotate(180deg)' : 'none' }}
         >
           expand_more
         </span>
       </button>
       {expanded && (
-        <div className="pb-3 pl-7">
+        <div className="pb-3 pl-11">
           <p className="text-ed-meta text-ed-text-secondary leading-relaxed mb-3">{layer.description}</p>
           <div className="flex flex-wrap gap-1.5">
             {layer.participants.map(p => (
@@ -151,8 +148,7 @@ function MiniLayerCard({ layer }: { layer: EcosystemLayer }) {
   );
 }
 
-// ── Shared Entities strip ─────────────────────────────────────────────────────
-
+// ── Shared Entities — full-bleed cool strip ───────────────────────────────────
 function SharedEntitiesStrip({
   entities,
   regionAName,
@@ -167,47 +163,55 @@ function SharedEntitiesStrip({
   if (entities.length === 0) return null;
 
   return (
-    <section className="border-y border-ed-hairline py-ed-section-sm my-6">
-      <div className="flex items-center gap-3 mb-4">
-        <div className="text-ed-eyebrow uppercase text-ed-text-muted">Shared Entities</div>
-        <div className="text-ed-meta text-ed-text-primary tabular-nums">{entities.length}</div>
-        <div className="text-ed-meta text-ed-text-secondary">
-          — present in both {regionAName} and {regionBName}
-        </div>
-      </div>
-      <div className="flex flex-wrap gap-2">
-        {entities.map(e => (
-          <div key={e.normalisedName} className="relative">
-            <button
-              onClick={() => setOpenCard(openCard === e.normalisedName ? null : e.normalisedName)}
-              className="inline-flex items-center gap-1.5 px-2.5 py-1 border border-ed-hairline text-ed-meta text-ed-text-primary hover:border-ed-ink hover:bg-ed-surface-cool transition-colors"
-            >
-              ⇄ {e.displayName.split('(')[0].trim()}
-            </button>
-            {openCard === e.normalisedName && (
-              <div className="absolute z-20 top-full mt-1 left-0 min-w-[280px] max-w-[340px] border border-ed-hairline p-4 bg-ed-surface">
-                <div className="text-ed-meta font-semibold text-ed-text-primary mb-3">{e.displayName}</div>
-                <div className="grid grid-cols-2 gap-3">
-                  <div>
-                    <div className="text-ed-eyebrow uppercase text-ed-text-muted mb-1">{regionAName}</div>
-                    <p className="text-ed-meta text-ed-text-secondary leading-snug">{e.roleA}</p>
-                  </div>
-                  <div>
-                    <div className="text-ed-eyebrow uppercase text-ed-text-muted mb-1">{regionBName}</div>
-                    <p className="text-ed-meta text-ed-text-secondary leading-snug">{e.roleB}</p>
-                  </div>
-                </div>
-              </div>
-            )}
+    <section className="w-screen left-1/2 -translate-x-1/2 relative bg-ed-surface-cool border-y border-ed-hairline py-ed-section-md mb-ed-section">
+      <div className="max-w-[1400px] mx-auto px-8">
+        <div className="grid grid-cols-[auto_1fr] gap-12 items-start">
+          {/* Left: count + label */}
+          <div>
+            <div className="text-ed-eyebrow uppercase text-ed-text-muted">Shared Entities</div>
+            <div className="text-[64px] leading-none font-semibold text-ed-text-primary mt-3 tabular-nums">
+              {entities.length}
+            </div>
+            <div className="text-ed-meta text-ed-text-muted mt-2 max-w-[180px]">
+              Present in both {regionAName} and {regionBName}
+            </div>
           </div>
-        ))}
+
+          {/* Right: chips with role popup */}
+          <div className="flex flex-wrap gap-2 pt-2">
+            {entities.map(e => (
+              <div key={e.normalisedName} className="relative">
+                <button
+                  onClick={() => setOpenCard(openCard === e.normalisedName ? null : e.normalisedName)}
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-ed-surface border border-ed-hairline text-ed-meta text-ed-text-primary hover:border-ed-ink transition-colors"
+                >
+                  ⇄ {e.displayName.split('(')[0].trim()}
+                </button>
+                {openCard === e.normalisedName && (
+                  <div className="absolute z-20 top-full mt-1 left-0 min-w-[280px] max-w-[340px] border border-ed-hairline p-4 bg-ed-surface">
+                    <div className="text-ed-meta font-semibold text-ed-text-primary mb-3">{e.displayName}</div>
+                    <div className="grid grid-cols-2 gap-3">
+                      <div>
+                        <div className="text-ed-eyebrow uppercase text-ed-text-muted mb-1">{regionAName}</div>
+                        <p className="text-ed-meta text-ed-text-secondary leading-snug">{e.roleA}</p>
+                      </div>
+                      <div>
+                        <div className="text-ed-eyebrow uppercase text-ed-text-muted mb-1">{regionBName}</div>
+                        <p className="text-ed-meta text-ed-text-secondary leading-snug">{e.roleB}</p>
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
 }
 
 // ── Region column ─────────────────────────────────────────────────────────────
-
 function RegionColumn({
   data,
   regions,
@@ -225,36 +229,34 @@ function RegionColumn({
   const totalParticipants = data.layers.reduce((s, l) => s + l.participants.length, 0);
 
   return (
-    <div className="flex-1 min-w-0">
-      {/* Region selector */}
-      <div className="mb-4 flex flex-wrap gap-1.5">
-        {regions
-          .filter(r => r.status !== 'planned')
-          .map(r => (
-            <button
-              key={r.id}
-              onClick={() => onChange(r.id)}
-              className={`px-3 py-1 border text-ed-eyebrow uppercase transition-colors ${
-                r.id === activeId
-                  ? 'border-ed-ink bg-ed-surface-cool text-ed-text-primary'
-                  : 'border-ed-hairline text-ed-text-muted hover:text-ed-text-primary hover:border-ed-ink'
-              }`}
-            >
-              {r.id}
-            </button>
-          ))}
-      </div>
-
-      {/* Region title */}
-      <div className="mb-4">
-        <div className="text-ed-block-h3 text-ed-text-primary">{data.meta.title}</div>
-        <div className="text-ed-meta text-ed-text-muted mt-1">
+    <div className="min-w-0">
+      {/* Header tile: selector + title + version */}
+      <div className="bg-ed-surface-cool border border-ed-hairline px-6 py-5 mb-ed-section-sm">
+        <div className="flex flex-wrap gap-1.5 mb-4">
+          {regions
+            .filter(r => r.status !== 'planned')
+            .map(r => (
+              <button
+                key={r.id}
+                onClick={() => onChange(r.id)}
+                className={`px-3 py-1 border text-ed-eyebrow uppercase transition-colors ${
+                  r.id === activeId
+                    ? 'border-ed-ink bg-ed-surface text-ed-text-primary'
+                    : 'border-ed-hairline text-ed-text-muted hover:text-ed-text-primary hover:border-ed-ink'
+                }`}
+              >
+                {r.id}
+              </button>
+            ))}
+        </div>
+        <h2 className="text-ed-block-h3 text-ed-text-primary">{data.meta.title}</h2>
+        <div className="text-ed-meta text-ed-text-muted mt-1 tabular-nums">
           v{data.meta.version} · {new Date(data.meta.last_compiled).toLocaleDateString('en-US', { year: 'numeric', month: 'short' })}
         </div>
       </div>
 
-      {/* Stats row */}
-      <div className="grid grid-cols-3 gap-6 border-t border-ed-hairline pt-ed-section-sm mb-ed-section-sm">
+      {/* Stats */}
+      <div className="grid grid-cols-3 gap-6 py-ed-section-sm border-b border-ed-hairline mb-0">
         <div>
           <div className="text-ed-eyebrow uppercase text-ed-text-muted">Regulators</div>
           <div className="text-ed-section-h2 text-ed-text-primary mt-2 tabular-nums">{data.stats.regulators}</div>
@@ -269,7 +271,7 @@ function RegionColumn({
         </div>
       </div>
 
-      {/* Layers */}
+      {/* Layer accordion */}
       <div>
         {sortedLayers.map(layer => (
           <MiniLayerCard key={layer.id} layer={layer} />
@@ -280,8 +282,7 @@ function RegionColumn({
   );
 }
 
-// ── Main CompareView ─────────────────────────────────────────────────────────
-
+// ── Main CompareView ──────────────────────────────────────────────────────────
 interface CompareViewProps {
   regions: Region[];
   regionAId: string;
@@ -325,20 +326,22 @@ export default function CompareView({
   const loading = loadingA || loadingB;
   const regionAName = regions.find(r => r.id === regionAId)?.name ?? regionAId;
   const regionBName = regions.find(r => r.id === regionBId)?.name ?? regionBId;
-
   const sharedEntities = dataA && dataB ? findSharedEntities(dataA, dataB) : [];
 
   return (
     <div>
-      {/* Header */}
-      <div className="mb-6">
-        <h2 className="text-ed-block-h3 text-ed-text-primary">
+      {/* Hero */}
+      <section className="py-ed-hero">
+        <div className="text-ed-eyebrow uppercase text-ed-text-muted">Cross-Region Analysis</div>
+        <h1 className="text-ed-hero-h1 text-ed-text-primary mt-4">
           {regionAName}
-          <span className="mx-2 text-ed-text-secondary">↔</span>
+          <span className="mx-3 text-ed-text-secondary">↔</span>
           {regionBName}
-        </h2>
-        <div className="text-ed-meta text-ed-text-secondary mt-1">Ecosystem Comparison</div>
-      </div>
+        </h1>
+        <p className="text-ed-lede text-ed-text-secondary mt-ed-section-sm max-w-3xl">
+          Side-by-side ecosystem mapping across regulators, issuers, infrastructure and market access.
+        </p>
+      </section>
 
       {loading ? (
         <div className="flex items-center justify-center h-48">
@@ -348,6 +351,7 @@ export default function CompareView({
         </div>
       ) : (
         <>
+          {/* Shared entities — full-bleed cool anchor */}
           {sharedEntities.length > 0 && (
             <SharedEntitiesStrip
               entities={sharedEntities}
@@ -356,34 +360,37 @@ export default function CompareView({
             />
           )}
 
-          <div className="flex flex-col md:flex-row gap-8">
+          {/* Two-column grid with center spine */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-0 relative">
             {dataA && (
-              <RegionColumn
-                id={regionAId}
-                name={regionAName}
-                data={dataA}
-                regions={regions}
-                activeId={regionAId}
-                onChange={onRegionAChange}
-              />
+              <div className="pr-0 md:pr-12">
+                <RegionColumn
+                  id={regionAId}
+                  name={regionAName}
+                  data={dataA}
+                  regions={regions}
+                  activeId={regionAId}
+                  onChange={onRegionAChange}
+                />
+              </div>
             )}
-
-            {/* Divider */}
-            <div className="hidden md:flex flex-col items-center gap-2 pt-12">
-              <div className="w-px flex-1 bg-ed-hairline" />
-              <span className="text-ed-text-muted text-xs">↔</span>
-              <div className="w-px flex-1 bg-ed-hairline" />
-            </div>
-
             {dataB && (
-              <RegionColumn
-                id={regionBId}
-                name={regionBName}
-                data={dataB}
-                regions={regions}
-                activeId={regionBId}
-                onChange={onRegionBChange}
-              />
+              <div className="pl-0 md:pl-12 md:border-l md:border-ed-hairline">
+                <RegionColumn
+                  id={regionBId}
+                  name={regionBName}
+                  data={dataB}
+                  regions={regions}
+                  activeId={regionBId}
+                  onChange={onRegionBChange}
+                />
+              </div>
+            )}
+            {/* Centre ↔ badge — desktop only */}
+            {dataA && dataB && (
+              <div className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-ed-canvas border border-ed-hairline items-center justify-center text-ed-text-secondary">
+                ↔
+              </div>
             )}
           </div>
         </>
