@@ -8,6 +8,7 @@ import SARMBar from '../../components/SARMBar';
 import IssuerLogo from '../../components/IssuerLogo';
 import { Eyebrow } from '../../components/Eyebrow';
 import { FilterPill } from '../../components/FilterPill';
+import { BigStat, BigStatRibbon } from '../../components/BigStat';
 import { usePagination } from '../../hooks/usePagination';
 
 // ── Constants ─────────────────────────────────────────────────────────────────
@@ -121,34 +122,13 @@ export default function LicensesOverview() {
       </section>
 
       {/* ── Stats ribbon ─────────────────────────────────────────────────── */}
-      <section className="border-y border-ed-hairline py-3 flex flex-wrap items-center gap-x-8 gap-y-2">
-        <div className="flex items-center gap-2">
-          <span className="text-ed-eyebrow text-ed-text-muted">Issuers tracked</span>
-          <span className="text-ed-body text-ed-ink tabular-nums">{issuers.length}</span>
-        </div>
-        <div className="flex items-center gap-2">
-          <span className="text-ed-eyebrow text-ed-text-muted">Jurisdictions</span>
-          <span className="text-ed-body text-ed-ink tabular-nums">{jurisdictions.length}</span>
-        </div>
-        <div className="flex items-center gap-2">
-          <span className="text-ed-eyebrow text-ed-text-muted">Licensed</span>
-          <span className="text-ed-body tabular-nums" style={{ color: globalCounts.licensed > 0 ? '#2E7D32' : '#A8A29E' }}>
-            {globalCounts.licensed}
-          </span>
-        </div>
-        <div className="flex items-center gap-2">
-          <span className="text-ed-eyebrow text-ed-text-muted">Under review</span>
-          <span className="text-ed-body tabular-nums" style={{ color: globalCounts.under_review > 0 ? '#e09d2b' : '#A8A29E' }}>
-            {globalCounts.under_review}
-          </span>
-        </div>
-        <div className="flex items-center gap-2">
-          <span className="text-ed-eyebrow text-ed-text-muted">Sandbox</span>
-          <span className="text-ed-body tabular-nums" style={{ color: globalCounts.sandbox > 0 ? '#1565C0' : '#A8A29E' }}>
-            {globalCounts.sandbox}
-          </span>
-        </div>
-      </section>
+      <BigStatRibbon cols={5}>
+        <BigStat value={issuers.length}             label="Issuers Tracked" />
+        <BigStat value={jurisdictions.length}       label="Jurisdictions" />
+        <BigStat value={globalCounts.licensed}      label="Licensed"      valueColor={globalCounts.licensed     > 0 ? '#2E7D32' : '#A8A29E'} />
+        <BigStat value={globalCounts.under_review}  label="Under Review"  valueColor={globalCounts.under_review > 0 ? '#e09d2b' : '#A8A29E'} />
+        <BigStat value={globalCounts.sandbox}       label="Sandbox"       valueColor={globalCounts.sandbox      > 0 ? '#1565C0' : '#A8A29E'} />
+      </BigStatRibbon>
 
       {/* ── Tab strip ────────────────────────────────────────────────────── */}
       <div className="border-b border-ed-hairline mt-ed-section-sm">

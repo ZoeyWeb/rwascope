@@ -4,6 +4,7 @@ import { Link, useSearchParams } from 'react-router-dom';
 import type { Project, ProjectAssetClass, ProjectStatus } from '../../types/projects';
 import { ASSET_CLASS_META, STATUS_META } from '../../types/projects';
 import { projectsApi } from '../../api/client';
+import { BigStat, BigStatRibbon } from '../../components/BigStat';
 
 const RISK_FLAG_LABELS: Record<string, string> = {
   de_peg: 'De-peg', regulatory_action: 'Regulatory Action', audit_issue: 'Audit Issue',
@@ -392,69 +393,51 @@ export default function ProjectsList() {
           Structured anatomy of leading RWA tokenization projects — entity maps, RARM reference
           assessments, and regulatory context. Curated from public disclosures.
         </p>
-        <p className="text-ed-body text-ed-text-muted max-w-2xl">
-          Not a platform rating or investment recommendation. Use the{' '}
-          <Link to="/score" className="underline hover:text-ed-text-primary transition-colors">
-            Due Diligence Workbook
-          </Link>{' '}
-          to build your own private RARM assessment.
-        </p>
       </section>
 
-      {/* ── At a Glance — full-bleed cool ─────────────────────────────────── */}
-      <div className="w-screen relative left-1/2 -translate-x-1/2 bg-ed-surface-cool border-y border-ed-hairline">
-        <div className="max-w-[1400px] mx-auto px-8 py-8">
-          <div className="grid grid-cols-2 sm:grid-cols-4 divide-x divide-ed-hairline">
-            {([
-              { label: 'Total profiles',  value: glanceStats.total },
-              { label: 'Active',          value: glanceStats.active },
-              { label: 'Jurisdictions',   value: glanceStats.jurisdictions },
-              { label: 'Asset classes',   value: glanceStats.assetClasses },
-            ] as const).map(({ label, value }) => (
-              <div key={label} className="px-8 first:pl-0 last:pr-0 py-1">
-                <div className="text-ed-section-h2 font-semibold text-ed-text-primary tabular-nums leading-none mb-1">
-                  {value}
-                </div>
-                <div className="text-ed-eyebrow uppercase tracking-[0.12em] text-ed-text-muted">
-                  {label}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
+      {/* ── Stats ribbon ─────────────────────────────────────────────────── */}
+      <BigStatRibbon>
+        <BigStat value={glanceStats.total}        label="Total Profiles" />
+        <BigStat value={glanceStats.active}       label="Active"         valueColor="#2E7D32" />
+        <BigStat value={glanceStats.jurisdictions} label="Jurisdictions" />
+        <BigStat value={glanceStats.assetClasses} label="Asset Classes"  />
+      </BigStatRibbon>
 
       {/* ── Directory ─────────────────────────────────────────────────────── */}
       <section className="max-w-[1400px] mx-auto px-8 py-12">
 
         {/* Tab bar */}
-        <div className="flex gap-0 border-b border-ed-hairline mb-8">
-          <button
-            onClick={() => switchView('active')}
-            className={`px-0 mr-8 py-3 text-ed-body-lg font-medium border-b-2 -mb-px transition-colors ${
-              view === 'active'
-                ? 'border-ed-ink text-ed-text-primary'
-                : 'border-transparent text-ed-text-muted hover:text-ed-text-primary'
-            }`}
-          >
-            Active Projects
-            <span className="ml-2 text-ed-meta text-ed-text-faint tabular-nums">
-              {activeProjects.length}
-            </span>
-          </button>
-          <button
-            onClick={() => switchView('lessons')}
-            className={`px-0 py-3 text-ed-body-lg font-medium border-b-2 -mb-px transition-colors flex items-center gap-2 ${
-              view === 'lessons'
-                ? 'border-ed-incident text-ed-incident'
-                : 'border-transparent text-ed-text-muted hover:text-ed-text-primary'
-            }`}
-          >
-            Lessons Learned
-            <span className="text-ed-meta text-ed-text-faint tabular-nums">
-              {lessonsProjects.length}
-            </span>
-          </button>
+        <div className="border-b border-ed-hairline mb-8">
+          <div className="flex items-end justify-between">
+            <div className="flex gap-12">
+              <button
+                onClick={() => switchView('active')}
+                className={`pb-3 text-ed-body-lg font-medium border-b-2 -mb-px transition-colors ${
+                  view === 'active'
+                    ? 'border-ed-ink text-ed-text-primary'
+                    : 'border-transparent text-ed-text-muted hover:text-ed-text-primary'
+                }`}
+              >
+                Active Projects
+                <span className="ml-2 text-ed-meta text-ed-text-faint tabular-nums">
+                  {activeProjects.length}
+                </span>
+              </button>
+              <button
+                onClick={() => switchView('lessons')}
+                className={`pb-3 text-ed-body-lg font-medium border-b-2 -mb-px transition-colors flex items-center gap-2 ${
+                  view === 'lessons'
+                    ? 'border-ed-incident text-ed-incident'
+                    : 'border-transparent text-ed-text-muted hover:text-ed-text-primary'
+                }`}
+              >
+                Lessons Learned
+                <span className="ml-2 text-ed-meta text-ed-text-faint tabular-nums">
+                  {lessonsProjects.length}
+                </span>
+              </button>
+            </div>
+          </div>
         </div>
 
         {/* Lessons context strip */}
@@ -596,6 +579,11 @@ export default function ProjectsList() {
           <p className="text-ed-meta text-ed-text-faint">
             Profiles sourced from official project websites, regulator filings, and DeFiLlama.
             Coverage expanding.
+          </p>
+          <p className="text-ed-meta text-ed-text-secondary max-w-[860px] mt-3">
+            Not a platform rating or investment recommendation. Use the{' '}
+            <Link to="/score" className="underline">Due Diligence Workbook</Link>{' '}
+            to build your own private RARM assessment.
           </p>
         </div>
 

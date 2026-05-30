@@ -351,8 +351,11 @@ AdminReview.tsx   — /intelligence/admin, pending-queue triage (approve/reject/
 
 Cron:
 ```bash
-0 6 * * * python3 /opt/rwascope-backend/scripts/fetch_intelligence.py
-0 8 * * 1 python3 /opt/rwascope-backend/scripts/generate_weekly_report.py
+0 */6 * * * cd /opt/rwascope-backend && /opt/rwascope-backend/venv/bin/python3 scripts/fetch_rss.py
+0 */6 * * * cd /opt/rwascope-backend && /opt/rwascope-backend/venv/bin/python3 scripts/parse_emails.py
+0 */6 * * * cd /opt/rwascope-backend && /opt/rwascope-backend/venv/bin/python3 scripts/monitor_github_repos.py
+0 8   * * 1 cd /opt/rwascope-backend && /opt/rwascope-backend/venv/bin/python3 scripts/fetch_intelligence.py --weekly
+0 9   * * 1 cd /opt/rwascope-backend && source venv/bin/activate && python scripts/send_weekly_policy.py
 ```
 
 Dev note: never commit DB dumps. `*.sql`/`*.dump` are gitignored — seed local data via the ingestion scripts, not a committed `pg_dump`.

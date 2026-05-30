@@ -10,6 +10,7 @@ import { FilterPill } from '../../components/FilterPill';
 import { RARMBar } from '../../components/RARMBar';
 import SignalDot from '../../components/SignalDot';
 import { usePagination } from '../../hooks/usePagination';
+import { BigStat, BigStatRibbon } from '../../components/BigStat';
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 
@@ -28,19 +29,6 @@ function formatTvl(n?: number): string {
 
 // ── Inline sub-components ─────────────────────────────────────────────────────
 
-function Stat({ label, value, valueColor }: { label: string; value: string | number; valueColor?: string }) {
-  return (
-    <div className="flex items-baseline gap-2">
-      <span className="text-ed-eyebrow text-ed-text-muted uppercase tracking-[0.18em]">{label}</span>
-      <span
-        className={`text-ed-item-h4 tabular-nums ${valueColor ? '' : 'text-ed-ink'}`}
-        style={valueColor ? { color: valueColor } : undefined}
-      >
-        {value}
-      </span>
-    </div>
-  );
-}
 
 function TabButton({
   active, onClick, children,
@@ -519,14 +507,12 @@ export default function AssetsOverview() {
       </section>
 
       {/* ── Stats ribbon ─────────────────────────────────────────────────── */}
-      <section className="border-y border-ed-hairline py-3">
-        <div className="max-w-[1400px] mx-auto px-8 flex flex-wrap gap-x-12 gap-y-3">
-          <Stat label="Assets"               value={totalAssets} />
-          <Stat label="Categories"           value={categoryCount} />
-          <Stat label="Active"               value={activeCount} valueColor="#2E7D32" />
-          <Stat label="Aggregate TVL (est.)" value={`$${(totalTvl / 1e9).toFixed(1)}B`} />
-        </div>
-      </section>
+      <BigStatRibbon>
+        <BigStat value={totalAssets}                               label="Assets" />
+        <BigStat value={categoryCount}                             label="Categories" />
+        <BigStat value={activeCount}                               label="Active"               valueColor="#2E7D32" />
+        <BigStat value={`$${(totalTvl / 1e9).toFixed(1)}B`}       label="Aggregate TVL (est.)" />
+      </BigStatRibbon>
 
       {/* ── Tab strip ────────────────────────────────────────────────────── */}
       <div className="border-b border-ed-hairline mt-ed-section-sm">

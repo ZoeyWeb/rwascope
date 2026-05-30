@@ -2,7 +2,8 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import type { ComplianceMatrix, ComplianceSignal } from '../../types/compliance';
 import { SIGNAL_META, populatedCellCount } from '../../utils/compliance';
-import DisclaimerBanner from '../../components/DisclaimerBanner';
+import { Eyebrow } from '../../components/Eyebrow';
+import { BigStat, BigStatRibbon } from '../../components/BigStat';
 
 const ISSUES_ORDER = [
   'rwa_issuance',
@@ -92,7 +93,9 @@ export default function ComplianceMap() {
   if (loading) {
     return (
       <div className="flex items-center justify-center h-64">
-        <span className="text-[#737C7F] text-sm">Loading compliance matrix…</span>
+        <span className="material-symbols-outlined animate-spin text-ed-text-muted text-ed-section-h2">
+          progress_activity
+        </span>
       </div>
     );
   }
@@ -100,7 +103,7 @@ export default function ComplianceMap() {
   if (!matrix) {
     return (
       <div className="flex items-center justify-center h-64">
-        <span className="text-[#737C7F] text-sm">Failed to load compliance data.</span>
+        <span className="text-ed-body text-ed-text-muted">Failed to load compliance data.</span>
       </div>
     );
   }
@@ -108,7 +111,6 @@ export default function ComplianceMap() {
   const populated = populatedCellCount(matrix);
   const total = matrix.jurisdictions.length * matrix.issues.length;
 
-  // Build ordered jurisdiction/issue arrays for rendering
   const jurisdictions = JURISDICTIONS_ORDER
     .map((code) => matrix.jurisdictions.find((j) => j.code === code))
     .filter(Boolean) as typeof matrix.jurisdictions;
@@ -117,14 +119,12 @@ export default function ComplianceMap() {
     .map((code) => matrix.issues.find((i) => i.code === code))
     .filter(Boolean) as typeof matrix.issues;
 
-  // Filtered cells for list view
   const filteredCells = matrix.cells.filter((cell) => {
     if (filterSignal !== 'all' && cell.status_signal !== filterSignal) return false;
     if (filterJurisdiction !== 'all' && cell.jurisdiction !== filterJurisdiction) return false;
     return true;
   });
 
-  // Signal counts for stats bar
   const signalCounts = matrix.cells.reduce(
     (acc, c) => {
       acc[c.status_signal] = (acc[c.status_signal] || 0) + 1;
@@ -134,109 +134,97 @@ export default function ComplianceMap() {
   );
 
   return (
-    <div className="max-w-screen-2xl mx-auto px-6 py-8">
-      {/* Header */}
-      <div className="mb-6">
-        <h1 className="text-2xl font-bold text-[#2B3437] font-headline mb-1">
+    <div className="max-w-[1400px] mx-auto px-8">
+
+      {/* ── Hero ─────────────────────────────────────────────────────────── */}
+      <section className="pt-ed-section-md pb-ed-section-sm">
+        <Eyebrow>Cross-Border Compliance</Eyebrow>
+        <h1 className="text-ed-hero-h1 text-ed-ink mt-ed-section-sm">
           Cross-Border RWA Compliance Map
         </h1>
-        <p className="text-sm text-[#737C7F] max-w-2xl">
+        <p className="text-ed-lede text-ed-text-secondary max-w-[720px] mt-ed-section-sm">
           A jurisdiction-by-issue overview of the regulatory landscape for tokenized real-world
           assets and stablecoins across Hong Kong, Mainland China, Singapore, the United States,
           and the European Union.
         </p>
-        <div className="flex items-center gap-3 mt-3">
-          <Link
-            to="/compliance/methodology"
-            className="text-xs text-[#5E5C75] hover:underline"
-          >
-            Methodology
-          </Link>
-          <span className="text-[#DBE4E7]">·</span>
-          <span className="text-xs text-[#737C7F]">
-            v{matrix.matrix_version} · compiled {matrix.last_compiled}
-          </span>
-        </div>
-      </div>
+      </section>
 
-      <DisclaimerBanner text={matrix.disclaimer} />
+      {/* ── Stats ribbon ─────────────────────────────────────────────────── */}
+      <BigStatRibbon>
+        <BigStat value={`${populated} / ${total}`}         label="Cells Populated" />
+        <BigStat value={signalCounts['open']        ?? 0}  label="Open"        valueColor="#2E7D32" />
+        <BigStat value={signalCounts['conditional'] ?? 0}  label="Conditional" valueColor="#e09d2b" />
+        <BigStat value={signalCounts['restricted']  ?? 0}  label="Restricted"  valueColor="#9e3f4e" />
+        {(signalCounts['placeholder'] ?? 0) > 0 && (
+          <BigStat value={signalCounts['placeholder']} label="Pending" valueColor="#9ca3af" />
+        )}
+      </BigStatRibbon>
 
-      {/* Stats bar */}
-      <div className="flex flex-wrap gap-3 my-5">
-        <StatPill label="Cells populated" value={`${populated} / ${total}`} />
-        {(['open', 'conditional', 'restricted'] as ComplianceSignal[]).map((sig) => (
-          <StatPill
-            key={sig}
-            label={SIGNAL_META[sig].label}
-            value={String(signalCounts[sig] || 0)}
-            color={SIGNAL_META[sig].dot}
-          />
-        ))}
-      </div>
-
-      {/* Legend */}
-      <div className="flex flex-wrap items-center gap-4 mb-5">
-        {(['open', 'conditional', 'restricted', 'placeholder'] as ComplianceSignal[]).map((sig) => {
-          const meta = SIGNAL_META[sig];
-          return (
-            <div key={sig} className="flex items-center gap-1.5 text-xs text-[#586064]">
-              <span className="w-2.5 h-2.5 rounded-full" style={{ background: meta.dot }} />
-              <span>{meta.label}</span>
-            </div>
-          );
-        })}
-        <span className="text-xs text-[#9ca3af] ml-1">— = pending research</span>
-      </div>
-
-      {/* View toggle */}
-      <div className="flex items-center justify-between mb-4">
-        <div className="flex rounded border border-[#DBE4E7] overflow-hidden text-xs">
-          {(['matrix', 'list'] as ViewMode[]).map((mode) => (
+      {/* ── Tab strip ────────────────────────────────────────────────────── */}
+      <div className="border-b border-ed-hairline mt-ed-section-sm">
+        <div className="flex items-end justify-between">
+          <div className="flex gap-12">
             <button
-              key={mode}
-              onClick={() => setViewMode(mode)}
-              className={`px-3 py-1.5 capitalize transition-colors ${
-                viewMode === mode
-                  ? 'bg-[#2B3437] text-white'
-                  : 'bg-white text-[#586064] hover:bg-[#EAEFF1]'
+              onClick={() => setViewMode('matrix')}
+              className={`pb-3 text-ed-item-h4 transition-colors ${
+                viewMode === 'matrix'
+                  ? 'text-ed-ink border-b-2 border-ed-ink -mb-px'
+                  : 'text-ed-text-secondary hover:text-ed-ink'
               }`}
             >
-              {mode === 'matrix' ? 'Matrix' : 'List'}
+              Matrix
             </button>
-          ))}
-        </div>
-
-        {viewMode === 'list' && (
-          <div className="flex items-center gap-2 text-xs">
-            <select
-              value={filterJurisdiction}
-              onChange={(e) => setFilterJurisdiction(e.target.value)}
-              className="border border-[#DBE4E7] rounded px-2 py-1 text-[#2B3437] bg-white"
+            <button
+              onClick={() => setViewMode('list')}
+              className={`pb-3 text-ed-item-h4 transition-colors ${
+                viewMode === 'list'
+                  ? 'text-ed-ink border-b-2 border-ed-ink -mb-px'
+                  : 'text-ed-text-secondary hover:text-ed-ink'
+              }`}
             >
-              <option value="all">All jurisdictions</option>
-              {matrix.jurisdictions.map((j) => (
-                <option key={j.code} value={j.code}>{j.name}</option>
-              ))}
-            </select>
-            <select
-              value={filterSignal}
-              onChange={(e) => setFilterSignal(e.target.value as ComplianceSignal | 'all')}
-              className="border border-[#DBE4E7] rounded px-2 py-1 text-[#2B3437] bg-white"
-            >
-              <option value="all">All signals</option>
-              {(['open', 'conditional', 'restricted', 'placeholder'] as ComplianceSignal[]).map(
-                (sig) => (
-                  <option key={sig} value={sig}>{SIGNAL_META[sig].label}</option>
-                )
-              )}
-            </select>
+              List
+            </button>
           </div>
-        )}
+          <Link
+            to="/compliance/methodology"
+            className="text-ed-meta text-ed-text-muted hover:text-ed-ink pb-3 transition-colors"
+          >
+            Compliance Methodology →
+          </Link>
+        </div>
       </div>
 
-      {/* MATRIX VIEW */}
+      {/* ── List filters (list mode only) ────────────────────────────────── */}
+      {viewMode === 'list' && (
+        <div className="flex items-center gap-3 pt-ed-section-sm">
+          <select
+            value={filterJurisdiction}
+            onChange={(e) => setFilterJurisdiction(e.target.value)}
+            className="border border-ed-hairline px-3 py-2 text-ed-meta bg-ed-surface focus:outline-none focus:ring-1 focus:ring-ed-ink/20"
+          >
+            <option value="all">All jurisdictions</option>
+            {matrix.jurisdictions.map((j) => (
+              <option key={j.code} value={j.code}>{j.name}</option>
+            ))}
+          </select>
+          <select
+            value={filterSignal}
+            onChange={(e) => setFilterSignal(e.target.value as ComplianceSignal | 'all')}
+            className="border border-ed-hairline px-3 py-2 text-ed-meta bg-ed-surface focus:outline-none focus:ring-1 focus:ring-ed-ink/20"
+          >
+            <option value="all">All signals</option>
+            {(['open', 'conditional', 'restricted', 'placeholder'] as ComplianceSignal[]).map(
+              (sig) => (
+                <option key={sig} value={sig}>{SIGNAL_META[sig].label}</option>
+              )
+            )}
+          </select>
+        </div>
+      )}
+
+      {/* ── Matrix view ──────────────────────────────────────────────────── */}
       {viewMode === 'matrix' && (
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto pt-ed-section-sm">
           <table className="w-full border-collapse min-w-[640px]">
             <thead>
               <tr>
@@ -287,11 +275,13 @@ export default function ComplianceMap() {
         </div>
       )}
 
-      {/* LIST VIEW */}
+      {/* ── List view ────────────────────────────────────────────────────── */}
       {viewMode === 'list' && (
-        <div className="space-y-2">
+        <div className="space-y-2 mt-4">
           {filteredCells.length === 0 && (
-            <p className="text-sm text-[#737C7F] py-8 text-center">No cells match the selected filters.</p>
+            <p className="text-ed-body text-ed-text-muted py-8 text-center">
+              No cells match the selected filters.
+            </p>
           )}
           {filteredCells.map((cell) => {
             const j = matrix.jurisdictions.find((x) => x.code === cell.jurisdiction);
@@ -300,24 +290,24 @@ export default function ComplianceMap() {
               <Link
                 key={`${cell.jurisdiction}-${cell.issue}`}
                 to={`/compliance/${cell.jurisdiction}/${cell.issue}`}
-                className="flex items-start gap-4 p-4 bg-white border border-[#DBE4E7] rounded hover:border-[#5E5C75] transition-colors"
+                className="flex items-start gap-4 p-4 bg-ed-surface border border-ed-hairline hover:border-[#5E5C75] transition-colors"
               >
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2 mb-1">
-                    <span className="text-xs font-semibold text-[#2B3437] bg-[#EAEFF1] px-1.5 py-0.5 rounded">
+                    <span className="text-ed-eyebrow text-ed-ink bg-ed-surface-cool px-1.5 py-0.5">
                       {cell.jurisdiction}
                     </span>
-                    <span className="text-xs text-[#737C7F]">{j?.name}</span>
-                    <span className="text-[#DBE4E7]">·</span>
-                    <span className="text-xs font-medium text-[#2B3437]">{issue?.title}</span>
+                    <span className="text-ed-meta text-ed-text-muted">{j?.name}</span>
+                    <span className="text-ed-hairline">·</span>
+                    <span className="text-ed-meta text-ed-ink">{issue?.title}</span>
                   </div>
-                  <p className="text-xs text-[#586064] line-clamp-2">
+                  <p className="text-ed-meta text-ed-text-secondary line-clamp-2">
                     {cell.status_signal === 'placeholder'
                       ? 'Research pending — click to view placeholder.'
                       : cell.summary}
                   </p>
                   {cell.last_reviewed && (
-                    <span className="text-[10px] text-[#9ca3af] mt-1 block">
+                    <span className="text-ed-meta text-ed-text-faint mt-1 block">
                       Reviewed {cell.last_reviewed}
                     </span>
                   )}
@@ -329,35 +319,47 @@ export default function ComplianceMap() {
         </div>
       )}
 
-      {/* Bottom disclaimer */}
-      <div className="mt-10 pt-6 border-t border-[#DBE4E7] text-xs text-[#737C7F] leading-relaxed">
-        This matrix is for educational and research purposes only. It does not constitute legal
-        advice. Cells marked "Pending" have not yet been researched; they navigate to a placeholder
-        page. Practitioners should obtain qualified legal advice in each jurisdiction.{' '}
-        <Link to="/compliance/methodology" className="text-[#5E5C75] hover:underline">
-          Full methodology →
-        </Link>
-      </div>
-    </div>
-  );
-}
+      {/* ── Footer: legend + disclaimer + meta ──────────────────────────── */}
+      <section className="border-t border-ed-hairline mt-ed-section-md pt-ed-section-sm pb-ed-section-md space-y-ed-section-sm">
 
-function StatPill({
-  label,
-  value,
-  color,
-}: {
-  label: string;
-  value: string;
-  color?: string;
-}) {
-  return (
-    <div className="flex items-center gap-2 bg-white border border-[#DBE4E7] rounded px-3 py-1.5">
-      {color && (
-        <span className="w-2 h-2 rounded-full flex-shrink-0" style={{ background: color }} />
-      )}
-      <span className="text-xs text-[#737C7F]">{label}</span>
-      <span className="text-xs font-semibold text-[#2B3437]">{value}</span>
+        {/* Legend */}
+        <div>
+          <div className="text-ed-eyebrow uppercase tracking-[0.18em] text-ed-text-muted mb-3">
+            Legend
+          </div>
+          <div className="flex flex-wrap gap-x-6 gap-y-2 text-ed-meta text-ed-text-secondary">
+            <span className="flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full" style={{ background: '#2E7D32' }} />
+              Open
+            </span>
+            <span className="flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full" style={{ background: '#e09d2b' }} />
+              Conditional
+            </span>
+            <span className="flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full" style={{ background: '#9e3f4e' }} />
+              Restricted
+            </span>
+            <span className="flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full" style={{ background: '#9ca3af' }} />
+              Pending
+            </span>
+            <span className="text-ed-text-muted">— = pending research</span>
+          </div>
+        </div>
+
+        {/* Disclaimer */}
+        <p className="text-ed-meta text-ed-text-secondary max-w-[860px]">
+          {matrix.disclaimer}
+        </p>
+
+        {/* Meta */}
+        <div className="text-ed-meta text-ed-text-muted">
+          Methodology · v{matrix.matrix_version} · compiled {matrix.last_compiled}
+        </div>
+
+      </section>
+
     </div>
   );
 }

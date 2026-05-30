@@ -1,7 +1,7 @@
 # RWAscope Design Language
 
-**Version:** 1.0.1
-**Date:** 2026-05-27
+**Version:** 1.0.2
+**Date:** 2026-05-30
 **Status:** Authoritative reference for all UI work
 **Maintainer:** Zoey (Yizhou Wen)
 **Scope:** All pages under `web/src/screens/`
@@ -214,13 +214,38 @@ const { visible, loadMore, canLoadMore } = usePagination(items, 20);
 
 Task 7 extracts `usePagination`. It must reset `visibleCount` when the source array identity changes (the current NewsSection bug).
 
-### 3.6 Section divider
+### 3.6 Stats Ribbon (`<BigStatRibbon>` / `<BigStat>`)
+
+Used immediately below the hero on data-intensive pages (Projects, Assets, Licenses, Compliance). Shows 4–5 key counts at a glance.
+
+```tsx
+import { BigStat, BigStatRibbon } from '../../components/BigStat';
+
+<BigStatRibbon>               {/* cols={5} for 5-stat pages */}
+  <BigStat value={42}    label="Total" />
+  <BigStat value={29}    label="Active"   valueColor="#2E7D32" />
+  <BigStat value={12}    label="Pending"  valueColor="#e09d2b" />
+  <BigStat value="$1.2B" label="TVL" />
+</BigStatRibbon>
+```
+
+**Rules:**
+- Background: `bg-ed-surface-cool` (cool grey, full-bleed). Never `sunken` — reserve warm sand for narrative sections.
+- Grid: `grid-cols-2 sm:grid-cols-4` (or `sm:grid-cols-5`). Divided by `divide-x divide-ed-hairline`.
+- Number: `text-ed-section-h2 font-semibold text-ed-text-primary tabular-nums`. Optional `valueColor` for signal colours (green/amber/red/gray).
+- Label: `text-ed-eyebrow text-ed-text-muted uppercase` below the number with `mt-2`.
+- Default number colour is `text-ed-text-primary` (no signal). Add `valueColor` only where the count has a status meaning (licensed = green, restricted = red, etc.).
+- Forbidden: rounded corners, drop shadow, boxed border around individual stats, progress bars, percentage bars.
+
+### 3.7 Section divider
 
 ```tsx
 <div className="border-t border-ed-hairline my-ed-section" />
 ```
 
 A bare hairline with `ed-section` margin top+bottom. No "fancy" dividers, no labelled separators.
+
+**Note:** section numbering shifted to 3.7 after insertion of Stats Ribbon (§3.6) in v1.0.2.
 
 ---
 
@@ -378,7 +403,7 @@ Global network view. Region clusters as map dots + horizontal-bar regional activ
 - `rounded-md` / `rounded-lg` / `shadow-md` / `shadow-lg`
 - Coloured chips (purple/green/blue) outside `ed-incident` red
 - Donut / pie charts
-- KPI tiles with big numbers (4-card row at top of page)
+- Dashboard-style KPI tiles: boxed, shadowed, rounded, independent card-per-stat
 - Two `ed-surface-cool` or two `ed-surface-sunken` sections back-to-back
 - "Showing X of Y" totals when total is editorial filler, not user-actionable
 - Eyebrow-sized section headers (eyebrow is a label, H2 is the header)
@@ -434,6 +459,7 @@ Three components use the old semantic colour families (`ed-warn-*`, `ed-info-*`,
 |---------|------------|-------------------------------------------------------|
 | 1.0     | 2026-05-27 | Initial document. Reconstructed after `web/docs/design-language.md` was found missing post-handoff. Based on `web/docs/design-system-audit.md`, `tailwind.config.js`, `web/src/index.css`, and prior session decisions (memory525, memory527). |
 | 1.0.1   | 2026-05-27 | Cleanup pass 1 complete. §6 all tasks ✅. §9 v1.1 deferred items detailed: ed-accent visual delta, semantic colour islands (PolicyImpactCard / DataMilestoneCard / DisclaimerBanner), pending extractions (Chip, SectionHeader, SemanticBadge, source-tab). |
+| 1.0.2   | 2026-05-30 | Add Stats Ribbon pattern (§3.6) as `<BigStat>` + `<BigStatRibbon>`. Migrate Projects, Assets, Licenses, Compliance. Anti-pattern updated: KPI tiles rule now targets boxed/shadowed/rounded variants; editorial big-number grid (bg-ed-surface-cool, hairline dividers) is canonical. Remove shared `Stat` inline component (superseded). |
 
 **Change protocol:** Any new token, new component, or change to Anti-Patterns requires a version bump and a row in this table. Cleanup tasks §6 land under v1.0 — they're enforcement, not change.
 
