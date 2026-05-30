@@ -40,7 +40,7 @@ export default function Home() {
     <div className="bg-[#F1F4F6]">
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
       <section className="bg-[#1A1A2E] text-white">
-        <div className="max-w-7xl mx-auto px-8 pt-24 pb-20 md:pt-32 md:pb-24">
+        <div className="max-w-[1400px] mx-auto px-8 pt-24 pb-20 md:pt-32 md:pb-24">
 
           {/* Headline row: h1 left, ring right, bottom-aligned so ring center ≈ subtitle midpoint */}
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between">
