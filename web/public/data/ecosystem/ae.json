@@ -21,6 +21,11 @@
     "infrastructure_chains": 4,
     "professional_enablers": 6
   },
+  "featured_stats": [
+    { "key": "regulators",                        "label": "Regulators" },
+    { "key": "licensed_vatps",                    "label": "Licensed VATPs" },
+    { "key": "real_estate_tokenization_platforms","label": "Real Estate Platforms" }
+  ],
   "layers": [
     {
       "id": "regulatory",

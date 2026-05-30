@@ -23,6 +23,11 @@
     "licensed_vatps": 12,
     "hk_linked_rwa_protocols": 8
   },
+  "featured_stats": [
+    { "key": "licensed_stablecoin_issuers", "label": "Licensed Issuers" },
+    { "key": "ensembletx_institutions",     "label": "EnsembleTX" },
+    { "key": "licensed_vatps",              "label": "Licensed VATPs" }
+  ],
   "layers": [
     {
       "id": "regulatory",

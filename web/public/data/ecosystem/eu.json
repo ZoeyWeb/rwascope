@@ -27,6 +27,11 @@
     "market_access_participants": 4,
     "professional_enablers": 6
   },
+  "featured_stats": [
+    { "key": "regulators",           "label": "Regulators" },
+    { "key": "financial_institutions","label": "Financial Institutions" },
+    { "key": "issuance_platforms",   "label": "Issuance Platforms" }
+  ],
   "layers": [
     {
       "id": "regulatory",

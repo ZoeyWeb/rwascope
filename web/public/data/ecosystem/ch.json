@@ -21,6 +21,11 @@
     "issuance_platforms": 5,
     "professional_enablers": 6
   },
+  "featured_stats": [
+    { "key": "licensed_digital_asset_banks", "label": "Digital Asset Banks" },
+    { "key": "issuance_platforms",           "label": "Issuance Platforms" },
+    { "key": "professional_enablers",        "label": "Professional Enablers" }
+  ],
   "layers": [
     {
       "id": "regulatory",

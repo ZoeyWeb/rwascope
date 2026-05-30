@@ -56,19 +56,14 @@ export interface EcosystemLayer {
 export interface EcosystemGap {
   id: string;
   layer_id: string;
-  gap_type: GapType;
+  type: GapType;
   title: string;
   description: string;
   severity: GapSeverity;
 }
 
 export interface EcosystemStats {
-  regulators: number;
-  licensed_stablecoin_issuers: number;
-  stablecoin_applicants: number;
-  ensembletx_institutions: number;
-  licensed_vatps: number;
-  hk_linked_rwa_protocols: number;
+  [key: string]: number | undefined;
 }
 
 export interface ChartEntry {
@@ -86,9 +81,15 @@ export interface EcosystemMeta {
   sources: string[];
 }
 
+export interface FeaturedStat {
+  key: string;
+  label: string;
+}
+
 export interface EcosystemData {
   meta: EcosystemMeta;
   stats: EcosystemStats;
+  featured_stats?: FeaturedStat[];
   layers: EcosystemLayer[];
   gaps: EcosystemGap[];
   participant_type_chart: ChartEntry[];

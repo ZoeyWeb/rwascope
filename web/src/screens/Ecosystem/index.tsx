@@ -109,11 +109,11 @@ function GapBadge({ gap }: { gap: EcosystemGap }) {
   return (
     <div className={`flex items-start gap-3 border-t border-ed-hairline py-3 ${isHigh ? 'text-ed-incident' : 'text-ed-text-secondary'}`}>
       <span className="material-symbols-outlined text-[15px] mt-0.5 shrink-0">
-        {GAP_ICON[gap.gap_type]}
+        {GAP_ICON[gap.type]}
       </span>
       <div>
         <span className="text-ed-eyebrow uppercase block mb-1">
-          {GAP_LABEL[gap.gap_type]} · {gap.severity}
+          {GAP_LABEL[gap.type]} · {gap.severity}
         </span>
         <p className="text-ed-meta text-ed-text-primary font-medium leading-snug">{gap.title}</p>
         <p className="text-ed-meta text-ed-text-secondary leading-snug mt-0.5">{gap.description}</p>
@@ -543,19 +543,19 @@ export default function EcosystemMap() {
           )}
 
           {!loading && !error && data && (() => {
-            const { meta, stats, gaps, participant_type_chart } = data;
+            const { meta, stats, gaps, participant_type_chart, featured_stats } = data;
             return (
               <>
                 {/* Stats strip */}
                 <section className="w-screen relative left-1/2 -translate-x-1/2 bg-ed-surface-cool border-y border-ed-hairline py-ed-section-md mb-8">
                   {(() => {
                     const totalParticipants = sortedLayers.reduce((acc, l) => acc + l.participants.length, 0);
-                    const secondary = [
-                      { value: stats.licensed_stablecoin_issuers, label: 'Licensed Issuers' },
-                      { value: stats.ensembletx_institutions,     label: 'EnsembleTX' },
-                      { value: stats.licensed_vatps,              label: 'Licensed VATPs' },
-                    ];
-                    const maxStat = Math.max(...secondary.map(s => s.value));
+                    const secondary = (featured_stats ?? []).map(s => ({
+                      value: stats[s.key],
+                      label: s.label,
+                    }));
+                    const numericValues = secondary.map(s => s.value).filter((v): v is number => typeof v === 'number');
+                    const maxStat = numericValues.length > 0 ? Math.max(...numericValues) : 0;
                     return (
                       <div className="max-w-[1400px] mx-auto px-8 grid grid-cols-2 md:grid-cols-5 gap-12">
                         <div className="col-span-2 md:col-span-2 md:border-r md:border-ed-hairline md:pr-12">
@@ -570,12 +570,14 @@ export default function EcosystemMap() {
                         {secondary.map(({ value, label }) => (
                           <div key={label}>
                             <div className="text-ed-eyebrow uppercase text-ed-text-muted">{label}</div>
-                            <div className="text-ed-section-h2 text-ed-text-primary mt-2 tabular-nums">{value}</div>
+                            <div className="text-ed-section-h2 text-ed-text-primary mt-2 tabular-nums">{value ?? '—'}</div>
                             <div className="h-0.5 bg-ed-hairline-faint mt-3 w-full relative">
-                              <div
-                                className="absolute inset-y-0 left-0 bg-ed-ink"
-                                style={{ width: `${(value / maxStat) * 100}%` }}
-                              />
+                              {typeof value === 'number' && maxStat > 0 && (
+                                <div
+                                  className="absolute inset-y-0 left-0 bg-ed-ink"
+                                  style={{ width: `${(value / maxStat) * 100}%` }}
+                                />
+                              )}
                             </div>
                           </div>
                         ))}

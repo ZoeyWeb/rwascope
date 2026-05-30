@@ -17,10 +17,15 @@
     "regulators": 2,
     "licensed_stablecoin_issuers": 0,
     "stablecoin_applicants": 3,
-    "ensembletx_institutions": 5,
+    "project_guardian_institutions": 5,
     "licensed_vatps": 0,
-    "hk_linked_rwa_protocols": 6
+    "rwa_protocols": 6
   },
+  "featured_stats": [
+    { "key": "stablecoin_applicants",         "label": "Stablecoin Applicants" },
+    { "key": "project_guardian_institutions", "label": "Project Guardian" },
+    { "key": "rwa_protocols",                 "label": "RWA Protocols" }
+  ],
   "layers": [
     {
       "id": "regulatory",
