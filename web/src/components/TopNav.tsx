@@ -73,11 +73,6 @@ const NAV_BLOCKS: NavBlock[] = [
     ],
   },
   {
-    label: 'Projects',
-    to: '/projects',
-    activePaths: ['/projects'],
-  },
-  {
     label: 'Market',
     to: '/market',
     activePaths: ['/market', '/reserves'],
@@ -128,6 +123,11 @@ const NAV_BLOCKS: NavBlock[] = [
         Icon: BookOpen,
       },
     ],
+  },
+  {
+    label: 'Projects',
+    to: '/projects',
+    activePaths: ['/projects'],
   },
   {
     label: 'Ecosystem',
