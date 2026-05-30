@@ -1,8 +1,8 @@
-import type { SARMSignal } from '../types/licenses';
+import type { Signal } from '../types/signal';
 import { SIGNAL_META } from '../utils/sarm';
 
 interface Props {
-  signal: SARMSignal;
+  signal: Signal;
   size?: number;
   title?: string;
   className?: string;

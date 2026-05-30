@@ -1,0 +1,9 @@
+[
+  { "code": "tokenized-treasury", "label": "Tokenized Treasury", "blurb": "On-chain wrappers of sovereign debt instruments — typically short-duration T-bills." },
+  { "code": "tokenized-money-market", "label": "Tokenized Money Market", "blurb": "Tokenized shares of regulated money market funds." },
+  { "code": "tokenized-commodity", "label": "Tokenized Commodity", "blurb": "Claims on physical commodities (gold, silver) held by licensed custodians." },
+  { "code": "tokenized-private-credit", "label": "Tokenized Private Credit", "blurb": "On-chain exposure to private lending pools and structured credit." },
+  { "code": "tokenized-real-estate", "label": "Tokenized Real Estate", "blurb": "Fractionalized claims on real property cash flows or equity." },
+  { "code": "tokenized-equity", "label": "Tokenized Equity", "blurb": "Tokenized representations of public or private equity." },
+  { "code": "other", "label": "Other", "blurb": "RWA structures not fitting the standard categories." }
+]

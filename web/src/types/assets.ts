@@ -1,6 +1,8 @@
 // ── Tokenized Asset Risk Observatory — Types ─────────────────────────────────
 
-export type RARMSignal = 'green' | 'yellow' | 'red' | 'gray';
+import type { Signal } from './signal';
+
+export type RARMSignal = Signal;
 
 export type AssetCategory =
   | 'tokenized-treasury'

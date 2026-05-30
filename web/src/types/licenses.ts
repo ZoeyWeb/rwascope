@@ -1,10 +1,7 @@
-// ── SARM Signal ───────────────────────────────────────────────────────────────
-// Traffic-light only. No numerical scores. No letter grades.
-// green  = satisfactory / meets standard
-// yellow = partial / conditional / minor gaps
-// red    = significant gap / non-compliant
-// gray   = insufficient public information to assess
-export type SARMSignal = 'green' | 'yellow' | 'red' | 'gray';
+import type { Signal } from './signal';
+
+// Traffic-light alias — green / yellow / red / gray. No numerical scores.
+export type SARMSignal = Signal;
 
 // ── Citation ──────────────────────────────────────────────────────────────────
 export interface Citation {
