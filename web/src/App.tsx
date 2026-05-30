@@ -49,6 +49,9 @@ const DisclosuresTracker = lazy(() => import('./screens/Disclosures/index'));
 // Stablecoin Reserve Monitor
 const ReserveMonitor = lazy(() => import('./screens/Reserves/index'));
 
+// Press kit
+const Press = lazy(() => import('./screens/Press/index'));
+
 // Projects module (v2)
 const ProjectsList = lazy(() => import('./screens/Projects/index'));
 const ProjectDetail = lazy(() => import('./screens/Projects/ProjectDetail'));
@@ -183,6 +186,7 @@ export default function App() {
               <Route path="leaderboard" element={<Navigate to="/market?tab=protocols" replace />} />
               <Route path="terms" element={<TermsOfService />} />
               <Route path="about" element={<About />} />
+              <Route path="press" element={<Press />} />
 
               {/* ── Protected: Due Diligence workbooks ── */}
               <Route path="score" element={<RequireAuth />}>
