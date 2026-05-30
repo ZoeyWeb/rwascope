@@ -36,10 +36,12 @@ deploy_frontend() {
   rsync -avz --delete \
     --filter='P data/leaderboard.json' \
     --filter='P data/assets/assets-live.json' \
+    --filter='P data/visitors.json' \
     --filter='P data/snapshots/' \
     --filter='P media/' \
     --exclude='data/leaderboard.json' \
     --exclude='data/assets/assets-live.json' \
+    --exclude='data/visitors.json' \
     --exclude='data/snapshots/' \
     --exclude='media/' \
     web/dist/ "$SERVER:$REMOTE_WEB/" \
@@ -84,6 +86,7 @@ refresh_leaderboard() {
     missing=''
     [ -f $REMOTE_WEB/data/leaderboard.json ]        || missing=\"\$missing leaderboard.json\"
     [ -f $REMOTE_WEB/data/assets/assets-live.json ] || missing=\"\$missing assets-live.json\"
+    [ -f $REMOTE_WEB/data/visitors.json ]           || missing=\"\$missing visitors.json\"
     if [ -n \"\$missing\" ]; then
       echo \"  ERROR: missing server-side files:\$missing\"
       echo \"  DeFiLlama refresh failed AND rsync deleted the old version.\"

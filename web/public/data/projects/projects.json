@@ -586,6 +586,21 @@
       ],
       "outcome": "Cumulative write-downs of ~$15M across affected pools (small relative to protocol scale, but material for individual TIN holders). No protocol-level insolvency. Centrifuge subsequently launched Centrifuge V3 with structural improvements: mandatory independent loan tape audits, standardized AO onboarding framework, formal credit committee for new pools, real-time default reporting, and migration to Centrifuge Chain (Substrate) for improved on-chain transparency.",
       "rarm_lesson": "Centrifuge V1/V2 pools demonstrate the structural risk of vertically-integrated DeFi credit protocols where originator and servicer are the same entity without independent verification. RARM AFI for tokenized credit must enforce L3 separation of duties: independent loan tape verification, independent default declaration mechanism, and independent valuation oracle. Centrifuge V3's redesign is a positive case study — same protocol, materially improved L3+L6 architecture. Demonstrates that RARM scores must be temporally specific (V1 ≠ V3) and that protocol upgrades are legitimate path to improved AFI scores. This is the canonical RWA private-credit lesson and the reason why RARM private-credit indicators emphasize originator/servicer separation."
+    },
+    "incident_id": "RWAI-2022-003",
+    "incident_date": "2022-08-15",
+    "severity": "major",
+    "primary_asset_class": "tokenized_credit",
+    "affected_rarm_layers": [
+      "issuer",
+      "audit",
+      "redemption"
+    ],
+    "permalink": "/incidents/RWAI-2022-003",
+    "citation_meta": {
+      "short_title": "Centrifuge pool defaults",
+      "publisher": "HKUST RWAscope",
+      "first_published_year": 2026
     }
   },
   {
@@ -846,6 +861,21 @@
       ],
       "outcome": "~$45B combined market cap wiped in 72 hours. Anchor TVL fell from $14B to <$100M. Cascading contagion took down Three Arrows Capital, Celsius, Voyager within 8 weeks. Catalyzed MiCA, GENIUS Act, and HK Stablecoin Ordinance.",
       "rarm_lesson": "UST is the canonical case for RARM's AFI (Aggregate Fragility Index) layer-gating logic: L2 Asset Quality fell below the failure threshold, so subsequent layers (L3-L6) contribute zero to the aggregate score regardless of nominal quality. No governance, technology, or market structure can compensate for collateral that is reflexive to the token it backs. Secondary lesson: L4 demand-quality flag — sustainable stablecoin demand requires organic, diversified utility, not yield arbitrage from a single source."
+    },
+    "incident_id": "RWAI-2022-001",
+    "incident_date": "2022-05-09",
+    "severity": "catastrophic",
+    "primary_asset_class": "algorithmic_stablecoin",
+    "affected_rarm_layers": [
+      "issuer",
+      "oracle",
+      "redemption"
+    ],
+    "permalink": "/incidents/RWAI-2022-001",
+    "citation_meta": {
+      "short_title": "TerraUSD depeg",
+      "publisher": "HKUST RWAscope",
+      "first_published_year": 2026
     }
   },
   {
@@ -983,6 +1013,20 @@
       ],
       "outcome": "~$42M customer funds lost. Stablegains wound down June 2022. Class action and SEC complaint pending. Cautionary example used in MiCA Article 49 (asset-referenced token disclosure) and US GENIUS Act consumer protection provisions.",
       "rarm_lesson": "Demonstrates RARM AFI logic at L1: when Legal Foundation falls below threshold (unregistered securities, material misrepresentation), the entire stack scores zero regardless of underlying technology. Also illustrates why RARM treats fintech wrappers as inheriting the AFI of their underlying asset — Stablegains' L2 score was bounded by UST's L2 score, not its own marketing claims. Wrapper products should be evaluated at the consolidated risk level, not the wrapper level."
+    },
+    "incident_id": "RWAI-2022-002",
+    "incident_date": "2022-05-09",
+    "severity": "critical",
+    "primary_asset_class": "algorithmic_stablecoin",
+    "affected_rarm_layers": [
+      "issuer",
+      "jurisdiction"
+    ],
+    "permalink": "/incidents/RWAI-2022-002",
+    "citation_meta": {
+      "short_title": "Stablegains UST exposure",
+      "publisher": "HKUST RWAscope",
+      "first_published_year": 2026
     }
   },
   {
@@ -1115,6 +1159,21 @@
       ],
       "outcome": "TITAN market cap (~$2B peak) wiped in 4 hours. IRON permanently de-pegged. First widely-publicized partial-algorithmic stablecoin collapse. Mark Cuban's public losses brought retail attention to stablecoin risks 11 months before UST.",
       "rarm_lesson": "Iron Finance is the L5 Technology canonical case: oracle architecture is a hard constraint on any algorithmic stablecoin design. RARM AFI scoring requires L5 fallback mechanisms (multi-source oracles, staleness checks, circuit breakers) — without them, L5 falls below threshold and the entire stack scores zero. Iron Finance also pre-figured UST: any partial-algorithmic design with reflexive share token will eventually face the same death spiral. The question is not if but when."
+    },
+    "incident_id": "RWAI-2021-001",
+    "incident_date": "2021-06-16",
+    "severity": "catastrophic",
+    "primary_asset_class": "algorithmic_stablecoin",
+    "affected_rarm_layers": [
+      "issuer",
+      "oracle",
+      "redemption"
+    ],
+    "permalink": "/incidents/RWAI-2021-001",
+    "citation_meta": {
+      "short_title": "Iron Finance collapse",
+      "publisher": "HKUST RWAscope",
+      "first_published_year": 2026
     }
   },
   {
@@ -1258,6 +1317,21 @@
       ],
       "outcome": "USDR de-pegged to $0.51; ~$45M peak supply trapped. Holders partially repaid in illiquid TNFTs and locker tokens. The first significant RWA-backed stablecoin failure. Cited in HKMA stablecoin consultation paper (December 2023) and Bank of England discussion paper on systemic stablecoin requirements as evidence for liquid-reserve minimums.",
       "rarm_lesson": "USDR is the canonical RWA stablecoin liquidity-mismatch case. RARM AFI for RWA-backed stablecoins must enforce a hard L4 constraint: liquid reserve fraction must equal or exceed maximum plausible daily redemption demand. For real estate backing, this typically means 30-50% liquid buffer or tiered redemption with explicit gates. Secondary lesson: L5 oracle requirements for RWA — issuer-reported NAV is not an oracle. RARM requires independent third-party valuation (Big Four, Knight Frank, or equivalent) at minimum quarterly with monthly attestation between."
+    },
+    "incident_id": "RWAI-2023-004",
+    "incident_date": "2023-10-11",
+    "severity": "critical",
+    "primary_asset_class": "fiat_stablecoin",
+    "affected_rarm_layers": [
+      "redemption",
+      "custody",
+      "oracle"
+    ],
+    "permalink": "/incidents/RWAI-2023-004",
+    "citation_meta": {
+      "short_title": "Tangible USDR depeg",
+      "publisher": "HKUST RWAscope",
+      "first_published_year": 2026
     }
   },
   {
@@ -1394,6 +1468,20 @@
       ],
       "outcome": "Peg restored within 72 hours; zero customer losses. Circle subsequently restructured reserves: cash moved primarily to BNY Mellon (G-SIB tier); Treasury allocation increased to ~80% in BlackRock-managed money market fund. Catalyzed Hong Kong Stablecoin Ordinance (June 2025) reserve segregation requirements and MiCA Article 36 reserve diversification rules.",
       "rarm_lesson": "USDC demonstrates that L3 Counterparty risk is irreducible for fiat-backed stablecoins — even with full regulatory compliance and Big Four attestation, banking system fragility transmits directly to the peg. RARM AFI requires L3 evaluation to consider both regulated-counterparty failure (SVB was solvent on paper) and tail-risk concentration metrics, not just nominal diversification. The 'survived' outcome should not be attributed to USDC's design — it was attributable to government intervention. RARM scoring should treat externally-rescued de-pegs as evidence of latent L3 fragility, not as evidence of design resilience. This case justifies why RARM maintains a 'de_peg_history' risk flag on USDC despite full recovery — historical fragility remains relevant signal."
+    },
+    "incident_id": "RWAI-2023-001",
+    "incident_date": "2023-03-11",
+    "severity": "major",
+    "primary_asset_class": "fiat_stablecoin",
+    "affected_rarm_layers": [
+      "issuer",
+      "custody"
+    ],
+    "permalink": "/incidents/RWAI-2023-001",
+    "citation_meta": {
+      "short_title": "USDC SVB exposure",
+      "publisher": "HKUST RWAscope",
+      "first_published_year": 2026
     }
   },
   {
@@ -1525,6 +1613,21 @@
       ],
       "outcome": "No financial losses; assets performed as expected. Reputational and governance critique catalyzed Sky Protocol's enhanced disclosure framework (February 2025) and contributed to MakerDAO Endgame restructuring. Used as case study in MAS Project Guardian working papers on DeFi-RWA governance integration.",
       "rarm_lesson": "Monetalis illustrates that asset-level RARM scoring is insufficient for hybrid DeFi-RWA structures. RARM AFI must evaluate the full chain: token holder → DAO governance → off-chain operator → SPV → custodian → underlying asset. Each link is a potential failure point. L6 Governance scoring for DeFi-RWA structures should require: (1) independent operator audit, not just administrator attestation; (2) real-time NAV oracle, not monthly attestation; (3) structural conflict-of-interest mitigation, not disclosure alone; (4) MKR-equivalent holder fiduciary duty established in operating jurisdiction. Without these, L6 falls below threshold and downstream L2-L5 scoring cannot compensate."
+    },
+    "incident_id": "RWAI-2023-002",
+    "incident_date": "2023-06-01",
+    "severity": "major",
+    "primary_asset_class": "tokenized_treasury",
+    "affected_rarm_layers": [
+      "issuer",
+      "audit",
+      "jurisdiction"
+    ],
+    "permalink": "/incidents/RWAI-2023-002",
+    "citation_meta": {
+      "short_title": "MakerDAO Monetalis governance gap",
+      "publisher": "HKUST RWAscope",
+      "first_published_year": 2026
     }
   },
   {
@@ -1657,6 +1760,20 @@
       ],
       "outcome": "Propy NFT business effectively wound down; ~20 tokenized properties remain in legacy state. PRO token down ~95% from peak. Company pivoted to AI-powered title insurance and traditional transaction platform. Real estate NFT category broadly stalled — subsequent projects (Lofty.ai, Roofstock onChain) moved to fractionalized model.",
       "rarm_lesson": "Propy is the canonical L4 case for RWA tokenization: tokenization does not create liquidity, fungibility does. RARM AFI for real estate must distinguish between (a) whole-asset NFTs (no fungibility, no liquidity premium); (b) fractionalized tokens with fungible exposure to a single property (limited fungibility within property); (c) pool-based fractionalization (true fungibility across diversified property pool, REIT-equivalent). Only (c) achieves meaningful L4 liquidity scoring. Secondary lesson at L1: tokenized real estate requires explicit legal framework integration with local property registry — Singapore Project Orchid and Hong Kong DLT property registry pilots are responses to this. Whole-property NFT without registry integration is structurally fragile."
+    },
+    "incident_id": "RWAI-2023-003",
+    "incident_date": "2023-06-01",
+    "severity": "critical",
+    "primary_asset_class": "tokenized_real_estate",
+    "affected_rarm_layers": [
+      "issuer",
+      "redemption"
+    ],
+    "permalink": "/incidents/RWAI-2023-003",
+    "citation_meta": {
+      "short_title": "Propy NFT model failure",
+      "publisher": "HKUST RWAscope",
+      "first_published_year": 2026
     }
   },
   {
@@ -2790,6 +2907,21 @@
       ],
       "outcome": "~$36M write-downs across affected pools (Orthogonal, Auros). Maple subsequently launched V2 with overcollateralized lending (Syrup) and stricter delegate separation. Demonstrates the institutional private-credit lesson: vertical integration of underwriting and borrowing without independent verification creates structural fragility.",
       "rarm_lesson": "Maple V1 → V2 transition is a positive case for RARM AFI temporal scoring: same protocol, materially improved L3 architecture (separation of underwriter from borrower, overcollateralization). RARM AFI for tokenized credit should require: (1) independent verification of pool delegate exposure; (2) overcollateralization or independent insurance for undercollateralized exposure; (3) protocol-level default declaration not controlled by interested parties. V1 fell below L3 threshold; V2 architecturally addresses these constraints."
+    },
+    "incident_id": "RWAI-2022-004",
+    "incident_date": "2022-12-05",
+    "severity": "critical",
+    "primary_asset_class": "tokenized_credit",
+    "affected_rarm_layers": [
+      "issuer",
+      "audit",
+      "redemption"
+    ],
+    "permalink": "/incidents/RWAI-2022-004",
+    "citation_meta": {
+      "short_title": "Maple Finance write-downs",
+      "publisher": "HKUST RWAscope",
+      "first_published_year": 2026
     }
   },
   {
@@ -4105,6 +4237,20 @@
       ],
       "outcome": "Platform investing business effectively closed April 2024. ~$71M VC capital largely written down. Holders of LDAs from 2021-2022 drops retain claims but receive minimal distributions. Subsequent music IP tokenization platforms (Anotherblock, JKBX) pivoted to acquiring rights upfront rather than relying on artist remittance — direct lesson from Royal's failure mode.",
       "rarm_lesson": "Royal demonstrates RARM AFI logic at L3: when counterparty enforcement depends on voluntary remittance with no legal mechanism for capture-at-source, L3 falls below threshold regardless of how good the on-chain infrastructure is. RARM AFI for IP/royalty tokenization should require: (1) rights acquired or assigned at source, not promised by ongoing artist remittance; (2) administration via established music publishing/PRO infrastructure rather than novel platform-administered treasury; (3) unit economics check — minimum cashflow per LDA must justify distribution overhead. Anotherblock's success vs Royal's failure illustrates that the same asset class (music royalties) can be tokenized well or badly depending on whether L3 (counterparty enforcement) is structurally sound."
+    },
+    "incident_id": "RWAI-2024-001",
+    "incident_date": "2024-04-01",
+    "severity": "critical",
+    "primary_asset_class": "tokenized_royalty",
+    "affected_rarm_layers": [
+      "issuer",
+      "redemption"
+    ],
+    "permalink": "/incidents/RWAI-2024-001",
+    "citation_meta": {
+      "short_title": "Royal.io platform closure",
+      "publisher": "HKUST RWAscope",
+      "first_published_year": 2026
     }
   },
   {

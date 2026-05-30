@@ -276,20 +276,31 @@ const LAYER_BORDER: Record<string, string> = {
   L6: '#9e3f4e',
 };
 
-function PostmortemSection({ postmortem }: { postmortem: Postmortem }) {
+function PostmortemSection({ postmortem, incidentId }: { postmortem: Postmortem; incidentId?: string }) {
   return (
     <div className="rounded-xl border border-red-200 bg-white p-5">
       {/* Section header */}
-      <div className="flex items-center gap-3 mb-5">
-        <h2 className="text-[10px] font-bold text-[#737C7F] uppercase tracking-widest">
-          Postmortem
-        </h2>
-        <span
-          className="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold"
-          style={{ background: '#FEE2E2', color: '#9e3f4e' }}
-        >
-          Incident: {postmortem.incident_date}
-        </span>
+      <div className="flex items-center justify-between gap-3 mb-5">
+        <div className="flex items-center gap-3">
+          <h2 className="text-[10px] font-bold text-[#737C7F] uppercase tracking-widest">
+            Postmortem
+          </h2>
+          <span
+            className="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold"
+            style={{ background: '#FEE2E2', color: '#9e3f4e' }}
+          >
+            Incident: {postmortem.incident_date}
+          </span>
+        </div>
+        {incidentId && (
+          <Link
+            to={`/incidents/${incidentId}`}
+            className="flex items-center gap-1 text-[10px] font-bold text-[#5E5C75] hover:text-[#2B3437] transition-colors shrink-0"
+          >
+            View as incident
+            <span className="material-symbols-outlined text-[12px]">arrow_forward</span>
+          </Link>
+        )}
       </div>
 
       {/* Root Cause */}
@@ -513,7 +524,7 @@ export default function ProjectDetail() {
       {/* Postmortem */}
       {project.postmortem && (
         <div className="mb-5">
-          <PostmortemSection postmortem={project.postmortem} />
+          <PostmortemSection postmortem={project.postmortem} incidentId={project.incident_id} />
         </div>
       )}
 

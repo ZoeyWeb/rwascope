@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import type { Incident, IncidentSeverity, IncidentScope, IncidentStatus, IncidentSource } from '../../types/incidents';
 import {
   SEVERITY_META, INCIDENT_STATUS_META, SCOPE_META,
   INCIDENT_TYPE_LABELS, INCIDENT_ASSET_LABELS, SOURCE_TYPE_LABELS, formatLossUsd,
 } from '../../utils/incidents';
 import DisclaimerBanner from '../../components/DisclaimerBanner';
+import RWAIIncidentDetail from './RWAIIncidentDetail';
 
 // ── Primitive badges ──────────────────────────────────────────────────────────
 
@@ -130,6 +132,16 @@ function SourceItem({ src, index }: { src: IncidentSource; index: number }) {
 
 export default function IncidentDetail() {
   const { slug } = useParams<{ slug: string }>();
+
+  // RWAI Registry IDs (RWAI-YYYY-NNN) are handled by a separate layout
+  if (slug?.startsWith('RWAI-')) {
+    return <RWAIIncidentDetail incidentId={slug} />;
+  }
+
+  return <LegacyIncidentDetail slug={slug} />;
+}
+
+function LegacyIncidentDetail({ slug }: { slug: string | undefined }) {
   const [incident, setIncident] = useState<Incident | null>(null);
   const [allIncidents, setAllIncidents] = useState<Incident[]>([]);
   const [loading, setLoading] = useState(true);

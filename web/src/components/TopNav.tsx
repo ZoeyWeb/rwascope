@@ -48,8 +48,8 @@ const NAV_BLOCKS: NavBlock[] = [
       },
       {
         to: '/incidents',
-        label: 'Incidents',
-        subtitle: 'Postmortem analysis of major RWA and stablecoin failures',
+        label: 'Incident Registry',
+        subtitle: 'Permanent-ID postmortems of RWA and stablecoin failures (RWAI-YYYY-NNN)',
         Icon: AlertTriangle,
       },
       {

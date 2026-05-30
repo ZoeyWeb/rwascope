@@ -85,6 +85,14 @@ export interface Project {
   lessons_visibility?: LessonsVisibility;
   peak_tvl_usd?: number;
   postmortem?: Postmortem;
+  // RWAI Incident Registry fields (added 2026-05-30)
+  incident_id?: string;
+  incident_date?: string;
+  severity?: 'catastrophic' | 'critical' | 'major';
+  primary_asset_class?: string;
+  affected_rarm_layers?: string[];
+  permalink?: string;
+  citation_meta?: { short_title: string; publisher: string; first_published_year: number };
 }
 
 // ── Metadata helpers ──────────────────────────────────────────────────────────
