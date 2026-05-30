@@ -228,7 +228,7 @@ function Layer3DCard({
 
   return (
     <article className="border-t border-ed-hairline py-ed-section-md">
-      <div className="grid grid-cols-[80px_2fr_3fr] gap-8">
+      <div className="grid grid-cols-[80px_3fr_2fr] gap-8">
         {/* Col 1: oversized layer number + vertical spine */}
         <div className="relative">
           <div className="text-[72px] leading-none font-semibold text-ed-text-faint tabular-nums">
@@ -266,7 +266,7 @@ function Layer3DCard({
         </div>
 
         {/* Col 3: participants */}
-        <div className="flex flex-wrap gap-2 content-start pt-1">
+        <div className="flex flex-wrap gap-2 content-start pt-1 justify-end">
           {layer.participants.map(p => (
             <ParticipantChip
               key={p.id}
