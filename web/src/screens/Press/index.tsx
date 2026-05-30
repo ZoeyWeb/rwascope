@@ -232,14 +232,14 @@ export default function Press() {
               <div className="text-ed-eyebrow uppercase tracking-[0.18em] text-ed-text-muted">
                 Press inquiries
               </div>
-              <a
-                href={`mailto:${RWASCOPE_CONTACT.press_email}`}
+              <Link
+                to="/contact"
                 className="text-ed-block-h3 text-ed-ink mt-3 inline-block border-b border-ed-ink hover:border-b-2 transition-all"
               >
-                {RWASCOPE_CONTACT.press_email}
-              </a>
+                Open contact form →
+              </Link>
               <p className="text-ed-body text-ed-text-secondary mt-3">
-                For interview requests, data licensing, and citation verification.
+                For press inquiries, use the contact form. We respond within 3 business days.
               </p>
             </div>
             <div className="col-span-6">

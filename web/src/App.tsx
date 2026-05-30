@@ -52,6 +52,9 @@ const ReserveMonitor = lazy(() => import('./screens/Reserves/index'));
 // Press kit
 const Press = lazy(() => import('./screens/Press/index'));
 
+// Contact
+const Contact = lazy(() => import('./screens/Contact/index'));
+
 // Projects module (v2)
 const ProjectsList = lazy(() => import('./screens/Projects/index'));
 const ProjectDetail = lazy(() => import('./screens/Projects/ProjectDetail'));
@@ -187,6 +190,7 @@ export default function App() {
               <Route path="terms" element={<TermsOfService />} />
               <Route path="about" element={<About />} />
               <Route path="press" element={<Press />} />
+              <Route path="contact" element={<Contact />} />
 
               {/* ── Protected: Due Diligence workbooks ── */}
               <Route path="score" element={<RequireAuth />}>
