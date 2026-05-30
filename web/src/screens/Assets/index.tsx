@@ -28,11 +28,16 @@ function formatTvl(n?: number): string {
 
 // ── Inline sub-components ─────────────────────────────────────────────────────
 
-function Stat({ label, value }: { label: string; value: string | number }) {
+function Stat({ label, value, valueColor }: { label: string; value: string | number; valueColor?: string }) {
   return (
     <div className="flex items-baseline gap-2">
       <span className="text-ed-eyebrow text-ed-text-muted uppercase tracking-[0.18em]">{label}</span>
-      <span className="text-ed-item-h4 text-ed-ink tabular-nums">{value}</span>
+      <span
+        className={`text-ed-item-h4 tabular-nums ${valueColor ? '' : 'text-ed-ink'}`}
+        style={valueColor ? { color: valueColor } : undefined}
+      >
+        {value}
+      </span>
     </div>
   );
 }
@@ -500,52 +505,52 @@ export default function AssetsOverview() {
     <div>
 
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
-      <section className="py-ed-section-md">
+      <section className="pt-ed-section-md pb-ed-section-sm">
         <div className="max-w-[1400px] mx-auto px-8">
-          <Eyebrow>RARM · Real-World Asset Risk</Eyebrow>
-          <h1 className="text-ed-hero-h1 text-ed-ink mt-ed-sm">
+          <Eyebrow>RARM Framework</Eyebrow>
+          <h1 className="text-ed-hero-h1 text-ed-ink mt-ed-section-sm">
             Tokenized Asset Risk Observatory
           </h1>
-          <p className="text-ed-lede text-ed-text-secondary mt-ed-sm max-w-3xl">
-            Six-layer risk assessment of tokenized real-world assets across treasuries,
-            private credit, commodities, and beyond. Qualitative signals, not ratings.
+          <p className="text-ed-lede text-ed-text-secondary mt-ed-section-sm max-w-3xl">
+            Six-layer risk observation of tokenized real-world assets across treasuries,
+            private credit, commodities, and beyond. Qualitative signals.
           </p>
-          <div className="mt-ed-md">
-            <Link
-              to="/assets/methodology"
-              className="text-ed-meta uppercase tracking-[0.18em] text-ed-ink border-b border-ed-ink pb-1"
-            >
-              RARM Methodology →
-            </Link>
-          </div>
         </div>
       </section>
 
       {/* ── Stats ribbon ─────────────────────────────────────────────────── */}
-      <section className="border-y border-ed-hairline py-ed-sm">
+      <section className="border-y border-ed-hairline py-3">
         <div className="max-w-[1400px] mx-auto px-8 flex flex-wrap gap-x-12 gap-y-3">
           <Stat label="Assets"               value={totalAssets} />
           <Stat label="Categories"           value={categoryCount} />
-          <Stat label="Active"               value={activeCount} />
+          <Stat label="Active"               value={activeCount} valueColor="#2E7D32" />
           <Stat label="Aggregate TVL (est.)" value={`$${(totalTvl / 1e9).toFixed(1)}B`} />
         </div>
       </section>
 
       {/* ── Tab strip ────────────────────────────────────────────────────── */}
-      <div className="border-b border-ed-hairline">
-        <div className="max-w-[1400px] mx-auto px-8 flex items-end gap-12">
-          <TabButton active={tab === 'categories'} onClick={() => setTab('categories')}>
-            Categories
-          </TabButton>
-          <TabButton
-            active={tab === 'assets'}
-            onClick={() => { setTab('assets'); setCategoryFilter('all'); }}
+      <div className="border-b border-ed-hairline mt-ed-section-sm">
+        <div className="max-w-[1400px] mx-auto px-8 flex items-end justify-between">
+          <div className="flex gap-12">
+            <TabButton active={tab === 'categories'} onClick={() => setTab('categories')}>
+              Categories
+            </TabButton>
+            <TabButton
+              active={tab === 'assets'}
+              onClick={() => { setTab('assets'); setCategoryFilter('all'); }}
+            >
+              All Assets
+            </TabButton>
+            <TabButton active={tab === 'breakdown'} onClick={() => setTab('breakdown')}>
+              RARM Breakdown
+            </TabButton>
+          </div>
+          <Link
+            to="/assets/methodology"
+            className="text-ed-meta text-ed-text-muted hover:text-ed-ink pb-3 transition-colors"
           >
-            All Assets
-          </TabButton>
-          <TabButton active={tab === 'breakdown'} onClick={() => setTab('breakdown')}>
-            RARM Breakdown
-          </TabButton>
+            RARM Methodology →
+          </Link>
         </div>
       </div>
 

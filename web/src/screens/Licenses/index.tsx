@@ -112,12 +112,11 @@ export default function LicensesOverview() {
       <section className="pt-ed-section-md pb-ed-section-sm">
         <Eyebrow>SARM Framework</Eyebrow>
         <h1 className="text-ed-hero-h1 text-ed-ink mt-ed-section-sm">
-          Stablecoin licence assessments
+          Stablecoin Risk Observatory
         </h1>
         <p className="text-ed-lede text-ed-text-secondary max-w-[720px] mt-ed-section-sm">
-          Qualitative traffic-light assessments of stablecoin issuers across six jurisdictions,
-          applying the Structural Adequacy Risk Model (SARM). Signals are research judgements,
-          not ratings.
+          Qualitative traffic-light observation of stablecoin issuers across six jurisdictions,
+          applying the Structural Adequacy Risk Model (SARM). Qualitative signals.
         </p>
       </section>
 
