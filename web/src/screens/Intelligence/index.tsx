@@ -99,8 +99,16 @@ function WeeklyBriefSection({ brief }: { brief: IntelligenceWeeklyBrief }) {
       <div className="max-w-[1400px] mx-auto px-8">
         <div className="flex items-baseline justify-between mb-6 flex-wrap gap-3">
           <Eyebrow>Weekly Brief</Eyebrow>
-          <div className="text-ed-meta text-ed-text-muted">
-            {brief.period_start} → {brief.period_end}
+          <div className="flex items-center gap-4">
+            <div className="text-ed-meta text-ed-text-muted">
+              {brief.period_start} → {brief.period_end}
+            </div>
+            <a
+              href="/feeds/weekly-brief.xml"
+              className="text-ed-meta text-ed-text-secondary border border-ed-hairline px-3 py-1 hover:border-ed-ink hover:text-ed-ink transition-colors uppercase tracking-[0.1em]"
+            >
+              RSS Subscribe
+            </a>
           </div>
         </div>
         <h2 className="text-ed-section-h2 text-ed-text-primary mb-8 max-w-[900px]">

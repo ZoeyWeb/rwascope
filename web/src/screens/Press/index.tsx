@@ -164,6 +164,41 @@ export default function Press() {
             />
           </div>
 
+          {/* RSS feeds */}
+          <div className="border border-t-0 border-ed-hairline px-8 py-ed-section-sm">
+            <div className="flex items-start justify-between gap-8">
+              <div>
+                <div className="text-ed-eyebrow uppercase tracking-[0.18em] text-ed-text-muted">Subscribe</div>
+                <h3 className="text-ed-block-h3 text-ed-ink mt-3">RSS feeds</h3>
+                <p className="text-ed-body text-ed-text-secondary mt-2 max-w-[480px]">
+                  Get new incidents and weekly briefs delivered to your RSS reader. Atom 1.0 format, compatible with Feedly, NetNewsWire, Inoreader, and all standard readers.
+                </p>
+              </div>
+              <div className="shrink-0 flex flex-col gap-3 mt-1">
+                <a
+                  href="/feeds/incidents.xml"
+                  className="flex items-center gap-3 border border-ed-hairline px-4 py-3 hover:border-ed-ink transition-colors group"
+                >
+                  <span className="material-symbols-outlined text-[18px] text-ed-text-muted group-hover:text-ed-ink transition-colors">rss_feed</span>
+                  <div>
+                    <div className="text-ed-meta text-ed-ink">Incident Registry</div>
+                    <div className="text-[11px] text-ed-text-faint font-mono mt-0.5">/feeds/incidents.xml</div>
+                  </div>
+                </a>
+                <a
+                  href="/feeds/weekly-brief.xml"
+                  className="flex items-center gap-3 border border-ed-hairline px-4 py-3 hover:border-ed-ink transition-colors group"
+                >
+                  <span className="material-symbols-outlined text-[18px] text-ed-text-muted group-hover:text-ed-ink transition-colors">rss_feed</span>
+                  <div>
+                    <div className="text-ed-meta text-ed-ink">Weekly Brief</div>
+                    <div className="text-[11px] text-ed-text-faint font-mono mt-0.5">/feeds/weekly-brief.xml</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+
           {/* Logo previews */}
           <div className="mt-ed-section-md grid grid-cols-4 gap-0 border border-ed-hairline">
             {[

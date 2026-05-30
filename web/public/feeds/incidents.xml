@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>RWAscope Incident Registry</title>
+  <subtitle>Structured postmortems of tokenized real-world asset failures. Built at HKUST Crypto-Fintech Lab.</subtitle>
+  <link href="https://rwa-index.com/feeds/incidents.xml" rel="self" type="application/atom+xml"/>
+  <link href="https://rwa-index.com/incidents" rel="alternate" type="text/html"/>
+  <id>https://rwa-index.com/feeds/incidents.xml</id>
+  <updated>2024-04-01T00:00:00Z</updated>
+  <author>
+    <name>RWAscope Research</name>
+    <uri>https://rwa-index.com</uri>
+  </author>
+  <icon>https://rwa-index.com/favicon.ico</icon>
+  <logo>https://rwa-index.com/press/logo-mark.svg</logo>
+  <rights>© 2026 RWAscope · HKUST Crypto-Fintech Lab</rights>
+
+  <entry>
+    <title>RWAI-2024-001 · Royal.io platform closure</title>
+    <link href="https://rwa-index.com/incidents/RWAI-2024-001" rel="alternate" type="text/html"/>
+    <id>https://rwa-index.com/incidents/RWAI-2024-001</id>
+    <published>2024-04-01T00:00:00Z</published>
+    <updated>2024-04-01T00:00:00Z</updated>
+    <category term="tokenized_royalty"/>
+    <category term="severity:critical"/>
+    <category term="rarm:issuer"/>
+    <category term="rarm:redemption"/>
+    <summary type="text">Royal&apos;s model required artists to remit royalty payments received from DSPs to Royal&apos;s treasury for distribution to LDA holders. This created two structural fragilities: (1) Reliance on artist compliance — when payments lagged or stopped (e.g., Royce da 5&apos;9&apos; drop), Royal had lim…</summary>
+    <content type="html"><![CDATA[
+        <p><strong>Incident ID:</strong> RWAI-2024-001</p>
+        <p><strong>Date:</strong> 2024-04-01</p>
+        <p><strong>Severity:</strong> critical</p>
+        <p><strong>Asset class:</strong> tokenized_royalty</p>
+        <p><strong>Affected RARM layers:</strong> issuer · redemption</p>
+        <p>Royal&apos;s model required artists to remit royalty payments received from DSPs to Royal&apos;s treasury for distribution to LDA holders. This created two structural fragilities: (1) Reliance on artist compliance — when payments lagged or stopped (e.g., Royce da 5&apos;9&apos; drop), Royal had lim…</p>
+        <p><a href="https://rwa-index.com/incidents/RWAI-2024-001">Read full postmortem →</a></p>
+      ]]></content>
+  </entry>
+
+  <entry>
+    <title>RWAI-2023-004 · Tangible USDR depeg</title>
+    <link href="https://rwa-index.com/incidents/RWAI-2023-004" rel="alternate" type="text/html"/>
+    <id>https://rwa-index.com/incidents/RWAI-2023-004</id>
+    <published>2023-10-11T00:00:00Z</published>
+    <updated>2023-10-11T00:00:00Z</updated>
+    <category term="fiat_stablecoin"/>
+    <category term="severity:critical"/>
+    <category term="rarm:redemption"/>
+    <category term="rarm:custody"/>
+    <category term="rarm:oracle"/>
+    <summary type="text">Asset-liability liquidity mismatch. USDR claimed daily redeemability against a reserve that was ~58% illiquid real estate. Only DAI portion (~14.74% at de-peg) could honor redemptions on-demand. When redemption demand exceeded DAI liquidity, the system had no mechanism to liquid…</summary>
+    <content type="html"><![CDATA[
+        <p><strong>Incident ID:</strong> RWAI-2023-004</p>
+        <p><strong>Date:</strong> 2023-10-11</p>
+        <p><strong>Severity:</strong> critical</p>
+        <p><strong>Asset class:</strong> fiat_stablecoin</p>
+        <p><strong>Affected RARM layers:</strong> redemption · custody · oracle</p>
+        <p>Asset-liability liquidity mismatch. USDR claimed daily redeemability against a reserve that was ~58% illiquid real estate. Only DAI portion (~14.74% at de-peg) could honor redemptions on-demand. When redemption demand exceeded DAI liquidity, the system had no mechanism to liquid…</p>
+        <p><a href="https://rwa-index.com/incidents/RWAI-2023-004">Read full postmortem →</a></p>
+      ]]></content>
+  </entry>
+
+  <entry>
+    <title>RWAI-2023-002 · MakerDAO Monetalis governance gap</title>
+    <link href="https://rwa-index.com/incidents/RWAI-2023-002" rel="alternate" type="text/html"/>
+    <id>https://rwa-index.com/incidents/RWAI-2023-002</id>
+    <published>2023-06-01T00:00:00Z</published>
+    <updated>2023-06-01T00:00:00Z</updated>
+    <category term="tokenized_treasury"/>
+    <category term="severity:major"/>
+    <category term="rarm:issuer"/>
+    <category term="rarm:audit"/>
+    <category term="rarm:jurisdiction"/>
+    <summary type="text">MakerDAO&apos;s RWA expansion outpaced its governance and disclosure infrastructure. Monetalis Clydesdale SPV held the largest single concentration of DAI backing ($1.25B at peak) under a structure where: SPV operator (Monetalis) had material control over asset selection within manda…</summary>
+    <content type="html"><![CDATA[
+        <p><strong>Incident ID:</strong> RWAI-2023-002</p>
+        <p><strong>Date:</strong> 2023-06-01</p>
+        <p><strong>Severity:</strong> major</p>
+        <p><strong>Asset class:</strong> tokenized_treasury</p>
+        <p><strong>Affected RARM layers:</strong> issuer · audit · jurisdiction</p>
+        <p>MakerDAO&apos;s RWA expansion outpaced its governance and disclosure infrastructure. Monetalis Clydesdale SPV held the largest single concentration of DAI backing ($1.25B at peak) under a structure where: SPV operator (Monetalis) had material control over asset selection within manda…</p>
+        <p><a href="https://rwa-index.com/incidents/RWAI-2023-002">Read full postmortem →</a></p>
+      ]]></content>
+  </entry>
+
+  <entry>
+    <title>RWAI-2023-003 · Propy NFT model failure</title>
+    <link href="https://rwa-index.com/incidents/RWAI-2023-003" rel="alternate" type="text/html"/>
+    <id>https://rwa-index.com/incidents/RWAI-2023-003</id>
+    <published>2023-06-01T00:00:00Z</published>
+    <updated>2023-06-01T00:00:00Z</updated>
+    <category term="tokenized_real_estate"/>
+    <category term="severity:critical"/>
+    <category term="rarm:issuer"/>
+    <category term="rarm:redemption"/>
+    <summary type="text">Single-property NFTs failed to generate secondary market demand for structural reasons that Propy could not solve through tokenization alone: (1) Real estate transactions involve due diligence (inspection, title search, financing) that cannot be replicated in a click-to-buy NFT …</summary>
+    <content type="html"><![CDATA[
+        <p><strong>Incident ID:</strong> RWAI-2023-003</p>
+        <p><strong>Date:</strong> 2023-06-01</p>
+        <p><strong>Severity:</strong> critical</p>
+        <p><strong>Asset class:</strong> tokenized_real_estate</p>
+        <p><strong>Affected RARM layers:</strong> issuer · redemption</p>
+        <p>Single-property NFTs failed to generate secondary market demand for structural reasons that Propy could not solve through tokenization alone: (1) Real estate transactions involve due diligence (inspection, title search, financing) that cannot be replicated in a click-to-buy NFT …</p>
+        <p><a href="https://rwa-index.com/incidents/RWAI-2023-003">Read full postmortem →</a></p>
+      ]]></content>
+  </entry>
+
+  <entry>
+    <title>RWAI-2023-001 · USDC SVB exposure</title>
+    <link href="https://rwa-index.com/incidents/RWAI-2023-001" rel="alternate" type="text/html"/>
+    <id>https://rwa-index.com/incidents/RWAI-2023-001</id>
+    <published>2023-03-11T00:00:00Z</published>
+    <updated>2023-03-11T00:00:00Z</updated>
+    <category term="fiat_stablecoin"/>
+    <category term="severity:major"/>
+    <category term="rarm:issuer"/>
+    <category term="rarm:custody"/>
+    <summary type="text">Pre-SVB reserve management distributed USDC cash reserves across a network of US banks, including $3.3B (~8% of reserves) at SVB. When SVB was closed by California regulators on March 10, 2023, Circle could not access those reserves. Market priced in the worst case (no FDIC reco…</summary>
+    <content type="html"><![CDATA[
+        <p><strong>Incident ID:</strong> RWAI-2023-001</p>
+        <p><strong>Date:</strong> 2023-03-11</p>
+        <p><strong>Severity:</strong> major</p>
+        <p><strong>Asset class:</strong> fiat_stablecoin</p>
+        <p><strong>Affected RARM layers:</strong> issuer · custody</p>
+        <p>Pre-SVB reserve management distributed USDC cash reserves across a network of US banks, including $3.3B (~8% of reserves) at SVB. When SVB was closed by California regulators on March 10, 2023, Circle could not access those reserves. Market priced in the worst case (no FDIC reco…</p>
+        <p><a href="https://rwa-index.com/incidents/RWAI-2023-001">Read full postmortem →</a></p>
+      ]]></content>
+  </entry>
+
+  <entry>
+    <title>RWAI-2022-004 · Maple Finance write-downs</title>
+    <link href="https://rwa-index.com/incidents/RWAI-2022-004" rel="alternate" type="text/html"/>
+    <id>https://rwa-index.com/incidents/RWAI-2022-004</id>
+    <published>2022-12-05T00:00:00Z</published>
+    <updated>2022-12-05T00:00:00Z</updated>
+    <category term="tokenized_credit"/>
+    <category term="severity:critical"/>
+    <category term="rarm:issuer"/>
+    <category term="rarm:audit"/>
+    <category term="rarm:redemption"/>
+    <summary type="text">Maple V1 used undercollateralized lending: pool delegates underwrote crypto-native institutions (market makers, prop trading firms) based on KYC and creditworthiness, not collateral. Following FTX collapse in November 2022, Orthogonal Trading (a Maple pool delegate AND borrower)…</summary>
+    <content type="html"><![CDATA[
+        <p><strong>Incident ID:</strong> RWAI-2022-004</p>
+        <p><strong>Date:</strong> 2022-12-05</p>
+        <p><strong>Severity:</strong> critical</p>
+        <p><strong>Asset class:</strong> tokenized_credit</p>
+        <p><strong>Affected RARM layers:</strong> issuer · audit · redemption</p>
+        <p>Maple V1 used undercollateralized lending: pool delegates underwrote crypto-native institutions (market makers, prop trading firms) based on KYC and creditworthiness, not collateral. Following FTX collapse in November 2022, Orthogonal Trading (a Maple pool delegate AND borrower)…</p>
+        <p><a href="https://rwa-index.com/incidents/RWAI-2022-004">Read full postmortem →</a></p>
+      ]]></content>
+  </entry>
+
+  <entry>
+    <title>RWAI-2022-003 · Centrifuge pool defaults</title>
+    <link href="https://rwa-index.com/incidents/RWAI-2022-003" rel="alternate" type="text/html"/>
+    <id>https://rwa-index.com/incidents/RWAI-2022-003</id>
+    <published>2022-08-15T00:00:00Z</published>
+    <updated>2022-08-15T00:00:00Z</updated>
+    <category term="tokenized_credit"/>
+    <category term="severity:major"/>
+    <category term="rarm:issuer"/>
+    <category term="rarm:audit"/>
+    <category term="rarm:redemption"/>
+    <summary type="text">Several early Tinlake pools experienced underwriting failures and delinquencies during 2022 crypto downturn and 2023 SME credit stress. Most notable: ConsolFreight (CF4 pool) and Harbor Trade Credit pools experienced material write-downs. Underlying issue: early Tinlake architec…</summary>
+    <content type="html"><![CDATA[
+        <p><strong>Incident ID:</strong> RWAI-2022-003</p>
+        <p><strong>Date:</strong> 2022-08-15</p>
+        <p><strong>Severity:</strong> major</p>
+        <p><strong>Asset class:</strong> tokenized_credit</p>
+        <p><strong>Affected RARM layers:</strong> issuer · audit · redemption</p>
+        <p>Several early Tinlake pools experienced underwriting failures and delinquencies during 2022 crypto downturn and 2023 SME credit stress. Most notable: ConsolFreight (CF4 pool) and Harbor Trade Credit pools experienced material write-downs. Underlying issue: early Tinlake architec…</p>
+        <p><a href="https://rwa-index.com/incidents/RWAI-2022-003">Read full postmortem →</a></p>
+      ]]></content>
+  </entry>
+
+  <entry>
+    <title>RWAI-2022-001 · TerraUSD depeg</title>
+    <link href="https://rwa-index.com/incidents/RWAI-2022-001" rel="alternate" type="text/html"/>
+    <id>https://rwa-index.com/incidents/RWAI-2022-001</id>
+    <published>2022-05-09T00:00:00Z</published>
+    <updated>2022-05-09T00:00:00Z</updated>
+    <category term="algorithmic_stablecoin"/>
+    <category term="severity:catastrophic"/>
+    <category term="rarm:issuer"/>
+    <category term="rarm:oracle"/>
+    <category term="rarm:redemption"/>
+    <summary type="text">Reflexive algorithmic peg collapsed under sustained sell pressure. UST redemptions minted LUNA at oracle price, hyperinflating LUNA supply from ~350M to 6.5 trillion tokens in 72 hours. The mechanism designed to restore the peg accelerated its destruction. ~75% of UST demand was…</summary>
+    <content type="html"><![CDATA[
+        <p><strong>Incident ID:</strong> RWAI-2022-001</p>
+        <p><strong>Date:</strong> 2022-05-09</p>
+        <p><strong>Severity:</strong> catastrophic</p>
+        <p><strong>Asset class:</strong> algorithmic_stablecoin</p>
+        <p><strong>Affected RARM layers:</strong> issuer · oracle · redemption</p>
+        <p>Reflexive algorithmic peg collapsed under sustained sell pressure. UST redemptions minted LUNA at oracle price, hyperinflating LUNA supply from ~350M to 6.5 trillion tokens in 72 hours. The mechanism designed to restore the peg accelerated its destruction. ~75% of UST demand was…</p>
+        <p><a href="https://rwa-index.com/incidents/RWAI-2022-001">Read full postmortem →</a></p>
+      ]]></content>
+  </entry>
+
+  <entry>
+    <title>RWAI-2022-002 · Stablegains UST exposure</title>
+    <link href="https://rwa-index.com/incidents/RWAI-2022-002" rel="alternate" type="text/html"/>
+    <id>https://rwa-index.com/incidents/RWAI-2022-002</id>
+    <published>2022-05-09T00:00:00Z</published>
+    <updated>2022-05-09T00:00:00Z</updated>
+    <category term="algorithmic_stablecoin"/>
+    <category term="severity:critical"/>
+    <category term="rarm:issuer"/>
+    <category term="rarm:jurisdiction"/>
+    <summary type="text">Stablegains marketed itself as a USD savings product while silently routing 100% of customer deposits into Anchor Protocol&apos;s UST yield farm. When UST de-pegged, customers had no recourse: deposits were denominated in collapsing UST, not USD. The company had no reserves of its ow…</summary>
+    <content type="html"><![CDATA[
+        <p><strong>Incident ID:</strong> RWAI-2022-002</p>
+        <p><strong>Date:</strong> 2022-05-09</p>
+        <p><strong>Severity:</strong> critical</p>
+        <p><strong>Asset class:</strong> algorithmic_stablecoin</p>
+        <p><strong>Affected RARM layers:</strong> issuer · jurisdiction</p>
+        <p>Stablegains marketed itself as a USD savings product while silently routing 100% of customer deposits into Anchor Protocol&apos;s UST yield farm. When UST de-pegged, customers had no recourse: deposits were denominated in collapsing UST, not USD. The company had no reserves of its ow…</p>
+        <p><a href="https://rwa-index.com/incidents/RWAI-2022-002">Read full postmortem →</a></p>
+      ]]></content>
+  </entry>
+
+  <entry>
+    <title>RWAI-2021-001 · Iron Finance collapse</title>
+    <link href="https://rwa-index.com/incidents/RWAI-2021-001" rel="alternate" type="text/html"/>
+    <id>https://rwa-index.com/incidents/RWAI-2021-001</id>
+    <published>2021-06-16T00:00:00Z</published>
+    <updated>2021-06-16T00:00:00Z</updated>
+    <category term="algorithmic_stablecoin"/>
+    <category term="severity:catastrophic"/>
+    <category term="rarm:issuer"/>
+    <category term="rarm:oracle"/>
+    <category term="rarm:redemption"/>
+    <summary type="text">Partial-collateral design (75% USDC + 25% TITAN) created reflexive death spiral when TITAN price fell. Compounding factor: TWAP oracle on SushiSwap had ~10-minute lag, so as TITAN spot price collapsed, the oracle reported stale higher prices. Redemptions arbitraged the lag — min…</summary>
+    <content type="html"><![CDATA[
+        <p><strong>Incident ID:</strong> RWAI-2021-001</p>
+        <p><strong>Date:</strong> 2021-06-16</p>
+        <p><strong>Severity:</strong> catastrophic</p>
+        <p><strong>Asset class:</strong> algorithmic_stablecoin</p>
+        <p><strong>Affected RARM layers:</strong> issuer · oracle · redemption</p>
+        <p>Partial-collateral design (75% USDC + 25% TITAN) created reflexive death spiral when TITAN price fell. Compounding factor: TWAP oracle on SushiSwap had ~10-minute lag, so as TITAN spot price collapsed, the oracle reported stale higher prices. Redemptions arbitraged the lag — min…</p>
+        <p><a href="https://rwa-index.com/incidents/RWAI-2021-001">Read full postmortem →</a></p>
+      ]]></content>
+  </entry>
+</feed>

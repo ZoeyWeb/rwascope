@@ -31,14 +31,24 @@ export default function IncidentsIndex() {
     <div className="max-w-[1400px] mx-auto px-8">
       {/* ── Hero ── */}
       <section className="pt-ed-section-md pb-ed-section-sm">
-        <Eyebrow>RWAscope Incident Registry</Eyebrow>
-        <h1 className="text-ed-page-h1 text-ed-ink mt-ed-section-sm">
-          RWA Incident Database
-        </h1>
-        <p className="text-ed-lede text-ed-text-secondary max-w-[720px] mt-ed-section-sm">
-          Structured postmortems of tokenized real-world asset failures, indexed with
-          permanent identifiers for academic citation and industry reference.
-        </p>
+        <div className="flex items-start justify-between gap-4">
+          <div>
+            <Eyebrow>RWAscope Incident Registry</Eyebrow>
+            <h1 className="text-ed-page-h1 text-ed-ink mt-ed-section-sm">
+              RWA Incident Database
+            </h1>
+            <p className="text-ed-lede text-ed-text-secondary max-w-[720px] mt-ed-section-sm">
+              Structured postmortems of tokenized real-world asset failures, indexed with
+              permanent identifiers for academic citation and industry reference.
+            </p>
+          </div>
+          <a
+            href="/feeds/incidents.xml"
+            className="shrink-0 mt-1 text-ed-meta text-ed-text-secondary border border-ed-hairline px-3 py-1 hover:border-ed-ink hover:text-ed-ink transition-colors uppercase tracking-[0.1em]"
+          >
+            RSS Subscribe
+          </a>
+        </div>
       </section>
 
       {/* ── Stats ribbon ── */}
