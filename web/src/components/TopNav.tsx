@@ -4,7 +4,6 @@ import {
   AlertTriangle,
   FileText,
   LayoutDashboard,
-  Boxes,
   ShieldCheck,
   Layers,
   Globe,
@@ -81,7 +80,7 @@ const NAV_BLOCKS: NavBlock[] = [
   {
     label: 'Market',
     to: '/market',
-    activePaths: ['/market', '/assets', '/reserves'],
+    activePaths: ['/market', '/reserves'],
     dropdownHeader: 'Market',
     sub: [
       {
@@ -89,12 +88,6 @@ const NAV_BLOCKS: NavBlock[] = [
         label: 'Overview',
         subtitle: 'TVL trends, asset class breakdown, market signals',
         Icon: LayoutDashboard,
-      },
-      {
-        to: '/assets',
-        label: 'Tokenized Assets',
-        subtitle: 'Top RWA protocols and assets tracked via DeFiLlama',
-        Icon: Boxes,
       },
       {
         to: '/reserves',
@@ -107,7 +100,7 @@ const NAV_BLOCKS: NavBlock[] = [
   {
     label: 'Framework',
     to: '/licenses',
-    activePaths: ['/licenses', '/compliance', '/ensemble', '/methodology', '/glossary'],
+    activePaths: ['/licenses', '/assets', '/compliance', '/ensemble', '/methodology', '/glossary'],
     dropdownHeader: 'Framework',
     sub: [
       {
@@ -117,7 +110,7 @@ const NAV_BLOCKS: NavBlock[] = [
         Icon: ShieldCheck,
       },
       {
-        to: '/assets/methodology',
+        to: '/assets',
         label: 'RARM',
         subtitle: 'Six-layer due diligence framework for tokenized assets',
         Icon: Layers,

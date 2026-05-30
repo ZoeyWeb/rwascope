@@ -108,10 +108,9 @@ export default function AssetsOverview() {
         </div>
         <Link
           to="/assets/methodology"
-          className="flex items-center gap-1.5 text-sm text-[#5E5C75] hover:text-[#2B3437] transition-colors whitespace-nowrap"
+          className="text-ed-meta text-ed-text-muted hover:text-ed-ink transition-colors whitespace-nowrap"
         >
-          <span className="material-symbols-outlined text-base">info</span>
-          Methodology
+          RARM Methodology →
         </Link>
       </div>
 
