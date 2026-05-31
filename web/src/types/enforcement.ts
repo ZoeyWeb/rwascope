@@ -5,7 +5,7 @@ export type SarmBlock =
   | 'reserve' | 'legal' | 'regulatory' | 'transparency' | 'settlement' | 'governance';
 
 export type Regulator =
-  | 'SEC' | 'CFTC' | 'DOJ' | 'OFAC' | 'NYDFS' | 'FinCEN'
+  | 'SEC' | 'CFTC' | 'DOJ' | 'OFAC' | 'NYDFS' | 'FinCEN' | 'FTC'
   | 'SFC' | 'HKMA'
   | 'MAS'
   | 'FCA' | 'BaFin' | 'ESMA'

@@ -1,5 +1,5 @@
 {
-  "version": "1.2.0",
+  "version": "1.3.0",
   "updated_at": "2026-05-31",
   "actions": [
     {
@@ -183,44 +183,6 @@
       ]
     },
     {
-      "slug": "sec-binance-coinbase-2023",
-      "action_date": "2023-06-05",
-      "regulator": "SEC",
-      "jurisdiction": "US",
-      "target_entity": "Binance / Coinbase",
-      "target_type": "exchange",
-      "action_type": "charges",
-      "penalty_usd": 0,
-      "penalty_note": "Both cases voluntarily dismissed by SEC in 2025 (Coinbase Feb 2025; Binance May 2025) without monetary penalty.",
-      "summary": "SEC filed charges against Binance and Coinbase within two days in June 2023, alleging both operated as unregistered securities exchanges, brokers, and clearing agencies. The complaints listed several tokens as unregistered securities. The Coinbase case proceeded to litigation; Binance reached a separate settlement with DOJ and CFTC in November 2023.",
-      "rwa_relevant": false,
-      "asset_classes": [
-        "exchange"
-      ],
-      "status": "dismissed",
-      "sources": [
-        {
-          "label": "SEC vs Binance",
-          "url": "https://www.sec.gov/litigation/complaints/2023/comp-pr2023-101.pdf"
-        },
-        {
-          "label": "SEC vs Coinbase",
-          "url": "https://www.sec.gov/litigation/complaints/2023/comp-pr2023-102.pdf"
-        }
-      ],
-      "rarm_layers": [],
-      "sarm_blocks": [
-        "legal",
-        "regulatory"
-      ],
-      "lessons": [
-        "SEC pursued exchange-level enforcement under a \"regulation by litigation\" theory, naming 12+ tokens as unregistered securities in the complaints.",
-        "Both cases voluntarily dismissed by SEC in 2025 under post-Gensler leadership — exchange-level securities enforcement has receded as the primary US theory."
-      ],
-      "related_incident_slugs": [],
-      "related_issuer_slugs": []
-    },
-    {
       "slug": "sec-blockfi-2022-02",
       "action_date": "2022-02-14",
       "regulator": "SEC",
@@ -304,6 +266,395 @@
           "label": "Decrypt: Case adjourned Mar 2026",
           "url": "https://decrypt.co/352553/hong-kong-court-adjourns-206m-jpex-fraud-case-until-march-report"
         }
+      ]
+    },
+    {
+      "slug": "sec-paxos-busd-wells-2023-02",
+      "action_date": "2023-02-13",
+      "regulator": "SEC",
+      "jurisdiction": "US",
+      "target_entity": "Paxos Trust Company",
+      "target_type": "stablecoin_issuer",
+      "action_type": "wells_notice",
+      "penalty_usd": 0,
+      "penalty_note": "Wells notice only. SEC formally terminated the investigation on 9 July 2024 with no enforcement action (Tenreiro termination letter). Separate from the parallel NYDFS halt order on the same product.",
+      "summary": "On 13 February 2023 the SEC issued a Wells notice to Paxos Trust Company alleging that the Binance USD (BUSD) stablecoin — issued by Paxos in partnership with Binance — was an unregistered security. Paxos publicly disputed the framing, arguing BUSD was a USD-backed payment stablecoin fully reserved 1:1 with short-term dollar-denominated assets and therefore not an investment contract. After ~17 months of submissions, and following adjacent court rulings (Ripple programmatic-sale Jul 2023; SEC v. Binance BUSD-claim dismissal Jun 2024), SEC Enforcement staff formally terminated the investigation on 9 July 2024 with no charges filed. The termination is the canonical precedent that a properly-reserved fiat-backed payment stablecoin will not be pursued as an unregistered security at the US federal level.",
+      "rwa_relevant": true,
+      "asset_classes": [
+        "stablecoin"
+      ],
+      "rarm_layers": [],
+      "sarm_blocks": [
+        "legal",
+        "regulatory"
+      ],
+      "lessons": [
+        "Wells-notice termination after a sustained Wells submission process is itself precedent — Paxos established that a properly-reserved USD-backed payment stablecoin will not be charged as an unregistered security at the federal level.",
+        "Parallel federal (SEC) and state (NYDFS) regulators acted asymmetrically on the same product: NYDFS halted BUSD issuance in 2023 while SEC ultimately declined to charge — venue selection materially shapes the issuer's outcome.",
+        "Adjacent court rulings (Ripple Jul 2023; Binance BUSD-claim dismissal Jun 2024) cumulatively shifted SEC enforcement willingness on stablecoins, illustrating how unrelated cases set the doctrinal backdrop for active investigations."
+      ],
+      "related_incident_slugs": [],
+      "related_issuer_slugs": [
+        "paxos-usdg",
+        "paxos-usdp"
+      ],
+      "status": "dismissed",
+      "sources": [
+        "https://www.paxos.com/newsroom/paxos-prevails-in-sec-investigation-of-busd-stablecoin-and-sec-will-not-pursue-enforcement-action",
+        "https://www.davispolk.com/experience/termination-sec-investigation-paxos",
+        "https://cointelegraph.com/news/sec-enforcement-action-paxos-dropped"
+      ]
+    },
+    {
+      "slug": "sec-genesis-gemini-earn-2023-01",
+      "action_date": "2023-01-12",
+      "regulator": "SEC",
+      "jurisdiction": "US",
+      "target_entity": "Genesis Global Capital LLC and Gemini Trust Company LLC",
+      "target_type": "lending_platform",
+      "action_type": "charges",
+      "penalty_usd": 21000000,
+      "penalty_note": "SEC complaint filed Jan 12, 2023. Genesis settled with SEC for $21M (Aug 2024) as a bankruptcy administrative claim. Gemini Earn user obligations resolved via Genesis bankruptcy ($2.18B in-kind distributions by Jun 2024) + separate NYDFS consent order ($37M, Feb 2024).",
+      "summary": "On 12 January 2023 the SEC sued Genesis Global Capital LLC and Gemini Trust Company LLC in SDNY alleging the Gemini Earn programme — launched Feb 2021, under which Gemini customers loaned crypto assets to Genesis in exchange for interest — was an unregistered securities offering raising over $900M from US retail investors. Genesis filed Chapter 11 eight days later (20 Jan 2023). The case was the SEC's first major action framing a yield product operated as a partnership between an exchange (Gemini) and a separate lender (Genesis) as a single unregistered securities offering with joint liability. Genesis settled with the SEC for $21M as a bankruptcy administrative claim in Aug 2024; Earn customers ultimately received full in-kind recovery through the Genesis bankruptcy plus an NYDFS-coordinated $37M penalty and $40M bankruptcy contribution from Gemini.",
+      "rwa_relevant": true,
+      "asset_classes": [
+        "crypto_lending",
+        "yield_product"
+      ],
+      "rarm_layers": [
+        "issuer",
+        "redemption"
+      ],
+      "sarm_blocks": [],
+      "lessons": [
+        "The SEC framed Earn as a joint offering: an exchange partnering with a separate lender to distribute a yield product does not insulate either party from securities-law liability — both Gemini and Genesis were named.",
+        "Bankruptcy timing was decisive: Genesis Chapter 11 followed the SEC charges by 8 days; recovery for Earn customers came through bankruptcy distribution rather than SEC penalty mechanics.",
+        "Multi-regulator stack (SEC + NYDFS + NYAG) on a single yield product — RWA platforms with yield distribution should anticipate the same stacked enforcement geometry."
+      ],
+      "related_incident_slugs": [],
+      "related_issuer_slugs": [],
+      "status": "settled",
+      "sources": [
+        "https://www.sec.gov/news/press-release/2023-7",
+        "https://www.sec.gov/files/litigation/complaints/2023/comp-pr2023-7.pdf"
+      ]
+    },
+    {
+      "slug": "nydfs-gemini-earn-2024-02",
+      "action_date": "2024-02-28",
+      "regulator": "NYDFS",
+      "jurisdiction": "US",
+      "target_entity": "Gemini Trust Company LLC",
+      "target_type": "exchange",
+      "action_type": "settlement",
+      "penalty_usd": 37000000,
+      "penalty_note": "$37M penalty to NYDFS + $40M contribution to Genesis Global Capital bankruptcy estate for Earn customers. Gemini committed to return at least $1.1B in digital assets (actual return: $2.18B in-kind by Jun 2024). Gemini retained its DFS-issued trust charter.",
+      "summary": "On 28 February 2024 NYDFS entered a consent order with Gemini Trust Company resolving allegations that Gemini failed to conduct adequate due diligence on its Earn programme partner Genesis Global Capital — an unregulated third party — and failed to maintain compliance practices commensurate with the safety and soundness of a NY trust company. Under the order Gemini committed to return at least $1.1B in digital assets to Earn customers via the Genesis bankruptcy (final distributions completed June 2024 totalling $2.18B in-kind), paid a $37M penalty to NYDFS, and contributed $40M to the Genesis Global Capital bankruptcy estate. Gemini retained its DFS trust charter — contrasting with NYDFS's January 2024 action against Genesis Global Trading which required surrender of its BitLicense.",
+      "rwa_relevant": true,
+      "asset_classes": [
+        "crypto_lending",
+        "yield_product"
+      ],
+      "rarm_layers": [
+        "issuer",
+        "custody"
+      ],
+      "sarm_blocks": [],
+      "lessons": [
+        "NYDFS treats counterparty due diligence as a charter-level safety-and-soundness obligation: outsourcing a yield product to an unregulated third party (Genesis) without adequate oversight is itself the violation, distinct from federal securities-law theories.",
+        "State-level remediation achieves customer recovery that federal enforcement cannot: NYDFS-coordinated bankruptcy contribution + in-kind digital-asset return materially outperformed pure civil penalty mechanisms.",
+        "Charter preservation as calibrated leverage: allowing Gemini to retain its trust charter while pulling Genesis Global Trading's BitLicense demonstrates NYDFS proportionality based on each entity's role and remediation posture."
+      ],
+      "related_incident_slugs": [],
+      "related_issuer_slugs": [],
+      "status": "settled",
+      "sources": [
+        "https://www.dfs.ny.gov/reports_and_publications/press_releases/pr202402282",
+        "https://www.dfs.ny.gov/consumers/alerts/gemini-earn-customers-details"
+      ]
+    },
+    {
+      "slug": "sec-celsius-mashinsky-2023-07",
+      "action_date": "2023-07-13",
+      "regulator": "SEC",
+      "jurisdiction": "US",
+      "target_entity": "Celsius Network LLC and Alex Mashinsky",
+      "target_type": "lending_platform",
+      "action_type": "charges",
+      "penalty_usd": 4700000000,
+      "penalty_note": "Four-regulator simultaneous action 13 Jul 2023: FTC $4.7B settlement (judgment suspended for bankruptcy distribution) + permanent ban on handling consumer assets; SEC + CFTC civil charges; DOJ criminal charges. Mashinsky pleaded guilty 3 Dec 2024 (commodities fraud + scheme to manipulate CEL token); sentenced 8 May 2025 by Judge Koeltl (SDNY) to 12 years prison + $48.4M forfeiture.",
+      "summary": "On 13 July 2023 the SEC, CFTC, FTC, and DOJ simultaneously announced parallel actions against Celsius Network and its founder/CEO Alex Mashinsky. The FTC reached a $4.7B settlement (suspended for bankruptcy distribution) plus a permanent ban on Celsius handling consumer assets; SEC and CFTC alleged securities and commodities fraud; DOJ filed criminal charges including securities fraud, commodities fraud, and wire fraud. Prosecutors argued Mashinsky misled investors about the safety and profitability of Celsius's yield-generating platform, used customer deposits to manipulate the CEL token price, and personally extracted ~$48M while ~$20B in customer deposits were locked. Mashinsky pleaded guilty 3 Dec 2024 to commodities fraud and CEL token manipulation, and on 8 May 2025 was sentenced to 12 years in federal prison plus $48.4M forfeiture — among the longest crypto-related criminal sentences alongside SBF.",
+      "rwa_relevant": true,
+      "asset_classes": [
+        "crypto_lending",
+        "yield_product"
+      ],
+      "rarm_layers": [
+        "issuer",
+        "redemption"
+      ],
+      "sarm_blocks": [],
+      "lessons": [
+        "Four-regulator stacking (SEC + CFTC + FTC + DOJ) on a single yield product produced the largest civil penalty in FTC crypto history plus a 12-year criminal sentence — full-spectrum enforcement geometry that any RWA yield platform must internalise.",
+        "Personal accountability extends beyond corporate veil: Mashinsky's 12-year sentence and $48.4M forfeiture track tightly with token-price manipulation evidence, even when the corporate entity is in bankruptcy.",
+        "Token-price manipulation by an issuer is criminally prosecutable as commodities fraud (CFTC + DOJ) independently of any securities characterisation — broadens the prosecutable surface area significantly."
+      ],
+      "related_incident_slugs": [],
+      "related_issuer_slugs": [],
+      "status": "settled",
+      "sources": [
+        "https://www.sec.gov/news/press-release/2023-126",
+        "https://www.ftc.gov/news-events/news/press-releases/2023/07/ftc-takes-action-against-cryptocurrency-platform-celsius-and-former-executives",
+        "https://www.justice.gov/usao-sdny/pr/founder-and-former-chief-executive-officer-celsius-network-charged-multibillion-dollar"
+      ]
+    },
+    {
+      "slug": "ftc-voyager-ehrlich-2023-10",
+      "action_date": "2023-10-12",
+      "regulator": "FTC",
+      "jurisdiction": "US",
+      "target_entity": "Voyager Digital LLC and Stephen Ehrlich",
+      "target_type": "lending_platform",
+      "action_type": "settlement",
+      "penalty_usd": 1650000000,
+      "penalty_note": "FTC $1.65B judgment against Voyager corporate entities (suspended for bankruptcy distribution) + permanent ban on marketing or handling crypto consumer products. CFTC filed parallel fraud + registration failure charges against Ehrlich. Ehrlich personal FTC settlement Apr 2024: $2.8M + lifetime crypto industry ban.",
+      "summary": "On 12 October 2023 the FTC announced a settlement with Voyager Digital LLC and parallel charges against former CEO Stephen Ehrlich for falsely marketing customer accounts as FDIC-insured. The FTC complaint alleged that from 2018 through Voyager's July 2022 Chapter 11 bankruptcy, Voyager promised customer deposits — including conversions to USDC stablecoin — were 'as safe as at a bank' and 'FDIC INSURED', when in fact most funds were not FDIC-insured and customers lost over $1B when Voyager collapsed. The FTC entered a $1.65B judgment against the corporate defendants (suspended pending bankruptcy distribution) plus a permanent ban on marketing or handling crypto consumer products; the CFTC filed parallel fraud charges against Ehrlich. Ehrlich personally settled with the FTC in April 2024 for $2.8M plus a lifetime ban on crypto-related consumer business.",
+      "rwa_relevant": true,
+      "asset_classes": [
+        "stablecoin",
+        "crypto_lending"
+      ],
+      "rarm_layers": [
+        "custody",
+        "issuer"
+      ],
+      "sarm_blocks": [
+        "legal"
+      ],
+      "lessons": [
+        "False FDIC-insurance claims on stablecoin and crypto-deposit products are FTC-actionable consumer deception independent of any securities-law theory — directly applicable to any RWA platform marketing USD-equivalence to retail users.",
+        "Voyager expands the regulator stack on yield platforms: FTC (consumer protection) joined SEC/CFTC/DOJ as a credible primary venue, with the $1.65B headline exceeding most SEC penalties.",
+        "Permanent industry ban as remedy: the FTC's permanent prohibition on both the corporate defendants and Ehrlich establishes a structural exit from the crypto consumer market that no civil monetary penalty alone achieves."
+      ],
+      "related_incident_slugs": [],
+      "related_issuer_slugs": [],
+      "status": "settled",
+      "sources": [
+        "https://www.ftc.gov/news-events/news/press-releases/2023/10/ftc-reaches-settlement-crypto-company-voyager-digital-charges-former-executive-falsely-claiming",
+        "https://www.ftc.gov/node/88539"
+      ]
+    },
+    {
+      "slug": "mas-hodlnaut-2022-08",
+      "action_date": "2022-08-13",
+      "regulator": "MAS",
+      "jurisdiction": "SG",
+      "target_entity": "Hodlnaut Pte Ltd",
+      "target_type": "lending_platform",
+      "action_type": "investigation",
+      "penalty_usd": 0,
+      "penalty_note": "No MAS monetary penalty. Hodlnaut withdrew its Major Payment Institution (MPI) licence application Aug 2022; Singapore Police Commercial Affairs Department opened fraud investigation Nov 2022; Singapore High Court ordered liquidation 10 Nov 2023 (~S$92M / US$67M net liabilities).",
+      "summary": "On 8 August 2022 Hodlnaut Pte Ltd — a Singapore-based crypto lending platform — suspended customer withdrawals, deposits, and token swaps. On 13 August 2022 it applied to be placed under interim judicial management (granted 29 Aug 2022). Hodlnaut subsequently withdrew its Major Payment Institution licence application from MAS, conceding it could not operate as a regulated digital payment token provider. The Singapore Police Force's Commercial Affairs Department opened a fraud investigation in November 2022 into alleged misrepresentations about exposure to TerraUSD/Luna — judicial managers ultimately reported ~US$190M in TerraUSD losses, with US$187M of that booked through the Hong Kong subsidiary. On 10 November 2023 the Singapore High Court ordered the company wound up. Hodlnaut is the Singapore equivalent of the BlockFi/Celsius/Voyager wave and a foundational case for MAS's subsequent tightening of DPT licensing and consumer-protection rules.",
+      "rwa_relevant": true,
+      "asset_classes": [
+        "crypto_lending",
+        "yield_product"
+      ],
+      "rarm_layers": [
+        "issuer",
+        "custody",
+        "redemption"
+      ],
+      "sarm_blocks": [],
+      "lessons": [
+        "MPI licence withdrawal under regulatory pressure is functionally equivalent to enforcement: voluntary withdrawal closed MAS consumer-protection oversight precisely when customers needed it most, exposing a structural gap in the DPT licensing perimeter.",
+        "Cross-border subsidiary risk: ~98% of Hodlnaut's TerraUSD exposure was booked through its Hong Kong subsidiary, illustrating that Singapore-licensed parents can route platform risk into less-regulated APAC subsidiaries — a pattern RWA tokenisation platforms with multi-entity APAC structures must address.",
+        "MAS's 2023–2024 DPT consumer protection rules (retail leverage limits, custody segregation, marketing restrictions) trace directly to the Hodlnaut/3AC cluster."
+      ],
+      "related_incident_slugs": [],
+      "related_issuer_slugs": [],
+      "status": "closed",
+      "sources": [
+        "https://www.ey.com/en_sg/hodlnaut-pte-ltd",
+        "https://www.elitigation.sg/gd/s/2023_SGHC_323"
+      ]
+    },
+    {
+      "slug": "doj-binance-cz-2023-11",
+      "action_date": "2023-11-21",
+      "regulator": "DOJ",
+      "jurisdiction": "US",
+      "target_entity": "Binance Holdings Ltd and Changpeng Zhao (CZ)",
+      "target_type": "exchange",
+      "action_type": "settlement",
+      "penalty_usd": 4316000000,
+      "penalty_note": "$4.316B combined federal penalties: DOJ ~$1.81B (criminal fines + forfeiture for BSA, sanctions, unlicensed money transmitter); CFTC ~$1.35B; FinCEN/OFAC components (with offsets against DOJ). CZ personally pleaded guilty 21 Nov 2023 to BSA violation, paid $50M personal fine; sentenced 30 Apr 2024 to 4 months prison.",
+      "summary": "On 21 November 2023 the DOJ, CFTC, FinCEN, and OFAC simultaneously announced the largest crypto enforcement action to date: Binance Holdings pleaded guilty to operating an unlicensed money transmitter, conspiracy to violate the Bank Secrecy Act, and conspiracy to violate sanctions law (transactions for users in Iran, Cuba, Syria, North Korea, and Crimea). Combined federal penalties totalled ~$4.316B. Binance accepted a five-year DOJ monitorship and committed to a full exit from US users. Founder Changpeng Zhao (CZ) personally pleaded guilty to a BSA violation, paid a $50M personal fine, stepped down as CEO, and on 30 April 2024 was sentenced to four months in federal prison — substantially below Guidelines, reflecting cooperation. This action did not address Binance's separate SEC unregistered-securities case (dismissed 2025) but established BSA/AML/sanctions compliance as the dominant US theory against global crypto exchanges.",
+      "rwa_relevant": true,
+      "asset_classes": [
+        "stablecoin",
+        "crypto_native"
+      ],
+      "rarm_layers": [
+        "custody",
+        "jurisdiction"
+      ],
+      "sarm_blocks": [
+        "legal",
+        "regulatory"
+      ],
+      "lessons": [
+        "BSA/AML/sanctions compliance is the binding US theory against global exchange infrastructure, independent of securities-law characterisation — critical for any RWA settlement infrastructure that bridges US and sanctioned jurisdictions.",
+        "Five-year DOJ monitorship is structurally more consequential than the $4.3B headline: it embeds federal oversight inside the exchange's operations and shapes RWA-relevant custody and settlement architecture across that horizon.",
+        "Founder accountability via BSA: CZ's 4-month sentence (below Guidelines) signals that exchange founders who cooperate face short custodial sentences for AML failures — distinct from the multi-year sentences for fraud (Mashinsky 12y, SBF 25y)."
+      ],
+      "related_incident_slugs": [],
+      "related_issuer_slugs": [],
+      "status": "settled",
+      "sources": [
+        "https://www.justice.gov/opa/pr/binance-and-ceo-plead-guilty-federal-charges-4b-resolution",
+        "https://www.cftc.gov/PressRoom/PressReleases/8825-23",
+        "https://home.treasury.gov/news/press-releases/jy1925"
+      ]
+    },
+    {
+      "slug": "sec-binance-2023-charges",
+      "action_date": "2023-06-05",
+      "regulator": "SEC",
+      "jurisdiction": "US",
+      "target_entity": "Binance Holdings Ltd, BAM Trading Services (Binance.US), and Changpeng Zhao",
+      "target_type": "exchange",
+      "action_type": "charges",
+      "penalty_usd": 0,
+      "penalty_note": "SEC voluntarily dismissed the case 29 May 2025 without monetary penalty. Distinct from the $4.316B DOJ/CFTC/Treasury settlement of November 2023, which remains in force.",
+      "summary": "On 5 June 2023 the SEC filed 13 charges against Binance Holdings, BAM Trading Services (Binance.US operator), and Changpeng Zhao alleging operation of an unregistered exchange, broker, and clearing agency; unregistered offer and sale of securities including BNB and BUSD; and misrepresentation of trading controls. The complaint named twelve tokens as unregistered securities (BNB, BUSD, SOL, ADA, MATIC, FIL, ATOM, SAND, MANA, ALGO, AXS, COTI), extending prior token-by-token enforcement to a wholesale-exchange theory. In June 2024 Judge Berman Jackson (DDC) dismissed certain BUSD-related claims relying on the Ripple programmatic-sale ruling. On 29 May 2025 the SEC under post-Gensler leadership voluntarily dismissed the case in full without prejudice and without monetary penalty. Together with the parallel Coinbase dismissal Feb 2025, marks the receding of exchange-level securities enforcement as the primary US theory against crypto market infrastructure.",
+      "rwa_relevant": true,
+      "asset_classes": [
+        "stablecoin",
+        "crypto_native"
+      ],
+      "rarm_layers": [],
+      "sarm_blocks": [
+        "legal",
+        "regulatory"
+      ],
+      "lessons": [
+        "The SEC's exchange-level securities theory was abandoned in 2025 without a single binding settlement against a major exchange — the dismissals (Coinbase Feb 2025, Binance May 2025, Robinhood 2025) collectively are a major precedent against the SEC's wholesale-exchange framing.",
+        "Court dismissals of BUSD claims (Jun 2024) extending the Ripple programmatic-sale doctrine narrowed the securities-law surface for stablecoin secondary-market trading — directly relevant to any tokenised-security platform's secondary-market design.",
+        "Voluntary dismissal without prejudice leaves a future SEC the technical option to refile — RWA platforms should not treat the 2025 retreat as a permanent safe harbour."
+      ],
+      "related_incident_slugs": [],
+      "related_issuer_slugs": [],
+      "status": "dismissed",
+      "sources": [
+        "https://www.sec.gov/news/press-release/2023-101",
+        "https://www.sec.gov/files/litigation/complaints/2023/comp-pr2023-101.pdf"
+      ]
+    },
+    {
+      "slug": "sec-coinbase-2023-charges",
+      "action_date": "2023-06-06",
+      "regulator": "SEC",
+      "jurisdiction": "US",
+      "target_entity": "Coinbase Inc. and Coinbase Global Inc.",
+      "target_type": "exchange",
+      "action_type": "charges",
+      "penalty_usd": 0,
+      "penalty_note": "SEC voluntarily dismissed the case 27 Feb 2025 without monetary penalty.",
+      "summary": "On 6 June 2023 — one day after the Binance complaint — the SEC sued Coinbase Inc. and Coinbase Global Inc. in SDNY alleging Coinbase operated as an unregistered national securities exchange, broker, and clearing agency, and that its staking-as-a-service programme was an unregistered securities offering. The complaint named tokens including SOL, ADA, MATIC, FIL, SAND, AXS, CHZ, FLOW, ICP, NEAR, VGX, DASH, and NEXO as unregistered securities. In March 2024 Judge Failla refused to dismiss most claims, validating the SEC's 'investment contract' application to secondary-market tokens — a significant intermediate doctrinal ruling. On 27 February 2025 the SEC under post-Gensler leadership voluntarily dismissed the case in full. The dismissal — preceding the Binance dismissal by three months — was the first major institutional signal of the SEC's withdrawal from exchange-level securities enforcement.",
+      "rwa_relevant": true,
+      "asset_classes": [
+        "crypto_native",
+        "staking_service"
+      ],
+      "rarm_layers": [],
+      "sarm_blocks": [
+        "legal",
+        "regulatory"
+      ],
+      "lessons": [
+        "Staking-as-a-service was framed under the same Howey theory as BlockFi yield products, treating user-pooled staking rewards as managed-return securities — the theory survived motion-to-dismiss (Mar 2024) before SEC voluntarily abandoned the case (Feb 2025).",
+        "The Coinbase ruling preserving most SEC claims (Mar 2024) is the SEC's strongest doctrinal win on the exchange theory; abandoning it in Feb 2025 leaves the doctrine alive in case law without operational enforcement — complex precedent for RWA platforms to navigate.",
+        "Dismissal sequencing (Coinbase Feb 2025 → Binance May 2025) signalled deliberate policy retreat rather than case-specific weakness; RWA platforms with secondary-market tokenised-asset trading should track which doctrinal theories the SEC retains versus abandons."
+      ],
+      "related_incident_slugs": [],
+      "related_issuer_slugs": [],
+      "status": "dismissed",
+      "sources": [
+        "https://www.sec.gov/news/press-release/2023-102",
+        "https://www.sec.gov/files/litigation/complaints/2023/comp-pr2023-102.pdf"
+      ]
+    },
+    {
+      "slug": "doj-sbf-ftx-2023-conviction",
+      "action_date": "2023-11-02",
+      "regulator": "DOJ",
+      "jurisdiction": "US",
+      "target_entity": "Samuel Bankman-Fried (FTX Trading Ltd / Alameda Research)",
+      "target_type": "individual",
+      "action_type": "conviction",
+      "penalty_usd": 11020000000,
+      "penalty_note": "SDNY jury convicted on all seven counts (wire fraud, conspiracy to commit wire fraud, conspiracy to commit securities/commodities fraud, conspiracy to commit money laundering) 2 Nov 2023. Sentenced 28 Mar 2024 to 25 years prison + ~$11.02B forfeiture. Co-conspirators Caroline Ellison, Gary Wang, Nishad Singh, Ryan Salame all pleaded guilty separately (Ellison 24mo, Salame 7.5yr). Parallel SEC + CFTC civil actions resolved through bankruptcy.",
+      "summary": "Following the November 2022 collapse of FTX Trading Ltd, on 2 November 2023 an SDNY jury convicted founder Samuel Bankman-Fried on all seven criminal counts including wire fraud against FTX customers, FTX investors, and Alameda Research lenders; conspiracy to commit money laundering; and conspiracy to commit securities and commodities fraud. Evidence centred on the secret use of FTX customer deposits as a slush fund for Alameda's trading and venture investments. On 28 March 2024 Judge Lewis Kaplan sentenced Bankman-Fried to 25 years in federal prison plus an $11.02B forfeiture — the longest crypto-related criminal sentence to date. Co-conspirators Ellison (Alameda CEO), Wang (FTX CTO), Singh (FTX Director of Engineering), and Salame (FTX Digital Markets Bahamas) all pleaded guilty and cooperated; Ellison received 24 months, Salame 7.5 years. The case is the modern reference precedent for crypto-exchange customer-asset misappropriation and reshaped US and Bahamian regulatory posture toward exchange custody segregation.",
+      "rwa_relevant": true,
+      "asset_classes": [
+        "crypto_native",
+        "stablecoin"
+      ],
+      "rarm_layers": [
+        "custody",
+        "audit",
+        "jurisdiction"
+      ],
+      "sarm_blocks": [
+        "legal",
+        "governance"
+      ],
+      "lessons": [
+        "Customer-asset commingling — using customer deposits as a corporate slush fund — is the most prosecutable failure mode for any custodial RWA platform; SBF's 25-year sentence is the benchmark, far above any tokenisation-related civil penalty.",
+        "Proof-of-reserves was the missing structural primitive: any RWA tokenisation platform with custody responsibilities must publish reserve attestations that materially exceed what FTX represented internally versus externally.",
+        "Co-conspirator cooperation pricing: Ellison/Wang/Singh/Salame guilty pleas yielded sentences 2–10 years, vs SBF's 25 years for taking trial — a clear DOJ incentive structure shaping how future crypto-fraud cases will resolve."
+      ],
+      "related_incident_slugs": [],
+      "related_issuer_slugs": [],
+      "status": "closed",
+      "sources": [
+        "https://www.justice.gov/usao-sdny/pr/samuel-bankman-fried-sentenced-25-years-his-orchestration-multiple-fraudulent-schemes",
+        "https://www.justice.gov/usao-sdny/pr/samuel-bankman-fried-found-guilty-all-seven-counts"
+      ]
+    },
+    {
+      "slug": "sec-ripple-xrp-2020-2024",
+      "action_date": "2023-07-13",
+      "regulator": "SEC",
+      "jurisdiction": "US",
+      "target_entity": "Ripple Labs Inc., Christian Larsen, and Bradley Garlinghouse",
+      "target_type": "tokenization_platform",
+      "action_type": "settlement",
+      "penalty_usd": 125000000,
+      "penalty_note": "Final judgment 7 Aug 2024: $125M civil penalty against Ripple. SEC originally sought ~$2B. Initial complaint Dec 22, 2020. Summary judgment 13 Jul 2023 (Torres, SDNY): XRP institutional sales WERE unregistered securities; XRP programmatic exchange sales were NOT. SEC dropped its appeal in 2025.",
+      "summary": "Filed by the SEC on 22 December 2020, SEC v. Ripple Labs alleged that Ripple, CEO Garlinghouse, and co-founder Larsen conducted an unregistered securities offering by selling XRP tokens. On 13 July 2023 Judge Analisa Torres (SDNY) issued a landmark summary judgment: XRP sold to sophisticated institutional buyers under written contracts WAS an unregistered security; XRP sold through programmatic trading on digital-asset exchanges to anonymous retail buyers was NOT a security, because retail buyers could not reasonably have expected returns to depend on Ripple's specific managerial efforts. This was the first US court ruling to bifurcate a token's securities status by sale context, breaking the SEC's binary framing. On 7 August 2024 Judge Torres entered final judgment requiring Ripple to pay a $125M civil penalty (vs the SEC's requested ~$2B). The SEC dropped its appeal in 2025. The Ripple programmatic-sale doctrine has since been cited in BUSD-claim dismissals (SEC v. Binance, Jun 2024) and the broader 2024–2025 SEC retreat from secondary-market token enforcement.",
+      "rwa_relevant": true,
+      "asset_classes": [
+        "crypto_native"
+      ],
+      "rarm_layers": [
+        "issuer"
+      ],
+      "sarm_blocks": [
+        "legal"
+      ],
+      "lessons": [
+        "The Torres bifurcation (institutional sale = security; programmatic secondary-market sale ≠ security) is the most-cited US precedent for any RWA-tokenisation platform planning primary issuance versus secondary-market trading — different sales channels carry different legal characterisations of the same token.",
+        "The $125M final judgment vs the SEC's requested $2B (~94% reduction) signalled judicial skepticism of inflated SEC penalty asks and recalibrated future negotiation baselines for token issuers.",
+        "Ripple's programmatic-sale doctrine has been load-bearing in adjacent rulings (BUSD claims dismissed Jun 2024; Coinbase staking theory survived but case dismissed Feb 2025) — RWA platform legal strategy should track which downstream rulings extend or limit Torres's reasoning."
+      ],
+      "related_incident_slugs": [],
+      "related_issuer_slugs": [],
+      "status": "settled",
+      "sources": [
+        "https://www.sec.gov/news/press-release/2020-338",
+        "https://www.courtlistener.com/docket/18752520/sec-v-ripple-labs-inc/"
       ]
     }
   ]
