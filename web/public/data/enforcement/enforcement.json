@@ -1,5 +1,5 @@
 {
-  "version": "1.1.0",
+  "version": "1.2.0",
   "updated_at": "2026-05-31",
   "actions": [
     {
@@ -219,6 +219,92 @@
       ],
       "related_incident_slugs": [],
       "related_issuer_slugs": []
+    },
+    {
+      "slug": "sec-blockfi-2022-02",
+      "action_date": "2022-02-14",
+      "regulator": "SEC",
+      "jurisdiction": "US",
+      "target_entity": "BlockFi Lending LLC",
+      "target_type": "lending_platform",
+      "action_type": "settlement",
+      "penalty_usd": 100000000,
+      "penalty_note": "$50M to SEC + parallel $50M to 32 state securities regulators coordinated via NASAA. First-of-its-kind action framing a retail crypto interest-bearing account as an unregistered security.",
+      "summary": "On 14 February 2022 the SEC settled charges against BlockFi Lending LLC over its BlockFi Interest Accounts (BIAs), finding that the BIAs were unregistered securities under the Securities Act of 1933 and that BlockFi itself failed to register as an investment company under the Investment Company Act of 1940. The SEC further found BlockFi had made misleading statements about the risk profile of its loan portfolio. BlockFi paid a $50M SEC civil penalty plus a parallel $50M to 32 state regulators (NASAA-coordinated) and committed to bring its products into compliance within 60 days. This was the first SEC enforcement to treat a retail crypto interest account as a security and remains the canonical precedent applied to subsequent yield-product cases (Genesis/Gemini Earn, Celsius, Voyager) and — by direct analogy — to RWA-tokenised yield distribution products.",
+      "rwa_relevant": true,
+      "asset_classes": [
+        "crypto_lending",
+        "yield_product"
+      ],
+      "rarm_layers": [
+        "issuer"
+      ],
+      "sarm_blocks": [],
+      "lessons": [
+        "Howey test applies to crypto yield programs regardless of \"lending\" or \"interest account\" branding — what matters is whether returns depend on the platform's managerial efforts, not the product name.",
+        "BlockFi precedent now actively framed against RWA-tokenised yield distribution: any RWA platform that pools investor capital and promises returns from issuer-managed allocation faces the same securities-law theory.",
+        "Parallel federal + multi-state enforcement via NASAA doubled the effective penalty and signalled that state securities regulators will pursue crypto issuers independently of SEC timing."
+      ],
+      "related_incident_slugs": [],
+      "related_issuer_slugs": [],
+      "status": "settled",
+      "sources": [
+        {
+          "label": "SEC Press Release",
+          "url": "https://www.sec.gov/newsroom/press-releases/2022-26"
+        },
+        {
+          "label": "SEC Order (33-11029)",
+          "url": "https://www.sec.gov/litigation/admin/2022/33-11029.pdf"
+        },
+        {
+          "label": "NASAA Statement",
+          "url": "https://www.nasaa.org/62000/nasaa-and-sec-announce-100-million-settlement-with-blockfi-lending-llc/"
+        }
+      ]
+    },
+    {
+      "slug": "sfc-jpex-2023-09",
+      "action_date": "2023-09-13",
+      "regulator": "SFC",
+      "jurisdiction": "HK",
+      "target_entity": "JPEX (Japan Easy Exchange) and associated promoters",
+      "target_type": "exchange",
+      "action_type": "order",
+      "penalty_usd": 0,
+      "penalty_note": "No SFC monetary penalty; case escalated to HK Police criminal proceedings under AMLO. As of March 2026: 26 individuals formally charged (conspiracy to defraud, money laundering, obstruction of justice), 80+ arrests, Interpol Red Notices on 3 fugitive ringleaders, HK$228M (~US$28M) in assets frozen.",
+      "summary": "On 13 September 2023 the Hong Kong Securities and Futures Commission issued a public alert naming JPEX (Japan Easy Exchange) as an unlicensed virtual asset trading platform making misleading claims about its regulatory status. Within days JPEX raised withdrawal fees to 999 USDT (capped at 1,000 USDT) effectively freezing user assets. Hong Kong Police launched Operation Iron Gate; by early 2026 more than 2,700 victims had reported losses exceeding HK$1.6 billion (~US$206M), making this the largest cryptocurrency fraud in Hong Kong history. As of March 2026, 26 individuals — including KOL promoters Joseph Lam Chok and Chan Wing-yee — have been formally charged under AMLO with conspiracy to defraud, money laundering, and obstruction of justice; three alleged ringleaders remain at large under Interpol Red Notice. The case directly catalysed HK's accelerated VATP licensing regime, the SFC's suspicious-VA-platforms public alert list, and KOL/influencer accountability rules for crypto promotion.",
+      "rwa_relevant": true,
+      "asset_classes": [
+        "crypto_native"
+      ],
+      "rarm_layers": [
+        "custody",
+        "jurisdiction"
+      ],
+      "sarm_blocks": [],
+      "lessons": [
+        "JPEX is the foundational case shaping HK's 2024–2026 RWA regulatory posture: the SFC public-alert mechanism, accelerated VATP licensing transition, and KOL accountability rules all trace directly to this collapse.",
+        "Unlicensed VATP custody is a single-point-of-failure: users had no on-chain self-custody fallback once withdrawal fees were weaponised, illustrating why any HK RWA tokenisation platform must satisfy ex-ante Type 1/7 licensing rather than relying on ex-post enforcement.",
+        "HK prosecutes unlicensed-platform operators and promoters under AMLO §53ZRG rather than dedicated securities/VATP statutes — a precedent any RWA tokenisation marketing campaign in HK must internalise."
+      ],
+      "related_incident_slugs": [],
+      "related_issuer_slugs": [],
+      "status": "ongoing",
+      "sources": [
+        {
+          "label": "SFC Suspicious VA Platforms",
+          "url": "https://www.sfc.hk/en/Regulatory-functions/Intermediaries/Suspicious-VA-platforms"
+        },
+        {
+          "label": "SCMP: 10 defendants charged",
+          "url": "https://www.scmp.com/news/hong-kong/law-and-crime/article/3348180/10-defendants-remanded-custody-jpex-cryptocurrency-fraud-case"
+        },
+        {
+          "label": "Decrypt: Case adjourned Mar 2026",
+          "url": "https://decrypt.co/352553/hong-kong-court-adjourns-206m-jpex-fraud-case-until-march-report"
+        }
+      ]
     }
   ]
 }
