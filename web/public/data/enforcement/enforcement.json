@@ -1,6 +1,6 @@
 {
-  "version": "1.0.0",
-  "updated_at": "2026-05-20",
+  "version": "1.1.0",
+  "updated_at": "2026-05-31",
   "actions": [
     {
       "slug": "cftc-tether-ifinex-2021",
@@ -14,10 +14,28 @@
       "penalty_note": null,
       "summary": "CFTC settled with Tether and its parent iFinex, finding that Tether had misrepresented its USDT reserves as fully backed by US dollars at all times. The settlement required $42.5M in civil monetary penalties. CFTC found that between 2016 and 2019 Tether held sufficient fiat reserves for only 27.6% of days.",
       "rwa_relevant": true,
-      "asset_classes": ["stablecoin"],
+      "asset_classes": [
+        "stablecoin"
+      ],
       "status": "settled",
       "sources": [
-        { "label": "CFTC Press Release", "url": "https://www.cftc.gov/PressRoom/PressReleases/8450-21" }
+        {
+          "label": "CFTC Press Release",
+          "url": "https://www.cftc.gov/PressRoom/PressReleases/8450-21"
+        }
+      ],
+      "rarm_layers": [],
+      "sarm_blocks": [
+        "reserve",
+        "transparency"
+      ],
+      "lessons": [
+        "Stablecoin reserve claims are material representations under commodity law: \"fully backed by USD\" must hold continuously, not merely at attestation snapshots.",
+        "CFTC asserted jurisdiction over stablecoin reserves via the swap/commodity hook, predating any dedicated US stablecoin statute."
+      ],
+      "related_incident_slugs": [],
+      "related_issuer_slugs": [
+        "tether-usdt"
       ]
     },
     {
@@ -28,14 +46,33 @@
       "target_entity": "Paxos Trust Company",
       "target_type": "stablecoin_issuer",
       "action_type": "order",
-      "penalty_usd": null,
+      "penalty_usd": 0,
       "penalty_note": "No monetary penalty; NYDFS ordered halt to BUSD issuance",
       "summary": "NYDFS ordered Paxos to cease minting new BUSD tokens, citing unresolved issues with Paxos's oversight of its relationship with Binance. Following the order, BUSD supply began declining and Paxos committed to redeeming all outstanding tokens. The action effectively ended BUSD as a circulating stablecoin.",
       "rwa_relevant": true,
-      "asset_classes": ["stablecoin"],
+      "asset_classes": [
+        "stablecoin"
+      ],
       "status": "closed",
       "sources": [
-        { "label": "NYDFS Statement", "url": "https://www.dfs.ny.gov/consumers/alerts/Paxos_and_Binance" }
+        {
+          "label": "NYDFS Statement",
+          "url": "https://www.dfs.ny.gov/consumers/alerts/Paxos_and_Binance"
+        }
+      ],
+      "rarm_layers": [],
+      "sarm_blocks": [
+        "regulatory",
+        "governance"
+      ],
+      "lessons": [
+        "State-level NYDFS can shut down a multi-billion-dollar stablecoin without federal SEC action — BUSD wind-down completed without any monetary penalty.",
+        "BitLicense scope strictly bounds what a NY-regulated issuer may issue; activity outside scope triggers a consent order to halt."
+      ],
+      "related_incident_slugs": [],
+      "related_issuer_slugs": [
+        "paxos-usdg",
+        "paxos-usdp"
       ]
     },
     {
@@ -46,15 +83,35 @@
       "target_entity": "Terraform Labs / Do Kwon",
       "target_type": "stablecoin_issuer",
       "action_type": "charges",
-      "penalty_usd": null,
-      "penalty_note": "Civil penalties pending; Do Kwon extradited 2024",
+      "penalty_usd": 4470000000,
+      "penalty_note": "$4.47B settlement (June 2024): $3.586B disgorgement + $420M civil penalty + ~$467M prejudgment interest. Do Kwon extradited Montenegro→US Dec 2024.",
       "summary": "SEC charged Terraform Labs and its co-founder Do Kwon with orchestrating a multi-billion dollar crypto asset securities fraud through the offer and sale of an interconnected suite of crypto asset securities, including UST and LUNA. SEC alleged the algorithmic stablecoin mechanism constituted an unregistered securities offering.",
       "rwa_relevant": true,
-      "asset_classes": ["stablecoin"],
-      "status": "ongoing",
+      "asset_classes": [
+        "stablecoin"
+      ],
+      "status": "settled",
       "sources": [
-        { "label": "SEC Complaint", "url": "https://www.sec.gov/litigation/complaints/2023/comp-pr2023-32.pdf" }
-      ]
+        {
+          "label": "SEC Complaint",
+          "url": "https://www.sec.gov/litigation/complaints/2023/comp-pr2023-32.pdf"
+        }
+      ],
+      "rarm_layers": [],
+      "sarm_blocks": [
+        "reserve",
+        "legal",
+        "governance"
+      ],
+      "lessons": [
+        "Algorithmic stablecoins without exogenous collateral are structurally pre-disposed to death-spiral failure; SEC framed UST/LUNA as securities fraud by design, not merely a bad outcome.",
+        "Issuer false statements about reserve mechanics constitute securities fraud regardless of the \"stablecoin\" label.",
+        "Cross-jurisdictional founder accountability is achievable: extradition obtained Montenegro→US after $4.47B civil settlement."
+      ],
+      "related_incident_slugs": [
+        "terrausd-luna-collapse-2022"
+      ],
+      "related_issuer_slugs": []
     },
     {
       "slug": "mas-three-arrows-capital-2023",
@@ -64,15 +121,30 @@
       "target_entity": "Three Arrows Capital",
       "target_type": "fund",
       "action_type": "ban",
-      "penalty_usd": null,
+      "penalty_usd": 0,
       "penalty_note": "9-year ban on directors from MAS-regulated activities",
       "summary": "MAS reprimanded Three Arrows Capital (3AC) and issued nine-year prohibition orders against its two co-founders, finding that 3AC had exceeded its allowable assets under management threshold and provided false information to MAS. 3AC had collapsed in June 2022 with estimated liabilities exceeding USD 3 billion.",
       "rwa_relevant": false,
-      "asset_classes": ["other"],
+      "asset_classes": [
+        "other"
+      ],
       "status": "closed",
       "sources": [
-        { "label": "MAS Press Release", "url": "https://www.mas.gov.sg/news/media-releases/2023/mas-reprimands-three-arrows-capital" }
-      ]
+        {
+          "label": "MAS Press Release",
+          "url": "https://www.mas.gov.sg/news/media-releases/2023/mas-reprimands-three-arrows-capital"
+        }
+      ],
+      "rarm_layers": [],
+      "sarm_blocks": [
+        "legal"
+      ],
+      "lessons": [
+        "MAS escalation pattern: reprimand followed by 9-year prohibition orders on founders — personal accountability survives corporate insolvency.",
+        "3AC 2022 collapse triggered contagion across stablecoin/lending sector (BlockFi, Celsius, Voyager); non-RWA event with system-wide RWA-adjacent impact."
+      ],
+      "related_incident_slugs": [],
+      "related_issuer_slugs": []
     },
     {
       "slug": "sfc-hashkey-osl-conditions-2023",
@@ -82,14 +154,32 @@
       "target_entity": "HashKey Exchange / OSL Exchange",
       "target_type": "exchange",
       "action_type": "order",
-      "penalty_usd": null,
+      "penalty_usd": 0,
       "penalty_note": "Enhanced licensing conditions imposed, not a punitive penalty",
       "summary": "SFC issued enhanced licensing conditions to HashKey Exchange and OSL Exchange as part of the formal VATP licensing regime that came into effect June 2023. Conditions included enhanced investor protection requirements, minimum liquid capital thresholds, and restrictions on tokenised securities offerings to professional investors only.",
       "rwa_relevant": true,
-      "asset_classes": ["exchange", "tokenised_securities"],
+      "asset_classes": [
+        "tokenised_securities"
+      ],
       "status": "ongoing",
       "sources": [
-        { "label": "SFC VATP Licensing", "url": "https://www.sfc.hk/en/Regulatory-functions/Intermediaries/Licensing/Licensing-of-virtual-asset-trading-platforms" }
+        {
+          "label": "SFC VATP Licensing",
+          "url": "https://www.sfc.hk/en/Regulatory-functions/Intermediaries/Licensing/Licensing-of-virtual-asset-trading-platforms"
+        }
+      ],
+      "rarm_layers": [
+        "custody",
+        "jurisdiction"
+      ],
+      "sarm_blocks": [],
+      "lessons": [
+        "HK VATP regime functions as ex-ante licensing rather than ex-post enforcement — distinct from the US \"regulation by enforcement\" template.",
+        "HashKey and OSL are the reference data points for any HK RWA tokenization platform seeking retail customer access; the licensing conditions are the de facto operational specification."
+      ],
+      "related_incident_slugs": [],
+      "related_issuer_slugs": [
+        "osl-stablecoin-hk"
       ]
     },
     {
@@ -100,16 +190,35 @@
       "target_entity": "Binance / Coinbase",
       "target_type": "exchange",
       "action_type": "charges",
-      "penalty_usd": null,
-      "penalty_note": "Coinbase case ongoing; Binance settled separately with DOJ/CFTC",
+      "penalty_usd": 0,
+      "penalty_note": "Both cases voluntarily dismissed by SEC in 2025 (Coinbase Feb 2025; Binance May 2025) without monetary penalty.",
       "summary": "SEC filed charges against Binance and Coinbase within two days in June 2023, alleging both operated as unregistered securities exchanges, brokers, and clearing agencies. The complaints listed several tokens as unregistered securities. The Coinbase case proceeded to litigation; Binance reached a separate settlement with DOJ and CFTC in November 2023.",
       "rwa_relevant": false,
-      "asset_classes": ["exchange"],
-      "status": "ongoing",
+      "asset_classes": [
+        "exchange"
+      ],
+      "status": "dismissed",
       "sources": [
-        { "label": "SEC vs Binance", "url": "https://www.sec.gov/litigation/complaints/2023/comp-pr2023-101.pdf" },
-        { "label": "SEC vs Coinbase", "url": "https://www.sec.gov/litigation/complaints/2023/comp-pr2023-102.pdf" }
-      ]
+        {
+          "label": "SEC vs Binance",
+          "url": "https://www.sec.gov/litigation/complaints/2023/comp-pr2023-101.pdf"
+        },
+        {
+          "label": "SEC vs Coinbase",
+          "url": "https://www.sec.gov/litigation/complaints/2023/comp-pr2023-102.pdf"
+        }
+      ],
+      "rarm_layers": [],
+      "sarm_blocks": [
+        "legal",
+        "regulatory"
+      ],
+      "lessons": [
+        "SEC pursued exchange-level enforcement under a \"regulation by litigation\" theory, naming 12+ tokens as unregistered securities in the complaints.",
+        "Both cases voluntarily dismissed by SEC in 2025 under post-Gensler leadership — exchange-level securities enforcement has receded as the primary US theory."
+      ],
+      "related_incident_slugs": [],
+      "related_issuer_slugs": []
     }
   ]
 }

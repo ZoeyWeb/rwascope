@@ -1,13 +1,18 @@
 import { useState, useMemo } from 'react';
-import enforcementData from '../../../public/data/enforcement/enforcement.json';
+import { Link } from 'react-router-dom';
+import type { EnforcementAction, EnforcementDataset } from '../../types/enforcement';
+import rawData from '../../../public/data/enforcement/enforcement.json';
 
-type Action = (typeof enforcementData.actions)[number];
+const enforcementData = rawData as unknown as EnforcementDataset;
+type Action = EnforcementAction;
 
 const STATUS_COLORS: Record<string, string> = {
-  settled:  'bg-[#2E7D32]/10 text-[#2E7D32]',
-  closed:   'bg-[#5E5C75]/10 text-[#5E5C75]',
-  ongoing:  'bg-[#e09d2b]/10 text-[#e09d2b]',
-  appealed: 'bg-[#9e3f4e]/10 text-[#9e3f4e]',
+  settled:   'bg-[#2E7D32]/10 text-[#2E7D32]',
+  closed:    'bg-[#5E5C75]/10 text-[#5E5C75]',
+  ongoing:   'bg-[#e09d2b]/10 text-[#e09d2b]',
+  dismissed: 'bg-[#9e3f4e]/10 text-[#9e3f4e]',
+  appealed:  'bg-[#9e3f4e]/10 text-[#9e3f4e]',
+  overturned:'bg-[#2E7D32]/10 text-[#2E7D32]',
 };
 
 const ACTION_ICONS: Record<string, string> = {
@@ -19,12 +24,12 @@ const ACTION_ICONS: Record<string, string> = {
   investigation: 'search',
 };
 
-const REGULATORS = ['All', 'SEC', 'CFTC', 'NYDFS', 'MAS', 'SFC', 'HKMA', 'FCA', 'VARA'];
-const JURISDICTIONS = ['All', 'US', 'HK', 'SG', 'EU', 'UK', 'UAE'];
-const STATUSES = ['All', 'ongoing', 'settled', 'closed', 'appealed'];
+const REGULATORS = ['All', 'SEC', 'CFTC', 'NYDFS', 'MAS', 'SFC'];
+const JURISDICTIONS = ['All', 'US', 'HK', 'SG'];
+const STATUSES = ['All', 'ongoing', 'settled', 'closed', 'dismissed'];
 
-function fmt(n: number | null, note: string | null): string {
-  if (n) return '$' + (n >= 1_000_000 ? (n / 1_000_000).toFixed(1) + 'M' : n.toLocaleString());
+function fmt(n: number, note: string | null): string {
+  if (n > 0) return '$' + (n >= 1_000_000 ? (n / 1_000_000).toFixed(1) + 'M' : n.toLocaleString());
   return note ?? '—';
 }
 
@@ -172,7 +177,7 @@ function ActionCard({ action }: { action: Action }) {
           <div className="text-sm font-semibold text-[#2B3437]">{action.target_entity}</div>
           <div className="text-xs text-[#737C7F] mt-0.5 capitalize">
             {action.action_type}
-            {action.penalty_usd || action.penalty_note
+            {action.penalty_usd > 0 || action.penalty_note
               ? ' · ' + fmt(action.penalty_usd, action.penalty_note)
               : ''}
           </div>
@@ -189,6 +194,63 @@ function ActionCard({ action }: { action: Action }) {
       {open && (
         <div className="px-5 pb-5 border-t border-[#F1F4F6]">
           <p className="mt-4 text-sm text-[#2B3437] leading-relaxed">{action.summary}</p>
+
+          {(action.rarm_layers.length > 0 || action.sarm_blocks.length > 0) && (
+            <div className="mt-3 flex flex-wrap gap-1.5">
+              {action.rarm_layers.map(l => (
+                <span key={l} className="text-xs px-2 py-0.5 rounded bg-[#5E5C75]/10 text-[#5E5C75] font-medium capitalize">
+                  RARM · {l}
+                </span>
+              ))}
+              {action.sarm_blocks.map(b => (
+                <span key={b} className="text-xs px-2 py-0.5 rounded bg-[#2B3437]/10 text-[#2B3437] font-medium capitalize">
+                  SARM · {b}
+                </span>
+              ))}
+            </div>
+          )}
+
+          {action.lessons.length > 0 && (
+            <div className="mt-4">
+              <div className="text-xs font-semibold uppercase tracking-wider text-[#5E5C75] mb-2">
+                Key precedents
+              </div>
+              <ul className="space-y-1.5">
+                {action.lessons.map((l, i) => (
+                  <li key={i} className="flex gap-2 text-xs text-[#2B3437] leading-relaxed">
+                    <span className="shrink-0 mt-0.5 text-[#5E5C75]">·</span>
+                    <span>{l}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {(action.related_incident_slugs.length > 0 || action.related_issuer_slugs.length > 0) && (
+            <div className="mt-4 flex flex-wrap gap-2">
+              {action.related_incident_slugs.map(slug => (
+                <Link
+                  key={slug}
+                  to={`/incidents/${slug}`}
+                  className="flex items-center gap-1 text-xs text-[#5E5C75] hover:text-[#2B3437] font-medium border border-[#DBE4E7] px-2.5 py-1 rounded-full transition-colors"
+                >
+                  <span className="material-symbols-outlined text-[12px]">link</span>
+                  Related incident →
+                </Link>
+              ))}
+              {action.related_issuer_slugs.map(slug => (
+                <Link
+                  key={slug}
+                  to={`/licenses/${slug}`}
+                  className="flex items-center gap-1 text-xs text-[#5E5C75] hover:text-[#2B3437] font-medium border border-[#DBE4E7] px-2.5 py-1 rounded-full transition-colors"
+                >
+                  <span className="material-symbols-outlined text-[12px]">account_balance</span>
+                  Same entity in HK Licensing →
+                </Link>
+              ))}
+            </div>
+          )}
+
           {action.sources.length > 0 && (
             <div className="mt-4 flex flex-wrap gap-2">
               {action.sources.map(s => (
