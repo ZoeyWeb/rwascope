@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { Logo } from './Logo';
 
 function FooterColTitle({ children }: { children: React.ReactNode }) {
   return (
@@ -55,7 +56,7 @@ export default function Footer() {
           {/* Brand + boilerplate, col-span-4 */}
           <div className="col-span-4">
             <div className="flex items-center gap-3">
-              <img src="/logo-mark.svg" className="h-8" alt="RWAscope" />
+              <Logo size={32} className="text-ed-ink" />
               <span className="text-ed-item-h4 text-ed-ink">RWA-Index</span>
             </div>
             <p className="text-ed-body text-ed-text-secondary mt-ed-section-sm leading-relaxed max-w-[320px]">

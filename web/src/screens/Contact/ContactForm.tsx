@@ -48,11 +48,6 @@ export default function ContactForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (values.message.length < 20) {
-      setErrorMsg('Message must be at least 20 characters.');
-      setStatus('error');
-      return;
-    }
     setStatus('submitting');
     setErrorMsg('');
 
@@ -194,13 +189,12 @@ export default function ContactForm() {
 
         <div>
           <label htmlFor="cf-message" className={LABEL_CLASS}>
-            Message * <span className="normal-case tracking-normal text-ed-text-faint">(min 20 characters)</span>
+            Message *
           </label>
           <textarea
             id="cf-message"
             required
             rows={6}
-            minLength={20}
             value={values.message}
             onChange={set('message')}
             placeholder="Tell us about your inquiry…"

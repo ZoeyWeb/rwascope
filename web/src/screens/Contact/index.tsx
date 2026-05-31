@@ -1,6 +1,6 @@
+import { useLayoutEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { Eyebrow } from '../../components/Eyebrow';
 import ContactForm from './ContactForm';
 
 interface InquiryBlockProps {
@@ -28,6 +28,10 @@ function InquiryBlock({ title, description, link, className = '' }: InquiryBlock
 }
 
 export default function Contact() {
+  useLayoutEffect(() => {
+    document.getElementById('main-scroll')?.scrollTo(0, 0);
+  }, []);
+
   return (
     <>
       <Helmet>
@@ -44,22 +48,26 @@ export default function Contact() {
         <link rel="canonical" href="https://rwa-index.com/contact" />
       </Helmet>
 
-      <div className="max-w-[1400px] mx-auto px-8">
-
-        {/* Hero */}
-        <section className="pt-ed-section-md pb-ed-section-sm">
-          <Eyebrow>Contact</Eyebrow>
-          <h1 className="text-ed-hero-h1 text-ed-ink mt-ed-section-sm">
+      {/* Full-bleed dark hero */}
+      <section className="w-screen relative left-1/2 -translate-x-1/2 bg-ed-ink">
+        <div className="max-w-[1400px] mx-auto px-8 pt-ed-section pb-ed-section">
+          <div className="text-ed-eyebrow uppercase tracking-[0.18em] text-white/50">
+            Contact
+          </div>
+          <h1 className="text-ed-hero-h1 text-white mt-ed-section-sm">
             Get in touch with our team
           </h1>
-          <p className="text-ed-lede text-ed-text-secondary max-w-[720px] mt-ed-section-sm">
+          <p className="text-ed-lede text-white/70 max-w-[720px] mt-ed-section-sm">
             For press inquiries, research collaboration, data access requests,
             or speaking engagements at conferences and policy forums.
           </p>
-        </section>
+        </div>
+      </section>
+
+      <div className="max-w-[1400px] mx-auto px-8">
 
         {/* Main two-col */}
-        <section className="border-t border-ed-hairline pt-ed-section pb-ed-section">
+        <section className="pt-ed-section pb-ed-section">
           <div className="grid grid-cols-12 gap-16">
 
             {/* Left: inquiry type info blocks, col-span-5 */}

@@ -8,7 +8,7 @@ export default function Layout() {
     <div className="h-screen flex flex-col">
       <Disclaimer />
       <TopNav />
-      <main className="flex-1 pt-20 overflow-auto flex flex-col">
+      <main id="main-scroll" className="flex-1 pt-20 overflow-auto flex flex-col">
         <div className="flex-1">
           <Outlet />
         </div>

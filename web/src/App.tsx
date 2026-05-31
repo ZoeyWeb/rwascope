@@ -4,6 +4,7 @@ import { AuthProvider } from './context/AuthContext';
 import RequireAuth from './components/RequireAuth';
 import RequireAdmin from './components/RequireAdmin';
 import Layout from './components/Layout';
+import { ScrollToTop } from './components/ScrollToTop';
 
 // ── Route-level code splitting via React.lazy ──
 // Each `import()` creates a separate JS chunk loaded on-demand.
@@ -120,6 +121,7 @@ export default function App() {
   return (
     <AuthProvider>
       <BrowserRouter>
+        <ScrollToTop />
         <Suspense fallback={<PageLoader />}>
           <Routes>
             {/* ── Auth / onboarding (no layout shell) ── */}
