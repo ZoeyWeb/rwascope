@@ -227,7 +227,7 @@ export default function HKObservation() {
             </div>
             <p className="text-ed-eyebrow uppercase text-ed-text-muted mb-3">HK Observation</p>
             <h1 className="text-4xl md:text-ed-page-h1 text-ed-text-primary mb-2">
-              HK Regulatory Watch · 香港 RWA 监管动态分析
+              HK Regulatory Watch
             </h1>
             <p className="text-ed-body text-ed-text-secondary leading-relaxed max-w-2xl">
               HKMA · SFC · HKEx announcements relevant to RWA tokenization, mapped to the RARM

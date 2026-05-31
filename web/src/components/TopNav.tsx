@@ -15,6 +15,7 @@ import {
   Scale,
   Building2,
   PieChart,
+  Activity,
   type LucideIcon,
 } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
@@ -41,6 +42,12 @@ const NAV_BLOCKS: NavBlock[] = [
     activePaths: ['/intelligence', '/incidents', '/reports', '/enforcement', '/disclosures'],
     dropdownHeader: 'Intelligence',
     sub: [
+      {
+        to: '/intelligence',
+        label: 'Market Signal',
+        subtitle: 'Weekly brief and cross-market signals',
+        Icon: Activity,
+      },
       {
         to: '/intelligence/hk',
         label: 'HK Observation',
