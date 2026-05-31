@@ -13,10 +13,16 @@
 }
 
 @layer base {
+  html {
+    overflow-x: hidden;
+    max-width: 100%;
+  }
   body {
     font-family: 'Space Grotesk', sans-serif;
     background-color: #f8f9fa;
     color: #2b3437;
+    overflow-x: hidden;
+    max-width: 100%;
   }
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Manrope', sans-serif;
@@ -66,4 +72,27 @@ input[type="range"]::-webkit-slider-thumb {
 .friction-gradient-low {
   background: linear-gradient(90deg, #abb3b7 0%, #eaeff1 100%);
   opacity: 0.15;
+}
+
+/* ── Mobile typography + spacing overrides ──────────────────────────────────
+   Placed outside @layer so these cascade over @layer utilities.
+   Covers all ed-* tokens without touching individual components.
+   ──────────────────────────────────────────────────────────────────────── */
+@media (max-width: 767px) {
+  .text-ed-page-h1          { font-size: 2.25rem;   line-height: 1.1;   letter-spacing: -0.01em; }
+  .text-ed-hero-h1          { font-size: 2rem;       line-height: 1.15;  letter-spacing: -0.01em; }
+  .text-ed-section-h2       { font-size: 1.625rem;   line-height: 1.2; }
+  .text-ed-section-h2-light { font-size: 1.625rem;   line-height: 1.2; }
+  .text-ed-block-h3         { font-size: 1.25rem;    line-height: 1.4; }
+  .text-ed-lede             { font-size: 1.0625rem;  line-height: 1.55; }
+  .text-ed-body-lg          { font-size: 1rem;        line-height: 1.7; }
+  .text-ed-body             { font-size: 0.9375rem;  line-height: 1.65; }
+
+  .py-ed-section { padding-top: 4rem;  padding-bottom: 4rem; }
+  .pt-ed-section { padding-top: 4rem; }
+  .pb-ed-section { padding-bottom: 4rem; }
+  .py-ed-hero    { padding-top: 3rem;  padding-bottom: 3rem; }
+
+  /* Tighten container padding so wide pages don't overflow horizontally */
+  .max-w-\[1400px\] { padding-left: 1.25rem !important; padding-right: 1.25rem !important; }
 }

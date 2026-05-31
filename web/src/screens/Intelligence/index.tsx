@@ -64,9 +64,9 @@ function SectionDivider() {
 
 function HeroSection({ isAdmin }: { isAdmin: boolean }) {
   return (
-    <section className="pt-ed-hero pb-ed-hero">
+    <section className="pt-ed-section-md md:pt-ed-hero pb-ed-section-md md:pb-ed-hero">
       <Eyebrow className="mb-8">Regulatory · Institutional · Market Signals</Eyebrow>
-      <h1 className="text-ed-page-h1 text-ed-text-primary mb-10">
+      <h1 className="text-4xl md:text-ed-page-h1 text-ed-text-primary mb-10">
         Intelligence
       </h1>
       <p className="text-ed-lede text-ed-text-secondary max-w-[720px] mb-12">
@@ -111,7 +111,7 @@ function WeeklyBriefSection({ brief }: { brief: IntelligenceWeeklyBrief }) {
             </a>
           </div>
         </div>
-        <h2 className="text-ed-section-h2 text-ed-text-primary mb-8 max-w-[900px]">
+        <h2 className="text-2xl md:text-ed-section-h2 text-ed-text-primary mb-8 max-w-[900px]">
           {brief.headline}
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
@@ -415,8 +415,8 @@ function NewsSection({ items }: { items: IntelligenceItem[] }) {
         <div className="mb-4">
           <Eyebrow>Latest News</Eyebrow>
         </div>
-        <h2 className="text-ed-section-h2 text-ed-text-primary mb-3">Latest News</h2>
-        <p className="text-ed-section-h2-light text-ed-text-muted">Recent regulatory and institutional events.</p>
+        <h2 className="text-2xl md:text-ed-section-h2 text-ed-text-primary mb-3">Latest News</h2>
+        <p className="text-xl md:text-ed-section-h2-light text-ed-text-muted">Recent regulatory and institutional events.</p>
       </div>
 
       {items.length === 0 ? (
@@ -477,7 +477,7 @@ function NarrativeSection({
         {/* Section header */}
         <div className="mb-8">
           <Eyebrow className="mb-4">Narrative</Eyebrow>
-          <p className="text-ed-section-h2-light text-ed-text-muted">
+          <p className="text-xl md:text-ed-section-h2-light text-ed-text-muted">
             How RWA got here, where it's going.
           </p>
         </div>

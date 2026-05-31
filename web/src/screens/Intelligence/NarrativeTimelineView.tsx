@@ -101,7 +101,7 @@ export default function NarrativeTimelineView() {
             <div className="flex items-start justify-between gap-4 flex-wrap">
               <div className="flex-1 min-w-0">
                 <Eyebrow className="mb-2">Active Narrative</Eyebrow>
-                <h1 className="text-ed-section-h2 text-ed-text-primary mb-2">{narrative.name}</h1>
+                <h1 className="text-2xl md:text-ed-section-h2 text-ed-text-primary mb-2">{narrative.name}</h1>
                 {narrative.description && (
                   <p className="text-ed-body text-ed-text-secondary leading-relaxed">{narrative.description}</p>
                 )}

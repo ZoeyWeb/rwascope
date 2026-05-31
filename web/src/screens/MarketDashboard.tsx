@@ -388,7 +388,7 @@ function MarketOverview() {
       <section className="bg-ed-surface-cool border-t border-ed-hairline mt-8">
         <div className="max-w-[1400px] mx-auto px-8 pt-12 pb-4">
           <Eyebrow>Protocols</Eyebrow>
-          <h2 className="text-ed-section-h2 text-ed-ink mt-3">RWA Protocols Directory</h2>
+          <h2 className="text-2xl md:text-ed-section-h2 text-ed-ink mt-3">RWA Protocols Directory</h2>
         </div>
       </section>
       <ProtocolsDirectory embedded />

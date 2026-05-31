@@ -139,7 +139,7 @@ export default function ComplianceMap() {
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
       <section className="pt-ed-section-md pb-ed-section-sm">
         <Eyebrow>Cross-Border Compliance</Eyebrow>
-        <h1 className="text-ed-hero-h1 text-ed-ink mt-ed-section-sm">
+        <h1 className="text-4xl md:text-ed-hero-h1 text-ed-ink mt-ed-section-sm">
           Cross-Border RWA Compliance Map
         </h1>
         <p className="text-ed-lede text-ed-text-secondary max-w-[720px] mt-ed-section-sm">

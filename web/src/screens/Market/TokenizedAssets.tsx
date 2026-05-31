@@ -69,7 +69,7 @@ export function TokenizedAssets() {
       {/* Hero */}
       <section className="max-w-[1400px] mx-auto px-8 pt-16 pb-12">
         <Eyebrow>Market · Tokenized Assets</Eyebrow>
-        <h1 className="text-ed-page-h1 text-ed-ink mt-4">Tokenized Assets</h1>
+        <h1 className="text-4xl md:text-ed-page-h1 text-ed-ink mt-4">Tokenized Assets</h1>
         <p className="text-ed-lede text-ed-text-secondary mt-6 max-w-3xl">
           Public-market view of tokenized stocks, commodities, ETFs, and treasury bills.{' '}
           {data.assets.length} tokens indexed across 5 asset classes.
@@ -80,7 +80,7 @@ export function TokenizedAssets() {
       <section className="w-screen relative left-1/2 -translate-x-1/2 bg-ed-surface-cool border-y border-ed-hairline">
         <div className="max-w-[1400px] mx-auto px-8 py-16">
           <Eyebrow>At a Glance</Eyebrow>
-          <h2 className="text-ed-section-h2 text-ed-ink mt-3 mb-10">Market cap by asset class</h2>
+          <h2 className="text-2xl md:text-ed-section-h2 text-ed-ink mt-3 mb-10">Market cap by asset class</h2>
           <CategoryStrips summary={data.summary} />
         </div>
       </section>
@@ -90,7 +90,7 @@ export function TokenizedAssets() {
         <div className="flex items-end justify-between mb-8">
           <div>
             <Eyebrow>Asset Universe</Eyebrow>
-            <h2 className="text-ed-section-h2 text-ed-ink mt-3">All tokens</h2>
+            <h2 className="text-2xl md:text-ed-section-h2 text-ed-ink mt-3">All tokens</h2>
           </div>
           {data.last_fetched && (
             <span className="text-ed-meta text-ed-text-muted">
@@ -155,14 +155,14 @@ function CategoryStrips({ summary }: { summary: TokenizedCategorySummary[] }) {
         const pct = maxMcap > 0 ? (mcap / maxMcap) * 100 : 0;
         const limited = mcap === 0;
         return (
-          <div key={key} className="grid grid-cols-12 gap-6 items-center py-5">
-            <div className="col-span-3 text-ed-item-h4 text-ed-ink">{labelMap[key]}</div>
-            <div className="col-span-2 text-ed-body text-ed-text-secondary tabular-nums">
+          <div key={key} className="flex flex-col gap-1 md:grid md:grid-cols-12 md:gap-6 md:items-center py-5">
+            <div className="md:col-span-3 text-ed-item-h4 text-ed-ink">{labelMap[key]}</div>
+            <div className="hidden md:block md:col-span-2 text-ed-body text-ed-text-secondary tabular-nums">
               {row?.num_tokens ?? 0}{' '}
               <span className="text-ed-meta text-ed-text-muted">tokens</span>
             </div>
-            <div className="col-span-2 text-ed-body text-ed-ink tabular-nums">{fmtUsd(mcap)}</div>
-            <div className="col-span-5">
+            <div className="md:col-span-2 text-ed-body text-ed-ink tabular-nums">{fmtUsd(mcap)}</div>
+            <div className="md:col-span-5 mt-1 md:mt-0">
               {limited ? (
                 <span className="text-ed-meta uppercase tracking-wider text-ed-text-muted">
                   Limited coverage

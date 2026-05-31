@@ -165,7 +165,7 @@ function SharedEntitiesStrip({
   return (
     <section className="w-screen left-1/2 -translate-x-1/2 relative bg-ed-surface-cool border-y border-ed-hairline py-ed-section-md mb-ed-section">
       <div className="max-w-[1400px] mx-auto px-8">
-        <div className="grid grid-cols-[auto_1fr] gap-12 items-start">
+        <div className="flex flex-col gap-6 md:grid md:grid-cols-[auto_1fr] md:gap-12 md:items-start">
           {/* Left: count + label */}
           <div>
             <div className="text-ed-eyebrow uppercase text-ed-text-muted">Shared Entities</div>
@@ -256,18 +256,18 @@ function RegionColumn({
       </div>
 
       {/* Stats */}
-      <div className="grid grid-cols-3 gap-6 py-ed-section-sm border-b border-ed-hairline mb-0">
+      <div className="grid grid-cols-3 gap-4 md:gap-6 py-ed-section-sm border-b border-ed-hairline mb-0">
         <div>
           <div className="text-ed-eyebrow uppercase text-ed-text-muted">Regulators</div>
-          <div className="text-ed-section-h2 text-ed-text-primary mt-2 tabular-nums">{data.stats.regulators}</div>
+          <div className="text-2xl md:text-ed-section-h2 text-ed-text-primary mt-2 tabular-nums">{data.stats.regulators}</div>
         </div>
         <div>
           <div className="text-ed-eyebrow uppercase text-ed-text-muted">Participants</div>
-          <div className="text-ed-section-h2 text-ed-text-primary mt-2 tabular-nums">{totalParticipants}</div>
+          <div className="text-2xl md:text-ed-section-h2 text-ed-text-primary mt-2 tabular-nums">{totalParticipants}</div>
         </div>
         <div>
           <div className="text-ed-eyebrow uppercase text-ed-text-muted">Gaps</div>
-          <div className="text-ed-section-h2 text-ed-text-primary mt-2 tabular-nums">{data.gaps?.length ?? 0}</div>
+          <div className="text-2xl md:text-ed-section-h2 text-ed-text-primary mt-2 tabular-nums">{data.gaps?.length ?? 0}</div>
         </div>
       </div>
 
@@ -331,9 +331,9 @@ export default function CompareView({
   return (
     <div>
       {/* Hero */}
-      <section className="py-ed-hero">
+      <section className="py-ed-section-md md:py-ed-hero">
         <div className="text-ed-eyebrow uppercase text-ed-text-muted">Cross-Region Analysis</div>
-        <h1 className="text-ed-hero-h1 text-ed-text-primary mt-4">
+        <h1 className="text-4xl md:text-ed-hero-h1 text-ed-text-primary mt-4">
           {regionAName}
           <span className="mx-3 text-ed-text-secondary">↔</span>
           {regionBName}

@@ -168,7 +168,7 @@ export default function RWAIIncidentDetail({ incidentId }: { incidentId: string 
             <span>·</span>
             <SeverityBadge severity={incident.severity} />
           </div>
-          <h1 className="text-ed-hero-h1 text-ed-ink mt-ed-section-sm leading-tight">
+          <h1 className="text-4xl md:text-ed-hero-h1 text-ed-ink mt-ed-section-sm leading-tight">
             {citation_meta.short_title}
           </h1>
           <p className="text-ed-lede text-ed-text-secondary max-w-[720px] mt-ed-section-sm">
@@ -177,7 +177,7 @@ export default function RWAIIncidentDetail({ incidentId }: { incidentId: string 
         </section>
 
         {/* ── Meta strip ── */}
-        <div className="border-y border-ed-hairline grid grid-cols-4 py-ed-section-sm gap-x-8">
+        <div className="border-y border-ed-hairline grid grid-cols-2 md:grid-cols-4 py-ed-section-sm gap-x-8 gap-y-4">
           <MetaItem label="Asset class">
             <span className="capitalize">{incident.primary_asset_class.replace(/_/g, ' ')}</span>
           </MetaItem>
@@ -201,10 +201,10 @@ export default function RWAIIncidentDetail({ incidentId }: { incidentId: string 
         </div>
 
         {/* ── Main content: 8+4 grid ── */}
-        <article className="mt-ed-section-md grid grid-cols-12 gap-8 pb-ed-section">
+        <article className="mt-ed-section-md grid grid-cols-1 md:grid-cols-12 gap-8 pb-ed-section-md md:pb-ed-section">
 
           {/* Left: postmortem body */}
-          <div className="col-span-8 space-y-ed-section-md">
+          <div className="md:col-span-8 space-y-ed-section-md">
 
             {/* Outcome */}
             <section>
@@ -234,7 +234,7 @@ export default function RWAIIncidentDetail({ incidentId }: { incidentId: string 
           </div>
 
           {/* Right: sticky sidebar */}
-          <aside className="col-span-4">
+          <aside className="md:col-span-4">
             <div className="sticky top-24 space-y-4">
 
               {/* Severity + ID card */}

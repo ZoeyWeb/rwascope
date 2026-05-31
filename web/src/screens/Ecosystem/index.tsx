@@ -98,7 +98,7 @@ function StatCard({ value, label, sub }: { value: number | string; label: string
   return (
     <div>
       <div className="text-ed-eyebrow uppercase text-ed-text-muted">{label}</div>
-      <div className="text-ed-section-h2 text-ed-text-primary mt-2 tabular-nums">{value}</div>
+      <div className="text-2xl md:text-ed-section-h2 text-ed-text-primary mt-2 tabular-nums">{value}</div>
       {sub && <div className="text-ed-meta text-ed-text-muted mt-1">{sub}</div>}
     </div>
   );
@@ -228,7 +228,7 @@ function Layer3DCard({
 
   return (
     <article className="border-t border-ed-hairline py-ed-section-md">
-      <div className="grid grid-cols-[80px_3fr_2fr] gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-[80px_3fr_2fr] gap-4 md:gap-8">
         {/* Col 1: oversized layer number + vertical spine */}
         <div className="relative">
           <div className="text-[72px] leading-none font-semibold text-ed-text-faint tabular-nums">
@@ -431,11 +431,11 @@ export default function EcosystemMap() {
   return (
     <div className="max-w-[1400px] mx-auto px-8">
       {/* Hero */}
-      <section className="py-ed-hero">
-        <div className="grid grid-cols-1 md:grid-cols-[1.2fr_1fr] gap-16 items-start">
+      <section className="py-ed-section-md md:py-ed-hero">
+        <div className="grid grid-cols-1 md:grid-cols-[1.2fr_1fr] gap-8 md:gap-16 items-start">
           <div>
             <div className="text-ed-eyebrow uppercase text-ed-text-muted">Regional Ecosystem</div>
-            <h1 className="text-ed-hero-h1 text-ed-text-primary mt-4">
+            <h1 className="text-4xl md:text-ed-hero-h1 text-ed-text-primary mt-4">
               {currentRegion?.name ?? 'Ecosystem Map'}
             </h1>
             <p className="text-ed-lede text-ed-text-secondary mt-ed-section-sm max-w-3xl">
@@ -570,7 +570,7 @@ export default function EcosystemMap() {
                         {secondary.map(({ value, label }) => (
                           <div key={label}>
                             <div className="text-ed-eyebrow uppercase text-ed-text-muted">{label}</div>
-                            <div className="text-ed-section-h2 text-ed-text-primary mt-2 tabular-nums">{value ?? '—'}</div>
+                            <div className="text-2xl md:text-ed-section-h2 text-ed-text-primary mt-2 tabular-nums">{value ?? '—'}</div>
                             <div className="h-0.5 bg-ed-hairline-faint mt-3 w-full relative">
                               {typeof value === 'number' && maxStat > 0 && (
                                 <div
@@ -669,10 +669,10 @@ export default function EcosystemMap() {
 
                 {/* Pull observation */}
                 {REGION_OBSERVATION[selectedRegion.toLowerCase()] && (
-                  <section className="w-screen left-1/2 -translate-x-1/2 relative bg-ed-surface-cool border-y border-ed-hairline py-ed-section mt-ed-section">
+                  <section className="w-screen left-1/2 -translate-x-1/2 relative bg-ed-surface-cool border-y border-ed-hairline py-ed-section-md md:py-ed-section mt-ed-section-md md:mt-ed-section">
                     <div className="max-w-[1100px] mx-auto px-8">
                       <div className="text-ed-eyebrow uppercase text-ed-text-muted">Observation</div>
-                      <p className="text-ed-section-h2-light text-ed-text-primary mt-6 leading-tight">
+                      <p className="text-xl md:text-ed-section-h2-light text-ed-text-primary mt-6 leading-tight">
                         {REGION_OBSERVATION[selectedRegion.toLowerCase()]}
                       </p>
                       <div className="text-ed-meta text-ed-text-muted mt-6">
@@ -684,10 +684,10 @@ export default function EcosystemMap() {
 
                 {/* Gaps — full-bleed sunken */}
                 {gaps && gaps.length > 0 && (
-                  <section className="w-screen relative left-1/2 -translate-x-1/2 bg-ed-surface-sunken border-y border-ed-hairline py-ed-section mt-ed-section">
+                  <section className="w-screen relative left-1/2 -translate-x-1/2 bg-ed-surface-sunken border-y border-ed-hairline py-ed-section-md md:py-ed-section mt-ed-section-md md:mt-ed-section">
                     <div className="max-w-[1400px] mx-auto px-8">
                       <div className="text-ed-eyebrow uppercase text-ed-text-muted">Structural Gaps</div>
-                      <h2 className="text-ed-section-h2 text-ed-text-primary mt-3">
+                      <h2 className="text-2xl md:text-ed-section-h2 text-ed-text-primary mt-3">
                         Where the ecosystem is incomplete
                       </h2>
                       <div className="mt-ed-section-md">

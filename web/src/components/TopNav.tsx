@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 import {
   Eye,
@@ -140,6 +141,21 @@ export default function TopNav() {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
   const { pathname } = useLocation();
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [menuOpen]);
+
+  useEffect(() => {
+    if (!menuOpen) return;
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setMenuOpen(false); };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [menuOpen]);
+
+  useEffect(() => { setMenuOpen(false); }, [pathname]);
 
   function isBlockActive(block: NavBlock) {
     return block.activePaths.some(
@@ -152,6 +168,7 @@ export default function TopNav() {
   }
 
   return (
+    <>
     <header className="w-full h-20 bg-[#1A1A2E] border-b border-[#2B3437] fixed top-0 z-50">
       <div className="max-w-[1400px] mx-auto px-8 h-full flex justify-between items-center">
       <div className="flex items-center gap-8">
@@ -247,9 +264,9 @@ export default function TopNav() {
           Due Diligence
         </Link>
 
-        {/* Auth */}
+        {/* Auth — desktop only */}
         {user ? (
-          <div className="flex items-center gap-2 group relative">
+          <div className="hidden md:flex items-center gap-2 group relative">
             <div className="flex items-center gap-2 cursor-pointer">
               <div className="w-7 h-7 rounded-full bg-[#5E5C75] flex items-center justify-center text-xs font-bold text-white shrink-0">
                 {(user.full_name ?? user.email)[0].toUpperCase()}
@@ -278,13 +295,132 @@ export default function TopNav() {
         ) : (
           <button
             onClick={() => navigate('/login')}
-            className="text-sm text-slate-400 hover:text-white transition-colors"
+            className="hidden md:block text-sm text-slate-400 hover:text-white transition-colors"
           >
             Sign In
           </button>
         )}
+
+        {/* Hamburger — mobile only */}
+        <button
+          type="button"
+          onClick={() => setMenuOpen(true)}
+          className="md:hidden w-10 h-10 flex flex-col items-center justify-center gap-1.5 -mr-2"
+          aria-label="Open menu"
+        >
+          <span className="block w-5 h-px bg-white" />
+          <span className="block w-5 h-px bg-white" />
+          <span className="block w-5 h-px bg-white" />
+        </button>
       </div>
       </div>
     </header>
+
+    {/* Mobile full-screen drawer */}
+    {menuOpen && (
+      <div className="fixed inset-0 z-50 bg-ed-ink text-white overflow-y-auto md:hidden">
+        {/* Top bar */}
+        <div className="flex items-center justify-between h-20 px-6 border-b border-white/15">
+          <Link to="/" onClick={() => setMenuOpen(false)} className="flex items-center gap-3">
+            <Logo size={44} className="text-white" />
+            <span className="text-ed-item-h4 text-white font-bold tracking-tight font-headline">RWA-Index</span>
+          </Link>
+          <button
+            type="button"
+            onClick={() => setMenuOpen(false)}
+            className="w-10 h-10 flex items-center justify-center -mr-2"
+            aria-label="Close menu"
+          >
+            <span className="relative w-5 h-5 block">
+              <span className="absolute inset-0 m-auto w-5 h-px bg-white rotate-45" />
+              <span className="absolute inset-0 m-auto w-5 h-px bg-white -rotate-45" />
+            </span>
+          </button>
+        </div>
+
+        {/* Nav list */}
+        <nav className="px-6 py-ed-section-sm">
+          {NAV_BLOCKS.map((block) => (
+            <div key={block.label} className="py-6 border-b border-white/10">
+              {!block.sub ? (
+                <Link
+                  to={block.to}
+                  onClick={() => setMenuOpen(false)}
+                  className="block text-ed-block-h3 text-white hover:text-white/70 transition-colors"
+                >
+                  {block.label}
+                </Link>
+              ) : (
+                <>
+                  <div className="text-ed-eyebrow text-white/50 uppercase mb-4">{block.label}</div>
+                  <ul className="space-y-4">
+                    {block.sub.map((item) => (
+                      <li key={item.to}>
+                        <Link
+                          to={item.to}
+                          onClick={() => setMenuOpen(false)}
+                          className="block text-ed-item-h4 text-white hover:text-white/70 transition-colors"
+                        >
+                          {item.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </>
+              )}
+            </div>
+          ))}
+
+          {/* Due Diligence CTA */}
+          <div className="pt-8 pb-4">
+            <Link
+              to="/score"
+              onClick={() => setMenuOpen(false)}
+              className="block text-center py-4 border border-white text-ed-item-h4 text-white hover:bg-white hover:text-ed-ink transition-colors"
+            >
+              Due Diligence
+            </Link>
+          </div>
+
+          {/* Auth */}
+          <div className="pt-6 border-t border-white/15 pb-8">
+            {user ? (
+              <div className="flex flex-col gap-1">
+                <div className="flex items-center gap-3 py-3">
+                  <div className="w-8 h-8 rounded-full bg-[#5E5C75] flex items-center justify-center text-sm font-bold text-white shrink-0">
+                    {(user.full_name ?? user.email)[0].toUpperCase()}
+                  </div>
+                  <span className="text-ed-body text-white/70 truncate">
+                    {user.full_name ?? user.email}
+                  </span>
+                </div>
+                <button
+                  onClick={() => { navigate('/score/history'); setMenuOpen(false); }}
+                  className="flex items-center gap-2 py-3 text-ed-body text-white/70 hover:text-white transition-colors"
+                >
+                  <span className="material-symbols-outlined text-base">history</span>
+                  My Reports
+                </button>
+                <button
+                  onClick={() => { logout(); setMenuOpen(false); }}
+                  className="flex items-center gap-2 py-3 text-ed-body text-white/70 hover:text-white transition-colors border-t border-white/10"
+                >
+                  <span className="material-symbols-outlined text-base">logout</span>
+                  Sign Out
+                </button>
+              </div>
+            ) : (
+              <button
+                onClick={() => { navigate('/login'); setMenuOpen(false); }}
+                className="text-ed-item-h4 text-white hover:text-white/70 transition-colors"
+              >
+                Sign In
+              </button>
+            )}
+          </div>
+        </nav>
+      </div>
+    )}
+    </>
   );
 }

@@ -34,7 +34,7 @@ export default function IncidentsIndex() {
         <div className="flex items-start justify-between gap-4">
           <div>
             <Eyebrow>RWAscope Incident Registry</Eyebrow>
-            <h1 className="text-ed-page-h1 text-ed-ink mt-ed-section-sm">
+            <h1 className="text-4xl md:text-ed-page-h1 text-ed-ink mt-ed-section-sm">
               RWA Incident Database
             </h1>
             <p className="text-ed-lede text-ed-text-secondary max-w-[720px] mt-ed-section-sm">
@@ -67,28 +67,30 @@ export default function IncidentsIndex() {
             to={inc.permalink}
             className="block border-b border-ed-hairline py-ed-section-sm hover:bg-ed-surface-cool transition-colors"
           >
-            <div className="grid grid-cols-12 gap-8 items-baseline">
-              {/* ID */}
-              <div className="col-span-2 text-ed-meta tabular-nums text-ed-text-muted font-mono">
-                {inc.incident_id}
+            <div className="flex flex-col gap-1 md:grid md:grid-cols-12 md:gap-8 md:items-baseline">
+              {/* ID + severity (mobile: same line) */}
+              <div className="md:col-span-2 flex items-center justify-between md:block">
+                <span className="text-ed-meta tabular-nums text-ed-text-muted font-mono">{inc.incident_id}</span>
+                <span className="md:hidden"><SeverityBadge severity={inc.severity} /></span>
               </div>
               {/* Date */}
-              <div className="col-span-2 text-ed-meta tabular-nums text-ed-text-secondary">
+              <div className="hidden md:block md:col-span-2 text-ed-meta tabular-nums text-ed-text-secondary">
                 {inc.incident_date}
               </div>
               {/* Title + layers */}
-              <div className="col-span-5">
+              <div className="md:col-span-5">
                 <div className="text-ed-item-h4 text-ed-ink">{inc.citation_meta.short_title}</div>
                 <div className="text-ed-meta text-ed-text-muted mt-1">
                   {inc.affected_rarm_layers.join(' · ')}
                 </div>
               </div>
-              {/* Asset class */}
-              <div className="col-span-2 text-ed-meta text-ed-text-secondary capitalize">
+              {/* Asset class + date (mobile) */}
+              <div className="md:col-span-2 text-ed-meta text-ed-text-secondary capitalize flex gap-2 md:block">
+                <span className="md:hidden text-ed-text-muted">{inc.incident_date} ·</span>
                 {formatAssetClass(inc.primary_asset_class)}
               </div>
-              {/* Severity */}
-              <div className="col-span-1 text-right">
+              {/* Severity — desktop only (mobile shown above) */}
+              <div className="hidden md:block md:col-span-1 text-right">
                 <SeverityBadge severity={inc.severity} />
               </div>
             </div>

@@ -21,8 +21,8 @@ export function BigStatRibbon({ children, cols = 4 }: { children: ReactNode; col
     ? 'grid-cols-2 sm:grid-cols-5'
     : 'grid-cols-2 sm:grid-cols-4';
   return (
-    <div className="w-screen relative left-1/2 -translate-x-1/2 bg-ed-surface-cool border-y border-ed-hairline">
-      <div className="max-w-[1400px] mx-auto px-8 py-8">
+    <div className="-mx-5 md:mx-0 md:w-screen md:relative md:left-1/2 md:-translate-x-1/2 bg-ed-surface-cool border-y border-ed-hairline">
+      <div className="max-w-[1400px] mx-auto px-5 md:px-8 py-8">
         <div className={`grid ${gridClass} divide-x divide-ed-hairline`}>
           {children}
         </div>

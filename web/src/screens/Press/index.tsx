@@ -68,7 +68,7 @@ export default function Press() {
         {/* Hero */}
         <section className="pt-ed-section-md pb-ed-section-sm">
           <Eyebrow>Press &amp; Media</Eyebrow>
-          <h1 className="text-ed-page-h1 text-ed-ink mt-ed-section-sm">
+          <h1 className="text-4xl md:text-ed-page-h1 text-ed-ink mt-ed-section-sm">
             Press Kit
           </h1>
           <p className="text-ed-lede text-ed-text-secondary max-w-[720px] mt-ed-section-sm">
@@ -94,13 +94,13 @@ export default function Press() {
         <section className="mt-ed-section">
           <SectionHeader>About RWAscope</SectionHeader>
 
-          <div className="grid grid-cols-12 gap-8 mt-ed-section-sm">
-            <div className="col-span-8">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mt-ed-section-sm">
+            <div className="md:col-span-8">
               <p className="text-ed-body-lg text-ed-ink leading-relaxed">
                 {RWASCOPE_BOILERPLATE.long}
               </p>
             </div>
-            <aside className="col-span-4 space-y-ed-section-sm">
+            <aside className="md:col-span-4 space-y-ed-section-sm">
               <CopyableBlock label="Short (1 sentence)" content={RWASCOPE_BOILERPLATE.short} />
               <CopyableBlock label="Medium (1 paragraph)" content={RWASCOPE_BOILERPLATE.medium} />
             </aside>
@@ -111,15 +111,15 @@ export default function Press() {
         <section className="mt-ed-section border-t border-ed-hairline pt-ed-section-sm">
           <SectionHeader>Citation guide</SectionHeader>
 
-          <div className="grid grid-cols-12 gap-8 mt-ed-section-sm">
-            <div className="col-span-6">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mt-ed-section-sm">
+            <div className="md:col-span-6">
               <h3 className="text-ed-block-h3 text-ed-ink">Citing the platform</h3>
               <p className="text-ed-body text-ed-text-secondary mt-3">
                 When referencing RWAscope as an information source.
               </p>
               <CiteFormatTabs bibtex={BIBTEX} apa={APA} chicago={CHICAGO} />
             </div>
-            <div className="col-span-6">
+            <div className="md:col-span-6">
               <h3 className="text-ed-block-h3 text-ed-ink">Citing individual incidents</h3>
               <p className="text-ed-body text-ed-text-secondary mt-3">
                 Each incident in the registry has a permanent identifier (RWAI-YYYY-NNN) and a
@@ -139,7 +139,7 @@ export default function Press() {
         <section className="mt-ed-section border-t border-ed-hairline pt-ed-section-sm">
           <SectionHeader>Downloads</SectionHeader>
 
-          <div className="grid grid-cols-3 border border-ed-hairline mt-ed-section-sm">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 border border-ed-hairline mt-ed-section-sm">
             <DownloadCard
               eyebrow="Brand"
               title="Logo pack"
@@ -166,7 +166,7 @@ export default function Press() {
 
           {/* RSS feeds */}
           <div className="border border-t-0 border-ed-hairline px-8 py-ed-section-sm">
-            <div className="flex items-start justify-between gap-8">
+            <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between md:gap-8">
               <div>
                 <div className="text-ed-eyebrow uppercase tracking-[0.18em] text-ed-text-muted">Subscribe</div>
                 <h3 className="text-ed-block-h3 text-ed-ink mt-3">RSS feeds</h3>
@@ -200,7 +200,7 @@ export default function Press() {
           </div>
 
           {/* Logo previews */}
-          <div className="mt-ed-section-md grid grid-cols-4 gap-0 border border-ed-hairline">
+          <div className="mt-ed-section-md grid grid-cols-2 sm:grid-cols-4 gap-0 border border-ed-hairline">
             {[
               { file: 'logo-mark.svg', label: 'Mark (accent)', bg: 'bg-white' },
               { file: 'logo-mark-dark.svg', label: 'Mark (white / dark bg)', bg: 'bg-[#1A1A2E]' },
@@ -227,8 +227,8 @@ export default function Press() {
         <section className="mt-ed-section border-t border-ed-hairline pt-ed-section-sm pb-ed-section">
           <SectionHeader>Media contact</SectionHeader>
 
-          <div className="grid grid-cols-12 gap-8 mt-ed-section-sm">
-            <div className="col-span-6">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mt-ed-section-sm">
+            <div className="md:col-span-6">
               <div className="text-ed-eyebrow uppercase tracking-[0.18em] text-ed-text-muted">
                 Press inquiries
               </div>
@@ -242,7 +242,7 @@ export default function Press() {
                 For press inquiries, use the contact form. We respond within 3 business days.
               </p>
             </div>
-            <div className="col-span-6">
+            <div className="md:col-span-6">
               <div className="text-ed-eyebrow uppercase tracking-[0.18em] text-ed-text-muted">
                 Affiliation
               </div>

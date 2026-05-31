@@ -112,7 +112,7 @@ export default function LicensesOverview() {
       {/* ── Hero (compressed) ────────────────────────────────────────────── */}
       <section className="pt-ed-section-md pb-ed-section-sm">
         <Eyebrow>SARM Framework</Eyebrow>
-        <h1 className="text-ed-hero-h1 text-ed-ink mt-ed-section-sm">
+        <h1 className="text-4xl md:text-ed-hero-h1 text-ed-ink mt-ed-section-sm">
           Stablecoin Risk Observatory
         </h1>
         <p className="text-ed-lede text-ed-text-secondary max-w-[720px] mt-ed-section-sm">
@@ -133,7 +133,7 @@ export default function LicensesOverview() {
       {/* ── Tab strip ────────────────────────────────────────────────────── */}
       <div className="border-b border-ed-hairline mt-ed-section-sm">
         <div className="flex items-end justify-between">
-          <div className="flex gap-12">
+          <div className="flex gap-4 md:gap-12">
             {TABS.map(t => (
               <button
                 key={t.id}
@@ -150,7 +150,7 @@ export default function LicensesOverview() {
           </div>
           <Link
             to="/licenses/methodology"
-            className="text-ed-meta text-ed-text-muted hover:text-ed-ink pb-3 transition-colors"
+            className="hidden md:block text-ed-meta text-ed-text-muted hover:text-ed-ink pb-3 transition-colors"
           >
             SARM Methodology →
           </Link>
@@ -202,7 +202,7 @@ export default function LicensesOverview() {
                   </div>
 
                   {/* Row 3: 4-col counts grid */}
-                  <div className="grid grid-cols-4 border-t border-ed-hairline pt-3">
+                  <div className="grid grid-cols-2 sm:grid-cols-4 border-t border-ed-hairline pt-3">
                     <div>
                       <div className="text-ed-eyebrow text-ed-text-muted">Total</div>
                       <div className="text-ed-item-h4 text-ed-ink tabular-nums mt-0.5">{counts.total}</div>
@@ -441,10 +441,10 @@ export default function LicensesOverview() {
 
       {/* ── Tab 3: SARM Breakdown ────────────────────────────────────────── */}
       {activeTab === 'sarm' && (
-        <section className="w-screen relative left-1/2 -translate-x-1/2 bg-ed-surface-cool pt-ed-section-sm pb-ed-section">
+        <section className="w-screen relative left-1/2 -translate-x-1/2 bg-ed-surface-cool pt-ed-section-sm pb-ed-section-md md:pb-ed-section">
           <div className="max-w-[1400px] mx-auto px-8">
             <Eyebrow>Per-issuer view</Eyebrow>
-            <h2 className="text-ed-section-h2 text-ed-ink mt-ed-section-sm">
+            <h2 className="text-2xl md:text-ed-section-h2 text-ed-ink mt-ed-section-sm">
               SARM breakdown by issuer
             </h2>
             <p className="text-ed-body text-ed-text-secondary max-w-[720px] mt-ed-section-sm mb-ed-section-lg">

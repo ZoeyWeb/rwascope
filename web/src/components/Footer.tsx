@@ -51,10 +51,10 @@ export default function Footer() {
       <div className="max-w-[1400px] mx-auto px-8">
 
         {/* Main grid */}
-        <div className="grid grid-cols-12 gap-8 py-ed-section-lg">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 gap-8 py-ed-section-lg">
 
           {/* Brand + boilerplate, col-span-4 */}
-          <div className="col-span-4">
+          <div className="sm:col-span-2 md:col-span-4">
             <div className="flex items-center gap-3">
               <Logo size={32} className="text-ed-ink" />
               <span className="text-ed-item-h4 text-ed-ink">RWA-Index</span>
@@ -69,7 +69,7 @@ export default function Footer() {
           </div>
 
           {/* Navigate, col-span-2 */}
-          <div className="col-span-2">
+          <div className="md:col-span-2">
             <FooterColTitle>Navigate</FooterColTitle>
             <ul className="mt-ed-section-sm space-y-2">
               <FooterLink to="/projects">Projects</FooterLink>
@@ -83,7 +83,7 @@ export default function Footer() {
           </div>
 
           {/* Research, col-span-3 */}
-          <div className="col-span-3">
+          <div className="md:col-span-3">
             <FooterColTitle>Research</FooterColTitle>
             <ul className="mt-ed-section-sm space-y-2">
               <FooterLink to="/press">SARM working paper (SSRN)</FooterLink>
@@ -95,7 +95,7 @@ export default function Footer() {
           </div>
 
           {/* Contact, col-span-3 */}
-          <div className="col-span-3">
+          <div className="md:col-span-3">
             <FooterColTitle>Contact</FooterColTitle>
             <div className="mt-ed-section-sm">
               <Link
@@ -124,7 +124,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-ed-hairline py-ed-section-sm flex justify-between items-center text-ed-meta text-ed-text-muted">
+        <div className="border-t border-ed-hairline py-ed-section-sm flex flex-col gap-4 md:flex-row md:justify-between md:items-center md:gap-0 text-ed-meta text-ed-text-muted">
           <div>© 2026 RWAscope · Built at HKUST Crypto-Fintech Lab</div>
           <div className="flex gap-6">
             <Link to="/press" className="hover:text-ed-ink transition-colors">Press</Link>

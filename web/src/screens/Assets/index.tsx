@@ -432,7 +432,7 @@ function BreakdownPanel({ assets }: { assets: Asset[] }) {
     <section className="w-screen relative left-1/2 -translate-x-1/2 bg-ed-surface-cool py-ed-section-md">
       <div className="max-w-[1400px] mx-auto px-8">
         <Eyebrow>Per-asset view</Eyebrow>
-        <h2 className="text-ed-section-h2 text-ed-ink mt-ed-section-sm">
+        <h2 className="text-2xl md:text-ed-section-h2 text-ed-ink mt-ed-section-sm">
           RARM breakdown by asset
         </h2>
         <p className="text-ed-body text-ed-text-secondary max-w-[720px] mt-ed-section-sm mb-ed-section-lg">
@@ -496,7 +496,7 @@ export default function AssetsOverview() {
       <section className="pt-ed-section-md pb-ed-section-sm">
         <div className="max-w-[1400px] mx-auto px-8">
           <Eyebrow>RARM Framework</Eyebrow>
-          <h1 className="text-ed-hero-h1 text-ed-ink mt-ed-section-sm">
+          <h1 className="text-4xl md:text-ed-hero-h1 text-ed-ink mt-ed-section-sm">
             Tokenized Asset Risk Observatory
           </h1>
           <p className="text-ed-lede text-ed-text-secondary mt-ed-section-sm max-w-3xl">

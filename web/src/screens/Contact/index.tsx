@@ -50,11 +50,11 @@ export default function Contact() {
 
       {/* Full-bleed dark hero */}
       <section className="w-screen relative left-1/2 -translate-x-1/2 bg-ed-ink">
-        <div className="max-w-[1400px] mx-auto px-8 pt-ed-section pb-ed-section">
+        <div className="max-w-[1400px] mx-auto px-8 pt-ed-section-md md:pt-ed-section pb-ed-section-md md:pb-ed-section">
           <div className="text-ed-eyebrow uppercase tracking-[0.18em] text-white/50">
             Contact
           </div>
-          <h1 className="text-ed-hero-h1 text-white mt-ed-section-sm">
+          <h1 className="text-4xl md:text-ed-hero-h1 text-white mt-ed-section-sm">
             Get in touch with our team
           </h1>
           <p className="text-ed-lede text-white/70 max-w-[720px] mt-ed-section-sm">
@@ -67,11 +67,11 @@ export default function Contact() {
       <div className="max-w-[1400px] mx-auto px-8">
 
         {/* Main two-col */}
-        <section className="pt-ed-section pb-ed-section">
-          <div className="grid grid-cols-12 gap-16">
+        <section className="pt-ed-section-md md:pt-ed-section pb-ed-section-md md:pb-ed-section">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16">
 
             {/* Left: inquiry type info blocks, col-span-5 */}
-            <div className="col-span-5">
+            <div className="md:col-span-5">
 
               <InquiryBlock
                 title="Press & media"
@@ -113,7 +113,7 @@ export default function Contact() {
             </div>
 
             {/* Right: form, col-span-7 */}
-            <div className="col-span-7">
+            <div className="md:col-span-7">
               <ContactForm />
             </div>
 

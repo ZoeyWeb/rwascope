@@ -386,7 +386,7 @@ export default function ProjectsList() {
         <p className="text-ed-eyebrow uppercase tracking-[0.18em] font-medium text-ed-text-muted mb-4">
           Projects
         </p>
-        <h1 className="text-ed-hero-h1 font-semibold text-ed-text-primary leading-none mb-5 max-w-3xl">
+        <h1 className="text-4xl md:text-ed-hero-h1 font-semibold text-ed-text-primary leading-none mb-5 max-w-3xl">
           RWA Project Library
         </h1>
         <p className="text-ed-lede text-ed-text-secondary leading-relaxed max-w-2xl mb-2">
