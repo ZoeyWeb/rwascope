@@ -75,7 +75,7 @@ export default function DisclosuresTracker() {
 
       {/* Filters */}
       <div className="bg-white border-b border-[#DBE4E7] sticky top-0 z-10">
-        <div className="max-w-5xl mx-auto px-6 py-3 flex flex-wrap items-center gap-4">
+        <div className="max-w-[1400px] mx-auto px-8 py-3 flex flex-wrap items-center gap-4">
           <div className="flex items-center gap-1.5 flex-wrap">
             <span className="text-xs text-[#737C7F]">Issuer:</span>
             {ISSUERS.map(o => (
@@ -117,7 +117,7 @@ export default function DisclosuresTracker() {
       </div>
 
       {/* List */}
-      <div className="max-w-5xl mx-auto px-6 py-8 space-y-3">
+      <div className="max-w-[1400px] mx-auto px-8 py-8 space-y-3">
         {filtered.length === 0 && (
           <p className="text-sm text-[#737C7F] text-center py-12">No documents match the current filters.</p>
         )}

@@ -86,7 +86,7 @@ export default function EnforcementTracker() {
 
       {/* Filters */}
       <div className="bg-white border-b border-[#DBE4E7] sticky top-0 z-10">
-        <div className="max-w-5xl mx-auto px-6 py-3 flex flex-wrap items-center gap-3">
+        <div className="max-w-[1400px] mx-auto px-8 py-3 flex flex-wrap items-center gap-3">
           <FilterChips label="Regulator" value={regulator} options={REGULATORS} onChange={setRegulator} />
           <FilterChips label="Jurisdiction" value={jurisdiction} options={JURISDICTIONS} onChange={setJurisdiction} />
           <FilterChips label="Status" value={status} options={STATUSES} onChange={setStatus} />
@@ -110,7 +110,7 @@ export default function EnforcementTracker() {
       </div>
 
       {/* Action list */}
-      <div className="max-w-5xl mx-auto px-6 py-8 space-y-4">
+      <div className="max-w-[1400px] mx-auto px-8 py-8 space-y-4">
         {filtered.length === 0 && (
           <p className="text-sm text-[#737C7F] text-center py-12">No actions match the current filters.</p>
         )}

@@ -5,7 +5,7 @@
   <link href="https://rwa-index.com/feeds/weekly-brief.xml" rel="self" type="application/atom+xml"/>
   <link href="https://rwa-index.com/intelligence" rel="alternate" type="text/html"/>
   <id>https://rwa-index.com/feeds/weekly-brief.xml</id>
-  <updated>2026-05-13T00:00:00Z</updated>
+  <updated>2026-06-01T00:00:00Z</updated>
   <author>
     <name>RWAscope Research</name>
     <uri>https://rwa-index.com</uri>
@@ -17,18 +17,18 @@
        Implement briefs-archive.json append on generation to grow this feed. -->
 
   <entry>
-    <title>Weekly Brief · Week of 2026-05-06</title>
-    <link href="https://rwa-index.com/intelligence?brief=2026-05-06" rel="alternate" type="text/html"/>
-    <id>https://rwa-index.com/intelligence?brief=2026-05-06</id>
-    <published>2026-05-13T00:00:00Z</published>
-    <updated>2026-05-13T00:00:00Z</updated>
-    <summary type="text">Global RWA Intelligence Brief — Week of 13 May 2026</summary>
+    <title>Weekly Brief · Week of 2026-05-26</title>
+    <link href="https://rwa-index.com/intelligence?brief=2026-05-26" rel="alternate" type="text/html"/>
+    <id>https://rwa-index.com/intelligence?brief=2026-05-26</id>
+    <published>2026-06-01T00:00:00Z</published>
+    <updated>2026-06-01T00:00:00Z</updated>
+    <summary type="text">Global RWA Intelligence Brief — Week of 1 Jun 2026</summary>
     <content type="html"><![CDATA[
-          <h2>Global RWA Intelligence Brief — Week of 13 May 2026</h2>
+          <h2>Global RWA Intelligence Brief — Week of 1 Jun 2026</h2>
           <ul>
-            <li>HSBC and Anchorpoint Financial hold the first two HKD stablecoin licences under HK Cap. 656 (issued April 2026), establishing a regulated settlement layer for Hong Kong RWA infrastructure.</li>
-            <li>The US GENIUS Act (signed July 18, 2025) remains the defining stablecoin legislation globally; its 1:1 reserve and monthly attestation requirements are shaping issuer compliance playbooks across jurisdictions.</li>
-            <li>EU MiCA&apos;s full application to crypto-asset service providers since December 2024 has made it the primary comparative benchmark for regulators in HK, Singapore, and the UAE finalising their own frameworks.</li>
+            <li>HKMA issued the first two licences under the Stablecoins Ordinance (Cap.</li>
+            <li>HKMA officially launched EnsembleTX, the real-value settlement phase of Project Ensemble, on 13 November 2025.</li>
+            <li>Hong Kong&apos;s Stablecoins Ordinance (Cap.</li>
           </ul>
           <p><em>AI-generated summary — verify against source.</em></p>
           <p><a href="https://rwa-index.com/intelligence">View on RWAscope →</a></p>
