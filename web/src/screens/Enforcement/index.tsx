@@ -2,9 +2,18 @@ import { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import type { EnforcementAction, EnforcementDataset } from '../../types/enforcement';
 import rawData from '../../../public/data/enforcement/enforcement.json';
+import { Eyebrow } from '../../components/Eyebrow';
+import { BigStat, BigStatRibbon } from '../../components/BigStat';
 
 const enforcementData = rawData as unknown as EnforcementDataset;
 type Action = EnforcementAction;
+
+const ENFT_STATS = {
+  actionsCount:    enforcementData.actions.length,
+  regulatorsCount: new Set(enforcementData.actions.map(a => a.regulator)).size,
+  penaltyStr:      `$${(enforcementData.actions.reduce((s, a) => s + a.penalty_usd, 0) / 1e9).toFixed(1)}B+`,
+  ongoingCount:    enforcementData.actions.filter(a => a.status === 'ongoing').length,
+};
 
 const STATUS_COLORS: Record<string, string> = {
   settled:   'bg-[#2E7D32]/10 text-[#2E7D32]',
@@ -52,22 +61,28 @@ export default function EnforcementTracker() {
   }, [regulator, jurisdiction, status, rwaOnly]);
 
   return (
-    <div className="min-h-screen bg-[#F1F4F6]">
-      {/* Header */}
-      <div className="bg-white border-b border-[#DBE4E7]">
-        <div className="max-w-5xl mx-auto px-6 py-10">
-          <div className="text-xs font-semibold uppercase tracking-wider text-[#5E5C75] mb-2">
-            Intelligence
-          </div>
-          <h1 className="font-headline text-3xl font-bold text-[#2B3437]">
+    <div>
+      {/* ── Hero ──────────────────────────────────────────────────────────── */}
+      <section className="pt-ed-section-md pb-ed-section-sm">
+        <div className="max-w-[1400px] mx-auto px-8">
+          <Eyebrow>Intelligence · Enforcement Tracker</Eyebrow>
+          <h1 className="text-4xl md:text-ed-hero-h1 text-ed-ink mt-ed-section-sm">
             Enforcement Tracker
           </h1>
-          <p className="mt-2 text-sm text-[#737C7F] max-w-2xl">
-            Regulatory and legal actions by SEC, CFTC, SFC, MAS, and other agencies against RWA,
-            stablecoin, and tokenized finance entities.
+          <p className="text-ed-lede text-ed-text-secondary max-w-[720px] mt-ed-section-sm">
+            Regulatory and legal actions by SEC, CFTC, SFC, MAS, and other agencies
+            against RWA, stablecoin, and tokenized finance entities.
           </p>
         </div>
-      </div>
+      </section>
+
+      {/* ── Stats ribbon ──────────────────────────────────────────────────── */}
+      <BigStatRibbon cols={4}>
+        <BigStat value={ENFT_STATS.actionsCount}    label="Actions tracked" />
+        <BigStat value={ENFT_STATS.regulatorsCount} label="Regulators" />
+        <BigStat value={ENFT_STATS.penaltyStr}      label="Penalties (partial)" />
+        <BigStat value={ENFT_STATS.ongoingCount}    label="Ongoing" valueColor="#e09d2b" />
+      </BigStatRibbon>
 
       {/* Filters */}
       <div className="bg-white border-b border-[#DBE4E7] sticky top-20 z-10">
@@ -140,6 +155,12 @@ function FilterChips({
       ))}
     </div>
   );
+}
+
+type SourceItem = { label: string; url: string };
+function normalizeSource(s: SourceItem | string): SourceItem {
+  if (typeof s === 'string') return { label: s, url: s };
+  return s;
 }
 
 function ActionCard({ action }: { action: Action }) {
@@ -253,18 +274,21 @@ function ActionCard({ action }: { action: Action }) {
 
           {action.sources.length > 0 && (
             <div className="mt-4 flex flex-wrap gap-2">
-              {action.sources.map(s => (
-                <a
-                  key={s.url}
-                  href={s.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-1 text-xs text-[#5E5C75] hover:text-[#2B3437] transition-colors font-medium"
-                >
-                  <span className="material-symbols-outlined text-[13px]">open_in_new</span>
-                  {s.label}
-                </a>
-              ))}
+              {(action.sources as unknown as (SourceItem | string)[]).map((raw, i) => {
+                const s = normalizeSource(raw);
+                return (
+                  <a
+                    key={i}
+                    href={s.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1 text-xs text-[#5E5C75] hover:text-[#2B3437] transition-colors font-medium"
+                  >
+                    <span className="material-symbols-outlined text-[13px]">open_in_new</span>
+                    {s.label}
+                  </a>
+                );
+              })}
             </div>
           )}
         </div>

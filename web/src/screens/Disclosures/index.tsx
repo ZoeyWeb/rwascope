@@ -1,5 +1,7 @@
 import { useState, useMemo } from 'react';
 import disclosuresData from '../../../public/data/disclosures/disclosures.json';
+import { Eyebrow } from '../../components/Eyebrow';
+import { BigStat, BigStatRibbon } from '../../components/BigStat';
 
 type Disclosure = (typeof disclosuresData.disclosures)[number];
 
@@ -24,6 +26,13 @@ const DOC_TYPE_ICONS: Record<string, string> = {
 const ISSUERS = ['All', ...Array.from(new Set(disclosuresData.disclosures.map(d => d.issuer))).sort()];
 const DOC_TYPES = ['All', 'nav_report', 'attestation', 'sec_filing', 'prospectus_update', 'issuance_document'];
 
+const STATS = {
+  totalDocs:    disclosuresData.disclosures.length,
+  issuersCount: new Set(disclosuresData.disclosures.map(d => d.issuer)).size,
+  lastUpdate:   (([...disclosuresData.disclosures].map(d => d.date).sort()).pop() ?? '—').slice(0, 7),
+  typesCount:   new Set(disclosuresData.disclosures.map(d => d.doc_type)).size,
+};
+
 export default function DisclosuresTracker() {
   const [issuer, setIssuer] = useState('All');
   const [docType, setDocType] = useState('All');
@@ -39,22 +48,28 @@ export default function DisclosuresTracker() {
   }, [issuer, docType]);
 
   return (
-    <div className="min-h-screen bg-[#F1F4F6]">
-      {/* Header */}
-      <div className="bg-white border-b border-[#DBE4E7]">
-        <div className="max-w-5xl mx-auto px-6 py-10">
-          <div className="text-xs font-semibold uppercase tracking-wider text-[#5E5C75] mb-2">
-            Intelligence
-          </div>
-          <h1 className="font-headline text-3xl font-bold text-[#2B3437]">
+    <div>
+      {/* ── Hero ──────────────────────────────────────────────────────────── */}
+      <section className="pt-ed-section-md pb-ed-section-sm">
+        <div className="max-w-[1400px] mx-auto px-8">
+          <Eyebrow>Intelligence · Issuer Disclosures</Eyebrow>
+          <h1 className="text-4xl md:text-ed-hero-h1 text-ed-ink mt-ed-section-sm">
             Issuer Disclosures
           </h1>
-          <p className="mt-2 text-sm text-[#737C7F] max-w-2xl">
-            NAV reports, reserve attestations, SEC filings, and issuance documents from institutional
-            RWA issuers — BlackRock, Franklin Templeton, Ondo, Paxos, WisdomTree, and others.
+          <p className="text-ed-lede text-ed-text-secondary max-w-[720px] mt-ed-section-sm">
+            NAV reports, attestations, prospectuses, and SEC filings from institutional
+            RWA issuers — indexed for traceable due diligence.
           </p>
         </div>
-      </div>
+      </section>
+
+      {/* ── Stats ribbon ──────────────────────────────────────────────────── */}
+      <BigStatRibbon cols={4}>
+        <BigStat value={STATS.totalDocs}    label="Documents indexed" />
+        <BigStat value={STATS.issuersCount} label="Issuers tracked" />
+        <BigStat value={STATS.lastUpdate}   label="Last updated" />
+        <BigStat value={STATS.typesCount}   label="Document types" />
+      </BigStatRibbon>
 
       {/* Filters */}
       <div className="bg-white border-b border-[#DBE4E7] sticky top-20 z-10">

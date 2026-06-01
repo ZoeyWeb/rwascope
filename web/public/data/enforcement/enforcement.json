@@ -1,6 +1,6 @@
 {
-  "version": "1.3.0",
-  "updated_at": "2026-05-31",
+  "version": "1.4.0",
+  "updated_at": "2026-06-01",
   "actions": [
     {
       "slug": "cftc-tether-ifinex-2021",
@@ -77,7 +77,7 @@
     },
     {
       "slug": "sec-terraform-do-kwon-2023",
-      "action_date": "2023-02-16",
+      "action_date": "2024-06-12",
       "regulator": "SEC",
       "jurisdiction": "US",
       "target_entity": "Terraform Labs / Do Kwon",
@@ -270,7 +270,7 @@
     },
     {
       "slug": "sec-paxos-busd-wells-2023-02",
-      "action_date": "2023-02-13",
+      "action_date": "2023-02-03",
       "regulator": "SEC",
       "jurisdiction": "US",
       "target_entity": "Paxos Trust Company",
@@ -278,7 +278,7 @@
       "action_type": "wells_notice",
       "penalty_usd": 0,
       "penalty_note": "Wells notice only. SEC formally terminated the investigation on 9 July 2024 with no enforcement action (Tenreiro termination letter). Separate from the parallel NYDFS halt order on the same product.",
-      "summary": "On 13 February 2023 the SEC issued a Wells notice to Paxos Trust Company alleging that the Binance USD (BUSD) stablecoin — issued by Paxos in partnership with Binance — was an unregistered security. Paxos publicly disputed the framing, arguing BUSD was a USD-backed payment stablecoin fully reserved 1:1 with short-term dollar-denominated assets and therefore not an investment contract. After ~17 months of submissions, and following adjacent court rulings (Ripple programmatic-sale Jul 2023; SEC v. Binance BUSD-claim dismissal Jun 2024), SEC Enforcement staff formally terminated the investigation on 9 July 2024 with no charges filed. The termination is the canonical precedent that a properly-reserved fiat-backed payment stablecoin will not be pursued as an unregistered security at the US federal level.",
+      "summary": "On 3 February 2023 the SEC issued a Wells notice to Paxos Trust Company alleging that the Binance USD (BUSD) stablecoin — issued by Paxos in partnership with Binance — was an unregistered security. Paxos publicly disputed the framing, arguing BUSD was a USD-backed payment stablecoin fully reserved 1:1 with short-term dollar-denominated assets and therefore not an investment contract. After ~17 months of submissions, and following adjacent court rulings (Ripple programmatic-sale Jul 2023; SEC v. Binance BUSD-claim dismissal Jun 2024), SEC Enforcement staff formally terminated the investigation on 9 July 2024 with no charges filed. The termination is the canonical precedent that a properly-reserved fiat-backed payment stablecoin will not be pursued as an unregistered security at the US federal level.",
       "rwa_relevant": true,
       "asset_classes": [
         "stablecoin"
@@ -291,18 +291,20 @@
       "lessons": [
         "Wells-notice termination after a sustained Wells submission process is itself precedent — Paxos established that a properly-reserved USD-backed payment stablecoin will not be charged as an unregistered security at the federal level.",
         "Parallel federal (SEC) and state (NYDFS) regulators acted asymmetrically on the same product: NYDFS halted BUSD issuance in 2023 while SEC ultimately declined to charge — venue selection materially shapes the issuer's outcome.",
-        "Adjacent court rulings (Ripple Jul 2023; Binance BUSD-claim dismissal Jun 2024) cumulatively shifted SEC enforcement willingness on stablecoins, illustrating how unrelated cases set the doctrinal backdrop for active investigations."
+        "Adjacent court rulings (Ripple Jul 2023; Binance BUSD-claim dismissal Jun 2024) cumulatively shifted SEC enforcement willingness on stablecoins, illustrating how unrelated cases set the doctrinal backdrop for active investigations.",
+        "Regulatory signal velocity: the combined SEC Wells notice (Feb 3) and NYDFS halt order (Feb 13) triggered a ~50% decline in BUSD market cap — from ~$16B to ~$8B — within 60 days, with no conviction and no monetary penalty against Paxos. Regulatory intent alone, without adjudication, can effectively terminate a stablecoin."
       ],
       "related_incident_slugs": [],
       "related_issuer_slugs": [
         "paxos-usdg",
         "paxos-usdp"
       ],
-      "status": "dismissed",
+      "status": "closed",
       "sources": [
-        "https://www.paxos.com/newsroom/paxos-prevails-in-sec-investigation-of-busd-stablecoin-and-sec-will-not-pursue-enforcement-action",
-        "https://www.davispolk.com/experience/termination-sec-investigation-paxos",
-        "https://cointelegraph.com/news/sec-enforcement-action-paxos-dropped"
+        {
+          "label": "Paxos statement",
+          "url": "https://www.paxos.com/newsroom/paxos-prevails-in-sec-investigation-of-busd-stablecoin-and-sec-will-not-pursue-enforcement-action"
+        }
       ]
     },
     {
@@ -335,8 +337,14 @@
       "related_issuer_slugs": [],
       "status": "settled",
       "sources": [
-        "https://www.sec.gov/news/press-release/2023-7",
-        "https://www.sec.gov/files/litigation/complaints/2023/comp-pr2023-7.pdf"
+        {
+          "label": "SEC press release",
+          "url": "https://www.sec.gov/news/press-release/2023-7"
+        },
+        {
+          "label": "SEC complaint",
+          "url": "https://www.sec.gov/files/litigation/complaints/2023/comp-pr2023-7.pdf"
+        }
       ]
     },
     {
@@ -369,8 +377,14 @@
       "related_issuer_slugs": [],
       "status": "settled",
       "sources": [
-        "https://www.dfs.ny.gov/reports_and_publications/press_releases/pr202402282",
-        "https://www.dfs.ny.gov/consumers/alerts/gemini-earn-customers-details"
+        {
+          "label": "NYDFS order",
+          "url": "https://www.dfs.ny.gov/reports_and_publications/press_releases/pr202402282"
+        },
+        {
+          "label": "NYDFS order",
+          "url": "https://www.dfs.ny.gov/consumers/alerts/gemini-earn-customers-details"
+        }
       ]
     },
     {
@@ -403,9 +417,18 @@
       "related_issuer_slugs": [],
       "status": "settled",
       "sources": [
-        "https://www.sec.gov/news/press-release/2023-126",
-        "https://www.ftc.gov/news-events/news/press-releases/2023/07/ftc-takes-action-against-cryptocurrency-platform-celsius-and-former-executives",
-        "https://www.justice.gov/usao-sdny/pr/founder-and-former-chief-executive-officer-celsius-network-charged-multibillion-dollar"
+        {
+          "label": "SEC press release",
+          "url": "https://www.sec.gov/news/press-release/2023-126"
+        },
+        {
+          "label": "FTC press release",
+          "url": "https://www.ftc.gov/news-events/news/press-releases/2023/07/ftc-takes-action-against-cryptocurrency-platform-celsius-and-former-executives"
+        },
+        {
+          "label": "DOJ press release",
+          "url": "https://www.justice.gov/usao-sdny/pr/founder-and-former-chief-executive-officer-celsius-network-charged-multibillion-dollar"
+        }
       ]
     },
     {
@@ -440,8 +463,14 @@
       "related_issuer_slugs": [],
       "status": "settled",
       "sources": [
-        "https://www.ftc.gov/news-events/news/press-releases/2023/10/ftc-reaches-settlement-crypto-company-voyager-digital-charges-former-executive-falsely-claiming",
-        "https://www.ftc.gov/node/88539"
+        {
+          "label": "FTC press release",
+          "url": "https://www.ftc.gov/news-events/news/press-releases/2023/10/ftc-reaches-settlement-crypto-company-voyager-digital-charges-former-executive-falsely-claiming"
+        },
+        {
+          "label": "FTC press release",
+          "url": "https://www.ftc.gov/node/88539"
+        }
       ]
     },
     {
@@ -475,8 +504,10 @@
       "related_issuer_slugs": [],
       "status": "closed",
       "sources": [
-        "https://www.ey.com/en_sg/hodlnaut-pte-ltd",
-        "https://www.elitigation.sg/gd/s/2023_SGHC_323"
+        {
+          "label": "Singapore Supreme Court filing",
+          "url": "https://www.elitigation.sg/gd/s/2023_SGHC_323"
+        }
       ]
     },
     {
@@ -512,9 +543,18 @@
       "related_issuer_slugs": [],
       "status": "settled",
       "sources": [
-        "https://www.justice.gov/opa/pr/binance-and-ceo-plead-guilty-federal-charges-4b-resolution",
-        "https://www.cftc.gov/PressRoom/PressReleases/8825-23",
-        "https://home.treasury.gov/news/press-releases/jy1925"
+        {
+          "label": "DOJ press release",
+          "url": "https://www.justice.gov/opa/pr/binance-and-ceo-plead-guilty-federal-charges-4b-resolution"
+        },
+        {
+          "label": "CFTC press release",
+          "url": "https://www.cftc.gov/PressRoom/PressReleases/8825-23"
+        },
+        {
+          "label": "Treasury / OFAC announcement",
+          "url": "https://home.treasury.gov/news/press-releases/jy1925"
+        }
       ]
     },
     {
@@ -547,8 +587,14 @@
       "related_issuer_slugs": [],
       "status": "dismissed",
       "sources": [
-        "https://www.sec.gov/news/press-release/2023-101",
-        "https://www.sec.gov/files/litigation/complaints/2023/comp-pr2023-101.pdf"
+        {
+          "label": "SEC press release",
+          "url": "https://www.sec.gov/news/press-release/2023-101"
+        },
+        {
+          "label": "SEC complaint",
+          "url": "https://www.sec.gov/files/litigation/complaints/2023/comp-pr2023-101.pdf"
+        }
       ]
     },
     {
@@ -581,8 +627,14 @@
       "related_issuer_slugs": [],
       "status": "dismissed",
       "sources": [
-        "https://www.sec.gov/news/press-release/2023-102",
-        "https://www.sec.gov/files/litigation/complaints/2023/comp-pr2023-102.pdf"
+        {
+          "label": "SEC press release",
+          "url": "https://www.sec.gov/news/press-release/2023-102"
+        },
+        {
+          "label": "SEC complaint",
+          "url": "https://www.sec.gov/files/litigation/complaints/2023/comp-pr2023-102.pdf"
+        }
       ]
     },
     {
@@ -619,13 +671,19 @@
       "related_issuer_slugs": [],
       "status": "closed",
       "sources": [
-        "https://www.justice.gov/usao-sdny/pr/samuel-bankman-fried-sentenced-25-years-his-orchestration-multiple-fraudulent-schemes",
-        "https://www.justice.gov/usao-sdny/pr/samuel-bankman-fried-found-guilty-all-seven-counts"
+        {
+          "label": "DOJ press release",
+          "url": "https://www.justice.gov/usao-sdny/pr/samuel-bankman-fried-sentenced-25-years-his-orchestration-multiple-fraudulent-schemes"
+        },
+        {
+          "label": "DOJ press release",
+          "url": "https://www.justice.gov/usao-sdny/pr/samuel-bankman-fried-found-guilty-all-seven-counts"
+        }
       ]
     },
     {
       "slug": "sec-ripple-xrp-2020-2024",
-      "action_date": "2023-07-13",
+      "action_date": "2024-08-07",
       "regulator": "SEC",
       "jurisdiction": "US",
       "target_entity": "Ripple Labs Inc., Christian Larsen, and Bradley Garlinghouse",
@@ -653,8 +711,14 @@
       "related_issuer_slugs": [],
       "status": "settled",
       "sources": [
-        "https://www.sec.gov/news/press-release/2020-338",
-        "https://www.courtlistener.com/docket/18752520/sec-v-ripple-labs-inc/"
+        {
+          "label": "SEC press release",
+          "url": "https://www.sec.gov/news/press-release/2020-338"
+        },
+        {
+          "label": "Court docket (CourtListener)",
+          "url": "https://www.courtlistener.com/docket/18752520/sec-v-ripple-labs-inc/"
+        }
       ]
     }
   ]
