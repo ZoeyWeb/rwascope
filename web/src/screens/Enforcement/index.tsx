@@ -85,7 +85,7 @@ export default function EnforcementTracker() {
       </BigStatRibbon>
 
       {/* Filters */}
-      <div className="bg-white border-b border-[#DBE4E7] sticky top-20 z-10">
+      <div className="bg-white border-b border-[#DBE4E7] sticky top-0 z-10">
         <div className="max-w-5xl mx-auto px-6 py-3 flex flex-wrap items-center gap-3">
           <FilterChips label="Regulator" value={regulator} options={REGULATORS} onChange={setRegulator} />
           <FilterChips label="Jurisdiction" value={jurisdiction} options={JURISDICTIONS} onChange={setJurisdiction} />

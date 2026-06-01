@@ -14,19 +14,24 @@
 
 @layer base {
   html {
-    overflow-x: hidden;
+    overflow-x: clip;
     max-width: 100%;
   }
   body {
     font-family: 'Space Grotesk', sans-serif;
     background-color: #f8f9fa;
     color: #2b3437;
-    overflow-x: hidden;
+    overflow-x: clip;
     max-width: 100%;
   }
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Manrope', sans-serif;
   }
+}
+
+/* Safari <16 fallback: clip 不支持时退回 hidden（sticky 仍会坏，但无横向 scrollbar） */
+@supports not (overflow-x: clip) {
+  html, body { overflow-x: hidden; }
 }
 
 .material-symbols-outlined {

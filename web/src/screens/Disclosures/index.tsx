@@ -72,7 +72,7 @@ export default function DisclosuresTracker() {
       </BigStatRibbon>
 
       {/* Filters */}
-      <div className="bg-white border-b border-[#DBE4E7] sticky top-20 z-10">
+      <div className="bg-white border-b border-[#DBE4E7] sticky top-0 z-10">
         <div className="max-w-5xl mx-auto px-6 py-3 flex flex-wrap items-center gap-4">
           <div className="flex items-center gap-1.5 flex-wrap">
             <span className="text-xs text-[#737C7F]">Issuer:</span>
