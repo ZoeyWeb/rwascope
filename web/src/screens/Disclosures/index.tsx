@@ -12,6 +12,7 @@ const DOC_TYPE_LABELS: Record<string, string> = {
   prospectus_update: 'Prospectus',
   issuance_document: 'Issuance',
   annual_report:     'Annual Report',
+  reserve_report:    'Reserve Report',
 };
 
 const DOC_TYPE_ICONS: Record<string, string> = {
@@ -21,15 +22,16 @@ const DOC_TYPE_ICONS: Record<string, string> = {
   prospectus_update: 'description',
   issuance_document: 'receipt_long',
   annual_report:     'summarize',
+  reserve_report:    'inventory_2',
 };
 
 const ISSUERS = ['All', ...Array.from(new Set(disclosuresData.disclosures.map(d => d.issuer))).sort()];
-const DOC_TYPES = ['All', 'nav_report', 'attestation', 'sec_filing', 'prospectus_update', 'issuance_document'];
+const DOC_TYPES = ['All', 'nav_report', 'attestation', 'sec_filing', 'prospectus_update', 'issuance_document', 'reserve_report'];
 
 const STATS = {
   totalDocs:    disclosuresData.disclosures.length,
   issuersCount: new Set(disclosuresData.disclosures.map(d => d.issuer)).size,
-  lastUpdate:   (([...disclosuresData.disclosures].map(d => d.date).sort()).pop() ?? '—').slice(0, 7),
+  lastUpdate:   disclosuresData.updated_at.slice(0, 7),
   typesCount:   new Set(disclosuresData.disclosures.map(d => d.doc_type)).size,
 };
 
@@ -150,6 +152,9 @@ function DisclosureRow({ doc }: { doc: Disclosure }) {
           <div className="flex flex-wrap items-center gap-2 mb-1">
             <span className="text-xs font-bold text-[#2B3437] bg-[#F1F4F6] px-2 py-0.5 rounded">
               {doc.issuer}
+              {doc.arranger && (
+                <span className="font-normal text-[#737C7F]"> · arranged by {doc.arranger}</span>
+              )}
             </span>
             <span className="text-xs text-[#5E5C75] font-medium">{label}</span>
             {doc.period_covered && (
@@ -172,14 +177,25 @@ function DisclosureRow({ doc }: { doc: Disclosure }) {
         <div className="px-5 pb-5 border-t border-[#F1F4F6]">
           <p className="mt-4 text-sm text-[#2B3437] leading-relaxed">{doc.summary}</p>
           <div className="mt-4 flex items-center gap-4">
+            {doc.file_url && (
+              <a
+                href={doc.file_url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1 text-xs text-[#5E5C75] hover:text-[#2B3437] transition-colors font-medium"
+              >
+                <span className="material-symbols-outlined text-[13px]">picture_as_pdf</span>
+                Filing PDF
+              </a>
+            )}
             <a
               href={doc.source_url}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1 text-xs text-[#5E5C75] hover:text-[#2B3437] transition-colors font-medium"
+              className="flex items-center gap-1 text-xs text-[#737C7F] hover:text-[#2B3437] transition-colors"
             >
               <span className="material-symbols-outlined text-[13px]">open_in_new</span>
-              Source document
+              Issuer page
             </a>
           </div>
         </div>
