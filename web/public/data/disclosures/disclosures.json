@@ -15,18 +15,31 @@
       "summary": "Monthly agreed-upon procedures attestation by Deloitte & Touche LLP confirming USDC reserve assets equal or exceed USDC in circulation as of month-end. Reserves held in US Treasury Bills, government money market funds, and overnight US Treasury repurchase agreements via Circle Reserve Fund (BlackRock-managed). Conducted under AICPA attestation standards.",
       "source_url": "https://www.circle.com/transparency",
       "file_url": "https://6778953.fs1.hubspotusercontent-na1.net/hubfs/6778953/USDCAttestationReports/2026/2026%20USDC_Examination%20Report%20April%2026.pdf",
-      "asset_classes": ["fiat_stablecoin"],
+      "asset_classes": [
+        "fiat_stablecoin"
+      ],
       "rwa_relevant": true,
       "last_verified_at": "2026-06-01",
-      "rarm_layers": ["audit"],
-      "sarm_blocks": ["reserve", "transparency"],
+      "rarm_layers": [
+        "audit"
+      ],
+      "sarm_blocks": [
+        "reserve",
+        "transparency"
+      ],
       "jurisdiction": "US",
       "regulator": "NYDFS",
       "status": "live",
       "auditor": "Deloitte",
       "key_figures": [
-        { "label": "USDC in circulation (approx. Apr 2026)", "value": "~$77.3B (TODO: verify from PDF)" },
-        { "label": "Reserve assets", "value": "≥ USDC circulation (TODO: exact figure from PDF)" }
+        {
+          "label": "USDC in circulation (approx. Apr 2026)",
+          "value": "~$77.3B (TODO: verify from PDF)"
+        },
+        {
+          "label": "Reserve assets",
+          "value": "≥ USDC circulation (TODO: exact figure from PDF)"
+        }
       ]
     },
     {
@@ -42,18 +55,31 @@
       "summary": "Monthly AICPA attestation by KPMG LLP (NYDFS-appointed, effective February 28, 2025) confirming PYUSD reserve assets meet or exceed PYUSD tokens in circulation. Reserves backed 1:1 by USD deposits, short-term US Treasuries, and cash equivalents. Attestation available at paxos.com/pyusd-transparency.",
       "source_url": "https://paxos.com/pyusd-transparency/",
       "file_url": null,
-      "asset_classes": ["fiat_stablecoin"],
+      "asset_classes": [
+        "fiat_stablecoin"
+      ],
       "rwa_relevant": true,
       "last_verified_at": "2026-06-01",
-      "rarm_layers": ["audit"],
-      "sarm_blocks": ["reserve", "transparency"],
+      "rarm_layers": [
+        "audit"
+      ],
+      "sarm_blocks": [
+        "reserve",
+        "transparency"
+      ],
       "jurisdiction": "US",
       "regulator": "NYDFS",
       "status": "live",
       "auditor": "KPMG",
       "key_figures": [
-        { "label": "PYUSD in circulation (approx. Mar 2026)", "value": "~$4.09B (third-party aggregator — TODO: verify from PDF)" },
-        { "label": "Reserve assets", "value": "≥ PYUSD circulation (TODO: exact figure from PDF)" }
+        {
+          "label": "PYUSD in circulation (approx. Mar 2026)",
+          "value": "~$4.09B (third-party aggregator — TODO: verify from PDF)"
+        },
+        {
+          "label": "Reserve assets",
+          "value": "≥ PYUSD circulation (TODO: exact figure from PDF)"
+        }
       ]
     },
     {
@@ -69,23 +95,51 @@
       "summary": "ISAE 3000R assurance report prepared by BDO Advisory Services S.r.l. (Milan, Italy) providing a point-in-time opinion on Tether International S.A. de C.V.'s reserves as of 31 December 2025. Issuing entity was redomiciled from BVI to El Salvador in January 2025 and holds a Stablecoin Issuer authorisation from El Salvador's CNAD. Total reserves of $192.9B exceed liabilities of $186.5B (approx. 103.4% collateralised). Reserve composition: US Treasury Bills ($122.3B, 63.4%), overnight and term reverse repurchase agreements ($24.8B, 12.9%), precious metals ($17.5B, 9.0%), secured loans ($17.0B, 8.8%), and Bitcoin ($8.4B, 4.4%). Report commissioned by Tether Global Investments Fund SICAF SA under ISAE 3000 (Revised); BDO does not express an audit opinion on financial statements.",
       "source_url": "https://tether.to/en/transparency",
       "file_url": "https://assets.ctfassets.net/vyse88cgwfbl/20d2BoOAd28ZfkiQPYPjGN/4ed12f5939e1e06ee5aceccad4effbe4/ISAE_3000R_-_Opinion_Tether_International_Financial_Figure_31-12-2025.pdf",
-      "asset_classes": ["fiat_stablecoin"],
+      "asset_classes": [
+        "fiat_stablecoin"
+      ],
       "rwa_relevant": true,
       "last_verified_at": "2026-06-01",
-      "rarm_layers": ["audit"],
-      "sarm_blocks": ["reserve", "transparency"],
+      "rarm_layers": [
+        "audit"
+      ],
+      "sarm_blocks": [
+        "reserve",
+        "transparency"
+      ],
       "jurisdiction": "SV",
       "regulator": null,
       "status": "live",
       "auditor": "BDO Advisory Services S.r.l.",
       "key_figures": [
-        { "label": "USDT in circulation (31 Dec 2025)", "value": "$186,450,610,920" },
-        { "label": "Total reserves", "value": "$192,877,729,144" },
-        { "label": "US Treasury Bills", "value": "$122,325,714,946 (63.4% of reserves)" },
-        { "label": "Cash & cash equivalents (incl. repo)", "value": "$147,187,515,572 (76.3% of reserves)" },
-        { "label": "Secured Loans", "value": "$17,043,516,665 (8.8% of reserves)" },
-        { "label": "Bitcoin holdings", "value": "$8,430,374,292 (4.4% of reserves)" },
-        { "label": "Precious Metals", "value": "$17,450,435,088 (9.0% of reserves)" }
+        {
+          "label": "USDT in circulation (31 Dec 2025)",
+          "value": "$186,450,610,920"
+        },
+        {
+          "label": "Total reserves",
+          "value": "$192,877,729,144"
+        },
+        {
+          "label": "US Treasury Bills",
+          "value": "$122,325,714,946 (63.4% of reserves)"
+        },
+        {
+          "label": "Cash & cash equivalents (incl. repo)",
+          "value": "$147,187,515,572 (76.3% of reserves)"
+        },
+        {
+          "label": "Secured Loans",
+          "value": "$17,043,516,665 (8.8% of reserves)"
+        },
+        {
+          "label": "Bitcoin holdings",
+          "value": "$8,430,374,292 (4.4% of reserves)"
+        },
+        {
+          "label": "Precious Metals",
+          "value": "$17,450,435,088 (9.0% of reserves)"
+        }
       ]
     },
     {
@@ -101,20 +155,39 @@
       "summary": "Final accountant's report by Nephos Group (UK, ATA-registered; signing accountant: Joseph David) attesting to the reserve composition of Mountain Protocol's USDM stablecoin. USDM was backed 100% by short-duration US Treasury Bills (average duration ≤ 60 days) and distributed daily yield via an on-chain rebasing mechanism (rewardMultiplier), with historical APY tracking US T-Bill rates (approximately 4–5%). Mountain Protocol holds BMA Digital Asset Business Licence No. 202302512 (Bermuda). The protocol initiated a three-phase wind-down in May 2025: yield reduced to 0% from June 12, primary market closed August 22, 2025, and remaining reserves migrated on-chain to a Uniswap AMM pool. This October 2025 report is the final third-party attestation; post–Phase 3 reserve verification is on-chain only. Product is no longer operational.",
       "source_url": "https://docs.mountainprotocol.com/legacy-docs/usdm-reserves-attestations",
       "file_url": "https://drive.google.com/file/d/1L20fHAFnzdBHBdLDFg6zfMVkNp8Gbe5N/view?usp=sharing",
-      "asset_classes": ["fiat_stablecoin"],
+      "asset_classes": [
+        "fiat_stablecoin"
+      ],
       "rwa_relevant": true,
       "last_verified_at": "2026-06-01",
-      "rarm_layers": ["audit"],
-      "sarm_blocks": ["reserve", "transparency"],
+      "rarm_layers": [
+        "audit"
+      ],
+      "sarm_blocks": [
+        "reserve",
+        "transparency"
+      ],
       "jurisdiction": "BM",
       "regulator": "BMA",
       "status": "retired",
       "auditor": "Nephos Group",
       "key_figures": [
-        { "label": "USDM in circulation (final attestation date)", "value": "TODO: verify from PDF (requires Google auth)" },
-        { "label": "US Treasury Bill holdings", "value": "TODO: verify from PDF (100% T-Bills confirmed; exact amount in PDF)" },
-        { "label": "Historical APY (last active period)", "value": "~4–5% (tracking US T-Bill rates; 0% from 2025-06-12 onward)" },
-        { "label": "Wind-down status", "value": "Primary market closed 2025-08-22; reserves on-chain post Phase 3" }
+        {
+          "label": "USDM in circulation (final attestation date)",
+          "value": "TODO: verify from PDF (requires Google auth)"
+        },
+        {
+          "label": "US Treasury Bill holdings",
+          "value": "TODO: verify from PDF (100% T-Bills confirmed; exact amount in PDF)"
+        },
+        {
+          "label": "Historical APY (last active period)",
+          "value": "~4–5% (tracking US T-Bill rates; 0% from 2025-06-12 onward)"
+        },
+        {
+          "label": "Wind-down status",
+          "value": "Primary market closed 2025-08-22; reserves on-chain post Phase 3"
+        }
       ]
     },
     {
@@ -130,19 +203,35 @@
       "summary": "Regulation D Form D/A amendment filed with the SEC by BlackRock USD Institutional Digital Liquidity Fund Ltd. (BVI-incorporated). Reports cumulative securities sales under Rule 506 exemption (§3(c)(7) qualified purchasers only). Total amount sold: $3.25 billion across 42 investors as of filing date. Note: BUIDL is a Reg D exempt private fund — N-MFP forms do not apply. On-chain AUM approximately $2.42 billion as of May 2026 (net of redemptions, from third-party tracker rwa.xyz).",
       "source_url": "https://efts.sec.gov/LATEST/search-index?q=%22BlackRock+USD+Institutional+Digital+Liquidity%22&forms=D",
       "file_url": "https://www.sec.gov/Archives/edgar/data/2013810/000200468725000001/xslFormDX01/primary_doc.xml",
-      "asset_classes": ["gov_treasuries"],
+      "asset_classes": [
+        "gov_treasuries"
+      ],
       "rwa_relevant": true,
       "last_verified_at": "2026-06-01",
-      "rarm_layers": ["audit", "jurisdiction"],
-      "sarm_blocks": ["regulatory"],
+      "rarm_layers": [
+        "audit",
+        "jurisdiction"
+      ],
+      "sarm_blocks": [
+        "regulatory"
+      ],
       "jurisdiction": "US",
       "regulator": "SEC",
       "status": "live",
       "auditor": null,
       "key_figures": [
-        { "label": "Total amount sold (cumulative, Reg D)", "value": "$3,251,152,228" },
-        { "label": "Total investors", "value": "42" },
-        { "label": "On-chain AUM (approx. May 2026)", "value": "~$2.42B (third-party tracker, not audited filing)" }
+        {
+          "label": "Total amount sold (cumulative, Reg D)",
+          "value": "$3,251,152,228"
+        },
+        {
+          "label": "Total investors",
+          "value": "42"
+        },
+        {
+          "label": "On-chain AUM (approx. May 2026)",
+          "value": "~$2.42B (third-party tracker, not audited filing)"
+        }
       ]
     },
     {
@@ -158,11 +247,18 @@
       "summary": "SEC Form N-MFP monthly portfolio holdings report for the Franklin OnChain U.S. Government Money Fund, a tokenized fund on Stellar and Polygon. Portfolio consists of US government securities and repurchase agreements. Regulatory filing publicly accessible via SEC EDGAR.",
       "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&company=franklin+onchain",
       "file_url": null,
-      "asset_classes": ["gov_treasuries"],
+      "asset_classes": [
+        "gov_treasuries"
+      ],
       "rwa_relevant": true,
       "last_verified_at": "2026-06-01",
-      "rarm_layers": ["audit", "jurisdiction"],
-      "sarm_blocks": ["regulatory"],
+      "rarm_layers": [
+        "audit",
+        "jurisdiction"
+      ],
+      "sarm_blocks": [
+        "regulatory"
+      ],
       "jurisdiction": "US",
       "regulator": "SEC",
       "status": "live",
@@ -182,11 +278,18 @@
       "summary": "Third-party attestation of USDY reserve composition, confirming backing by short-term US Treasury bills and bank demand deposits. Attestation conducted by Withum Smith+Brown. Reserve value confirmed to exceed total USDY supply outstanding.",
       "source_url": "https://ondo.finance/usdy",
       "file_url": null,
-      "asset_classes": ["gov_treasuries"],
+      "asset_classes": [
+        "gov_treasuries"
+      ],
       "rwa_relevant": true,
       "last_verified_at": "2026-06-01",
-      "rarm_layers": ["audit"],
-      "sarm_blocks": ["reserve", "transparency"],
+      "rarm_layers": [
+        "audit"
+      ],
+      "sarm_blocks": [
+        "reserve",
+        "transparency"
+      ],
       "jurisdiction": "US",
       "regulator": "SEC",
       "status": "live",
@@ -206,11 +309,18 @@
       "summary": "Monthly NAV disclosure for BUIDL, the tokenized money market fund investing in US Treasury bills, cash, and repo agreements. Fund total assets and per-share NAV maintained at $1.00. Distributed across Ethereum, Polygon, Avalanche, Aptos, Arbitrum, Optimism, and Solana.",
       "source_url": "https://www.blackrock.com/cash/en-us/products/buidl",
       "file_url": null,
-      "asset_classes": ["gov_treasuries"],
+      "asset_classes": [
+        "gov_treasuries"
+      ],
       "rwa_relevant": true,
       "last_verified_at": "2026-06-01",
-      "rarm_layers": ["audit", "custody"],
-      "sarm_blocks": ["reserve"],
+      "rarm_layers": [
+        "audit",
+        "custody"
+      ],
+      "sarm_blocks": [
+        "reserve"
+      ],
       "jurisdiction": "US",
       "regulator": "SEC",
       "status": "live",
@@ -230,11 +340,18 @@
       "summary": "Monthly attestation confirming each PAXG token is backed by one fine troy ounce of a 400 oz London Good Delivery gold bar held in Brink's vaults in London. Total PAXG supply and corresponding physical gold ounces confirmed by Withum. Note: Paxos notified NYDFS that PYUSD attestation switched to KPMG effective 2025-02-28; PAXG's March 2025 report cover remained Withum.",
       "source_url": "https://paxos.com/paxgold/",
       "file_url": null,
-      "asset_classes": ["commodities"],
+      "asset_classes": [
+        "commodities"
+      ],
       "rwa_relevant": true,
       "last_verified_at": "2026-06-01",
-      "rarm_layers": ["audit"],
-      "sarm_blocks": ["reserve", "transparency"],
+      "rarm_layers": [
+        "audit"
+      ],
+      "sarm_blocks": [
+        "reserve",
+        "transparency"
+      ],
       "jurisdiction": "US",
       "regulator": "NYDFS",
       "status": "live",
@@ -254,16 +371,69 @@
       "summary": "Prospectus supplement for WTGXX, a tokenized short-term US Treasury fund on Stellar blockchain. Supplement covers fund composition, regulatory classification under the Investment Company Act, and operational procedures for token redemption via WisdomTree Prime app.",
       "source_url": "https://www.wisdomtree.com/investments/etfs/fixed-income/wtgxx",
       "file_url": null,
-      "asset_classes": ["gov_treasuries"],
+      "asset_classes": [
+        "gov_treasuries"
+      ],
       "rwa_relevant": true,
       "last_verified_at": "2026-06-01",
-      "rarm_layers": ["jurisdiction", "issuer"],
-      "sarm_blocks": ["legal", "regulatory"],
+      "rarm_layers": [
+        "jurisdiction",
+        "issuer"
+      ],
+      "sarm_blocks": [
+        "legal",
+        "regulatory"
+      ],
       "jurisdiction": "US",
       "regulator": "SEC",
       "status": "live",
       "auditor": null,
       "key_figures": []
+    },
+    {
+      "slug": "hashnote-usyc-product-2025",
+      "issuer": "Hashnote",
+      "issuer_slug": "hashnote",
+      "arranger": "Circle",
+      "issuer_type": "asset_manager",
+      "doc_type": "nav_report",
+      "title": "Hashnote US Yield Coin (USYC) — Product Structure Disclosure (Post-Circle Acquisition)",
+      "date": "2025-01-21",
+      "period_covered": null,
+      "summary": "Hashnote International Short Duration Yield Fund Ltd. (Cayman Islands, CIMA-registered mutual fund, LEI 25490083NU09WKP5Z570) issues USYC tokens representing short-duration U.S. Treasury bill and overnight reverse repo exposure. Circle Internet Group acquired Hashnote Holdings LLC effective January 21, 2025 (~$99.8M); token administration transferred to Circle International Bermuda Limited (CIBL), regulated by the Bermuda Monetary Authority. DRW (Cumberland) remains strategic liquidity partner. Annual fund audit by Valaston International Limited (CIMA-approved specialist Cayman fund auditor). No public attestation PDF is released — transparency is provided via on-chain daily NAV oracle; fund documents available on request to qualified investors only. Eligible investors: non-U.S. persons (Reg S). As of mid-2026, USYC AUM is approximately $2.957B, making it the world’s largest tokenized money market fund. Performance fee: 10% of yield (verify against offering docs).",
+      "source_url": "https://www.circle.com/usyc",
+      "file_url": null,
+      "asset_classes": [
+        "gov_treasuries"
+      ],
+      "rwa_relevant": true,
+      "last_verified_at": "2026-06-01",
+      "rarm_layers": [
+        "audit",
+        "custody"
+      ],
+      "sarm_blocks": [
+        "reserve",
+        "transparency"
+      ],
+      "jurisdiction": "KY",
+      "regulator": "CIMA",
+      "status": "live",
+      "auditor": "Valaston International Limited",
+      "key_figures": [
+        {
+          "label": "AUM (~May 2026, rwa.xyz)",
+          "value": "~$2.957B — world’s largest tokenized MMF"
+        },
+        {
+          "label": "NAV per token",
+          "value": "~$1.13"
+        },
+        {
+          "label": "7-day APY (~May 2026)",
+          "value": "~3.13%"
+        }
+      ]
     },
     {
       "slug": "hsbc-hk-digital-bond-2024",
@@ -278,16 +448,111 @@
       "summary": "Final terms for the second tranche of the HKSAR Government tokenized green bond, issued on Goldman Sachs's GS DAP platform. HKD 6 billion issuance, 2-year maturity. First multi-currency tokenized government bond globally, settling in HKD, USD, EUR, and RMB simultaneously via atomic settlement.",
       "source_url": "https://www.hkma.gov.hk/eng/news-and-media/press-releases/2024/02/20240220-3/",
       "file_url": null,
-      "asset_classes": ["gov_bonds"],
+      "asset_classes": [
+        "gov_bonds"
+      ],
       "rwa_relevant": true,
       "last_verified_at": "2026-06-01",
-      "rarm_layers": ["issuer", "jurisdiction"],
-      "sarm_blocks": ["legal"],
+      "rarm_layers": [
+        "issuer",
+        "jurisdiction"
+      ],
+      "sarm_blocks": [
+        "legal"
+      ],
       "jurisdiction": "HK",
       "regulator": "HKMA",
       "status": "live",
       "auditor": null,
       "key_figures": []
+    },
+    {
+      "slug": "superstate-ustb-form-d-2024",
+      "issuer": "Superstate",
+      "issuer_slug": "superstate",
+      "arranger": null,
+      "issuer_type": "asset_manager",
+      "doc_type": "sec_filing",
+      "title": "Superstate Short Duration US Government Securities Fund — Initial Reg D Form D Filing 2024",
+      "date": "2024-02-01",
+      "period_covered": null,
+      "summary": "Superstate Short Duration US Government Securities Fund is a Delaware statutory trust series (Superstate Asset Trust) issuing USTB tokens under Regulation D Rule 506(c), Section 3(c)(7), restricted to U.S. qualified purchasers. The fund holds exclusively short-duration U.S. Treasury bills and government agency securities (~28-day weighted average maturity, no repos). Annual audits are conducted by Ernst & Young LLP; custodian is UMB Bank N.A. (current product page references BNY Mellon — custodian transition unconfirmed). In March 2026, Superstate announced transfer of investment management to Invesco Advisers, Inc.; upon completion (expected Q2 2026) the fund will be renamed ‘Invesco Short Duration US Government Securities Fund’ while retaining USTB smart contracts. Superstate continues as on-chain technology partner. This entry references the EDGAR Form D (CIK 2004367, 2024 filing). Initial Form D filing date 2024 (exact day TBD; EDGAR access blocked at research time, to be verified manually).",
+      "source_url": "https://superstate.com/assets/ustb",
+      "file_url": "https://www.sec.gov/Archives/edgar/data/2004367/000200436724000001/",
+      "asset_classes": [
+        "gov_treasuries"
+      ],
+      "rwa_relevant": true,
+      "last_verified_at": "2026-06-01",
+      "rarm_layers": [
+        "audit",
+        "jurisdiction"
+      ],
+      "sarm_blocks": [
+        "regulatory"
+      ],
+      "jurisdiction": "US",
+      "regulator": "SEC",
+      "status": "live",
+      "auditor": "Ernst & Young LLP",
+      "key_figures": [
+        {
+          "label": "AUM (~May 2026, superstate.com)",
+          "value": "~$923.7M"
+        },
+        {
+          "label": "30-day yield (~May 2026)",
+          "value": "3.53%"
+        },
+        {
+          "label": "Weighted avg. maturity",
+          "value": "~28 days (per 2024 fund docs)"
+        }
+      ]
+    },
+    {
+      "slug": "ondo-ousg-form-d-2023",
+      "issuer": "Ondo Finance",
+      "issuer_slug": "ondo",
+      "arranger": null,
+      "issuer_type": "asset_manager",
+      "doc_type": "sec_filing",
+      "title": "Ondo OUSG (Ondo I LP) — Initial Reg D Form D Filing January 2023",
+      "date": "2023-01-11",
+      "period_covered": null,
+      "summary": "Ondo I LP is a Delaware limited partnership issuing OUSG tokens under Regulation D Rule 506(c), Section 3(c)(7), restricted to U.S. qualified purchasers with a $5,000 minimum. The fund allocates principally to BlackRock’s BUIDL institutional money market fund alongside secondary positions in FedFund (TFDXX), Franklin Templeton, WisdomTree, and Fidelity government vehicles — resulting in layered counterparty exposure across Ondo and BlackRock structures. Daily NAV is calculated by NAV Consulting; off-chain assets are held at Clear Street LLC (qualified custodian) and Coinbase Custody for digital assets. Annual financial audits are performed and delivered to limited partners, but the audit firm is not publicly named. No public attestation PDF or factsheet is released. This entry references the EDGAR Form D filing (CIK 1957431, filed January 11, 2023).",
+      "source_url": "https://ondo.finance/ousg",
+      "file_url": "https://www.sec.gov/Archives/edgar/data/1957431/000195743123000002/",
+      "asset_classes": [
+        "gov_treasuries"
+      ],
+      "rwa_relevant": true,
+      "last_verified_at": "2026-06-01",
+      "rarm_layers": [
+        "audit",
+        "jurisdiction"
+      ],
+      "sarm_blocks": [
+        "regulatory"
+      ],
+      "jurisdiction": "US",
+      "regulator": "SEC",
+      "status": "live",
+      "auditor": null,
+      "key_figures": [
+        {
+          "label": "AUM (approx. Q1 2026, rwa.xyz)",
+          "value": "~$611.6M (verify before publish)"
+        },
+        {
+          "label": "Primary holding",
+          "value": "BlackRock BUIDL (significant majority); secondary: FedFund (TFDXX), Franklin Templeton, WisdomTree, Fidelity"
+        },
+        {
+          "label": "Eligible investors",
+          "value": "US Qualified Purchasers only (Reg D 506(c), §3(c)(7))"
+        }
+      ]
     }
   ]
 }
