@@ -83,6 +83,98 @@
       ]
     },
     {
+      "slug": "paxos-usdg-attestation-2026-04",
+      "issuer": "Paxos (Singapore)",
+      "issuer_slug": "paxos-sg",
+      "arranger": null,
+      "issuer_type": "stablecoin_issuer",
+      "doc_type": "attestation",
+      "title": "Paxos Global Dollar (USDG) — Reserve Attestation April 2026",
+      "date": "2026-04-30",
+      "period_covered": "April 2026",
+      "summary": "Monthly attestation by KPMG LLP (ISCA standards; effective 2026-02-27, replacing Enrome LLP) confirming Global Dollar (USDG) reserve assets equal or exceed USDG tokens in circulation. Issued by Paxos Digital Singapore Pte. Ltd. under MAS Major Payments Institution (MPI) licence (full licence granted 2024-07-01); DBS Bank is the primary banking partner. Reserves held 100% in USD cash deposits and short-term U.S. Treasury bills, segregated and bankruptcy-remote. USDG is the consortium currency of the Global Dollar Network (GDN), counting 130+ institutional partners as of May 2026 (founding members: Robinhood, Kraken, Galaxy, Anchorage, Bullish; subsequent additions include Mastercard, OKX, Gemini, DBS, Worldpay). Yield flows exclusively to GDN consortium members proportional to minting and volume contribution — retail token holders receive no yield. USDG additionally holds MiCA authorisation via Finnish FIN-FSA (effective July 2025). Circulation reached ~$2.75B within 18 months of launch (November 2024).",
+      "source_url": "https://www.paxos.com/usdg-transparency",
+      "file_url": null,
+      "asset_classes": [
+        "fiat_stablecoin"
+      ],
+      "rwa_relevant": true,
+      "last_verified_at": "2026-06-01",
+      "rarm_layers": [
+        "audit"
+      ],
+      "sarm_blocks": [
+        "reserve",
+        "transparency"
+      ],
+      "jurisdiction": "SG",
+      "regulator": "MAS",
+      "status": "live",
+      "auditor": "KPMG LLP",
+      "key_figures": [
+        {
+          "label": "USDG in circulation (~May 2026)",
+          "value": "~$2.75B (launched November 2024; rapid growth)"
+        },
+        {
+          "label": "Reserve assets",
+          "value": "≥ USDG circulation (100% USD deposits + short-term T-bills, DBS Bank)"
+        },
+        {
+          "label": "GDN consortium partners",
+          "value": "130+ as of May 2026"
+        },
+        {
+          "label": "Yield model",
+          "value": "100% of reserve income to GDN partners; retail holders receive no yield"
+        }
+      ]
+    },
+    {
+      "slug": "paxos-usdp-attestation-2026-04",
+      "issuer": "Paxos",
+      "issuer_slug": "paxos",
+      "arranger": null,
+      "issuer_type": "stablecoin_issuer",
+      "doc_type": "attestation",
+      "title": "Paxos Dollar (USDP) — Reserve Attestation April 2026",
+      "date": "2026-04-30",
+      "period_covered": "April 2026",
+      "summary": "Monthly attestation by KPMG LLP (effective 2025-02-28, replacing WithumSmith+Brown uniformly across all Paxos products) confirming Paxos Dollar (USDP) reserve assets equal or exceed USDP tokens in circulation. Issued by Paxos Trust Company, LLC under NYDFS Limited Purpose Trust Charter. Reserves held 100% in cash and cash equivalents: USD deposits at FDIC-insured banks and short-duration U.S. Treasury bills (under 90 days), held in segregated, bankruptcy-remote accounts. USDP circulation has declined significantly from a ~$1B+ peak in 2022–2023 to approximately $32–41M as of mid-2026. Paxos no longer proactively publishes monthly USDP reserve reports; attestations are available on request (press@paxos.com). No publicly accessible static PDF link — document served via JavaScript-rendered transparency page.",
+      "source_url": "https://www.paxos.com/usdp-transparency",
+      "file_url": null,
+      "asset_classes": [
+        "fiat_stablecoin"
+      ],
+      "rwa_relevant": true,
+      "last_verified_at": "2026-06-01",
+      "rarm_layers": [
+        "audit"
+      ],
+      "sarm_blocks": [
+        "reserve",
+        "transparency"
+      ],
+      "jurisdiction": "US",
+      "regulator": "NYDFS",
+      "status": "live",
+      "auditor": "KPMG LLP",
+      "key_figures": [
+        {
+          "label": "USDP in circulation (~May 2026)",
+          "value": "~$32–41M (CoinGecko/CMC; verify from PDF — decline from $1B+ peak 2022)"
+        },
+        {
+          "label": "Reserve assets",
+          "value": "≥ USDP circulation (100% USD deposits + short-term T-bills)"
+        },
+        {
+          "label": "Reserve structure",
+          "value": "Segregated, bankruptcy-remote accounts at FDIC-insured banks"
+        }
+      ]
+    },
+    {
       "slug": "tether-usdt-attestation-2025-q4",
       "issuer": "Tether International",
       "issuer_slug": "tether",
@@ -139,6 +231,55 @@
         {
           "label": "Precious Metals",
           "value": "$17,450,435,088 (9.0% of reserves)"
+        }
+      ]
+    },
+    {
+      "slug": "tether-xaut-attestation-2025-q4",
+      "issuer": "Tether International",
+      "issuer_slug": "tether",
+      "arranger": null,
+      "issuer_type": "stablecoin_issuer",
+      "doc_type": "attestation",
+      "title": "Tether Gold (XAUT) — ISAE 3000R Assurance Report 31 December 2025",
+      "date": "2025-12-31",
+      "period_covered": "31 December 2025 (quarterly point-in-time, Q4 2025)",
+      "summary": "ISAE 3000R assurance report by BDO Italia S.p.A. (Milan) confirming Tether Gold (XAUT) reserve assets as of 31 December 2025. Issued by TG Commodities, S.A. de C.V. (El Salvador; redomiciled from BVI January 2025), a separate entity from Tether International within the Tether Group. Each XAUT token is backed 1:1 by one fine troy ounce of LBMA Good Delivery gold bar. Physical gold (~520,089 troy oz, approximately 16.2 metric tons) is stored in segregated vaults in Switzerland (custodians: MKS PAMP and Loomis — MED confidence; verify from PDF cover). XAUT supply grew approximately 107% during H2 2025 (from ~246K to ~520K oz), driven by the gold price rally. Quarterly attestation cadence: Q1 2026 report not yet published as of June 2026. Bar-level transparency: each XAUT token is traceable to a specific gold bar serial number on-chain. Note: verify exact issuing entity name on PDF cover (TG Commodities vs. Tether Holdings S.A. de C.V.).",
+      "source_url": "https://gold.tether.to/",
+      "file_url": "https://gold.tether.to/docs/reports/attestations/ISAE_3000R_-_Opinion_TGRR_31.12.2025_RC187322025DV0137.pdf",
+      "asset_classes": [
+        "commodities"
+      ],
+      "rwa_relevant": true,
+      "last_verified_at": "2026-06-01",
+      "rarm_layers": [
+        "audit",
+        "custody"
+      ],
+      "sarm_blocks": [
+        "reserve",
+        "transparency"
+      ],
+      "jurisdiction": "SV",
+      "regulator": null,
+      "status": "live",
+      "auditor": "BDO Italia S.p.A.",
+      "key_figures": [
+        {
+          "label": "XAUT tokens in circulation (31 Dec 2025)",
+          "value": "520,089.300000"
+        },
+        {
+          "label": "Fine troy ounces of gold backing",
+          "value": "520,089.350 (~16.2 metric tons)"
+        },
+        {
+          "label": "Peg",
+          "value": "1:1 — each XAUT = 1 fine troy ounce LBMA Good Delivery gold"
+        },
+        {
+          "label": "Storage (MED — verify from PDF)",
+          "value": "Switzerland; custodians MKS PAMP + Loomis"
         }
       ]
     },
