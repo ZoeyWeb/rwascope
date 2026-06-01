@@ -39,11 +39,13 @@ deploy_frontend() {
     --filter='P data/visitors.json' \
     --filter='P data/snapshots/' \
     --filter='P media/' \
+    --filter='P data/intelligence/' \
     --exclude='data/leaderboard.json' \
     --exclude='data/assets/assets-live.json' \
     --exclude='data/visitors.json' \
     --exclude='data/snapshots/' \
     --exclude='media/' \
+    --exclude='data/intelligence/' \
     web/dist/ "$SERVER:$REMOTE_WEB/" \
     -e "ssh -i $SSH_KEY"
   echo "    Frontend deployed."
