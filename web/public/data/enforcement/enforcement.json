@@ -1,5 +1,5 @@
 {
-  "version": "1.5.0",
+  "version": "1.6.0",
   "updated_at": "2026-06-02",
   "actions": [
     {
@@ -851,6 +851,120 @@
         "Immutable smart contracts are not 'property' under IEEPA — sanctions cannot attach to autonomous on-chain code that no party owns or controls, regardless of whether sanctioned actors use it; OFAC must identify human operators or specific transactions rather than the protocol itself.",
         "The ruling structurally constrains the sanctions toolkit for DeFi infrastructure: any RWA protocol that uses autonomous on-chain primitives (AMMs, escrow contracts, settlement rails) now has circuit-court authority that such code cannot itself be sanctioned.",
         "Criminal prosecution of individual developers remains a distinct and parallel track — the 5th Circuit ruling does not insulate co-developers from DOJ wire fraud or money laundering charges; the Van Loon case and the Roman Storm SDNY prosecution coexist as separate theories."
+      ],
+      "related_incident_slugs": [],
+      "related_issuer_slugs": []
+    },
+    {
+      "slug": "doj-samourai-wallet-2024",
+      "action_date": "2024-04-24",
+      "regulator": "DOJ",
+      "jurisdiction": "US",
+      "target_entity": "Keonne Rodriguez; William Lonergan Hill",
+      "target_type": "individual",
+      "action_type": "conviction",
+      "penalty_usd": 500000,
+      "penalty_note": "Rodriguez sentenced to 5 years' imprisonment and a $250,000 fine (6 November 2025, Judge Denise L. Cote, SDNY); Hill sentenced to 4 years and $250,000 fine (19 November 2025); both subject to 3 years of supervised release. Forfeiture judgment of $237,832,360.55 (total traceable criminal proceeds through the service); defendants satisfied this by paying $6,367,139.69 representing Samourai's actual earned transaction fees — the balance was uncollectable. penalty_usd reflects combined court-ordered fines ($250K × 2); forfeiture detail noted separately. Count 1 (conspiracy to commit money laundering) was dismissed pursuant to plea agreements; convictions on Count 2 only (conspiracy to operate an unlicensed money transmitting business, 18 U.S.C. § 1960). Each defendant also ordered to serve 3 years of supervised release. Hill was arrested in Portugal at the US government's request.",
+      "summary": "On 24 April 2024, the DOJ's SDNY office arrested Keonne Rodriguez (37, Harmony, Pennsylvania) and William Lonergan Hill (67, arrested in Portugal) — co-founders of Samourai Wallet, a Bitcoin privacy wallet offering Whirlpool CoinJoin mixing and Ricochet obfuscation services — on two counts: conspiracy to commit money laundering (max 20 years) and conspiracy to operate an unlicensed money transmitting business (max 5 years). Prosecutors alleged the service processed over $2 billion in total transactions and facilitated more than $100 million tied to darknet markets, with at least $237 million in traceable criminal proceeds. The FBI seized the samouraiwallet.com domain concurrently with the arrests. On 29–30 July 2025 both defendants pleaded guilty to Count 2 only; Count 1 (money laundering conspiracy) was dismissed. Rodriguez was sentenced to 5 years on 6 November 2025 and Hill to 4 years on 19 November 2025, each with a $250,000 fine. Defendants forfeited $6.37 million in earned fees against a $237.8 million forfeiture judgment.",
+      "rwa_relevant": true,
+      "asset_classes": ["crypto_native"],
+      "status": "closed",
+      "sources": [
+        {
+          "label": "DOJ SDNY press release — Samourai founders arrested and charged (24 Apr 2024)",
+          "url": "https://www.justice.gov/usao-sdny/pr/founders-and-ceo-cryptocurrency-mixing-service-arrested-and-charged-money-laundering"
+        },
+        {
+          "label": "DOJ SDNY press release — Samourai founders plead guilty (Jul 2025)",
+          "url": "https://www.justice.gov/usao-sdny/pr/founders-samourai-wallet-cryptocurrency-mixing-service-plead-guilty"
+        },
+        {
+          "label": "DOJ SDNY press release — Samourai founders sentenced (Nov 2025)",
+          "url": "https://www.justice.gov/usao-sdny/pr/founders-samourai-wallet-cryptocurrency-mixing-service-sentenced-five-and-four-years"
+        }
+      ],
+      "rarm_layers": ["jurisdiction"],
+      "sarm_blocks": [],
+      "lessons": [
+        "Guilty pleas on the unlicensed money transmitting count (Count 2) while money laundering conspiracy (Count 1) was dismissed mirrors the partial Storm verdict in the Tornado Cash prosecution — prosecutors appear to face higher proof burdens on money laundering mens rea than on the regulatory registration requirement under 18 U.S.C. § 1960 for mixing-service operators.",
+        "The DOJ's theory — that operating a non-custodial Bitcoin wallet with mixing features constitutes an unlicensed money transmitting business — was validated by both guilty pleas, establishing that 'software only / non-custodial' arguments do not insulate developers who can be shown to have knowledge of criminal usage.",
+        "FBI's simultaneous seizure of samouraiwallet.com during arrest demonstrates that DNS infrastructure is a primary enforcement lever against privacy tools independent of open-source code availability — domain registrars and hosting providers are actionable chokepoints even when the underlying protocol code is freely mirrored."
+      ],
+      "related_incident_slugs": [],
+      "related_issuer_slugs": []
+    },
+    {
+      "slug": "doj-tornado-cash-devs-2023",
+      "action_date": "2023-08-23",
+      "regulator": "DOJ",
+      "jurisdiction": "US",
+      "target_entity": "Roman Storm; Roman Semenov",
+      "target_type": "individual",
+      "action_type": "charges",
+      "penalty_usd": 0,
+      "penalty_note": "No monetary penalty at indictment. August 2025 trial result: Storm convicted on Count 3 (conspiracy to operate an unlicensed money transmitting business, 18 U.S.C. § 1960, max 5 years); sentencing pending retrial outcome. Jury deadlocked on Count 1 (conspiracy to commit money laundering, 18 U.S.C. § 1956, max 20 years) and Count 2 (conspiracy to violate IEEPA/sanctions, 50 U.S.C. § 1705, max 20 years). DOJ filed for retrial on Counts 1–2 on 9 March 2026, proposing October 5 or 12, 2026. Roman Semenov remains a fugitive and individually listed on OFAC's SDN list as of June 2026. See related entries: ofac-tornado-cash-sanctions-2022 and van-loon-v-treasury-tornado-cash-2024.",
+      "summary": "On 23 August 2023, the DOJ's SDNY office unsealed a federal indictment charging Tornado Cash co-founders Roman Storm (34, Auburn, Washington) and Roman Semenov (35, Russian national) on three counts: conspiracy to commit money laundering (max 20 years), conspiracy to violate IEEPA via sanctions evasion (max 20 years), and — for Storm only — conspiracy to operate an unlicensed money transmitting business (max 5 years). Prosecutors alleged the defendants knowingly laundered over $1 billion in criminal proceeds, including Lazarus Group funds, while making false public representations of sanctions compliance. OFAC concurrently added Semenov individually to its SDN list; he remains at large. Storm stood trial in July–August 2025 before Judge Polk Failla (SDNY). The jury convicted Storm on Count 3 (unlicensed money transmitting) but deadlocked on the money laundering and sanctions conspiracy counts. DOJ filed for retrial on the deadlocked counts on 9 March 2026, proposing an October 2026 start date. The case is the lead US prosecution testing criminal developer liability for open-source privacy-enhancing DeFi infrastructure.",
+      "rwa_relevant": true,
+      "asset_classes": ["crypto_native"],
+      "status": "ongoing",
+      "sources": [
+        {
+          "label": "DOJ SDNY press release — Tornado Cash founders indicted (23 Aug 2023)",
+          "url": "https://www.justice.gov/usao-sdny/pr/tornado-cash-founders-charged-money-laundering-and-sanctions-violations"
+        },
+        {
+          "label": "IRS Criminal Investigation — Storm convicted on Count 3 (Aug 2025)",
+          "url": "https://www.irs.gov/compliance/criminal-investigation/founder-of-tornado-cash-crypto-mixing-service-convicted-of-knowingly-transmitting-criminal-proceeds"
+        },
+        {
+          "label": "CoinDesk — DOJ requests October 2026 retrial for Roman Storm (10 Mar 2026)",
+          "url": "https://www.coindesk.com/business/2026/03/10/u-s-requests-october-retrial-for-tornado-cash-developer-roman-storm"
+        }
+      ],
+      "rarm_layers": ["jurisdiction"],
+      "sarm_blocks": [],
+      "lessons": [
+        "The jury's conviction on the unlicensed money transmitting count (Count 3) but deadlock on money laundering (Count 1) signals that courts apply significantly higher scrutiny to the mens rea element of money laundering when the defendant is a protocol developer rather than a direct participant in criminal transactions — a key risk variable for RWA infrastructure teams deploying programmable settlement rails.",
+        "Vacatur of the parallel OFAC smart-contract sanction (Van Loon, Nov 2024) provided no protection to individual developers: the criminal prosecution rests on personal intent-based theories entirely independent of the IEEPA property-law analysis rejected by the Fifth Circuit.",
+        "Semenov's individual SDN listing — unlike the protocol-level smart contract designations — was not disturbed by the Fifth Circuit ruling, confirming OFAC retains authority to designate identifiable human actors in DeFi networks regardless of whether the underlying protocol code is legally sanctionable."
+      ],
+      "related_incident_slugs": [],
+      "related_issuer_slugs": []
+    },
+    {
+      "slug": "ofac-tornado-cash-sanctions-2022",
+      "action_date": "2022-08-08",
+      "regulator": "OFAC",
+      "jurisdiction": "US",
+      "target_entity": "Tornado Cash",
+      "target_type": "defi_protocol",
+      "action_type": "sanctions",
+      "penalty_usd": 0,
+      "penalty_note": "No monetary penalty; action designates Tornado Cash to the SDN list under IEEPA. OFAC delisted all Tornado Cash smart contract addresses from the SDN list on 21 March 2025 following the Fifth Circuit's ruling in Van Loon v. Department of the Treasury (26 Nov 2024) that immutable smart contracts do not constitute 'property' of a foreign national under IEEPA. Roman Semenov was added to the SDN list individually on 23 August 2023 (concurrent with DOJ indictment) and remains individually listed as of June 2026. See related entries: doj-tornado-cash-devs-2023 and van-loon-v-treasury-tornado-cash-2024.",
+      "summary": "On 8 August 2022, OFAC designated Tornado Cash — a decentralised, non-custodial Ethereum privacy protocol — as a Specially Designated National, adding approximately 44 Ethereum and USDC addresses to its SDN list. OFAC alleged the protocol had facilitated laundering of more than $7 billion in virtual currency since 2019, including over $455 million stolen by North Korea's Lazarus Group from the Ronin Network and Harmony Horizon Bridge hacks. Within hours Circle blacklisted the sanctioned wallets, freezing approximately $75,000 in USDC. This was the first time OFAC sanctioned immutable autonomous smart contract code as 'property' of a foreign national under IEEPA. That legal theory was unanimously rejected by the Fifth Circuit on 26 November 2024 in Van Loon v. Department of the Treasury. OFAC subsequently delisted Tornado Cash's smart contract addresses on 21 March 2025, formally ending the protocol-layer sanctions regime. Criminal proceedings against co-developer Roman Storm (DOJ, SDNY) continue on separate legal theories.",
+      "rwa_relevant": true,
+      "asset_classes": ["crypto_native"],
+      "status": "closed",
+      "sources": [
+        {
+          "label": "OFAC — Cyber-related designation action (20220808)",
+          "url": "https://ofac.treasury.gov/recent-actions/20220808"
+        },
+        {
+          "label": "Treasury press release — Tornado Cash SDN designation (JY0916)",
+          "url": "https://home.treasury.gov/news/press-releases/jy0916"
+        },
+        {
+          "label": "The Block — Circle freezes USDC in Tornado Cash sanctioned wallets",
+          "url": "https://www.theblock.co/post/162172/circle-freezes-usdc-funds-in-tornado-cashs-us-treasury-sanctioned-wallets"
+        }
+      ],
+      "rarm_layers": ["jurisdiction"],
+      "sarm_blocks": [],
+      "lessons": [
+        "OFAC's theory that immutable autonomous smart contracts constitute 'property' of their deployers under IEEPA was unanimously rejected by the Fifth Circuit — sanctions cannot attach to on-chain code that no party owns or controls post-deployment, a structural constraint now binding on OFAC's approach to protocol-layer DeFi infrastructure.",
+        "The Circle USDC freeze demonstrated that permissionless protocols retain centralised chokepoints: stablecoin blacklists were mobilised within hours of the SDN designation, before any court had ruled on legality — a compliance risk for any RWA protocol relying on USDC as a settlement or collateral asset.",
+        "OFAC sanctions and DOJ criminal prosecution are parallel tracks: the protocol-layer vacatur did not dismiss charges against individual developers; Roman Storm's SDNY prosecution proceeded to trial in 2025 under personal intent-based theories entirely distinct from the IEEPA property analysis."
       ],
       "related_incident_slugs": [],
       "related_issuer_slugs": []
