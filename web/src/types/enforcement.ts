@@ -18,12 +18,13 @@ export type Jurisdiction =
 export type TargetType =
   | 'stablecoin_issuer' | 'exchange' | 'fund'
   | 'custodian' | 'lending_platform' | 'tokenization_platform'
-  | 'protocol' | 'dao' | 'individual' | 'mixer' | 'other';
+  | 'protocol' | 'dao' | 'individual' | 'mixer' | 'other'
+  | 'defi_protocol' | 'industry_aggregate';
 
 export type ActionType =
   | 'order' | 'charges' | 'settlement' | 'conviction'
   | 'ban' | 'fine' | 'wells_notice' | 'sanctions'
-  | 'investigation' | 'dismissal';
+  | 'investigation' | 'dismissal' | 'vacated';
 
 export type Status =
   | 'ongoing' | 'settled' | 'closed'

@@ -70,3 +70,16 @@
   - Status badge with color coding (retired = muted gray, pending = amber,
     superseded = strike-through, live = default)
 - Defer until data completeness batches done; not blocking deploy
+
+---
+
+## Enforcement observations
+
+### HKMA Stablecoin Ordinance enforcement gap (as of 2026-06-02)
+- HKMA Stablecoin Ordinance effective 2025-08-01; first licences granted 2026-04-10 (HSBC + Anchorpoint)
+- As of 2026-06-02, no public cease orders, licence refusals, or formal enforcement actions confirmed
+- Notable: 10-month gap between regime activation and any public enforcement signal,
+  vs. SEC's pre-Atkins ~150-action annual cadence
+- Possible explanations: HKMA soft-launch posture; all applicants are incumbent banks or bank-backed JVs;
+  no unlicensed issuers large enough to warrant public action in first year
+- Action: re-audit quarterly; consider creating an Intelligence Observation note if gap persists beyond 2026 Q4

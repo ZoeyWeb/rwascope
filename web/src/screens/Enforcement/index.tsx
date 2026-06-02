@@ -31,9 +31,11 @@ const ACTION_ICONS: Record<string, string> = {
   ban:        'block',
   warning:    'warning',
   investigation: 'search',
+  dismissal:  'remove_circle',
+  vacated:    'undo',
 };
 
-const REGULATORS = ['All', 'SEC', 'CFTC', 'NYDFS', 'MAS', 'SFC'];
+const REGULATORS = ['All', 'SEC', 'CFTC', 'NYDFS', 'OFAC', 'MAS', 'SFC'];
 const JURISDICTIONS = ['All', 'US', 'HK', 'SG'];
 const STATUSES = ['All', 'ongoing', 'settled', 'closed', 'dismissed'];
 
