@@ -99,3 +99,41 @@
 - Possible explanations: HKMA soft-launch posture; all applicants are incumbent banks or bank-backed JVs;
   no unlicensed issuers large enough to warrant public action in first year
 - Action: re-audit quarterly; consider creating an Intelligence Observation note if gap persists beyond 2026 Q4
+
+---
+
+## Batch E — Private Credit vertical (added 2026-06-02)
+
+### BlockTower Credit Series I–IV — verify POP approval date & SPV jurisdiction
+- slug: blocktower-credit-centrifuge-pop-2022
+- date "2022-12-13" is the POP "Target Launch Date"; actual governance vote timestamp
+  may differ — verify from gov.centrifuge.io/t/pop-blocktower-series-i-iv/4863 thread
+- jurisdiction "KY" is assumed (standard for Centrifuge SPVs); confirm from POP
+  structure section describing the SPV legal domicile
+- Check POP thread for IPFS/PDF attachment to populate file_url if available
+- Verify pool status post-MakerDAO Sky restructuring (2024–2025): active / migrated
+  to Centrifuge v2 / wound down
+
+### M11 Credit — verify Netherlands entity details & recovery amount
+- slug: m11-credit-orthogonal-default-2022
+- jurisdiction "EU" used as fallback (Maven 11 Group is Dutch); precise value "NL"
+  would require extending jurisdiction enum
+- Kroll recovery partial amount has not been publicly disclosed; monitor for updates
+- If Maple Finance publishes a formal v2 migration post-mortem PDF, add as
+  supplementary file_url
+
+### Goldfinch Prime (2025-02 launch) — future entry candidate
+- slug: goldfinch-prime-disclosure-2025 (not yet created)
+- Apollo/Ares/Golub institutional private credit access product; successor to Senior Pool
+- Warbler Labs launched February 2025; targeting 9–12% net, non-US investors
+- Create entry when Prime discloses fund-level data (AUM, underlying fund composition,
+  fee structure in accessible form)
+- Also consider: Heron Finance (separate Warbler Labs product, SEC-registered
+  robo-advisor on blockchain) — separate issuer_slug if entered
+
+### doc_type vertical extensions (deferred from Batch E)
+- pool_prospectus: for Centrifuge POP format (formal pool onboarding proposals)
+- governance_disclosure: for DeFi governance forum posts used as primary issuer disclosures
+- onchain_dashboard: for protocols where on-chain dashboard is the only disclosure
+- Defer until private_credit vertical continues expanding (Maple syrupUSDC, other
+  Centrifuge pools, Goldfinch Prime) — batch-extend doc_type at that point

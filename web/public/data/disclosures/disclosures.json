@@ -1,5 +1,5 @@
 {
-  "version": "1.2.0",
+  "version": "1.3.0",
   "updated_at": "2026-06-02",
   "disclosures": [
     {
@@ -676,6 +676,60 @@
       ]
     },
     {
+      "slug": "goldfinch-senior-pool-disclosure-2023",
+      "issuer": "Warbler Labs",
+      "issuer_slug": "goldfinch",
+      "arranger": null,
+      "issuer_type": "defi_protocol",
+      "doc_type": "annual_report",
+      "title": "Goldfinch Protocol — Senior Pool Disclosure & Default History (2021–2023)",
+      "date": "2023-10-09",
+      "period_covered": "2021–2023",
+      "summary": "The Goldfinch Senior Pool is a permissionless USDC on-chain lending pool deploying capital to Borrower Pools at a 4:1 algorithmic leverage ratio (85% Senior, 15% junior backer first-loss). Built by Warbler Labs (San Francisco, US) and launched January 2021, the protocol funded uncollateralised loans to Global South fintechs — motorcycle financing (Tugende, Kenya), emerging market SME credit (Cauris, Almavest), and fintech credit funds (Stratos). Three defaults materialised between 2022 and 2023: Tugende (~$5M default, ~3.95% NAV write-down to Senior Pool); Stratos ($20M loan / ~$7M loss following portfolio investments in REZI and POKT); Lend East (~$5.9M loss). The October 2023 Stratos update (Warbler Labs governance disclosure) is the primary formal public communication about the defaults and Senior Pool exposure. In February 2025 Warbler Labs launched Goldfinch Prime — institutional private credit access via Apollo, Ares, and Golub (targeting 9–12% net returns) — as the successor product. Senior Pool on-chain TVL is approximately $1.6M as of mid-2026 (DefiLlama), reflecting substantial wind-down from peak. No PDF disclosure; primary disclosures are on-chain (app.goldfinch.finance) and governance forum (gov.goldfinch.finance).",
+      "source_url": "https://gov.goldfinch.finance/t/update-on-stratos-pool/1865",
+      "file_url": null,
+      "asset_classes": [
+        "private_credit"
+      ],
+      "rwa_relevant": true,
+      "last_verified_at": "2026-06-02",
+      "rarm_layers": [
+        "issuer",
+        "jurisdiction",
+        "audit"
+      ],
+      "sarm_blocks": [
+        "reserve",
+        "transparency"
+      ],
+      "jurisdiction": "US",
+      "regulator": null,
+      "status": "superseded",
+      "auditor": null,
+      "key_figures": [
+        {
+          "label": "Stratos default (Oct 2023)",
+          "value": "$20M loan (Feb 2022); ~$7M write-down — portfolio losses in REZI (real estate tech) and POKT (Pocket Network)"
+        },
+        {
+          "label": "Tugende default (Kenya, 2023)",
+          "value": "~$5M default; ~3.95% NAV write-down to Senior Pool"
+        },
+        {
+          "label": "Lend East default (2023)",
+          "value": "~$5.9M expected loss (announced April 2023)"
+        },
+        {
+          "label": "Senior Pool TVL (~mid-2026, DefiLlama)",
+          "value": "~$1.6M (original protocol; substantially wound down post-defaults)"
+        },
+        {
+          "label": "Goldfinch Prime (successor product, launched Feb 2025)",
+          "value": "Institutional private credit via Apollo, Ares, Golub — targeting 9–12% net returns; non-US investors"
+        }
+      ]
+    },
+    {
       "slug": "ondo-ousg-form-d-2023",
       "issuer": "Ondo Finance",
       "issuer_slug": "ondo",
@@ -716,6 +770,123 @@
         {
           "label": "Eligible investors",
           "value": "US Qualified Purchasers only (Reg D 506(c), §3(c)(7))"
+        }
+      ]
+    },
+    {
+      "slug": "blocktower-credit-centrifuge-pop-2022",
+      "issuer": "BlockTower Credit",
+      "issuer_slug": "blocktower-credit",
+      "arranger": "Centrifuge",
+      "issuer_type": "asset_manager",
+      "doc_type": "issuance_document",
+      "title": "BlockTower Credit Series I–IV — Centrifuge Pool Onboarding Proposal (December 2022)",
+      "date": "2022-12-13",
+      "period_covered": null,
+      "summary": "BlockTower Credit (private structured credit arm of BlockTower Capital) launched four tokenized credit pools on Centrifuge's Tinlake protocol in December 2022, backed by a $220M commitment comprising $150M in senior DAI from MakerDAO (via direct deposit vault, DROP token at fixed 4% APR) and $70M junior equity from BlockTower (TIN token, first-loss buffer). The underlying assets are consumer asset-backed securities (ABS), auto ABS, and CLO tranches managed by BlockTower Credit through a Cayman Islands SPV. Series 4 (Ethereum pool address 0x55d86d51ac3bcab7ab7d2124931fba106c8b60c7) had approximately $56M in DAI supply as of November 2023. The initiative achieved a 97% reduction in securitization costs compared to traditional structured finance infrastructure, as documented in the Centrifuge case study. The Pool Onboarding Proposal (POP) — approved via on-chain governance at gov.centrifuge.io — is the primary formal issuance disclosure for this program. Pools are on the legacy Tinlake v1 protocol; migration status to Centrifuge v2 should be verified given MakerDAO's 2024–2025 Sky restructuring of RWA positions.",
+      "source_url": "https://gov.centrifuge.io/t/pop-blocktower-series-i-iv/4863",
+      "file_url": null,
+      "asset_classes": [
+        "private_credit"
+      ],
+      "rwa_relevant": true,
+      "last_verified_at": "2026-06-02",
+      "rarm_layers": [
+        "issuer",
+        "custody",
+        "audit"
+      ],
+      "sarm_blocks": [
+        "reserve",
+        "regulatory",
+        "transparency"
+      ],
+      "jurisdiction": "KY",
+      "regulator": null,
+      "status": "superseded",
+      "auditor": null,
+      "key_figures": [
+        {
+          "label": "MakerDAO senior capital (DROP token)",
+          "value": "$150M DAI committed; direct deposit vault; fixed 4.00% APR"
+        },
+        {
+          "label": "BlockTower junior capital (TIN token)",
+          "value": "$70M first-loss equity position"
+        },
+        {
+          "label": "Underlying assets",
+          "value": "Consumer ABS, auto ABS, CLO tranches — via Cayman Islands SPV"
+        },
+        {
+          "label": "Series 4 DAI supply (November 2023)",
+          "value": "~$56M (Readi.fi pool analysis — MED confidence; verify from legacy.tinlake.centrifuge.io)"
+        },
+        {
+          "label": "Securitization cost reduction vs. traditional",
+          "value": "97% (Centrifuge case study — confirmed official claim)"
+        },
+        {
+          "label": "Series 4 Ethereum pool address",
+          "value": "0x55d86d51ac3bcab7ab7d2124931fba106c8b60c7 (Tinlake v1)"
+        }
+      ]
+    },
+    {
+      "slug": "m11-credit-orthogonal-default-2022",
+      "issuer": "M11 Credit",
+      "issuer_slug": "m11-credit",
+      "arranger": "Maple Finance",
+      "issuer_type": "asset_manager",
+      "doc_type": "incident_disclosure",
+      "title": "M11 Credit USDC Pool — Orthogonal Trading Default Disclosure (December 2022)",
+      "date": "2022-12-05",
+      "period_covered": "December 2022",
+      "summary": "M11 Credit's USDC pool on Maple Finance became the focal point of the largest DeFi institutional credit default of 2022 when Orthogonal Trading — a crypto market maker with $31M outstanding across four active loans in the pool — failed to repay a $10M tranche on December 4, 2022. Maple Finance severed ties with Orthogonal on December 5, 2022, alleging repeated misrepresentation of FTX exchange exposure throughout November 2022: Orthogonal had claimed only $2.5M in FTX exposure before reversing its position on December 3. M11 Credit (pool delegate; part of the Dutch Maven 11 Group) issued a formal default notice for all active Orthogonal loans. Investors in the M11 USDC pool faced approximately 80% losses on remaining capital; M11 WETH pool investors faced 17% losses from a concurrent $5M Orthogonal position. Total Orthogonal defaults on Maple reached $36M across 8 loans. Combined with other 2022 defaults including Auros Global, total Maple bad debt reached approximately $54M. Recovery efforts engaged Kroll for asset recovery; Orthogonal Trading was placed into BVI provisional liquidation on December 22, 2022. This event directly triggered Maple Finance's protocol overhaul from v1 to v2, introduction of mandatory borrower KYC, and launch of the Treasury-backed Cash Management pool.",
+      "source_url": "https://medium.com/@M11credit/m11-credit-update-on-orthogonal-trading-9f896c264f8f",
+      "file_url": null,
+      "asset_classes": [
+        "private_credit"
+      ],
+      "rwa_relevant": true,
+      "last_verified_at": "2026-06-02",
+      "rarm_layers": [
+        "issuer",
+        "jurisdiction",
+        "audit"
+      ],
+      "sarm_blocks": [
+        "reserve",
+        "transparency"
+      ],
+      "jurisdiction": "EU",
+      "regulator": null,
+      "status": "retired",
+      "auditor": null,
+      "key_figures": [
+        {
+          "label": "Orthogonal Trading default (December 5, 2022)",
+          "value": "$36M total across 8 loans (M11 USDC pool: $31M / 4 loans; M11 WETH pool: $5M)"
+        },
+        {
+          "label": "M11 USDC pool investor loss",
+          "value": "~80% of remaining capital (from $31M Orthogonal exposure)"
+        },
+        {
+          "label": "M11 WETH pool investor loss",
+          "value": "~17% of remaining capital (from $5M Orthogonal exposure)"
+        },
+        {
+          "label": "Total Maple bad debt (December 12, 2022)",
+          "value": "~$54M including Orthogonal ($36M) and concurrent defaults including Auros Global"
+        },
+        {
+          "label": "Stated FTX exposure (false disclosure)",
+          "value": "$2.5M claimed by Orthogonal throughout November 2022 — actual exposure materially larger"
+        },
+        {
+          "label": "Recovery / enforcement",
+          "value": "Kroll engaged for asset recovery; Orthogonal placed in BVI provisional liquidation December 22, 2022"
         }
       ]
     },

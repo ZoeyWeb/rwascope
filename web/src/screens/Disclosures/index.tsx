@@ -6,27 +6,29 @@ import { BigStat, BigStatRibbon } from '../../components/BigStat';
 type Disclosure = (typeof disclosuresData.disclosures)[number];
 
 const DOC_TYPE_LABELS: Record<string, string> = {
-  nav_report:        'NAV Report',
-  attestation:       'Attestation',
-  sec_filing:        'SEC Filing',
-  prospectus_update: 'Prospectus',
-  issuance_document: 'Issuance',
-  annual_report:     'Annual Report',
-  reserve_report:    'Reserve Report',
+  nav_report:          'NAV Report',
+  attestation:         'Attestation',
+  sec_filing:          'SEC Filing',
+  prospectus_update:   'Prospectus',
+  issuance_document:   'Issuance',
+  annual_report:       'Annual Report',
+  reserve_report:      'Reserve Report',
+  incident_disclosure: 'Incident Disclosure',
 };
 
 const DOC_TYPE_ICONS: Record<string, string> = {
-  nav_report:        'bar_chart',
-  attestation:       'verified',
-  sec_filing:        'account_balance',
-  prospectus_update: 'description',
-  issuance_document: 'receipt_long',
-  annual_report:     'summarize',
-  reserve_report:    'inventory_2',
+  nav_report:          'bar_chart',
+  attestation:         'verified',
+  sec_filing:          'account_balance',
+  prospectus_update:   'description',
+  issuance_document:   'receipt_long',
+  annual_report:       'summarize',
+  reserve_report:      'inventory_2',
+  incident_disclosure: 'warning',
 };
 
 const ISSUERS = ['All', ...Array.from(new Set(disclosuresData.disclosures.map(d => d.issuer))).sort()];
-const DOC_TYPES = ['All', 'nav_report', 'attestation', 'sec_filing', 'prospectus_update', 'issuance_document', 'reserve_report'];
+const DOC_TYPES = ['All', 'nav_report', 'attestation', 'sec_filing', 'prospectus_update', 'issuance_document', 'annual_report', 'reserve_report', 'incident_disclosure'];
 
 const STATS = {
   totalDocs:    disclosuresData.disclosures.length,
