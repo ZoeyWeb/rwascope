@@ -1,6 +1,6 @@
 {
-  "version": "1.4.0",
-  "updated_at": "2026-06-01",
+  "version": "1.4.1",
+  "updated_at": "2026-06-02",
   "actions": [
     {
       "slug": "cftc-tether-ifinex-2021",
@@ -12,7 +12,7 @@
       "action_type": "settlement",
       "penalty_usd": 42500000,
       "penalty_note": null,
-      "summary": "CFTC settled with Tether and its parent iFinex, finding that Tether had misrepresented its USDT reserves as fully backed by US dollars at all times. The settlement required $42.5M in civil monetary penalties. CFTC found that between 2016 and 2019 Tether held sufficient fiat reserves for only 27.6% of days.",
+      "summary": "On 15 October 2021, the CFTC settled with Tether Operations Limited and its parent iFinex Inc., finding that Tether had falsely represented USDT as fully backed by US dollar reserves at all times. The $42.5M settlement comprised a $41M civil penalty against Tether and a $1.5M penalty against iFinex. The CFTC found that between 2016 and 2019, Tether maintained sufficient fiat reserves for only 27.6% of the days it claimed full backing, and that reserves were at times held in commingled accounts with Bitfinex, an affiliated exchange. Earlier in February 2021, Tether and iFinex had separately settled New York Attorney General charges for $18.5M, agreeing to provide periodic reserve transparency reports. The October 2021 CFTC action was the first federal enforcement specifically targeting stablecoin reserve misrepresentations and set the legal baseline for subsequent disclosure requirements.",
       "rwa_relevant": true,
       "asset_classes": [
         "stablecoin"
@@ -48,7 +48,7 @@
       "action_type": "order",
       "penalty_usd": 0,
       "penalty_note": "No monetary penalty; NYDFS ordered halt to BUSD issuance",
-      "summary": "NYDFS ordered Paxos to cease minting new BUSD tokens, citing unresolved issues with Paxos's oversight of its relationship with Binance. Following the order, BUSD supply began declining and Paxos committed to redeeming all outstanding tokens. The action effectively ended BUSD as a circulating stablecoin.",
+      "summary": "On 13 February 2023, NYDFS issued a directive ordering Paxos Trust Company to cease minting new Binance USD (BUSD) tokens. At the time, BUSD was the third-largest stablecoin with approximately $16 billion in circulation. BUSD operated under a co-branding arrangement: Paxos issued and held reserves for the tokens while Binance distributed them under its brand. NYDFS cited unresolved supervisory concerns about Paxos's oversight of the Binance relationship — the regulator explicitly affirmed that BUSD reserves were fully backed and that the order was not about reserve adequacy. Paxos continued to honour redemptions on all outstanding BUSD under its New York trust charter. By early 2024, BUSD supply had declined to near zero as holders redeemed. No monetary penalty was imposed on Paxos. The action demonstrated that NYDFS can effectively wind down a multi-billion-dollar stablecoin through a minting halt alone.",
       "rwa_relevant": true,
       "asset_classes": [
         "stablecoin"
@@ -85,7 +85,7 @@
       "action_type": "charges",
       "penalty_usd": 4470000000,
       "penalty_note": "$4.47B settlement (June 2024): $3.586B disgorgement + $420M civil penalty + ~$467M prejudgment interest. Do Kwon extradited Montenegro→US Dec 2024.",
-      "summary": "SEC charged Terraform Labs and its co-founder Do Kwon with orchestrating a multi-billion dollar crypto asset securities fraud through the offer and sale of an interconnected suite of crypto asset securities, including UST and LUNA. SEC alleged the algorithmic stablecoin mechanism constituted an unregistered securities offering.",
+      "summary": "On 16 February 2023, the SEC sued Terraform Labs and co-founder Do Kwon for securities fraud arising from the May 2022 collapse of the TerraUSD (UST) algorithmic stablecoin, which wiped approximately $40 billion in market value within days. The SEC alleged that Terraform misled investors about UST's price-stability mechanism and that Anchor Protocol's 20% annual yield — presented as organic market returns — was artificially subsidised from Terraform's own reserves. Following a jury verdict in the SEC's favour, Judge Jed Rakoff (SDNY) entered final judgment on 12 June 2024 requiring Terraform Labs to pay $4.47 billion in disgorgement and civil penalties, and Do Kwon personally to pay approximately $204 million. Do Kwon, who had evaded multiple jurisdictions since the collapse, was arrested in Montenegro and extradited to the United States in December 2024. The case is the largest fraud judgment in US crypto enforcement history.",
       "rwa_relevant": true,
       "asset_classes": [
         "stablecoin"
@@ -123,7 +123,7 @@
       "action_type": "ban",
       "penalty_usd": 0,
       "penalty_note": "9-year ban on directors from MAS-regulated activities",
-      "summary": "MAS reprimanded Three Arrows Capital (3AC) and issued nine-year prohibition orders against its two co-founders, finding that 3AC had exceeded its allowable assets under management threshold and provided false information to MAS. 3AC had collapsed in June 2022 with estimated liabilities exceeding USD 3 billion.",
+      "summary": "On 13 September 2023, MAS reprimanded Three Arrows Capital (3AC) Pte Ltd and issued nine-year prohibition orders barring co-founders Zhu Su and Kyle Davies from carrying out regulated activities under Singapore law. MAS found that 3AC — registered as a fund management company — had managed assets exceeding the S$250 million AUM threshold applicable to registered managers without upgrading to a Capital Markets Services licence, and had provided materially false information to MAS regarding its AUM. 3AC collapsed in June 2022 after suffering heavy losses on Terra/Luna and other leveraged positions, with estimated liabilities exceeding USD 3 billion at the time of insolvency; Singapore courts appointed liquidators, with parallel proceedings in the British Virgin Islands. The co-founders departed Singapore prior to the collapse and have not submitted to local jurisdiction. This entry covers the September 2023 MAS regulatory findings against the corporate entity and its founders.",
       "rwa_relevant": false,
       "asset_classes": [
         "other"
@@ -156,7 +156,7 @@
       "action_type": "order",
       "penalty_usd": 0,
       "penalty_note": "Enhanced licensing conditions imposed, not a punitive penalty",
-      "summary": "SFC issued enhanced licensing conditions to HashKey Exchange and OSL Exchange as part of the formal VATP licensing regime that came into effect June 2023. Conditions included enhanced investor protection requirements, minimum liquid capital thresholds, and restrictions on tokenised securities offerings to professional investors only.",
+      "summary": "In August 2023, HashKey Exchange and OSL Digital Securities became the first two virtual asset trading platforms (VATPs) in Hong Kong to receive SFC licences permitting retail customer access, operating under the regulatory framework formalised on 1 June 2023. Both platforms were licensed under Type 1 (dealing in securities) and Type 7 (providing automated trading services). SFC imposed standardised licensing conditions governing retail client onboarding: mandatory Know-Your-Customer procedures, suitability assessments, and standardised risk disclosure documents prior to account activation. Minimum liquid capital thresholds were imposed to ensure ongoing financial soundness. Retail clients may only access SFC-approved spot virtual assets; tokenised securities and over-the-counter derivative products are restricted to professional investors. These conditions are not a punitive enforcement action but the operational baseline required for any VATP seeking retail-tier access in Hong Kong, and function as the sector's de facto reference standard for custody, disclosure, and client categorisation.",
       "rwa_relevant": true,
       "asset_classes": [
         "tokenised_securities"
@@ -278,7 +278,7 @@
       "action_type": "wells_notice",
       "penalty_usd": 0,
       "penalty_note": "Wells notice only. SEC formally terminated the investigation on 9 July 2024 with no enforcement action (Tenreiro termination letter). Separate from the parallel NYDFS halt order on the same product.",
-      "summary": "On 3 February 2023 the SEC issued a Wells notice to Paxos Trust Company alleging that the Binance USD (BUSD) stablecoin — issued by Paxos in partnership with Binance — was an unregistered security. Paxos publicly disputed the framing, arguing BUSD was a USD-backed payment stablecoin fully reserved 1:1 with short-term dollar-denominated assets and therefore not an investment contract. After ~17 months of submissions, and following adjacent court rulings (Ripple programmatic-sale Jul 2023; SEC v. Binance BUSD-claim dismissal Jun 2024), SEC Enforcement staff formally terminated the investigation on 9 July 2024 with no charges filed. The termination is the canonical precedent that a properly-reserved fiat-backed payment stablecoin will not be pursued as an unregistered security at the US federal level.",
+      "summary": "On 3 February 2023 the SEC issued a Wells notice to Paxos Trust Company alleging that the Binance USD (BUSD) stablecoin — issued by Paxos in partnership with Binance — was an unregistered security. Paxos publicly disputed the framing, arguing BUSD was a USD-backed payment stablecoin fully reserved 1:1 with short-term dollar-denominated assets and therefore not an investment contract. After ~17 months of submissions, and following adjacent court rulings (Ripple programmatic-sale Jul 2023; SEC v. Binance BUSD-claim dismissal Jun 2024), SEC Enforcement staff formally terminated the investigation on 9 July 2024 with no charges filed. The termination is the canonical precedent that a properly-reserved fiat-backed payment stablecoin will not be pursued as an unregistered security at the US federal level. The SEC's July 2024 closure of the investigation was conveyed via a private staff termination letter (the \"Tenreiro letter\") and was not publicly released; on-record references are therefore limited to Paxos's own announcements.",
       "rwa_relevant": true,
       "asset_classes": [
         "stablecoin"
@@ -378,11 +378,11 @@
       "status": "settled",
       "sources": [
         {
-          "label": "NYDFS order",
+          "label": "NYDFS press release (28 Feb 2024)",
           "url": "https://www.dfs.ny.gov/reports_and_publications/press_releases/pr202402282"
         },
         {
-          "label": "NYDFS order",
+          "label": "NYDFS consumer alert — Earn customer recovery details",
           "url": "https://www.dfs.ny.gov/consumers/alerts/gemini-earn-customers-details"
         }
       ]
@@ -440,8 +440,8 @@
       "target_type": "lending_platform",
       "action_type": "settlement",
       "penalty_usd": 1650000000,
-      "penalty_note": "FTC $1.65B judgment against Voyager corporate entities (suspended for bankruptcy distribution) + permanent ban on marketing or handling crypto consumer products. CFTC filed parallel fraud + registration failure charges against Ehrlich. Ehrlich personal FTC settlement Apr 2024: $2.8M + lifetime crypto industry ban.",
-      "summary": "On 12 October 2023 the FTC announced a settlement with Voyager Digital LLC and parallel charges against former CEO Stephen Ehrlich for falsely marketing customer accounts as FDIC-insured. The FTC complaint alleged that from 2018 through Voyager's July 2022 Chapter 11 bankruptcy, Voyager promised customer deposits — including conversions to USDC stablecoin — were 'as safe as at a bank' and 'FDIC INSURED', when in fact most funds were not FDIC-insured and customers lost over $1B when Voyager collapsed. The FTC entered a $1.65B judgment against the corporate defendants (suspended pending bankruptcy distribution) plus a permanent ban on marketing or handling crypto consumer products; the CFTC filed parallel fraud charges against Ehrlich. Ehrlich personally settled with the FTC in April 2024 for $2.8M plus a lifetime ban on crypto-related consumer business.",
+      "penalty_note": "FTC $1.65B judgment against Voyager corporate entities (suspended for bankruptcy distribution) + permanent ban on marketing or handling crypto consumer products. CFTC filed parallel fraud + registration failure charges against Ehrlich. Ehrlich personal FTC settlement finalised June 2025: $2.8M payment + lifetime crypto consumer-business ban (Ehrlich + spouse Francine Ehrlich as relief defendant).",
+      "summary": "On 12 October 2023 the FTC announced a settlement with Voyager Digital LLC and parallel charges against former CEO Stephen Ehrlich for falsely marketing customer accounts as FDIC-insured. The FTC complaint alleged that from 2018 through Voyager's July 2022 Chapter 11 bankruptcy, Voyager promised customer deposits — including conversions to USDC stablecoin — were 'as safe as at a bank' and 'FDIC INSURED', when in fact most funds were not FDIC-insured and customers lost over $1B when Voyager collapsed. The FTC entered a $1.65B judgment against the corporate defendants (suspended pending bankruptcy distribution) plus a permanent ban on marketing or handling crypto consumer products; the CFTC filed parallel fraud charges against Ehrlich. Ehrlich personally settled with the FTC in June 2025 for $2.8M plus a lifetime ban on crypto-related consumer business.",
       "rwa_relevant": true,
       "asset_classes": [
         "stablecoin",
@@ -464,12 +464,16 @@
       "status": "settled",
       "sources": [
         {
-          "label": "FTC press release",
+          "label": "FTC press release (Oct 2023 settlement)",
           "url": "https://www.ftc.gov/news-events/news/press-releases/2023/10/ftc-reaches-settlement-crypto-company-voyager-digital-charges-former-executive-falsely-claiming"
         },
         {
-          "label": "FTC press release",
+          "label": "FTC case reference (node/88539)",
           "url": "https://www.ftc.gov/node/88539"
+        },
+        {
+          "label": "FTC press release (Ehrlich individual settlement, Jun 2025)",
+          "url": "https://www.ftc.gov/news-events/news/press-releases/2025/06/former-ceo-voyager-digital-agrees-ban-28-million-payment-resolve-ftc-charges"
         }
       ]
     },
@@ -483,7 +487,7 @@
       "action_type": "investigation",
       "penalty_usd": 0,
       "penalty_note": "No MAS monetary penalty. Hodlnaut withdrew its Major Payment Institution (MPI) licence application Aug 2022; Singapore Police Commercial Affairs Department opened fraud investigation Nov 2022; Singapore High Court ordered liquidation 10 Nov 2023 (~S$92M / US$67M net liabilities).",
-      "summary": "On 8 August 2022 Hodlnaut Pte Ltd — a Singapore-based crypto lending platform — suspended customer withdrawals, deposits, and token swaps. On 13 August 2022 it applied to be placed under interim judicial management (granted 29 Aug 2022). Hodlnaut subsequently withdrew its Major Payment Institution licence application from MAS, conceding it could not operate as a regulated digital payment token provider. The Singapore Police Force's Commercial Affairs Department opened a fraud investigation in November 2022 into alleged misrepresentations about exposure to TerraUSD/Luna — judicial managers ultimately reported ~US$190M in TerraUSD losses, with US$187M of that booked through the Hong Kong subsidiary. On 10 November 2023 the Singapore High Court ordered the company wound up. Hodlnaut is the Singapore equivalent of the BlockFi/Celsius/Voyager wave and a foundational case for MAS's subsequent tightening of DPT licensing and consumer-protection rules.",
+      "summary": "On 8 August 2022 Hodlnaut Pte Ltd — a Singapore-based crypto lending platform — suspended customer withdrawals, deposits, and token swaps. On 13 August 2022 it applied to be placed under interim judicial management (granted 29 Aug 2022). Hodlnaut subsequently withdrew its Major Payment Institution licence application from MAS, conceding it could not operate as a regulated digital payment token provider. The Singapore Police Force's Commercial Affairs Department opened a fraud investigation in November 2022 into alleged misrepresentations about exposure to TerraUSD/Luna — judicial managers ultimately reported ~US$190M in TerraUSD losses, with US$187M of that booked through the Hong Kong subsidiary. On 10 November 2023 the Singapore High Court ordered the company wound up. Hodlnaut is the Singapore equivalent of the BlockFi/Celsius/Voyager wave and a foundational case for MAS's subsequent tightening of DPT licensing and consumer-protection rules. MAS did not issue a dedicated public statement on Hodlnaut in 2022; authoritative on-record references are limited to Singapore court filings, the principal judgment being 2023 SGHC 323 (winding-up order, 10 Nov 2023).",
       "rwa_relevant": true,
       "asset_classes": [
         "crypto_lending",
@@ -672,11 +676,11 @@
       "status": "closed",
       "sources": [
         {
-          "label": "DOJ press release",
+          "label": "DOJ press release (sentencing, 28 Mar 2024)",
           "url": "https://www.justice.gov/usao-sdny/pr/samuel-bankman-fried-sentenced-25-years-his-orchestration-multiple-fraudulent-schemes"
         },
         {
-          "label": "DOJ press release",
+          "label": "DOJ press release (conviction, 2 Nov 2023)",
           "url": "https://www.justice.gov/usao-sdny/pr/samuel-bankman-fried-found-guilty-all-seven-counts"
         }
       ]
