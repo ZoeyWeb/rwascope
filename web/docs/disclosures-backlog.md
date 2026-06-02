@@ -71,6 +71,22 @@
     superseded = strike-through, live = default)
 - Defer until data completeness batches done; not blocking deploy
 
+### SocGen SFH OFH 2019 maturity confirmation
+- Coupon and maturity date not in any public issuer document
+- Likely matured (typical OFH tenor 5–10 yr from April 2019 → 2024–2029)
+- key_figures notes TODO; status marked retired conservatively
+- Action: direct inquiry to SG Forge or search issuer's 2019 annual report
+- Defer until manual outreach
+
+### HKSAR Phase 1 inaugural digital green bond (February 2023, GS DAP)
+- Phase 1 (Feb 2023) and Phase 2 (Feb 2024, now covered as hksar-digital-green-bond-phase2-2024)
+  are two separate issuances on different platforms (GS DAP vs HSBC Orion)
+- Phase 1 currently uncovered; consider adding as a separate entry for historical anchor value
+- Source URL: hkma.gov.hk press releases archived 2023-02
+  (likely: hkma.gov.hk/eng/news-and-media/press-releases/2023/02/)
+- Platform: Goldman Sachs GS DAP; Tranche: HKD 800M, 1-year
+- Priority: P2
+
 ---
 
 ## Enforcement observations

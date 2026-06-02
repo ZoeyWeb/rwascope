@@ -1,6 +1,6 @@
 {
-  "version": "1.1.0",
-  "updated_at": "2026-06-01",
+  "version": "1.2.0",
+  "updated_at": "2026-06-02",
   "disclosures": [
     {
       "slug": "circle-usdc-attestation-2026-04",
@@ -577,35 +577,59 @@
       ]
     },
     {
-      "slug": "hsbc-hk-digital-bond-2024",
+      "slug": "hksar-digital-green-bond-phase2-2024",
       "issuer": "HKSAR Government",
       "issuer_slug": "hksar",
-      "arranger": "HSBC",
+      "arranger": "Bank of China (HK) · Crédit Agricole CIB · Goldman Sachs (Asia) · HSBC · ICBC (Asia) · UBS",
       "issuer_type": "sovereign",
       "doc_type": "issuance_document",
-      "title": "HKSAR Digital Green Bond — Final Terms and Settlement Confirmation 2024",
-      "date": "2024-02-20",
-      "period_covered": "2024 Issuance",
-      "summary": "Final terms for the second tranche of the HKSAR Government tokenized green bond, issued on Goldman Sachs's GS DAP platform. HKD 6 billion issuance, 2-year maturity. First multi-currency tokenized government bond globally, settling in HKD, USD, EUR, and RMB simultaneously via atomic settlement.",
-      "source_url": "https://www.hkma.gov.hk/eng/news-and-media/press-releases/2024/02/20240220-3/",
+      "title": "HKSAR Government — Phase 2 Multi-currency Digital Green Bond (February 2024)",
+      "date": "2024-02-07",
+      "period_covered": "February 2024 Issuance",
+      "summary": "On 7 February 2024, the HKSAR Government priced the world's first multi-currency digital green bond, raising approximately HK$6 billion equivalent across four currency tranches: HK$2 billion at 3.800%, RMB 1.5 billion at 2.900%, USD 200 million at 4.749%, and EUR 80 million at 3.647% — all 2-year tenor, matured 7 February 2026. Legal title to the bonds was maintained in dematerialised form on the HSBC Orion distributed ledger platform, operated jointly with the HKMA's Central Moneymarkets Unit (CMU), enabling dual-rail settlement. Six joint lead managers co-arranged: Bank of China (HK), Crédit Agricole CIB, Goldman Sachs (Asia), HSBC, ICBC (Asia), and UBS. Proceeds are earmarked under the Government Green Bond Framework; Vigeo Eiris provided the Second Party Opinion. This is the second HKSAR Government digital green bond (the inaugural was issued in February 2023 on Goldman Sachs's GS DAP platform) and the first standardised application of Bond Data Taxonomy elements in Hong Kong.",
+      "source_url": "https://www.hkma.gov.hk/eng/news-and-media/press-releases/2024/02/20240207-6/",
       "file_url": null,
       "asset_classes": [
         "gov_bonds"
       ],
       "rwa_relevant": true,
-      "last_verified_at": "2026-06-01",
+      "last_verified_at": "2026-06-02",
       "rarm_layers": [
         "issuer",
-        "jurisdiction"
+        "custody",
+        "jurisdiction",
+        "redemption"
       ],
       "sarm_blocks": [
-        "legal"
+        "legal",
+        "settlement"
       ],
       "jurisdiction": "HK",
       "regulator": "HKMA",
-      "status": "live",
+      "status": "retired",
       "auditor": null,
-      "key_figures": []
+      "key_figures": [
+        {
+          "label": "HKD tranche",
+          "value": "HK$2 billion · 3.800% coupon · 2-year (matured 2026-02-07)"
+        },
+        {
+          "label": "RMB tranche",
+          "value": "RMB 1.5 billion · 2.900% coupon · 2-year (matured 2026-02-07)"
+        },
+        {
+          "label": "USD tranche",
+          "value": "USD 200 million · 4.749% coupon · 2-year (matured 2026-02-07)"
+        },
+        {
+          "label": "EUR tranche",
+          "value": "EUR 80 million · 3.647% coupon · 2-year (matured 2026-02-07)"
+        },
+        {
+          "label": "Settlement platform",
+          "value": "HSBC Orion DLT + CMU dual-rail · first multi-currency digital bond globally"
+        }
+      ]
     },
     {
       "slug": "superstate-ustb-form-d-2024",
@@ -692,6 +716,115 @@
         {
           "label": "Eligible investors",
           "value": "US Qualified Purchasers only (Reg D 506(c), §3(c)(7))"
+        }
+      ]
+    },
+    {
+      "slug": "eib-digital-bond-2021",
+      "issuer": "European Investment Bank (EIB)",
+      "issuer_slug": "eib",
+      "arranger": "Goldman Sachs · Santander · Société Générale",
+      "issuer_type": "supranational",
+      "doc_type": "issuance_document",
+      "title": "European Investment Bank — Inaugural Digital Bond on Ethereum (April 2021)",
+      "date": "2021-04-27",
+      "period_covered": "April 2021 Issuance",
+      "summary": "On 27 April 2021, the European Investment Bank (EIB) issued its first-ever digital bond on a public blockchain: €100 million, 2-year, 0.000% coupon (re-offer yield −0.601%; re-offer price 101.213%), governed by French law, settling 28 April 2021. The bond matured 28 April 2023. Joint lead managers were Goldman Sachs, Santander, and Société Générale, with Société Générale FORGE acting as registrar, fiscal agent, and settlement platform manager on the Ethereum public blockchain. Settlement of underwriting proceeds was represented on-chain as a central bank digital currency (CBDC) in a Banque de France pilot — the first primary bond issuance to use a CBDC settlement leg. Legal counsel: Linklaters LLP (EIB) and Allen & Overy LLP (joint lead managers). The issuance is the first multi-dealer-led, primary-market digitally native token by a AAA-rated issuer on a public blockchain, establishing Ethereum as credible infrastructure for institutional bond primary markets.",
+      "source_url": "https://www.eib.org/en/press/all/2021-141-european-investment-bank-eib-issues-its-first-ever-digital-bond-on-a-public-blockchain",
+      "file_url": null,
+      "asset_classes": [
+        "gov_bonds"
+      ],
+      "rwa_relevant": true,
+      "last_verified_at": "2026-06-02",
+      "rarm_layers": [
+        "issuer",
+        "custody",
+        "jurisdiction",
+        "redemption"
+      ],
+      "sarm_blocks": [
+        "legal",
+        "settlement"
+      ],
+      "jurisdiction": "EU",
+      "regulator": null,
+      "status": "retired",
+      "auditor": null,
+      "key_figures": [
+        {
+          "label": "Principal",
+          "value": "€100 million"
+        },
+        {
+          "label": "Coupon / yield / price",
+          "value": "0.000% coupon · re-offer yield −0.601% · re-offer price 101.213%"
+        },
+        {
+          "label": "Maturity",
+          "value": "28 April 2023 (2-year; matured)"
+        },
+        {
+          "label": "Settlement",
+          "value": "Ethereum public blockchain; settlement proceeds as Banque de France CBDC (first CBDC bond settlement leg)"
+        },
+        {
+          "label": "Platform / registrar",
+          "value": "Société Générale FORGE — registrar, fiscal agent, settlement platform manager"
+        }
+      ]
+    },
+    {
+      "slug": "socgen-sfh-ofh-covered-bond-2019",
+      "issuer": "Société Générale SFH",
+      "issuer_slug": "socgen-sfh",
+      "arranger": "Société Générale",
+      "issuer_type": "commercial_bank",
+      "doc_type": "issuance_document",
+      "title": "Société Générale SFH — OFH Security Token (Covered Bond) on Ethereum (April 2019)",
+      "date": "2019-04-18",
+      "period_covered": "April 2019 Issuance",
+      "summary": "On 18 April 2019, Société Générale SFH — the covered bond subsidiary of Société Générale Group — issued €100 million of obligations de financement de l'habitat (OFH) as security tokens directly registered on the Ethereum public blockchain, the first covered bond ever issued as a blockchain security token by a commercial bank. Rated Aaa by Moody's and AAA by Fitch. The OFH tokens were fully subscribed by Société Générale itself (not distributed to external investors), structuring this as a proof-of-concept pilot for DLT-based covered bond issuance workflows. SG Forge — then an internal innovation startup within Société Générale's intrapreneurial programme — operated as the technology platform. Legal advisor: Gide Loyrette Nouel; blockchain advisor: PwC France. Coupon rate and maturity date are not publicly disclosed in any available issuance document. The transaction predates the EIB's April 2021 public digital bond by two years and established the template for commercial bank tokenised debt on permissionless Ethereum. Maturity date not publicly disclosed in any available issuer document; status conservatively marked retired given the 2019 issue date and typical OFH covered bond tenor of 5–10 years.",
+      "source_url": "https://www.societegenerale.com/en/news/newsroom/societe-generale-issued-first-covered-bond-security-token-public-blockchain",
+      "file_url": null,
+      "asset_classes": [
+        "corporate_bonds"
+      ],
+      "rwa_relevant": true,
+      "last_verified_at": "2026-06-02",
+      "rarm_layers": [
+        "issuer",
+        "custody",
+        "jurisdiction"
+      ],
+      "sarm_blocks": [
+        "legal",
+        "settlement"
+      ],
+      "jurisdiction": "EU",
+      "regulator": null,
+      "status": "retired",
+      "auditor": null,
+      "key_figures": [
+        {
+          "label": "Principal",
+          "value": "€100 million"
+        },
+        {
+          "label": "Rating",
+          "value": "Aaa (Moody's) · AAA (Fitch)"
+        },
+        {
+          "label": "Asset type",
+          "value": "OFH — obligations de financement de l'habitat (French covered bond); issuer: Société Générale SFH"
+        },
+        {
+          "label": "Distribution",
+          "value": "Self-subscribed (fully retained by Société Générale — internal pilot, not publicly placed)"
+        },
+        {
+          "label": "Coupon / maturity",
+          "value": "TODO: not disclosed in issuer press release — requires direct inquiry to SG Forge"
         }
       ]
     }
