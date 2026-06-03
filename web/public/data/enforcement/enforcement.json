@@ -1,7 +1,98 @@
 {
-  "version": "1.9.0",
+  "version": "1.10.0",
   "updated_at": "2026-06-03",
   "actions": [
+    {
+      "slug": "cftc-doj-polymarket-insider-2026",
+      "action_date": "2026-05-27",
+      "regulator": "CFTC",
+      "jurisdiction": "US",
+      "target_entity": "Gannon Ken Van Dyke; Michele Spagnuolo",
+      "target_type": "individual",
+      "action_type": "charges",
+      "penalty_usd": 0,
+      "penalty_note": "No monetary penalties assessed as of June 2026. CFTC civil complaints (SDNY) seek restitution, disgorgement, civil monetary penalties, trading and registration bans, and permanent injunctions against both defendants. DOJ criminal charges: Van Dyke — 5 counts including violation of the CEA Eddie Murphy Rule, theft of nonpublic government information, commodities fraud, wire fraud, and unlawful monetary transactions (indictment unsealed 23 April 2026, SDNY 26-cr-156); Spagnuolo — 3 counts including CEA insider trading in event contracts, wire fraud, and money laundering (criminal complaint unsealed 27 May 2026, SDNY). Neither defendant had been convicted or entered a plea as of June 2026.",
+      "summary": "The CFTC and DOJ brought the first-ever insider trading enforcement actions on a prediction market platform, filing parallel criminal and civil charges against two individuals who allegedly exploited privileged nonpublic information to trade Polymarket event contracts. Case 1 — Van Dyke (23 April 2026): Gannon Ken Van Dyke, an active-duty U.S. Army Special Forces Master Sergeant, was indicted on five counts after allegedly using classified information about a U.S. military operation allegedly targeting former Venezuelan President Maduro ('Operation Absolute Resolve') to trade a Polymarket contract on whether Maduro would be removed from power by 31 January 2026. Van Dyke allegedly invested approximately $33,000 and generated approximately $404,000 in profits; he allegedly subsequently transferred proceeds through cryptocurrency accounts to conceal their origin (CFTC PR 9217-26). Case 2 — Spagnuolo (27 May 2026): Michele Spagnuolo, a Google staff information security engineer and Italian national residing in Switzerland, was charged with three counts after allegedly using confidential internal Google 'Year in Search' pre-release data to place approximately $2.75 million across 25 Polymarket event contracts from October through December 2025, generating approximately $1.2 million in profits with near-perfect accuracy (CFTC PR 9237-26). Together, the two actions mark the first application of the CFTC's misappropriation theory of commodity fraud and the CEA 'Eddie Murphy Rule' (prohibiting trading on misappropriated nonpublic government information) to prediction market event contracts.",
+      "rwa_relevant": true,
+      "asset_classes": [
+        "other"
+      ],
+      "rarm_layers": [
+        "jurisdiction"
+      ],
+      "sarm_blocks": [
+        "legal",
+        "regulatory"
+      ],
+      "lessons": [
+        "The CEA 'Eddie Murphy Rule' (prohibiting trading on misappropriated nonpublic government information) applies to CFTC-regulated event contracts: Van Dyke's indictment confirms that prediction market contracts on geopolitical outcomes are commodity interests subject to the same insider trading prohibition as futures and options — a precedent that extends CFTC enforcement authority across all digital prediction platforms.",
+        "Misappropriation of commercial trade secrets extends to event contract insider trading: Spagnuolo's charges confirm that employees with access to pre-release proprietary employer data who allegedly trade prediction contracts on outcomes that data predicts are liable for commodity fraud under the CEA's misappropriation theory — establishing that the insider trading framework applies to crypto-native prediction market infrastructure.",
+        "Two enforcement actions within five weeks on the same platform signal systematic CFTC and DOJ coverage of prediction market integrity: RWA-adjacent information markets, oracle systems, and data-driven event contract platforms face the same insider trading enforcement exposure as traditional commodity exchanges."
+      ],
+      "related_incident_slugs": [],
+      "related_issuer_slugs": [],
+      "status": "ongoing",
+      "sources": [
+        {
+          "label": "CFTC press release 9237-26 — Spagnuolo charges (27 May 2026)",
+          "url": "https://www.cftc.gov/PressRoom/PressReleases/9237-26"
+        },
+        {
+          "label": "CFTC press release 9217-26 — Van Dyke charges (23 Apr 2026)",
+          "url": "https://www.cftc.gov/PressRoom/PressReleases/9217-26"
+        },
+        {
+          "label": "DOJ SDNY — Google employee charged with insider trading (27 May 2026)",
+          "url": "https://www.justice.gov/usao-sdny/pr/google-employee-charged-insider-trading"
+        },
+        {
+          "label": "DOJ SDNY — U.S. soldier charged using classified information to profit from prediction market bets (23 Apr 2026)",
+          "url": "https://www.justice.gov/usao-sdny/pr/us-soldier-charged-using-classified-information-profit-prediction-market-bets"
+        }
+      ]
+    },
+    {
+      "slug": "mas-bsquared-revocation-2026-05",
+      "action_date": "2026-05-14",
+      "regulator": "MAS",
+      "jurisdiction": "SG",
+      "target_entity": "Bsquared Technology Pte. Ltd. (BSQ)",
+      "target_type": "exchange",
+      "action_type": "ban",
+      "penalty_usd": 0,
+      "penalty_note": "No monetary penalty. MAS revoked BSQ's Major Payment Institution licence effective 14 May 2026 under the Payment Services Act 2019. BSQ is prohibited from providing digital payment token (DPT) services from that date. MAS announced the revocation publicly on 20 May 2026 and indicated that review of individual accountability of BSQ's key officers remains ongoing as of June 2026. BSQ reported no outstanding customer funds or assets held at the time of revocation.",
+      "summary": "MAS revoked the Major Payment Institution (MPI) licence of Bsquared Technology Pte. Ltd. ('BSQ') effective 14 May 2026 under the Payment Services Act 2019, prohibiting the company from providing digital payment token (DPT) services in Singapore. The revocation followed an onsite inspection that identified serious deficiencies: BSQ provided false or misleading information to MAS on multiple occasions, exhibited weak risk management controls, unmanaged conflicts of interest involving its key officers, and outsourcing arrangements that breached MAS notices. BSQ had received its MPI licence only 16 months earlier in January 2025, making this the first revocation of a newly-licensed DPT service provider under Singapore's PSA regime. MAS announced the revocation on 20 May 2026 and indicated that review of individual accountability of key officers remains ongoing. The action establishes that PSA licensing is not a one-time gate but an enforceable continuing obligation.",
+      "rwa_relevant": true,
+      "asset_classes": [
+        "crypto_native"
+      ],
+      "rarm_layers": [
+        "issuer",
+        "jurisdiction"
+      ],
+      "sarm_blocks": [
+        "regulatory",
+        "governance"
+      ],
+      "lessons": [
+        "MAS licence revocation 16 months post-issuance confirms that PSA authorisation creates continuing compliance obligations: false or misleading information to MAS, weak risk controls, unmanaged conflicts of interest, and outsourcing breaches are each independently sufficient grounds for revocation under the Payment Services Act 2019, even when the entity holds no outstanding customer assets at the time of revocation.",
+        "Onsite inspection is MAS's primary escalation mechanism for newly-licensed DPT service providers: BSQ's shortcomings were identified through supervisory inspection rather than via a market incident or third-party complaint, signalling that MAS actively monitors PSA licensees post-grant and does not limit enforcement to reactive triggers.",
+        "Personal regulatory accountability under the PSA continues after entity-level revocation: MAS's ongoing review of BSQ's key officers confirms that individual accountability is a distinct and parallel track from corporate licence revocation — DPT service executives carry personal regulatory exposure that persists beyond the entity's prohibition from business."
+      ],
+      "related_incident_slugs": [],
+      "related_issuer_slugs": [],
+      "status": "ongoing",
+      "sources": [
+        {
+          "label": "MAS — Revocation of MPI licence of Bsquared Technology Pte. Ltd. (20 May 2026)",
+          "url": "https://www.mas.gov.sg/news/media-releases/2026/mas-revokes-the-major-payment-institution-licence-of-bsquared-technology-pte-ltd"
+        },
+        {
+          "label": "Fintech News Singapore — Bsquared Technology Payment License Revoked Over Serious Breaches (21 May 2026)",
+          "url": "https://fintechnews.sg/131809/payments/mas-revokes-bsquared-technology-license/"
+        }
+      ]
+    },
     {
       "slug": "doj-do-kwon-sentencing-2025-12",
       "action_date": "2025-12-11",
@@ -91,6 +182,51 @@
       "related_issuer_slugs": []
     },
     {
+      "slug": "bafin-ethena-usde-2025",
+      "action_date": "2025-04-14",
+      "regulator": "BaFin",
+      "jurisdiction": "DE",
+      "target_entity": "Ethena GmbH (USDe)",
+      "target_type": "stablecoin_issuer",
+      "action_type": "order",
+      "penalty_usd": 648000,
+      "penalty_note": "EUR 600,000 coercive fine imposed 4 April 2025 for non-compliance with BaFin's 21 March 2025 supervisory measures (approximately USD 648,000 at prevailing rates). The 14 April 2025 winding-up order required full redemption of all outstanding USDe tokens under BaFin supervision but imposed no additional monetary penalty. Subsequent related action: on 3 June 2025 BaFin issued a separate notice that sUSDe (staked USDe) issued by Ethena (BVI) Ltd. showed grounds to suspect it constitutes an unregistered security in Germany.",
+      "summary": "BaFin applied the EU Markets in Crypto-Assets Regulation (MiCA) for the first time against an asset-referenced token issuer in a sequence of escalating actions against Ethena GmbH and its USDe synthetic dollar. On 21 March 2025, BaFin prohibited Ethena GmbH from continuing to publicly offer USDe, froze reserve assets held by custodians, and appointed a special representative, citing serious shortcomings in Ethena's transitional MiCAR authorisation procedure — specifically non-compliance with capital adequacy, reserve composition, and business organisation requirements. Ethena GmbH had submitted a transitional MiCAR application in July 2024. On 3 April 2025, Ethena GmbH withdrew its MiCAR application; on 4 April BaFin imposed a EUR 600,000 coercive fine for non-compliance with the March supervisory measures. On 14 April 2025, BaFin issued a winding-up order requiring Ethena GmbH to reverse the issuance of all outstanding USDe tokens under a BaFin-approved redemption plan. The core regulatory finding was that USDe — a delta-neutral synthetic instrument backed by long crypto spot positions and offsetting short perpetual futures — constitutes an asset-referenced token (ART) under MiCA; its synthetic reserve mechanism is structurally incompatible with MiCA Article 36, which mandates 1:1 backing by high-quality liquid assets. A 42-day redemption plan was agreed 25 June 2025; USDe token holders were redeemed for USDC by 6 August 2025. This was the first MiCA enforcement action by BaFin against an ART issuer.",
+      "rwa_relevant": true,
+      "asset_classes": [
+        "stablecoin"
+      ],
+      "rarm_layers": [
+        "issuer",
+        "redemption",
+        "audit",
+        "jurisdiction"
+      ],
+      "sarm_blocks": [
+        "reserve",
+        "regulatory",
+        "transparency"
+      ],
+      "lessons": [
+        "Delta-neutral synthetic stablecoins backed by crypto spot positions and short perpetual futures cannot satisfy MiCA Article 36 asset reserve requirements: the ART framework mandates 1:1 backing by high-quality liquid assets, making any crypto-derivative reserve mechanism structurally non-compliant regardless of hedging sophistication or on-chain liquidity depth.",
+        "BaFin's escalation from prohibition order to winding-up order in 24 days is the fastest major MiCA enforcement sequence on record; RWA platforms seeking MiCA ART or EMT authorisation must have reserve compliance fully documented before initiating the authorisation procedure, not during regulatory review.",
+        "Withdrawal of a MiCAR transitional application does not avoid enforcement: Ethena GmbH's April 3 application withdrawal did not stay BaFin's actions — the April 4 coercive fine and April 14 winding-up order followed the withdrawal, confirming that BaFin treats application withdrawal as triggering an immediate prohibited-business determination rather than permitting an orderly voluntary wind-down."
+      ],
+      "related_incident_slugs": [],
+      "related_issuer_slugs": [],
+      "status": "closed",
+      "sources": [
+        {
+          "label": "BaFin — Winding-up order against Ethena GmbH (14 Apr 2025, published 15 Apr)",
+          "url": "https://www.bafin.de/SharedDocs/Veroeffentlichungen/EN/Verbrauchermitteilung/weitere/2025/meldung_2025_04_15_Ethena_GmbH_en.html"
+        },
+        {
+          "label": "BaFin — Prohibition of public offer and asset freeze against Ethena GmbH (21 Mar 2025)",
+          "url": "https://www.bafin.de/SharedDocs/Veroeffentlichungen/EN/Verbrauchermitteilung/weitere/2025/meldung_2025_03_21_Ethena_GmbH_en.html"
+        }
+      ]
+    },
+    {
       "slug": "sec-2025-enforcement-retreat",
       "action_date": "2025-03-27",
       "regulator": "SEC",
@@ -178,76 +314,132 @@
       "related_issuer_slugs": []
     },
     {
-      "slug": "cftc-tether-ifinex-2021",
-      "action_date": "2021-10-15",
-      "regulator": "CFTC",
+      "slug": "van-loon-v-treasury-tornado-cash-2024",
+      "action_date": "2024-11-26",
+      "regulator": "OFAC",
       "jurisdiction": "US",
-      "target_entity": "Tether / iFinex",
-      "target_type": "stablecoin_issuer",
-      "action_type": "settlement",
-      "penalty_usd": 42500000,
-      "penalty_note": null,
-      "summary": "On 15 October 2021, the CFTC settled with Tether Operations Limited and its parent iFinex Inc., finding that Tether had falsely represented USDT as fully backed by US dollar reserves at all times. The $42.5M settlement comprised a $41M civil penalty against Tether and a $1.5M penalty against iFinex. The CFTC found that between 2016 and 2019, Tether maintained sufficient fiat reserves for only 27.6% of the days it claimed full backing, and that reserves were at times held in commingled accounts with Bitfinex, an affiliated exchange. Earlier in February 2021, Tether and iFinex had separately settled New York Attorney General charges for $18.5M, agreeing to provide periodic reserve transparency reports. The October 2021 CFTC action was the first federal enforcement specifically targeting stablecoin reserve misrepresentations and set the legal baseline for subsequent disclosure requirements.",
-      "rwa_relevant": true,
-      "asset_classes": [
-        "stablecoin"
-      ],
-      "status": "settled",
-      "sources": [
-        {
-          "label": "CFTC Press Release",
-          "url": "https://www.cftc.gov/PressRoom/PressReleases/8450-21"
-        }
-      ],
-      "rarm_layers": [],
-      "sarm_blocks": [
-        "reserve",
-        "transparency"
-      ],
-      "lessons": [
-        "Stablecoin reserve claims are material representations under commodity law: \"fully backed by USD\" must hold continuously, not merely at attestation snapshots.",
-        "CFTC asserted jurisdiction over stablecoin reserves via the swap/commodity hook, predating any dedicated US stablecoin statute."
-      ],
-      "related_incident_slugs": [],
-      "related_issuer_slugs": [
-        "tether-usdt"
-      ]
-    },
-    {
-      "slug": "nydfs-paxos-busd-2023",
-      "action_date": "2023-02-13",
-      "regulator": "NYDFS",
-      "jurisdiction": "US",
-      "target_entity": "Paxos Trust Company",
-      "target_type": "stablecoin_issuer",
-      "action_type": "order",
+      "target_entity": "OFAC — Tornado Cash immutable smart contract SDN designations (vacated on appeal by Joseph Van Loon et al.)",
+      "target_type": "defi_protocol",
+      "action_type": "vacated",
       "penalty_usd": 0,
-      "penalty_note": "No monetary penalty; NYDFS ordered halt to BUSD issuance",
-      "summary": "On 13 February 2023, NYDFS issued a directive ordering Paxos Trust Company to cease minting new Binance USD (BUSD) tokens. At the time, BUSD was the third-largest stablecoin with approximately $16 billion in circulation. BUSD operated under a co-branding arrangement: Paxos issued and held reserves for the tokens while Binance distributed them under its brand. NYDFS cited unresolved supervisory concerns about Paxos's oversight of the Binance relationship — the regulator explicitly affirmed that BUSD reserves were fully backed and that the order was not about reserve adequacy. Paxos continued to honour redemptions on all outstanding BUSD under its New York trust charter. By early 2024, BUSD supply had declined to near zero as holders redeemed. No monetary penalty was imposed on Paxos. The action demonstrated that NYDFS can effectively wind down a multi-billion-dollar stablecoin through a minting halt alone.",
+      "penalty_note": "No monetary penalty; this entry records a judicial reversal of a regulator action, not a regulator-initiated enforcement. OFAC delisted Tornado Cash smart contract addresses from SDN list on 21 March 2025 following the 5th Circuit ruling. Separate criminal proceedings against co-developer Roman Storm (DOJ, SDNY) remain pending as of June 2026.",
+      "summary": "On 26 November 2024, the US Court of Appeals for the Fifth Circuit unanimously reversed the district court in Van Loon et al. v. Department of the Treasury, No. 23-50669, holding that OFAC exceeded its statutory authority under IEEPA when it sanctioned Tornado Cash's immutable smart contracts in August 2022. The panel found that the smart contracts — autonomous, self-executing code that no party can modify, own, or exclude others from using — do not constitute 'property' for IEEPA purposes and therefore cannot be sanctioned. Applying the post-Loper Bright framework, the court declined to defer to OFAC's statutory interpretation. The ruling was remanded with instructions to grant plaintiffs' partial motion for summary judgment. Following the decision, OFAC delisted the Tornado Cash smart contract addresses from its SDN list on 21 March 2025, formally ending the sanctions regime on the protocol layer. This is the first US federal appellate decision holding that open-source immutable smart contract code falls outside the property-based reach of US economic sanctions — a structural constraint on OFAC's authority over protocol-layer DeFi infrastructure.",
       "rwa_relevant": true,
       "asset_classes": [
-        "stablecoin"
+        "crypto_native"
       ],
       "status": "closed",
       "sources": [
         {
-          "label": "NYDFS Statement",
-          "url": "https://www.dfs.ny.gov/consumers/alerts/Paxos_and_Binance"
+          "label": "5th Circuit opinion — Van Loon v. Treasury, No. 23-50669 (26 Nov 2024)",
+          "url": "https://www.ca5.uscourts.gov/opinions/pub/23/23-50669-CV0.pdf"
+        },
+        {
+          "label": "Treasury press release — Tornado Cash delisting (21 Mar 2025)",
+          "url": "https://home.treasury.gov/news/press-releases/sb0057"
+        },
+        {
+          "label": "OFAC recent actions — SDN removal (20250321)",
+          "url": "https://ofac.treasury.gov/recent-actions/20250321"
         }
       ],
       "rarm_layers": [],
       "sarm_blocks": [
-        "regulatory",
-        "governance"
+        "legal",
+        "regulatory"
       ],
       "lessons": [
-        "State-level NYDFS can shut down a multi-billion-dollar stablecoin without federal SEC action — BUSD wind-down completed without any monetary penalty.",
-        "BitLicense scope strictly bounds what a NY-regulated issuer may issue; activity outside scope triggers a consent order to halt."
+        "Immutable smart contracts are not 'property' under IEEPA — sanctions cannot attach to autonomous on-chain code that no party owns or controls, regardless of whether sanctioned actors use it; OFAC must identify human operators or specific transactions rather than the protocol itself.",
+        "The ruling structurally constrains the sanctions toolkit for DeFi infrastructure: any RWA protocol that uses autonomous on-chain primitives (AMMs, escrow contracts, settlement rails) now has circuit-court authority that such code cannot itself be sanctioned.",
+        "Criminal prosecution of individual developers remains a distinct and parallel track — the 5th Circuit ruling does not insulate co-developers from DOJ wire fraud or money laundering charges; the Van Loon case and the Roman Storm SDNY prosecution coexist as separate theories."
       ],
       "related_incident_slugs": [],
-      "related_issuer_slugs": [
-        "paxos-usdg",
-        "paxos-usdp"
+      "related_issuer_slugs": []
+    },
+    {
+      "slug": "sec-galois-capital-custody-2024",
+      "action_date": "2024-09-03",
+      "regulator": "SEC",
+      "jurisdiction": "US",
+      "target_entity": "Galois Capital Management LLC",
+      "target_type": "fund",
+      "action_type": "settlement",
+      "penalty_usd": 225000,
+      "penalty_note": "Penalty distributed to harmed investors via a Fair Fund. Entity-only settlement; no individuals charged. Galois announced fund liquidation February 2023 following the FTX collapse; approximately USD 40–45 million of ~USD 200 million AUM was trapped on FTX, representing roughly 50% of assets under management. Additional SEC finding: Galois permitted selective investor redemptions with as little as five days' notice, contrary to the fund's stated 30-day Limited Partnership Agreement term.",
+      "summary": "On 3 September 2024 the SEC settled with Galois Capital Management LLC — a now-defunct crypto-focused hedge fund — for USD 225,000, marking the first SEC enforcement action applying the Investment Advisers Act custody rule (Rule 206(4)-2) to digital assets held at a crypto exchange. From July 2022, Galois maintained client crypto-assets on FTX Trading Ltd. and Fireblocks; the SEC found that neither entity qualified as a 'qualified custodian' under the custody rule — FTX held only a South Dakota state trust licence, which does not satisfy the Rule 206(4)-2 qualified custodian standard. When FTX collapsed in November 2022, approximately USD 40–45 million of Galois's estimated USD 200 million AUM was inaccessible; the fund announced liquidation in February 2023 and sold its FTX bankruptcy claims at 16 cents on the dollar. The SEC also found that Galois permitted selective investor redemptions on as little as five days' notice, contrary to its stated 30-day Limited Partnership Agreement term. No individuals were charged; the civil penalty was distributed through a Fair Fund to harmed investors.",
+      "rwa_relevant": true,
+      "asset_classes": [
+        "crypto_native"
+      ],
+      "rarm_layers": [
+        "custody",
+        "audit"
+      ],
+      "sarm_blocks": [
+        "settlement",
+        "transparency"
+      ],
+      "lessons": [
+        "Exchange custody accounts are not qualified custodians under Rule 206(4)-2: the Galois action confirms that holding digital assets on a crypto trading platform — regardless of exchange scale or reputation — does not satisfy U.S. adviser custody requirements; RWA fund structures must segregate assets with a demonstrably qualified custodian (bank, registered broker-dealer, or qualifying FCM).",
+        "Custody non-compliance and counterparty concentration risk compound simultaneously: Galois's non-compliant custody arrangement meant that the regulatory violation and the catastrophic loss event were the same fact — assets held on FTX were both non-compliant and inaccessible when FTX failed, illustrating that custody compliance is a direct risk-management control, not merely an administrative requirement.",
+        "Entity-only settlement without personal charges does not reduce precedent weight: the SEC's first digital-asset custody enforcement establishes the applicable standard for all registered investment advisers managing crypto or tokenised asset funds — future fact patterns with similar custody failures may carry individual liability for fund managers who knew or should have known the custodian was unqualified."
+      ],
+      "related_incident_slugs": [],
+      "related_issuer_slugs": [],
+      "status": "settled",
+      "sources": [
+        {
+          "label": "SEC Press Release 2024-111 — Galois Capital settlement (3 Sep 2024)",
+          "url": "https://www.sec.gov/news/press-release/2024-111"
+        },
+        {
+          "label": "SEC Admin Proceeding IA-6670 — order and findings",
+          "url": "https://www.sec.gov/files/litigation/admin/2024/ia-6670.pdf"
+        },
+        {
+          "label": "Sidley Austin — First crypto custody rule enforcement analysis",
+          "url": "https://www.sidley.com/en/insights/newsupdates/2024/09/crypto-focused-private-fund-adviser-settles-with-us-sec-for-custody-rule-and-other-violations"
+        }
+      ]
+    },
+    {
+      "slug": "sec-ripple-xrp-2020-2024",
+      "action_date": "2024-08-07",
+      "regulator": "SEC",
+      "jurisdiction": "US",
+      "target_entity": "Ripple Labs Inc., Christian Larsen, and Bradley Garlinghouse",
+      "target_type": "tokenization_platform",
+      "action_type": "settlement",
+      "penalty_usd": 125000000,
+      "penalty_note": "Final judgment 7 Aug 2024: $125M civil penalty against Ripple. SEC originally sought ~$2B. Initial complaint Dec 22, 2020. Summary judgment 13 Jul 2023 (Torres, SDNY): XRP institutional sales WERE unregistered securities; XRP programmatic exchange sales were NOT. SEC dropped its appeal in 2025.",
+      "summary": "Filed by the SEC on 22 December 2020, SEC v. Ripple Labs alleged that Ripple, CEO Garlinghouse, and co-founder Larsen conducted an unregistered securities offering by selling XRP tokens. On 13 July 2023 Judge Analisa Torres (SDNY) issued a landmark summary judgment: XRP sold to sophisticated institutional buyers under written contracts WAS an unregistered security; XRP sold through programmatic trading on digital-asset exchanges to anonymous retail buyers was NOT a security, because retail buyers could not reasonably have expected returns to depend on Ripple's specific managerial efforts. This was the first US court ruling to bifurcate a token's securities status by sale context, breaking the SEC's binary framing. On 7 August 2024 Judge Torres entered final judgment requiring Ripple to pay a $125M civil penalty (vs the SEC's requested ~$2B). The SEC dropped its appeal in 2025. The Ripple programmatic-sale doctrine has since been cited in BUSD-claim dismissals (SEC v. Binance, Jun 2024) and the broader 2024–2025 SEC retreat from secondary-market token enforcement.",
+      "rwa_relevant": true,
+      "asset_classes": [
+        "crypto_native"
+      ],
+      "rarm_layers": [
+        "issuer"
+      ],
+      "sarm_blocks": [
+        "legal"
+      ],
+      "lessons": [
+        "The Torres bifurcation (institutional sale = security; programmatic secondary-market sale ≠ security) is the most-cited US precedent for any RWA-tokenisation platform planning primary issuance versus secondary-market trading — different sales channels carry different legal characterisations of the same token.",
+        "The $125M final judgment vs the SEC's requested $2B (~94% reduction) signalled judicial skepticism of inflated SEC penalty asks and recalibrated future negotiation baselines for token issuers.",
+        "Ripple's programmatic-sale doctrine has been load-bearing in adjacent rulings (BUSD claims dismissed Jun 2024; Coinbase staking theory survived but case dismissed Feb 2025) — RWA platform legal strategy should track which downstream rulings extend or limit Torres's reasoning."
+      ],
+      "related_incident_slugs": [],
+      "related_issuer_slugs": [],
+      "status": "settled",
+      "sources": [
+        {
+          "label": "SEC press release",
+          "url": "https://www.sec.gov/news/press-release/2020-338"
+        },
+        {
+          "label": "Court docket (CourtListener)",
+          "url": "https://www.courtlistener.com/docket/18752520/sec-v-ripple-labs-inc/"
+        }
       ]
     },
     {
@@ -289,34 +481,259 @@
       "related_issuer_slugs": []
     },
     {
-      "slug": "mas-three-arrows-capital-2023",
-      "action_date": "2023-09-13",
-      "regulator": "MAS",
-      "jurisdiction": "SG",
-      "target_entity": "Three Arrows Capital",
-      "target_type": "fund",
-      "action_type": "ban",
-      "penalty_usd": 0,
-      "penalty_note": "9-year ban on directors from MAS-regulated activities",
-      "summary": "On 13 September 2023, MAS reprimanded Three Arrows Capital (3AC) Pte Ltd and issued nine-year prohibition orders barring co-founders Zhu Su and Kyle Davies from carrying out regulated activities under Singapore law. MAS found that 3AC — registered as a fund management company — had managed assets exceeding the S$250 million AUM threshold applicable to registered managers without upgrading to a Capital Markets Services licence, and had provided materially false information to MAS regarding its AUM. 3AC collapsed in June 2022 after suffering heavy losses on Terra/Luna and other leveraged positions, with estimated liabilities exceeding USD 3 billion at the time of insolvency; Singapore courts appointed liquidators, with parallel proceedings in the British Virgin Islands. The co-founders departed Singapore prior to the collapse and have not submitted to local jurisdiction. This entry covers the September 2023 MAS regulatory findings against the corporate entity and its founders.",
-      "rwa_relevant": false,
+      "slug": "doj-samourai-wallet-2024",
+      "action_date": "2024-04-24",
+      "regulator": "DOJ",
+      "jurisdiction": "US",
+      "target_entity": "Keonne Rodriguez; William Lonergan Hill",
+      "target_type": "individual",
+      "action_type": "conviction",
+      "penalty_usd": 500000,
+      "penalty_note": "Rodriguez sentenced to 5 years' imprisonment and a $250,000 fine (6 November 2025, Judge Denise L. Cote, SDNY); Hill sentenced to 4 years and $250,000 fine (19 November 2025); both subject to 3 years of supervised release. Forfeiture judgment of $237,832,360.55 (total traceable criminal proceeds through the service); defendants satisfied this by paying $6,367,139.69 representing Samourai's actual earned transaction fees — the balance was uncollectable. penalty_usd reflects combined court-ordered fines ($250K × 2); forfeiture detail noted separately. Count 1 (conspiracy to commit money laundering) was dismissed pursuant to plea agreements; convictions on Count 2 only (conspiracy to operate an unlicensed money transmitting business, 18 U.S.C. § 1960). Each defendant also ordered to serve 3 years of supervised release. Hill was arrested in Portugal at the US government's request.",
+      "summary": "On 24 April 2024, the DOJ's SDNY office arrested Keonne Rodriguez (37, Harmony, Pennsylvania) and William Lonergan Hill (67, arrested in Portugal) — co-founders of Samourai Wallet, a Bitcoin privacy wallet offering Whirlpool CoinJoin mixing and Ricochet obfuscation services — on two counts: conspiracy to commit money laundering (max 20 years) and conspiracy to operate an unlicensed money transmitting business (max 5 years). Prosecutors alleged the service processed over $2 billion in total transactions and facilitated more than $100 million tied to darknet markets, with at least $237 million in traceable criminal proceeds. The FBI seized the samouraiwallet.com domain concurrently with the arrests. On 29–30 July 2025 both defendants pleaded guilty to Count 2 only; Count 1 (money laundering conspiracy) was dismissed. Rodriguez was sentenced to 5 years on 6 November 2025 and Hill to 4 years on 19 November 2025, each with a $250,000 fine. Defendants forfeited $6.37 million in earned fees against a $237.8 million forfeiture judgment.",
+      "rwa_relevant": true,
       "asset_classes": [
-        "other"
+        "crypto_native"
       ],
       "status": "closed",
       "sources": [
         {
-          "label": "MAS Press Release",
-          "url": "https://www.mas.gov.sg/news/media-releases/2023/mas-reprimands-three-arrows-capital"
+          "label": "DOJ SDNY press release — Samourai founders arrested and charged (24 Apr 2024)",
+          "url": "https://www.justice.gov/usao-sdny/pr/founders-and-ceo-cryptocurrency-mixing-service-arrested-and-charged-money-laundering"
+        },
+        {
+          "label": "DOJ SDNY press release — Samourai founders plead guilty (Jul 2025)",
+          "url": "https://www.justice.gov/usao-sdny/pr/founders-samourai-wallet-cryptocurrency-mixing-service-plead-guilty"
+        },
+        {
+          "label": "DOJ SDNY press release — Samourai founders sentenced (Nov 2025)",
+          "url": "https://www.justice.gov/usao-sdny/pr/founders-samourai-wallet-cryptocurrency-mixing-service-sentenced-five-and-four-years"
         }
       ],
-      "rarm_layers": [],
+      "rarm_layers": [
+        "jurisdiction"
+      ],
+      "sarm_blocks": [],
+      "lessons": [
+        "Guilty pleas on the unlicensed money transmitting count (Count 2) while money laundering conspiracy (Count 1) was dismissed mirrors the partial Storm verdict in the Tornado Cash prosecution — prosecutors appear to face higher proof burdens on money laundering mens rea than on the regulatory registration requirement under 18 U.S.C. § 1960 for mixing-service operators.",
+        "The DOJ's theory — that operating a non-custodial Bitcoin wallet with mixing features constitutes an unlicensed money transmitting business — was validated by both guilty pleas, establishing that 'software only / non-custodial' arguments do not insulate developers who can be shown to have knowledge of criminal usage.",
+        "FBI's simultaneous seizure of samouraiwallet.com during arrest demonstrates that DNS infrastructure is a primary enforcement lever against privacy tools independent of open-source code availability — domain registrars and hosting providers are actionable chokepoints even when the underlying protocol code is freely mirrored."
+      ],
+      "related_incident_slugs": [],
+      "related_issuer_slugs": []
+    },
+    {
+      "slug": "doj-kucoin-2024-03",
+      "action_date": "2024-03-26",
+      "regulator": "DOJ",
+      "jurisdiction": "US",
+      "target_entity": "Mek Global Limited / Peken Global Limited (KuCoin) / Chun Gan / Ke Tang",
+      "target_type": "exchange",
+      "action_type": "settlement",
+      "penalty_usd": 297900000,
+      "penalty_note": "DOJ: $112.9M criminal fine + $184.5M forfeiture = $297.4M. CFTC civil penalty: $500K. Founders Chun Gan and Ke Tang each forfeited $2.7M under two-year DPAs. Settlement announced 28 January 2025 (not December 2024 as sometimes reported). KuCoin (Peken Global Ltd.) pleaded guilty to one count of operating an unlicensed money transmitting business.",
+      "summary": "On 26 March 2024 the DOJ (SDNY) and CFTC filed coordinated actions against Mek Global Limited and related KuCoin entities — including Peken Global Limited (Turks and Caicos), PhoenixFin PTE Ltd., and Flashdot Limited — and against founders Chun 'Michael' Gan and Ke 'Eric' Tang. The DOJ charged KuCoin with operating as an unlicensed money transmitter and BSA/AML conspiracy, alleging facilitation of over $5B in suspicious transactions including darknet proceeds, ransomware payments, and sanctions evasion. In a parallel civil complaint, the CFTC charged KuCoin with operating as an unregistered futures commission merchant, swap execution facility, and introducing broker; the complaint explicitly classified Bitcoin, Ethereum, and Litecoin as commodities. On 28 January 2025, KuCoin (Peken Global) pleaded guilty and agreed to pay $297.4M in DOJ criminal fines and forfeiture; the CFTC imposed an additional $500K civil penalty. Founders Gan and Tang each entered two-year deferred prosecution agreements, forfeiting $2.7M each. KuCoin agreed to exit the US market for a minimum of two years.",
+      "rwa_relevant": true,
+      "asset_classes": [
+        "crypto_native"
+      ],
+      "rarm_layers": [
+        "custody",
+        "jurisdiction"
+      ],
       "sarm_blocks": [
-        "legal"
+        "regulatory",
+        "governance"
       ],
       "lessons": [
-        "MAS escalation pattern: reprimand followed by 9-year prohibition orders on founders — personal accountability survives corporate insolvency.",
-        "3AC 2022 collapse triggered contagion across stablecoin/lending sector (BlockFi, Celsius, Voyager); non-RWA event with system-wide RWA-adjacent impact."
+        "Global exchanges accessible to US users face BSA/AML and CFTC commodity registration obligations regardless of offshore incorporation in Seychelles or Turks and Caicos.",
+        "Parallel DOJ criminal and CFTC civil proceedings compound liability: a single exchange can face both a criminal guilty plea and civil disgorgement simultaneously.",
+        "Founding executives face personal BSA liability through DPAs even when the corporate entity bears the guilty plea — $2.7M individual forfeitures plus two-year DPA each."
+      ],
+      "related_incident_slugs": [],
+      "related_issuer_slugs": [],
+      "status": "settled",
+      "sources": [
+        {
+          "label": "DOJ charges press release (2024-03-26)",
+          "url": "https://www.justice.gov/usao-sdny/pr/kucoin-and-its-founders-charged"
+        },
+        {
+          "label": "CFTC charges press release (2024-03-26)",
+          "url": "https://www.cftc.gov/PressRoom/PressReleases/8884-24"
+        },
+        {
+          "label": "DOJ guilty plea press release (2025-01-28)",
+          "url": "https://www.justice.gov/usao-sdny/pr/kucoin-pleads-guilty-unlicensed-money-transmission-charge-and-agrees-pay-penalties"
+        }
+      ]
+    },
+    {
+      "slug": "nydfs-gemini-earn-2024-02",
+      "action_date": "2024-02-28",
+      "regulator": "NYDFS",
+      "jurisdiction": "US",
+      "target_entity": "Gemini Trust Company LLC",
+      "target_type": "exchange",
+      "action_type": "settlement",
+      "penalty_usd": 37000000,
+      "penalty_note": "$37M penalty to NYDFS + $40M contribution to Genesis Global Capital bankruptcy estate for Earn customers. Gemini committed to return at least $1.1B in digital assets (actual return: $2.18B in-kind by Jun 2024). Gemini retained its DFS-issued trust charter.",
+      "summary": "On 28 February 2024 NYDFS entered a consent order with Gemini Trust Company resolving allegations that Gemini failed to conduct adequate due diligence on its Earn programme partner Genesis Global Capital — an unregulated third party — and failed to maintain compliance practices commensurate with the safety and soundness of a NY trust company. Under the order Gemini committed to return at least $1.1B in digital assets to Earn customers via the Genesis bankruptcy (final distributions completed June 2024 totalling $2.18B in-kind), paid a $37M penalty to NYDFS, and contributed $40M to the Genesis Global Capital bankruptcy estate. Gemini retained its DFS trust charter — contrasting with NYDFS's January 2024 action against Genesis Global Trading which required surrender of its BitLicense.",
+      "rwa_relevant": true,
+      "asset_classes": [
+        "crypto_lending",
+        "yield_product"
+      ],
+      "rarm_layers": [
+        "issuer",
+        "custody"
+      ],
+      "sarm_blocks": [],
+      "lessons": [
+        "NYDFS treats counterparty due diligence as a charter-level safety-and-soundness obligation: outsourcing a yield product to an unregulated third party (Genesis) without adequate oversight is itself the violation, distinct from federal securities-law theories.",
+        "State-level remediation achieves customer recovery that federal enforcement cannot: NYDFS-coordinated bankruptcy contribution + in-kind digital-asset return materially outperformed pure civil penalty mechanisms.",
+        "Charter preservation as calibrated leverage: allowing Gemini to retain its trust charter while pulling Genesis Global Trading's BitLicense demonstrates NYDFS proportionality based on each entity's role and remediation posture."
+      ],
+      "related_incident_slugs": [],
+      "related_issuer_slugs": [],
+      "status": "settled",
+      "sources": [
+        {
+          "label": "NYDFS press release (28 Feb 2024)",
+          "url": "https://www.dfs.ny.gov/reports_and_publications/press_releases/pr202402282"
+        },
+        {
+          "label": "NYDFS consumer alert — Earn customer recovery details",
+          "url": "https://www.dfs.ny.gov/consumers/alerts/gemini-earn-customers-details"
+        }
+      ]
+    },
+    {
+      "slug": "doj-binance-cz-2023-11",
+      "action_date": "2023-11-21",
+      "regulator": "DOJ",
+      "jurisdiction": "US",
+      "target_entity": "Binance Holdings Ltd and Changpeng Zhao (CZ)",
+      "target_type": "exchange",
+      "action_type": "settlement",
+      "penalty_usd": 4316000000,
+      "penalty_note": "$4.316B combined federal penalties: DOJ ~$1.81B (criminal fines + forfeiture for BSA, sanctions, unlicensed money transmitter); CFTC ~$1.35B; FinCEN/OFAC components (with offsets against DOJ). CZ personally pleaded guilty 21 Nov 2023 to BSA violation, paid $50M personal fine; sentenced 30 Apr 2024 to 4 months prison.",
+      "summary": "On 21 November 2023 the DOJ, CFTC, FinCEN, and OFAC simultaneously announced the largest crypto enforcement action to date: Binance Holdings pleaded guilty to operating an unlicensed money transmitter, conspiracy to violate the Bank Secrecy Act, and conspiracy to violate sanctions law (transactions for users in Iran, Cuba, Syria, North Korea, and Crimea). Combined federal penalties totalled ~$4.316B. Binance accepted a five-year DOJ monitorship and committed to a full exit from US users. Founder Changpeng Zhao (CZ) personally pleaded guilty to a BSA violation, paid a $50M personal fine, stepped down as CEO, and on 30 April 2024 was sentenced to four months in federal prison — substantially below Guidelines, reflecting cooperation. This action did not address Binance's separate SEC unregistered-securities case (dismissed 2025) but established BSA/AML/sanctions compliance as the dominant US theory against global crypto exchanges.",
+      "rwa_relevant": true,
+      "asset_classes": [
+        "stablecoin",
+        "crypto_native"
+      ],
+      "rarm_layers": [
+        "custody",
+        "jurisdiction"
+      ],
+      "sarm_blocks": [
+        "legal",
+        "regulatory"
+      ],
+      "lessons": [
+        "BSA/AML/sanctions compliance is the binding US theory against global exchange infrastructure, independent of securities-law characterisation — critical for any RWA settlement infrastructure that bridges US and sanctioned jurisdictions.",
+        "Five-year DOJ monitorship is structurally more consequential than the $4.3B headline: it embeds federal oversight inside the exchange's operations and shapes RWA-relevant custody and settlement architecture across that horizon.",
+        "Founder accountability via BSA: CZ's 4-month sentence (below Guidelines) signals that exchange founders who cooperate face short custodial sentences for AML failures — distinct from the multi-year sentences for fraud (Mashinsky 12y, SBF 25y)."
+      ],
+      "related_incident_slugs": [],
+      "related_issuer_slugs": [],
+      "status": "settled",
+      "sources": [
+        {
+          "label": "DOJ press release",
+          "url": "https://www.justice.gov/opa/pr/binance-and-ceo-plead-guilty-federal-charges-4b-resolution"
+        },
+        {
+          "label": "CFTC press release",
+          "url": "https://www.cftc.gov/PressRoom/PressReleases/8825-23"
+        },
+        {
+          "label": "Treasury / OFAC announcement",
+          "url": "https://home.treasury.gov/news/press-releases/jy1925"
+        }
+      ]
+    },
+    {
+      "slug": "doj-sbf-ftx-2023-conviction",
+      "action_date": "2023-11-02",
+      "regulator": "DOJ",
+      "jurisdiction": "US",
+      "target_entity": "Samuel Bankman-Fried (FTX Trading Ltd / Alameda Research)",
+      "target_type": "individual",
+      "action_type": "conviction",
+      "penalty_usd": 11020000000,
+      "penalty_note": "SDNY jury convicted on all seven counts (wire fraud, conspiracy to commit wire fraud, conspiracy to commit securities/commodities fraud, conspiracy to commit money laundering) 2 Nov 2023. Sentenced 28 Mar 2024 to 25 years prison + ~$11.02B forfeiture. Co-conspirators Caroline Ellison, Gary Wang, Nishad Singh, Ryan Salame all pleaded guilty separately (Ellison 24mo, Salame 7.5yr). Parallel SEC + CFTC civil actions resolved through bankruptcy.",
+      "summary": "Following the November 2022 collapse of FTX Trading Ltd, on 2 November 2023 an SDNY jury convicted founder Samuel Bankman-Fried on all seven criminal counts including wire fraud against FTX customers, FTX investors, and Alameda Research lenders; conspiracy to commit money laundering; and conspiracy to commit securities and commodities fraud. Evidence centred on the secret use of FTX customer deposits as a slush fund for Alameda's trading and venture investments. On 28 March 2024 Judge Lewis Kaplan sentenced Bankman-Fried to 25 years in federal prison plus an $11.02B forfeiture — the longest crypto-related criminal sentence to date. Co-conspirators Ellison (Alameda CEO), Wang (FTX CTO), Singh (FTX Director of Engineering), and Salame (FTX Digital Markets Bahamas) all pleaded guilty and cooperated; Ellison received 24 months, Salame 7.5 years. The case is the modern reference precedent for crypto-exchange customer-asset misappropriation and reshaped US and Bahamian regulatory posture toward exchange custody segregation.",
+      "rwa_relevant": true,
+      "asset_classes": [
+        "crypto_native",
+        "stablecoin"
+      ],
+      "rarm_layers": [
+        "custody",
+        "audit",
+        "jurisdiction"
+      ],
+      "sarm_blocks": [
+        "legal",
+        "governance"
+      ],
+      "lessons": [
+        "Customer-asset commingling — using customer deposits as a corporate slush fund — is the most prosecutable failure mode for any custodial RWA platform; SBF's 25-year sentence is the benchmark, far above any tokenisation-related civil penalty.",
+        "Proof-of-reserves was the missing structural primitive: any RWA tokenisation platform with custody responsibilities must publish reserve attestations that materially exceed what FTX represented internally versus externally.",
+        "Co-conspirator cooperation pricing: Ellison/Wang/Singh/Salame guilty pleas yielded sentences 2–10 years, vs SBF's 25 years for taking trial — a clear DOJ incentive structure shaping how future crypto-fraud cases will resolve."
+      ],
+      "related_incident_slugs": [],
+      "related_issuer_slugs": [],
+      "status": "closed",
+      "sources": [
+        {
+          "label": "DOJ press release (sentencing, 28 Mar 2024)",
+          "url": "https://www.justice.gov/usao-sdny/pr/samuel-bankman-fried-sentenced-25-years-his-orchestration-multiple-fraudulent-schemes"
+        },
+        {
+          "label": "DOJ press release (conviction, 2 Nov 2023)",
+          "url": "https://www.justice.gov/usao-sdny/pr/samuel-bankman-fried-found-guilty-all-seven-counts"
+        }
+      ]
+    },
+    {
+      "slug": "sfc-hounax-2023-11",
+      "action_date": "2023-11-01",
+      "regulator": "SFC",
+      "jurisdiction": "HK",
+      "target_entity": "Hounax (unlicensed virtual asset trading platform, HK-targeted)",
+      "target_type": "exchange",
+      "action_type": "order",
+      "penalty_usd": 0,
+      "penalty_note": "No SFC monetary penalty. HK Police Commercial Crime Bureau received 131 victim reports of losses totalling HK$120M (~US$15.4M). At SFC's request, HK Police blocked Hounax websites and removed social media pages. As of June 2026, no arrests have been publicly confirmed.",
+      "summary": "On 1 November 2023, the SFC added Hounax to its Suspicious Virtual Asset Trading Platforms list after the platform made false claims about business partnerships with named financial institutions and venture capital firms. By late November 2023, 131 victims had reported losses totalling HK$120 million (approximately US$15.4 million) to HK Police's Commercial Crime Bureau; investors described being lured via social media and WhatsApp group chats promoting investment hot tips, before finding themselves unable to withdraw assets. At the SFC's request, HK Police blocked access to Hounax's websites and social media pages. As of June 2026, no arrests have been publicly confirmed. Hounax represents the second major HK crypto fraud alert issued within two months of the JPEX collapse (September 2023), exploiting investor confidence during the gap period before the June 2024 mandatory VATP licensing deadline. The case contributed to accelerating SFC enforcement posture on unlicensed VATP operations and to the HK Legislative Council's push for tighter platform accountability rules.",
+      "rwa_relevant": true,
+      "asset_classes": [
+        "crypto_native"
+      ],
+      "status": "ongoing",
+      "sources": [
+        {
+          "label": "SFC Suspicious VATP alert — Hounax (1 Nov 2023)",
+          "url": "https://www.sfc.hk/en/alert-list/2957"
+        },
+        {
+          "label": "SCMP: HK Police vow arrests after Hounax fraud (Nov 2023)",
+          "url": "https://www.scmp.com/news/hong-kong/law-and-crime/article/3242822/hong-kong-police-vow-make-arrests-after-hounax-virtual-asset-trading-platform-allegedly-tricks-131"
+        }
+      ],
+      "rarm_layers": [
+        "custody",
+        "jurisdiction"
+      ],
+      "sarm_blocks": [],
+      "lessons": [
+        "The JPEX collapse (September 2023) created an investor-confidence vacuum that fraudulent platforms like Hounax exploited within weeks; the SFC alert-list mechanism combined with police website-blocking is the primary first-response tool against unlicensed platforms without a clear HK nexus for formal VATP proceedings.",
+        "Hounax underscores the HK enforcement gap pre-June 2024: the non-contravention period allowed unlicensed platforms to operate and defraud investors before the mandatory VATP licensing deadline took effect, concentrating fraud risk precisely during the regulatory transition window.",
+        "Post-JPEX, the HK enforcement pattern is consistent — SFC public alert → police investigation → website block → prolonged criminal proceedings; RWA tokenisation platforms must distinguish this ex-post consumer-protection track from the ex-ante SFC VATP licensing regime, which provides no retrospective protection to defrauded investors of unlicensed platforms."
       ],
       "related_incident_slugs": [],
       "related_issuer_slugs": []
@@ -358,45 +775,48 @@
       ]
     },
     {
-      "slug": "sec-blockfi-2022-02",
-      "action_date": "2022-02-14",
-      "regulator": "SEC",
+      "slug": "ftc-voyager-ehrlich-2023-10",
+      "action_date": "2023-10-12",
+      "regulator": "FTC",
       "jurisdiction": "US",
-      "target_entity": "BlockFi Lending LLC",
+      "target_entity": "Voyager Digital LLC and Stephen Ehrlich",
       "target_type": "lending_platform",
       "action_type": "settlement",
-      "penalty_usd": 100000000,
-      "penalty_note": "$50M to SEC + parallel $50M to 32 state securities regulators coordinated via NASAA. First-of-its-kind action framing a retail crypto interest-bearing account as an unregistered security.",
-      "summary": "On 14 February 2022 the SEC settled charges against BlockFi Lending LLC over its BlockFi Interest Accounts (BIAs), finding that the BIAs were unregistered securities under the Securities Act of 1933 and that BlockFi itself failed to register as an investment company under the Investment Company Act of 1940. The SEC further found BlockFi had made misleading statements about the risk profile of its loan portfolio. BlockFi paid a $50M SEC civil penalty plus a parallel $50M to 32 state regulators (NASAA-coordinated) and committed to bring its products into compliance within 60 days. This was the first SEC enforcement to treat a retail crypto interest account as a security and remains the canonical precedent applied to subsequent yield-product cases (Genesis/Gemini Earn, Celsius, Voyager) and — by direct analogy — to RWA-tokenised yield distribution products.",
+      "penalty_usd": 1650000000,
+      "penalty_note": "FTC $1.65B judgment against Voyager corporate entities (suspended for bankruptcy distribution) + permanent ban on marketing or handling crypto consumer products. CFTC filed parallel fraud + registration failure charges against Ehrlich. Ehrlich personal FTC settlement finalised June 2025: $2.8M payment + lifetime crypto consumer-business ban (Ehrlich + spouse Francine Ehrlich as relief defendant).",
+      "summary": "On 12 October 2023 the FTC announced a settlement with Voyager Digital LLC and parallel charges against former CEO Stephen Ehrlich for falsely marketing customer accounts as FDIC-insured. The FTC complaint alleged that from 2018 through Voyager's July 2022 Chapter 11 bankruptcy, Voyager promised customer deposits — including conversions to USDC stablecoin — were 'as safe as at a bank' and 'FDIC INSURED', when in fact most funds were not FDIC-insured and customers lost over $1B when Voyager collapsed. The FTC entered a $1.65B judgment against the corporate defendants (suspended pending bankruptcy distribution) plus a permanent ban on marketing or handling crypto consumer products; the CFTC filed parallel fraud charges against Ehrlich. Ehrlich personally settled with the FTC in June 2025 for $2.8M plus a lifetime ban on crypto-related consumer business.",
       "rwa_relevant": true,
       "asset_classes": [
-        "crypto_lending",
-        "yield_product"
+        "stablecoin",
+        "crypto_lending"
       ],
       "rarm_layers": [
+        "custody",
         "issuer"
       ],
-      "sarm_blocks": [],
+      "sarm_blocks": [
+        "legal"
+      ],
       "lessons": [
-        "Howey test applies to crypto yield programs regardless of \"lending\" or \"interest account\" branding — what matters is whether returns depend on the platform's managerial efforts, not the product name.",
-        "BlockFi precedent now actively framed against RWA-tokenised yield distribution: any RWA platform that pools investor capital and promises returns from issuer-managed allocation faces the same securities-law theory.",
-        "Parallel federal + multi-state enforcement via NASAA doubled the effective penalty and signalled that state securities regulators will pursue crypto issuers independently of SEC timing."
+        "False FDIC-insurance claims on stablecoin and crypto-deposit products are FTC-actionable consumer deception independent of any securities-law theory — directly applicable to any RWA platform marketing USD-equivalence to retail users.",
+        "Voyager expands the regulator stack on yield platforms: FTC (consumer protection) joined SEC/CFTC/DOJ as a credible primary venue, with the $1.65B headline exceeding most SEC penalties.",
+        "Permanent industry ban as remedy: the FTC's permanent prohibition on both the corporate defendants and Ehrlich establishes a structural exit from the crypto consumer market that no civil monetary penalty alone achieves."
       ],
       "related_incident_slugs": [],
       "related_issuer_slugs": [],
       "status": "settled",
       "sources": [
         {
-          "label": "SEC Press Release",
-          "url": "https://www.sec.gov/newsroom/press-releases/2022-26"
+          "label": "FTC press release (Oct 2023 settlement)",
+          "url": "https://www.ftc.gov/news-events/news/press-releases/2023/10/ftc-reaches-settlement-crypto-company-voyager-digital-charges-former-executive-falsely-claiming"
         },
         {
-          "label": "SEC Order (33-11029)",
-          "url": "https://www.sec.gov/litigation/admin/2022/33-11029.pdf"
+          "label": "FTC case reference (node/88539)",
+          "url": "https://www.ftc.gov/node/88539"
         },
         {
-          "label": "NASAA Statement",
-          "url": "https://www.nasaa.org/62000/nasaa-and-sec-announce-100-million-settlement-with-blockfi-lending-llc/"
+          "label": "FTC press release (Ehrlich individual settlement, Jun 2025)",
+          "url": "https://www.ftc.gov/news-events/news/press-releases/2025/06/former-ceo-voyager-digital-agrees-ban-28-million-payment-resolve-ftc-charges"
         }
       ]
     },
@@ -444,16 +864,49 @@
       ]
     },
     {
-      "slug": "sfc-hounax-2023-11",
-      "action_date": "2023-11-01",
-      "regulator": "SFC",
-      "jurisdiction": "HK",
-      "target_entity": "Hounax (unlicensed virtual asset trading platform, HK-targeted)",
-      "target_type": "exchange",
-      "action_type": "order",
+      "slug": "mas-three-arrows-capital-2023",
+      "action_date": "2023-09-13",
+      "regulator": "MAS",
+      "jurisdiction": "SG",
+      "target_entity": "Three Arrows Capital",
+      "target_type": "fund",
+      "action_type": "ban",
       "penalty_usd": 0,
-      "penalty_note": "No SFC monetary penalty. HK Police Commercial Crime Bureau received 131 victim reports of losses totalling HK$120M (~US$15.4M). At SFC's request, HK Police blocked Hounax websites and removed social media pages. As of June 2026, no arrests have been publicly confirmed.",
-      "summary": "On 1 November 2023, the SFC added Hounax to its Suspicious Virtual Asset Trading Platforms list after the platform made false claims about business partnerships with named financial institutions and venture capital firms. By late November 2023, 131 victims had reported losses totalling HK$120 million (approximately US$15.4 million) to HK Police's Commercial Crime Bureau; investors described being lured via social media and WhatsApp group chats promoting investment hot tips, before finding themselves unable to withdraw assets. At the SFC's request, HK Police blocked access to Hounax's websites and social media pages. As of June 2026, no arrests have been publicly confirmed. Hounax represents the second major HK crypto fraud alert issued within two months of the JPEX collapse (September 2023), exploiting investor confidence during the gap period before the June 2024 mandatory VATP licensing deadline. The case contributed to accelerating SFC enforcement posture on unlicensed VATP operations and to the HK Legislative Council's push for tighter platform accountability rules.",
+      "penalty_note": "9-year ban on directors from MAS-regulated activities",
+      "summary": "On 13 September 2023, MAS reprimanded Three Arrows Capital (3AC) Pte Ltd and issued nine-year prohibition orders barring co-founders Zhu Su and Kyle Davies from carrying out regulated activities under Singapore law. MAS found that 3AC — registered as a fund management company — had managed assets exceeding the S$250 million AUM threshold applicable to registered managers without upgrading to a Capital Markets Services licence, and had provided materially false information to MAS regarding its AUM. 3AC collapsed in June 2022 after suffering heavy losses on Terra/Luna and other leveraged positions, with estimated liabilities exceeding USD 3 billion at the time of insolvency; Singapore courts appointed liquidators, with parallel proceedings in the British Virgin Islands. The co-founders departed Singapore prior to the collapse and have not submitted to local jurisdiction. This entry covers the September 2023 MAS regulatory findings against the corporate entity and its founders.",
+      "rwa_relevant": false,
+      "asset_classes": [
+        "other"
+      ],
+      "status": "closed",
+      "sources": [
+        {
+          "label": "MAS Press Release",
+          "url": "https://www.mas.gov.sg/news/media-releases/2023/mas-reprimands-three-arrows-capital"
+        }
+      ],
+      "rarm_layers": [],
+      "sarm_blocks": [
+        "legal"
+      ],
+      "lessons": [
+        "MAS escalation pattern: reprimand followed by 9-year prohibition orders on founders — personal accountability survives corporate insolvency.",
+        "3AC 2022 collapse triggered contagion across stablecoin/lending sector (BlockFi, Celsius, Voyager); non-RWA event with system-wide RWA-adjacent impact."
+      ],
+      "related_incident_slugs": [],
+      "related_issuer_slugs": []
+    },
+    {
+      "slug": "doj-tornado-cash-devs-2023",
+      "action_date": "2023-08-23",
+      "regulator": "DOJ",
+      "jurisdiction": "US",
+      "target_entity": "Roman Storm; Roman Semenov",
+      "target_type": "individual",
+      "action_type": "charges",
+      "penalty_usd": 0,
+      "penalty_note": "No monetary penalty at indictment. August 2025 trial result: Storm convicted on Count 3 (conspiracy to operate an unlicensed money transmitting business, 18 U.S.C. § 1960, max 5 years); sentencing pending retrial outcome. Jury deadlocked on Count 1 (conspiracy to commit money laundering, 18 U.S.C. § 1956, max 20 years) and Count 2 (conspiracy to violate IEEPA/sanctions, 50 U.S.C. § 1705, max 20 years). DOJ filed for retrial on Counts 1–2 on 9 March 2026, proposing October 5 or 12, 2026. Roman Semenov remains a fugitive and individually listed on OFAC's SDN list as of June 2026. See related entries: ofac-tornado-cash-sanctions-2022 and van-loon-v-treasury-tornado-cash-2024.",
+      "summary": "On 23 August 2023, the DOJ's SDNY office unsealed a federal indictment charging Tornado Cash co-founders Roman Storm (34, Auburn, Washington) and Roman Semenov (35, Russian national) on three counts: conspiracy to commit money laundering (max 20 years), conspiracy to violate IEEPA via sanctions evasion (max 20 years), and — for Storm only — conspiracy to operate an unlicensed money transmitting business (max 5 years). Prosecutors alleged the defendants knowingly laundered over $1 billion in criminal proceeds, including Lazarus Group funds, while making false public representations of sanctions compliance. OFAC concurrently added Semenov individually to its SDN list; he remains at large. Storm stood trial in July–August 2025 before Judge Polk Failla (SDNY). The jury convicted Storm on Count 3 (unlicensed money transmitting) but deadlocked on the money laundering and sanctions conspiracy counts. DOJ filed for retrial on the deadlocked counts on 9 March 2026, proposing an October 2026 start date. The case is the lead US prosecution testing criminal developer liability for open-source privacy-enhancing DeFi infrastructure.",
       "rwa_relevant": true,
       "asset_classes": [
         "crypto_native"
@@ -461,26 +914,273 @@
       "status": "ongoing",
       "sources": [
         {
-          "label": "SFC Suspicious VATP alert — Hounax (1 Nov 2023)",
-          "url": "https://www.sfc.hk/en/alert-list/2957"
+          "label": "DOJ SDNY press release — Tornado Cash founders indicted (23 Aug 2023)",
+          "url": "https://www.justice.gov/usao-sdny/pr/tornado-cash-founders-charged-money-laundering-and-sanctions-violations"
         },
         {
-          "label": "SCMP: HK Police vow arrests after Hounax fraud (Nov 2023)",
-          "url": "https://www.scmp.com/news/hong-kong/law-and-crime/article/3242822/hong-kong-police-vow-make-arrests-after-hounax-virtual-asset-trading-platform-allegedly-tricks-131"
+          "label": "IRS Criminal Investigation — Storm convicted on Count 3 (Aug 2025)",
+          "url": "https://www.irs.gov/compliance/criminal-investigation/founder-of-tornado-cash-crypto-mixing-service-convicted-of-knowingly-transmitting-criminal-proceeds"
+        },
+        {
+          "label": "CoinDesk — DOJ requests October 2026 retrial for Roman Storm (10 Mar 2026)",
+          "url": "https://www.coindesk.com/business/2026/03/10/u-s-requests-october-retrial-for-tornado-cash-developer-roman-storm"
         }
       ],
       "rarm_layers": [
-        "custody",
         "jurisdiction"
       ],
       "sarm_blocks": [],
       "lessons": [
-        "The JPEX collapse (September 2023) created an investor-confidence vacuum that fraudulent platforms like Hounax exploited within weeks; the SFC alert-list mechanism combined with police website-blocking is the primary first-response tool against unlicensed platforms without a clear HK nexus for formal VATP proceedings.",
-        "Hounax underscores the HK enforcement gap pre-June 2024: the non-contravention period allowed unlicensed platforms to operate and defraud investors before the mandatory VATP licensing deadline took effect, concentrating fraud risk precisely during the regulatory transition window.",
-        "Post-JPEX, the HK enforcement pattern is consistent — SFC public alert → police investigation → website block → prolonged criminal proceedings; RWA tokenisation platforms must distinguish this ex-post consumer-protection track from the ex-ante SFC VATP licensing regime, which provides no retrospective protection to defrauded investors of unlicensed platforms."
+        "The jury's conviction on the unlicensed money transmitting count (Count 3) but deadlock on money laundering (Count 1) signals that courts apply significantly higher scrutiny to the mens rea element of money laundering when the defendant is a protocol developer rather than a direct participant in criminal transactions — a key risk variable for RWA infrastructure teams deploying programmable settlement rails.",
+        "Vacatur of the parallel OFAC smart-contract sanction (Van Loon, Nov 2024) provided no protection to individual developers: the criminal prosecution rests on personal intent-based theories entirely independent of the IEEPA property-law analysis rejected by the Fifth Circuit.",
+        "Semenov's individual SDN listing — unlike the protocol-level smart contract designations — was not disturbed by the Fifth Circuit ruling, confirming OFAC retains authority to designate identifiable human actors in DeFi networks regardless of whether the underlying protocol code is legally sanctionable."
       ],
       "related_incident_slugs": [],
       "related_issuer_slugs": []
+    },
+    {
+      "slug": "sec-celsius-mashinsky-2023-07",
+      "action_date": "2023-07-13",
+      "regulator": "SEC",
+      "jurisdiction": "US",
+      "target_entity": "Celsius Network LLC and Alex Mashinsky",
+      "target_type": "lending_platform",
+      "action_type": "charges",
+      "penalty_usd": 4700000000,
+      "penalty_note": "Four-regulator simultaneous action 13 Jul 2023: FTC $4.7B settlement (judgment suspended for bankruptcy distribution) + permanent ban on handling consumer assets; SEC + CFTC civil charges; DOJ criminal charges. Mashinsky pleaded guilty 3 Dec 2024 (commodities fraud + scheme to manipulate CEL token); sentenced 8 May 2025 by Judge Koeltl (SDNY) to 12 years prison + $48.4M forfeiture.",
+      "summary": "On 13 July 2023 the SEC, CFTC, FTC, and DOJ simultaneously announced parallel actions against Celsius Network and its founder/CEO Alex Mashinsky. The FTC reached a $4.7B settlement (suspended for bankruptcy distribution) plus a permanent ban on Celsius handling consumer assets; SEC and CFTC alleged securities and commodities fraud; DOJ filed criminal charges including securities fraud, commodities fraud, and wire fraud. Prosecutors argued Mashinsky misled investors about the safety and profitability of Celsius's yield-generating platform, used customer deposits to manipulate the CEL token price, and personally extracted ~$48M while ~$20B in customer deposits were locked. Mashinsky pleaded guilty 3 Dec 2024 to commodities fraud and CEL token manipulation, and on 8 May 2025 was sentenced to 12 years in federal prison plus $48.4M forfeiture — among the longest crypto-related criminal sentences alongside SBF.",
+      "rwa_relevant": true,
+      "asset_classes": [
+        "crypto_lending",
+        "yield_product"
+      ],
+      "rarm_layers": [
+        "issuer",
+        "redemption"
+      ],
+      "sarm_blocks": [],
+      "lessons": [
+        "Four-regulator stacking (SEC + CFTC + FTC + DOJ) on a single yield product produced the largest civil penalty in FTC crypto history plus a 12-year criminal sentence — full-spectrum enforcement geometry that any RWA yield platform must internalise.",
+        "Personal accountability extends beyond corporate veil: Mashinsky's 12-year sentence and $48.4M forfeiture track tightly with token-price manipulation evidence, even when the corporate entity is in bankruptcy.",
+        "Token-price manipulation by an issuer is criminally prosecutable as commodities fraud (CFTC + DOJ) independently of any securities characterisation — broadens the prosecutable surface area significantly."
+      ],
+      "related_incident_slugs": [],
+      "related_issuer_slugs": [],
+      "status": "settled",
+      "sources": [
+        {
+          "label": "SEC press release",
+          "url": "https://www.sec.gov/news/press-release/2023-126"
+        },
+        {
+          "label": "FTC press release",
+          "url": "https://www.ftc.gov/news-events/news/press-releases/2023/07/ftc-takes-action-against-cryptocurrency-platform-celsius-and-former-executives"
+        },
+        {
+          "label": "DOJ press release",
+          "url": "https://www.justice.gov/usao-sdny/pr/founder-and-former-chief-executive-officer-celsius-network-charged-multibillion-dollar"
+        }
+      ]
+    },
+    {
+      "slug": "cftc-ooki-dao-default-judgment-2023",
+      "action_date": "2023-06-08",
+      "regulator": "CFTC",
+      "jurisdiction": "US",
+      "target_entity": "Ooki DAO (formerly bZeroX / bZx Protocol)",
+      "target_type": "dao",
+      "action_type": "order",
+      "penalty_usd": 643542,
+      "penalty_note": "Default judgment also imposed permanent trading and registration bans and ordered protocol website shutdown and content removal. bZeroX LLC co-founders Tom Bean and Kyle Kistner settled separately for USD 250,000 on 22 September 2022 (concurrent CFTC order).",
+      "summary": "On 22 September 2022 the CFTC simultaneously settled with bZeroX LLC co-founders Tom Bean and Kyle Kistner for USD 250,000 and filed civil charges against Ooki DAO — the governance successor formed after bZeroX transferred protocol control to BZRX token holders, explicitly marketing the transfer as a mechanism to evade regulatory enforcement. On 8 June 2023, U.S. District Judge William H. Orrick (N.D. Cal.) entered a default judgment against Ooki DAO, imposing USD 643,542 in civil monetary penalties together with permanent trading and registration bans and an order to shut down all protocol-operated web infrastructure. The court held that Ooki DAO qualifies as an 'unincorporated association' under California law and a 'person' under the Commodity Exchange Act, establishing the first federal precedent that a decentralised token-holder governance collective does not confer immunity from regulatory jurisdiction. Underlying charges covered illegal off-exchange leveraged retail commodity transactions, operation as an unregistered Futures Commission Merchant, and failure to implement Bank Secrecy Act customer identification programs.",
+      "rwa_relevant": true,
+      "asset_classes": [
+        "crypto_native"
+      ],
+      "rarm_layers": [
+        "jurisdiction"
+      ],
+      "sarm_blocks": [
+        "governance",
+        "legal"
+      ],
+      "lessons": [
+        "DAO governance structures do not confer regulatory immunity: Judge Orrick's unincorporated-association holding establishes that CFTC jurisdiction attaches to token-holder collectives as legal persons — the premise that protocol governance can be made 'enforcement-proof' via decentralisation is legally invalid under U.S. federal commodity law.",
+        "Founders retain liability after governance transfer: Bean and Kistner settled personally at the same moment the DAO was charged, demonstrating that handing off protocol control does not extinguish personal exposure for conduct that occurred during the prior operating phase.",
+        "Absence of a coordinated legal-defence mechanism is itself a material governance deficiency: Ooki DAO had no legal entity, no counsel, and no mechanism to respond to litigation — resulting in default judgment that established binding precedent with no adversarial challenge to the DAO's own interests."
+      ],
+      "related_incident_slugs": [],
+      "related_issuer_slugs": [],
+      "status": "closed",
+      "sources": [
+        {
+          "label": "CFTC Press Release 8590-22 — bZeroX/Ooki DAO charges (22 Sep 2022)",
+          "url": "https://www.cftc.gov/PressRoom/PressReleases/8590-22"
+        },
+        {
+          "label": "CFTC Press Release 8715-23 — Default judgment statement (9 Jun 2023)",
+          "url": "https://www.cftc.gov/PressRoom/PressReleases/8715-23"
+        }
+      ]
+    },
+    {
+      "slug": "sec-coinbase-2023-charges",
+      "action_date": "2023-06-06",
+      "regulator": "SEC",
+      "jurisdiction": "US",
+      "target_entity": "Coinbase Inc. and Coinbase Global Inc.",
+      "target_type": "exchange",
+      "action_type": "charges",
+      "penalty_usd": 0,
+      "penalty_note": "SEC voluntarily dismissed the case 27 Feb 2025 without monetary penalty.",
+      "summary": "On 6 June 2023 — one day after the Binance complaint — the SEC sued Coinbase Inc. and Coinbase Global Inc. in SDNY alleging Coinbase operated as an unregistered national securities exchange, broker, and clearing agency, and that its staking-as-a-service programme was an unregistered securities offering. The complaint named tokens including SOL, ADA, MATIC, FIL, SAND, AXS, CHZ, FLOW, ICP, NEAR, VGX, DASH, and NEXO as unregistered securities. In March 2024 Judge Failla refused to dismiss most claims, validating the SEC's 'investment contract' application to secondary-market tokens — a significant intermediate doctrinal ruling. On 27 February 2025 the SEC under post-Gensler leadership voluntarily dismissed the case in full. The dismissal — preceding the Binance dismissal by three months — was the first major institutional signal of the SEC's withdrawal from exchange-level securities enforcement.",
+      "rwa_relevant": true,
+      "asset_classes": [
+        "crypto_native",
+        "staking_service"
+      ],
+      "rarm_layers": [],
+      "sarm_blocks": [
+        "legal",
+        "regulatory"
+      ],
+      "lessons": [
+        "Staking-as-a-service was framed under the same Howey theory as BlockFi yield products, treating user-pooled staking rewards as managed-return securities — the theory survived motion-to-dismiss (Mar 2024) before SEC voluntarily abandoned the case (Feb 2025).",
+        "The Coinbase ruling preserving most SEC claims (Mar 2024) is the SEC's strongest doctrinal win on the exchange theory; abandoning it in Feb 2025 leaves the doctrine alive in case law without operational enforcement — complex precedent for RWA platforms to navigate.",
+        "Dismissal sequencing (Coinbase Feb 2025 → Binance May 2025) signalled deliberate policy retreat rather than case-specific weakness; RWA platforms with secondary-market tokenised-asset trading should track which doctrinal theories the SEC retains versus abandons."
+      ],
+      "related_incident_slugs": [],
+      "related_issuer_slugs": [],
+      "status": "dismissed",
+      "sources": [
+        {
+          "label": "SEC press release",
+          "url": "https://www.sec.gov/news/press-release/2023-102"
+        },
+        {
+          "label": "SEC complaint",
+          "url": "https://www.sec.gov/files/litigation/complaints/2023/comp-pr2023-102.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "sec-binance-2023-charges",
+      "action_date": "2023-06-05",
+      "regulator": "SEC",
+      "jurisdiction": "US",
+      "target_entity": "Binance Holdings Ltd, BAM Trading Services (Binance.US), and Changpeng Zhao",
+      "target_type": "exchange",
+      "action_type": "charges",
+      "penalty_usd": 0,
+      "penalty_note": "SEC voluntarily dismissed the case 29 May 2025 without monetary penalty. Distinct from the $4.316B DOJ/CFTC/Treasury settlement of November 2023, which remains in force.",
+      "summary": "On 5 June 2023 the SEC filed 13 charges against Binance Holdings, BAM Trading Services (Binance.US operator), and Changpeng Zhao alleging operation of an unregistered exchange, broker, and clearing agency; unregistered offer and sale of securities including BNB and BUSD; and misrepresentation of trading controls. The complaint named twelve tokens as unregistered securities (BNB, BUSD, SOL, ADA, MATIC, FIL, ATOM, SAND, MANA, ALGO, AXS, COTI), extending prior token-by-token enforcement to a wholesale-exchange theory. In June 2024 Judge Berman Jackson (DDC) dismissed certain BUSD-related claims relying on the Ripple programmatic-sale ruling. On 29 May 2025 the SEC under post-Gensler leadership voluntarily dismissed the case in full without prejudice and without monetary penalty. Together with the parallel Coinbase dismissal Feb 2025, marks the receding of exchange-level securities enforcement as the primary US theory against crypto market infrastructure.",
+      "rwa_relevant": true,
+      "asset_classes": [
+        "stablecoin",
+        "crypto_native"
+      ],
+      "rarm_layers": [],
+      "sarm_blocks": [
+        "legal",
+        "regulatory"
+      ],
+      "lessons": [
+        "The SEC's exchange-level securities theory was abandoned in 2025 without a single binding settlement against a major exchange — the dismissals (Coinbase Feb 2025, Binance May 2025, Robinhood 2025) collectively are a major precedent against the SEC's wholesale-exchange framing.",
+        "Court dismissals of BUSD claims (Jun 2024) extending the Ripple programmatic-sale doctrine narrowed the securities-law surface for stablecoin secondary-market trading — directly relevant to any tokenised-security platform's secondary-market design.",
+        "Voluntary dismissal without prejudice leaves a future SEC the technical option to refile — RWA platforms should not treat the 2025 retreat as a permanent safe harbour."
+      ],
+      "related_incident_slugs": [],
+      "related_issuer_slugs": [],
+      "status": "dismissed",
+      "sources": [
+        {
+          "label": "SEC press release",
+          "url": "https://www.sec.gov/news/press-release/2023-101"
+        },
+        {
+          "label": "SEC complaint",
+          "url": "https://www.sec.gov/files/litigation/complaints/2023/comp-pr2023-101.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "sec-tron-justin-sun-2023",
+      "action_date": "2023-03-22",
+      "regulator": "SEC",
+      "jurisdiction": "US",
+      "target_entity": "Tron Foundation / BitTorrent Foundation / Rainberry Inc. / Justin Sun",
+      "target_type": "individual",
+      "action_type": "settlement",
+      "penalty_usd": 10000000,
+      "penalty_note": "$10M civil penalty (Rainberry Inc. only, March 2026). Claims against Justin Sun, Tron Foundation Ltd., and BitTorrent Foundation Ltd. dismissed with prejudice; public terms for those parties not disclosed. 8 celebrity co-defendants settled separately.",
+      "summary": "On 22 March 2023 the SEC filed suit in SDNY (No. 1:23-cv-02433-ER) against Tron Foundation Limited, BitTorrent Foundation Ltd., Rainberry Inc., and founder Justin Sun, alleging that TRX and BTT tokens were sold as unregistered securities generating over $31.9M in illegal proceeds. The complaint also charged systematic wash trading — 609,790 confirmed trades averaging 2,449 daily through Sun-controlled nominee accounts — and coordinated secondary-market manipulation. Eight US celebrities were charged separately for undisclosed promotional payments: Lindsay Lohan, Jake Paul, Soulja Boy, Austin Mahone, Lil Yachty, Ne-Yo, Akon, and Kendra Lust. On 5 March 2026, the action resolved: claims against Sun, Tron Foundation, and BitTorrent Foundation were dismissed with prejudice; Rainberry Inc. agreed to pay a $10M civil penalty and accepted an injunction against future securities violations. Settlement terms for Sun and the foundations were not publicly disclosed.",
+      "rwa_relevant": true,
+      "asset_classes": [
+        "tokenised_securities"
+      ],
+      "rarm_layers": [
+        "issuer",
+        "jurisdiction"
+      ],
+      "sarm_blocks": [
+        "regulatory",
+        "governance"
+      ],
+      "lessons": [
+        "Token distributions that fund issuer operations satisfy Howey even where tokens have concurrent blockchain utility — TRX/BTT held as securities despite Tron's live mainnet.",
+        "Undisclosed celebrity promotions for crypto tokens constitute unregistered touting under securities law; eight separate charges illustrate the breadth of liability.",
+        "Wash trading through nominee accounts exposes both issuer entities and their founders to parallel securities fraud and market manipulation charges."
+      ],
+      "related_incident_slugs": [],
+      "related_issuer_slugs": [],
+      "status": "settled",
+      "sources": [
+        {
+          "label": "SEC press release (2023-03-22)",
+          "url": "https://www.sec.gov/news/press-release/2023-59"
+        },
+        {
+          "label": "SEC complaint PDF",
+          "url": "https://www.sec.gov/litigation/complaints/2023/comp-pr2023-59.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "nydfs-paxos-busd-2023",
+      "action_date": "2023-02-13",
+      "regulator": "NYDFS",
+      "jurisdiction": "US",
+      "target_entity": "Paxos Trust Company",
+      "target_type": "stablecoin_issuer",
+      "action_type": "order",
+      "penalty_usd": 0,
+      "penalty_note": "No monetary penalty; NYDFS ordered halt to BUSD issuance",
+      "summary": "On 13 February 2023, NYDFS issued a directive ordering Paxos Trust Company to cease minting new Binance USD (BUSD) tokens. At the time, BUSD was the third-largest stablecoin with approximately $16 billion in circulation. BUSD operated under a co-branding arrangement: Paxos issued and held reserves for the tokens while Binance distributed them under its brand. NYDFS cited unresolved supervisory concerns about Paxos's oversight of the Binance relationship — the regulator explicitly affirmed that BUSD reserves were fully backed and that the order was not about reserve adequacy. Paxos continued to honour redemptions on all outstanding BUSD under its New York trust charter. By early 2024, BUSD supply had declined to near zero as holders redeemed. No monetary penalty was imposed on Paxos. The action demonstrated that NYDFS can effectively wind down a multi-billion-dollar stablecoin through a minting halt alone.",
+      "rwa_relevant": true,
+      "asset_classes": [
+        "stablecoin"
+      ],
+      "status": "closed",
+      "sources": [
+        {
+          "label": "NYDFS Statement",
+          "url": "https://www.dfs.ny.gov/consumers/alerts/Paxos_and_Binance"
+        }
+      ],
+      "rarm_layers": [],
+      "sarm_blocks": [
+        "regulatory",
+        "governance"
+      ],
+      "lessons": [
+        "State-level NYDFS can shut down a multi-billion-dollar stablecoin without federal SEC action — BUSD wind-down completed without any monetary penalty.",
+        "BitLicense scope strictly bounds what a NY-regulated issuer may issue; activity outside scope triggers a consent order to halt."
+      ],
+      "related_incident_slugs": [],
+      "related_issuer_slugs": [
+        "paxos-usdg",
+        "paxos-usdp"
+      ]
     },
     {
       "slug": "sec-paxos-busd-wells-2023-02",
@@ -562,132 +1262,42 @@
       ]
     },
     {
-      "slug": "nydfs-gemini-earn-2024-02",
-      "action_date": "2024-02-28",
-      "regulator": "NYDFS",
+      "slug": "cftc-eisenberg-mango-markets-2023",
+      "action_date": "2023-01-09",
+      "regulator": "CFTC",
       "jurisdiction": "US",
-      "target_entity": "Gemini Trust Company LLC",
-      "target_type": "exchange",
-      "action_type": "settlement",
-      "penalty_usd": 37000000,
-      "penalty_note": "$37M penalty to NYDFS + $40M contribution to Genesis Global Capital bankruptcy estate for Earn customers. Gemini committed to return at least $1.1B in digital assets (actual return: $2.18B in-kind by Jun 2024). Gemini retained its DFS-issued trust charter.",
-      "summary": "On 28 February 2024 NYDFS entered a consent order with Gemini Trust Company resolving allegations that Gemini failed to conduct adequate due diligence on its Earn programme partner Genesis Global Capital — an unregulated third party — and failed to maintain compliance practices commensurate with the safety and soundness of a NY trust company. Under the order Gemini committed to return at least $1.1B in digital assets to Earn customers via the Genesis bankruptcy (final distributions completed June 2024 totalling $2.18B in-kind), paid a $37M penalty to NYDFS, and contributed $40M to the Genesis Global Capital bankruptcy estate. Gemini retained its DFS trust charter — contrasting with NYDFS's January 2024 action against Genesis Global Trading which required surrender of its BitLicense.",
-      "rwa_relevant": true,
-      "asset_classes": [
-        "crypto_lending",
-        "yield_product"
-      ],
-      "rarm_layers": [
-        "issuer",
-        "custody"
-      ],
-      "sarm_blocks": [],
-      "lessons": [
-        "NYDFS treats counterparty due diligence as a charter-level safety-and-soundness obligation: outsourcing a yield product to an unregulated third party (Genesis) without adequate oversight is itself the violation, distinct from federal securities-law theories.",
-        "State-level remediation achieves customer recovery that federal enforcement cannot: NYDFS-coordinated bankruptcy contribution + in-kind digital-asset return materially outperformed pure civil penalty mechanisms.",
-        "Charter preservation as calibrated leverage: allowing Gemini to retain its trust charter while pulling Genesis Global Trading's BitLicense demonstrates NYDFS proportionality based on each entity's role and remediation posture."
-      ],
-      "related_incident_slugs": [],
-      "related_issuer_slugs": [],
-      "status": "settled",
-      "sources": [
-        {
-          "label": "NYDFS press release (28 Feb 2024)",
-          "url": "https://www.dfs.ny.gov/reports_and_publications/press_releases/pr202402282"
-        },
-        {
-          "label": "NYDFS consumer alert — Earn customer recovery details",
-          "url": "https://www.dfs.ny.gov/consumers/alerts/gemini-earn-customers-details"
-        }
-      ]
-    },
-    {
-      "slug": "sec-celsius-mashinsky-2023-07",
-      "action_date": "2023-07-13",
-      "regulator": "SEC",
-      "jurisdiction": "US",
-      "target_entity": "Celsius Network LLC and Alex Mashinsky",
-      "target_type": "lending_platform",
+      "target_entity": "Avraham Eisenberg",
+      "target_type": "individual",
       "action_type": "charges",
-      "penalty_usd": 4700000000,
-      "penalty_note": "Four-regulator simultaneous action 13 Jul 2023: FTC $4.7B settlement (judgment suspended for bankruptcy distribution) + permanent ban on handling consumer assets; SEC + CFTC civil charges; DOJ criminal charges. Mashinsky pleaded guilty 3 Dec 2024 (commodities fraud + scheme to manipulate CEL token); sentenced 8 May 2025 by Judge Koeltl (SDNY) to 12 years prison + $48.4M forfeiture.",
-      "summary": "On 13 July 2023 the SEC, CFTC, FTC, and DOJ simultaneously announced parallel actions against Celsius Network and its founder/CEO Alex Mashinsky. The FTC reached a $4.7B settlement (suspended for bankruptcy distribution) plus a permanent ban on Celsius handling consumer assets; SEC and CFTC alleged securities and commodities fraud; DOJ filed criminal charges including securities fraud, commodities fraud, and wire fraud. Prosecutors argued Mashinsky misled investors about the safety and profitability of Celsius's yield-generating platform, used customer deposits to manipulate the CEL token price, and personally extracted ~$48M while ~$20B in customer deposits were locked. Mashinsky pleaded guilty 3 Dec 2024 to commodities fraud and CEL token manipulation, and on 8 May 2025 was sentenced to 12 years in federal prison plus $48.4M forfeiture — among the longest crypto-related criminal sentences alongside SBF.",
+      "penalty_usd": 0,
+      "penalty_note": "No CFTC civil monetary judgment as of 2026-06 — action ongoing, seeking disgorgement, restitution, and civil penalties. Parallel DOJ criminal indictment (9 Jan 2023, SDNY) produced April 2024 jury convictions on commodities fraud, manipulation, and wire fraud; all criminal convictions vacated 23 May 2025 by Judge Arun Subramanian (Rule 29, venue and wire fraud materiality grounds) — not a merits acquittal. Eisenberg separately sentenced to 52 months (May 2025) on an unrelated conviction. In October 2022 Eisenberg returned approximately USD 67 million to the Mango Markets protocol treasury via a community governance vote, retaining an estimated USD 47 million.",
+      "summary": "On 9 January 2023 the CFTC filed a civil complaint — and the DOJ unsealed a parallel criminal indictment — against Avraham Eisenberg for an October 2022 oracle manipulation attack on Mango Markets, a Solana-based decentralised lending and trading protocol. Eisenberg opened two anonymous accounts, then purchased large quantities of MNGO tokens across FTX, Serum, and AscendEX, inflating the MNGO spot price approximately 13× in around 30 minutes and causing Mango's on-chain price oracle to reflect the elevated collateral value; he then borrowed over USD 110 million against the inflated collateral before returning roughly USD 67 million to the protocol treasury under a community governance vote. The CFTC characterised the scheme as commodity manipulation — its first civil enforcement action for manipulation on a decentralised digital asset exchange — and the case is the primary regulatory precedent for oracle-layer price manipulation as a commodity law violation. DOJ criminal convictions (April 2024) were vacated on procedural grounds in May 2025; the CFTC civil action remains ongoing.",
       "rwa_relevant": true,
       "asset_classes": [
-        "crypto_lending",
-        "yield_product"
+        "crypto_native"
       ],
       "rarm_layers": [
-        "issuer",
-        "redemption"
-      ],
-      "sarm_blocks": [],
-      "lessons": [
-        "Four-regulator stacking (SEC + CFTC + FTC + DOJ) on a single yield product produced the largest civil penalty in FTC crypto history plus a 12-year criminal sentence — full-spectrum enforcement geometry that any RWA yield platform must internalise.",
-        "Personal accountability extends beyond corporate veil: Mashinsky's 12-year sentence and $48.4M forfeiture track tightly with token-price manipulation evidence, even when the corporate entity is in bankruptcy.",
-        "Token-price manipulation by an issuer is criminally prosecutable as commodities fraud (CFTC + DOJ) independently of any securities characterisation — broadens the prosecutable surface area significantly."
-      ],
-      "related_incident_slugs": [],
-      "related_issuer_slugs": [],
-      "status": "settled",
-      "sources": [
-        {
-          "label": "SEC press release",
-          "url": "https://www.sec.gov/news/press-release/2023-126"
-        },
-        {
-          "label": "FTC press release",
-          "url": "https://www.ftc.gov/news-events/news/press-releases/2023/07/ftc-takes-action-against-cryptocurrency-platform-celsius-and-former-executives"
-        },
-        {
-          "label": "DOJ press release",
-          "url": "https://www.justice.gov/usao-sdny/pr/founder-and-former-chief-executive-officer-celsius-network-charged-multibillion-dollar"
-        }
-      ]
-    },
-    {
-      "slug": "ftc-voyager-ehrlich-2023-10",
-      "action_date": "2023-10-12",
-      "regulator": "FTC",
-      "jurisdiction": "US",
-      "target_entity": "Voyager Digital LLC and Stephen Ehrlich",
-      "target_type": "lending_platform",
-      "action_type": "settlement",
-      "penalty_usd": 1650000000,
-      "penalty_note": "FTC $1.65B judgment against Voyager corporate entities (suspended for bankruptcy distribution) + permanent ban on marketing or handling crypto consumer products. CFTC filed parallel fraud + registration failure charges against Ehrlich. Ehrlich personal FTC settlement finalised June 2025: $2.8M payment + lifetime crypto consumer-business ban (Ehrlich + spouse Francine Ehrlich as relief defendant).",
-      "summary": "On 12 October 2023 the FTC announced a settlement with Voyager Digital LLC and parallel charges against former CEO Stephen Ehrlich for falsely marketing customer accounts as FDIC-insured. The FTC complaint alleged that from 2018 through Voyager's July 2022 Chapter 11 bankruptcy, Voyager promised customer deposits — including conversions to USDC stablecoin — were 'as safe as at a bank' and 'FDIC INSURED', when in fact most funds were not FDIC-insured and customers lost over $1B when Voyager collapsed. The FTC entered a $1.65B judgment against the corporate defendants (suspended pending bankruptcy distribution) plus a permanent ban on marketing or handling crypto consumer products; the CFTC filed parallel fraud charges against Ehrlich. Ehrlich personally settled with the FTC in June 2025 for $2.8M plus a lifetime ban on crypto-related consumer business.",
-      "rwa_relevant": true,
-      "asset_classes": [
-        "stablecoin",
-        "crypto_lending"
-      ],
-      "rarm_layers": [
-        "custody",
-        "issuer"
+        "oracle"
       ],
       "sarm_blocks": [
-        "legal"
+        "governance"
       ],
       "lessons": [
-        "False FDIC-insurance claims on stablecoin and crypto-deposit products are FTC-actionable consumer deception independent of any securities-law theory — directly applicable to any RWA platform marketing USD-equivalence to retail users.",
-        "Voyager expands the regulator stack on yield platforms: FTC (consumer protection) joined SEC/CFTC/DOJ as a credible primary venue, with the $1.65B headline exceeding most SEC penalties.",
-        "Permanent industry ban as remedy: the FTC's permanent prohibition on both the corporate defendants and Ehrlich establishes a structural exit from the crypto consumer market that no civil monetary penalty alone achieves."
+        "Oracle price feeds are a primary attack surface in DeFi lending protocols: a single actor controlling cross-venue spot liquidity can manipulate an on-chain price oracle within minutes, bypassing smart-contract collateral logic that assumes price-feed integrity — TWAP, multi-source aggregation, and circuit-breaker design are RARM Layer 3 (oracle) prerequisites, not optional hardening.",
+        "Criminal conviction vacated on procedural grounds does not validate the underlying conduct: Judge Subramanian's Rule 29 dismissal turned on venue and wire fraud materiality, not a finding that oracle manipulation is lawful — the CFTC's civil characterisation of such conduct as commodity manipulation under the CEA remains the operative regulatory standard.",
+        "Parallel civil and criminal proceedings create asymmetric survival: CFTC civil actions seeking disgorgement and restitution are unaffected by criminal vacatur and continue to define the regulatory perimeter for DeFi manipulation, even where criminal prosecution collapses on procedural grounds."
       ],
       "related_incident_slugs": [],
       "related_issuer_slugs": [],
-      "status": "settled",
+      "status": "ongoing",
       "sources": [
         {
-          "label": "FTC press release (Oct 2023 settlement)",
-          "url": "https://www.ftc.gov/news-events/news/press-releases/2023/10/ftc-reaches-settlement-crypto-company-voyager-digital-charges-former-executive-falsely-claiming"
+          "label": "CFTC Press Release 8647-23 — Eisenberg civil complaint (9 Jan 2023)",
+          "url": "https://www.cftc.gov/PressRoom/PressReleases/8647-23"
         },
         {
-          "label": "FTC case reference (node/88539)",
-          "url": "https://www.ftc.gov/node/88539"
-        },
-        {
-          "label": "FTC press release (Ehrlich individual settlement, Jun 2025)",
-          "url": "https://www.ftc.gov/news-events/news/press-releases/2025/06/former-ceo-voyager-digital-agrees-ban-28-million-payment-resolve-ftc-charges"
+          "label": "CFTC Complaint PDF — Eisenberg oracle manipulation charges",
+          "url": "https://www.cftc.gov/media/8046/enfeisenbergcomplaint010923/download"
         }
       ]
     },
@@ -729,336 +1339,6 @@
       ]
     },
     {
-      "slug": "doj-binance-cz-2023-11",
-      "action_date": "2023-11-21",
-      "regulator": "DOJ",
-      "jurisdiction": "US",
-      "target_entity": "Binance Holdings Ltd and Changpeng Zhao (CZ)",
-      "target_type": "exchange",
-      "action_type": "settlement",
-      "penalty_usd": 4316000000,
-      "penalty_note": "$4.316B combined federal penalties: DOJ ~$1.81B (criminal fines + forfeiture for BSA, sanctions, unlicensed money transmitter); CFTC ~$1.35B; FinCEN/OFAC components (with offsets against DOJ). CZ personally pleaded guilty 21 Nov 2023 to BSA violation, paid $50M personal fine; sentenced 30 Apr 2024 to 4 months prison.",
-      "summary": "On 21 November 2023 the DOJ, CFTC, FinCEN, and OFAC simultaneously announced the largest crypto enforcement action to date: Binance Holdings pleaded guilty to operating an unlicensed money transmitter, conspiracy to violate the Bank Secrecy Act, and conspiracy to violate sanctions law (transactions for users in Iran, Cuba, Syria, North Korea, and Crimea). Combined federal penalties totalled ~$4.316B. Binance accepted a five-year DOJ monitorship and committed to a full exit from US users. Founder Changpeng Zhao (CZ) personally pleaded guilty to a BSA violation, paid a $50M personal fine, stepped down as CEO, and on 30 April 2024 was sentenced to four months in federal prison — substantially below Guidelines, reflecting cooperation. This action did not address Binance's separate SEC unregistered-securities case (dismissed 2025) but established BSA/AML/sanctions compliance as the dominant US theory against global crypto exchanges.",
-      "rwa_relevant": true,
-      "asset_classes": [
-        "stablecoin",
-        "crypto_native"
-      ],
-      "rarm_layers": [
-        "custody",
-        "jurisdiction"
-      ],
-      "sarm_blocks": [
-        "legal",
-        "regulatory"
-      ],
-      "lessons": [
-        "BSA/AML/sanctions compliance is the binding US theory against global exchange infrastructure, independent of securities-law characterisation — critical for any RWA settlement infrastructure that bridges US and sanctioned jurisdictions.",
-        "Five-year DOJ monitorship is structurally more consequential than the $4.3B headline: it embeds federal oversight inside the exchange's operations and shapes RWA-relevant custody and settlement architecture across that horizon.",
-        "Founder accountability via BSA: CZ's 4-month sentence (below Guidelines) signals that exchange founders who cooperate face short custodial sentences for AML failures — distinct from the multi-year sentences for fraud (Mashinsky 12y, SBF 25y)."
-      ],
-      "related_incident_slugs": [],
-      "related_issuer_slugs": [],
-      "status": "settled",
-      "sources": [
-        {
-          "label": "DOJ press release",
-          "url": "https://www.justice.gov/opa/pr/binance-and-ceo-plead-guilty-federal-charges-4b-resolution"
-        },
-        {
-          "label": "CFTC press release",
-          "url": "https://www.cftc.gov/PressRoom/PressReleases/8825-23"
-        },
-        {
-          "label": "Treasury / OFAC announcement",
-          "url": "https://home.treasury.gov/news/press-releases/jy1925"
-        }
-      ]
-    },
-    {
-      "slug": "sec-binance-2023-charges",
-      "action_date": "2023-06-05",
-      "regulator": "SEC",
-      "jurisdiction": "US",
-      "target_entity": "Binance Holdings Ltd, BAM Trading Services (Binance.US), and Changpeng Zhao",
-      "target_type": "exchange",
-      "action_type": "charges",
-      "penalty_usd": 0,
-      "penalty_note": "SEC voluntarily dismissed the case 29 May 2025 without monetary penalty. Distinct from the $4.316B DOJ/CFTC/Treasury settlement of November 2023, which remains in force.",
-      "summary": "On 5 June 2023 the SEC filed 13 charges against Binance Holdings, BAM Trading Services (Binance.US operator), and Changpeng Zhao alleging operation of an unregistered exchange, broker, and clearing agency; unregistered offer and sale of securities including BNB and BUSD; and misrepresentation of trading controls. The complaint named twelve tokens as unregistered securities (BNB, BUSD, SOL, ADA, MATIC, FIL, ATOM, SAND, MANA, ALGO, AXS, COTI), extending prior token-by-token enforcement to a wholesale-exchange theory. In June 2024 Judge Berman Jackson (DDC) dismissed certain BUSD-related claims relying on the Ripple programmatic-sale ruling. On 29 May 2025 the SEC under post-Gensler leadership voluntarily dismissed the case in full without prejudice and without monetary penalty. Together with the parallel Coinbase dismissal Feb 2025, marks the receding of exchange-level securities enforcement as the primary US theory against crypto market infrastructure.",
-      "rwa_relevant": true,
-      "asset_classes": [
-        "stablecoin",
-        "crypto_native"
-      ],
-      "rarm_layers": [],
-      "sarm_blocks": [
-        "legal",
-        "regulatory"
-      ],
-      "lessons": [
-        "The SEC's exchange-level securities theory was abandoned in 2025 without a single binding settlement against a major exchange — the dismissals (Coinbase Feb 2025, Binance May 2025, Robinhood 2025) collectively are a major precedent against the SEC's wholesale-exchange framing.",
-        "Court dismissals of BUSD claims (Jun 2024) extending the Ripple programmatic-sale doctrine narrowed the securities-law surface for stablecoin secondary-market trading — directly relevant to any tokenised-security platform's secondary-market design.",
-        "Voluntary dismissal without prejudice leaves a future SEC the technical option to refile — RWA platforms should not treat the 2025 retreat as a permanent safe harbour."
-      ],
-      "related_incident_slugs": [],
-      "related_issuer_slugs": [],
-      "status": "dismissed",
-      "sources": [
-        {
-          "label": "SEC press release",
-          "url": "https://www.sec.gov/news/press-release/2023-101"
-        },
-        {
-          "label": "SEC complaint",
-          "url": "https://www.sec.gov/files/litigation/complaints/2023/comp-pr2023-101.pdf"
-        }
-      ]
-    },
-    {
-      "slug": "sec-coinbase-2023-charges",
-      "action_date": "2023-06-06",
-      "regulator": "SEC",
-      "jurisdiction": "US",
-      "target_entity": "Coinbase Inc. and Coinbase Global Inc.",
-      "target_type": "exchange",
-      "action_type": "charges",
-      "penalty_usd": 0,
-      "penalty_note": "SEC voluntarily dismissed the case 27 Feb 2025 without monetary penalty.",
-      "summary": "On 6 June 2023 — one day after the Binance complaint — the SEC sued Coinbase Inc. and Coinbase Global Inc. in SDNY alleging Coinbase operated as an unregistered national securities exchange, broker, and clearing agency, and that its staking-as-a-service programme was an unregistered securities offering. The complaint named tokens including SOL, ADA, MATIC, FIL, SAND, AXS, CHZ, FLOW, ICP, NEAR, VGX, DASH, and NEXO as unregistered securities. In March 2024 Judge Failla refused to dismiss most claims, validating the SEC's 'investment contract' application to secondary-market tokens — a significant intermediate doctrinal ruling. On 27 February 2025 the SEC under post-Gensler leadership voluntarily dismissed the case in full. The dismissal — preceding the Binance dismissal by three months — was the first major institutional signal of the SEC's withdrawal from exchange-level securities enforcement.",
-      "rwa_relevant": true,
-      "asset_classes": [
-        "crypto_native",
-        "staking_service"
-      ],
-      "rarm_layers": [],
-      "sarm_blocks": [
-        "legal",
-        "regulatory"
-      ],
-      "lessons": [
-        "Staking-as-a-service was framed under the same Howey theory as BlockFi yield products, treating user-pooled staking rewards as managed-return securities — the theory survived motion-to-dismiss (Mar 2024) before SEC voluntarily abandoned the case (Feb 2025).",
-        "The Coinbase ruling preserving most SEC claims (Mar 2024) is the SEC's strongest doctrinal win on the exchange theory; abandoning it in Feb 2025 leaves the doctrine alive in case law without operational enforcement — complex precedent for RWA platforms to navigate.",
-        "Dismissal sequencing (Coinbase Feb 2025 → Binance May 2025) signalled deliberate policy retreat rather than case-specific weakness; RWA platforms with secondary-market tokenised-asset trading should track which doctrinal theories the SEC retains versus abandons."
-      ],
-      "related_incident_slugs": [],
-      "related_issuer_slugs": [],
-      "status": "dismissed",
-      "sources": [
-        {
-          "label": "SEC press release",
-          "url": "https://www.sec.gov/news/press-release/2023-102"
-        },
-        {
-          "label": "SEC complaint",
-          "url": "https://www.sec.gov/files/litigation/complaints/2023/comp-pr2023-102.pdf"
-        }
-      ]
-    },
-    {
-      "slug": "doj-sbf-ftx-2023-conviction",
-      "action_date": "2023-11-02",
-      "regulator": "DOJ",
-      "jurisdiction": "US",
-      "target_entity": "Samuel Bankman-Fried (FTX Trading Ltd / Alameda Research)",
-      "target_type": "individual",
-      "action_type": "conviction",
-      "penalty_usd": 11020000000,
-      "penalty_note": "SDNY jury convicted on all seven counts (wire fraud, conspiracy to commit wire fraud, conspiracy to commit securities/commodities fraud, conspiracy to commit money laundering) 2 Nov 2023. Sentenced 28 Mar 2024 to 25 years prison + ~$11.02B forfeiture. Co-conspirators Caroline Ellison, Gary Wang, Nishad Singh, Ryan Salame all pleaded guilty separately (Ellison 24mo, Salame 7.5yr). Parallel SEC + CFTC civil actions resolved through bankruptcy.",
-      "summary": "Following the November 2022 collapse of FTX Trading Ltd, on 2 November 2023 an SDNY jury convicted founder Samuel Bankman-Fried on all seven criminal counts including wire fraud against FTX customers, FTX investors, and Alameda Research lenders; conspiracy to commit money laundering; and conspiracy to commit securities and commodities fraud. Evidence centred on the secret use of FTX customer deposits as a slush fund for Alameda's trading and venture investments. On 28 March 2024 Judge Lewis Kaplan sentenced Bankman-Fried to 25 years in federal prison plus an $11.02B forfeiture — the longest crypto-related criminal sentence to date. Co-conspirators Ellison (Alameda CEO), Wang (FTX CTO), Singh (FTX Director of Engineering), and Salame (FTX Digital Markets Bahamas) all pleaded guilty and cooperated; Ellison received 24 months, Salame 7.5 years. The case is the modern reference precedent for crypto-exchange customer-asset misappropriation and reshaped US and Bahamian regulatory posture toward exchange custody segregation.",
-      "rwa_relevant": true,
-      "asset_classes": [
-        "crypto_native",
-        "stablecoin"
-      ],
-      "rarm_layers": [
-        "custody",
-        "audit",
-        "jurisdiction"
-      ],
-      "sarm_blocks": [
-        "legal",
-        "governance"
-      ],
-      "lessons": [
-        "Customer-asset commingling — using customer deposits as a corporate slush fund — is the most prosecutable failure mode for any custodial RWA platform; SBF's 25-year sentence is the benchmark, far above any tokenisation-related civil penalty.",
-        "Proof-of-reserves was the missing structural primitive: any RWA tokenisation platform with custody responsibilities must publish reserve attestations that materially exceed what FTX represented internally versus externally.",
-        "Co-conspirator cooperation pricing: Ellison/Wang/Singh/Salame guilty pleas yielded sentences 2–10 years, vs SBF's 25 years for taking trial — a clear DOJ incentive structure shaping how future crypto-fraud cases will resolve."
-      ],
-      "related_incident_slugs": [],
-      "related_issuer_slugs": [],
-      "status": "closed",
-      "sources": [
-        {
-          "label": "DOJ press release (sentencing, 28 Mar 2024)",
-          "url": "https://www.justice.gov/usao-sdny/pr/samuel-bankman-fried-sentenced-25-years-his-orchestration-multiple-fraudulent-schemes"
-        },
-        {
-          "label": "DOJ press release (conviction, 2 Nov 2023)",
-          "url": "https://www.justice.gov/usao-sdny/pr/samuel-bankman-fried-found-guilty-all-seven-counts"
-        }
-      ]
-    },
-    {
-      "slug": "sec-ripple-xrp-2020-2024",
-      "action_date": "2024-08-07",
-      "regulator": "SEC",
-      "jurisdiction": "US",
-      "target_entity": "Ripple Labs Inc., Christian Larsen, and Bradley Garlinghouse",
-      "target_type": "tokenization_platform",
-      "action_type": "settlement",
-      "penalty_usd": 125000000,
-      "penalty_note": "Final judgment 7 Aug 2024: $125M civil penalty against Ripple. SEC originally sought ~$2B. Initial complaint Dec 22, 2020. Summary judgment 13 Jul 2023 (Torres, SDNY): XRP institutional sales WERE unregistered securities; XRP programmatic exchange sales were NOT. SEC dropped its appeal in 2025.",
-      "summary": "Filed by the SEC on 22 December 2020, SEC v. Ripple Labs alleged that Ripple, CEO Garlinghouse, and co-founder Larsen conducted an unregistered securities offering by selling XRP tokens. On 13 July 2023 Judge Analisa Torres (SDNY) issued a landmark summary judgment: XRP sold to sophisticated institutional buyers under written contracts WAS an unregistered security; XRP sold through programmatic trading on digital-asset exchanges to anonymous retail buyers was NOT a security, because retail buyers could not reasonably have expected returns to depend on Ripple's specific managerial efforts. This was the first US court ruling to bifurcate a token's securities status by sale context, breaking the SEC's binary framing. On 7 August 2024 Judge Torres entered final judgment requiring Ripple to pay a $125M civil penalty (vs the SEC's requested ~$2B). The SEC dropped its appeal in 2025. The Ripple programmatic-sale doctrine has since been cited in BUSD-claim dismissals (SEC v. Binance, Jun 2024) and the broader 2024–2025 SEC retreat from secondary-market token enforcement.",
-      "rwa_relevant": true,
-      "asset_classes": [
-        "crypto_native"
-      ],
-      "rarm_layers": [
-        "issuer"
-      ],
-      "sarm_blocks": [
-        "legal"
-      ],
-      "lessons": [
-        "The Torres bifurcation (institutional sale = security; programmatic secondary-market sale ≠ security) is the most-cited US precedent for any RWA-tokenisation platform planning primary issuance versus secondary-market trading — different sales channels carry different legal characterisations of the same token.",
-        "The $125M final judgment vs the SEC's requested $2B (~94% reduction) signalled judicial skepticism of inflated SEC penalty asks and recalibrated future negotiation baselines for token issuers.",
-        "Ripple's programmatic-sale doctrine has been load-bearing in adjacent rulings (BUSD claims dismissed Jun 2024; Coinbase staking theory survived but case dismissed Feb 2025) — RWA platform legal strategy should track which downstream rulings extend or limit Torres's reasoning."
-      ],
-      "related_incident_slugs": [],
-      "related_issuer_slugs": [],
-      "status": "settled",
-      "sources": [
-        {
-          "label": "SEC press release",
-          "url": "https://www.sec.gov/news/press-release/2020-338"
-        },
-        {
-          "label": "Court docket (CourtListener)",
-          "url": "https://www.courtlistener.com/docket/18752520/sec-v-ripple-labs-inc/"
-        }
-      ]
-    },
-    {
-      "slug": "van-loon-v-treasury-tornado-cash-2024",
-      "action_date": "2024-11-26",
-      "regulator": "OFAC",
-      "jurisdiction": "US",
-      "target_entity": "OFAC — Tornado Cash immutable smart contract SDN designations (vacated on appeal by Joseph Van Loon et al.)",
-      "target_type": "defi_protocol",
-      "action_type": "vacated",
-      "penalty_usd": 0,
-      "penalty_note": "No monetary penalty; this entry records a judicial reversal of a regulator action, not a regulator-initiated enforcement. OFAC delisted Tornado Cash smart contract addresses from SDN list on 21 March 2025 following the 5th Circuit ruling. Separate criminal proceedings against co-developer Roman Storm (DOJ, SDNY) remain pending as of June 2026.",
-      "summary": "On 26 November 2024, the US Court of Appeals for the Fifth Circuit unanimously reversed the district court in Van Loon et al. v. Department of the Treasury, No. 23-50669, holding that OFAC exceeded its statutory authority under IEEPA when it sanctioned Tornado Cash's immutable smart contracts in August 2022. The panel found that the smart contracts — autonomous, self-executing code that no party can modify, own, or exclude others from using — do not constitute 'property' for IEEPA purposes and therefore cannot be sanctioned. Applying the post-Loper Bright framework, the court declined to defer to OFAC's statutory interpretation. The ruling was remanded with instructions to grant plaintiffs' partial motion for summary judgment. Following the decision, OFAC delisted the Tornado Cash smart contract addresses from its SDN list on 21 March 2025, formally ending the sanctions regime on the protocol layer. This is the first US federal appellate decision holding that open-source immutable smart contract code falls outside the property-based reach of US economic sanctions — a structural constraint on OFAC's authority over protocol-layer DeFi infrastructure.",
-      "rwa_relevant": true,
-      "asset_classes": [
-        "crypto_native"
-      ],
-      "status": "closed",
-      "sources": [
-        {
-          "label": "5th Circuit opinion — Van Loon v. Treasury, No. 23-50669 (26 Nov 2024)",
-          "url": "https://www.ca5.uscourts.gov/opinions/pub/23/23-50669-CV0.pdf"
-        },
-        {
-          "label": "Treasury press release — Tornado Cash delisting (21 Mar 2025)",
-          "url": "https://home.treasury.gov/news/press-releases/sb0057"
-        },
-        {
-          "label": "OFAC recent actions — SDN removal (20250321)",
-          "url": "https://ofac.treasury.gov/recent-actions/20250321"
-        }
-      ],
-      "rarm_layers": [],
-      "sarm_blocks": [
-        "legal",
-        "regulatory"
-      ],
-      "lessons": [
-        "Immutable smart contracts are not 'property' under IEEPA — sanctions cannot attach to autonomous on-chain code that no party owns or controls, regardless of whether sanctioned actors use it; OFAC must identify human operators or specific transactions rather than the protocol itself.",
-        "The ruling structurally constrains the sanctions toolkit for DeFi infrastructure: any RWA protocol that uses autonomous on-chain primitives (AMMs, escrow contracts, settlement rails) now has circuit-court authority that such code cannot itself be sanctioned.",
-        "Criminal prosecution of individual developers remains a distinct and parallel track — the 5th Circuit ruling does not insulate co-developers from DOJ wire fraud or money laundering charges; the Van Loon case and the Roman Storm SDNY prosecution coexist as separate theories."
-      ],
-      "related_incident_slugs": [],
-      "related_issuer_slugs": []
-    },
-    {
-      "slug": "doj-samourai-wallet-2024",
-      "action_date": "2024-04-24",
-      "regulator": "DOJ",
-      "jurisdiction": "US",
-      "target_entity": "Keonne Rodriguez; William Lonergan Hill",
-      "target_type": "individual",
-      "action_type": "conviction",
-      "penalty_usd": 500000,
-      "penalty_note": "Rodriguez sentenced to 5 years' imprisonment and a $250,000 fine (6 November 2025, Judge Denise L. Cote, SDNY); Hill sentenced to 4 years and $250,000 fine (19 November 2025); both subject to 3 years of supervised release. Forfeiture judgment of $237,832,360.55 (total traceable criminal proceeds through the service); defendants satisfied this by paying $6,367,139.69 representing Samourai's actual earned transaction fees — the balance was uncollectable. penalty_usd reflects combined court-ordered fines ($250K × 2); forfeiture detail noted separately. Count 1 (conspiracy to commit money laundering) was dismissed pursuant to plea agreements; convictions on Count 2 only (conspiracy to operate an unlicensed money transmitting business, 18 U.S.C. § 1960). Each defendant also ordered to serve 3 years of supervised release. Hill was arrested in Portugal at the US government's request.",
-      "summary": "On 24 April 2024, the DOJ's SDNY office arrested Keonne Rodriguez (37, Harmony, Pennsylvania) and William Lonergan Hill (67, arrested in Portugal) — co-founders of Samourai Wallet, a Bitcoin privacy wallet offering Whirlpool CoinJoin mixing and Ricochet obfuscation services — on two counts: conspiracy to commit money laundering (max 20 years) and conspiracy to operate an unlicensed money transmitting business (max 5 years). Prosecutors alleged the service processed over $2 billion in total transactions and facilitated more than $100 million tied to darknet markets, with at least $237 million in traceable criminal proceeds. The FBI seized the samouraiwallet.com domain concurrently with the arrests. On 29–30 July 2025 both defendants pleaded guilty to Count 2 only; Count 1 (money laundering conspiracy) was dismissed. Rodriguez was sentenced to 5 years on 6 November 2025 and Hill to 4 years on 19 November 2025, each with a $250,000 fine. Defendants forfeited $6.37 million in earned fees against a $237.8 million forfeiture judgment.",
-      "rwa_relevant": true,
-      "asset_classes": ["crypto_native"],
-      "status": "closed",
-      "sources": [
-        {
-          "label": "DOJ SDNY press release — Samourai founders arrested and charged (24 Apr 2024)",
-          "url": "https://www.justice.gov/usao-sdny/pr/founders-and-ceo-cryptocurrency-mixing-service-arrested-and-charged-money-laundering"
-        },
-        {
-          "label": "DOJ SDNY press release — Samourai founders plead guilty (Jul 2025)",
-          "url": "https://www.justice.gov/usao-sdny/pr/founders-samourai-wallet-cryptocurrency-mixing-service-plead-guilty"
-        },
-        {
-          "label": "DOJ SDNY press release — Samourai founders sentenced (Nov 2025)",
-          "url": "https://www.justice.gov/usao-sdny/pr/founders-samourai-wallet-cryptocurrency-mixing-service-sentenced-five-and-four-years"
-        }
-      ],
-      "rarm_layers": ["jurisdiction"],
-      "sarm_blocks": [],
-      "lessons": [
-        "Guilty pleas on the unlicensed money transmitting count (Count 2) while money laundering conspiracy (Count 1) was dismissed mirrors the partial Storm verdict in the Tornado Cash prosecution — prosecutors appear to face higher proof burdens on money laundering mens rea than on the regulatory registration requirement under 18 U.S.C. § 1960 for mixing-service operators.",
-        "The DOJ's theory — that operating a non-custodial Bitcoin wallet with mixing features constitutes an unlicensed money transmitting business — was validated by both guilty pleas, establishing that 'software only / non-custodial' arguments do not insulate developers who can be shown to have knowledge of criminal usage.",
-        "FBI's simultaneous seizure of samouraiwallet.com during arrest demonstrates that DNS infrastructure is a primary enforcement lever against privacy tools independent of open-source code availability — domain registrars and hosting providers are actionable chokepoints even when the underlying protocol code is freely mirrored."
-      ],
-      "related_incident_slugs": [],
-      "related_issuer_slugs": []
-    },
-    {
-      "slug": "doj-tornado-cash-devs-2023",
-      "action_date": "2023-08-23",
-      "regulator": "DOJ",
-      "jurisdiction": "US",
-      "target_entity": "Roman Storm; Roman Semenov",
-      "target_type": "individual",
-      "action_type": "charges",
-      "penalty_usd": 0,
-      "penalty_note": "No monetary penalty at indictment. August 2025 trial result: Storm convicted on Count 3 (conspiracy to operate an unlicensed money transmitting business, 18 U.S.C. § 1960, max 5 years); sentencing pending retrial outcome. Jury deadlocked on Count 1 (conspiracy to commit money laundering, 18 U.S.C. § 1956, max 20 years) and Count 2 (conspiracy to violate IEEPA/sanctions, 50 U.S.C. § 1705, max 20 years). DOJ filed for retrial on Counts 1–2 on 9 March 2026, proposing October 5 or 12, 2026. Roman Semenov remains a fugitive and individually listed on OFAC's SDN list as of June 2026. See related entries: ofac-tornado-cash-sanctions-2022 and van-loon-v-treasury-tornado-cash-2024.",
-      "summary": "On 23 August 2023, the DOJ's SDNY office unsealed a federal indictment charging Tornado Cash co-founders Roman Storm (34, Auburn, Washington) and Roman Semenov (35, Russian national) on three counts: conspiracy to commit money laundering (max 20 years), conspiracy to violate IEEPA via sanctions evasion (max 20 years), and — for Storm only — conspiracy to operate an unlicensed money transmitting business (max 5 years). Prosecutors alleged the defendants knowingly laundered over $1 billion in criminal proceeds, including Lazarus Group funds, while making false public representations of sanctions compliance. OFAC concurrently added Semenov individually to its SDN list; he remains at large. Storm stood trial in July–August 2025 before Judge Polk Failla (SDNY). The jury convicted Storm on Count 3 (unlicensed money transmitting) but deadlocked on the money laundering and sanctions conspiracy counts. DOJ filed for retrial on the deadlocked counts on 9 March 2026, proposing an October 2026 start date. The case is the lead US prosecution testing criminal developer liability for open-source privacy-enhancing DeFi infrastructure.",
-      "rwa_relevant": true,
-      "asset_classes": ["crypto_native"],
-      "status": "ongoing",
-      "sources": [
-        {
-          "label": "DOJ SDNY press release — Tornado Cash founders indicted (23 Aug 2023)",
-          "url": "https://www.justice.gov/usao-sdny/pr/tornado-cash-founders-charged-money-laundering-and-sanctions-violations"
-        },
-        {
-          "label": "IRS Criminal Investigation — Storm convicted on Count 3 (Aug 2025)",
-          "url": "https://www.irs.gov/compliance/criminal-investigation/founder-of-tornado-cash-crypto-mixing-service-convicted-of-knowingly-transmitting-criminal-proceeds"
-        },
-        {
-          "label": "CoinDesk — DOJ requests October 2026 retrial for Roman Storm (10 Mar 2026)",
-          "url": "https://www.coindesk.com/business/2026/03/10/u-s-requests-october-retrial-for-tornado-cash-developer-roman-storm"
-        }
-      ],
-      "rarm_layers": ["jurisdiction"],
-      "sarm_blocks": [],
-      "lessons": [
-        "The jury's conviction on the unlicensed money transmitting count (Count 3) but deadlock on money laundering (Count 1) signals that courts apply significantly higher scrutiny to the mens rea element of money laundering when the defendant is a protocol developer rather than a direct participant in criminal transactions — a key risk variable for RWA infrastructure teams deploying programmable settlement rails.",
-        "Vacatur of the parallel OFAC smart-contract sanction (Van Loon, Nov 2024) provided no protection to individual developers: the criminal prosecution rests on personal intent-based theories entirely independent of the IEEPA property-law analysis rejected by the Fifth Circuit.",
-        "Semenov's individual SDN listing — unlike the protocol-level smart contract designations — was not disturbed by the Fifth Circuit ruling, confirming OFAC retains authority to designate identifiable human actors in DeFi networks regardless of whether the underlying protocol code is legally sanctionable."
-      ],
-      "related_incident_slugs": [],
-      "related_issuer_slugs": []
-    },
-    {
       "slug": "ofac-tornado-cash-sanctions-2022",
       "action_date": "2022-08-08",
       "regulator": "OFAC",
@@ -1070,7 +1350,9 @@
       "penalty_note": "No monetary penalty; action designates Tornado Cash to the SDN list under IEEPA. OFAC delisted all Tornado Cash smart contract addresses from the SDN list on 21 March 2025 following the Fifth Circuit's ruling in Van Loon v. Department of the Treasury (26 Nov 2024) that immutable smart contracts do not constitute 'property' of a foreign national under IEEPA. Roman Semenov was added to the SDN list individually on 23 August 2023 (concurrent with DOJ indictment) and remains individually listed as of June 2026. See related entries: doj-tornado-cash-devs-2023 and van-loon-v-treasury-tornado-cash-2024.",
       "summary": "On 8 August 2022, OFAC designated Tornado Cash — a decentralised, non-custodial Ethereum privacy protocol — as a Specially Designated National, adding approximately 44 Ethereum and USDC addresses to its SDN list. OFAC alleged the protocol had facilitated laundering of more than $7 billion in virtual currency since 2019, including over $455 million stolen by North Korea's Lazarus Group from the Ronin Network and Harmony Horizon Bridge hacks. Within hours Circle blacklisted the sanctioned wallets, freezing approximately $75,000 in USDC. This was the first time OFAC sanctioned immutable autonomous smart contract code as 'property' of a foreign national under IEEPA. That legal theory was unanimously rejected by the Fifth Circuit on 26 November 2024 in Van Loon v. Department of the Treasury. OFAC subsequently delisted Tornado Cash's smart contract addresses on 21 March 2025, formally ending the protocol-layer sanctions regime. Criminal proceedings against co-developer Roman Storm (DOJ, SDNY) continue on separate legal theories.",
       "rwa_relevant": true,
-      "asset_classes": ["crypto_native"],
+      "asset_classes": [
+        "crypto_native"
+      ],
       "status": "closed",
       "sources": [
         {
@@ -1086,7 +1368,9 @@
           "url": "https://www.theblock.co/post/162172/circle-freezes-usdc-funds-in-tornado-cashs-us-treasury-sanctioned-wallets"
         }
       ],
-      "rarm_layers": ["jurisdiction"],
+      "rarm_layers": [
+        "jurisdiction"
+      ],
       "sarm_blocks": [],
       "lessons": [
         "OFAC's theory that immutable autonomous smart contracts constitute 'property' of their deployers under IEEPA was unanimously rejected by the Fifth Circuit — sanctions cannot attach to on-chain code that no party owns or controls post-deployment, a structural constraint now binding on OFAC's approach to protocol-layer DeFi infrastructure.",
@@ -1097,151 +1381,82 @@
       "related_issuer_slugs": []
     },
     {
-      "slug": "cftc-ooki-dao-default-judgment-2023",
-      "action_date": "2023-06-08",
-      "regulator": "CFTC",
-      "jurisdiction": "US",
-      "target_entity": "Ooki DAO (formerly bZeroX / bZx Protocol)",
-      "target_type": "dao",
-      "action_type": "order",
-      "penalty_usd": 643542,
-      "penalty_note": "Default judgment also imposed permanent trading and registration bans and ordered protocol website shutdown and content removal. bZeroX LLC co-founders Tom Bean and Kyle Kistner settled separately for USD 250,000 on 22 September 2022 (concurrent CFTC order).",
-      "summary": "On 22 September 2022 the CFTC simultaneously settled with bZeroX LLC co-founders Tom Bean and Kyle Kistner for USD 250,000 and filed civil charges against Ooki DAO — the governance successor formed after bZeroX transferred protocol control to BZRX token holders, explicitly marketing the transfer as a mechanism to evade regulatory enforcement. On 8 June 2023, U.S. District Judge William H. Orrick (N.D. Cal.) entered a default judgment against Ooki DAO, imposing USD 643,542 in civil monetary penalties together with permanent trading and registration bans and an order to shut down all protocol-operated web infrastructure. The court held that Ooki DAO qualifies as an 'unincorporated association' under California law and a 'person' under the Commodity Exchange Act, establishing the first federal precedent that a decentralised token-holder governance collective does not confer immunity from regulatory jurisdiction. Underlying charges covered illegal off-exchange leveraged retail commodity transactions, operation as an unregistered Futures Commission Merchant, and failure to implement Bank Secrecy Act customer identification programs.",
-      "rwa_relevant": true,
-      "asset_classes": ["crypto_native"],
-      "rarm_layers": ["jurisdiction"],
-      "sarm_blocks": ["governance", "legal"],
-      "lessons": [
-        "DAO governance structures do not confer regulatory immunity: Judge Orrick's unincorporated-association holding establishes that CFTC jurisdiction attaches to token-holder collectives as legal persons — the premise that protocol governance can be made 'enforcement-proof' via decentralisation is legally invalid under U.S. federal commodity law.",
-        "Founders retain liability after governance transfer: Bean and Kistner settled personally at the same moment the DAO was charged, demonstrating that handing off protocol control does not extinguish personal exposure for conduct that occurred during the prior operating phase.",
-        "Absence of a coordinated legal-defence mechanism is itself a material governance deficiency: Ooki DAO had no legal entity, no counsel, and no mechanism to respond to litigation — resulting in default judgment that established binding precedent with no adversarial challenge to the DAO's own interests."
-      ],
-      "related_incident_slugs": [],
-      "related_issuer_slugs": [],
-      "status": "closed",
-      "sources": [
-        {
-          "label": "CFTC Press Release 8590-22 — bZeroX/Ooki DAO charges (22 Sep 2022)",
-          "url": "https://www.cftc.gov/PressRoom/PressReleases/8590-22"
-        },
-        {
-          "label": "CFTC Press Release 8715-23 — Default judgment statement (9 Jun 2023)",
-          "url": "https://www.cftc.gov/PressRoom/PressReleases/8715-23"
-        }
-      ]
-    },
-    {
-      "slug": "cftc-eisenberg-mango-markets-2023",
-      "action_date": "2023-01-09",
-      "regulator": "CFTC",
-      "jurisdiction": "US",
-      "target_entity": "Avraham Eisenberg",
-      "target_type": "individual",
-      "action_type": "charges",
-      "penalty_usd": 0,
-      "penalty_note": "No CFTC civil monetary judgment as of 2026-06 — action ongoing, seeking disgorgement, restitution, and civil penalties. Parallel DOJ criminal indictment (9 Jan 2023, SDNY) produced April 2024 jury convictions on commodities fraud, manipulation, and wire fraud; all criminal convictions vacated 23 May 2025 by Judge Arun Subramanian (Rule 29, venue and wire fraud materiality grounds) — not a merits acquittal. Eisenberg separately sentenced to 52 months (May 2025) on an unrelated conviction. In October 2022 Eisenberg returned approximately USD 67 million to the Mango Markets protocol treasury via a community governance vote, retaining an estimated USD 47 million.",
-      "summary": "On 9 January 2023 the CFTC filed a civil complaint — and the DOJ unsealed a parallel criminal indictment — against Avraham Eisenberg for an October 2022 oracle manipulation attack on Mango Markets, a Solana-based decentralised lending and trading protocol. Eisenberg opened two anonymous accounts, then purchased large quantities of MNGO tokens across FTX, Serum, and AscendEX, inflating the MNGO spot price approximately 13× in around 30 minutes and causing Mango's on-chain price oracle to reflect the elevated collateral value; he then borrowed over USD 110 million against the inflated collateral before returning roughly USD 67 million to the protocol treasury under a community governance vote. The CFTC characterised the scheme as commodity manipulation — its first civil enforcement action for manipulation on a decentralised digital asset exchange — and the case is the primary regulatory precedent for oracle-layer price manipulation as a commodity law violation. DOJ criminal convictions (April 2024) were vacated on procedural grounds in May 2025; the CFTC civil action remains ongoing.",
-      "rwa_relevant": true,
-      "asset_classes": ["crypto_native"],
-      "rarm_layers": ["oracle"],
-      "sarm_blocks": ["governance"],
-      "lessons": [
-        "Oracle price feeds are a primary attack surface in DeFi lending protocols: a single actor controlling cross-venue spot liquidity can manipulate an on-chain price oracle within minutes, bypassing smart-contract collateral logic that assumes price-feed integrity — TWAP, multi-source aggregation, and circuit-breaker design are RARM Layer 3 (oracle) prerequisites, not optional hardening.",
-        "Criminal conviction vacated on procedural grounds does not validate the underlying conduct: Judge Subramanian's Rule 29 dismissal turned on venue and wire fraud materiality, not a finding that oracle manipulation is lawful — the CFTC's civil characterisation of such conduct as commodity manipulation under the CEA remains the operative regulatory standard.",
-        "Parallel civil and criminal proceedings create asymmetric survival: CFTC civil actions seeking disgorgement and restitution are unaffected by criminal vacatur and continue to define the regulatory perimeter for DeFi manipulation, even where criminal prosecution collapses on procedural grounds."
-      ],
-      "related_incident_slugs": [],
-      "related_issuer_slugs": [],
-      "status": "ongoing",
-      "sources": [
-        {
-          "label": "CFTC Press Release 8647-23 — Eisenberg civil complaint (9 Jan 2023)",
-          "url": "https://www.cftc.gov/PressRoom/PressReleases/8647-23"
-        },
-        {
-          "label": "CFTC Complaint PDF — Eisenberg oracle manipulation charges",
-          "url": "https://www.cftc.gov/media/8046/enfeisenbergcomplaint010923/download"
-        }
-      ]
-    },
-    {
-      "slug": "sec-galois-capital-custody-2024",
-      "action_date": "2024-09-03",
+      "slug": "sec-blockfi-2022-02",
+      "action_date": "2022-02-14",
       "regulator": "SEC",
       "jurisdiction": "US",
-      "target_entity": "Galois Capital Management LLC",
-      "target_type": "fund",
+      "target_entity": "BlockFi Lending LLC",
+      "target_type": "lending_platform",
       "action_type": "settlement",
-      "penalty_usd": 225000,
-      "penalty_note": "Penalty distributed to harmed investors via a Fair Fund. Entity-only settlement; no individuals charged. Galois announced fund liquidation February 2023 following the FTX collapse; approximately USD 40–45 million of ~USD 200 million AUM was trapped on FTX, representing roughly 50% of assets under management. Additional SEC finding: Galois permitted selective investor redemptions with as little as five days' notice, contrary to the fund's stated 30-day Limited Partnership Agreement term.",
-      "summary": "On 3 September 2024 the SEC settled with Galois Capital Management LLC — a now-defunct crypto-focused hedge fund — for USD 225,000, marking the first SEC enforcement action applying the Investment Advisers Act custody rule (Rule 206(4)-2) to digital assets held at a crypto exchange. From July 2022, Galois maintained client crypto-assets on FTX Trading Ltd. and Fireblocks; the SEC found that neither entity qualified as a 'qualified custodian' under the custody rule — FTX held only a South Dakota state trust licence, which does not satisfy the Rule 206(4)-2 qualified custodian standard. When FTX collapsed in November 2022, approximately USD 40–45 million of Galois's estimated USD 200 million AUM was inaccessible; the fund announced liquidation in February 2023 and sold its FTX bankruptcy claims at 16 cents on the dollar. The SEC also found that Galois permitted selective investor redemptions on as little as five days' notice, contrary to its stated 30-day Limited Partnership Agreement term. No individuals were charged; the civil penalty was distributed through a Fair Fund to harmed investors.",
-      "rwa_relevant": true,
-      "asset_classes": ["crypto_native"],
-      "rarm_layers": ["custody", "audit"],
-      "sarm_blocks": ["settlement", "transparency"],
-      "lessons": [
-        "Exchange custody accounts are not qualified custodians under Rule 206(4)-2: the Galois action confirms that holding digital assets on a crypto trading platform — regardless of exchange scale or reputation — does not satisfy U.S. adviser custody requirements; RWA fund structures must segregate assets with a demonstrably qualified custodian (bank, registered broker-dealer, or qualifying FCM).",
-        "Custody non-compliance and counterparty concentration risk compound simultaneously: Galois's non-compliant custody arrangement meant that the regulatory violation and the catastrophic loss event were the same fact — assets held on FTX were both non-compliant and inaccessible when FTX failed, illustrating that custody compliance is a direct risk-management control, not merely an administrative requirement.",
-        "Entity-only settlement without personal charges does not reduce precedent weight: the SEC's first digital-asset custody enforcement establishes the applicable standard for all registered investment advisers managing crypto or tokenised asset funds — future fact patterns with similar custody failures may carry individual liability for fund managers who knew or should have known the custodian was unqualified."
-      ],
-      "related_incident_slugs": [],
-      "related_issuer_slugs": [],
-      "status": "settled",
-      "sources": [
-        {
-          "label": "SEC Press Release 2024-111 — Galois Capital settlement (3 Sep 2024)",
-          "url": "https://www.sec.gov/news/press-release/2024-111"
-        },
-        {
-          "label": "SEC Admin Proceeding IA-6670 — order and findings",
-          "url": "https://www.sec.gov/files/litigation/admin/2024/ia-6670.pdf"
-        },
-        {
-          "label": "Sidley Austin — First crypto custody rule enforcement analysis",
-          "url": "https://www.sidley.com/en/insights/newsupdates/2024/09/crypto-focused-private-fund-adviser-settles-with-us-sec-for-custody-rule-and-other-violations"
-        }
-      ]
-    },
-    {
-      "slug": "sec-tron-justin-sun-2023",
-      "action_date": "2023-03-22",
-      "regulator": "SEC",
-      "jurisdiction": "US",
-      "target_entity": "Tron Foundation / BitTorrent Foundation / Rainberry Inc. / Justin Sun",
-      "target_type": "individual",
-      "action_type": "settlement",
-      "penalty_usd": 10000000,
-      "penalty_note": "$10M civil penalty (Rainberry Inc. only, March 2026). Claims against Justin Sun, Tron Foundation Ltd., and BitTorrent Foundation Ltd. dismissed with prejudice; public terms for those parties not disclosed. 8 celebrity co-defendants settled separately.",
-      "summary": "On 22 March 2023 the SEC filed suit in SDNY (No. 1:23-cv-02433-ER) against Tron Foundation Limited, BitTorrent Foundation Ltd., Rainberry Inc., and founder Justin Sun, alleging that TRX and BTT tokens were sold as unregistered securities generating over $31.9M in illegal proceeds. The complaint also charged systematic wash trading — 609,790 confirmed trades averaging 2,449 daily through Sun-controlled nominee accounts — and coordinated secondary-market manipulation. Eight US celebrities were charged separately for undisclosed promotional payments: Lindsay Lohan, Jake Paul, Soulja Boy, Austin Mahone, Lil Yachty, Ne-Yo, Akon, and Kendra Lust. On 5 March 2026, the action resolved: claims against Sun, Tron Foundation, and BitTorrent Foundation were dismissed with prejudice; Rainberry Inc. agreed to pay a $10M civil penalty and accepted an injunction against future securities violations. Settlement terms for Sun and the foundations were not publicly disclosed.",
+      "penalty_usd": 100000000,
+      "penalty_note": "$50M to SEC + parallel $50M to 32 state securities regulators coordinated via NASAA. First-of-its-kind action framing a retail crypto interest-bearing account as an unregistered security.",
+      "summary": "On 14 February 2022 the SEC settled charges against BlockFi Lending LLC over its BlockFi Interest Accounts (BIAs), finding that the BIAs were unregistered securities under the Securities Act of 1933 and that BlockFi itself failed to register as an investment company under the Investment Company Act of 1940. The SEC further found BlockFi had made misleading statements about the risk profile of its loan portfolio. BlockFi paid a $50M SEC civil penalty plus a parallel $50M to 32 state regulators (NASAA-coordinated) and committed to bring its products into compliance within 60 days. This was the first SEC enforcement to treat a retail crypto interest account as a security and remains the canonical precedent applied to subsequent yield-product cases (Genesis/Gemini Earn, Celsius, Voyager) and — by direct analogy — to RWA-tokenised yield distribution products.",
       "rwa_relevant": true,
       "asset_classes": [
-        "tokenised_securities"
+        "crypto_lending",
+        "yield_product"
       ],
       "rarm_layers": [
-        "issuer",
-        "jurisdiction"
+        "issuer"
       ],
-      "sarm_blocks": [
-        "regulatory",
-        "governance"
-      ],
+      "sarm_blocks": [],
       "lessons": [
-        "Token distributions that fund issuer operations satisfy Howey even where tokens have concurrent blockchain utility — TRX/BTT held as securities despite Tron's live mainnet.",
-        "Undisclosed celebrity promotions for crypto tokens constitute unregistered touting under securities law; eight separate charges illustrate the breadth of liability.",
-        "Wash trading through nominee accounts exposes both issuer entities and their founders to parallel securities fraud and market manipulation charges."
+        "Howey test applies to crypto yield programs regardless of \"lending\" or \"interest account\" branding — what matters is whether returns depend on the platform's managerial efforts, not the product name.",
+        "BlockFi precedent now actively framed against RWA-tokenised yield distribution: any RWA platform that pools investor capital and promises returns from issuer-managed allocation faces the same securities-law theory.",
+        "Parallel federal + multi-state enforcement via NASAA doubled the effective penalty and signalled that state securities regulators will pursue crypto issuers independently of SEC timing."
       ],
       "related_incident_slugs": [],
       "related_issuer_slugs": [],
       "status": "settled",
       "sources": [
         {
-          "label": "SEC press release (2023-03-22)",
-          "url": "https://www.sec.gov/news/press-release/2023-59"
+          "label": "SEC Press Release",
+          "url": "https://www.sec.gov/newsroom/press-releases/2022-26"
         },
         {
-          "label": "SEC complaint PDF",
-          "url": "https://www.sec.gov/litigation/complaints/2023/comp-pr2023-59.pdf"
+          "label": "SEC Order (33-11029)",
+          "url": "https://www.sec.gov/litigation/admin/2022/33-11029.pdf"
+        },
+        {
+          "label": "NASAA Statement",
+          "url": "https://www.nasaa.org/62000/nasaa-and-sec-announce-100-million-settlement-with-blockfi-lending-llc/"
         }
+      ]
+    },
+    {
+      "slug": "cftc-tether-ifinex-2021",
+      "action_date": "2021-10-15",
+      "regulator": "CFTC",
+      "jurisdiction": "US",
+      "target_entity": "Tether / iFinex",
+      "target_type": "stablecoin_issuer",
+      "action_type": "settlement",
+      "penalty_usd": 42500000,
+      "penalty_note": null,
+      "summary": "On 15 October 2021, the CFTC settled with Tether Operations Limited and its parent iFinex Inc., finding that Tether had falsely represented USDT as fully backed by US dollar reserves at all times. The $42.5M settlement comprised a $41M civil penalty against Tether and a $1.5M penalty against iFinex. The CFTC found that between 2016 and 2019, Tether maintained sufficient fiat reserves for only 27.6% of the days it claimed full backing, and that reserves were at times held in commingled accounts with Bitfinex, an affiliated exchange. Earlier in February 2021, Tether and iFinex had separately settled New York Attorney General charges for $18.5M, agreeing to provide periodic reserve transparency reports. The October 2021 CFTC action was the first federal enforcement specifically targeting stablecoin reserve misrepresentations and set the legal baseline for subsequent disclosure requirements.",
+      "rwa_relevant": true,
+      "asset_classes": [
+        "stablecoin"
+      ],
+      "status": "settled",
+      "sources": [
+        {
+          "label": "CFTC Press Release",
+          "url": "https://www.cftc.gov/PressRoom/PressReleases/8450-21"
+        }
+      ],
+      "rarm_layers": [],
+      "sarm_blocks": [
+        "reserve",
+        "transparency"
+      ],
+      "lessons": [
+        "Stablecoin reserve claims are material representations under commodity law: \"fully backed by USD\" must hold continuously, not merely at attestation snapshots.",
+        "CFTC asserted jurisdiction over stablecoin reserves via the swap/commodity hook, predating any dedicated US stablecoin statute."
+      ],
+      "related_incident_slugs": [],
+      "related_issuer_slugs": [
+        "tether-usdt"
       ]
     },
     {
@@ -1287,52 +1502,6 @@
         {
           "label": "LBRY Inc. dissolution announcement",
           "url": "https://lbry.com/news/goodbye"
-        }
-      ]
-    },
-    {
-      "slug": "doj-kucoin-2024-03",
-      "action_date": "2024-03-26",
-      "regulator": "DOJ",
-      "jurisdiction": "US",
-      "target_entity": "Mek Global Limited / Peken Global Limited (KuCoin) / Chun Gan / Ke Tang",
-      "target_type": "exchange",
-      "action_type": "settlement",
-      "penalty_usd": 297900000,
-      "penalty_note": "DOJ: $112.9M criminal fine + $184.5M forfeiture = $297.4M. CFTC civil penalty: $500K. Founders Chun Gan and Ke Tang each forfeited $2.7M under two-year DPAs. Settlement announced 28 January 2025 (not December 2024 as sometimes reported). KuCoin (Peken Global Ltd.) pleaded guilty to one count of operating an unlicensed money transmitting business.",
-      "summary": "On 26 March 2024 the DOJ (SDNY) and CFTC filed coordinated actions against Mek Global Limited and related KuCoin entities — including Peken Global Limited (Turks and Caicos), PhoenixFin PTE Ltd., and Flashdot Limited — and against founders Chun 'Michael' Gan and Ke 'Eric' Tang. The DOJ charged KuCoin with operating as an unlicensed money transmitter and BSA/AML conspiracy, alleging facilitation of over $5B in suspicious transactions including darknet proceeds, ransomware payments, and sanctions evasion. In a parallel civil complaint, the CFTC charged KuCoin with operating as an unregistered futures commission merchant, swap execution facility, and introducing broker; the complaint explicitly classified Bitcoin, Ethereum, and Litecoin as commodities. On 28 January 2025, KuCoin (Peken Global) pleaded guilty and agreed to pay $297.4M in DOJ criminal fines and forfeiture; the CFTC imposed an additional $500K civil penalty. Founders Gan and Tang each entered two-year deferred prosecution agreements, forfeiting $2.7M each. KuCoin agreed to exit the US market for a minimum of two years.",
-      "rwa_relevant": true,
-      "asset_classes": [
-        "crypto_native"
-      ],
-      "rarm_layers": [
-        "custody",
-        "jurisdiction"
-      ],
-      "sarm_blocks": [
-        "regulatory",
-        "governance"
-      ],
-      "lessons": [
-        "Global exchanges accessible to US users face BSA/AML and CFTC commodity registration obligations regardless of offshore incorporation in Seychelles or Turks and Caicos.",
-        "Parallel DOJ criminal and CFTC civil proceedings compound liability: a single exchange can face both a criminal guilty plea and civil disgorgement simultaneously.",
-        "Founding executives face personal BSA liability through DPAs even when the corporate entity bears the guilty plea — $2.7M individual forfeitures plus two-year DPA each."
-      ],
-      "related_incident_slugs": [],
-      "related_issuer_slugs": [],
-      "status": "settled",
-      "sources": [
-        {
-          "label": "DOJ charges press release (2024-03-26)",
-          "url": "https://www.justice.gov/usao-sdny/pr/kucoin-and-its-founders-charged"
-        },
-        {
-          "label": "CFTC charges press release (2024-03-26)",
-          "url": "https://www.cftc.gov/PressRoom/PressReleases/8884-24"
-        },
-        {
-          "label": "DOJ guilty plea press release (2025-01-28)",
-          "url": "https://www.justice.gov/usao-sdny/pr/kucoin-pleads-guilty-unlicensed-money-transmission-charge-and-agrees-pay-penalties"
         }
       ]
     }

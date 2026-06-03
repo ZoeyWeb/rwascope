@@ -71,3 +71,18 @@
 - Fewer than 10 SFC actions currently; JPEX (sfc-jpex-2023-09) is the largest
 - VASP licensing regime effective 2023; 2025–2026 licence refusals and suspension orders may warrant new entries
 - Threshold: formal SFC refusal or suspension with press release; informal warnings excluded
+
+---
+
+## Batch 7 (2026-06-03, v1.10.0) — resolved
+- bafin-ethena-usde-2025 ✓
+- mas-bsquared-revocation-2026-05 ✓
+- cftc-doj-polymarket-insider-2026 ✓ (Van Dyke + Spagnuolo merged)
+
+## Still pending (Batch 8 candidates)
+- hkma-anchorx-axcnh-warning-2025-09 (HKMA URL 待確認)
+- cftc-gemini-vacatur-2026-05 (CFTC 官方 PR URL 待確認)
+- az-ag-kalshi-criminal-2026-03 (federal preemption 暫停,等終裁)
+- Storm trial 2025-08 partial conviction 獨立拆出 (Tornado Cash 閉環)
+- SEC vs Tron 2026-03 Rainberry final settlement (update existing entry)
+- FCA / BaFin 後續 MiCA enforcement (BaFin Ethena 已補,等下一笔 EU 案)
