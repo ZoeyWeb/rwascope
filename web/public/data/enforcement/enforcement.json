@@ -1,6 +1,6 @@
 {
-  "version": "1.7.0",
-  "updated_at": "2026-06-02",
+  "version": "1.8.0",
+  "updated_at": "2026-06-03",
   "actions": [
     {
       "slug": "sec-2025-enforcement-retreat",
@@ -1072,6 +1072,140 @@
         {
           "label": "Sidley Austin — First crypto custody rule enforcement analysis",
           "url": "https://www.sidley.com/en/insights/newsupdates/2024/09/crypto-focused-private-fund-adviser-settles-with-us-sec-for-custody-rule-and-other-violations"
+        }
+      ]
+    },
+    {
+      "slug": "sec-tron-justin-sun-2023",
+      "action_date": "2023-03-22",
+      "regulator": "SEC",
+      "jurisdiction": "US",
+      "target_entity": "Tron Foundation / BitTorrent Foundation / Rainberry Inc. / Justin Sun",
+      "target_type": "individual",
+      "action_type": "settlement",
+      "penalty_usd": 10000000,
+      "penalty_note": "$10M civil penalty (Rainberry Inc. only, March 2026). Claims against Justin Sun, Tron Foundation Ltd., and BitTorrent Foundation Ltd. dismissed with prejudice; public terms for those parties not disclosed. 8 celebrity co-defendants settled separately.",
+      "summary": "On 22 March 2023 the SEC filed suit in SDNY (No. 1:23-cv-02433-ER) against Tron Foundation Limited, BitTorrent Foundation Ltd., Rainberry Inc., and founder Justin Sun, alleging that TRX and BTT tokens were sold as unregistered securities generating over $31.9M in illegal proceeds. The complaint also charged systematic wash trading — 609,790 confirmed trades averaging 2,449 daily through Sun-controlled nominee accounts — and coordinated secondary-market manipulation. Eight US celebrities were charged separately for undisclosed promotional payments: Lindsay Lohan, Jake Paul, Soulja Boy, Austin Mahone, Lil Yachty, Ne-Yo, Akon, and Kendra Lust. On 5 March 2026, the action resolved: claims against Sun, Tron Foundation, and BitTorrent Foundation were dismissed with prejudice; Rainberry Inc. agreed to pay a $10M civil penalty and accepted an injunction against future securities violations. Settlement terms for Sun and the foundations were not publicly disclosed.",
+      "rwa_relevant": true,
+      "asset_classes": [
+        "tokenised_securities"
+      ],
+      "rarm_layers": [
+        "issuer",
+        "jurisdiction"
+      ],
+      "sarm_blocks": [
+        "regulatory",
+        "governance"
+      ],
+      "lessons": [
+        "Token distributions that fund issuer operations satisfy Howey even where tokens have concurrent blockchain utility — TRX/BTT held as securities despite Tron's live mainnet.",
+        "Undisclosed celebrity promotions for crypto tokens constitute unregistered touting under securities law; eight separate charges illustrate the breadth of liability.",
+        "Wash trading through nominee accounts exposes both issuer entities and their founders to parallel securities fraud and market manipulation charges."
+      ],
+      "related_incident_slugs": [],
+      "related_issuer_slugs": [],
+      "status": "settled",
+      "sources": [
+        {
+          "label": "SEC press release (2023-03-22)",
+          "url": "https://www.sec.gov/news/press-release/2023-59"
+        },
+        {
+          "label": "SEC complaint PDF",
+          "url": "https://www.sec.gov/litigation/complaints/2023/comp-pr2023-59.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "sec-lbry-2022",
+      "action_date": "2021-03-29",
+      "regulator": "SEC",
+      "jurisdiction": "US",
+      "target_entity": "LBRY Inc.",
+      "target_type": "protocol",
+      "action_type": "charges",
+      "penalty_usd": 0,
+      "penalty_note": "SEC initially sought ~$22.2M disgorgement. Following LBRY's insolvency the court-accepted judgment was substantially reduced; specific figure requires PACER docket verification (1:21-cv-00260-PB, D.N.H.). LBRY Inc. announced dissolution January 2023, citing inability to survive litigation costs.",
+      "summary": "On 29 March 2021 the SEC filed suit in the District of New Hampshire (No. 1:21-cv-00260-PB) against LBRY Inc., alleging LBRY Credits (LBC) were sold as unregistered securities to fund development of a decentralised content platform. On 7 November 2022 Judge Paul J. Barbadoro granted summary judgment for the SEC, holding that LBC satisfied the Howey test: investors purchased LBC in reasonable expectation of profits from LBRY's managerial efforts, regardless of LBC's concurrent utility as a content-tipping token. LBRY's core defence — that functional utility disqualified LBC as a security — was explicitly rejected. This ruling is a foundational precedent for the utility-token question: concurrent on-chain utility does not defeat Howey where the issuer retains and sells tokens to fund operations and investors reasonably expect returns from the issuer's efforts. In January 2023 LBRY Inc. announced dissolution, citing inability to survive litigation costs; Odysee, the consumer platform built on the LBRY protocol, continued operations under separate management.",
+      "rwa_relevant": true,
+      "asset_classes": [
+        "tokenised_securities"
+      ],
+      "rarm_layers": [
+        "issuer",
+        "jurisdiction"
+      ],
+      "sarm_blocks": [
+        "regulatory",
+        "transparency"
+      ],
+      "lessons": [
+        "Utility token defences fail under Howey where the issuer retains tokens and sells them to fund operations — functional use does not negate investment contract status.",
+        "SEC will pursue enforcement to issuer dissolution: company insolvency and small market cap do not confer immunity from securities-law registration requirements.",
+        "Protocol-layer resilience: LBRY Inc.'s dissolution did not terminate the LBRY protocol — Odysee continued, illustrating the separation of issuer entity from on-chain infrastructure."
+      ],
+      "related_incident_slugs": [],
+      "related_issuer_slugs": [],
+      "status": "closed",
+      "sources": [
+        {
+          "label": "SEC complaint PDF (2021-03-29)",
+          "url": "https://www.sec.gov/litigation/complaints/2021/comp-pr2021-51.pdf"
+        },
+        {
+          "label": "SEC press release — summary judgment (2022-11-07)",
+          "url": "https://www.sec.gov/litigation/litreleases/2022/lr25559.htm"
+        },
+        {
+          "label": "LBRY Inc. dissolution announcement",
+          "url": "https://lbry.com/news/goodbye"
+        }
+      ]
+    },
+    {
+      "slug": "doj-kucoin-2024-03",
+      "action_date": "2024-03-26",
+      "regulator": "DOJ",
+      "jurisdiction": "US",
+      "target_entity": "Mek Global Limited / Peken Global Limited (KuCoin) / Chun Gan / Ke Tang",
+      "target_type": "exchange",
+      "action_type": "settlement",
+      "penalty_usd": 297900000,
+      "penalty_note": "DOJ: $112.9M criminal fine + $184.5M forfeiture = $297.4M. CFTC civil penalty: $500K. Founders Chun Gan and Ke Tang each forfeited $2.7M under two-year DPAs. Settlement announced 28 January 2025 (not December 2024 as sometimes reported). KuCoin (Peken Global Ltd.) pleaded guilty to one count of operating an unlicensed money transmitting business.",
+      "summary": "On 26 March 2024 the DOJ (SDNY) and CFTC filed coordinated actions against Mek Global Limited and related KuCoin entities — including Peken Global Limited (Turks and Caicos), PhoenixFin PTE Ltd., and Flashdot Limited — and against founders Chun 'Michael' Gan and Ke 'Eric' Tang. The DOJ charged KuCoin with operating as an unlicensed money transmitter and BSA/AML conspiracy, alleging facilitation of over $5B in suspicious transactions including darknet proceeds, ransomware payments, and sanctions evasion. In a parallel civil complaint, the CFTC charged KuCoin with operating as an unregistered futures commission merchant, swap execution facility, and introducing broker; the complaint explicitly classified Bitcoin, Ethereum, and Litecoin as commodities. On 28 January 2025, KuCoin (Peken Global) pleaded guilty and agreed to pay $297.4M in DOJ criminal fines and forfeiture; the CFTC imposed an additional $500K civil penalty. Founders Gan and Tang each entered two-year deferred prosecution agreements, forfeiting $2.7M each. KuCoin agreed to exit the US market for a minimum of two years.",
+      "rwa_relevant": true,
+      "asset_classes": [
+        "crypto_native"
+      ],
+      "rarm_layers": [
+        "custody",
+        "jurisdiction"
+      ],
+      "sarm_blocks": [
+        "regulatory",
+        "governance"
+      ],
+      "lessons": [
+        "Global exchanges accessible to US users face BSA/AML and CFTC commodity registration obligations regardless of offshore incorporation in Seychelles or Turks and Caicos.",
+        "Parallel DOJ criminal and CFTC civil proceedings compound liability: a single exchange can face both a criminal guilty plea and civil disgorgement simultaneously.",
+        "Founding executives face personal BSA liability through DPAs even when the corporate entity bears the guilty plea — $2.7M individual forfeitures plus two-year DPA each."
+      ],
+      "related_incident_slugs": [],
+      "related_issuer_slugs": [],
+      "status": "settled",
+      "sources": [
+        {
+          "label": "DOJ charges press release (2024-03-26)",
+          "url": "https://www.justice.gov/usao-sdny/pr/kucoin-and-its-founders-charged"
+        },
+        {
+          "label": "CFTC charges press release (2024-03-26)",
+          "url": "https://www.cftc.gov/PressRoom/PressReleases/8884-24"
+        },
+        {
+          "label": "DOJ guilty plea press release (2025-01-28)",
+          "url": "https://www.justice.gov/usao-sdny/pr/kucoin-pleads-guilty-unlicensed-money-transmission-charge-and-agrees-pay-penalties"
         }
       ]
     }
