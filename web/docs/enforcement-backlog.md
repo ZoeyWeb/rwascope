@@ -26,6 +26,22 @@
 
 ---
 
+## Batch 6 写入後 TODO (2026-06-03)
+
+### EA Do Kwon — restitution 金額
+- 法庭 sealed, 未公開金額
+- 監控 SDNY docket 1:23-cr-00151 (PAE) 後續 unseal
+- P2
+
+### Batch 7 候選 (2025 forward fill 剩餘)
+- Storm trial 2025-08 partial conviction 獨立 entry (拆出 doj-tornado-cash-devs-2023, Tornado Cash 閉環關鍵節點)
+- HKMA Stablecoin Ordinance 落地後 enforcement (2026-04 首批 licence, 6 月前觀察)
+- FCA / BaFin 首批 MiCA enforcement
+- Korea FSC Terra/Luna criminal referral (Do Kwon 韓國並行)
+- SBF 上訴決定 (2025 如有公開)
+
+---
+
 ## Enforcement observations
 
 ### HKMA Stablecoin Ordinance enforcement gap
@@ -36,10 +52,11 @@
 
 ## Future extension candidates
 
-### Terraform / Do Kwon — follow-on
-- slug: sec-terraform-do-kwon-2023 (already in enforcement.json, action_date 2024-06-12)
-- Do Kwon extradition from Montenegro resolved 2025; criminal sentencing outcome not yet updated
-- Update status and add conviction entry if criminal proceedings conclude
+### Terraform / Do Kwon — RESOLVED (Batch 6)
+- slug: doj-do-kwon-sentencing-2025-12 added 2026-06-03
+- 15-year sentence (11 Dec 2025, Judge Engelmayer, SDNY); forfeiture >$19M
+- Remaining open item: restitution amount sealed / not yet publicly disclosed
+  - Monitor SDNY docket 1:23-cr-00151 (PAE) for unseal — P2
 
 ### Ripple XRP — post-appeals resolution
 - slug: sec-ripple-xrp-2020-2024 (already in enforcement.json)

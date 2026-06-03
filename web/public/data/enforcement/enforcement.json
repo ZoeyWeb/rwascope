@@ -1,7 +1,95 @@
 {
-  "version": "1.8.0",
+  "version": "1.9.0",
   "updated_at": "2026-06-03",
   "actions": [
+    {
+      "slug": "doj-do-kwon-sentencing-2025-12",
+      "action_date": "2025-12-11",
+      "regulator": "DOJ",
+      "jurisdiction": "US",
+      "target_entity": "Do Hyeong Kwon (Terraform Labs)",
+      "target_type": "individual",
+      "action_type": "conviction",
+      "penalty_usd": 19000000,
+      "penalty_note": "15-year federal prison sentence imposed by Judge Paul Engelmayer (SDNY) on 11 December 2025 for wire fraud and conspiracy to commit securities fraud, commodities fraud, and wire fraud. Forfeiture: over $19M including Kwon's interest in Terraform and its associated cryptocurrencies. Prosecutors sought 12 years; defence sought 5 years; court imposed 15 years.",
+      "summary": "On 11 December 2025, Judge Paul Engelmayer (SDNY) sentenced Do Hyeong Kwon, co-founder of Terraform Labs, to 15 years in federal prison — exceeding both the prosecution's 12-year recommendation and the defence's requested cap of 5 years. Kwon had pleaded guilty to wire fraud and conspiracy to commit securities fraud, commodities fraud, and wire fraud in connection with Terraform Labs and its TerraUSD (UST) algorithmic stablecoin and LUNA token. He was extradited to the United States from Montenegro in December 2024. Prosecutors described the scheme as a fraud on an 'epic, generational scale' resulting in approximately $40 billion in investor losses during the May 2022 TerraUSD death spiral. The court rejected defence arguments that the sentence should be moderated on account of parallel criminal proceedings in South Korea, holding that one court cannot base sentencing on speculation about what a foreign court might decide. In addition to the custodial term, Kwon was ordered to forfeit over $19 million, including his interest in Terraform and its associated cryptocurrencies. U.S. Attorney Jay Clayton characterised Kwon as having devised elaborate schemes to mislead investors, launched a deceptive public-relations campaign to cover up his fraud, laundered the proceeds, and sought to purchase political protection abroad to evade prosecution. The criminal conviction completes the US enforcement cycle: the SEC civil complaint (February 2023), the $4.47B Terraform/Kwon civil judgment (June 2024), and the 15-year criminal sentence.",
+      "rwa_relevant": true,
+      "asset_classes": [
+        "algo_stablecoin",
+        "crypto_native"
+      ],
+      "status": "closed",
+      "sources": [
+        {
+          "label": "DOJ press release — Do Kwon sentencing (11 Dec 2025)",
+          "url": "https://www.justice.gov/usao-sdny/pr/crypto-enabled-fraudster-sentenced-orchestrating-40-billion-fraud"
+        },
+        {
+          "label": "DOJ press release — Do Kwon guilty plea",
+          "url": "https://www.justice.gov/usao-sdny/pr/do-kwon-pleads-guilty-fraud"
+        },
+        {
+          "label": "DOJ SDNY case page — United States v. Kwon, 23 Cr. 151 (PAE)",
+          "url": "https://www.justice.gov/usao-sdny/united-states-v-kwon-23-cr-151-pae-terraform-labs-fraud"
+        }
+      ],
+      "rarm_layers": [
+        "issuer",
+        "jurisdiction"
+      ],
+      "sarm_blocks": [
+        "legal"
+      ],
+      "lessons": [
+        "Founder criminal accountability follows the civil judgment by 18 months: Kwon's 15-year sentence (Dec 2025) arrived long after the $4.47B SEC civil judgment (Jun 2024) and $204M personal civil liability, illustrating that criminal proceedings run on a separate and slower track — RWA founders who settle civil charges retain residual criminal exposure until DOJ separately closes its case.",
+        "The court exceeded both parties' sentencing recommendations, citing the 'epic, generational scale' of $40 billion in losses — a signal that SDNY judges calibrate crypto-fraud sentences independently above the Guidelines position, particularly where systemic retail harm is the central fact.",
+        "Parallel Korean criminal proceedings were explicitly not treated as mitigation: the court held that a US court cannot base sentencing on speculation about what a foreign court might do, confirming that US criminal accountability is independent of concurrent foreign prosecution of the same conduct."
+      ],
+      "related_incident_slugs": [
+        "terrausd-luna-collapse-2022"
+      ],
+      "related_issuer_slugs": []
+    },
+    {
+      "slug": "doj-mashinsky-sentencing-2025-05",
+      "action_date": "2025-05-08",
+      "regulator": "DOJ",
+      "jurisdiction": "US",
+      "target_entity": "Alexander Mashinsky (Celsius Network LLC)",
+      "target_type": "individual",
+      "action_type": "conviction",
+      "penalty_usd": 48400000,
+      "penalty_note": "12-year federal prison sentence imposed by Judge John G. Koeltl (SDNY) on 8 May 2025. Forfeiture: $48.4M + several pieces of real estate. Mashinsky ordered to self-report to prison September 2025. Prosecutors sought 20 years; defence requested 1 year and 1 day; Judge Koeltl imposed 12 years. Guilty plea: 3 December 2024 — one count of commodities fraud and one count of conspiracy to manipulate the CEL token price.",
+      "summary": "On 8 May 2025, Judge John G. Koeltl (SDNY) sentenced Alexander Mashinsky, founder and former CEO of Celsius Network LLC, to 12 years in federal prison for commodities fraud and conspiracy to manipulate the CEL token price — third-longest US crypto-related criminal sentence alongside SBF (25 years) and Do Kwon (15 years, December 2025). Mashinsky had pleaded guilty on 3 December 2024 to two counts: one count of commodities fraud for systematically misleading Celsius customers about the safety and profitability of the platform while deploying customer deposits into undisclosed high-risk lending strategies; and one count of conspiracy to commit securities fraud by secretly manipulating the price of Celsius's proprietary CEL token while selling his own CEL holdings at artificially inflated prices, from which he extracted approximately $48M. Prosecutors sought 20 years; the defence requested 1 year and 1 day, citing Mashinsky's eventual cooperation; Judge Koeltl imposed 12 years, forfeiture of $48.4M plus several pieces of real estate, and ordered Mashinsky to self-report to prison in September 2025. Celsius Network declared bankruptcy in July 2022, freezing approximately $20 billion in customer deposits. The FTC, SEC, and CFTC had each brought parallel civil actions (July 2023) covered in the related entry sec-celsius-mashinsky-2023-07. This entry covers the DOJ criminal conviction and sentencing exclusively.",
+      "rwa_relevant": true,
+      "asset_classes": [
+        "crypto_lending",
+        "yield_product"
+      ],
+      "status": "closed",
+      "sources": [
+        {
+          "label": "DOJ press release — Mashinsky sentencing (8 May 2025)",
+          "url": "https://www.justice.gov/usao-sdny/pr/founder-celsius-sentenced-12-years-fraud-and-market-manipulation"
+        },
+        {
+          "label": "DOJ press release — Mashinsky guilty plea (Dec 2024)",
+          "url": "https://www.justice.gov/usao-sdny/pr/celsius-founder-and-former-ceo-alexander-mashinsky-pleads-guilty-multi-billion-dollar"
+        }
+      ],
+      "rarm_layers": [
+        "issuer",
+        "redemption"
+      ],
+      "sarm_blocks": [],
+      "lessons": [
+        "Token price manipulation by a platform issuer constitutes criminally prosecutable commodities fraud independently of the securities-law characterisation — Mashinsky's CEL manipulation count was prosecuted under commodity law (CFTC/DOJ), broadening the liability surface beyond the SEC's investment-contract theory to any RWA platform with a proprietary token that the issuer actively trades.",
+        "Personal extraction during a customer freeze is the defining aggravating factor: Mashinsky's $48M in CEL sales occurred while customer withdrawals were suspended — courts treat asymmetric personal benefit during a platform collapse as a direct sentencing multiplier, independent of the total scale of customer losses.",
+        "Three-way sentencing divergence (prosecution 20y, defence 1y, court 12y) establishes a provisional benchmark: SDNY judges impose approximately 10–15 years for multi-billion-dollar crypto-lending fraud with a guilty plea and partial cooperation, materially below SBF's 25-year contested-verdict sentence but substantially above single-digit Guidelines ranges for first-time financial fraud."
+      ],
+      "related_incident_slugs": [],
+      "related_issuer_slugs": []
+    },
     {
       "slug": "sec-2025-enforcement-retreat",
       "action_date": "2025-03-27",
@@ -46,6 +134,45 @@
         "Gensler → Atkins transition produced the first administration-driven wholesale reversal of a crypto enforcement posture — shifting SEC from regulation-by-enforcement (novel securities theories against exchanges and wallets) to rulemaking dialogue; the same tokens and business models that were sued in 2023 face a fundamentally different regulatory environment in 2025.",
         "Kraken's with-prejudice dismissal is meaningfully stronger protection than the without-prejudice dismissals: it bars the SEC from refiling the identical claims, while ConsenSys's without-prejudice filing leaves theoretical refiling options open under future administrations.",
         "Investigation closures (Robinhood, Uniswap) are discretionary and carry no formal prejudice — RWA platforms should distinguish between investigation closures and court-filed dismissals when assessing residual regulatory risk from the 2025 retreat."
+      ],
+      "related_incident_slugs": [],
+      "related_issuer_slugs": []
+    },
+    {
+      "slug": "ofac-tornado-cash-delisting-2025-03",
+      "action_date": "2025-03-21",
+      "regulator": "OFAC",
+      "jurisdiction": "US",
+      "target_entity": "Tornado Cash (administrative SDN delisting — all smart contract addresses)",
+      "target_type": "defi_protocol",
+      "action_type": "dismissal",
+      "penalty_usd": 0,
+      "penalty_note": "No monetary penalty. OFAC administratively removed all Tornado Cash smart contract addresses from the SDN list on 21 March 2025, citing the Administration's review of novel legal and policy issues raised by sanctioning financial activity within evolving technology environments. Over 100 Ethereum addresses removed. The individual SDN designation of Roman Semenov (added 23 August 2023) was not disturbed and remains active as of June 2026. Criminal proceedings against Roman Storm (DOJ, SDNY) continue independently.",
+      "summary": "On 21 March 2025, the U.S. Treasury's Office of Foreign Assets Control administratively removed all Tornado Cash smart contract addresses from its Specially Designated Nationals list, ending the protocol-layer sanctions regime established in August 2022. OFAC cited the Administration's review of 'novel legal and policy issues raised by use of financial sanctions against financial and commercial activity occurring within evolving technology and legal environments' and exercised its discretion to delist. The action followed the Fifth Circuit's unanimous ruling in Van Loon et al. v. Department of the Treasury (No. 23-50669, 26 November 2024), which held that Tornado Cash's immutable smart contracts did not constitute 'property' of a foreign national under IEEPA because they lacked the hallmarks of ownership, control, and exclusivity. Over 100 Ethereum and associated USDC smart contract addresses were removed. The individual SDN designation of Roman Semenov — added on 23 August 2023 concurrent with the DOJ indictment — was not included in the delisting and remains active as of June 2026. Criminal proceedings against co-developer Roman Storm (SDNY docket No. 1:23-cr-00413) continue on separate personal intent-based theories and were unaffected by the delisting. See related entries: ofac-tornado-cash-sanctions-2022 (original designation), doj-tornado-cash-devs-2023 (criminal prosecution), and van-loon-v-treasury-tornado-cash-2024 (Fifth Circuit ruling).",
+      "rwa_relevant": true,
+      "asset_classes": [
+        "crypto_native"
+      ],
+      "status": "closed",
+      "sources": [
+        {
+          "label": "Treasury press release — Tornado Cash delisting (21 Mar 2025)",
+          "url": "https://home.treasury.gov/news/press-releases/sb0057"
+        },
+        {
+          "label": "OFAC recent actions — SDN removal (20250321)",
+          "url": "https://ofac.treasury.gov/recent-actions/20250321"
+        }
+      ],
+      "rarm_layers": [],
+      "sarm_blocks": [
+        "legal",
+        "regulatory"
+      ],
+      "lessons": [
+        "Administrative delisting is distinct from judicial vacatur: OFAC's March 2025 removal was a discretionary policy act — citing evolving technology law and the post-Loper Bright skepticism of broad agency authority — not a concession that the 2022 designation was unlawful; the distinction leaves OFAC with theoretical authority to redesignate under different circumstances.",
+        "Protocol-layer delisting does not extinguish developer criminal liability: Roman Storm's SDNY prosecution continued unaffected through the delisting event, confirming that OFAC sanction removal has no bearing on DOJ's parallel theory that individual developers with knowledge of criminal usage are personally liable under money-laundering and BSA statutes.",
+        "The Trump administration's removal of Tornado Cash from the SDN list — framed as a technology-neutrality and legal-constraint policy position — signals that US enforcement of DeFi infrastructure will shift toward individual developer prosecution rather than protocol-layer blacklisting, with direct implications for permissionless RWA settlement rails and privacy-preserving payment primitives."
       ],
       "related_incident_slugs": [],
       "related_issuer_slugs": []
