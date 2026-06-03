@@ -102,6 +102,43 @@
 
 ---
 
+## Batch F — Real Estate vertical (added 2026-06-03)
+
+### RealT Series 1 PPM exact execution date
+- slug: realt-series-1-9943-marlowe-ppm-2019
+- date "2019-08-16" sourced from PDF creation metadata (WebFetch confirmed PDF live)
+- Actual PPM execution/signing date may differ from creation date — verify from PDF cover page
+- file_url confirmed live: https://realt.co/wp-content/uploads/2019/09/REALTOKEN-LLC-SERIES-1-9943-MARLOWE-1.pdf
+- Also check: RealT Form D filing(s) on EDGAR (Reg D 506(c) requires Form D within 15 days of first sale)
+  to confirm SEC filing date and exact offering launch
+
+### Propy Kyiv 2017 — separate entry candidate (P2)
+- The 2017 Kyiv apartment sale (Michael Arrington / Arrington XRP Capital, ~$60,000 ETH) is a
+  separate milestone: first government-authorised blockchain property transfer globally
+- Ukrainian government registration via Propy predates the Gulfport 2022 US first
+- Currently cited only in FB summary; could be an independent entry if Ukrainian gov source URL found
+- Source hint: propy.com/browse/propy-nft/ + Ukrainian Ministry of Justice press records (2017)
+- Priority: P2
+
+### Aspen Digital EDGAR Form D CIK — P0 blocking TODO
+- slug: aspen-digital-aspd-offering-2018
+- SEC EDGAR automated access returns HTTP 403 consistently; CIK for "Aspen Digital, Inc." not verified
+- Manual browser verification required: https://www.sec.gov/cgi-bin/browse-edgar?company=aspen+digital&CIK=&type=D
+- Also verify: ASPD token contract address on Ethereum (not found in research; search Etherscan for
+  Harbor-issued ERC-20 tokens from 2018-2019 associated with Aspen or Elevated Returns)
+- When CIK found: update source_url to direct Form D filing URL, update date to exact filing date,
+  remove MED confidence caveat from summary
+- Priority: P0
+
+### RE vertical — future extension candidates
+- Roofstock onChain (2022 SFR tokenisation launch / 2023 wind-down) — US SFR, academic post-mortem value
+- Inveniam + MANTRA Inveniam Chain (May 2026 announcement) — CRE data/tokenisation L2
+- RedSwan CRE (FINRA-registered broker-dealer, Texas CRE pipeline) — requires non-automated SEC access
+- HKMA Project Ensemble RE pilot — if public disclosure surfaces from HKMA
+- Securitize CRE clients under Reg S (non-US placement) — identify specific issuer with public circular
+
+---
+
 ## Batch E — Private Credit vertical (added 2026-06-02)
 
 ### BlockTower Credit Series I–IV — verify POP approval date & SPV jurisdiction

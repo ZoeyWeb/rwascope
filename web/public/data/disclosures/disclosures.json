@@ -1,6 +1,6 @@
 {
-  "version": "1.3.0",
-  "updated_at": "2026-06-02",
+  "version": "1.4.0",
+  "updated_at": "2026-06-03",
   "disclosures": [
     {
       "slug": "circle-usdc-attestation-2026-04",
@@ -891,6 +891,59 @@
       ]
     },
     {
+      "slug": "propy-gulfport-nft-title-transfer-2022",
+      "issuer": "Propy Inc",
+      "issuer_slug": "propy",
+      "arranger": null,
+      "issuer_type": "asset_manager",
+      "doc_type": "issuance_document",
+      "title": "Propy — 6315 11th Ave S, Gulfport, FL — First US Blockchain Title Transfer via NFT (February 2022)",
+      "date": "2022-02-10",
+      "period_covered": "February 2022",
+      "summary": "The sale of 6315 11th Avenue South, Gulfport, Florida for $653,000 (210 ETH) on 10 February 2022 constitutes the first US residential property conveyed via an NFT-based title transfer. Propy Inc (Silicon Valley proptech, founded 2016, CEO Natalia Karayaneva) structured ownership through a single-purpose LLC: the buyer received an Ethereum NFT representing 100% membership interest in a Delaware LLC whose sole asset is the property deed, combining on-chain provenance with traditional Pinellas County recording and pre-auction title work. This US transaction followed Propy's 2017 Kyiv milestone — an apartment sold to Michael Arrington (Arrington XRP Capital) for ~$60,000 ETH with Ukrainian government registration, the first government-authorised blockchain property transfer globally. The PRO token (ERC-20, 0x226bb599a12c826476e3a771454697ea52e9e220) is a utility token used to authenticate title transactions; bids were accepted in ETH, not PRO. No securities offering; no SEC involvement. Propy launched title and escrow services on blockchain in Arizona, Colorado, and Florida in May 2022.",
+      "source_url": "https://propy.com/browse/propy-nft/",
+      "file_url": null,
+      "asset_classes": [
+        "real_estate"
+      ],
+      "rwa_relevant": true,
+      "last_verified_at": "2026-06-03",
+      "rarm_layers": [
+        "issuer",
+        "jurisdiction"
+      ],
+      "sarm_blocks": [
+        "legal",
+        "settlement"
+      ],
+      "jurisdiction": "US",
+      "regulator": null,
+      "status": "live",
+      "auditor": null,
+      "key_figures": [
+        {
+          "label": "Property address",
+          "value": "6315 11th Avenue South, Gulfport, Florida — Spanish-style 4BR, 2,164 sq ft"
+        },
+        {
+          "label": "Sale price / date",
+          "value": "$653,000 (210 ETH); auction completed 10 February 2022"
+        },
+        {
+          "label": "Ownership structure",
+          "value": "Buyer holds NFT representing 100% LLC membership interest; single-purpose Delaware LLC holds physical property deed (county-recorded)"
+        },
+        {
+          "label": "2017 precedent (Kyiv)",
+          "value": "Apartment sold to Michael Arrington (Arrington XRP Capital) for ~$60,000 ETH — first government-authorised blockchain property transfer globally"
+        },
+        {
+          "label": "PRO token (ERC-20)",
+          "value": "0x226bb599a12c826476e3a771454697ea52e9e220 — utility token for title authentication; not a security offering"
+        }
+      ]
+    },
+    {
       "slug": "eib-digital-bond-2021",
       "issuer": "European Investment Bank (EIB)",
       "issuer_slug": "eib",
@@ -946,6 +999,60 @@
       ]
     },
     {
+      "slug": "realt-series-1-9943-marlowe-ppm-2019",
+      "issuer": "RealToken LLC",
+      "issuer_slug": "realt",
+      "arranger": null,
+      "issuer_type": "asset_manager",
+      "doc_type": "issuance_document",
+      "title": "RealToken LLC Series 1 — 9943 Marlowe St, Detroit, MI — Private Placement Memorandum (August 2019)",
+      "date": "2019-08-16",
+      "period_covered": null,
+      "summary": "Private Placement Memorandum for RealToken LLC Series 1, a Delaware Series LLC structure in which each property constitutes a legally segregated ownership series. The subject property — 9943 Marlowe Street, Detroit, Michigan 48227 (887 sq ft single-family, purchased December 2018 for $33,500; renovation ~$15,000) — was offered as 1,000 ERC-20 RealToken units at a floor of $50 per token to US accredited investors under Regulation D Rule 506(c). Token holders receive 98% of net rental income via weekly USDC/xDAI distributions on Gnosis Chain (migrated from Ethereum); 2% management fee retained by RealToken Inc. (Delaware corporation, managing member, incorporated 14 February 2019). The Series LLC structure provides full liability segregation across properties: no single property's performance affects another. As of 2025, RealT operates 700+ tokenised US residential properties across Detroit, Cleveland, and Chicago, with ~$130M aggregate portfolio value, 65,000+ registered investors, and over $29M in cumulative rental distributions. No public auditor named; no SEC registration — Reg D 506(c) exempt. Gnosis Chain is the primary settlement chain; Ethereum bridge available. Note: date from PDF creation date (2019-08-16); exact PPM execution date may differ.",
+      "source_url": "https://realt.co/",
+      "file_url": "https://realt.co/wp-content/uploads/2019/09/REALTOKEN-LLC-SERIES-1-9943-MARLOWE-1.pdf",
+      "asset_classes": [
+        "real_estate"
+      ],
+      "rwa_relevant": true,
+      "last_verified_at": "2026-06-03",
+      "rarm_layers": [
+        "issuer",
+        "jurisdiction",
+        "custody"
+      ],
+      "sarm_blocks": [
+        "legal",
+        "transparency"
+      ],
+      "jurisdiction": "US",
+      "regulator": null,
+      "status": "live",
+      "auditor": null,
+      "key_figures": [
+        {
+          "label": "Token supply (Series 1 — 9943 Marlowe)",
+          "value": "1,000 RealToken units; min. $50/token; property purchase price $33,500 (December 2018)"
+        },
+        {
+          "label": "Rental income distribution",
+          "value": "98% of net rent to token holders weekly in USDC/xDAI (Gnosis Chain); 2% management fee to RealToken Inc."
+        },
+        {
+          "label": "Gross yield range (platform portfolio, ~2025)",
+          "value": "6–16% p.a. (net ~9–10%); property-level yield varies by occupancy and appraisal"
+        },
+        {
+          "label": "Platform scale (~2025)",
+          "value": "700+ properties; ~$130M aggregate value; 65,000+ investors; >$29M cumulative distributions"
+        },
+        {
+          "label": "Offering exemption / chain",
+          "value": "Reg D Rule 506(c) — US accredited investors only; Gnosis Chain (ERC-20, bridged from Ethereum)"
+        }
+      ]
+    },
+    {
       "slug": "socgen-sfh-ofh-covered-bond-2019",
       "issuer": "Société Générale SFH",
       "issuer_slug": "socgen-sfh",
@@ -996,6 +1103,59 @@
         {
           "label": "Coupon / maturity",
           "value": "TODO: not disclosed in issuer press release — requires direct inquiry to SG Forge"
+        }
+      ]
+    },
+    {
+      "slug": "aspen-digital-aspd-offering-2018",
+      "issuer": "Aspen Digital, Inc.",
+      "issuer_slug": "aspen-digital",
+      "arranger": "Harbor (now Securitize Markets)",
+      "issuer_type": "asset_manager",
+      "doc_type": "issuance_document",
+      "title": "Aspen Digital, Inc. — St. Regis Aspen Resort Tokenised Equity Offering (ASPD, 2018)",
+      "date": "2018-09-18",
+      "period_covered": null,
+      "summary": "Aspen Digital, Inc. (Delaware, managed by Elevated Returns LLC, Aspen CO) conducted the first tokenised US commercial real estate equity offering by securitising an approximately 18.9% fractional ownership interest in the St. Regis Aspen Resort (315 East Dean Street, Aspen, Colorado 81611) as AspenCoin tokens (ASPD) on Ethereum. The $18 million Regulation D Rule 506(c) / Regulation S offering issued approximately 18,000,000 tokens at $1.00 each using Harbor's token issuance platform, with ownership anchored to a Delaware LLC structure representing a REIT-equivalent beneficial interest in the hotel asset. US accredited investors participated under Reg D 506(c); non-US investors under Reg S. AspenCoin achieved secondary market listing on tZERO's SEC-regulated Alternative Trading System (ATS) in June 2020, establishing the first regulated blockchain-based secondary market for a tokenised US hotel property. Note: offering date (2018-09-18), token name (ASPD), and exact ownership percentage (18.9%) are MED confidence — EDGAR Form D CIK not verified due to SEC access restrictions; see backlog.",
+      "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?company=aspen+digital&CIK=&type=D&dateb=&owner=include&count=40&search_text=&action=getcompany",
+      "file_url": null,
+      "asset_classes": [
+        "real_estate"
+      ],
+      "rwa_relevant": true,
+      "last_verified_at": "2026-06-03",
+      "rarm_layers": [
+        "issuer",
+        "jurisdiction"
+      ],
+      "sarm_blocks": [
+        "legal",
+        "regulatory"
+      ],
+      "jurisdiction": "US",
+      "regulator": null,
+      "status": "live",
+      "auditor": null,
+      "key_figures": [
+        {
+          "label": "Offering size (TODO: verify from EDGAR Form D)",
+          "value": "~$18M — ~18,000,000 ASPD tokens at $1.00 initial price (MED confidence)"
+        },
+        {
+          "label": "Property",
+          "value": "St. Regis Aspen Resort, 315 East Dean Street, Aspen, Colorado 81611 — ~18.9% fractional ownership interest (MED — some sources: 18%)"
+        },
+        {
+          "label": "Tokenisation platform / secondary market",
+          "value": "Harbor (now Securitize Markets) — issuance; tZERO ATS — secondary listing (~June 2020, MED confidence)"
+        },
+        {
+          "label": "Offering exemptions",
+          "value": "Reg D Rule 506(c) (US accredited investors) + Reg S (non-US investors)"
+        },
+        {
+          "label": "Asset manager",
+          "value": "Elevated Returns LLC (Aspen, CO) — manages the St. Regis Aspen Resort ownership interest"
         }
       ]
     }
