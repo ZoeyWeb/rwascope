@@ -1,6 +1,7 @@
 import { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import glossaryData from '../../../public/data/glossary/glossary.json';
+import { Eyebrow } from '../../components/Eyebrow';
 
 type Term = (typeof glossaryData.terms)[number];
 
@@ -32,21 +33,22 @@ export default function Glossary() {
   }
 
   return (
-    <div className="min-h-screen bg-[#F1F4F6]">
-      {/* Header */}
-      <div className="bg-white border-b border-[#DBE4E7]">
-        <div className="max-w-4xl mx-auto px-6 py-10">
-          <div className="text-xs font-semibold uppercase tracking-wider text-[#5E5C75] mb-2">
-            Framework
-          </div>
-          <h1 className="font-headline text-3xl font-bold text-[#2B3437]">
-            Glossary
+    <div>
+      {/* ── Hero ──────────────────────────────────────────────────────────── */}
+      <section className="pt-ed-section-md pb-ed-section-sm">
+        <div className="max-w-[1400px] mx-auto px-8">
+          <Eyebrow>Framework · Reference</Eyebrow>
+          <h1 className="text-ed-hero-h1 text-ed-ink mt-ed-section-sm">
+            RWA Glossary
           </h1>
-          <p className="mt-2 text-sm text-[#737C7F]">
-            Key terms used across RARM, SARM, and the RWAscope platform.
+          <p className="text-ed-lede text-ed-text-secondary max-w-[720px] mt-ed-section-sm">
+            Standardised definitions for tokenised real-world asset analysis, aligned with
+            the SARM and RARM frameworks underpinning this platform's research and
+            due-diligence outputs. Covers reserve mechanics, regulatory licensing structures,
+            on-chain risk taxonomy, and cross-border compliance vocabulary referenced across
+            the Intelligence, Framework, Market, and Projects modules.
           </p>
-
-          <div className="mt-6 relative">
+          <div className="mt-8 relative max-w-[480px]">
             <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-[#737C7F] text-[18px] select-none">
               search
             </span>
@@ -59,10 +61,11 @@ export default function Glossary() {
             />
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* Term list */}
-      <div className="max-w-4xl mx-auto px-6 py-10">
+      {/* ── Term list ─────────────────────────────────────────────────────── */}
+      <div className="bg-ed-surface-cool">
+      <div className="max-w-[1400px] mx-auto px-8 py-ed-section-md">
         {filtered.length === 0 && (
           <p className="text-sm text-[#737C7F] py-8 text-center">
             No terms match &ldquo;{query}&rdquo;
@@ -93,6 +96,7 @@ export default function Glossary() {
         <p className="mt-12 text-xs text-[#737C7F] text-center">
           {glossaryData.terms.length} terms · last updated {glossaryData.updated_at}
         </p>
+      </div>
       </div>
     </div>
   );

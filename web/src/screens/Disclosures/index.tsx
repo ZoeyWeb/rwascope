@@ -135,6 +135,19 @@ export default function DisclosuresTracker() {
   );
 }
 
+function StatusBadge({ status }: { status: string }) {
+  if (status === 'superseded') return (
+    <span className="text-[11px] font-medium text-[#737C7F] line-through">Superseded</span>
+  );
+  if (status === 'pending') return (
+    <span className="text-[11px] font-medium text-[#e09d2b]">Pending</span>
+  );
+  if (status === 'retired') return (
+    <span className="text-[11px] font-medium text-[#9ca3af]">Retired</span>
+  );
+  return <span className="text-[11px] font-medium text-[#737C7F]">Live</span>;
+}
+
 function DisclosureRow({ doc }: { doc: Disclosure }) {
   const [open, setOpen] = useState(false);
   const icon = DOC_TYPE_ICONS[doc.doc_type] ?? 'description';
@@ -158,11 +171,19 @@ function DisclosureRow({ doc }: { doc: Disclosure }) {
                 <span className="font-normal text-[#737C7F]"> · arranged by {doc.arranger}</span>
               )}
             </span>
+            {doc.regulator && (
+              <span className="text-ed-eyebrow uppercase border border-ed-hairline text-[#5E5C75] px-1.5 py-0.5">
+                {doc.regulator}
+              </span>
+            )}
             <span className="text-xs text-[#5E5C75] font-medium">{label}</span>
             {doc.period_covered && (
               <span className="text-xs text-[#737C7F]">{doc.period_covered}</span>
             )}
-            <span className="text-xs text-[#737C7F] ml-auto">{doc.date}</span>
+            <div className="ml-auto flex items-center gap-2">
+              <StatusBadge status={doc.status} />
+              <span className="text-xs text-[#737C7F]">{doc.date}</span>
+            </div>
           </div>
           <div className="text-sm font-medium text-[#2B3437] leading-snug">{doc.title}</div>
         </div>

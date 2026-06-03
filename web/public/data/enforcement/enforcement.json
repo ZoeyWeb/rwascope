@@ -1,5 +1,5 @@
 {
-  "version": "1.6.0",
+  "version": "1.7.0",
   "updated_at": "2026-06-02",
   "actions": [
     {
@@ -968,6 +968,112 @@
       ],
       "related_incident_slugs": [],
       "related_issuer_slugs": []
+    },
+    {
+      "slug": "cftc-ooki-dao-default-judgment-2023",
+      "action_date": "2023-06-08",
+      "regulator": "CFTC",
+      "jurisdiction": "US",
+      "target_entity": "Ooki DAO (formerly bZeroX / bZx Protocol)",
+      "target_type": "dao",
+      "action_type": "order",
+      "penalty_usd": 643542,
+      "penalty_note": "Default judgment also imposed permanent trading and registration bans and ordered protocol website shutdown and content removal. bZeroX LLC co-founders Tom Bean and Kyle Kistner settled separately for USD 250,000 on 22 September 2022 (concurrent CFTC order).",
+      "summary": "On 22 September 2022 the CFTC simultaneously settled with bZeroX LLC co-founders Tom Bean and Kyle Kistner for USD 250,000 and filed civil charges against Ooki DAO — the governance successor formed after bZeroX transferred protocol control to BZRX token holders, explicitly marketing the transfer as a mechanism to evade regulatory enforcement. On 8 June 2023, U.S. District Judge William H. Orrick (N.D. Cal.) entered a default judgment against Ooki DAO, imposing USD 643,542 in civil monetary penalties together with permanent trading and registration bans and an order to shut down all protocol-operated web infrastructure. The court held that Ooki DAO qualifies as an 'unincorporated association' under California law and a 'person' under the Commodity Exchange Act, establishing the first federal precedent that a decentralised token-holder governance collective does not confer immunity from regulatory jurisdiction. Underlying charges covered illegal off-exchange leveraged retail commodity transactions, operation as an unregistered Futures Commission Merchant, and failure to implement Bank Secrecy Act customer identification programs.",
+      "rwa_relevant": true,
+      "asset_classes": ["crypto_native"],
+      "rarm_layers": ["jurisdiction"],
+      "sarm_blocks": ["governance", "legal"],
+      "lessons": [
+        "DAO governance structures do not confer regulatory immunity: Judge Orrick's unincorporated-association holding establishes that CFTC jurisdiction attaches to token-holder collectives as legal persons — the premise that protocol governance can be made 'enforcement-proof' via decentralisation is legally invalid under U.S. federal commodity law.",
+        "Founders retain liability after governance transfer: Bean and Kistner settled personally at the same moment the DAO was charged, demonstrating that handing off protocol control does not extinguish personal exposure for conduct that occurred during the prior operating phase.",
+        "Absence of a coordinated legal-defence mechanism is itself a material governance deficiency: Ooki DAO had no legal entity, no counsel, and no mechanism to respond to litigation — resulting in default judgment that established binding precedent with no adversarial challenge to the DAO's own interests."
+      ],
+      "related_incident_slugs": [],
+      "related_issuer_slugs": [],
+      "status": "closed",
+      "sources": [
+        {
+          "label": "CFTC Press Release 8590-22 — bZeroX/Ooki DAO charges (22 Sep 2022)",
+          "url": "https://www.cftc.gov/PressRoom/PressReleases/8590-22"
+        },
+        {
+          "label": "CFTC Press Release 8715-23 — Default judgment statement (9 Jun 2023)",
+          "url": "https://www.cftc.gov/PressRoom/PressReleases/8715-23"
+        }
+      ]
+    },
+    {
+      "slug": "cftc-eisenberg-mango-markets-2023",
+      "action_date": "2023-01-09",
+      "regulator": "CFTC",
+      "jurisdiction": "US",
+      "target_entity": "Avraham Eisenberg",
+      "target_type": "individual",
+      "action_type": "charges",
+      "penalty_usd": 0,
+      "penalty_note": "No CFTC civil monetary judgment as of 2026-06 — action ongoing, seeking disgorgement, restitution, and civil penalties. Parallel DOJ criminal indictment (9 Jan 2023, SDNY) produced April 2024 jury convictions on commodities fraud, manipulation, and wire fraud; all criminal convictions vacated 23 May 2025 by Judge Arun Subramanian (Rule 29, venue and wire fraud materiality grounds) — not a merits acquittal. Eisenberg separately sentenced to 52 months (May 2025) on an unrelated conviction. In October 2022 Eisenberg returned approximately USD 67 million to the Mango Markets protocol treasury via a community governance vote, retaining an estimated USD 47 million.",
+      "summary": "On 9 January 2023 the CFTC filed a civil complaint — and the DOJ unsealed a parallel criminal indictment — against Avraham Eisenberg for an October 2022 oracle manipulation attack on Mango Markets, a Solana-based decentralised lending and trading protocol. Eisenberg opened two anonymous accounts, then purchased large quantities of MNGO tokens across FTX, Serum, and AscendEX, inflating the MNGO spot price approximately 13× in around 30 minutes and causing Mango's on-chain price oracle to reflect the elevated collateral value; he then borrowed over USD 110 million against the inflated collateral before returning roughly USD 67 million to the protocol treasury under a community governance vote. The CFTC characterised the scheme as commodity manipulation — its first civil enforcement action for manipulation on a decentralised digital asset exchange — and the case is the primary regulatory precedent for oracle-layer price manipulation as a commodity law violation. DOJ criminal convictions (April 2024) were vacated on procedural grounds in May 2025; the CFTC civil action remains ongoing.",
+      "rwa_relevant": true,
+      "asset_classes": ["crypto_native"],
+      "rarm_layers": ["oracle"],
+      "sarm_blocks": ["governance"],
+      "lessons": [
+        "Oracle price feeds are a primary attack surface in DeFi lending protocols: a single actor controlling cross-venue spot liquidity can manipulate an on-chain price oracle within minutes, bypassing smart-contract collateral logic that assumes price-feed integrity — TWAP, multi-source aggregation, and circuit-breaker design are RARM Layer 3 (oracle) prerequisites, not optional hardening.",
+        "Criminal conviction vacated on procedural grounds does not validate the underlying conduct: Judge Subramanian's Rule 29 dismissal turned on venue and wire fraud materiality, not a finding that oracle manipulation is lawful — the CFTC's civil characterisation of such conduct as commodity manipulation under the CEA remains the operative regulatory standard.",
+        "Parallel civil and criminal proceedings create asymmetric survival: CFTC civil actions seeking disgorgement and restitution are unaffected by criminal vacatur and continue to define the regulatory perimeter for DeFi manipulation, even where criminal prosecution collapses on procedural grounds."
+      ],
+      "related_incident_slugs": [],
+      "related_issuer_slugs": [],
+      "status": "ongoing",
+      "sources": [
+        {
+          "label": "CFTC Press Release 8647-23 — Eisenberg civil complaint (9 Jan 2023)",
+          "url": "https://www.cftc.gov/PressRoom/PressReleases/8647-23"
+        },
+        {
+          "label": "CFTC Complaint PDF — Eisenberg oracle manipulation charges",
+          "url": "https://www.cftc.gov/media/8046/enfeisenbergcomplaint010923/download"
+        }
+      ]
+    },
+    {
+      "slug": "sec-galois-capital-custody-2024",
+      "action_date": "2024-09-03",
+      "regulator": "SEC",
+      "jurisdiction": "US",
+      "target_entity": "Galois Capital Management LLC",
+      "target_type": "fund",
+      "action_type": "settlement",
+      "penalty_usd": 225000,
+      "penalty_note": "Penalty distributed to harmed investors via a Fair Fund. Entity-only settlement; no individuals charged. Galois announced fund liquidation February 2023 following the FTX collapse; approximately USD 40–45 million of ~USD 200 million AUM was trapped on FTX, representing roughly 50% of assets under management. Additional SEC finding: Galois permitted selective investor redemptions with as little as five days' notice, contrary to the fund's stated 30-day Limited Partnership Agreement term.",
+      "summary": "On 3 September 2024 the SEC settled with Galois Capital Management LLC — a now-defunct crypto-focused hedge fund — for USD 225,000, marking the first SEC enforcement action applying the Investment Advisers Act custody rule (Rule 206(4)-2) to digital assets held at a crypto exchange. From July 2022, Galois maintained client crypto-assets on FTX Trading Ltd. and Fireblocks; the SEC found that neither entity qualified as a 'qualified custodian' under the custody rule — FTX held only a South Dakota state trust licence, which does not satisfy the Rule 206(4)-2 qualified custodian standard. When FTX collapsed in November 2022, approximately USD 40–45 million of Galois's estimated USD 200 million AUM was inaccessible; the fund announced liquidation in February 2023 and sold its FTX bankruptcy claims at 16 cents on the dollar. The SEC also found that Galois permitted selective investor redemptions on as little as five days' notice, contrary to its stated 30-day Limited Partnership Agreement term. No individuals were charged; the civil penalty was distributed through a Fair Fund to harmed investors.",
+      "rwa_relevant": true,
+      "asset_classes": ["crypto_native"],
+      "rarm_layers": ["custody", "audit"],
+      "sarm_blocks": ["settlement", "transparency"],
+      "lessons": [
+        "Exchange custody accounts are not qualified custodians under Rule 206(4)-2: the Galois action confirms that holding digital assets on a crypto trading platform — regardless of exchange scale or reputation — does not satisfy U.S. adviser custody requirements; RWA fund structures must segregate assets with a demonstrably qualified custodian (bank, registered broker-dealer, or qualifying FCM).",
+        "Custody non-compliance and counterparty concentration risk compound simultaneously: Galois's non-compliant custody arrangement meant that the regulatory violation and the catastrophic loss event were the same fact — assets held on FTX were both non-compliant and inaccessible when FTX failed, illustrating that custody compliance is a direct risk-management control, not merely an administrative requirement.",
+        "Entity-only settlement without personal charges does not reduce precedent weight: the SEC's first digital-asset custody enforcement establishes the applicable standard for all registered investment advisers managing crypto or tokenised asset funds — future fact patterns with similar custody failures may carry individual liability for fund managers who knew or should have known the custodian was unqualified."
+      ],
+      "related_incident_slugs": [],
+      "related_issuer_slugs": [],
+      "status": "settled",
+      "sources": [
+        {
+          "label": "SEC Press Release 2024-111 — Galois Capital settlement (3 Sep 2024)",
+          "url": "https://www.sec.gov/news/press-release/2024-111"
+        },
+        {
+          "label": "SEC Admin Proceeding IA-6670 — order and findings",
+          "url": "https://www.sec.gov/files/litigation/admin/2024/ia-6670.pdf"
+        },
+        {
+          "label": "Sidley Austin — First crypto custody rule enforcement analysis",
+          "url": "https://www.sidley.com/en/insights/newsupdates/2024/09/crypto-focused-private-fund-adviser-settles-with-us-sec-for-custody-rule-and-other-violations"
+        }
+      ]
     }
   ]
 }
