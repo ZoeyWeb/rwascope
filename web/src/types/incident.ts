@@ -9,7 +9,8 @@ export type IncidentAssetClass =
   | 'tokenized_treasury'
   | 'tokenized_credit'
   | 'tokenized_commodity'
-  | 'tokenized_royalty';
+  | 'tokenized_royalty'
+  | 'infrastructure';
 
 export interface IncidentCitationMeta {
   short_title: string;

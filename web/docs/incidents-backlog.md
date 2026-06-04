@@ -36,11 +36,39 @@
 - usdx-depeg-cascade-2025 (2025-11-06, RWA MEDIUM)
 - drift-protocol-dprk-hack-2026 (2026-04-01, RWA LOW)
 
+## RWAI Registry — projects.json (独立于 incidents.json)
+
+### Batch A (2026-06-04) — ✅ shipped
+- RWAI-2024-002 radiant-capital-hack-2024 ✓  (infrastructure, critical, wind-down)
+- RWAI-2025-001 stream-finance-xusd-collapse-2025 ✓  (fintech_wrapper → tokenized_credit, critical)
+- RWAI-2026-001 kelpdao-aave-bank-run-2026 ✓  (infrastructure, critical, active)
+- Registry total: 10 → 13 entries
+
+### Batch B candidates (P1)
+- goldfinch-lendeast-default-2024  ← already in incidents.json Batch 3
+- realt-detroit-tokenized-re-fraud-2025  ← already in incidents.json Batch 1
+- usual-usd0pp-depeg-2025  ← already in incidents.json Batch 3
+
+### Batch C candidates (P2)
+- infini-neobank-exploit-2025  ← already in incidents.json Batch 3
+- zoth-rwa-restaking-hack-2025  ← already in incidents.json Batch 2
+- resolv-labs-usr-depeg-2026  ← already in incidents.json Batch 2
+
+### RWAI Verification TODO (累积)
+- [ ] Radiant DPRK second independent TI source (Mandiant only confirmed; Chainalysis/TRM/Elliptic standalone not located) — current framing "reportedly attributed" pending closure
+- [ ] Radiant peak_tvl_usd: 386777927 sourced from DeFiLlama API (api.llama.fi/protocol/radiant) 2026-06-04
+- [ ] Stream peak_tvl_usd: 204000000 sourced from DeFiLlama API (api.llama.fi/protocol/stream-finance) 2026-06-04
+- [ ] Stream website URL: not located — field left as "" pending discovery
+- [ ] Stream launched_at: not located — field left as null pending discovery
+- [ ] Stream entity_map issuer / auditor / jurisdiction: [requires fact-check] — all null pending discovery
+- [ ] KelpDAO jurisdiction: "Cayman Islands (Stader Labs)" — MEDIUM confidence, pending primary incorporation confirmation
+- [ ] KelpDAO launched_at: "2023-12-01" — MEDIUM confidence, from Kelp DAO Twitter announcement
+
 ## Schema / Infra TODO (累积)
 - [ ] Reconcile src/types/incident.ts vs incidents.ts severity enum 冲突
+- [x] IncidentAssetClass: added 'infrastructure' (2026-06-04, Batch A)
 - [ ] 评估 incidents.json 加 metadata 顶层字段 (version, updated_at) 对齐 enforcement.json
-- [ ] 评估为 Batch 1+2 六条 incidents 在 projects.json 加 project profile + RWAI ID
-      (Batch 2 资格候选: Radiant 重大且闭环 + Resolv 重大 — 高优先级 RWAI 候选)
+- [x] 为 Batch 1+2 incidents 加 projects.json RWAI ID — Radiant ✓ (Batch A)
 
 ## Asset Class 枚举进度
 - 已填充: stablecoin, infrastructure, tokenized-real-estate, tokenized-treasury, tokenized-private-credit
