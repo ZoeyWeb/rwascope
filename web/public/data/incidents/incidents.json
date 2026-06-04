@@ -1025,6 +1025,140 @@
     ]
   },
   {
+    "slug": "infini-neobank-exploit-2025",
+    "title": "Infini Neobank: $49.5M Smart Contract Backdoor Exploit",
+    "scope": "hk-related",
+    "severity": "critical",
+    "status": "litigation",
+    "type": "smart-contract-exploit",
+    "assetClass": "infrastructure",
+    "date": "2025-02-24",
+    "primaryEntity": "Infini",
+    "issuerOrOperator": "Infini / BP Singapore Pte. Ltd.",
+    "affectedParties": [
+      "both"
+    ],
+    "jurisdictions": [
+      "Hong Kong",
+      "Singapore",
+      "Global"
+    ],
+    "hkRelevance": "Infini is a Hong Kong-incorporated stablecoin neobank and crypto debit card issuer. Civil proceedings were filed in Hong Kong courts in March 2025 and an injunction hearing was held before Judge Lok on 27 March 2025. The primary defendant (Chen Shanxuan) was employed through Infini's Singapore subsidiary, BP Singapore Pte. Ltd. Note: 'Infini Capital', which is the subject of unrelated SFC proceedings, is a distinct entity and should not be conflated with Infini neobank.",
+    "estimatedLossUsd": 49500000,
+    "estimatedLossNote": "Multi-source consensus: $49.5M USDC drained in two transactions ($11.45M + $38.06M). CoinDesk, The Block, PeckShield, CertiK, and Cyvers all report $49.5M based on on-chain data. Rounding to ~$50M or ~$49M in some outlets is not a material discrepancy. No recovery of funds has been confirmed as of mid-2026.",
+    "summary": "On 24 February 2025, Hong Kong-based stablecoin neobank Infini suffered a $49.5 million exploit when a contractor who had built its Ethereum smart contracts retained an undisclosed privileged admin role — enabling a 114-day patient attack in which the developer waited for protocol TVL to reach approximately $50 million before draining the entire Morpho MEVCapital USDC Vault in two transactions. The attacker converted the stolen USDC into DAI to circumvent issuer blacklisting, then into 17,696 ETH dispersed across multiple wallets. Co-founder Christian Li pledged full user reimbursement from personal funds. In March 2025, Infini filed civil proceedings in Hong Kong courts naming developer Chen Shanxuan and three unnamed co-defendants; a court injunction hearing was held on 27 March 2025. Infini issued a final ultimatum in August 2025 offering the attacker all profits as a white-hat bounty in exchange for return of the $49.5 million principal; no confirmed response or fund recovery has been reported, and civil litigation remains active as of mid-2026.",
+    "narrative": "Infini is a Hong Kong-based stablecoin neobank and crypto debit card issuer offering USDC/USDT yield-bearing accounts and Visa/Mastercard-enabled prepaid cards, popular particularly among Chinese DeFi users. By February 2025, Infini's total value locked had crossed $50 million, primarily deployed through a position in the Morpho MEVCapital USDC Vault on Ethereum mainnet. The protocol operated through a Hong Kong parent entity and a Singapore subsidiary, BP Singapore Pte. Ltd., which managed contractor hiring.\n\nThe attack was enabled by a fundamental failure in contractor access management. Infini hired an anonymous developer — later identified in court filings as Chen Shanxuan, resident of Foshan, Guangdong — to build and deploy its core smart contracts. During development, the contractor deployed an unverified contract (no source code published on-chain) containing a special privileged role (`0x8e0b`) granting unrestricted vault withdrawal capability. Rather than transferring this role to Infini upon project completion, the developer retained the controlling private key and falsely informed Infini that all admin privileges had been properly handed over. In approximately November 2024, the attacker pre-deployed a custom malicious proxy contract on-chain and waited 114 days for TVL to accumulate.\n\nOn 24 February 2025 at approximately 3:18 AM UTC, the attacker funded a wallet with 1 ETH via Tornado Cash to cover gas, then executed two drain transactions totalling $49.5 million in USDC. The stolen USDC was immediately swapped into DAI — a non-freezable stablecoin — to circumvent Circle's blacklisting capability, then converted into 17,696 ETH and dispersed across multiple secondary wallets. Co-founder Christian Li issued an immediate public statement on X, personally pledged full user reimbursement, and offered the attacker a 20% white-hat bounty with legal immunity for the return of principal.\n\nOn 24 March 2025, Infini sent an on-chain message identifying the primary defendant as Chen Shanxuan and naming three additional unidentified wallet-controlling persons as co-defendants. Civil proceedings were filed in Hong Kong courts; a court injunction hearing was held before Judge Lok on 27 March 2025. On 11 August 2025, Infini issued what it described as a final ultimatum — offering to allow the attacker to retain all profits while providing a written no-prosecution assurance in exchange for return of the $49.5 million principal by August 13 — with no public confirmation of any response. As of mid-2026, civil litigation remains active and no funds have been confirmed recovered.",
+    "timeline": [
+      {
+        "date": "2024-11-01",
+        "event": "Attacker pre-deploys custom malicious proxy contract on Ethereum mainnet; the privileged admin role (0x8e0b) remains under attacker control — falsely claimed to have been transferred to Infini. Date is approximate, derived from the 114-day elapsed time reported across multiple sources.",
+        "sourceUrl": "https://www.halborn.com/blog/post/explained-the-infini-hack-february-2025"
+      },
+      {
+        "date": "2025-02-24",
+        "event": "CertiK flags suspicious activity at ~3:18 AM UTC. Attacker funds wallet with 1 ETH via Tornado Cash, executes two drain transactions ($11.45M + $38.06M USDC) from Morpho MEVCapital USDC Vault on Ethereum mainnet.",
+        "sourceUrl": "https://www.halborn.com/blog/post/explained-the-infini-hack-february-2025"
+      },
+      {
+        "date": "2025-02-24",
+        "event": "Stolen $49.5M USDC swapped to DAI, converted to 17,696 ETH, dispersed across multiple wallets. Infini co-founder Christian Li issues public statement on X: confirms breach, pledges personal reimbursement, offers 20% white-hat bounty with legal immunity.",
+        "sourceUrl": "https://cointelegraph.com/news/infini-loses-50-m-in-exploit-developer-deception-suspected"
+      },
+      {
+        "date": "2025-03-24",
+        "event": "Infini sends on-chain message naming Chen Shanxuan (Foshan, Guangdong) and three unidentified co-defendants in civil proceedings.",
+        "sourceUrl": "https://cointelegraph.com/news/infini-legal-action-hong-kong-50-million-hack"
+      },
+      {
+        "date": "2025-03-27",
+        "event": "Hong Kong court injunction hearing held before Judge Lok.",
+        "sourceUrl": "https://cointelegraph.com/news/infini-legal-action-hong-kong-50-million-hack"
+      },
+      {
+        "date": "2025-08-11",
+        "event": "Infini issues final ultimatum: return $49.5M principal by August 13 in exchange for written no-prosecution assurance and right to keep all profits. No public response or fund return confirmed.",
+        "sourceUrl": null
+      }
+    ],
+    "regulatoryResponse": [],
+    "frameworkMapping": {
+      "sarm": null,
+      "rarm": {
+        "legalJurisdictional": true,
+        "assetValuationOracles": false,
+        "custodyAssetControl": true,
+        "kycAmlPermissioning": false,
+        "secondaryMarketLiquidity": false,
+        "settlementFinality": true,
+        "explanation": "The exploit is fundamentally a custody and access-control failure: a contractor embedded a hidden privileged role in production smart contracts and falsely claimed to have transferred admin keys, meaning on-chain custody was never actually transferred to the protocol (custodyAssetControl). Civil litigation spans Hong Kong, Singapore, and mainland China, and the attacker's conversion of funds through privacy tools makes legal recovery highly uncertain (legalJurisdictional). The $49.5M USDC transaction settled irreversibly on-chain to attacker-controlled addresses (settlementFinality)."
+      }
+    },
+    "lessons": "The Infini exploit is a textbook case of insider threat through contractor privilege retention. Three control failures compounded: the deployed smart contract was not publicly verified on-chain, preventing independent audit of the hidden admin role; there was no multi-party verification process to confirm admin key transfer before the contractor relationship concluded; and no runtime monitoring was in place to detect the pre-positioned malicious proxy contract deployed months before the drain. Crypto protocols employing third-party contractors to deploy production smart contracts should require: verifiable on-chain source code publication and independent audit before TVL onboarding; multi-signature admin key handover verified by at least two internal parties; and automated alerts for any privileged function invocations. The immediate conversion of USDC to DAI post-drain also highlights the need for pre-configured issuer blacklist workflows as part of incident response planning.",
+    "relatedIncidentSlugs": [
+      "bybit-safewallet-hack-2025",
+      "radiant-capital-hack-2024",
+      "wazirx-multisig-exploit-2024",
+      "coinbase-data-breach-2025"
+    ],
+    "relatedIssuerSlugs": [],
+    "sources": [
+      {
+        "title": "Payments Card Issuer Infini Offers Reward for Return of Funds After $49 Million Exploit",
+        "publication": "CoinDesk",
+        "date": "2025-02-24",
+        "url": "https://www.coindesk.com/markets/2025/02/24/payments-card-issuer-infini-offers-reward-for-return-of-funds-after-usd49-million-exploit",
+        "type": "major-media"
+      },
+      {
+        "title": "Stablecoin Neobank Infini Exploited for $49 Million",
+        "publication": "The Block",
+        "date": "2025-02-24",
+        "url": "https://www.theblock.co/post/342911/stablecoin-neobank-infini-exploited-for-49-million-security-analysts",
+        "type": "major-media"
+      },
+      {
+        "title": "Explained: The Infini Hack (February 2025)",
+        "publication": "Halborn",
+        "date": "2025-02-25",
+        "url": "https://www.halborn.com/blog/post/explained-the-infini-hack-february-2025",
+        "type": "industry-media"
+      },
+      {
+        "title": "Infini Loses $50M in Exploit; Developer Deception Suspected",
+        "publication": "CoinTelegraph",
+        "date": "2025-02-24",
+        "url": "https://cointelegraph.com/news/infini-loses-50-m-in-exploit-developer-deception-suspected",
+        "type": "major-media"
+      },
+      {
+        "title": "Infini Takes Legal Action in Hong Kong Over $50M Hack",
+        "publication": "CoinTelegraph",
+        "date": "2025-03-01",
+        "url": "https://cointelegraph.com/news/infini-legal-action-hong-kong-50-million-hack",
+        "type": "major-media"
+      },
+      {
+        "title": "Crypto Neo Bank Infini's $50M Exploit",
+        "publication": "Decrypt",
+        "date": "2025-02-24",
+        "url": "https://decrypt.co/307513/crypto-neo-bank-infini-50-million-exploit",
+        "type": "major-media"
+      }
+    ],
+    "firstPublishedAt": "2026-06-04",
+    "lastUpdatedAt": "2026-06-04",
+    "revisionNotes": [
+      {
+        "date": "2026-06-04",
+        "note": "Initial publication. $32.7M Tornado Cash routing figure is single-sourced (LiveBitcoinNews) and not referenced in JSON data pending corroboration. Chen Shanxuan gambling-debt motive is alleged per court affidavit reported by single Chinese-language source; omitted from public-facing content. August 2025 ultimatum is single-sourced; outcome unknown. Infini X post URL (official statement) pending Phase 3 human verification. relatedIssuerSlugs empty pending addition of Infini to disclosures.json."
+      },
+      {
+        "date": "2026-06-04",
+        "note": "CoinTelegraph URLs (sources[3], sources[4]) return 404 to automated HEAD requests due to bot-blocking but resolve normally in browsers; existence verified via search engine indexing of exact URL with matching headline and content."
+      }
+    ]
+  },
+  {
     "slug": "bybit-safewallet-hack-2025",
     "title": "Bybit Exchange — USD 1.46 Billion Stolen via Safe Wallet Supply-Chain Attack",
     "scope": "global-reference",
@@ -1152,6 +1286,144 @@
       {
         "date": "2026-04-29",
         "note": "Initial entry. Law enforcement investigation and stolen asset tracing ongoing. Extent of eventual asset recovery subject to ongoing blockchain forensics and law enforcement action."
+      }
+    ]
+  },
+  {
+    "slug": "usual-usd0pp-depeg-2025",
+    "title": "Usual Protocol: USD0++ Redemption Change and Depeg",
+    "scope": "global-reference",
+    "severity": "high",
+    "status": "resolved",
+    "type": "de-pegging",
+    "assetClass": "stablecoin",
+    "date": "2025-01-09",
+    "primaryEntity": "Usual Protocol",
+    "issuerOrOperator": "Usual Labs",
+    "affectedParties": [
+      "both"
+    ],
+    "jurisdictions": [
+      "France",
+      "Global"
+    ],
+    "estimatedLossUsd": null,
+    "estimatedLossNote": "No single authoritative figure published. USD0++ supply at time of incident was approximately $1.53 billion (single-source: Leviathan News — requires corroboration). At peak depeg of ~11% (low of $0.89), mark-to-market paper losses to holders were in the range of $120–170M — a calculated estimate, not a published figure. Protocol TVL fell from approximately $1.87B to below $1.6B. Gauntlet withdrew $43M from affected Morpho vaults (Rekt News). Losses were temporary: USD0++ recovered to near-parity (~$0.999) by mid-2026. A $0.80 price low cited by a single Chinese-language PANews article is contradicted by all other sources (consensus low: $0.89) and is not used here.",
+    "summary": "On 9 January 2025, the Usual protocol unilaterally changed the redemption mechanism of USD0++, its liquid staking token for the USD0 dollar-pegged stablecoin, introducing an unconditional exit floor of $0.87 USD0 per USD0++ — calibrated just above the 86% liquidation threshold in Morpho's Chainlink oracle markets. The change was communicated to selected Morpho vault curators via private Telegram before any public announcement, triggering a market sell-off that pushed USD0++ to a low of approximately $0.89, an ~11% depeg. With USD0++ supply at approximately $1.53 billion, the immediate mark-to-market impact on holders was substantial; protocol TVL fell from approximately $1.87 billion to below $1.6 billion within days, and Curve pool USD0++ concentration reached ~90%. No regulatory action was initiated by any jurisdiction. Usual subsequently introduced the Revenue Switch (13 January) and a Road to Parity roadmap (23 January 2025) proposing Stability Loans and a $200 million institutional buffer; USD0++ recovered to near-parity (~$0.999) by mid-2026.",
+    "narrative": "USD0++ is a four-year bond-equivalent issued by the Usual protocol, a French decentralised stablecoin project. USD0 — Usual's dollar-pegged stablecoin backed by US Treasury bills — could be deposited into the USD0++ contract, which locked capital for up to four years in exchange for USUAL governance token rewards. Marketed across DeFi yield platforms as a stablecoin-equivalent with enhanced returns, USD0++ accumulated approximately $1.53 billion in locked deposits by early 2025, with large positions used as collateral in Morpho lending markets at up to 86% loan-to-value.\n\nOn 9 January 2025, Usual announced a fundamental change to the USD0++ redemption mechanism without advance public governance vote. The protocol introduced a dual-path exit: holders could redeem 1:1 for USD0 but forfeit all accrued USUAL rewards (conditional exit), or redeem at an unconditional floor price of $0.87 USD0 per USD0++ (unconditional exit), designed to rise linearly to $1.00 over four years. The announcement was communicated first by private Telegram to selected Morpho vault risk managers at 4:56 PM ET — ahead of any public disclosure. The $0.87 floor was deliberately calibrated just above the 86% LLTV liquidation threshold in Morpho's Chainlink oracle markets, where USD0++ had been hardcoded at $1.00 by some curators.\n\nThe market response was immediate and severe. USD0++ fell from $1.00 to a low of approximately $0.89 within hours. Curve pool liquidity skewed to approximately 90% USD0++ concentration as holders exited. Pendle's USD0++ TVL halved. USUAL governance token dropped 17–18.7% within 24 hours. Gauntlet, an independent risk manager on Morpho, withdrew $43 million from affected vaults. Protocol TVL fell from approximately $1.87 billion to below $1.6 billion. An allegation published by Rekt News — that Usual's founder holds equity in MEV Capital (a Morpho vault curator that received advance notice) through Shift Capital — has not been corroborated by any other source and is treated as unverified.\n\nUsual's stabilisation response unfolded in two stages. On 13 January, the protocol activated its Revenue Switch, directing up to $5 million monthly in real-world asset yield revenue to USUALx stakers, with an automatic fallback scheduled for 1 February. On 23 January, Usual published a Road to Parity roadmap proposing Stability Loans (USL), a $200 million Stability Buffer (USB) backed by institutional capital, and an increase in the unconditional exit floor to $0.92. These measures gradually restored market confidence; USD0++ recovered to near-parity (~$0.999) by mid-2026.",
+    "timeline": [
+      {
+        "date": "2024-12-22",
+        "event": "Paper Imperium publishes early warning about USD0++ redemption mechanism risks.",
+        "sourceUrl": "https://rekt.news/unusual-money"
+      },
+      {
+        "date": "2025-01-02",
+        "event": "MEV Capital announces management fee increase from 8% to 10% on Morpho USD0++ vaults.",
+        "sourceUrl": "https://rekt.news/unusual-money"
+      },
+      {
+        "date": "2025-01-09",
+        "event": "Usual sends private Telegram notification to Morpho vault risk managers terminating unconditional 1:1 redemption effective immediately; public blog post and tweet published shortly after. USD0++ begins depegging.",
+        "sourceUrl": "https://usual.money/blog/usual-s-next-leap-solidifying-a-4-year-horizon-for-sustainable-growth"
+      },
+      {
+        "date": "2025-01-10",
+        "event": "Market sell-off intensifies: USD0++ reaches low of approximately $0.89; Curve pool skews to ~90% USD0++; USUAL token drops 17–18.7%; Usual announces new Morpho market at $0.87 oracle.",
+        "sourceUrl": "https://rekt.news/unusual-money"
+      },
+      {
+        "date": "2025-01-11",
+        "event": "USD0++ stabilises around $0.92–$0.935; Gauntlet withdraws $43M from affected Morpho vaults; protocol TVL falls below $1.6B.",
+        "sourceUrl": "https://rekt.news/unusual-money"
+      },
+      {
+        "date": "2025-01-13",
+        "event": "Usual activates Revenue Switch, directing up to $5M/month in protocol revenue to USUALx stakers.",
+        "sourceUrl": "https://usual.money/blog/a-new-dawn-for-usd0-road-to-parity"
+      },
+      {
+        "date": "2025-01-23",
+        "event": "Usual publishes 'Road to Parity' roadmap: Stability Loans (USL), $200M Stability Buffer (USB), and floor price increase to $0.92 proposed.",
+        "sourceUrl": "https://usual.money/blog/a-new-dawn-for-usd0-road-to-parity"
+      }
+    ],
+    "regulatoryResponse": [],
+    "frameworkMapping": {
+      "sarm": {
+        "reserveImplicated": false,
+        "redemptionImplicated": true,
+        "governanceImplicated": true,
+        "explanation": "USD0 reserve assets (US Treasury bills) were unaffected; the depeg was caused entirely by a unilateral change to the USD0++ redemption floor (redemptionImplicated). The change was made without public governance vote and advance notice was selectively provided to certain vault curators prior to public announcement, constituting a governance control failure (governanceImplicated). An unverified allegation of a conflict of interest between the protocol founder and one notified curator (MEV Capital) has been noted but not corroborated."
+      },
+      "rarm": {
+        "legalJurisdictional": false,
+        "assetValuationOracles": true,
+        "custodyAssetControl": false,
+        "kycAmlPermissioning": false,
+        "secondaryMarketLiquidity": true,
+        "settlementFinality": false,
+        "explanation": "Morpho's Chainlink oracle markets had hardcoded USD0++ at $1.00; when the protocol set an unconditional redemption floor of $0.87, the 13-cent gap below the 86% LLTV liquidation threshold created cascading liquidations (assetValuationOracles). Secondary market disruption was immediate and severe: Curve pools skewed to 90% USD0++, Pendle TVL halved (secondaryMarketLiquidity). The incident demonstrates that yield-bearing stablecoins with lock-up features require oracle feeds reflecting the exit floor price rather than par value when used as collateral in third-party lending protocols."
+      }
+    },
+    "lessons": "Yield-bearing stable instruments with lock-up features must not be priced at par in lending protocols without oracle configurations that reflect the contractual exit floor. The 13-cent gap between a $0.87 unconditional redemption floor and a $1.00 oracle price created a systematic liquidation trap for leveraged borrowers. Protocol governance changes affecting redemption mechanics — particularly those that alter collateral valuations in third-party lending protocols — require advance public notice and ideally community governance ratification, not private communications to selected curators. DeFi composability amplifies governance failures: a design change in one protocol can trigger cascading liquidations across unrelated vault positions in seconds. The incident also highlights the need for transparent curator relationships and disclosed economic interests in yield-bearing stablecoin ecosystems.",
+    "relatedIncidentSlugs": [
+      "terrausd-luna-collapse-2022",
+      "usdc-svb-depeg-2023",
+      "fdusd-depeg-march-2025",
+      "zoth-rwa-restaking-hack-2025"
+    ],
+    "relatedIssuerSlugs": [],
+    "sources": [
+      {
+        "title": "Usual's Next Leap: Solidifying a 4-Year Horizon for Sustainable Growth",
+        "publication": "Usual Blog",
+        "date": "2025-01-09",
+        "url": "https://usual.money/blog/usual-s-next-leap-solidifying-a-4-year-horizon-for-sustainable-growth",
+        "type": "official-statement"
+      },
+      {
+        "title": "A New Dawn for USD0++: Road to Parity",
+        "publication": "Usual Blog",
+        "date": "2025-01-23",
+        "url": "https://usual.money/blog/a-new-dawn-for-usd0-road-to-parity",
+        "type": "official-statement"
+      },
+      {
+        "title": "Unusual Money",
+        "publication": "Rekt News",
+        "date": "2025-01-11",
+        "url": "https://rekt.news/unusual-money",
+        "type": "industry-media"
+      },
+      {
+        "title": "Red-Hot DeFi Platform Usual Faces Backlash as Protocol Update Triggers Sell-Off",
+        "publication": "CoinDesk",
+        "date": "2025-01-10",
+        "url": "https://www.coindesk.com/markets/2025/01/10/red-hot-de-fi-platform-usual-faces-backlash-as-protocol-update-triggers-sell-off",
+        "type": "major-media"
+      },
+      {
+        "title": "Usual Money Protocol Update",
+        "publication": "The Block",
+        "date": "2025-01-10",
+        "url": "https://www.theblock.co/post/333995/usual-money-protocol-update",
+        "type": "major-media"
+      },
+      {
+        "title": "Stablecoin developer Usual faces backlash after changing redeem function",
+        "publication": "crypto.news",
+        "date": "2025-01-10",
+        "url": "https://crypto.news/stablecoin-developer-usual-faces-backlash-after-changing-redeem-function/",
+        "type": "industry-media"
+      }
+    ],
+    "firstPublishedAt": "2026-06-04",
+    "lastUpdatedAt": "2026-06-04",
+    "revisionNotes": [
+      {
+        "date": "2026-06-04",
+        "note": "Initial publication. USD0++ supply figure of $1.53B is single-sourced (Leviathan News); will update if corroborated. Rekt News allegation of founder conflict of interest with MEV Capital is unverified and noted as such. No single authoritative paper-loss figure available; estimatedLossUsd set to null. relatedIssuerSlugs empty pending addition of Usual Labs to disclosures.json."
       }
     ]
   },
@@ -1610,104 +1882,6 @@
     ]
   },
   {
-    "slug": "worldcoin-hk-pcpd-enforcement-2024",
-    "title": "Worldcoin Iris Biometric Data Collection — PCPD Enforcement and Hong Kong Operations Suspension",
-    "scope": "hk-related",
-    "severity": "medium",
-    "status": "resolved",
-    "type": "regulatory-action",
-    "assetClass": "other",
-    "date": "2024-05-31",
-    "endDate": "2024-05-31",
-    "primaryEntity": "Worldcoin / World App",
-    "issuerOrOperator": "Tools for Humanity Corporation",
-    "affectedParties": [
-      "retail"
-    ],
-    "jurisdictions": [
-      "HK",
-      "GLOBAL"
-    ],
-    "hkRelevance": "The Privacy Commissioner for Personal Data (PCPD) conducted an investigation into Worldcoin's iris-scanning operations in Hong Kong and issued enforcement findings. Worldcoin suspended its Hong Kong operations in response to the PCPD's conclusions.",
-    "estimatedLossUsd": null,
-    "estimatedLossNote": "This is a privacy enforcement and regulatory action entry. No direct financial loss to investors is recorded. The World (WLD) token experienced price volatility across multiple jurisdictions during the period of coordinated global regulatory scrutiny, but a causal link to the PCPD enforcement specifically has not been established.",
-    "summary": "In 2024, the Hong Kong Privacy Commissioner for Personal Data (PCPD) published the findings of its investigation into Worldcoin's operation of biometric 'Orb' scanning devices in Hong Kong. The PCPD concluded that Worldcoin had contravened the Personal Data (Privacy) Ordinance (PDPO), Cap. 486, including failures relating to the lawful collection, retention, and use of sensitive iris biometric data collected from members of the public in exchange for World (WLD) token allocations. Worldcoin suspended its Hong Kong operations following the PCPD's published findings. The Hong Kong enforcement formed part of a broader international pattern of regulatory scrutiny of Worldcoin's biometric data practices.",
-    "narrative": "Worldcoin (since rebranded as 'World' by Tools for Humanity Corporation) operates a global digital identity protocol that uses proprietary iris-scanning devices ('Orbs') to generate biometric identifiers for registered users. Users who submit to an iris scan receive a 'World ID' — a cryptographic proof of unique human identity — and allocations of the World (WLD) cryptocurrency token. The protocol is presented as an infrastructure layer for verifying human uniqueness in AI-augmented environments.\n\nFollowing the global launch of Worldcoin in July 2023, Orb scanning stations were deployed in Hong Kong at publicly accessible locations. Members of the public participating in scanning received WLD token allocations in exchange for providing their iris biometric data.\n\nThe PCPD commenced an investigation into Worldcoin's data collection activities in Hong Kong. The investigation examined whether Worldcoin's collection of iris biometric data — a category of sensitive personal data under the PDPO — complied with the data protection principles in the Ordinance. The PCPD published its investigation findings in May 2024, concluding that Worldcoin had contravened the PDPO, including failures in: (i) establishing a lawful basis for collecting sensitive biometric data at the scale conducted; (ii) providing adequate notice to data subjects of the purpose and downstream use of iris data; and (iii) adhering to proportionate data retention periods.\n\nTools for Humanity announced the suspension of Worldcoin's Hong Kong operations following the PCPD's published findings. The company stated it was reviewing the conclusions and engaging with the regulator.\n\nThe PCPD enforcement occurred in the context of parallel regulatory actions in multiple other jurisdictions: Germany's Bavarian Data Protection Authority, India's data protection authorities, and Kenya's Office of the Data Protection Commissioner had each raised concerns about, or taken action in respect of, Worldcoin's biometric data practices. The cross-jurisdictional pattern reflects the novel nature of large-scale biometric data collection as a token distribution mechanism and the lack of a settled global regulatory framework for such activities.",
-    "timeline": [
-      {
-        "date": "2023-07-24",
-        "event": "Worldcoin launches globally. Orb stations commence operations in multiple cities including Hong Kong; participants receive WLD token allocations in exchange for iris scans.",
-        "sourceUrl": "https://worldcoin.org/"
-      },
-      {
-        "date": "2024-01-01",
-        "event": "PCPD commences investigation into Worldcoin's iris biometric data collection activities in Hong Kong.",
-        "sourceUrl": "https://www.pcpd.org.hk/"
-      },
-      {
-        "date": "2024-05-31",
-        "event": "PCPD publishes investigation findings. Concludes Worldcoin contravened the Personal Data (Privacy) Ordinance. Worldcoin suspends Hong Kong operations.",
-        "sourceUrl": "https://www.pcpd.org.hk/"
-      }
-    ],
-    "regulatoryResponse": [
-      {
-        "regulator": "Privacy Commissioner for Personal Data, Hong Kong (PCPD)",
-        "jurisdiction": "HK",
-        "actionType": "Enforcement investigation — contravention of Personal Data (Privacy) Ordinance, Cap. 486",
-        "date": "2024-05-31",
-        "outcome": "PCPD published enforcement findings identifying contraventions of PDPO including unlawful collection and retention of biometric data. Worldcoin suspended HK operations in response.",
-        "sourceUrl": "https://www.pcpd.org.hk/"
-      }
-    ],
-    "frameworkMapping": {
-      "sarm": null,
-      "rarm": {
-        "legalJurisdictional": true,
-        "assetValuationOracles": false,
-        "custodyAssetControl": false,
-        "kycAmlPermissioning": true,
-        "secondaryMarketLiquidity": false,
-        "settlementFinality": false,
-        "explanation": "Legal & Jurisdictional: the PCPD enforcement illustrates that token distribution mechanisms involving biometric data collection are subject to personal data protection law, irrespective of whether the collection is framed as voluntary participation in exchange for a token allocation. This has direct implications for any tokenized asset distribution mechanism that links access to identity verification. KYC/AML & Permissioning: the Worldcoin model links token distribution to biometric proof-of-personhood — a form of identity-based permissioning. The enforcement findings raise questions about the legal framework for biometric-linked permissioning in tokenized asset distribution, particularly in jurisdictions with strong data protection regimes."
-      }
-    },
-    "lessons": "The PCPD's Worldcoin enforcement illustrates that novel token distribution mechanisms that involve biometric data collection are subject to existing data protection frameworks, even when presented as consent-based voluntary schemes. For tokenized asset issuers considering identity-linked distribution mechanisms in Hong Kong, the enforcement highlights the need to ensure a lawful basis under the PDPO, provide adequate disclosure to data subjects, and observe proportionate data retention limits. The multi-jurisdictional pattern of regulatory scrutiny of Worldcoin also demonstrates that biometric data practices in the digital asset sector will attract sustained regulatory attention across multiple legal systems.",
-    "relatedIncidentSlugs": [],
-    "relatedIssuerSlugs": [],
-    "sources": [
-      {
-        "title": "Investigation Report: Worldcoin Operations in Hong Kong",
-        "publication": "Privacy Commissioner for Personal Data, Hong Kong (PCPD)",
-        "date": "2024-05-31",
-        "url": "https://www.pcpd.org.hk/",
-        "type": "regulatory-filing"
-      },
-      {
-        "title": "Worldcoin Ordered to Stop Iris Scanning in Hong Kong Over Privacy Breaches",
-        "publication": "South China Morning Post",
-        "date": "2024-05-31",
-        "url": "https://www.scmp.com/",
-        "type": "major-media"
-      },
-      {
-        "title": "Hong Kong Regulator Takes Action Against Worldcoin's Biometric Data Collection",
-        "publication": "Reuters",
-        "date": "2024-05-31",
-        "url": "https://www.reuters.com/",
-        "type": "major-media"
-      }
-    ],
-    "firstPublishedAt": "2026-04-29",
-    "lastUpdatedAt": "2026-04-29",
-    "revisionNotes": [
-      {
-        "date": "2026-04-29",
-        "note": "Initial entry. Exact PCPD report publication date is approximate (May 2024). Entry will be updated with the confirmed report citation date and any further enforcement or legal proceedings."
-      }
-    ]
-  },
-  {
     "slug": "dmm-bitcoin-hack-2024",
     "title": "DMM Bitcoin Custody Hack — 4,502 BTC Stolen",
     "scope": "global-reference",
@@ -1827,6 +2001,104 @@
       {
         "date": "2026-04-29",
         "note": "Initial entry. Specific technical attack vector (private key compromise vs. supply-chain) not confirmed in public sources at review date. Entry will be updated upon publication of law enforcement findings or authoritative post-mortem."
+      }
+    ]
+  },
+  {
+    "slug": "worldcoin-hk-pcpd-enforcement-2024",
+    "title": "Worldcoin Iris Biometric Data Collection — PCPD Enforcement and Hong Kong Operations Suspension",
+    "scope": "hk-related",
+    "severity": "medium",
+    "status": "resolved",
+    "type": "regulatory-action",
+    "assetClass": "other",
+    "date": "2024-05-31",
+    "endDate": "2024-05-31",
+    "primaryEntity": "Worldcoin / World App",
+    "issuerOrOperator": "Tools for Humanity Corporation",
+    "affectedParties": [
+      "retail"
+    ],
+    "jurisdictions": [
+      "HK",
+      "GLOBAL"
+    ],
+    "hkRelevance": "The Privacy Commissioner for Personal Data (PCPD) conducted an investigation into Worldcoin's iris-scanning operations in Hong Kong and issued enforcement findings. Worldcoin suspended its Hong Kong operations in response to the PCPD's conclusions.",
+    "estimatedLossUsd": null,
+    "estimatedLossNote": "This is a privacy enforcement and regulatory action entry. No direct financial loss to investors is recorded. The World (WLD) token experienced price volatility across multiple jurisdictions during the period of coordinated global regulatory scrutiny, but a causal link to the PCPD enforcement specifically has not been established.",
+    "summary": "In 2024, the Hong Kong Privacy Commissioner for Personal Data (PCPD) published the findings of its investigation into Worldcoin's operation of biometric 'Orb' scanning devices in Hong Kong. The PCPD concluded that Worldcoin had contravened the Personal Data (Privacy) Ordinance (PDPO), Cap. 486, including failures relating to the lawful collection, retention, and use of sensitive iris biometric data collected from members of the public in exchange for World (WLD) token allocations. Worldcoin suspended its Hong Kong operations following the PCPD's published findings. The Hong Kong enforcement formed part of a broader international pattern of regulatory scrutiny of Worldcoin's biometric data practices.",
+    "narrative": "Worldcoin (since rebranded as 'World' by Tools for Humanity Corporation) operates a global digital identity protocol that uses proprietary iris-scanning devices ('Orbs') to generate biometric identifiers for registered users. Users who submit to an iris scan receive a 'World ID' — a cryptographic proof of unique human identity — and allocations of the World (WLD) cryptocurrency token. The protocol is presented as an infrastructure layer for verifying human uniqueness in AI-augmented environments.\n\nFollowing the global launch of Worldcoin in July 2023, Orb scanning stations were deployed in Hong Kong at publicly accessible locations. Members of the public participating in scanning received WLD token allocations in exchange for providing their iris biometric data.\n\nThe PCPD commenced an investigation into Worldcoin's data collection activities in Hong Kong. The investigation examined whether Worldcoin's collection of iris biometric data — a category of sensitive personal data under the PDPO — complied with the data protection principles in the Ordinance. The PCPD published its investigation findings in May 2024, concluding that Worldcoin had contravened the PDPO, including failures in: (i) establishing a lawful basis for collecting sensitive biometric data at the scale conducted; (ii) providing adequate notice to data subjects of the purpose and downstream use of iris data; and (iii) adhering to proportionate data retention periods.\n\nTools for Humanity announced the suspension of Worldcoin's Hong Kong operations following the PCPD's published findings. The company stated it was reviewing the conclusions and engaging with the regulator.\n\nThe PCPD enforcement occurred in the context of parallel regulatory actions in multiple other jurisdictions: Germany's Bavarian Data Protection Authority, India's data protection authorities, and Kenya's Office of the Data Protection Commissioner had each raised concerns about, or taken action in respect of, Worldcoin's biometric data practices. The cross-jurisdictional pattern reflects the novel nature of large-scale biometric data collection as a token distribution mechanism and the lack of a settled global regulatory framework for such activities.",
+    "timeline": [
+      {
+        "date": "2023-07-24",
+        "event": "Worldcoin launches globally. Orb stations commence operations in multiple cities including Hong Kong; participants receive WLD token allocations in exchange for iris scans.",
+        "sourceUrl": "https://worldcoin.org/"
+      },
+      {
+        "date": "2024-01-01",
+        "event": "PCPD commences investigation into Worldcoin's iris biometric data collection activities in Hong Kong.",
+        "sourceUrl": "https://www.pcpd.org.hk/"
+      },
+      {
+        "date": "2024-05-31",
+        "event": "PCPD publishes investigation findings. Concludes Worldcoin contravened the Personal Data (Privacy) Ordinance. Worldcoin suspends Hong Kong operations.",
+        "sourceUrl": "https://www.pcpd.org.hk/"
+      }
+    ],
+    "regulatoryResponse": [
+      {
+        "regulator": "Privacy Commissioner for Personal Data, Hong Kong (PCPD)",
+        "jurisdiction": "HK",
+        "actionType": "Enforcement investigation — contravention of Personal Data (Privacy) Ordinance, Cap. 486",
+        "date": "2024-05-31",
+        "outcome": "PCPD published enforcement findings identifying contraventions of PDPO including unlawful collection and retention of biometric data. Worldcoin suspended HK operations in response.",
+        "sourceUrl": "https://www.pcpd.org.hk/"
+      }
+    ],
+    "frameworkMapping": {
+      "sarm": null,
+      "rarm": {
+        "legalJurisdictional": true,
+        "assetValuationOracles": false,
+        "custodyAssetControl": false,
+        "kycAmlPermissioning": true,
+        "secondaryMarketLiquidity": false,
+        "settlementFinality": false,
+        "explanation": "Legal & Jurisdictional: the PCPD enforcement illustrates that token distribution mechanisms involving biometric data collection are subject to personal data protection law, irrespective of whether the collection is framed as voluntary participation in exchange for a token allocation. This has direct implications for any tokenized asset distribution mechanism that links access to identity verification. KYC/AML & Permissioning: the Worldcoin model links token distribution to biometric proof-of-personhood — a form of identity-based permissioning. The enforcement findings raise questions about the legal framework for biometric-linked permissioning in tokenized asset distribution, particularly in jurisdictions with strong data protection regimes."
+      }
+    },
+    "lessons": "The PCPD's Worldcoin enforcement illustrates that novel token distribution mechanisms that involve biometric data collection are subject to existing data protection frameworks, even when presented as consent-based voluntary schemes. For tokenized asset issuers considering identity-linked distribution mechanisms in Hong Kong, the enforcement highlights the need to ensure a lawful basis under the PDPO, provide adequate disclosure to data subjects, and observe proportionate data retention limits. The multi-jurisdictional pattern of regulatory scrutiny of Worldcoin also demonstrates that biometric data practices in the digital asset sector will attract sustained regulatory attention across multiple legal systems.",
+    "relatedIncidentSlugs": [],
+    "relatedIssuerSlugs": [],
+    "sources": [
+      {
+        "title": "Investigation Report: Worldcoin Operations in Hong Kong",
+        "publication": "Privacy Commissioner for Personal Data, Hong Kong (PCPD)",
+        "date": "2024-05-31",
+        "url": "https://www.pcpd.org.hk/",
+        "type": "regulatory-filing"
+      },
+      {
+        "title": "Worldcoin Ordered to Stop Iris Scanning in Hong Kong Over Privacy Breaches",
+        "publication": "South China Morning Post",
+        "date": "2024-05-31",
+        "url": "https://www.scmp.com/",
+        "type": "major-media"
+      },
+      {
+        "title": "Hong Kong Regulator Takes Action Against Worldcoin's Biometric Data Collection",
+        "publication": "Reuters",
+        "date": "2024-05-31",
+        "url": "https://www.reuters.com/",
+        "type": "major-media"
+      }
+    ],
+    "firstPublishedAt": "2026-04-29",
+    "lastUpdatedAt": "2026-04-29",
+    "revisionNotes": [
+      {
+        "date": "2026-04-29",
+        "note": "Initial entry. Exact PCPD report publication date is approximate (May 2024). Entry will be updated with the confirmed report citation date and any further enforcement or legal proceedings."
       }
     ]
   },
@@ -2131,6 +2403,134 @@
       {
         "date": "2026-04-29",
         "note": "Initial entry. Specific court dates and charge details are approximate; precise court filing dates not confirmed from publicly available records at review date. Entry will be updated as court proceedings produce publicly available judgments, plea records, or sentencing decisions."
+      }
+    ]
+  },
+  {
+    "slug": "goldfinch-lendeast-default-2024",
+    "title": "Goldfinch Protocol: Lend East Borrower Default",
+    "scope": "global-reference",
+    "severity": "medium",
+    "status": "resolved",
+    "type": "other",
+    "assetClass": "tokenized-private-credit",
+    "date": "2024-04-03",
+    "endDate": "2025-01-09",
+    "primaryEntity": "Goldfinch Protocol / Lend East",
+    "issuerOrOperator": "Lend East Pte. Ltd.",
+    "affectedParties": [
+      "both"
+    ],
+    "jurisdictions": [
+      "Singapore",
+      "Global"
+    ],
+    "estimatedLossUsd": 5900000,
+    "estimatedLossNote": "LendEast repaid $4.25M of a $10.15M loan at maturity, leaving a $5.9M principal shortfall (~58%). A GFI treasury backstop of approximately $1,158,025 was distributed to affected LPs in January 2025 (GIP-67), reducing net unrecovered loss to approximately $4.74M. Some outlets round the total loan to $10.2M; the official Goldfinch governance forum states $10.15M consistently. The Senior Pool / backer loss split (~$3.75M / ~$2M) is derived from a single governance forum source and has not been independently corroborated.",
+    "summary": "In April 2024, Singapore-incorporated private debt platform Lend East failed to repay approximately $5.9 million of a $10.15 million loan drawn from a Goldfinch Protocol borrower pool at maturity, representing a ~58% principal shortfall. Lend East's default was precipitated by the near-total collapse of its largest sub-portfolio exposure — a $5.25 million position in Oriente, a Southeast Asian consumer fintech — compounded by an undisclosed intercompany loan of approximately $750,000 that constituted a covenant violation. Junior backers absorbed first-loss exposure while Senior Pool FIDU holders sustained residual losses; two governance proposals (GIP-62 and GIP-63) to compensate LPs from the protocol treasury failed before GIP-67 passed in January 2025. Approximately $1,158,025 in GFI-converted USDC was distributed to affected LPs as a partial backstop, leaving a net unrecovered principal loss of approximately $4.74 million — the third major borrower default on the Goldfinch platform, following Tugende ($5M) and Stratos ($7M).",
+    "narrative": "Goldfinch Protocol is a decentralised credit platform that enables undercollateralised lending to real-world borrowers, funded by on-chain liquidity pools. Lend East Pte. Ltd., a Singapore-incorporated private debt fund founded in 2018, accessed a $10.15 million borrower pool on Goldfinch to on-lend capital to fintech companies and non-bank financial institutions across Southeast Asia and India. The pool was structured with a junior backer tranche (first-loss) and a senior FIDU tranche, with LPs expecting regular coupon payments and full principal repayment at the April 2024 loan maturity.\n\nThe root cause of the default was a cascade within LendEast's own sub-portfolio. As early as January 2023, Warbler Labs informed the Goldfinch community that one of LendEast's sub-borrowers — Oriente, a Southeast Asian consumer fintech — had defaulted on approximately $5.25 million of LendEast's capital. At the time, LendEast's remaining portfolio generated sufficient excess spread to continue servicing the Goldfinch coupon, and no write-down was required. However, this sub-default left LendEast in a progressively weakened position, and an undisclosed intercompany loan of approximately $750,000 — representing ~7% of the Goldfinch pool principal and never communicated to LPs — was later identified as a covenant breach.\n\nOn 2 April 2024, one day before loan maturity, LendEast CEO Karan Bhatia informed Warbler Labs that LendEast could only return approximately $4.25 million of the $10.15 million principal — a $5.9 million shortfall. Formal default notices were issued on 4 April, 9 April, and 19 April 2024. Warbler Labs engaged external legal counsel and presented a settlement proposal with a 10 May deadline, which LendEast accepted ($4.25M recovery). The shortfall was borne first by junior backers and then by the Goldfinch Senior Pool.\n\nTwo DAO governance proposals for LP compensation from the Goldfinch treasury failed (GIP-62 and GIP-63) before GIP-67 — a revised framework allocating up to 1.2 million GFI tokens with a 45% per-pool cap — passed in January 2025. Approximately $1,158,025 in GFI-converted USDC was distributed: $759,585.89 to the Senior Pool and $398,439.11 to backers. This partial backstop left a net unrecovered loss of approximately $4.74 million, and the LendEast case became the third major borrower default on Goldfinch — following Tugende ($5M) and Stratos ($7M) — bringing cumulative platform principal losses to approximately $18 million.",
+    "timeline": [
+      {
+        "date": "2023-01-03",
+        "event": "Warbler Labs discloses to the Goldfinch community that LendEast sub-borrower Oriente has defaulted on approximately $5.25M of LendEast's portfolio; no write-down required as excess spread covered Goldfinch coupon payments.",
+        "sourceUrl": "https://gov.goldfinch.finance/t/update-on-lend-east-pool/1957"
+      },
+      {
+        "date": "2024-04-02",
+        "event": "LendEast CEO Karan Bhatia informs Warbler Labs that LendEast can only repay approximately $4.25M of its $10.15M loan, a $5.9M shortfall (~58%).",
+        "sourceUrl": "https://gov.goldfinch.finance/t/update-on-lend-east-pool/1957"
+      },
+      {
+        "date": "2024-04-03",
+        "event": "Loan matures with $5.9M unpaid; Warbler Labs publishes community update disclosing the default.",
+        "sourceUrl": "https://gov.goldfinch.finance/t/update-on-lend-east-pool/1957"
+      },
+      {
+        "date": "2024-04-04",
+        "event": "Warbler Labs sends formal Notice of Default and Redemption to LendEast.",
+        "sourceUrl": "https://gov.goldfinch.finance/t/update-on-lend-east-pool/1957"
+      },
+      {
+        "date": "2024-05-10",
+        "event": "Settlement deadline: Warbler Labs proposes $4.25M recovery; LendEast reportedly accepts.",
+        "sourceUrl": "https://gov.goldfinch.finance/t/update-on-lend-east-pool/1957"
+      },
+      {
+        "date": "2024-06-21",
+        "event": "GIP-67 posted: revised LP backstop proposal (1.2M GFI, max 45% per pool), after GIP-62 and GIP-63 failed to pass.",
+        "sourceUrl": "https://gov.goldfinch.finance/t/gip-67-new-proposal-for-using-gfi-to-help-with-principal-loss/2010"
+      },
+      {
+        "date": "2025-01-09",
+        "event": "GIP-67 passes; approximately $1,158,025 in GFI-converted USDC distributed to affected LPs ($759,585.89 Senior Pool; $398,439.11 backers), claimable via app.goldfinch.finance.",
+        "sourceUrl": "https://gov.goldfinch.finance/t/gip-67-new-proposal-for-using-gfi-to-help-with-principal-loss/2010"
+      }
+    ],
+    "regulatoryResponse": [],
+    "frameworkMapping": {
+      "sarm": null,
+      "rarm": {
+        "legalJurisdictional": true,
+        "assetValuationOracles": false,
+        "custodyAssetControl": false,
+        "kycAmlPermissioning": false,
+        "secondaryMarketLiquidity": true,
+        "settlementFinality": true,
+        "explanation": "LendEast operates from Singapore and on-lent to borrowers across Southeast Asia and India, creating multi-jurisdictional credit exposure with no independent sub-portfolio monitoring mechanism on-chain (legalJurisdictional). FIDU token secondary market liquidity was impaired post-default, with holders unable to redeem at par for an extended period pending DAO governance resolution (secondaryMarketLiquidity). The loan matured with only $4.25M recovered of $10.15M, resulting in incomplete final settlement (settlementFinality). Oracle and custody failures were not implicated; the root cause was credit underwriting risk and borrower covenant enforcement failures."
+      }
+    },
+    "lessons": "Undercollateralised on-chain credit depends entirely on the quality of off-chain borrower underwriting and ongoing sub-portfolio monitoring. Three compounding failures drove the LendEast loss: the protocol had no independent mechanism to verify sub-portfolio performance or detect the Oriente sub-default until LendEast self-disclosed 15 months after the fact; the two-tranche structure delayed LP losses but did not prevent them once the backer tranche was exhausted; and a covenant violation — the $750K undisclosed intercompany loan — was discovered only after default. The subsequent DAO governance process took nine months from formal default notice to backstop distribution, during which affected LPs had no liquidity. RWA private credit protocols should require scheduled independent audits of borrower sub-portfolios, verified covenant monitoring with automatic reporting obligations, and pre-approved contingency liquidity mechanisms to reduce both credit losses and governance delay costs.",
+    "relatedIncidentSlugs": [
+      "celsius-network-bankruptcy-2022",
+      "gemini-earn-genesis-freeze-2022",
+      "stream-finance-xusd-collapse-2025"
+    ],
+    "relatedIssuerSlugs": [
+      "goldfinch"
+    ],
+    "sources": [
+      {
+        "title": "Update on Lend East Pool",
+        "publication": "Goldfinch Governance Forum (Warbler Labs)",
+        "date": "2024-04-01",
+        "url": "https://gov.goldfinch.finance/t/update-on-lend-east-pool/1957",
+        "type": "official-statement"
+      },
+      {
+        "title": "GIP-67: New Proposal for Using GFI to Help with Principal Loss",
+        "publication": "Goldfinch Governance Forum",
+        "date": "2024-06-21",
+        "url": "https://gov.goldfinch.finance/t/gip-67-new-proposal-for-using-gfi-to-help-with-principal-loss/2010",
+        "type": "official-statement"
+      },
+      {
+        "title": "Lend East Borrower Profile",
+        "publication": "Goldfinch Governance Forum",
+        "date": "2022-01-01",
+        "url": "https://gov.goldfinch.finance/t/lend-east-borrower-profile/855",
+        "type": "official-statement"
+      },
+      {
+        "title": "Goldfinch's third default shows just how risky undercollateralised crypto lending can be",
+        "publication": "DL News",
+        "date": "2024-04-03",
+        "url": "https://www.dlnews.com/articles/defi/goldfinch-borrower-lend-east-defaults-says-warbler-labs/",
+        "type": "major-media"
+      },
+      {
+        "title": "GIP-63: Using GFI to Help with Principal Loss",
+        "publication": "Goldfinch Governance Forum",
+        "date": "2024-04-29",
+        "url": "https://gov.goldfinch.finance/t/gip-63-using-gfi-to-help-with-principal-loss/1987",
+        "type": "official-statement"
+      }
+    ],
+    "firstPublishedAt": "2026-06-04",
+    "lastUpdatedAt": "2026-06-04",
+    "revisionNotes": [
+      {
+        "date": "2026-06-04",
+        "note": "Initial publication. Senior Pool / backer loss split (~$3.75M / ~$2M) is single-sourced from GIP-67 governance forum; will update if independent corroboration found. Oriente sub-borrower company identity not further specified pending primary source confirmation. Civil litigation status by Warbler Labs unconfirmed."
       }
     ]
   },

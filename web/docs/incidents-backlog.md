@@ -17,11 +17,20 @@
 - [ ] Zoth official blog post-mortem (currently only X/Twitter official statement confirmed)
 - [ ] Resolv estimatedLossUsd USD 57M: independent source verification outstanding
 - [ ] Resolv AWS initial access vector: not confirmed in published post-mortem at review date
+- [ ] Goldfinch (Batch 3): Senior Pool / backer loss split (~$3.75M / ~$2M) single-sourced from GIP-67 forum; second source outstanding
+- [ ] Goldfinch (Batch 3): Oriente sub-borrower company identity not further specified pending primary source confirmation
+- [ ] Goldfinch (Batch 3): Warbler Labs civil litigation status unconfirmed
+- [ ] Usual (Batch 3): USD0++ supply $1.53B single-sourced (Leviathan News); second source outstanding
+- [ ] Usual (Batch 3): Rekt News founder/MEV Capital conflict-of-interest allegation unverified; maintain "unverified" framing
+- [ ] Infini (Batch 3): $32.7M Tornado Cash routing single-sourced (LiveBitcoinNews); second source outstanding
+- [ ] Infini (Batch 3): August 2025 ultimatum outcome unknown — update if recovery or settlement confirmed
+- [ ] Infini (Batch 3): Infini official X post URL (primary statement) pending human verification; add to sources when confirmed
+- [ ] Infini (Batch 3): CoinTelegraph sources[3]/sources[4] return 404 to curl HEAD (bot-block); resolve normally in browsers — verify periodically
 
-## Batch 3 candidates (P1)
-- goldfinch-lendeast-default-2024 (2024-04-01, high, tokenized-private-credit 枚举首填)
-- usual-usd0pp-depeg-2025 (2025-01-09, high, tokenized-treasury governance redemption change)
-- infini-neobank-exploit-2025 (2025-02-24, critical, stablecoin neobank admin key)
+## Batch 3 (2026-06-04) — resolved ✅ shipped
+- goldfinch-lendeast-default-2024 ✓  ← first tokenized-private-credit entry
+- usual-usd0pp-depeg-2025 ✓
+- infini-neobank-exploit-2025 ✓
 
 ## Batch 4 candidates (filler, P2)
 - usdx-depeg-cascade-2025 (2025-11-06, RWA MEDIUM)
@@ -34,6 +43,6 @@
       (Batch 2 资格候选: Radiant 重大且闭环 + Resolv 重大 — 高优先级 RWAI 候选)
 
 ## Asset Class 枚举进度
-- 已填充: stablecoin, infrastructure, tokenized-real-estate, tokenized-treasury
-- 剩余空洞: tokenized-private-credit, tokenized-commodity
-- 候选: Goldfinch (Batch 3) 将填 tokenized-private-credit
+- 已填充: stablecoin, infrastructure, tokenized-real-estate, tokenized-treasury, tokenized-private-credit
+- 剩余空洞: tokenized-commodity
+- 5/7 filled (Batch 3 新增 tokenized-private-credit, 2026-06-04)
