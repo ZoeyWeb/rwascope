@@ -109,6 +109,153 @@
     ]
   },
   {
+    "slug": "resolv-labs-usr-depeg-2026",
+    "title": "Resolv Labs USR: AWS KMS Credential Compromise and 80M Unbacked Mint ($25M)",
+    "scope": "global-reference",
+    "severity": "critical",
+    "status": "ongoing",
+    "type": "smart-contract-exploit",
+    "assetClass": "stablecoin",
+    "date": "2026-03-22",
+    "primaryEntity": "Resolv Labs",
+    "issuerOrOperator": "Resolv Labs",
+    "affectedParties": [
+      "both"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "estimatedLossUsd": 25000000,
+    "estimatedLossNote": "$25M in ETH extracted — confirmed by official Resolv postmortem, Chainalysis, The Block, and CoinDesk. Chainalysis traced 11,409 ETH (~$23.7M at analysis-time prices) to primary attacker address 0x04a288a7789dd6ade935361a4fb1ec5db513caed; $25M reflects attack-time valuation. 80M unbacked USR minted across two transactions (50M + 30M) from approximately $200K total USDC collateral (~400x leverage). USR nadir: $0.025 on Curve within 17 minutes (97.5% depeg); some headlines cite 'drops 70%', reflecting a later price snapshot, not the nadir. Compensation: 1:1 USDC for pre-hack holders; over $77M in redemptions completed covering approximately 98% of whitelisted pre-hack holders. Approximately 46M of 80M minted USR neutralised via burns and blacklisting. Mandiant investigation ongoing; no attacker identification or fund recovery confirmed as of writing.",
+    "summary": "On 22 March 2026, attackers compromised a Resolv Labs contractor's credentials through a third-party supply-chain breach, gaining access to Resolv's GitHub repositories and cloud infrastructure. By escalating privileges within AWS KMS, the attacker obtained signing authority over the protocol's SERVICE_ROLE private key — a single credential with unbounded USR minting authority and no on-chain ratio limits. Two unauthorised minting transactions created 80 million USR against approximately $200,000 in USDC collateral. The tokens were immediately sold on Curve and other DEXs, extracting approximately $25M in ETH while USR collapsed to $0.025 (97.5% depeg) within 17 minutes. Resolv paused mint/redeem functions, committed to 1:1 USDC redemption for pre-hack holders, and engaged multiple external forensics firms including Mandiant. Over $77M in redemptions were subsequently processed; attacker funds remain unrecovered.",
+    "narrative": "Resolv Labs operated USR, a delta-neutral stablecoin backed by staked ETH collateral hedged with derivatives positions. By early 2026, USR maintained approximately $200M in circulation and was marketed as an institutional-grade delta-neutral instrument with a structured redemption mechanism. The protocol's critical vulnerability was architectural: minting authority resided in a single `SERVICE_ROLE` private key stored in Amazon Web Services Key Management Service, with no multi-party signing requirement and no on-chain checks governing minting ratios, rate limits, or oracle validation.\n\nThe attack chain began through supply-chain credential compromise. Attackers obtained access credentials from a separate, third-party project where a Resolv contractor had previously contributed, thereby gaining entry to Resolv's GitHub repositories. Using those credentials, attackers deployed a malicious CI/CD workflow that exfiltrated cloud infrastructure secrets without triggering existing monitoring systems. Once inside Resolv's cloud environment, the attacker used a higher-privileged infrastructure role to modify the AWS KMS access policy for the SERVICE_ROLE signing key — effectively granting themselves minting authority.\n\nAt approximately 02:21 UTC on 22 March 2026, the attacker authorised two minting transactions using the compromised SERVICE_ROLE key: 50 million USR against approximately $100,000 in USDC, followed by 30 million USR against a second seed deposit of similar size. Total: 80 million unbacked USR minted from roughly $200,000 in collateral — a leverage factor of approximately 400x. The newly minted tokens were immediately sold across Curve pools and other DEXs; USR's market price collapsed to $0.025 within 17 minutes as liquidity was exhausted. Approximately $25M in ETH was extracted before Resolv's team detected and paused protocol functions.\n\nResolv's incident response was substantive. The team snapshot pre-hack USR and wstUSR balances and committed publicly to 1:1 USDC redemption for all pre-exploit holders. External forensics firms — Hypernative, Hexens, MixBytes, SEAL 911, and Mandiant — were engaged. Chainalysis traced the attacker's primary address (0x04a288a7789dd6ade935361a4fb1ec5db513caed) holding 11,409 ETH (~$23.7M). Resolv sent an on-chain message to the exploiter with a bounty offer and a 72-hour return window; no response was received. By May 2026, over $77M in redemptions had been processed, covering approximately 98% of whitelisted pre-hack holders at 1:1.\n\nThe Resolv incident established a new reference model for institutional RWA and stablecoin issuers: supply-chain compromise targeting cloud HSM/KMS signing keys used for on-chain mint authority. Unlike traditional smart contract exploits, no audit could have detected the vulnerability — the failure resided entirely in infrastructure access controls and key management architecture. The $200K seed-to-$25M extraction path (approximately 125x return on collateral deployed by attacker) demonstrates the asymmetric catastrophic risk of single-key unbounded mint functions. The Mandiant investigation and law enforcement coordination were ongoing at the time of this entry.",
+    "timeline": [
+      {
+        "date": "2026-03-01",
+        "event": "Attacker obtains credentials from a compromised third-party project where a Resolv contractor previously worked; initial access to Resolv GitHub repositories established.",
+        "sourceUrl": "https://resolv.xyz/blog/resolv-postmortem-march-22-2026-incident"
+      },
+      {
+        "date": "2026-03-21",
+        "event": "Malicious CI/CD workflow deployed within Resolv cloud infrastructure to exfiltrate cloud credentials; AWS KMS access policy for SERVICE_ROLE signing key modified to grant attacker signing authority.",
+        "sourceUrl": "https://resolv.xyz/blog/resolv-postmortem-march-22-2026-incident"
+      },
+      {
+        "date": "2026-03-22",
+        "event": "02:21 UTC: First unauthorised mint — 50M USR authorised against ~$100K USDC using compromised SERVICE_ROLE key.",
+        "sourceUrl": "https://resolv.xyz/blog/resolv-postmortem-march-22-2026-incident"
+      },
+      {
+        "date": "2026-03-22",
+        "event": "02:22 UTC: Second unauthorised mint — 30M USR authorised against ~$100K USDC. Total 80M unbacked USR in circulation.",
+        "sourceUrl": "https://resolv.xyz/blog/resolv-postmortem-march-22-2026-incident"
+      },
+      {
+        "date": "2026-03-22",
+        "event": "02:39 UTC: USR price collapses to $0.025 on Curve (97.5% depeg) as 80M USR is sold across DEX pools; ~$25M in ETH extracted within 17 minutes of first mint.",
+        "sourceUrl": "https://www.theblock.co/post/394582/resolvs-usr-stablecoin-depegs-after-attacker-mints-80-million-unbacked-tokens-extracts-roughly-25-million"
+      },
+      {
+        "date": "2026-03-22",
+        "event": "Resolv pauses mint and redeem functions; official incident statement published; Hypernative, Hexens, MixBytes, and SEAL 911 engaged for forensic response.",
+        "sourceUrl": "https://resolv.xyz/blog/resolv-postmortem-march-22-2026-incident"
+      },
+      {
+        "date": "2026-03-23",
+        "event": "Mandiant engaged for full infrastructure forensic investigation; Chainalysis traces 11,409 ETH to primary attacker address. Resolv sends on-chain bounty message to exploiter with 72-hour return window.",
+        "sourceUrl": "https://www.chainalysis.com/blog/lessons-from-the-resolv-hack/"
+      },
+      {
+        "date": "2026-03-25",
+        "event": "Official postmortem published at resolv.xyz, detailing supply-chain credential vector and committing to 1:1 USDC redemption for pre-hack USR and wstUSR holders.",
+        "sourceUrl": "https://resolv.xyz/blog/resolv-postmortem-march-22-2026-incident"
+      },
+      {
+        "date": "2026-05-01",
+        "event": "Over $77M in redemptions processed; approximately 98% of whitelisted pre-hack holders compensated at 1:1 USDC. Mandiant investigation and law enforcement coordination ongoing.",
+        "sourceUrl": "https://resolv.xyz/blog/resolv-postmortem-march-22-2026-incident"
+      }
+    ],
+    "regulatoryResponse": [
+      {
+        "regulator": "Law enforcement (jurisdiction not specified)",
+        "jurisdiction": "GLOBAL",
+        "actionType": "Asset recovery coordination",
+        "date": "2026-03-23",
+        "outcome": "Resolv Labs engaged law enforcement agencies and on-chain analytics firms for fund tracing. No arrest, criminal charge, or fund seizure publicly confirmed as of writing.",
+        "sourceUrl": "https://resolv.xyz/blog/resolv-postmortem-march-22-2026-incident"
+      }
+    ],
+    "frameworkMapping": {
+      "sarm": {
+        "reserveImplicated": true,
+        "redemptionImplicated": true,
+        "governanceImplicated": true,
+        "explanation": "80 million unbacked USR were minted against approximately $200,000 in USDC, diluting reserve coverage to near zero (reserveImplicated). USR's peg collapsed to $0.025 during the exploit window, rendering the on-chain redemption mechanism non-functional for market participants (redemptionImplicated). The absence of multi-party governance over mint authority — a single SERVICE_ROLE key with no threshold signing, on-chain ratio limits, or timelock — represents a fundamental governance design failure (governanceImplicated). Post-incident 1:1 redemption was funded by Resolv's treasury, not the protocol's native reserve mechanism."
+      },
+      "rarm": {
+        "legalJurisdictional": false,
+        "assetValuationOracles": false,
+        "custodyAssetControl": true,
+        "kycAmlPermissioning": false,
+        "secondaryMarketLiquidity": true,
+        "settlementFinality": true,
+        "explanation": "AWS KMS single-region SERVICE_ROLE key with no multi-party threshold signing was the root custody failure; supply-chain compromise yielded full mint authority to the attacker (custodyAssetControl). On-chain mint and ETH extraction transactions were irreversible once executed (settlementFinality). Secondary market liquidity was entirely exhausted within 17 minutes as 80M USR flooded Curve and DEX pools, leaving late market participants holding near-zero value tokens (secondaryMarketLiquidity). Oracle feeds were not the failure vector: the contract executed without any oracle validation on minting ratios. KYC/AML and legal dimensions were not primary failure vectors."
+      }
+    },
+    "lessons": "Cloud HSM/KMS single-region, single-key configurations for on-chain mint authority are a critical failure pattern for institutional stablecoin and RWA issuers. When a SERVICE_ROLE key stored in AWS KMS controls unbounded minting with no on-chain ratio checks, rate limits, or oracle validation, any credential compromise — including supply-chain attacks via contractor GitHub access — yields full protocol-level damage. The $200,000 seed to $25M extraction path (~400x leverage on collateral) demonstrates the asymmetric catastrophic risk of architectures without per-transaction mint limits. Multi-party threshold signing for mint, burn, and attestation functions must be treated as non-negotiable — equivalent to dual-control custody in traditional payment systems. Third-party contractor access to production credentials and repositories is an attack surface that code audits cannot detect; security posture must include systematic third-party access reviews, credential scoping, and anomaly detection on privileged CI/CD workflows. Any institutional RWA or stablecoin issuer relying on cloud KMS for critical on-chain operations faces the same attack surface unless mint authority is governed by on-chain multi-sig with enforced delay windows.",
+    "relatedIncidentSlugs": [
+      "stream-finance-xusd-collapse-2025",
+      "usdc-svb-depeg-2023"
+    ],
+    "relatedIssuerSlugs": [],
+    "sources": [
+      {
+        "title": "Resolv Postmortem: March 22, 2026 Incident",
+        "publication": "Resolv Labs",
+        "date": "2026-03-25",
+        "url": "https://resolv.xyz/blog/resolv-postmortem-march-22-2026-incident",
+        "type": "official-statement"
+      },
+      {
+        "title": "Resolv's USR Stablecoin Depegs After Attacker Mints 80 Million Unbacked Tokens, Extracts Roughly $25 Million",
+        "publication": "The Block",
+        "date": "2026-03-22",
+        "url": "https://www.theblock.co/post/394582/resolvs-usr-stablecoin-depegs-after-attacker-mints-80-million-unbacked-tokens-extracts-roughly-25-million",
+        "type": "major-media"
+      },
+      {
+        "title": "Resolv Stablecoin Drops After $80 Million Exploit After Attacker Mints USR",
+        "publication": "CoinDesk",
+        "date": "2026-03-23",
+        "url": "https://www.coindesk.com/markets/2026/03/23/resolv-stablecoin-drops-70-after-usd80-million-exploit-after-attacker-mints-usr",
+        "type": "major-media"
+      },
+      {
+        "title": "Explained: The Resolv Hack (March 2026)",
+        "publication": "Halborn",
+        "date": "2026-03-27",
+        "url": "https://www.halborn.com/blog/post/explained-the-resolv-hack-march-2026",
+        "type": "industry-media"
+      },
+      {
+        "title": "Lessons from the Resolv Hack",
+        "publication": "Chainalysis",
+        "date": "2026-04-01",
+        "url": "https://www.chainalysis.com/blog/lessons-from-the-resolv-hack/",
+        "type": "industry-media"
+      }
+    ],
+    "firstPublishedAt": "2026-06-03T00:00:00Z",
+    "lastUpdatedAt": "2026-06-03T00:00:00Z",
+    "revisionNotes": [
+      {
+        "date": "2026-06-03",
+        "note": "Initial entry. Depeg nadir confirmed at $0.025 (97.5%) via Cointegrity deep-dive; CoinDesk headline '70%' reflects a later price snapshot, not the verified nadir. Exact seed deposit per transaction: ~$100K USDC × 2 (total ~$200K); official postmortem language says 'approximately'. Mandiant investigation and law enforcement coordination ongoing — status set to ongoing. type: smart-contract-exploit chosen over custody-incident because exploit mechanism was contract-level mint call; root cause is infrastructure but the on-chain event was a mint transaction."
+      }
+    ]
+  },
+  {
     "slug": "jpex-criminal-charges-2025",
     "title": "JPEX — November 2025 Criminal Charges Against 16 Individuals and Interpol Red Notices",
     "scope": "hk-related",
@@ -650,6 +797,121 @@
     ]
   },
   {
+    "slug": "zoth-rwa-restaking-hack-2025",
+    "title": "Zoth Protocol: Admin Key Compromise and USD0++ Vault Drain ($8.4M)",
+    "scope": "global-reference",
+    "severity": "high",
+    "status": "ongoing",
+    "type": "smart-contract-exploit",
+    "assetClass": "tokenized-treasury",
+    "date": "2025-03-21",
+    "primaryEntity": "Zoth Protocol",
+    "issuerOrOperator": "Zoth",
+    "affectedParties": [
+      "institutional"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "estimatedLossUsd": 8400000,
+    "estimatedLossNote": "Primary token amount: 8,851,750 USD0++ (Usual Protocol's tokenized US T-bill derivative). USD valuation range: $8.4M (Halborn, Cointelegraph, Quill Audits) to $8.85M (Decrypt, CryptoSlate) — variance reflects differing price timestamps at time of drain. Attacker pre-funded via ChangeNOW; drain path: USD0++ → DAI → ETH → external address 0x7b0cd0D83565aDbB57585d0265b7D15d6D9f60cf. A separate earlier exploit on 2025-03-01 drained an additional $285,000 via an LTV validation flaw in mintWithStable(). Total March 2025 losses: ~$8.685M. $500K recovery bounty offered; Crystal Blockchain BV engaged for asset tracing. No material recovery confirmed as of writing.",
+    "summary": "On 21 March 2025, Zoth Protocol — an RWA restaking platform that accepted tokenized Treasury-bill derivatives as vault collateral — suffered an approximately $8.4M exploit when its deployer private key was compromised, granting the attacker admin upgrade authority over the USD0PPSubVaultUpgradeable proxy contract. The attacker installed a malicious implementation via upgradeToAndCall and drained 8,851,750 USD0++ tokens, swapping them through DAI to ETH. On-chain evidence shows a test upgrade attempt approximately 20 hours prior to the successful exploit. Zoth's asset issuers locked down 73% of remaining TVL shortly after the breach. Security firm Halborn attributed the root cause not to code defects but to single-key admin architecture with no multi-sig, timelock, or emergency pause. A $500K recovery bounty was announced; no funds were recovered at time of writing. This was the second of two Zoth exploits in March 2025.",
+    "narrative": "Zoth Protocol was designed to extend yield-bearing exposure to tokenized real-world assets through a DeFi restaking model. Its vault architecture accepted USD0++ — Usual Protocol's tokenized US Treasury-bill derivative — as primary collateral, positioning Zoth at the intersection of regulated RWA instruments and DeFi yield mechanics. The protocol's security posture depended critically on the integrity of privileged off-chain keys controlling its upgradeable proxy contracts.\n\nOn 1 March 2025, Zoth suffered a separate, smaller exploit: a flaw in LTV (Loan-To-Value) validation logic within the `mintWithStable()` function allowed an attacker to receive disproportionate collateral credit after a Uniswap V3 swap, because the validator applied the initial deposit amount rather than the actual received collateral. Approximately $285,000 was drained before the vulnerability was identified.\n\nThree weeks later, on 21 March 2025, a second and far more consequential breach occurred. The protocol's deployer wallet (0x3604582f56565d7060d73829ffb9ebd579218dca) was compromised by an unknown vector, granting the attacker admin-level authority over the USD0PPSubVaultUpgradeable proxy. On-chain evidence indicates the attacker attempted a test upgrade approximately 20 hours before the successful exploit. At 08:46 UTC, the attacker executed an `upgradeToAndCall` function, replacing the vault's implementation with a malicious contract at 0xc89d7894341e13d5067d003af5346b257d861f56. The vault's entire USD0++ balance — 8,851,750 tokens — was then withdrawn and converted: USD0++ → DAI → ETH, consolidated at external address 0x7b0cd0D83565aDbB57585d0265b7D15d6D9f60cf.\n\nZoth's response included pausing affected contracts, notifying asset issuers — who moved to lock down approximately 73% of remaining protocol TVL — and publishing a security incident statement on X. Zoth offered a $500,000 bounty for information leading to fund recovery and engaged Crystal Blockchain BV for formal on-chain asset tracing. Security firm Halborn published a detailed post-mortem concluding: the attack stemmed entirely from weak off-chain key management, not from any code vulnerability. No contract audit could have prevented it.\n\nThe Zoth incident demonstrates a recurring failure pattern in RWA-native DeFi: even when the underlying collateral instrument is structurally sound, a single deployer key controlling upgradeable proxy architecture — with no timelock, multi-sig threshold, or emergency pause — converts any credential exposure into a full vault drain. The $500K bounty remained outstanding and no recovery was confirmed at the time of writing.",
+    "timeline": [
+      {
+        "date": "2025-03-01",
+        "event": "First Zoth exploit: $285,000 drained via LTV validation flaw in mintWithStable(); validator used initial deposit amount rather than actual received collateral after Uniswap V3 swap.",
+        "sourceUrl": "https://www.halborn.com/blog/post/explained-the-zoth-hack-march-2025"
+      },
+      {
+        "date": "2025-03-21",
+        "event": "Test upgrade attempt by attacker on USD0PPSubVaultUpgradeable proxy (~20 hours before main exploit); no drain at this stage.",
+        "sourceUrl": "https://research.blockscope.co/zoth-vault-breach"
+      },
+      {
+        "date": "2025-03-21",
+        "event": "Main exploit at 08:46 UTC: malicious upgradeToAndCall executed; 8,851,750 USD0++ drained from vault and converted via DAI to ETH.",
+        "sourceUrl": "https://www.halborn.com/blog/post/explained-the-zoth-hack-march-2025"
+      },
+      {
+        "date": "2025-03-21",
+        "event": "Zoth publishes security incident statement; asset issuers lock down approximately 73% of remaining TVL.",
+        "sourceUrl": "https://twitter.com/zothdotio/status/1903447852418035986"
+      },
+      {
+        "date": "2025-03-22",
+        "event": "$500K recovery bounty announced; Crystal Blockchain BV engaged for on-chain asset tracing.",
+        "sourceUrl": "https://cointelegraph.com/news/zoth-exploit-admin-leak-causes-8m-losses"
+      },
+      {
+        "date": "2025-03-25",
+        "event": "Halborn publishes detailed technical post-mortem attributing root cause to single-key admin architecture with no multi-sig protection.",
+        "sourceUrl": "https://www.halborn.com/blog/post/explained-the-zoth-hack-march-2025"
+      }
+    ],
+    "regulatoryResponse": [],
+    "frameworkMapping": {
+      "sarm": null,
+      "rarm": {
+        "legalJurisdictional": false,
+        "assetValuationOracles": false,
+        "custodyAssetControl": true,
+        "kycAmlPermissioning": false,
+        "secondaryMarketLiquidity": false,
+        "settlementFinality": true,
+        "explanation": "A single deployer private key controlled upgrade authority over the vault's proxy contract with no multi-sig threshold, timelock, or MPC protection (custodyAssetControl). Once the malicious upgradeToAndCall was executed, the vault drain was on-chain irreversible (settlementFinality). Oracle feeds, liquidity, KYC/AML, and legal dimensions were not primary failure vectors. Note: USD0++ is Usual Protocol's upstream instrument; oracle/valuation concerns belong to a potential future Usual entry, not this one."
+      }
+    },
+    "lessons": "RWA-native restaking protocols that grant deployer keys unconstrained upgrade authority over vaults create a single point of catastrophic failure. Upgradeable proxy architecture without timelocks, multi-sig thresholds, or emergency pause mechanisms means any credential compromise — from phishing, server breach, or supply chain — translates directly into a full vault drain. The underlying collateral's structural soundness is irrelevant if the protocol custody layer fails: USD0++ is a legitimately structured tokenized T-bill derivative, yet its holders suffered full loss through the wrapping protocol's key management failure. On-chain evidence of test upgrade attempts 20 hours before the main exploit suggests the attacker was methodical, and the absence of anomaly detection for proxy upgrade calls from non-standard addresses was a missed defence layer. Any RWA protocol holding institutional collateral in upgradeable contracts should treat deployer key management at HSM standards, require multi-sig or MPC for upgrade functions, and implement automated alerts on `upgradeToAndCall` events from unexpected origins.",
+    "relatedIncidentSlugs": [],
+    "relatedIssuerSlugs": [],
+    "sources": [
+      {
+        "title": "Security Incident Update",
+        "publication": "Zoth (@zothdotio on X)",
+        "date": "2025-03-21",
+        "url": "https://twitter.com/zothdotio/status/1903447852418035986",
+        "type": "official-statement"
+      },
+      {
+        "title": "Explained: The Zoth Hack (March 2025)",
+        "publication": "Halborn",
+        "date": "2025-03-25",
+        "url": "https://www.halborn.com/blog/post/explained-the-zoth-hack-march-2025",
+        "type": "industry-media"
+      },
+      {
+        "title": "Hacker Steals $8.4M from RWA Restaking Protocol Zoth via Admin Key Leak",
+        "publication": "CoinTelegraph",
+        "date": "2025-03-21",
+        "url": "https://cointelegraph.com/news/zoth-exploit-admin-leak-causes-8m-losses",
+        "type": "industry-media"
+      },
+      {
+        "title": "How Did Zoth Lose $8.4M Due to Access Control?",
+        "publication": "Quill Audits",
+        "date": "2025-03-22",
+        "url": "https://www.quillaudits.com/blog/hack-analysis/zoth-loose-8.4m-dollar-due-to-access-control",
+        "type": "industry-media"
+      },
+      {
+        "title": "Zoth Vault Breach: Admin Key Exploit Analysis",
+        "publication": "Blockscope Research",
+        "date": "2025-03-23",
+        "url": "https://research.blockscope.co/zoth-vault-breach",
+        "type": "industry-media"
+      }
+    ],
+    "firstPublishedAt": "2026-06-03T00:00:00Z",
+    "lastUpdatedAt": "2026-06-03T00:00:00Z",
+    "revisionNotes": [
+      {
+        "date": "2026-06-03",
+        "note": "Initial entry. First use of assetClass tokenized-treasury in the incident registry. UAE jurisdiction omitted — single-source reference (cryptonite.ae) insufficient for jurisdictional claim. Zoth official post-mortem blog not located; official-statement sourced from Zoth X/Twitter. Recovery status: ongoing — bounty outstanding, Crystal Blockchain investigation unresolved."
+      }
+    ]
+  },
+  {
     "slug": "fdusd-depeg-march-2025",
     "title": "FDUSD Stablecoin De-peg Following Renewed Insolvency Allegations Against First Digital Trust",
     "scope": "hk-related",
@@ -995,6 +1257,127 @@
       {
         "date": "2026-04-29",
         "note": "Initial entry. Criminal proceedings against Tornado Cash developer Roman Storm remain ongoing and are not addressed by this entry. The Fifth Circuit's reasoning was limited to the immutable contract addresses; the status of mutable governance infrastructure and associated entities was not resolved by this ruling."
+      }
+    ]
+  },
+  {
+    "slug": "radiant-capital-hack-2024",
+    "title": "Radiant Capital: DPRK UNC4736 Hardware Wallet Compromise ($50M)",
+    "scope": "global-reference",
+    "severity": "critical",
+    "status": "resolved",
+    "type": "smart-contract-exploit",
+    "assetClass": "infrastructure",
+    "date": "2024-10-16",
+    "endDate": "2026-06-02",
+    "primaryEntity": "Radiant Capital DAO",
+    "affectedParties": [
+      "both"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "estimatedLossUsd": 50000000,
+    "estimatedLossNote": "Official Radiant post-mortem cites approximately $50M USD; third-party blockchain forensics suggest $51–53M when including all drained tokens. Chain split: Arbitrum ~$32M, BNB Chain ~$18M. Assets drained: USDT, USDC, wETH, wBNB, wstETH, weETH. Attributed to UNC4736 (DPRK-linked Citrine Sleet / Reconnaissance General Bureau) by Mandiant with high confidence per Radiant's December 2024 update. OFAC-linked restrictions on attacker addresses reported by multiple outlets; no direct OFAC notice URL located — treat as unverified secondary reporting. No material recovery publicly confirmed.",
+    "summary": "On 16 October 2024, Radiant Capital — a cross-chain DeFi lending protocol on Arbitrum and BNB Chain — suffered approximately $50M in losses following a DPRK-linked supply-chain attack attributed by Mandiant to threat actor UNC4736 (Citrine Sleet). The attackers delivered malware via Telegram five weeks prior, compromising developer machines and enabling a man-in-the-middle interception of Safe{Wallet} multi-sig transaction calldata. Three of eleven hardware wallet signers unknowingly authorised malicious `transferOwnership()` calls displayed as routine transactions on the Ledger/Safe UI, allowing attackers to upgrade lending pool contracts and drain user token approvals. Despite FBI coordination and blockchain analytics engagement, no material fund recovery was confirmed. Radiant Capital DAO announced a formal wind-down in June 2026, approximately 20 months post-exploit.",
+    "narrative": "Radiant Capital operated as a cross-chain lending protocol, enabling users to supply and borrow assets across Arbitrum, BNB Chain, Ethereum, and Base. By mid-2024, the protocol had rebuilt its user base following a January 2024 flash loan attack and managed approximately $100M in TVL across markets.\n\nApproximately five weeks before the exploit — in early September 2024 — an unknown actor impersonating a former Radiant contractor sent a Telegram message to multiple protocol developers containing a ZIP archive. The file appeared to hold a routine business PDF but installed InletDrift, a macOS backdoor later attributed by Mandiant to UNC4736, a DPRK-linked cluster operating under North Korea's Reconnaissance General Bureau. The malware established persistent access to developer workstations used for hardware wallet signing sessions.\n\nOn 16 October 2024, attackers exploited their foothold to mount a man-in-the-middle attack on Safe{Wallet} multi-sig transaction flows. Ledger hardware wallets, which do not natively parse Gnosis Safe transaction data, received malicious calldata while the Safe UI displayed legitimate transaction details. Developers were presented with repeated 'error' prompts encouraging them to re-sign; in doing so, three of the eleven required signers unknowingly authorised `transferOwnership()` calls on Radiant's lending pool implementation contracts. With contract ownership transferred, attackers drained Arbitrum (~$32M) and BNB Chain (~$18M) markets by exploiting users' pre-existing token approvals.\n\nRadiant's team paused Ethereum and Base markets before those chains could be drained. In December 2024, Radiant published a Mandiant-corroborated incident update formally attributing the attack to UNC4736 with high confidence. The FBI was engaged for asset tracing; OFAC-linked restrictions on the attacker's wallets were reported in secondary media, though no direct OFAC notice was independently located.\n\nThe cumulative weight of two exploits within 2024 proved insurmountable. In June 2026, Radiant Capital DAO announced a formal wind-down: borrowing was disabled across all markets, RDNT emissions were halted, and active development ceased. Smart contracts remain publicly accessible and immutable. The incident is now a canonical reference point in the progression of DPRK targeting of DeFi infrastructure: from Ronin Bridge (2022, direct key theft) to Radiant (2024, hardware wallet social engineering) to Bybit (2025, SafeWallet CI/CD compromise).",
+    "timeline": [
+      {
+        "date": "2024-09-01",
+        "event": "InletDrift malware delivered via Telegram ZIP file impersonating a contractor PDF to multiple Radiant developers (~5 weeks pre-exploit); macOS backdoor establishes persistent access to signing workstations.",
+        "sourceUrl": "https://medium.com/@RadiantCapital/radiant-capital-incident-update-e56d8c23829e"
+      },
+      {
+        "date": "2024-10-16",
+        "event": "Man-in-the-middle attack on Safe{Wallet} transaction flows executed; three hardware wallet signers unknowingly authorise malicious transferOwnership() calls. Arbitrum and BNB Chain markets drained for approximately $50M.",
+        "sourceUrl": "https://medium.com/@RadiantCapital/radiant-post-mortem-fecd6cd38081"
+      },
+      {
+        "date": "2024-10-17",
+        "event": "Radiant Capital publishes initial post-mortem; Ethereum and Base markets paused before further losses.",
+        "sourceUrl": "https://medium.com/@RadiantCapital/radiant-post-mortem-fecd6cd38081"
+      },
+      {
+        "date": "2024-12-06",
+        "event": "Radiant Capital incident update: Mandiant formally attributes attack to UNC4736 (DPRK-linked Citrine Sleet / Reconnaissance General Bureau) with high confidence.",
+        "sourceUrl": "https://medium.com/@RadiantCapital/radiant-capital-incident-update-e56d8c23829e"
+      },
+      {
+        "date": "2026-06-02",
+        "event": "Radiant Capital DAO announces formal wind-down: borrowing disabled across all markets, RDNT emissions ceased, active development ended. [Source: multiple secondary outlets citing DAO announcement; direct governance forum URL not independently located — MEDIUM confidence on exact date.]"
+      }
+    ],
+    "regulatoryResponse": [
+      {
+        "regulator": "Federal Bureau of Investigation (FBI)",
+        "jurisdiction": "US",
+        "actionType": "Law enforcement coordination",
+        "date": "2024-10-17",
+        "outcome": "FBI engaged for asset tracing and fund recovery coordination. No arrest or fund seizure publicly confirmed as of writing.",
+        "sourceUrl": "https://medium.com/@RadiantCapital/radiant-capital-incident-update-e56d8c23829e"
+      }
+    ],
+    "frameworkMapping": {
+      "sarm": null,
+      "rarm": {
+        "legalJurisdictional": false,
+        "assetValuationOracles": false,
+        "custodyAssetControl": true,
+        "kycAmlPermissioning": false,
+        "secondaryMarketLiquidity": false,
+        "settlementFinality": true,
+        "explanation": "Multi-sig hardware wallet signing ceremony was compromised via DPRK-delivered malware on developer machines, enabling man-in-the-middle substitution of calldata (custodyAssetControl). Once the malicious upgradeToAndCall was signed by the threshold number of signers, the on-chain contract upgrade and subsequent token drains were irreversible (settlementFinality). Oracle feeds, KYC/AML, liquidity, and legal dimensions were not primary failure vectors."
+      }
+    },
+    "lessons": "Hardware wallet signing ceremonies cannot assume device integrity: DPRK's InletDrift malware silently compromised developer machines weeks before the exploit, intercepting Safe{Wallet} transaction flows without visible indicators. Blind signing — approving calldata that hardware wallets cannot independently parse — is a fatal failure mode; developers authorised `transferOwnership()` calls that appeared as legitimate transactions on the Safe UI. Multi-sig signer sets shared across chains amplify blast radius: Arbitrum and BNB Chain were drained simultaneously once the ownership threshold was met. DPRK-linked clusters have demonstrated a clear escalation trajectory targeting DeFi infrastructure: Ronin Bridge (2022, direct private-key theft) → Radiant Capital (2024, hardware wallet MITM via social engineering) → Bybit (2025, CI/CD pipeline compromise via SafeWallet). RWA infrastructure protocols with large user token approvals are high-value targets even without holding regulated assets directly. Institutions managing cross-chain smart contract systems should treat signing-ritual security — including independent calldata verification and anti-malware controls on signing devices — with the same rigour applied to HSM management in traditional financial infrastructure.",
+    "relatedIncidentSlugs": [
+      "bybit-safewallet-hack-2025",
+      "ronin-bridge-exploit-2022"
+    ],
+    "relatedIssuerSlugs": [],
+    "sources": [
+      {
+        "title": "Radiant Capital Post-Mortem",
+        "publication": "Radiant Capital (Medium)",
+        "date": "2024-10-17",
+        "url": "https://medium.com/@RadiantCapital/radiant-post-mortem-fecd6cd38081",
+        "type": "official-statement"
+      },
+      {
+        "title": "Radiant Capital Incident Update — Mandiant Attribution",
+        "publication": "Radiant Capital (Medium)",
+        "date": "2024-12-06",
+        "url": "https://medium.com/@RadiantCapital/radiant-capital-incident-update-e56d8c23829e",
+        "type": "official-statement"
+      },
+      {
+        "title": "Radiant Capital Appears to Suffer $51M Exploit on BNB Chain and Arbitrum",
+        "publication": "The Block",
+        "date": "2024-10-16",
+        "url": "https://www.theblock.co/post/321606/radiant-capital-appears-to-suffer-51-million-exploit-on-its-bnb-chain-and-arbitrum-instances",
+        "type": "major-media"
+      },
+      {
+        "title": "Radiant Capital Loses $50M to Blockchain Exploit",
+        "publication": "CoinDesk",
+        "date": "2024-10-16",
+        "url": "https://www.coindesk.com/tech/2024/10/16/radiant-capital-loses-50m-to-blockchain-exploit",
+        "type": "major-media"
+      },
+      {
+        "title": "Explained: The Radiant Capital Hack (October 2024)",
+        "publication": "Halborn",
+        "date": "2024-10-18",
+        "url": "https://www.halborn.com/blog/post/explained-the-radiant-capital-hack-october-2024",
+        "type": "industry-media"
+      }
+    ],
+    "firstPublishedAt": "2026-06-03T00:00:00Z",
+    "lastUpdatedAt": "2026-06-03T00:00:00Z",
+    "revisionNotes": [
+      {
+        "date": "2026-06-03",
+        "note": "Initial entry. Wind-down endDate 2026-06-02 sourced from multiple secondary outlets citing DAO announcement — no direct governance forum URL confirmed. DPRK attribution HIGH confidence from Mandiant/Radiant official statement; second independent TI source (Chainalysis/TRM) not separately confirmed for this incident. OFAC restriction reporting omitted from regulatoryResponse pending primary notice URL."
       }
     ]
   },
