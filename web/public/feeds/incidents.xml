@@ -5,7 +5,7 @@
   <link href="https://rwa-index.com/feeds/incidents.xml" rel="self" type="application/atom+xml"/>
   <link href="https://rwa-index.com/incidents" rel="alternate" type="text/html"/>
   <id>https://rwa-index.com/feeds/incidents.xml</id>
-  <updated>2024-04-01T00:00:00Z</updated>
+  <updated>2026-04-18T00:00:00Z</updated>
   <author>
     <name>RWAscope Research</name>
     <uri>https://rwa-index.com</uri>
@@ -13,6 +13,73 @@
   <icon>https://rwa-index.com/favicon.ico</icon>
   <logo>https://rwa-index.com/press/logo-mark.svg</logo>
   <rights>© 2026 RWAscope · HKUST Crypto-Fintech Lab</rights>
+
+  <entry>
+    <title>RWAI-2026-001 · KelpDAO rsETH bridge drain and Aave bad debt</title>
+    <link href="https://rwa-index.com/incidents/RWAI-2026-001" rel="alternate" type="text/html"/>
+    <id>https://rwa-index.com/incidents/RWAI-2026-001</id>
+    <published>2026-04-18T00:00:00Z</published>
+    <updated>2026-04-18T00:00:00Z</updated>
+    <category term="infrastructure"/>
+    <category term="severity:critical"/>
+    <category term="rarm:custody"/>
+    <category term="rarm:oracle"/>
+    <category term="rarm:redemption"/>
+    <summary type="text">KelpDAO&apos;s LayerZero-based bridge used a 1-of-1 Decentralised Verifier Network (DVN) configuration, meaning a single validator node could authenticate any cross-chain message as valid. On 18 April 2026, attackers compromised or forged messages through this single-point-of-failure…</summary>
+    <content type="html"><![CDATA[
+        <p><strong>Incident ID:</strong> RWAI-2026-001</p>
+        <p><strong>Date:</strong> 2026-04-18</p>
+        <p><strong>Severity:</strong> critical</p>
+        <p><strong>Asset class:</strong> infrastructure</p>
+        <p><strong>Affected RARM layers:</strong> custody · oracle · redemption</p>
+        <p>KelpDAO&apos;s LayerZero-based bridge used a 1-of-1 Decentralised Verifier Network (DVN) configuration, meaning a single validator node could authenticate any cross-chain message as valid. On 18 April 2026, attackers compromised or forged messages through this single-point-of-failure…</p>
+        <p><a href="https://rwa-index.com/incidents/RWAI-2026-001">Read full postmortem →</a></p>
+      ]]></content>
+  </entry>
+
+  <entry>
+    <title>RWAI-2025-001 · Stream Finance $93M reserve misappropriation</title>
+    <link href="https://rwa-index.com/incidents/RWAI-2025-001" rel="alternate" type="text/html"/>
+    <id>https://rwa-index.com/incidents/RWAI-2025-001</id>
+    <published>2025-11-04T00:00:00Z</published>
+    <updated>2025-11-04T00:00:00Z</updated>
+    <category term="tokenized_credit"/>
+    <category term="severity:critical"/>
+    <category term="rarm:custody"/>
+    <category term="rarm:redemption"/>
+    <summary type="text">Stream Finance delegated management of xUSD&apos;s private-credit reserve allocation to an external fund manager whose identity was not publicly disclosed to protocol users. On approximately 10 October 2025, the manager received a personal margin call and allegedly used approximately…</summary>
+    <content type="html"><![CDATA[
+        <p><strong>Incident ID:</strong> RWAI-2025-001</p>
+        <p><strong>Date:</strong> 2025-11-04</p>
+        <p><strong>Severity:</strong> critical</p>
+        <p><strong>Asset class:</strong> tokenized_credit</p>
+        <p><strong>Affected RARM layers:</strong> custody · redemption</p>
+        <p>Stream Finance delegated management of xUSD&apos;s private-credit reserve allocation to an external fund manager whose identity was not publicly disclosed to protocol users. On approximately 10 October 2025, the manager received a personal margin call and allegedly used approximately…</p>
+        <p><a href="https://rwa-index.com/incidents/RWAI-2025-001">Read full postmortem →</a></p>
+      ]]></content>
+  </entry>
+
+  <entry>
+    <title>RWAI-2024-002 · Radiant Capital hardware wallet signing exploit</title>
+    <link href="https://rwa-index.com/incidents/RWAI-2024-002" rel="alternate" type="text/html"/>
+    <id>https://rwa-index.com/incidents/RWAI-2024-002</id>
+    <published>2024-10-16T00:00:00Z</published>
+    <updated>2024-10-16T00:00:00Z</updated>
+    <category term="infrastructure"/>
+    <category term="severity:critical"/>
+    <category term="rarm:custody"/>
+    <category term="rarm:redemption"/>
+    <summary type="text">An actor later attributed by Mandiant to DPRK threat group UNC4736 (Citrine Sleet) delivered InletDrift malware to Radiant developers via a malicious Telegram ZIP file approximately five weeks before the exploit, establishing persistent access to hardware wallet signing workstat…</summary>
+    <content type="html"><![CDATA[
+        <p><strong>Incident ID:</strong> RWAI-2024-002</p>
+        <p><strong>Date:</strong> 2024-10-16</p>
+        <p><strong>Severity:</strong> critical</p>
+        <p><strong>Asset class:</strong> infrastructure</p>
+        <p><strong>Affected RARM layers:</strong> custody · redemption</p>
+        <p>An actor later attributed by Mandiant to DPRK threat group UNC4736 (Citrine Sleet) delivered InletDrift malware to Radiant developers via a malicious Telegram ZIP file approximately five weeks before the exploit, establishing persistent access to hardware wallet signing workstat…</p>
+        <p><a href="https://rwa-index.com/incidents/RWAI-2024-002">Read full postmortem →</a></p>
+      ]]></content>
+  </entry>
 
   <entry>
     <title>RWAI-2024-001 · Royal.io platform closure</title>
