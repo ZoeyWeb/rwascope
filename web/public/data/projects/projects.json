@@ -4929,5 +4929,277 @@
       "outcome": "116,500 rsETH (approximately 18% of circulating supply, approximately USD 292 million) was drained from KelpDAO's LayerZero bridge on 18 April 2026. Aave froze rsETH and wrsETH markets across all 11 V3 deployments, projecting bad debt of USD 123.7 million to USD 230.1 million. Approximately USD 6 billion in assets exited Aave in a broader bank run. DeFi United, an industry bailout coalition, raised approximately USD 160 million of a USD 200 million target by 26 April 2026. Attribution to DPRK Lazarus Group was asserted by LayerZero and publicly disputed by KelpDAO. Incident under investigation at review date.",
       "rarm_lesson": "Cross-chain bridge security is the dominant operational risk vector for any tokenized asset whose custody or liquidity depends on a bridge transfer. A bridge's security is only as strong as its weakest validator configuration: a 1-of-1 DVN reduces bridge security to a single point of failure regardless of the underlying protocol's architecture. When a widely-used collateral asset is drained, all lending protocols that accepted it face simultaneous bad-debt crystallisation — a bank-run dynamic that protocol governance mechanisms can contain but not prevent."
     }
+  },
+  {
+    "slug": "goldfinch-lendeast-default-2024",
+    "name": "Goldfinch Protocol",
+    "short_name": "Goldfinch",
+    "website": "https://goldfinch.finance",
+    "asset_class": "private_credit",
+    "jurisdiction": "United States",
+    "chain": "Ethereum",
+    "status": "active",
+    "launched_at": "2021-01-01",
+    "tvl_usd": 1684208,
+    "peak_tvl_usd": 53474594,
+    "summary": "In April 2024, Singapore-incorporated private debt platform Lend East failed to repay approximately $5.9 million of a $10.15 million loan drawn from a Goldfinch Protocol borrower pool at maturity, representing a ~58% principal shortfall. Lend East's default was precipitated by the near-total collapse of its largest sub-portfolio exposure — a $5.25 million position in Oriente, a Southeast Asian consumer fintech — compounded by an undisclosed intercompany loan of approximately $750,000 that constituted a covenant violation. Junior backers absorbed first-loss exposure while Senior Pool FIDU holders sustained residual losses; two governance proposals (GIP-62 and GIP-63) to compensate LPs from the protocol treasury failed before GIP-67 passed in January 2025. Approximately $1,158,025 in GFI-converted USDC was distributed to affected LPs as a partial backstop, leaving a net unrecovered principal loss of approximately $4.74 million — the third major borrower default on the Goldfinch platform.",
+    "entity_map": {
+      "issuer": {
+        "name": "Warbler Labs, Incorporated",
+        "type": "other"
+      },
+      "chain_infra": {
+        "name": "Ethereum",
+        "type": "l1"
+      }
+    },
+    "oracle_provider": "N/A — off-chain credit assessment by Warbler Labs. No on-chain oracle for sub-portfolio loan valuation or borrower covenant monitoring.",
+    "upgrade_authority": "Warbler Labs (software developer); Goldfinch DAO (GFI token holders via governance proposals GIP-62, GIP-63, GIP-67).",
+    "underlying_asset": "Undercollateralised loans to real-world borrowers via on-chain liquidity pools. Lend East Pte. Ltd. drew a $10.15 million pool to on-lend to fintech companies and non-bank financial institutions across Southeast Asia and India.",
+    "risk_flags": [
+      "credit_default",
+      "governance_delay"
+    ],
+    "sources": [
+      {
+        "title": "Update on Lend East Pool",
+        "url": "https://gov.goldfinch.finance/t/update-on-lend-east-pool/1957"
+      },
+      {
+        "title": "GIP-67: New Proposal for Using GFI to Help with Principal Loss",
+        "url": "https://gov.goldfinch.finance/t/gip-67-new-proposal-for-using-gfi-to-help-with-principal-loss/2010"
+      },
+      {
+        "title": "Lend East Borrower Profile",
+        "url": "https://gov.goldfinch.finance/t/lend-east-borrower-profile/855"
+      },
+      {
+        "title": "Goldfinch's third default shows just how risky undercollateralised crypto lending can be",
+        "url": "https://www.dlnews.com/articles/defi/goldfinch-borrower-lend-east-defaults-says-warbler-labs/"
+      },
+      {
+        "title": "GIP-63: Using GFI to Help with Principal Loss",
+        "url": "https://gov.goldfinch.finance/t/gip-63-using-gfi-to-help-with-principal-loss/1987"
+      }
+    ],
+    "updated_at": "2026-06-07",
+    "lessons_visibility": "both",
+    "incident_id": "RWAI-2024-003",
+    "incident_date": "2024-04-03",
+    "severity": "major",
+    "primary_asset_class": "tokenized_credit",
+    "affected_rarm_layers": [
+      "jurisdiction",
+      "redemption"
+    ],
+    "permalink": "/incidents/RWAI-2024-003",
+    "citation_meta": {
+      "short_title": "Goldfinch LendEast $5.9M borrower default",
+      "publisher": "HKUST RWAscope",
+      "first_published_year": 2026
+    },
+    "postmortem": {
+      "incident_date": "2024-04-03",
+      "root_cause": "LendEast's default was driven by a sub-portfolio cascade: Oriente, a Southeast Asian consumer fintech accounting for approximately $5.25M of LendEast's deployed capital, defaulted as early as January 2023 — yet LendEast self-disclosed this to Warbler Labs 15 months after the fact, allowing the Goldfinch coupon to continue while the underlying position deteriorated. An undisclosed intercompany loan of approximately $750,000 — never communicated to LPs and constituting a covenant breach — was discovered only at default. On 2 April 2024, one day before loan maturity, LendEast CEO Karan Bhatia informed Warbler Labs that only $4.25M of the $10.15M principal could be repaid.",
+      "what_failed": [
+        {
+          "layer": "L3",
+          "layer_name": "Counterparty",
+          "issue": "Goldfinch had no independent mechanism to verify LendEast's sub-portfolio performance or detect the Oriente sub-default: the protocol relied entirely on LendEast self-reporting, which was delayed 15 months. The undisclosed $750,000 intercompany loan — a direct covenant breach — was undetectable without scheduled independent audits of borrower books. The two-tranche structure (junior backer first-loss, Senior Pool FIDU) delayed but did not prevent LP losses once the backer tranche was exhausted."
+        },
+        {
+          "layer": "L4",
+          "layer_name": "Token & Market Structure",
+          "issue": "FIDU token secondary market liquidity was impaired post-default, with Senior Pool holders unable to redeem at par for an extended period pending DAO governance resolution. Two successive governance proposals (GIP-62, GIP-63) for LP compensation failed before GIP-67 passed; from formal default notice (April 2024) to backstop distribution (January 2025) was nine months, during which affected LPs had no liquidity or path to recovery."
+        }
+      ],
+      "outcome": "LendEast repaid only $4.25M of a $10.15M loan at maturity, leaving a $5.9M principal shortfall (~58%). GIP-67 passed in January 2025 and distributed approximately $1,158,025 in GFI-converted USDC ($759,585.89 to the Senior Pool; $398,439.11 to backers), leaving a net unrecovered loss of approximately $4.74M. The case became the third major borrower default on Goldfinch following Tugende ($5M) and Stratos ($7M), bringing cumulative platform principal losses to approximately $18M. Goldfinch Protocol continues to operate.",
+      "rarm_lesson": "On-chain undercollateralised credit has no on-chain mechanism to verify sub-portfolio performance: the Oriente sub-default was concealed for 15 months before self-disclosure. Covenant violations are undetectable without independent auditor access to borrower books. RARM's Jurisdiction layer failed across multi-country credit exposure in Southeast Asia/Singapore; the Redemption layer failed when DAO governance took nine months from formal default to LP backstop distribution, creating a prolonged illiquidity event for FIDU holders."
+    }
+  },
+  {
+    "slug": "usual-usd0pp-depeg-2025",
+    "name": "Usual Protocol",
+    "short_name": "Usual",
+    "website": "https://usual.money",
+    "asset_class": "stablecoin_fiat_backed",
+    "jurisdiction": "France",
+    "chain": "Ethereum",
+    "status": "active",
+    "launched_at": "2024-07-01",
+    "tvl_usd": 99257233,
+    "peak_tvl_usd": 1870870523,
+    "summary": "On 9 January 2025, the Usual protocol unilaterally changed the redemption mechanism of USD0++, its liquid staking token for the USD0 dollar-pegged stablecoin, introducing an unconditional exit floor of $0.87 USD0 per USD0++ — calibrated just above the 86% liquidation threshold in Morpho's Chainlink oracle markets. The change was communicated to selected Morpho vault curators via private Telegram before any public announcement, triggering a market sell-off that pushed USD0++ to a low of approximately $0.89, an ~11% depeg. With USD0++ supply at approximately $1.53 billion, protocol TVL fell from approximately $1.87 billion to below $1.6 billion within days, and Curve pool USD0++ concentration reached ~90%. Usual subsequently introduced the Revenue Switch (13 January) and a Road to Parity roadmap (23 January 2025); USD0++ recovered to near-parity (~$0.999) by mid-2026.",
+    "entity_map": {
+      "issuer": {
+        "name": "Usual Labs",
+        "type": "other"
+      },
+      "chain_infra": {
+        "name": "Ethereum",
+        "type": "l1"
+      }
+    },
+    "oracle_provider": "Chainlink oracle feeds used by Morpho lending markets to price USD0++ collateral. At the time of the incident, Morpho's oracle hardcoded USD0++ at $1.00; the 13-cent gap between the oracle price and Usual's new $0.87 unconditional exit floor created a systematic liquidation risk for leveraged borrowers.",
+    "upgrade_authority": "Usual Labs; USUAL token holder governance. The January 2025 redemption floor change was implemented without a public governance vote.",
+    "underlying_asset": "USD0 fiat-backed stablecoin (backed by short-duration US Treasury bills). USD0++ is a four-year bond-equivalent: depositing USD0 into the USD0++ contract locks capital for up to four years in exchange for USUAL governance token rewards, marketed across DeFi platforms as a yield-enhanced stablecoin equivalent.",
+    "risk_flags": [
+      "de_pegged",
+      "governance_failure"
+    ],
+    "sources": [
+      {
+        "title": "Usual's Next Leap: Solidifying a 4-Year Horizon for Sustainable Growth",
+        "url": "https://usual.money/blog/usual-s-next-leap-solidifying-a-4-year-horizon-for-sustainable-growth"
+      },
+      {
+        "title": "A New Dawn for USD0++: Road to Parity",
+        "url": "https://usual.money/blog/a-new-dawn-for-usd0-road-to-parity"
+      },
+      {
+        "title": "Unusual Money",
+        "url": "https://rekt.news/unusual-money"
+      },
+      {
+        "title": "Red-Hot DeFi Platform Usual Faces Backlash as Protocol Update Triggers Sell-Off",
+        "url": "https://www.coindesk.com/markets/2025/01/10/red-hot-de-fi-platform-usual-faces-backlash-as-protocol-update-triggers-sell-off"
+      },
+      {
+        "title": "Usual Money Protocol Update",
+        "url": "https://www.theblock.co/post/333995/usual-money-protocol-update"
+      },
+      {
+        "title": "Stablecoin developer Usual faces backlash after changing redeem function",
+        "url": "https://crypto.news/stablecoin-developer-usual-faces-backlash-after-changing-redeem-function/"
+      }
+    ],
+    "updated_at": "2026-06-07",
+    "lessons_visibility": "both",
+    "incident_id": "RWAI-2025-002",
+    "incident_date": "2025-01-09",
+    "severity": "critical",
+    "primary_asset_class": "fiat_stablecoin",
+    "affected_rarm_layers": [
+      "oracle",
+      "redemption"
+    ],
+    "permalink": "/incidents/RWAI-2025-002",
+    "citation_meta": {
+      "short_title": "Usual USD0++ $0.87 redemption floor depeg",
+      "publisher": "HKUST RWAscope",
+      "first_published_year": 2026
+    },
+    "postmortem": {
+      "incident_date": "2025-01-09",
+      "root_cause": "On 9 January 2025, Usual introduced a dual-path USD0++ exit without a public governance vote: holders could redeem 1:1 for USD0 (forfeiting all accrued USUAL rewards), or redeem at an unconditional floor of $0.87 rising linearly to $1.00 over four years. Critically, this change was communicated first by private Telegram to selected Morpho vault risk managers at 4:56 PM ET — ahead of any public disclosure. Morpho's Chainlink oracle had hardcoded USD0++ at $1.00; the new $0.87 floor created a 13-cent gap below the 86% LLTV liquidation threshold, exposing leveraged borrowers using USD0++ as collateral to immediate liquidation risk.",
+      "what_failed": [
+        {
+          "layer": "L4",
+          "layer_name": "Token & Market Structure",
+          "issue": "USD0++ was priced at $1.00 by Morpho's Chainlink oracle while Usual's new unconditional exit floor was $0.87 — a 13-cent gap below the 86% LLTV liquidation threshold. DeFi composability amplified the design change: once USD0++ began trading below $1.00 in secondary markets, leveraged borrowers using USD0++ as Morpho collateral faced immediate liquidation risk from an oracle that had not been updated to reflect the new contractual floor. Curve pool USD0++ concentration reached ~90% and Pendle's USD0++ TVL halved within hours."
+        },
+        {
+          "layer": "L3",
+          "layer_name": "Counterparty",
+          "issue": "Private advance notice of a material redemption mechanism change to selected vault curators (Morpho risk managers) before public disclosure constitutes a governance control failure and created unequal information access. An unverified allegation that Usual's founder holds equity in MEV Capital — one of the curators notified in advance — through Shift Capital was reported by Rekt News but has not been corroborated by any other source and is noted as unverified."
+        }
+      ],
+      "outcome": "USD0++ fell from $1.00 to a low of approximately $0.89 within hours of the announcement. Protocol TVL declined from approximately $1.87B to below $1.6B within days; Curve pool USD0++ concentration reached ~90%; USUAL governance token dropped 17–18.7% in 24 hours; Gauntlet withdrew $43M from affected Morpho vaults. Usual activated the Revenue Switch on 13 January 2025 (directing up to $5M/month in protocol revenue to USUALx stakers) and published the Road to Parity roadmap on 23 January 2025, proposing Stability Loans (USL) and a $200M institutional Stability Buffer (USB). USD0++ recovered to near-parity (~$0.999) by mid-2026. No regulatory action was initiated by any jurisdiction.",
+      "rarm_lesson": "Yield-bearing stablecoins with lock-up features must not be priced at par by lending protocol oracles without reflecting the contractual exit floor: the 13-cent gap between Morpho's $1.00 oracle and Usual's $0.87 unconditional exit floor created a systematic liquidation trap. Redemption mechanism changes require advance public governance, not private notice to selected curators, because DeFi composability means one protocol's design change propagates across unrelated vault positions and secondary markets within hours."
+    }
+  },
+  {
+    "slug": "infini-neobank-exploit-2025",
+    "name": "Infini",
+    "short_name": "Infini",
+    "website": "https://infini.money",
+    "asset_class": "infrastructure",
+    "jurisdiction": "Hong Kong",
+    "chain": "Ethereum",
+    "status": "failed",
+    "launched_at": "2024-01-01",
+    "tvl_usd": 0,
+    "peak_tvl_usd": 50000000,
+    "summary": "On 24 February 2025, Hong Kong-based stablecoin neobank Infini suffered a $49.5 million exploit when a contractor who had built its Ethereum smart contracts retained an undisclosed privileged admin role — enabling a 114-day patient attack in which the developer waited for protocol TVL to reach approximately $50 million before draining the entire Morpho MEVCapital USDC Vault in two transactions. The attacker converted the stolen USDC into DAI to circumvent issuer blacklisting, then into 17,696 ETH dispersed across multiple wallets. Co-founder Christian Li pledged full user reimbursement from personal funds. In March 2025, Infini filed civil proceedings in Hong Kong courts naming developer Chen Shanxuan and three unnamed co-defendants; a court injunction hearing was held on 27 March 2025. As of mid-2026, no funds have been confirmed recovered and civil litigation remains active.",
+    "entity_map": {
+      "issuer": {
+        "name": "INFINIGROWTH DIGITAL INC.",
+        "type": "other"
+      },
+      "chain_infra": {
+        "name": "Ethereum",
+        "type": "l1"
+      }
+    },
+    "oracle_provider": "N/A — no on-chain oracle for USDC vault valuation. TVL was deployed in the Morpho MEVCapital USDC Vault at a fixed 1:1 USDC peg.",
+    "upgrade_authority": "INFINIGROWTH DIGITAL INC. Developer contractor Chen Shanxuan retained undisclosed admin privileges (role 0x8e0b) in the production smart contracts and falsely represented that all keys had been transferred to Infini.",
+    "underlying_asset": "USDC yield-bearing accounts deployed in the Morpho MEVCapital USDC Vault on Ethereum mainnet. Infini offered USDC/USDT yield-bearing accounts and Visa/Mastercard-enabled prepaid crypto debit cards, primarily serving Chinese DeFi users.",
+    "risk_flags": [
+      "hacked",
+      "insider_threat",
+      "litigation",
+      "failed"
+    ],
+    "sources": [
+      {
+        "title": "Payments Card Issuer Infini Offers Reward for Return of Funds After $49 Million Exploit",
+        "url": "https://www.coindesk.com/markets/2025/02/24/payments-card-issuer-infini-offers-reward-for-return-of-funds-after-usd49-million-exploit"
+      },
+      {
+        "title": "Stablecoin Neobank Infini Exploited for $49 Million",
+        "url": "https://www.theblock.co/post/342911/stablecoin-neobank-infini-exploited-for-49-million-security-analysts"
+      },
+      {
+        "title": "Explained: The Infini Hack (February 2025)",
+        "url": "https://www.halborn.com/blog/post/explained-the-infini-hack-february-2025"
+      },
+      {
+        "title": "Infini Loses $50M in Exploit; Developer Deception Suspected",
+        "url": "https://cointelegraph.com/news/infini-loses-50-m-in-exploit-developer-deception-suspected"
+      },
+      {
+        "title": "Infini Takes Legal Action in Hong Kong Over $50M Hack",
+        "url": "https://cointelegraph.com/news/infini-legal-action-hong-kong-50-million-hack"
+      },
+      {
+        "title": "Crypto Neo Bank Infini's $50M Exploit",
+        "url": "https://decrypt.co/307513/crypto-neo-bank-infini-50-million-exploit"
+      }
+    ],
+    "updated_at": "2026-06-07",
+    "lessons_visibility": "both",
+    "incident_id": "RWAI-2025-003",
+    "incident_date": "2025-02-24",
+    "severity": "critical",
+    "primary_asset_class": "infrastructure",
+    "affected_rarm_layers": [
+      "custody",
+      "jurisdiction",
+      "redemption"
+    ],
+    "permalink": "/incidents/RWAI-2025-003",
+    "citation_meta": {
+      "short_title": "Infini $49.5M smart contract backdoor exploit",
+      "publisher": "HKUST RWAscope",
+      "first_published_year": 2026
+    },
+    "postmortem": {
+      "incident_date": "2025-02-24",
+      "root_cause": "Infini hired an anonymous developer — later identified in court filings as Chen Shanxuan — to build and deploy its core Ethereum smart contracts. During development, the contractor deployed an unverified contract (no source code published on-chain) containing a hidden privileged admin role (0x8e0b) granting unrestricted vault withdrawal capability. Rather than transferring this role to Infini upon project completion, the developer retained the controlling private key and falsely informed Infini that all admin privileges had been handed over. In approximately November 2024, the attacker pre-deployed a custom malicious proxy contract and waited 114 days for TVL to accumulate to approximately $50M before executing the drain.",
+      "what_failed": [
+        {
+          "layer": "L2",
+          "layer_name": "Custody",
+          "issue": "On-chain custody of the Morpho MEVCapital USDC Vault was never actually transferred to Infini: the contractor embedded a hidden privileged withdrawal role (0x8e0b) in an unverified smart contract (no published source code) and falsely represented key handover completion. No multi-party verification process existed to confirm admin key transfer independently before the contractor relationship concluded. With the privileged role retained, the developer could drain the entire vault at any time — which he did 114 days after pre-positioning a malicious proxy contract."
+        },
+        {
+          "layer": "L5",
+          "layer_name": "Technology",
+          "issue": "The production smart contract was deployed without on-chain source code verification, preventing independent audit of the hidden privileged role before TVL onboarding. No runtime monitoring was in place to detect the malicious proxy contract pre-deployed in November 2024, nor to alert on the privileged function invocation on 24 February 2025. The attacker's immediate conversion of USDC to DAI — a non-freezable stablecoin — circumvented Circle's blacklisting capability, highlighting the absence of pre-configured issuer blacklist workflows in Infini's incident response plan."
+        }
+      ],
+      "outcome": "Approximately $49.5M USDC was drained in two transactions ($11.45M + $38.06M) from the Morpho MEVCapital USDC Vault. The stolen USDC was immediately swapped to DAI, converted to 17,696 ETH, and dispersed across multiple secondary wallets. Co-founder Christian Li pledged full user reimbursement from personal funds and offered a 20% white-hat bounty with legal immunity. Civil proceedings were filed in Hong Kong courts in March 2025 naming Chen Shanxuan (Foshan, Guangdong) as primary defendant and three unidentified co-defendants; a court injunction hearing was held before Judge Lok on 27 March 2025. Infini issued a final ultimatum in August 2025 offering the attacker all profits for return of the $49.5M principal; no confirmed response or fund recovery has been reported. Civil litigation remains active as of mid-2026. Note: 'Infini Capital', the subject of unrelated SFC proceedings, is a distinct entity and should not be conflated with Infini neobank.",
+      "rarm_lesson": "On-chain custody was never actually transferred: the contractor retained a hidden privileged withdrawal role in unverified smart contracts and falsely claimed admin key handover. No multi-party key-transfer verification and no runtime monitoring of privileged function invocations gave the attacker 114 days of unconstrained access. RARM's Custody layer failure was compounded by multi-jurisdictional legal complexity — civil litigation spanning Hong Kong, Singapore, and mainland China with funds laundered through privacy tools, making recovery highly uncertain."
+    }
   }
 ]
