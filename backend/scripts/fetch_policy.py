@@ -29,6 +29,8 @@ import urllib.request as urlreq
 from datetime import date, datetime, timezone
 from html.parser import HTMLParser
 
+from text_utils import first_sentence
+
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s %(levelname)s %(message)s",
@@ -157,7 +159,7 @@ def generate_weekly_brief(policy_updates: list[dict]) -> dict:
         reverse=True,
     )[:3]
 
-    highlights = [u["summary_en"].split(". ")[0] + "." for u in recent if "summary_en" in u]
+    highlights = [first_sentence(u["summary_en"]) for u in recent if "summary_en" in u]
 
     # Approximate period: last 7 days
     from datetime import timedelta

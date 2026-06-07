@@ -34,6 +34,8 @@ from datetime import date, datetime, timedelta, timezone
 from html.parser import HTMLParser
 from typing import Optional
 
+from text_utils import first_sentence
+
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s %(levelname)s %(message)s",
@@ -555,10 +557,7 @@ def generate_weekly_brief(items: list[dict]) -> dict:
     for item in recent:
         summary = item.get("policy_summary", "")
         if summary:
-            first_sentence = summary.split(". ")[0].strip()
-            if first_sentence and not first_sentence.endswith("."):
-                first_sentence += "."
-            highlights.append(first_sentence)
+            highlights.append(first_sentence(summary))
 
     if not highlights:
         highlights = [

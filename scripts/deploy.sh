@@ -41,6 +41,7 @@ deploy_frontend() {
     --filter='P data/snapshots/' \
     --filter='P media/' \
     --filter='P data/intelligence/' \
+    --filter='P feeds/weekly-brief.xml' \
     --exclude='data/leaderboard.json' \
     --exclude='data/assets/assets-live.json' \
     --exclude='data/visitors.json' \
@@ -48,6 +49,7 @@ deploy_frontend() {
     --exclude='data/snapshots/' \
     --exclude='media/' \
     --exclude='data/intelligence/' \
+    --exclude='feeds/weekly-brief.xml' \
     web/dist/ "$SERVER:$REMOTE_WEB/" \
     -e "ssh -i $SSH_KEY"
   echo "    Frontend deployed."
