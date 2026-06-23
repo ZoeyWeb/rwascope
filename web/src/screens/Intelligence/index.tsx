@@ -600,6 +600,7 @@ interface PageData {
   meta: IntelligenceMeta;
   weekly_brief: IntelligenceWeeklyBrief | null;
   intelligence_items: IntelligenceItem[];
+  milestone_items: IntelligenceItem[];
   dashboard: DashboardData | null;
 }
 
@@ -619,12 +620,19 @@ export default function IntelligenceHome() {
   useEffect(() => {
     async function load() {
       try {
-        const [listRes, brief, dashboard] = await Promise.all([
+        const [listRes, brief, dashboard, milestoneRes] = await Promise.all([
           intelligenceApi.list({ limit: 200 }),
           intelligenceApi.weekly().catch(() => null),
           intelligenceApi.dashboard().catch(() => null),
+          intelligenceApi.list({ tier: 'milestone', limit: 50 }).catch(() => null),
         ]);
-        setData({ meta: listRes.meta, weekly_brief: brief, intelligence_items: listRes.items, dashboard });
+        setData({
+          meta: listRes.meta,
+          weekly_brief: brief,
+          intelligence_items: listRes.items,
+          milestone_items: milestoneRes?.items ?? [],
+          dashboard,
+        });
       } catch {
         // Backend unavailable — fall back to static JSON for local preview
         try {
@@ -649,6 +657,7 @@ export default function IntelligenceHome() {
             meta: json.meta,
             weekly_brief: json.weekly_brief,
             intelligence_items: items,
+            milestone_items: items.filter(i => (i.tier ?? inferTier(i)) === 'milestone'),
             dashboard: {
               highlights,
               forward_view: items.filter(i => i.is_forward_view),
@@ -670,9 +679,9 @@ export default function IntelligenceHome() {
 
   const isRelevant = (i: IntelligenceItem) => i.rwa_relevant || (i.stablecoin_relevant ?? false);
 
-  const filtered = useMemo(() => {
+  const milestones = useMemo(() => {
     if (!data) return [];
-    return data.intelligence_items
+    return data.milestone_items
       .filter(i => isRelevant(i))
       .filter(i => !i.is_forward_view)
       .filter(i => activeRegion === 'all' || i.region === activeRegion)
@@ -680,22 +689,16 @@ export default function IntelligenceHome() {
       .sort((a, b) => b.event_date.localeCompare(a.event_date));
   }, [data, activeRegion, activeEventType]);
 
-  const milestones = useMemo(
-    () => filtered.filter(i => (i.tier ?? inferTier(i)) === 'milestone'),
-    [filtered],
-  );
-
   const totalMilestones = useMemo(() => {
     if (!data) return 0;
-    return data.intelligence_items
-      .filter(i => isRelevant(i) && !i.is_forward_view)
-      .filter(i => (i.tier ?? inferTier(i)) === 'milestone').length;
+    return data.milestone_items
+      .filter(i => isRelevant(i) && !i.is_forward_view).length;
   }, [data]);
 
   const milestoneActivity = useMemo(() => {
     if (!data) return {} as Record<string, number>;
-    return data.intelligence_items
-      .filter(i => isRelevant(i) && !i.is_forward_view && (i.tier ?? inferTier(i)) === 'milestone')
+    return data.milestone_items
+      .filter(i => isRelevant(i) && !i.is_forward_view)
       .reduce<Record<string, number>>((acc, i) => {
         acc[i.region] = (acc[i.region] ?? 0) + 1;
         return acc;

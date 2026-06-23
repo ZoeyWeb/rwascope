@@ -531,6 +531,7 @@ export const intelligenceApi = {
     event_type?: string;
     is_data_snapshot?: boolean;
     narrative_id?: string;
+    tier?: string;
     limit?: number;
     offset?: number;
   } = {}) => {
@@ -540,6 +541,7 @@ export const intelligenceApi = {
     if (params.event_type) q.set('event_type', params.event_type);
     if (params.is_data_snapshot !== undefined) q.set('is_data_snapshot', String(params.is_data_snapshot));
     if (params.narrative_id) q.set('narrative_id', params.narrative_id);
+    if (params.tier) q.set('tier', params.tier);
     q.set('limit', String(params.limit ?? 200));
     if (params.offset) q.set('offset', String(params.offset));
     return request<IntelligenceListResponse>(`/intelligence?${q}`);

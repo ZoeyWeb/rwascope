@@ -275,6 +275,7 @@ async def list_intelligence(
     event_type: Optional[str] = Query(None, description="comma-separated: regulation,institutional,project,research,data_milestone"),
     is_data_snapshot: Optional[bool] = Query(None),
     narrative_id: Optional[str] = Query(None),
+    tier: Optional[str] = Query(None, description="news | milestone"),
     limit: int = Query(50, ge=1, le=200),
     offset: int = Query(0, ge=0),
     db: AsyncSession = Depends(get_db),
@@ -292,6 +293,8 @@ async def list_intelligence(
         items = [i for i in items if i.get("event_type", "regulation") in types]
     if is_data_snapshot is not None:
         items = [i for i in items if bool(i.get("is_data_snapshot", False)) == is_data_snapshot]
+    if tier:
+        items = [i for i in items if (i.get("tier") or "news") == tier]
 
     # Filter by narrative slug
     if narrative_id:
