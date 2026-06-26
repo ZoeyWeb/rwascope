@@ -27,7 +27,7 @@ i18n
     defaultNS: 'nav',
     ns: ['nav', 'footer', 'home'],
     detection: {
-      order: ['cookie', 'localStorage', 'navigator', 'htmlTag'],
+      order: ['cookie', 'localStorage'],
       caches: ['cookie', 'localStorage'],
       lookupCookie: 'rwa_locale',
       cookieMinutes: 525600,
