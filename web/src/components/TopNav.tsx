@@ -1,5 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import {
   Eye,
   AlertTriangle,
@@ -7,9 +8,6 @@ import {
   LayoutDashboard,
   ShieldCheck,
   Layers,
-  Globe,
-  GitCompare,
-  Network,
   Map,
   BookOpen,
   Scale,
@@ -20,6 +18,7 @@ import {
 } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { Logo } from './Logo';
+import LocaleSwitcher from './LocaleSwitcher';
 
 type SubItem = {
   to: string;
@@ -35,120 +34,125 @@ type NavBlock = {
   dropdownHeader?: string;
 };
 
-const NAV_BLOCKS: NavBlock[] = [
-  {
-    label: 'Intelligence',
-    to: '/intelligence',
-    activePaths: ['/intelligence', '/incidents', '/reports', '/enforcement', '/disclosures'],
-    dropdownHeader: 'Intelligence',
-    sub: [
-      {
-        to: '/intelligence',
-        label: 'Market Signal',
-        subtitle: 'Weekly brief and cross-market signals',
-        Icon: Activity,
-      },
-      {
-        to: '/intelligence/hk',
-        label: 'HK Observation',
-        subtitle: 'Daily monitoring of HK regulatory and market signals',
-        Icon: Eye,
-      },
-      {
-        to: '/incidents',
-        label: 'Incident Registry',
-        subtitle: 'Permanent-ID postmortems of RWA and stablecoin failures (RWAI-YYYY-NNN)',
-        Icon: AlertTriangle,
-      },
-      {
-        to: '/enforcement',
-        label: 'Enforcement',
-        subtitle: 'SEC, CFTC, SFC, MAS regulatory and legal actions',
-        Icon: Scale,
-      },
-      {
-        to: '/disclosures',
-        label: 'Issuer Disclosures',
-        subtitle: 'NAV reports, attestations, and filings from institutional issuers',
-        Icon: Building2,
-      },
-      {
-        to: '/reports',
-        label: 'Reports',
-        subtitle: 'In-depth research on tokenization, stablecoins, and policy',
-        Icon: FileText,
-      },
-    ],
-  },
-  {
-    label: 'Market',
-    to: '/market',
-    activePaths: ['/market', '/reserves'],
-    dropdownHeader: 'Market',
-    sub: [
-      {
-        to: '/market',
-        label: 'Overview',
-        subtitle: 'TVL trends, asset class breakdown, market signals',
-        Icon: LayoutDashboard,
-      },
-      {
-        to: '/reserves',
-        label: 'Reserve Monitor',
-        subtitle: 'Stablecoin reserve composition and attestation history',
-        Icon: PieChart,
-      },
-    ],
-  },
-  {
-    label: 'Framework',
-    to: '/licenses',
-    activePaths: ['/licenses', '/assets', '/compliance', '/ensemble', '/methodology', '/glossary'],
-    dropdownHeader: 'Framework',
-    sub: [
-      {
-        to: '/licenses',
-        label: 'SARM',
-        subtitle: 'Stablecoin Architecture & Resilience Matrix',
-        Icon: ShieldCheck,
-      },
-      {
-        to: '/assets',
-        label: 'RARM',
-        subtitle: 'Six-layer due diligence framework for tokenized assets',
-        Icon: Layers,
-      },
-      {
-        to: '/compliance',
-        label: 'Compliance Map',
-        subtitle: 'Cross-border regulatory signal matrix',
-        Icon: Map,
-      },
-      {
-        to: '/glossary',
-        label: 'Glossary',
-        subtitle: 'Key terms across RARM, SARM, and tokenized finance',
-        Icon: BookOpen,
-      },
-    ],
-  },
-  {
-    label: 'Projects',
-    to: '/projects',
-    activePaths: ['/projects'],
-  },
-  {
-    label: 'Ecosystem',
-    to: '/ecosystem',
-    activePaths: ['/ecosystem'],
-  },
-];
+function useNavBlocks(): NavBlock[] {
+  const { t } = useTranslation('nav');
+  return useMemo(() => [
+    {
+      label: t('blocks.intelligence'),
+      to: '/intelligence',
+      activePaths: ['/intelligence', '/incidents', '/reports', '/enforcement', '/disclosures'],
+      dropdownHeader: t('blocks.intelligence'),
+      sub: [
+        {
+          to: '/intelligence',
+          label: t('sub.marketSignal.label'),
+          subtitle: t('sub.marketSignal.subtitle'),
+          Icon: Activity,
+        },
+        {
+          to: '/intelligence/hk',
+          label: t('sub.hkObservation.label'),
+          subtitle: t('sub.hkObservation.subtitle'),
+          Icon: Eye,
+        },
+        {
+          to: '/incidents',
+          label: t('sub.incidentRegistry.label'),
+          subtitle: t('sub.incidentRegistry.subtitle'),
+          Icon: AlertTriangle,
+        },
+        {
+          to: '/enforcement',
+          label: t('sub.enforcement.label'),
+          subtitle: t('sub.enforcement.subtitle'),
+          Icon: Scale,
+        },
+        {
+          to: '/disclosures',
+          label: t('sub.issuerDisclosures.label'),
+          subtitle: t('sub.issuerDisclosures.subtitle'),
+          Icon: Building2,
+        },
+        {
+          to: '/reports',
+          label: t('sub.reports.label'),
+          subtitle: t('sub.reports.subtitle'),
+          Icon: FileText,
+        },
+      ],
+    },
+    {
+      label: t('blocks.market'),
+      to: '/market',
+      activePaths: ['/market', '/reserves'],
+      dropdownHeader: t('blocks.market'),
+      sub: [
+        {
+          to: '/market',
+          label: t('sub.overview.label'),
+          subtitle: t('sub.overview.subtitle'),
+          Icon: LayoutDashboard,
+        },
+        {
+          to: '/reserves',
+          label: t('sub.reserveMonitor.label'),
+          subtitle: t('sub.reserveMonitor.subtitle'),
+          Icon: PieChart,
+        },
+      ],
+    },
+    {
+      label: t('blocks.framework'),
+      to: '/licenses',
+      activePaths: ['/licenses', '/assets', '/compliance', '/ensemble', '/methodology', '/glossary'],
+      dropdownHeader: t('blocks.framework'),
+      sub: [
+        {
+          to: '/licenses',
+          label: t('sub.sarm.label'),
+          subtitle: t('sub.sarm.subtitle'),
+          Icon: ShieldCheck,
+        },
+        {
+          to: '/assets',
+          label: t('sub.rarm.label'),
+          subtitle: t('sub.rarm.subtitle'),
+          Icon: Layers,
+        },
+        {
+          to: '/compliance',
+          label: t('sub.complianceMap.label'),
+          subtitle: t('sub.complianceMap.subtitle'),
+          Icon: Map,
+        },
+        {
+          to: '/glossary',
+          label: t('sub.glossary.label'),
+          subtitle: t('sub.glossary.subtitle'),
+          Icon: BookOpen,
+        },
+      ],
+    },
+    {
+      label: t('blocks.projects'),
+      to: '/projects',
+      activePaths: ['/projects'],
+    },
+    {
+      label: t('blocks.ecosystem'),
+      to: '/ecosystem',
+      activePaths: ['/ecosystem'],
+    },
+  ], [t]);
+}
 
 export default function TopNav() {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
   const { pathname } = useLocation();
+  const { t } = useTranslation('nav');
   const [menuOpen, setMenuOpen] = useState(false);
+  const navBlocks = useNavBlocks();
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : '';
@@ -187,7 +191,7 @@ export default function TopNav() {
         </Link>
 
         <nav className="hidden md:flex items-center gap-2">
-          {NAV_BLOCKS.map(block => {
+          {navBlocks.map(block => {
             const active = isBlockActive(block);
             return (
               <div key={block.to} className="relative group">
@@ -259,6 +263,8 @@ export default function TopNav() {
       </div>
 
       <div className="flex items-center gap-3">
+        <LocaleSwitcher />
+
         {/* Due Diligence — auth-gated utility, shown separately */}
         <Link
           to="/score"
@@ -268,7 +274,7 @@ export default function TopNav() {
               : 'text-slate-500 border-[#2B3437] hover:text-white hover:border-[#5E5C75]/60'
           }`}
         >
-          Due Diligence
+          {t('dueDiligence')}
         </Link>
 
         {/* Auth — desktop only */}
@@ -288,14 +294,14 @@ export default function TopNav() {
                 className="flex items-center gap-2 w-full px-4 py-2.5 text-sm text-slate-300 hover:text-white hover:bg-[#2B3437] transition-colors"
               >
                 <span className="material-symbols-outlined text-base">history</span>
-                My Reports
+                {t('myReports')}
               </button>
               <button
                 onClick={logout}
                 className="flex items-center gap-2 w-full px-4 py-2.5 text-sm text-slate-300 hover:text-white hover:bg-[#2B3437] transition-colors border-t border-[#2B3437]"
               >
                 <span className="material-symbols-outlined text-base">logout</span>
-                Sign Out
+                {t('signOut')}
               </button>
             </div>
           </div>
@@ -304,7 +310,7 @@ export default function TopNav() {
             onClick={() => navigate('/login')}
             className="hidden md:block text-sm text-slate-400 hover:text-white transition-colors"
           >
-            Sign In
+            {t('signIn')}
           </button>
         )}
 
@@ -313,7 +319,7 @@ export default function TopNav() {
           type="button"
           onClick={() => setMenuOpen(true)}
           className="md:hidden w-10 h-10 flex flex-col items-center justify-center gap-1.5 -mr-2"
-          aria-label="Open menu"
+          aria-label={t('aria.openMenu')}
         >
           <span className="block w-5 h-px bg-white" />
           <span className="block w-5 h-px bg-white" />
@@ -336,7 +342,7 @@ export default function TopNav() {
             type="button"
             onClick={() => setMenuOpen(false)}
             className="w-10 h-10 flex items-center justify-center -mr-2"
-            aria-label="Close menu"
+            aria-label={t('aria.closeMenu')}
           >
             <span className="relative w-5 h-5 block">
               <span className="absolute inset-0 m-auto w-5 h-px bg-white rotate-45" />
@@ -347,7 +353,7 @@ export default function TopNav() {
 
         {/* Nav list */}
         <nav className="px-6 py-ed-section-sm">
-          {NAV_BLOCKS.map((block) => (
+          {navBlocks.map((block) => (
             <div key={block.label} className="py-6 border-b border-white/10">
               {!block.sub ? (
                 <Link
@@ -385,8 +391,13 @@ export default function TopNav() {
               onClick={() => setMenuOpen(false)}
               className="block text-center py-4 border border-white text-ed-item-h4 text-white hover:bg-white hover:text-ed-ink transition-colors"
             >
-              Due Diligence
+              {t('dueDiligence')}
             </Link>
+          </div>
+
+          {/* Language switcher */}
+          <div className="pt-4 pb-4 border-t border-white/10">
+            <LocaleSwitcher className="w-full" />
           </div>
 
           {/* Auth */}
@@ -406,14 +417,14 @@ export default function TopNav() {
                   className="flex items-center gap-2 py-3 text-ed-body text-white/70 hover:text-white transition-colors"
                 >
                   <span className="material-symbols-outlined text-base">history</span>
-                  My Reports
+                  {t('myReports')}
                 </button>
                 <button
                   onClick={() => { logout(); setMenuOpen(false); }}
                   className="flex items-center gap-2 py-3 text-ed-body text-white/70 hover:text-white transition-colors border-t border-white/10"
                 >
                   <span className="material-symbols-outlined text-base">logout</span>
-                  Sign Out
+                  {t('signOut')}
                 </button>
               </div>
             ) : (
@@ -421,7 +432,7 @@ export default function TopNav() {
                 onClick={() => { navigate('/login'); setMenuOpen(false); }}
                 className="text-ed-item-h4 text-white hover:text-white/70 transition-colors"
               >
-                Sign In
+                {t('signIn')}
               </button>
             )}
           </div>

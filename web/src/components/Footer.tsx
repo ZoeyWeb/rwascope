@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Logo } from './Logo';
 
 function FooterColTitle({ children }: { children: React.ReactNode }) {
@@ -46,6 +47,8 @@ function FooterLink({
 }
 
 export default function Footer() {
+  const { t } = useTranslation('footer');
+
   return (
     <footer className="border-t border-ed-hairline mt-auto bg-ed-canvas">
       <div className="max-w-[1400px] mx-auto px-8">
@@ -60,63 +63,61 @@ export default function Footer() {
               <span className="text-ed-item-h4 text-ed-ink">RWA-Index</span>
             </div>
             <p className="text-ed-body text-ed-text-secondary mt-ed-section-sm leading-relaxed max-w-[320px]">
-              Independent research platform analyzing structural risks in tokenized
-              real-world assets. Built at HKUST Crypto-Fintech Lab.
+              {t('tagline')}
             </p>
             <div className="text-ed-eyebrow uppercase tracking-[0.18em] text-ed-text-muted mt-ed-section-sm">
-              We don't rate. We don't recommend. We decompose.
+              {t('motto')}
             </div>
           </div>
 
           {/* Navigate, col-span-2 */}
           <div className="md:col-span-2">
-            <FooterColTitle>Navigate</FooterColTitle>
+            <FooterColTitle>{t('col.navigate')}</FooterColTitle>
             <ul className="mt-ed-section-sm space-y-2">
-              <FooterLink to="/projects">Projects</FooterLink>
-              <FooterLink to="/incidents">Incidents</FooterLink>
-              <FooterLink to="/licenses">SARM</FooterLink>
-              <FooterLink to="/assets">RARM</FooterLink>
-              <FooterLink to="/compliance">Compliance</FooterLink>
-              <FooterLink to="/ecosystem">Ecosystem</FooterLink>
-              <FooterLink to="/intelligence">Intelligence</FooterLink>
+              <FooterLink to="/projects">{t('nav.projects')}</FooterLink>
+              <FooterLink to="/incidents">{t('nav.incidents')}</FooterLink>
+              <FooterLink to="/licenses">{t('nav.sarm')}</FooterLink>
+              <FooterLink to="/assets">{t('nav.rarm')}</FooterLink>
+              <FooterLink to="/compliance">{t('nav.compliance')}</FooterLink>
+              <FooterLink to="/ecosystem">{t('nav.ecosystem')}</FooterLink>
+              <FooterLink to="/intelligence">{t('nav.intelligence')}</FooterLink>
             </ul>
           </div>
 
           {/* Research, col-span-3 */}
           <div className="md:col-span-3">
-            <FooterColTitle>Research</FooterColTitle>
+            <FooterColTitle>{t('col.research')}</FooterColTitle>
             <ul className="mt-ed-section-sm space-y-2">
-              <FooterLink to="/press">SARM working paper (SSRN)</FooterLink>
-              <FooterLink to="/press">RARM working paper (SSRN)</FooterLink>
-              <FooterLink to="/press">Press kit</FooterLink>
-              <FooterLink to="/feeds/incidents.xml" external>RSS · Incidents</FooterLink>
-              <FooterLink to="/feeds/weekly-brief.xml" external>RSS · Weekly Brief</FooterLink>
+              <FooterLink to="/press">{t('research.sarmPaper')}</FooterLink>
+              <FooterLink to="/press">{t('research.rarmPaper')}</FooterLink>
+              <FooterLink to="/press">{t('research.pressKit')}</FooterLink>
+              <FooterLink to="/feeds/incidents.xml" external>{t('research.rssIncidents')}</FooterLink>
+              <FooterLink to="/feeds/weekly-brief.xml" external>{t('research.rssWeeklyBrief')}</FooterLink>
             </ul>
           </div>
 
           {/* Contact, col-span-3 */}
           <div className="md:col-span-3">
-            <FooterColTitle>Contact</FooterColTitle>
+            <FooterColTitle>{t('col.contact')}</FooterColTitle>
             <div className="mt-ed-section-sm">
               <Link
                 to="/contact"
                 className="inline-block text-ed-block-h3 text-ed-ink border-b border-ed-ink hover:border-b-2 transition-all"
               >
-                Get in touch →
+                {t('contact.cta')}
               </Link>
               <p className="text-ed-meta text-ed-text-secondary mt-3 leading-relaxed">
-                For press inquiries, research collaboration, data access,
-                and speaking requests.
+                {t('contact.description')}
               </p>
             </div>
             <div className="mt-ed-section-sm">
               <div className="text-ed-eyebrow uppercase tracking-[0.18em] text-ed-text-muted">
-                Affiliation
+                {t('affiliation.label')}
               </div>
               <div className="text-ed-meta text-ed-text-secondary mt-2 leading-relaxed">
-                HKUST Crypto-Fintech Lab<br />
-                Academy of Interdisciplinary Studies<br />
-                Hong Kong SAR
+                {t('affiliation.lab')}<br />
+                {t('affiliation.school')}<br />
+                {t('affiliation.location')}
               </div>
             </div>
           </div>
@@ -125,11 +126,11 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="border-t border-ed-hairline py-ed-section-sm flex flex-col gap-4 md:flex-row md:justify-between md:items-center md:gap-0 text-ed-meta text-ed-text-muted">
-          <div>© 2026 RWAscope · Built at HKUST Crypto-Fintech Lab</div>
+          <div>{t('copyright')}</div>
           <div className="flex gap-6">
-            <Link to="/press" className="hover:text-ed-ink transition-colors">Press</Link>
-            <Link to="/contact" className="hover:text-ed-ink transition-colors">Contact</Link>
-            <a href="/feeds/incidents.xml" className="hover:text-ed-ink transition-colors">RSS</a>
+            <Link to="/press" className="hover:text-ed-ink transition-colors">{t('bottomBar.press')}</Link>
+            <Link to="/contact" className="hover:text-ed-ink transition-colors">{t('col.contact')}</Link>
+            <a href="/feeds/incidents.xml" className="hover:text-ed-ink transition-colors">{t('bottomBar.rss')}</a>
           </div>
         </div>
 

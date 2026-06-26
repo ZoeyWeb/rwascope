@@ -1,0 +1,40 @@
+{
+  "tagline": "聚焦代幣化真實世界資產結構性風險的獨立研究平臺。建於香港科技大學加密金融科技實驗室。",
+  "motto": "我們不評級。我們不推薦。我們拆解。",
+  "col": {
+    "navigate": "導航",
+    "research": "研究",
+    "contact": "聯絡"
+  },
+  "nav": {
+    "projects": "專案",
+    "incidents": "事件",
+    "sarm": "SARM",
+    "rarm": "RARM",
+    "compliance": "合規",
+    "ecosystem": "生態",
+    "intelligence": "情報"
+  },
+  "research": {
+    "sarmPaper": "SARM 工作論文(SSRN)",
+    "rarmPaper": "RARM 工作論文(SSRN)",
+    "pressKit": "媒體資料",
+    "rssIncidents": "RSS · 事件",
+    "rssWeeklyBrief": "RSS · 每週簡報"
+  },
+  "contact": {
+    "cta": "聯絡我們 →",
+    "description": "媒體採訪、研究合作、資料訪問與演講邀約。"
+  },
+  "affiliation": {
+    "label": "學術歸屬",
+    "lab": "HKUST 加密金融科技實驗室",
+    "school": "跨學科學院",
+    "location": "中國香港特別行政區"
+  },
+  "copyright": "© 2026 RWAscope · 建於 HKUST 加密金融科技實驗室",
+  "bottomBar": {
+    "press": "媒體",
+    "rss": "RSS"
+  }
+}

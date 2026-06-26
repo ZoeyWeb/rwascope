@@ -18,14 +18,14 @@
     max-width: 100%;
   }
   body {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Inter', 'PingFang SC', 'PingFang TC', 'Microsoft YaHei', 'Noto Sans SC', 'Noto Sans TC', sans-serif;
     background-color: #f8f9fa;
     color: #2b3437;
     overflow-x: clip;
     max-width: 100%;
   }
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Manrope', sans-serif;
+    font-family: 'Inter', 'PingFang SC', 'PingFang TC', 'Microsoft YaHei', 'Noto Sans SC', 'Noto Sans TC', sans-serif;
   }
 }
 
@@ -38,6 +38,11 @@
   font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
   vertical-align: middle;
 }
+
+/* CJK letter-spacing fixes: negative tracking is meaningless for Han glyphs */
+html[lang^="zh"] .text-ed-page-h1,
+html[lang^="zh"] .text-ed-hero-h1 { letter-spacing: 0; }
+html[lang^="zh"] .text-ed-eyebrow { letter-spacing: 0.05em; }
 
 .no-scrollbar::-webkit-scrollbar { display: none; }
 .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }

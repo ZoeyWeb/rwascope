@@ -1,0 +1,67 @@
+{
+  "blocks": {
+    "intelligence": "情报",
+    "market": "市场",
+    "framework": "框架",
+    "projects": "项目",
+    "ecosystem": "生态"
+  },
+  "sub": {
+    "marketSignal": {
+      "label": "市场信号",
+      "subtitle": "每周简报与跨市场信号"
+    },
+    "hkObservation": {
+      "label": "香港观察",
+      "subtitle": "香港监管与市场信号每日追踪"
+    },
+    "incidentRegistry": {
+      "label": "事件登记",
+      "subtitle": "RWA 与稳定币失败事件的永久编号事后剖析(RWAI-YYYY-NNN)"
+    },
+    "enforcement": {
+      "label": "监管执法",
+      "subtitle": "SEC、CFTC、SFC、MAS 等监管与法律行动"
+    },
+    "issuerDisclosures": {
+      "label": "发行方披露",
+      "subtitle": "机构发行方的 NAV 报告、鉴证文件与监管申报"
+    },
+    "reports": {
+      "label": "研究报告",
+      "subtitle": "代币化、稳定币与政策深度研究"
+    },
+    "overview": {
+      "label": "总览",
+      "subtitle": "TVL 趋势、资产类别分布与市场信号"
+    },
+    "reserveMonitor": {
+      "label": "储备监测",
+      "subtitle": "稳定币储备构成与鉴证历史"
+    },
+    "sarm": {
+      "label": "SARM",
+      "subtitle": "稳定币架构与韧性矩阵(Stablecoin Architecture & Resilience Matrix)"
+    },
+    "rarm": {
+      "label": "RARM",
+      "subtitle": "代币化资产六层尽调框架"
+    },
+    "complianceMap": {
+      "label": "合规图谱",
+      "subtitle": "跨境监管信号矩阵"
+    },
+    "glossary": {
+      "label": "术语表",
+      "subtitle": "RARM、SARM 与代币化金融关键术语"
+    }
+  },
+  "dueDiligence": "尽职调查",
+  "myReports": "我的报告",
+  "signIn": "登录",
+  "signOut": "退出登录",
+  "aria": {
+    "openMenu": "打开菜单",
+    "closeMenu": "关闭菜单"
+  }
+}

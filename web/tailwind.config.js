@@ -107,10 +107,10 @@ export default {
         'ed-hk-text':   '#0C447C',
       },
       fontFamily: {
-        sans:     ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
-        headline: ['Inter', 'system-ui', 'sans-serif'],
-        body:     ['Inter', 'system-ui', 'sans-serif'],
-        label:    ['Inter', 'system-ui', 'sans-serif'],
+        sans:     ['Inter', 'PingFang SC', 'PingFang TC', 'Microsoft YaHei', 'Noto Sans SC', 'Noto Sans TC', 'system-ui', '-apple-system', 'sans-serif'],
+        headline: ['Inter', 'PingFang SC', 'PingFang TC', 'Microsoft YaHei', 'Noto Sans SC', 'Noto Sans TC', 'system-ui', 'sans-serif'],
+        body:     ['Inter', 'PingFang SC', 'PingFang TC', 'Microsoft YaHei', 'Noto Sans SC', 'Noto Sans TC', 'system-ui', 'sans-serif'],
+        label:    ['Inter', 'PingFang SC', 'PingFang TC', 'Microsoft YaHei', 'Noto Sans SC', 'Noto Sans TC', 'system-ui', 'sans-serif'],
       },
       spacing: {
         'ed-hero':          '6rem',    // 96px  hero padding

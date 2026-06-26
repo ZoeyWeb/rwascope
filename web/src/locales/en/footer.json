@@ -1,0 +1,40 @@
+{
+  "tagline": "Independent research platform analyzing structural risks in tokenized real-world assets. Built at HKUST Crypto-Fintech Lab.",
+  "motto": "We don't rate. We don't recommend. We decompose.",
+  "col": {
+    "navigate": "Navigate",
+    "research": "Research",
+    "contact": "Contact"
+  },
+  "nav": {
+    "projects": "Projects",
+    "incidents": "Incidents",
+    "sarm": "SARM",
+    "rarm": "RARM",
+    "compliance": "Compliance",
+    "ecosystem": "Ecosystem",
+    "intelligence": "Intelligence"
+  },
+  "research": {
+    "sarmPaper": "SARM working paper (SSRN)",
+    "rarmPaper": "RARM working paper (SSRN)",
+    "pressKit": "Press kit",
+    "rssIncidents": "RSS · Incidents",
+    "rssWeeklyBrief": "RSS · Weekly Brief"
+  },
+  "contact": {
+    "cta": "Get in touch →",
+    "description": "For press inquiries, research collaboration, data access, and speaking requests."
+  },
+  "affiliation": {
+    "label": "Affiliation",
+    "lab": "HKUST Crypto-Fintech Lab",
+    "school": "Academy of Interdisciplinary Studies",
+    "location": "Hong Kong SAR"
+  },
+  "copyright": "© 2026 RWAscope · Built at HKUST Crypto-Fintech Lab",
+  "bottomBar": {
+    "press": "Press",
+    "rss": "RSS"
+  }
+}

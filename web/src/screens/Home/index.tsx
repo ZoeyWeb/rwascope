@@ -1,5 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation, Trans } from 'react-i18next';
 import { Boxes, ShieldCheck, AlertTriangle, ArrowRight, type LucideIcon } from 'lucide-react';
 import OrbitalRings from '../../components/OrbitalRings';
 import TickerBar from '../../components/TickerBar';
@@ -12,31 +13,36 @@ type Entry = {
   Icon: LucideIcon;
 };
 
-const ENTRIES: Entry[] = [
-  {
-    to: '/projects',
-    kicker: 'Decompose',
-    heading: 'Project anatomy',
-    body: 'Active RWA projects, mapped across 6 risk layers — issuer, custody, oracle, audit, jurisdiction, redemption.',
-    Icon: Boxes,
-  },
-  {
-    to: '/licenses',
-    kicker: 'Benchmark',
-    heading: 'Framework signals',
-    body: 'Standardized comparison against SARM (stablecoin) and RARM (tokenized asset) risk dimensions.',
-    Icon: ShieldCheck,
-  },
-  {
-    to: '/incidents',
-    kicker: 'Learn from failure',
-    heading: 'Structured postmortems',
-    body: 'What failed, which layer, why — across stablecoins, exchanges, and tokenized credit.',
-    Icon: AlertTriangle,
-  },
-];
+function useEntries(): Entry[] {
+  const { t } = useTranslation('home');
+  return useMemo(() => [
+    {
+      to: '/projects',
+      kicker: t('entries.projects.kicker'),
+      heading: t('entries.projects.heading'),
+      body: t('entries.projects.body'),
+      Icon: Boxes,
+    },
+    {
+      to: '/licenses',
+      kicker: t('entries.framework.kicker'),
+      heading: t('entries.framework.heading'),
+      body: t('entries.framework.body'),
+      Icon: ShieldCheck,
+    },
+    {
+      to: '/incidents',
+      kicker: t('entries.incidents.kicker'),
+      heading: t('entries.incidents.heading'),
+      body: t('entries.incidents.body'),
+      Icon: AlertTriangle,
+    },
+  ], [t]);
+}
 
 export default function Home() {
+  const { t } = useTranslation('home');
+  const entries = useEntries();
   const [stats, setStats] = useState<{ cumulative_pageviews: number } | null>(null);
 
   useEffect(() => {
@@ -60,9 +66,9 @@ export default function Home() {
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between">
             <div className="lg:max-w-[50%]">
               <h1 className="font-headline text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight">
-                RWA promised real assets.
+                {t('hero.headline1')}
                 <br />
-                <span className="text-slate-400">Some delivered opacity instead.</span>
+                <span className="text-slate-400">{t('hero.headline2')}</span>
               </h1>
             </div>
             <div className="hidden lg:block flex-shrink-0">
@@ -73,25 +79,25 @@ export default function Home() {
           {/* Body text */}
           <div className="mt-20 lg:max-w-[50%] space-y-5 text-[15px] text-slate-400 leading-relaxed">
             <p>
-              Algorithmic pegs, reserve gaps, credit defaults — each collapse
-              happened in a different layer. Each was visible{' '}
-              <em className="text-slate-300">in retrospect</em>. None was visible{' '}
-              <em className="text-slate-300">in advance</em>.
+              <Trans
+                i18nKey="hero.body1"
+                ns="home"
+                components={{ em: <em className="text-slate-300" /> }}
+              />
             </p>
             <p>
-              Most RWA risk isn&apos;t priced — it sits in legal structures,
-              custody chains, and reconciliation gaps that no one independently
-              verifies.{' '}
-              <span className="text-white font-medium">
-                RWAscope exists in that structural intelligence layer.
-              </span>
+              <Trans
+                i18nKey="hero.body2"
+                ns="home"
+                components={{ strong: <span className="text-white font-medium" /> }}
+              />
             </p>
           </div>
 
           {/* Readings counter */}
           <div className="mt-12 border-t border-white/10 pt-10">
             <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/50">
-              Total readings since launch
+              {t('hero.readingsLabel')}
             </div>
             <div className="text-5xl font-bold tabular-nums text-white mt-3 leading-none">
               {stats ? stats.cumulative_pageviews.toLocaleString() : '—'}
@@ -100,12 +106,14 @@ export default function Home() {
 
           {/* Attribution */}
           <div className="mt-10 border-t border-white/10 pt-8 text-sm text-white/60 leading-relaxed">
-            An independent research platform built at{' '}
-            <span className="text-white/90">HKUST Crypto-Fintech Lab</span>,
-            structured around peer-reviewed risk frameworks (SARM / RARM).{' '}
-            <span className="text-white font-medium">
-              We don&apos;t rate. We don&apos;t recommend. We decompose.
-            </span>
+            <Trans
+              i18nKey="hero.attribution"
+              ns="home"
+              components={{
+                strong: <span className="text-white/90" />,
+                em: <span className="text-white font-medium" />,
+              }}
+            />
           </div>
         </div>
       </section>
@@ -117,14 +125,14 @@ export default function Home() {
       <section className="bg-white">
         <div className="max-w-[1400px] mx-auto px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 border-y border-[#DBE4E7]">
-            {ENTRIES.map((entry, i) => {
+            {entries.map((entry, i) => {
               const { Icon } = entry;
               return (
                 <Link
                   key={entry.to}
                   to={entry.to}
                   className={`group bg-white p-10 hover:bg-[#EAEFF1] transition-colors flex flex-col${
-                    i < ENTRIES.length - 1
+                    i < entries.length - 1
                       ? ' border-b border-[#DBE4E7] md:border-b-0 md:border-r'
                       : ''
                   }`}

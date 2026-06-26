@@ -1,0 +1,27 @@
+{
+  "hero": {
+    "headline1": "RWA 承诺真实资产。",
+    "headline2": "有些却交付了不透明。",
+    "body1": "算法锚定、储备缺口、信贷违约 —— 每一次崩塌都发生在不同的层级。每一次<em>事后</em>都看得见,<em>事前</em>却没人看见。",
+    "body2": "大多数 RWA 风险并未被定价 —— 它们藏在法律结构、托管链条与对账缝隙中,无人独立验证。<strong>RWAscope 存在于这一结构性情报层。</strong>",
+    "readingsLabel": "平台上线以来累计阅读量",
+    "attribution": "建于 <strong>HKUST 加密金融科技实验室</strong> 的独立研究平台,围绕同行评审中的风险框架(SARM / RARM)组织内容。<em>我们不评级。我们不推荐。我们拆解。</em>"
+  },
+  "entries": {
+    "projects": {
+      "kicker": "拆解",
+      "heading": "项目解剖",
+      "body": "在 6 个风险层级上映射活跃 RWA 项目 —— 发行方、托管、预言机、审计、司法管辖、赎回。"
+    },
+    "framework": {
+      "kicker": "对标",
+      "heading": "框架信号",
+      "body": "对 SARM(稳定币)与 RARM(代币化资产)风险维度进行标准化比较。"
+    },
+    "incidents": {
+      "kicker": "从失败中学习",
+      "heading": "结构化事后剖析",
+      "body": "稳定币、交易所与代币化信贷的失败:哪一层失败、为什么失败。"
+    }
+  }
+}

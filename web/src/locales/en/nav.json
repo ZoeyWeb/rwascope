@@ -1,0 +1,67 @@
+{
+  "blocks": {
+    "intelligence": "Intelligence",
+    "market": "Market",
+    "framework": "Framework",
+    "projects": "Projects",
+    "ecosystem": "Ecosystem"
+  },
+  "sub": {
+    "marketSignal": {
+      "label": "Market Signal",
+      "subtitle": "Weekly brief and cross-market signals"
+    },
+    "hkObservation": {
+      "label": "HK Observation",
+      "subtitle": "Daily monitoring of HK regulatory and market signals"
+    },
+    "incidentRegistry": {
+      "label": "Incident Registry",
+      "subtitle": "Permanent-ID postmortems of RWA and stablecoin failures (RWAI-YYYY-NNN)"
+    },
+    "enforcement": {
+      "label": "Enforcement",
+      "subtitle": "SEC, CFTC, SFC, MAS regulatory and legal actions"
+    },
+    "issuerDisclosures": {
+      "label": "Issuer Disclosures",
+      "subtitle": "NAV reports, attestations, and filings from institutional issuers"
+    },
+    "reports": {
+      "label": "Reports",
+      "subtitle": "In-depth research on tokenization, stablecoins, and policy"
+    },
+    "overview": {
+      "label": "Overview",
+      "subtitle": "TVL trends, asset class breakdown, market signals"
+    },
+    "reserveMonitor": {
+      "label": "Reserve Monitor",
+      "subtitle": "Stablecoin reserve composition and attestation history"
+    },
+    "sarm": {
+      "label": "SARM",
+      "subtitle": "Stablecoin Architecture & Resilience Matrix"
+    },
+    "rarm": {
+      "label": "RARM",
+      "subtitle": "Six-layer due diligence framework for tokenized assets"
+    },
+    "complianceMap": {
+      "label": "Compliance Map",
+      "subtitle": "Cross-border regulatory signal matrix"
+    },
+    "glossary": {
+      "label": "Glossary",
+      "subtitle": "Key terms across RARM, SARM, and tokenized finance"
+    }
+  },
+  "dueDiligence": "Due Diligence",
+  "myReports": "My Reports",
+  "signIn": "Sign In",
+  "signOut": "Sign Out",
+  "aria": {
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
+  }
+}

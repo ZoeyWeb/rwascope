@@ -60,6 +60,51 @@
   </entry>
 
   <entry>
+    <title>RWAI-2025-003 · Infini $49.5M smart contract backdoor exploit</title>
+    <link href="https://rwa-index.com/incidents/RWAI-2025-003" rel="alternate" type="text/html"/>
+    <id>https://rwa-index.com/incidents/RWAI-2025-003</id>
+    <published>2025-02-24T00:00:00Z</published>
+    <updated>2025-02-24T00:00:00Z</updated>
+    <category term="infrastructure"/>
+    <category term="severity:critical"/>
+    <category term="rarm:custody"/>
+    <category term="rarm:jurisdiction"/>
+    <category term="rarm:redemption"/>
+    <summary type="text">Infini hired an anonymous developer — later identified in court filings as Chen Shanxuan — to build and deploy its core Ethereum smart contracts. During development, the contractor deployed an unverified contract (no source code published on-chain) containing a hidden privileged…</summary>
+    <content type="html"><![CDATA[
+        <p><strong>Incident ID:</strong> RWAI-2025-003</p>
+        <p><strong>Date:</strong> 2025-02-24</p>
+        <p><strong>Severity:</strong> critical</p>
+        <p><strong>Asset class:</strong> infrastructure</p>
+        <p><strong>Affected RARM layers:</strong> custody · jurisdiction · redemption</p>
+        <p>Infini hired an anonymous developer — later identified in court filings as Chen Shanxuan — to build and deploy its core Ethereum smart contracts. During development, the contractor deployed an unverified contract (no source code published on-chain) containing a hidden privileged…</p>
+        <p><a href="https://rwa-index.com/incidents/RWAI-2025-003">Read full postmortem →</a></p>
+      ]]></content>
+  </entry>
+
+  <entry>
+    <title>RWAI-2025-002 · Usual USD0++ $0.87 redemption floor depeg</title>
+    <link href="https://rwa-index.com/incidents/RWAI-2025-002" rel="alternate" type="text/html"/>
+    <id>https://rwa-index.com/incidents/RWAI-2025-002</id>
+    <published>2025-01-09T00:00:00Z</published>
+    <updated>2025-01-09T00:00:00Z</updated>
+    <category term="fiat_stablecoin"/>
+    <category term="severity:critical"/>
+    <category term="rarm:oracle"/>
+    <category term="rarm:redemption"/>
+    <summary type="text">On 9 January 2025, Usual introduced a dual-path USD0++ exit without a public governance vote: holders could redeem 1:1 for USD0 (forfeiting all accrued USUAL rewards), or redeem at an unconditional floor of $0.87 rising linearly to $1.00 over four years. Critically, this change …</summary>
+    <content type="html"><![CDATA[
+        <p><strong>Incident ID:</strong> RWAI-2025-002</p>
+        <p><strong>Date:</strong> 2025-01-09</p>
+        <p><strong>Severity:</strong> critical</p>
+        <p><strong>Asset class:</strong> fiat_stablecoin</p>
+        <p><strong>Affected RARM layers:</strong> oracle · redemption</p>
+        <p>On 9 January 2025, Usual introduced a dual-path USD0++ exit without a public governance vote: holders could redeem 1:1 for USD0 (forfeiting all accrued USUAL rewards), or redeem at an unconditional floor of $0.87 rising linearly to $1.00 over four years. Critically, this change …</p>
+        <p><a href="https://rwa-index.com/incidents/RWAI-2025-002">Read full postmortem →</a></p>
+      ]]></content>
+  </entry>
+
+  <entry>
     <title>RWAI-2024-002 · Radiant Capital hardware wallet signing exploit</title>
     <link href="https://rwa-index.com/incidents/RWAI-2024-002" rel="alternate" type="text/html"/>
     <id>https://rwa-index.com/incidents/RWAI-2024-002</id>
@@ -78,6 +123,28 @@
         <p><strong>Affected RARM layers:</strong> custody · redemption</p>
         <p>An actor later attributed by Mandiant to DPRK threat group UNC4736 (Citrine Sleet) delivered InletDrift malware to Radiant developers via a malicious Telegram ZIP file approximately five weeks before the exploit, establishing persistent access to hardware wallet signing workstat…</p>
         <p><a href="https://rwa-index.com/incidents/RWAI-2024-002">Read full postmortem →</a></p>
+      ]]></content>
+  </entry>
+
+  <entry>
+    <title>RWAI-2024-003 · Goldfinch LendEast $5.9M borrower default</title>
+    <link href="https://rwa-index.com/incidents/RWAI-2024-003" rel="alternate" type="text/html"/>
+    <id>https://rwa-index.com/incidents/RWAI-2024-003</id>
+    <published>2024-04-03T00:00:00Z</published>
+    <updated>2024-04-03T00:00:00Z</updated>
+    <category term="tokenized_credit"/>
+    <category term="severity:major"/>
+    <category term="rarm:jurisdiction"/>
+    <category term="rarm:redemption"/>
+    <summary type="text">LendEast&apos;s default was driven by a sub-portfolio cascade: Oriente, a Southeast Asian consumer fintech accounting for approximately $5.25M of LendEast&apos;s deployed capital, defaulted as early as January 2023 — yet LendEast self-disclosed this to Warbler Labs 15 months after the fac…</summary>
+    <content type="html"><![CDATA[
+        <p><strong>Incident ID:</strong> RWAI-2024-003</p>
+        <p><strong>Date:</strong> 2024-04-03</p>
+        <p><strong>Severity:</strong> major</p>
+        <p><strong>Asset class:</strong> tokenized_credit</p>
+        <p><strong>Affected RARM layers:</strong> jurisdiction · redemption</p>
+        <p>LendEast&apos;s default was driven by a sub-portfolio cascade: Oriente, a Southeast Asian consumer fintech accounting for approximately $5.25M of LendEast&apos;s deployed capital, defaulted as early as January 2023 — yet LendEast self-disclosed this to Warbler Labs 15 months after the fac…</p>
+        <p><a href="https://rwa-index.com/incidents/RWAI-2024-003">Read full postmortem →</a></p>
       ]]></content>
   </entry>
 

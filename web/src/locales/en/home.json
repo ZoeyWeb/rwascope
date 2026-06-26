@@ -1,0 +1,27 @@
+{
+  "hero": {
+    "headline1": "RWA promised real assets.",
+    "headline2": "Some delivered opacity instead.",
+    "body1": "Algorithmic pegs, reserve gaps, credit defaults — each collapse happened in a different layer. Each was visible <em>in retrospect</em>. None was visible <em>in advance</em>.",
+    "body2": "Most RWA risk isn't priced — it sits in legal structures, custody chains, and reconciliation gaps that no one independently verifies. <strong>RWAscope exists in that structural intelligence layer.</strong>",
+    "readingsLabel": "Total readings since launch",
+    "attribution": "An independent research platform built at <strong>HKUST Crypto-Fintech Lab</strong>, structured around peer-reviewed risk frameworks (SARM / RARM). <em>We don't rate. We don't recommend. We decompose.</em>"
+  },
+  "entries": {
+    "projects": {
+      "kicker": "Decompose",
+      "heading": "Project anatomy",
+      "body": "Active RWA projects, mapped across 6 risk layers — issuer, custody, oracle, audit, jurisdiction, redemption."
+    },
+    "framework": {
+      "kicker": "Benchmark",
+      "heading": "Framework signals",
+      "body": "Standardized comparison against SARM (stablecoin) and RARM (tokenized asset) risk dimensions."
+    },
+    "incidents": {
+      "kicker": "Learn from failure",
+      "heading": "Structured postmortems",
+      "body": "What failed, which layer, why — across stablecoins, exchanges, and tokenized credit."
+    }
+  }
+}
