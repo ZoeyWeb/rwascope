@@ -1,14 +1,7 @@
 import { useRef, useState, useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
 import type { IntelligenceItem, IntelligenceRegion } from '../../types/intelligence';
 import { REGION_META } from '../../types/intelligence';
-
-const EVENT_TYPE_LABELS: Record<string, string> = {
-  regulation:     'Policy',
-  institutional:  'Institution',
-  project:        'Project',
-  research:       'Research',
-  data_milestone: 'Data',
-};
 
 function RegionChip({ region }: { region: IntelligenceRegion }) {
   const label = REGION_META[region]?.label.split(' ')[0] ?? region.toUpperCase();
@@ -20,6 +13,7 @@ function RegionChip({ region }: { region: IntelligenceRegion }) {
 }
 
 function NarrativeCard({ item }: { item: IntelligenceItem }) {
+  const { t } = useTranslation('intelligence');
   const [imgErrored, setImgErrored] = useState(false);
   const isSignificant = item.significance === 'major' || item.significance === 'landmark';
 
@@ -48,7 +42,7 @@ function NarrativeCard({ item }: { item: IntelligenceItem }) {
         {imgErrored && (
           <div className="absolute inset-0 flex items-center justify-center">
             <span className="text-[11px] uppercase tracking-widest text-ed-text-muted">
-              {EVENT_TYPE_LABELS[item.event_type ?? 'regulation'] ?? item.event_type}
+              {t(`eventTypes.${item.event_type ?? 'regulation'}` as const, { defaultValue: item.event_type ?? '' })}
             </span>
           </div>
         )}
@@ -59,7 +53,7 @@ function NarrativeCard({ item }: { item: IntelligenceItem }) {
           <RegionChip region={item.region} />
           {isSignificant && (
             <span className="text-[11px] uppercase tracking-wide px-2 py-0.5 bg-ed-incident text-white font-medium">
-              {item.significance === 'landmark' ? 'Landmark' : 'Major'}
+              {item.significance === 'landmark' ? t('significance.landmark') : t('significance.major')}
             </span>
           )}
         </div>
@@ -71,7 +65,7 @@ function NarrativeCard({ item }: { item: IntelligenceItem }) {
           <time className="tabular-nums">{item.event_date}</time>
           <span className="text-ed-hairline">·</span>
           <span className="uppercase tracking-wider text-[10px]">
-            {EVENT_TYPE_LABELS[item.event_type ?? 'regulation'] ?? item.event_type}
+            {t(`eventTypes.${item.event_type ?? 'regulation'}` as const, { defaultValue: item.event_type ?? '' })}
           </span>
         </div>
         <h3 className="text-ed-block-h3 text-ed-text-primary leading-snug line-clamp-3 flex-1">
@@ -83,6 +77,7 @@ function NarrativeCard({ item }: { item: IntelligenceItem }) {
 }
 
 export function NarrativeCarousel({ items }: { items: IntelligenceItem[] }) {
+  const { t } = useTranslation('intelligence');
   const scrollRef = useRef<HTMLDivElement>(null);
   const [currentIdx, setCurrentIdx] = useState(0);
   // 380px card + 24px gap
@@ -110,7 +105,7 @@ export function NarrativeCarousel({ items }: { items: IntelligenceItem[] }) {
   if (items.length === 0) {
     return (
       <p className="text-ed-body text-ed-text-muted py-16 text-center">
-        No items match the current filters.
+        {t('carousel.emptyState')}
       </p>
     );
   }
@@ -135,18 +130,18 @@ export function NarrativeCarousel({ items }: { items: IntelligenceItem[] }) {
           onClick={() => !atStart && scrollCards(-1)}
           disabled={atStart}
           className={`${btnBase} ${atStart ? btnDisabled : btnActive}`}
-          aria-label="Previous"
+          aria-label={t('carousel.prevLabel')}
         >
           ←
         </button>
         <span className="text-ed-meta tabular-nums text-ed-text-muted min-w-[5ch] text-center">
-          {currentIdx + 1} of {items.length}
+          {t('carousel.position', { current: currentIdx + 1, total: items.length })}
         </span>
         <button
           onClick={() => !atEnd && scrollCards(1)}
           disabled={atEnd}
           className={`${btnBase} ${atEnd ? btnDisabled : btnActive}`}
-          aria-label="Next"
+          aria-label={t('carousel.nextLabel')}
         >
           →
         </button>

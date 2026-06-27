@@ -1,32 +1,35 @@
 import { useState, useEffect, useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import type { IntelligenceItem, IntelligenceMeta } from '../../types/intelligence';
 import { REGION_META } from '../../types/intelligence';
 import DisclaimerBanner from '../../components/DisclaimerBanner';
 import { intelligenceApi } from '../../api/client';
 
-const RARM_LAYERS: Array<{ key: string; label: string }> = [
-  { key: 'legal',      label: 'L1 Legal & Regulatory' },
-  { key: 'valuation',  label: 'L2 Asset Valuation' },
-  { key: 'custody',    label: 'L3 Custody & Security' },
-  { key: 'kyc',        label: 'L4 KYC / Counterparty' },
-  { key: 'liquidity',  label: 'L5 Liquidity & Market' },
-  { key: 'settlement', label: 'L6 Settlement & Ops' },
-];
+function useRARMLayers(): Array<{ key: string; label: string }> {
+  const { t } = useTranslation('hkObservation');
+  return useMemo(() => [
+    { key: 'legal',      label: t('rarmLayers.legal') },
+    { key: 'valuation',  label: t('rarmLayers.valuation') },
+    { key: 'custody',    label: t('rarmLayers.custody') },
+    { key: 'kyc',        label: t('rarmLayers.kyc') },
+    { key: 'liquidity',  label: t('rarmLayers.liquidity') },
+    { key: 'settlement', label: t('rarmLayers.settlement') },
+  ], [t]);
+}
 
 function getAffectedLayers(item: IntelligenceItem): string[] {
-  const t = item.tags.join(' ').toLowerCase();
+  const tags = item.tags.join(' ').toLowerCase();
   const affected: string[] = [];
-  if (t.includes('legal') || t.includes('licens') || t.includes('regulat')) affected.push('legal');
-  if (t.includes('valuat') || t.includes('pricing'))                         affected.push('valuation');
-  if (t.includes('custody'))                                                  affected.push('custody');
-  if (t.includes('aml') || t.includes('kyc') || t.includes('fatf'))          affected.push('kyc');
-  if (t.includes('liquid') || t.includes('redemption'))                      affected.push('liquidity');
-  if (t.includes('settlement') || t.includes('cbdc'))                        affected.push('settlement');
+  if (tags.includes('legal') || tags.includes('licens') || tags.includes('regulat')) affected.push('legal');
+  if (tags.includes('valuat') || tags.includes('pricing'))                            affected.push('valuation');
+  if (tags.includes('custody'))                                                        affected.push('custody');
+  if (tags.includes('aml') || tags.includes('kyc') || tags.includes('fatf'))          affected.push('kyc');
+  if (tags.includes('liquid') || tags.includes('redemption'))                         affected.push('liquidity');
+  if (tags.includes('settlement') || tags.includes('cbdc'))                           affected.push('settlement');
   return affected;
 }
 
-// Source → chip text (no per-source colour — all neutral except HKMA which gets hk-text)
 function SourceChip({ name }: { name: string }) {
   if (name === 'HKMA') {
     return (
@@ -51,6 +54,8 @@ function HKPolicyCard({
   expanded: boolean;
   onToggle: () => void;
 }) {
+  const { t } = useTranslation('hkObservation');
+  const layers = useRARMLayers();
   const affectedLayers = getAffectedLayers(item);
 
   return (
@@ -62,9 +67,9 @@ function HKPolicyCard({
         <div className="flex items-center gap-2 flex-wrap mb-2">
           <SourceChip name={item.source_name} />
           <span className="text-ed-meta tabular-nums text-ed-text-muted font-mono">{item.event_date}</span>
-          {item.tags.slice(0, 2).map(t => (
-            <span key={t} className="text-[11px] px-2 py-0.5 bg-ed-surface-sunken text-ed-text-muted">
-              {t}
+          {item.tags.slice(0, 2).map(tag => (
+            <span key={tag} className="text-[11px] px-2 py-0.5 bg-ed-surface-sunken text-ed-text-muted">
+              {tag}
             </span>
           ))}
           <span className="ml-auto text-ed-text-faint material-symbols-outlined transition-transform text-[18px]"
@@ -82,7 +87,7 @@ function HKPolicyCard({
 
           {item.key_changes.length > 0 && (
             <div>
-              <p className="text-ed-eyebrow uppercase text-ed-text-muted mb-3">Key changes</p>
+              <p className="text-ed-eyebrow uppercase text-ed-text-muted mb-3">{t('card.keyChanges')}</p>
               <ul className="space-y-2">
                 {item.key_changes.map((c, i) => (
                   <li key={i} className="flex gap-2.5 text-ed-body text-ed-text-secondary leading-relaxed">
@@ -96,9 +101,9 @@ function HKPolicyCard({
 
           {affectedLayers.length > 0 && (
             <div className="bg-ed-surface-sunken p-4">
-              <p className="text-ed-eyebrow uppercase text-ed-text-muted mb-3">RARM layer impact</p>
+              <p className="text-ed-eyebrow uppercase text-ed-text-muted mb-3">{t('card.rarmLayerImpact')}</p>
               <div className="flex flex-wrap gap-2">
-                {RARM_LAYERS.filter(l => affectedLayers.includes(l.key)).map(layer => (
+                {layers.filter(l => affectedLayers.includes(l.key)).map(layer => (
                   <span
                     key={layer.key}
                     className="text-ed-meta px-2.5 py-1.5 bg-ed-hk-bg text-ed-hk-text border border-ed-hk-border"
@@ -108,14 +113,14 @@ function HKPolicyCard({
                 ))}
               </div>
               <p className="text-ed-meta text-ed-text-faint mt-2">
-                Indicative only — assess against your specific use case.
+                {t('card.indicativeNote')}
               </p>
             </div>
           )}
 
           {item.market_impact.hk_relevance && (
             <div className="bg-ed-hk-bg border-l-2 border-ed-hk-text p-3">
-              <p className="text-ed-eyebrow uppercase text-ed-hk-text mb-1.5">HK market implication</p>
+              <p className="text-ed-eyebrow uppercase text-ed-hk-text mb-1.5">{t('card.hkMarketImplication')}</p>
               <p className="text-ed-body text-ed-hk-text leading-relaxed">{item.market_impact.hk_relevance}</p>
             </div>
           )}
@@ -128,7 +133,7 @@ function HKPolicyCard({
               className="inline-flex items-center gap-1.5 text-ed-meta text-ed-accent hover:text-ed-ink transition-colors font-medium"
             >
               <span className="material-symbols-outlined text-[13px]">open_in_new</span>
-              {item.source_name} official source
+              {t('card.officialSource', { name: item.source_name })}
             </a>
             {item.source_note && (
               <span className="text-ed-meta text-ed-text-muted italic">{item.source_note}</span>
@@ -136,21 +141,21 @@ function HKPolicyCard({
           </div>
 
           <div className="pt-2 border-t border-ed-hairline-faint">
-            <p className="text-ed-eyebrow uppercase text-ed-text-muted mb-3">Explore related</p>
+            <p className="text-ed-eyebrow uppercase text-ed-text-muted mb-3">{t('card.exploreRelated')}</p>
             <div className="flex flex-wrap gap-2">
               <Link
                 to="/projects"
                 className="inline-flex items-center gap-1.5 px-3 py-1.5 border border-ed-hairline text-ed-meta text-ed-accent hover:border-ed-ink hover:text-ed-ink transition-colors"
               >
                 <span className="material-symbols-outlined text-[13px]">folder_open</span>
-                Related projects
+                {t('card.relatedProjects')}
               </Link>
               <Link
                 to="/intelligence"
                 className="inline-flex items-center gap-1.5 px-3 py-1.5 border border-ed-hairline text-ed-meta text-ed-accent hover:border-ed-ink hover:text-ed-ink transition-colors"
               >
                 <span className="material-symbols-outlined text-[13px]">public</span>
-                Global timeline
+                {t('card.globalTimeline')}
               </Link>
             </div>
           </div>
@@ -164,6 +169,9 @@ const HK_SOURCES = ['all', 'HKMA', 'SFC', 'HKEx'] as const;
 type HKSourceFilter = typeof HK_SOURCES[number];
 
 export default function HKObservation() {
+  const { t } = useTranslation('hkObservation');
+  const { t: tNav } = useTranslation('nav');
+  const layers = useRARMLayers();
   const [items, setItems] = useState<IntelligenceItem[]>([]);
   const [meta, setMeta] = useState<IntelligenceMeta | null>(null);
   const [loading, setLoading] = useState(true);
@@ -177,9 +185,9 @@ export default function HKObservation() {
         setItems(res.items.filter(i => i.rwa_relevant));
         setMeta(res.meta);
       })
-      .catch(() => setError('Failed to load HK observation data.'))
+      .catch(() => setError(t('error.loadFailed')))
       .finally(() => setLoading(false));
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const hkItems = useMemo(() => {
     return items
@@ -213,7 +221,7 @@ export default function HKObservation() {
 
   return (
     <div className="bg-ed-canvas min-h-screen">
-      <DisclaimerBanner text="Content is curated from HKMA, SFC, and HKEx official sources. RARM layer impact indicators are editorial and indicative only — not legal or compliance advice." />
+      <DisclaimerBanner text={t('disclaimer')} />
 
       <div className="max-w-screen-2xl mx-auto px-6 py-16">
         <div className="space-y-ed-section">
@@ -221,32 +229,30 @@ export default function HKObservation() {
           {/* Header */}
           <div>
             <div className="flex items-center gap-2 text-ed-meta text-ed-text-muted mb-4">
-              <Link to="/intelligence" className="hover:text-ed-text-primary transition-colors">Intelligence</Link>
+              <Link to="/intelligence" className="hover:text-ed-text-primary transition-colors">{tNav('blocks.intelligence')}</Link>
               <span className="material-symbols-outlined text-[12px]">chevron_right</span>
-              <span className="text-ed-text-secondary">HK Observation</span>
+              <span className="text-ed-text-secondary">{t('breadcrumb.current')}</span>
             </div>
-            <p className="text-ed-eyebrow uppercase text-ed-text-muted mb-3">HK Observation</p>
+            <p className="text-ed-eyebrow uppercase text-ed-text-muted mb-3">{t('breadcrumb.current')}</p>
             <h1 className="text-4xl md:text-ed-page-h1 text-ed-text-primary mb-2">
-              HK Regulatory Watch
+              {t('hero.h1')}
             </h1>
             <p className="text-ed-body text-ed-text-secondary leading-relaxed max-w-2xl">
-              HKMA · SFC · HKEx announcements relevant to RWA tokenization, mapped to the RARM
-              six-layer framework. HKMA maintains a measured regulatory cadence — this column updates
-              at the regulator's pace, not artificially padded.
+              {t('hero.lede')}
             </p>
             {meta && (
               <div className="mt-3 flex items-center gap-2 text-ed-meta text-ed-text-muted">
                 <span className="material-symbols-outlined text-[13px]">schedule</span>
-                Last compiled: {meta.last_compiled}
+                {t('meta.lastCompiled')} {meta.last_compiled}
                 <span className="mx-1">·</span>
-                {sourceCounts.all} HK items
+                {t('meta.hkItemsCount', { count: sourceCounts.all })}
               </div>
             )}
           </div>
 
           {/* RARM layer reference */}
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-            {RARM_LAYERS.map(l => (
+            {layers.map(l => (
               <div key={l.key} className="flex items-center gap-2 px-3 py-2 bg-ed-surface-sunken border border-ed-hairline">
                 <div className="w-1.5 h-1.5 rounded-full shrink-0 bg-ed-hk-text" />
                 <span className="text-ed-meta text-ed-text-muted">{l.label}</span>
@@ -258,7 +264,7 @@ export default function HKObservation() {
           <div className="bg-ed-surface shadow-ed-card overflow-hidden">
             {/* Source filter tray */}
             <div className="bg-ed-surface-sunken px-ed-block py-4 flex items-center gap-2 flex-wrap">
-              <span className="text-ed-meta uppercase text-ed-text-muted w-14 shrink-0">Source</span>
+              <span className="text-ed-meta uppercase text-ed-text-muted w-14 shrink-0">{t('filter.sourceLabel')}</span>
               {HK_SOURCES.map(s => {
                 const count = sourceCounts[s] ?? 0;
                 const active = activeSource === s;
@@ -272,7 +278,7 @@ export default function HKObservation() {
                         : 'bg-transparent text-ed-text-secondary border-ed-hairline hover:bg-ed-surface hover:border-ed-divider-strong'
                     }`}
                   >
-                    {s === 'all' ? 'All sources' : s}
+                    {s === 'all' ? t('filter.allSources') : s}
                     {count > 0 && <span className="ml-1 opacity-60">({count})</span>}
                   </button>
                 );
@@ -281,13 +287,13 @@ export default function HKObservation() {
 
             <div className="px-ed-block py-3 border-b border-ed-hairline-faint">
               <p className="text-ed-meta text-ed-text-muted">
-                Showing {hkItems.length} item{hkItems.length !== 1 ? 's' : ''}
+                {t('filter.showing', { count: hkItems.length })}
               </p>
             </div>
 
             {hkItems.length === 0 ? (
               <div className="text-center py-16 text-ed-body text-ed-text-muted px-ed-block">
-                No HK items match the current filter.
+                {t('filter.emptyState')}
               </div>
             ) : (
               <div>
@@ -309,7 +315,7 @@ export default function HKObservation() {
               className="inline-flex items-center gap-1.5 text-ed-meta text-ed-accent hover:text-ed-ink transition-colors"
             >
               <span className="material-symbols-outlined text-[14px]">arrow_back</span>
-              Back to Global Intelligence
+              {t('nav.backToGlobal')}
             </Link>
           </div>
 

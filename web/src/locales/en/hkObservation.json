@@ -1,0 +1,46 @@
+{
+  "rarmLayers": {
+    "legal": "L1 Legal & Regulatory",
+    "valuation": "L2 Asset Valuation",
+    "custody": "L3 Custody & Security",
+    "kyc": "L4 KYC / Counterparty",
+    "liquidity": "L5 Liquidity & Market",
+    "settlement": "L6 Settlement & Ops"
+  },
+  "card": {
+    "keyChanges": "Key changes",
+    "rarmLayerImpact": "RARM layer impact",
+    "indicativeNote": "Indicative only — assess against your specific use case.",
+    "hkMarketImplication": "HK market implication",
+    "officialSource": "{{name}} official source",
+    "exploreRelated": "Explore related",
+    "relatedProjects": "Related projects",
+    "globalTimeline": "Global timeline"
+  },
+  "error": {
+    "loadFailed": "Failed to load HK observation data."
+  },
+  "disclaimer": "Content is curated from HKMA, SFC, and HKEx official sources. RARM layer impact indicators are editorial and indicative only — not legal or compliance advice.",
+  "breadcrumb": {
+    "current": "HK Observation"
+  },
+  "hero": {
+    "h1": "HK Regulatory Watch",
+    "lede": "HKMA · SFC · HKEx announcements relevant to RWA tokenization, stablecoin, and digital asset markets — compiled as they happen, not artificially padded."
+  },
+  "meta": {
+    "lastCompiled": "Last compiled:",
+    "hkItemsCount_one": "{{count}} HK item",
+    "hkItemsCount_other": "{{count}} HK items"
+  },
+  "filter": {
+    "sourceLabel": "Source",
+    "allSources": "All sources",
+    "showing_one": "Showing {{count}} item",
+    "showing_other": "Showing {{count}} items",
+    "emptyState": "No HK items match the current filter."
+  },
+  "nav": {
+    "backToGlobal": "Back to Global Intelligence"
+  }
+}

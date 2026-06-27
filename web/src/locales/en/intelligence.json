@@ -1,0 +1,87 @@
+{
+  "hero": {
+    "eyebrow": "Regulatory · Institutional · Market Signals",
+    "h1": "Intelligence",
+    "lede": "A weekly read on real-world asset regulation, institutional moves, and market signals — compiled as they happen.",
+    "updatedWeekly": "Updated weekly",
+    "adminLink": "Review queue"
+  },
+  "weeklyBrief": {
+    "eyebrow": "Weekly Brief",
+    "rssSubscribe": "RSS Subscribe",
+    "aiNote": "AI summary · verify against source"
+  },
+  "editorialGrid": {
+    "highlights": {
+      "heading": "This Week's Highlights",
+      "emptyState": "No landmark or major events in the past 7 days."
+    },
+    "forwardView": {
+      "heading": "Forward View · Expected {{range}}",
+      "footer": "Based on public announcements · Updated monthly"
+    }
+  },
+  "editorNote": {
+    "eyebrow": "Editor's Note"
+  },
+  "eventTypes": {
+    "all": "All",
+    "regulation": "Policy",
+    "institutional": "Institution",
+    "project": "Project",
+    "research": "Research",
+    "data_milestone": "Data"
+  },
+  "significance": {
+    "landmark": "Landmark",
+    "major": "Major"
+  },
+  "card": {
+    "keyChanges": "Key changes",
+    "policyMarket": "Policy → Market",
+    "hkPrefix": "HK: ",
+    "aiGenerated": "AI-generated · verify against source",
+    "relatedProjects": "Related projects →",
+    "hkObservationLink": "HK Observation →",
+    "sourceLink": "Source →"
+  },
+  "news": {
+    "heading": "Latest News",
+    "subtitle": "Recent regulatory and institutional events",
+    "emptyState": "No recent news items.",
+    "loadMore": "Load more →"
+  },
+  "narrative": {
+    "eyebrow": "Narrative",
+    "subtitle": "How RWA got here, where it's going",
+    "filterTypeLabel": "Type",
+    "filterRegionLabel": "Region",
+    "filterAll": "All",
+    "count": "{{filtered}} of {{total}}"
+  },
+  "subscribe": {
+    "heading": "Weekly Brief in your inbox",
+    "body": "One email every Monday. Regulatory moves, institutional adoption, and structural shifts across global RWA markets.",
+    "successAlreadySubscribed": "This email is already subscribed.",
+    "successNew": "Subscribed. Check your inbox for a confirmation.",
+    "errorGeneric": "Something went wrong. Please try again.",
+    "placeholder": "your@email.com",
+    "submitLoading": "Subscribing…",
+    "submitIdle": "Subscribe →",
+    "spamNote": "No spam. Unsubscribe any time."
+  },
+  "loading": "Loading…",
+  "error": {
+    "loadFailed": "Failed to load intelligence data.",
+    "fallback": "Failed to load."
+  },
+  "footer": {
+    "disclaimer": "This tracker aggregates publicly available official regulatory announcements and editorial analysis. All content is informational only — not investment advice. AI-generated summaries are preliminary; always verify against the primary source."
+  },
+  "carousel": {
+    "emptyState": "No items match the current filters.",
+    "prevLabel": "Previous",
+    "nextLabel": "Next",
+    "position": "{{current}} of {{total}}"
+  }
+}

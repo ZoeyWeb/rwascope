@@ -1,0 +1,87 @@
+{
+  "hero": {
+    "eyebrow": "監管 · 機構 · 市場訊號",
+    "h1": "情報",
+    "lede": "每週一覽:RWA 監管、機構動向與市場訊號 —— 即時整理。",
+    "updatedWeekly": "每週更新",
+    "adminLink": "稽核佇列"
+  },
+  "weeklyBrief": {
+    "eyebrow": "每週簡報",
+    "rssSubscribe": "RSS 訂閱",
+    "aiNote": "AI 摘要 · 請核對原始來源"
+  },
+  "editorialGrid": {
+    "highlights": {
+      "heading": "本週要點",
+      "emptyState": "過去 7 天無里程碑或重大事件。"
+    },
+    "forwardView": {
+      "heading": "前瞻 · 預計 {{range}}",
+      "footer": "基於公開公告 · 每月更新"
+    }
+  },
+  "editorNote": {
+    "eyebrow": "編者按"
+  },
+  "eventTypes": {
+    "all": "全部",
+    "regulation": "政策",
+    "institutional": "機構",
+    "project": "專案",
+    "research": "研究",
+    "data_milestone": "資料"
+  },
+  "significance": {
+    "landmark": "里程碑",
+    "major": "重大"
+  },
+  "card": {
+    "keyChanges": "關鍵變化",
+    "policyMarket": "政策 → 市場",
+    "hkPrefix": "HK: ",
+    "aiGenerated": "AI 生成 · 請核對原始來源",
+    "relatedProjects": "關聯專案 →",
+    "hkObservationLink": "香港視角 →",
+    "sourceLink": "來源 →"
+  },
+  "news": {
+    "heading": "最新動態",
+    "subtitle": "近期監管與機構事件",
+    "emptyState": "暫無近期動態。",
+    "loadMore": "載入更多 →"
+  },
+  "narrative": {
+    "eyebrow": "敘事",
+    "subtitle": "RWA 從何而來,去向何方",
+    "filterTypeLabel": "型別",
+    "filterRegionLabel": "地區",
+    "filterAll": "全部",
+    "count": "{{filtered}} / {{total}}"
+  },
+  "subscribe": {
+    "heading": "每週簡報,直達郵箱",
+    "body": "每週一一封郵件。監管動向、機構採用,以及全球 RWA 市場的結構性變化。",
+    "successAlreadySubscribed": "該郵箱已訂閱。",
+    "successNew": "訂閱成功。請查收確認郵件。",
+    "errorGeneric": "出了點問題,請重試。",
+    "placeholder": "your@email.com",
+    "submitLoading": "訂閱中…",
+    "submitIdle": "訂閱 →",
+    "spamNote": "無垃圾郵件,隨時退訂。"
+  },
+  "loading": "載入中…",
+  "error": {
+    "loadFailed": "情報資料載入失敗。",
+    "fallback": "載入失敗。"
+  },
+  "footer": {
+    "disclaimer": "本追蹤器彙總公開的官方監管公告與編輯分析。所有內容僅供參考 —— 不構成投資建議。AI 生成摘要為初步內容,請始終核對原始來源。"
+  },
+  "carousel": {
+    "emptyState": "無條目匹配當前篩選。",
+    "prevLabel": "上一個",
+    "nextLabel": "下一個",
+    "position": "{{current}} / {{total}}"
+  }
+}

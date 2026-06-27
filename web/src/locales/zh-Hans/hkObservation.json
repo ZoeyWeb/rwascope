@@ -1,0 +1,46 @@
+{
+  "rarmLayers": {
+    "legal": "L1 法律与监管",
+    "valuation": "L2 资产估值",
+    "custody": "L3 托管与安全",
+    "kyc": "L4 KYC / 交易对手",
+    "liquidity": "L5 流动性与市场",
+    "settlement": "L6 结算与运营"
+  },
+  "card": {
+    "keyChanges": "关键变化",
+    "rarmLayerImpact": "RARM 层级影响",
+    "indicativeNote": "仅供参考 —— 请结合你的具体用例评估。",
+    "hkMarketImplication": "香港市场影响",
+    "officialSource": "{{name}} 官方来源",
+    "exploreRelated": "查看关联",
+    "relatedProjects": "关联项目",
+    "globalTimeline": "全球时间线"
+  },
+  "error": {
+    "loadFailed": "HK Observation 数据加载失败。"
+  },
+  "disclaimer": "内容整理自 HKMA、SFC、HKEx 官方来源。RARM 层级影响指标为编辑判断,仅供参考 —— 不构成法律或合规建议。",
+  "breadcrumb": {
+    "current": "香港视角"
+  },
+  "hero": {
+    "h1": "香港监管观察",
+    "lede": "HKMA · SFC · HKEx 与 RWA 代币化、稳定币及数字资产市场相关的公告 —— 实时整理,不刻意凑数。"
+  },
+  "meta": {
+    "lastCompiled": "最后编译:",
+    "hkItemsCount_one": "{{count}} 条香港条目",
+    "hkItemsCount_other": "{{count}} 条香港条目"
+  },
+  "filter": {
+    "sourceLabel": "来源",
+    "allSources": "全部来源",
+    "showing_one": "显示 {{count}} 条",
+    "showing_other": "显示 {{count}} 条",
+    "emptyState": "无香港条目匹配当前筛选。"
+  },
+  "nav": {
+    "backToGlobal": "返回全球情报"
+  }
+}

@@ -1,5 +1,6 @@
 import { useState, useEffect, useMemo, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { useAuth } from '../../context/AuthContext';
 import type {
   IntelligenceItem,
@@ -30,11 +31,6 @@ const ALL_EVENT_TYPES: Array<IntelligenceEventType | 'all'> = [
   'all', 'regulation', 'institutional', 'project', 'research', 'data_milestone',
 ];
 
-const EVENT_TYPE_LABELS: Record<string, string> = {
-  all: 'All', regulation: 'Policy', institutional: 'Institution',
-  project: 'Project', research: 'Research', data_milestone: 'Data',
-};
-
 const STATIC_FORWARD_ITEMS = [
   'HKMA: Stablecoin ordinance implementation rules expected Q3 2026 — technical standards under consultation',
   'SEC: Tokenized money market fund registration guidance expected Q2–Q3 2026',
@@ -63,18 +59,18 @@ function SectionDivider() {
 // ── HeroSection ───────────────────────────────────────────────────────────────
 
 function HeroSection({ isAdmin }: { isAdmin: boolean }) {
+  const { t } = useTranslation('intelligence');
   return (
     <section className="pt-ed-section-md md:pt-ed-hero pb-ed-section-md md:pb-ed-hero">
-      <Eyebrow className="mb-8">Regulatory · Institutional · Market Signals</Eyebrow>
+      <Eyebrow className="mb-8">{t('hero.eyebrow')}</Eyebrow>
       <h1 className="text-4xl md:text-ed-page-h1 text-ed-text-primary mb-10">
-        Intelligence
+        {t('hero.h1')}
       </h1>
       <p className="text-ed-lede text-ed-text-secondary max-w-[720px] mb-12">
-        A weekly read on real-world asset regulation, institutional moves,
-        and structural shifts across global markets.
+        {t('hero.lede')}
       </p>
       <div className="flex items-center gap-6 text-ed-meta text-ed-text-muted flex-wrap">
-        <span>Updated weekly</span>
+        <span>{t('hero.updatedWeekly')}</span>
         {isAdmin && (
           <>
             <span className="text-ed-hairline">·</span>
@@ -82,7 +78,7 @@ function HeroSection({ isAdmin }: { isAdmin: boolean }) {
               to="/intelligence/admin"
               className="text-ed-text-primary hover:text-ed-ink-hover underline underline-offset-4 decoration-ed-hairline hover:decoration-ed-ink transition-colors"
             >
-              Review queue
+              {t('hero.adminLink')}
             </Link>
           </>
         )}
@@ -94,11 +90,12 @@ function HeroSection({ isAdmin }: { isAdmin: boolean }) {
 // ── WeeklyBriefSection ────────────────────────────────────────────────────────
 
 function WeeklyBriefSection({ brief }: { brief: IntelligenceWeeklyBrief }) {
+  const { t } = useTranslation('intelligence');
   return (
     <section className="py-4 relative w-screen left-1/2 -translate-x-1/2 bg-ed-surface-cool">
       <div className="max-w-[1400px] mx-auto px-8">
         <div className="flex items-baseline justify-between mb-6 flex-wrap gap-3">
-          <Eyebrow>Weekly Brief</Eyebrow>
+          <Eyebrow>{t('weeklyBrief.eyebrow')}</Eyebrow>
           <div className="flex items-center gap-4">
             <div className="text-ed-meta text-ed-text-muted">
               {brief.period_start} → {brief.period_end}
@@ -107,7 +104,7 @@ function WeeklyBriefSection({ brief }: { brief: IntelligenceWeeklyBrief }) {
               href="/feeds/weekly-brief.xml"
               className="text-ed-meta text-ed-text-secondary border border-ed-hairline px-3 py-1 hover:border-ed-ink hover:text-ed-ink transition-colors uppercase tracking-[0.1em]"
             >
-              RSS Subscribe
+              {t('weeklyBrief.rssSubscribe')}
             </a>
           </div>
         </div>
@@ -136,7 +133,7 @@ function WeeklyBriefSection({ brief }: { brief: IntelligenceWeeklyBrief }) {
         </div>
         <div className="mt-6 text-right">
           <span className="text-ed-meta text-ed-text-faint">
-            AI summary · verify against source
+            {t('weeklyBrief.aiNote')}
           </span>
         </div>
       </div>
@@ -155,6 +152,7 @@ function EditorialGrid1({
   forwardItems: IntelligenceItem[];
   onScrollToItem: (id: string) => void;
 }) {
+  const { t } = useTranslation('intelligence');
   const forward = forwardItems.length > 0
     ? forwardItems.map(i => i.title)
     : STATIC_FORWARD_ITEMS;
@@ -166,10 +164,10 @@ function EditorialGrid1({
           {/* Left: This Week's Highlights */}
           <div className="md:pr-16">
             <h3 className="text-ed-block-h3 text-ed-text-primary mb-10">
-              This Week's Highlights
+              {t('editorialGrid.highlights.heading')}
             </h3>
             {highlights.length === 0 ? (
-              <p className="text-ed-body text-ed-text-muted">No landmark or major events in the past 7 days.</p>
+              <p className="text-ed-body text-ed-text-muted">{t('editorialGrid.highlights.emptyState')}</p>
             ) : (
               <ul className="divide-y divide-ed-hairline-faint">
                 {highlights.slice(0, 5).map(item => (
@@ -196,7 +194,7 @@ function EditorialGrid1({
           {/* Right: Forward View */}
           <div className="md:pl-16 mt-16 md:mt-0">
             <h3 className="text-ed-block-h3 text-ed-text-primary mb-10">
-              Forward View · Expected Q2–Q3 2026
+              {t('editorialGrid.forwardView.heading', { range: 'Q2–Q3 2026' })}
             </h3>
             <ul className="space-y-6">
               {forward.map((text, i) => (
@@ -208,7 +206,7 @@ function EditorialGrid1({
               ))}
             </ul>
             <p className="mt-10 text-ed-meta text-ed-text-faint">
-              Based on public announcements · Updated monthly
+              {t('editorialGrid.forwardView.footer')}
             </p>
           </div>
         </div>
@@ -220,9 +218,10 @@ function EditorialGrid1({
 // ── EditorNoteSection ─────────────────────────────────────────────────────────
 
 function EditorNoteSection({ note }: { note: EditorNote }) {
+  const { t } = useTranslation('intelligence');
   return (
     <section className="max-w-[900px] py-ed-section-sm">
-      <Eyebrow className="mb-8">Editor's Note</Eyebrow>
+      <Eyebrow className="mb-8">{t('editorNote.eyebrow')}</Eyebrow>
       <blockquote className="pl-8 border-l border-ed-hairline">
         <p className="text-ed-body-lg text-ed-text-secondary leading-loose italic">
           {note.content}
@@ -248,6 +247,7 @@ function ItemCard({
   onToggle: () => void;
   compact?: boolean;
 }) {
+  const { t } = useTranslation('intelligence');
   const thumbSrc = item.image_url ?? null;
 
   return (
@@ -262,13 +262,13 @@ function ItemCard({
             <span className="uppercase tracking-wider">{item.region.toUpperCase()}</span>
             <span className="text-ed-hairline">·</span>
             <span className="uppercase tracking-wider">
-              {EVENT_TYPE_LABELS[item.event_type ?? 'regulation'] ?? item.event_type}
+              {t(`eventTypes.${item.event_type ?? 'regulation'}` as const, { defaultValue: item.event_type ?? '' })}
             </span>
             {!compact && (item.significance === 'landmark' || item.significance === 'major') && (
               <>
                 <span className="text-ed-hairline">·</span>
                 <span className="text-ed-incident uppercase tracking-wider font-medium">
-                  {item.significance === 'landmark' ? 'Landmark' : 'Major'}
+                  {item.significance === 'landmark' ? t('significance.landmark') : t('significance.major')}
                 </span>
               </>
             )}
@@ -321,7 +321,7 @@ function ItemCard({
           <div className="mt-6 space-y-6 max-w-[900px]">
             {item.key_changes && item.key_changes.length > 0 && (
               <div>
-                <Eyebrow className="mb-4">Key Changes</Eyebrow>
+                <Eyebrow className="mb-4">{t('card.keyChanges')}</Eyebrow>
                 <ul className="space-y-3">
                   {item.key_changes.map((c, i) => (
                     <li key={i} className="pl-6 border-l border-ed-hairline text-ed-body text-ed-text-secondary leading-relaxed">
@@ -334,17 +334,17 @@ function ItemCard({
 
             {item.market_impact?.capital_flow && (
               <div>
-                <Eyebrow className="mb-4">Policy → Market</Eyebrow>
+                <Eyebrow className="mb-4">{t('card.policyMarket')}</Eyebrow>
                 <p className="text-ed-body text-ed-text-secondary leading-relaxed mb-3">
                   {item.market_impact.capital_flow as string}
                 </p>
                 {item.market_impact.hk_relevance && (
                   <p className="pl-6 border-l border-ed-hairline text-ed-body text-ed-text-secondary leading-relaxed italic">
-                    HK: {item.market_impact.hk_relevance as string}
+                    {t('card.hkPrefix')}{item.market_impact.hk_relevance as string}
                   </p>
                 )}
                 <p className="mt-3 text-[11px] text-ed-text-faint tracking-wide">
-                  AI-generated · verify against source
+                  {t('card.aiGenerated')}
                 </p>
               </div>
             )}
@@ -363,7 +363,7 @@ function ItemCard({
                     className="text-ed-meta text-ed-text-secondary hover:text-ed-ink transition-colors"
                     onClick={e => e.stopPropagation()}
                   >
-                    Related projects →
+                    {t('card.relatedProjects')}
                   </Link>
                   {item.market_impact?.hk_relevance && (
                     <Link
@@ -371,7 +371,7 @@ function ItemCard({
                       className="text-ed-meta text-ed-text-secondary hover:text-ed-ink transition-colors"
                       onClick={e => e.stopPropagation()}
                     >
-                      HK Observation →
+                      {t('card.hkObservationLink')}
                     </Link>
                   )}
                 </>
@@ -384,7 +384,7 @@ function ItemCard({
                   className="text-ed-meta text-ed-text-secondary hover:text-ed-ink transition-colors"
                   onClick={e => e.stopPropagation()}
                 >
-                  Source →
+                  {t('card.sourceLink')}
                 </a>
               )}
             </div>
@@ -398,6 +398,7 @@ function ItemCard({
 // ── NewsSection ───────────────────────────────────────────────────────────────
 
 function NewsSection({ items }: { items: IntelligenceItem[] }) {
+  const { t } = useTranslation('intelligence');
   const { visible, loadMore, canLoadMore } = usePagination(items, 20);
   const [expandedIds, setExpandedIds] = useState<Set<string>>(new Set());
 
@@ -413,14 +414,14 @@ function NewsSection({ items }: { items: IntelligenceItem[] }) {
     <section className="py-ed-section-md">
       <div className="mb-10">
         <div className="mb-4">
-          <Eyebrow>Latest News</Eyebrow>
+          <Eyebrow>{t('news.heading')}</Eyebrow>
         </div>
-        <h2 className="text-2xl md:text-ed-section-h2 text-ed-text-primary mb-3">Latest News</h2>
-        <p className="text-xl md:text-ed-section-h2-light text-ed-text-muted">Recent regulatory and institutional events.</p>
+        <h2 className="text-2xl md:text-ed-section-h2 text-ed-text-primary mb-3">{t('news.heading')}</h2>
+        <p className="text-xl md:text-ed-section-h2-light text-ed-text-muted">{t('news.subtitle')}</p>
       </div>
 
       {items.length === 0 ? (
-        <p className="text-ed-body text-ed-text-muted py-8">No recent news items.</p>
+        <p className="text-ed-body text-ed-text-muted py-8">{t('news.emptyState')}</p>
       ) : (
         <>
           <ul className="divide-y divide-ed-hairline-faint">
@@ -442,7 +443,7 @@ function NewsSection({ items }: { items: IntelligenceItem[] }) {
                 onClick={loadMore}
                 className="text-ed-meta uppercase tracking-wider text-ed-text-secondary hover:text-ed-ink transition-colors"
               >
-                Load more →
+                {t('news.loadMore')}
               </button>
             </div>
           )}
@@ -471,14 +472,15 @@ function NarrativeSection({
   activeRegion: IntelligenceRegion | 'all';
   onSetRegion: (r: IntelligenceRegion | 'all') => void;
 }) {
+  const { t } = useTranslation('intelligence');
   return (
     <section className="py-ed-section-lg relative w-screen left-1/2 -translate-x-1/2 bg-ed-surface-sunken">
       <div className="max-w-[1400px] mx-auto px-8">
         {/* Section header */}
         <div className="mb-8">
-          <Eyebrow className="mb-4">Narrative</Eyebrow>
+          <Eyebrow className="mb-4">{t('narrative.eyebrow')}</Eyebrow>
           <p className="text-xl md:text-ed-section-h2-light text-ed-text-muted">
-            How RWA got here, where it's going.
+            {t('narrative.subtitle')}
           </p>
         </div>
 
@@ -495,21 +497,21 @@ function NarrativeSection({
         {/* Filters */}
         <div className="my-8 space-y-4 border-y border-ed-hairline py-6">
           <div className="flex items-center gap-4 flex-wrap">
-            <Eyebrow className="w-16 shrink-0">Type</Eyebrow>
+            <Eyebrow className="w-16 shrink-0">{t('narrative.filterTypeLabel')}</Eyebrow>
             <div className="flex flex-wrap gap-2">
-              {ALL_EVENT_TYPES.map(t => (
-                <FilterPill key={t} active={activeEventType === t} onClick={() => onSetEventType(t)}>
-                  {EVENT_TYPE_LABELS[t]}
+              {ALL_EVENT_TYPES.map(evtType => (
+                <FilterPill key={evtType} active={activeEventType === evtType} onClick={() => onSetEventType(evtType)}>
+                  {t(`eventTypes.${evtType}` as const)}
                 </FilterPill>
               ))}
             </div>
           </div>
           <div className="flex items-center gap-4 flex-wrap">
-            <Eyebrow className="w-16 shrink-0">Region</Eyebrow>
+            <Eyebrow className="w-16 shrink-0">{t('narrative.filterRegionLabel')}</Eyebrow>
             <div className="flex flex-wrap gap-2">
               {ALL_REGIONS.map(r => (
                 <FilterPill key={r} active={activeRegion === r} onClick={() => onSetRegion(r)}>
-                  {r === 'all' ? 'All' : r.toUpperCase()}
+                  {r === 'all' ? t('narrative.filterAll') : r.toUpperCase()}
                 </FilterPill>
               ))}
             </div>
@@ -518,7 +520,7 @@ function NarrativeSection({
 
         {/* Count */}
         <div className="flex justify-end mb-4 text-ed-meta text-ed-text-muted">
-          <span>{items.length} of {totalAll}</span>
+          <span>{t('narrative.count', { filtered: items.length, total: totalAll })}</span>
         </div>
 
         {/* Horizontal carousel */}
@@ -531,6 +533,7 @@ function NarrativeSection({
 // ── SubscribeSection ──────────────────────────────────────────────────────────
 
 function SubscribeSection() {
+  const { t } = useTranslation('intelligence');
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [msg, setMsg] = useState('');
@@ -543,11 +546,11 @@ function SubscribeSection() {
       const { publicApi } = await import('../../api/client');
       const res = await publicApi.subscribeNewsletter(email.trim());
       setMsg(res.message === 'already_subscribed'
-        ? 'This email is already subscribed.'
-        : 'Subscribed. Check your inbox for a confirmation.');
+        ? t('subscribe.successAlreadySubscribed')
+        : t('subscribe.successNew'));
       setStatus('success');
     } catch {
-      setMsg('Something went wrong. Please try again.');
+      setMsg(t('subscribe.errorGeneric'));
       setStatus('error');
     }
   }
@@ -555,11 +558,10 @@ function SubscribeSection() {
   return (
     <section className="max-w-[600px] py-ed-hero">
       <h2 className="text-ed-block-h3 text-ed-text-primary mb-4">
-        Weekly Brief in your inbox
+        {t('subscribe.heading')}
       </h2>
       <p className="text-ed-body text-ed-text-secondary mb-8">
-        One email every Monday. Regulatory moves, institutional adoption,
-        and structural shifts across global RWA markets.
+        {t('subscribe.body')}
       </p>
 
       {status === 'success' ? (
@@ -570,7 +572,7 @@ function SubscribeSection() {
             <input
               type="email"
               required
-              placeholder="your@email.com"
+              placeholder={t('subscribe.placeholder')}
               value={email}
               onChange={e => setEmail(e.target.value)}
               disabled={status === 'loading'}
@@ -581,13 +583,13 @@ function SubscribeSection() {
               disabled={status === 'loading'}
               className="text-ed-meta uppercase tracking-wider text-ed-ink hover:text-ed-ink-hover transition-colors disabled:opacity-50 whitespace-nowrap"
             >
-              {status === 'loading' ? 'Subscribing…' : 'Subscribe →'}
+              {status === 'loading' ? t('subscribe.submitLoading') : t('subscribe.submitIdle')}
             </button>
           </form>
           {status === 'error' && (
             <p className="text-ed-meta text-ed-incident mt-3">{msg}</p>
           )}
-          <p className="text-ed-meta text-ed-text-faint mt-4">No spam. Unsubscribe any time.</p>
+          <p className="text-ed-meta text-ed-text-faint mt-4">{t('subscribe.spamNote')}</p>
         </>
       )}
     </section>
@@ -606,6 +608,7 @@ interface PageData {
 
 export default function IntelligenceHome() {
   const { user } = useAuth();
+  const { t } = useTranslation('intelligence');
   const [data, setData] = useState<PageData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -668,14 +671,14 @@ export default function IntelligenceHome() {
             },
           });
         } catch {
-          setError('Failed to load intelligence data.');
+          setError(t('error.loadFailed'));
         }
       } finally {
         setLoading(false);
       }
     }
     load();
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const isRelevant = (i: IntelligenceItem) => i.rwa_relevant || (i.stablecoin_relevant ?? false);
 
@@ -739,7 +742,7 @@ export default function IntelligenceHome() {
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-[60vh]">
-        <span className="text-ed-meta text-ed-text-muted tracking-wider uppercase">Loading…</span>
+        <span className="text-ed-meta text-ed-text-muted tracking-wider uppercase">{t('loading')}</span>
       </div>
     );
   }
@@ -747,7 +750,7 @@ export default function IntelligenceHome() {
   if (error || !data) {
     return (
       <div className="max-w-3xl mx-auto px-8 py-12 text-center">
-        <p className="text-ed-body text-ed-incident">{error ?? 'Failed to load.'}</p>
+        <p className="text-ed-body text-ed-incident">{error ?? t('error.fallback')}</p>
       </div>
     );
   }
@@ -805,9 +808,7 @@ export default function IntelligenceHome() {
 
         <div className="border-t border-ed-hairline py-ed-section-sm text-center mt-ed-section">
           <p className="text-ed-meta text-ed-text-faint max-w-[800px] mx-auto leading-relaxed">
-            This tracker aggregates publicly available official regulatory announcements and editorial analysis.
-            All content is informational only — not investment advice.
-            AI-generated summaries are preliminary; always verify against the primary source.
+            {t('footer.disclaimer')}
           </p>
         </div>
 
