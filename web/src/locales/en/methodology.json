@@ -1,0 +1,136 @@
+{
+  "tabs": {
+    "overview": "Overview",
+    "framework": "Six-Layer Framework",
+    "friction": "Tokenization Friction"
+  },
+  "overview": {
+    "eyebrow": "RARM Framework",
+    "h1": "RARM Framework Overview",
+    "lede": "The RARM (RWA Asset Risk Matrix) is an academic methodology for structured due diligence on tokenized real-world assets. It organises analysis across six layers of operational risk, giving practitioners a consistent checklist framework regardless of asset class.",
+    "researchTool": {
+      "title": "Academic Research Tool",
+      "body": "RWA-Index provides the RARM methodology as an educational framework. It does not generate, publish, or distribute ratings or assessments of any protocol. To apply this framework to your own due diligence work, create a free account."
+    },
+    "sixDimensions": "The Six Evaluation Dimensions",
+    "layerBadge": "Layer",
+    "signalScale": {
+      "heading": "Signal Scale",
+      "green": {
+        "label": "Adequate",
+        "desc": "Adequate controls and disclosures across this dimension."
+      },
+      "yellow": {
+        "label": "Notable Concerns",
+        "desc": "Issues present; warrants further investigation."
+      },
+      "red": {
+        "label": "Material Concerns",
+        "desc": "Significant deficiencies or red flags identified."
+      },
+      "gray": {
+        "label": "Insufficient Data",
+        "desc": "Public information too limited to assess."
+      },
+      "readMore": "Read the full methodology →"
+    },
+    "cta": {
+      "h2": "Apply the Framework to Your Own Analysis",
+      "body": "Registered users can access the full RARM due diligence workbook — a six-layer sub-indicator tool that helps structure your own professional analysis. Results are stored privately and reflect your judgment, not a platform rating.",
+      "openTool": "Open Due Diligence Tool",
+      "createAccount": "Create Free Account",
+      "learnFramework": "Learn the Framework",
+      "disclaimer": "RWA-Index does not provide credit ratings, investment advice, or any service requiring regulatory authorization. All assessments reflect the user's own professional judgment."
+    }
+  },
+  "framework": {
+    "h1Main": "Six-Layer Framework",
+    "h1Accent": "Methodology",
+    "lede": "A structured decomposition of tokenized real-world asset risk, organising due diligence across six operationally distinct dimensions.",
+    "layerPrefix": "LAYER_",
+    "overview": {
+      "eyebrow": "Framework Overview",
+      "h2": "The Relative Asset Risk Matrix (RARM)",
+      "para1": "RARM organises due diligence for tokenized real-world assets into six layers, each addressing a distinct operational risk category. Practitioners work through each layer systematically, recording evidence and signal assessments based on publicly available disclosures.",
+      "para2": "The framework does not generate platform ratings or composite scores. Each assessment is the analyst's own professional judgment, stored privately in their workbook."
+    },
+    "aggregation": {
+      "h3": "Conservative Aggregation Logic",
+      "intro": "The summary signal follows a conservative rule that prevents an incomplete assessment from appearing more favourable than warranted.",
+      "gray": "Any gray layer → <signal>gray</signal> (data gap)",
+      "red": "Any red layer → <signal>red</signal>",
+      "green": "≥ 4 green, no red → <signal>green</signal>",
+      "yellow": "Otherwise → <signal>yellow</signal>"
+    },
+    "salience": {
+      "h2": "Layer Salience by Asset Class",
+      "para": "Qualitative assessment of which RARM layers warrant the most attention during due diligence, based on the structural characteristics of each asset class.",
+      "colHeader": "Asset Class",
+      "headers": [
+        "L1 Legal",
+        "L2 Valuation",
+        "L3 Custody",
+        "L4 KYC/AML",
+        "L5 Liquidity",
+        "L6 Settlement"
+      ],
+      "rows": {
+        "govTreasuries": "Gov. Treasuries",
+        "moneyMarket": "Money Market Funds",
+        "realEstate": "Real Estate",
+        "privateCredit": "Private Credit",
+        "commodities": "Commodities",
+        "tokenizedEquity": "Tokenized Equity"
+      },
+      "H": "High",
+      "M": "Medium",
+      "L": "Low",
+      "footnote": "Salience levels reflect editorial judgment on typical due diligence practice, not a scoring system. Individual assessments may weigh layers differently depending on the specific protocol and jurisdiction."
+    }
+  },
+  "friction": {
+    "breadcrumb": {
+      "parent": "Methodology",
+      "current": "Tokenization Friction"
+    },
+    "h1Line1": "Structural Barriers to",
+    "h1Line2": "Asset Tokenization",
+    "lede": "Not all real-world asset classes face the same tokenization challenges. This analysis maps the structural friction practitioners encounter across each RARM dimension for common RWA categories.",
+    "table": {
+      "h2": "Friction by Layer and Asset Class",
+      "colLayer": "Layer",
+      "columns": [
+        "Gov. Treasuries",
+        "Real Estate",
+        "Private Credit",
+        "Commodities",
+        "Tokenized Equity"
+      ],
+      "High": "High",
+      "Medium": "Medium",
+      "Low": "Low"
+    },
+    "rows": {
+      "L1": {
+        "barrier": "Cross-border SPV enforceability, title transfer law variability, and investor rights recognition differ widely across jurisdictions."
+      },
+      "L2": {
+        "barrier": "Appraisal frequency, oracle manipulation risk, and mark-to-model gaps create pricing uncertainty for illiquid assets."
+      },
+      "L3": {
+        "barrier": "Registrar infrastructure, bankruptcy-remoteness of SPV structures, and qualified custodian availability vary significantly by asset class."
+      },
+      "L4": {
+        "barrier": "Accredited investor onboarding, sanctions screening, and transfer whitelist enforcement add onboarding latency across all categories."
+      },
+      "L5": {
+        "barrier": "Transfer restrictions, lock-up periods, and absence of standardised secondary venues limit exit options for most RWA categories."
+      },
+      "L6": {
+        "barrier": "DVP matching, on-chain finality recognition, and insolvency law treatment of token records remain evolving across jurisdictions."
+      }
+    },
+    "highFriction": "High-Friction Dimensions — Key Barriers",
+    "infoBox": "Friction levels are qualitative editorial assessments based on observed industry practice and regulatory disclosures. They do not constitute ratings of any specific protocol. Individual implementations may differ materially from the general patterns described here."
+  }
+}
