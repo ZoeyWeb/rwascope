@@ -1,0 +1,63 @@
+{
+  "hero": {
+    "eyebrow": "关于",
+    "h1": "关于 RWA-Index",
+    "lede": "RWA-Index 是一款学术研究工具,为代币化现实世界资产协议的结构化尽职调查提供 RARM 方法论框架。"
+  },
+  "stats": {
+    "registeredUsers": "注册用户",
+    "incidentsTracked": "已追踪事件",
+    "assetsProfiled": "已建档资产",
+    "licensedIssuers": "持牌发行方",
+    "complianceCells": "合规单元",
+    "quarterlyReports": "季度报告"
+  },
+  "pillars": {
+    "sectionLabel": "我们做什么",
+    "academic": {
+      "title": "学术方法论",
+      "body": "RARM(RWA Asset Risk Matrix)是一套六层结构化尽职调查框架,为学术界与业界研究代币化现实世界资产协议而开发。"
+    },
+    "private": {
+      "title": "隐私优先设计",
+      "body": "所有尽职调查工作簿均私密存储,仅创建者本人可访问。RWA-Index 绝不发布、聚合用户数据,也不据此生成平台级评级。"
+    },
+    "ai": {
+      "title": "AI 作为研究辅助",
+      "body": "我们的 AI 助手(DeepSeek)生成核查清单——待调查的问题、公开数据来源与风险信号——协助用户自行开展深入研究。它不产出任何评分。"
+    },
+    "market": {
+      "title": "透明市场数据",
+      "body": "协议目录转发来自 DeFiLlama 的公开 TVL 数据。我们不对这些数据施加任何专有评分、排名算法或平台评估。"
+    }
+  },
+  "isNot": {
+    "heading": "RWA-Index 不是",
+    "creditRating": "信用评级机构,或信用评级服务的提供方",
+    "investmentAdviser": "投资顾问,或投资建议的提供方",
+    "financialProvider": "任何司法管辖区内受监管的金融服务提供方",
+    "scoringPublisher": "协议评估、评分或风险意见的发布方",
+    "operator": "任何集合资金、代币化平台或托管方的运营者"
+  },
+  "is": {
+    "heading": "RWA-Index 是",
+    "researchTool": "用于结构化 RWA 尽职调查的学术研究工具",
+    "workbook": "面向注册从业者的私密工作簿环境",
+    "methodologyProvider": "面向自主分析的方法论提供方(RARM 框架)",
+    "dataRelay": "公开 DeFiLlama 市场数据的转发方",
+    "checklistGenerator": "支持独立研究的 AI 辅助核查清单生成器"
+  },
+  "regulatory": {
+    "heading": "监管状态",
+    "p1": "RWA-Index 未持有香港证券及期货事务监察委员会(SFC)颁发的 Type 10(提供信用评级服务)牌照,亦未在任何其他司法管辖区持有同等牌照。",
+    "p2": "本平台经专门设计,以规避构成受监管信用评级服务的活动:不产出平台生成的评级,不发布用户评估,也不向第三方分发评分。",
+    "readTerms": "阅读完整《使用条款与免责声明》 →"
+  },
+  "cta": {
+    "h2": "开始你的研究",
+    "lede": "创建免费账户即可使用 RARM 尽职调查工作簿。你的分析私密存储,且仅反映你本人的专业判断。",
+    "openWorkbook": "打开尽职调查工作簿",
+    "createAccount": "创建免费账户",
+    "learnFramework": "了解框架"
+  }
+}
