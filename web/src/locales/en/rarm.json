@@ -1,0 +1,10 @@
+{
+  "layers": {
+    "legal_jurisdictional":       { "label": "Legal & Jurisdictional",       "shortLabel": "Legal",     "description": "Regulatory classification, investor rights, enforceability, and jurisdictional risk." },
+    "valuation_oracles":          { "label": "Valuation & Oracles",          "shortLabel": "Valuation", "description": "NAV methodology, pricing sources, oracle integrity, and fair-value reliability." },
+    "custody_asset_control":      { "label": "Custody & Asset Control",      "shortLabel": "Custody",   "description": "Segregation, custodian quality, bankruptcy-remoteness, and audit coverage." },
+    "kyc_aml_permissioning":      { "label": "KYC / AML & Permissioning",    "shortLabel": "KYC/AML",   "description": "Investor onboarding controls, sanctions screening, and on-chain transfer restrictions." },
+    "secondary_market_liquidity": { "label": "Secondary Market Liquidity",   "shortLabel": "Liquidity", "description": "Market depth, redemption windows, bid-ask spreads, and transfer restrictions." },
+    "settlement_finality":        { "label": "Settlement Finality",          "shortLabel": "Settlement","description": "DVP settlement, on-chain finality, reversibility risk, and dispute resolution." }
+  }
+}

@@ -1,6 +1,7 @@
 import { useSearchParams, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { RARM_LAYER_META, RARM_LAYER_KEYS } from '../utils/rarm';
+import { RARM_LAYER_KEYS } from '../utils/rarm';
+import { useRarmMeta } from '../hooks/useRarmMeta';
 import type { RARMBlock } from '../types/assets';
 
 // ── Layer icons (aligned to RARM_LAYER_KEYS order) ────────────────────────────
@@ -90,6 +91,7 @@ const FRICTION_ROWS: {
 function OverviewTab({ onGoToFramework }: { onGoToFramework: () => void }) {
   const navigate = useNavigate();
   const { user } = useAuth();
+  const { layers } = useRarmMeta();
 
   return (
     <div className="bg-surface p-6 lg:p-8">
@@ -128,7 +130,7 @@ function OverviewTab({ onGoToFramework }: { onGoToFramework: () => void }) {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             {RARM_LAYER_KEYS.map((key) => {
-              const meta = RARM_LAYER_META[key];
+              const meta = layers[key];
               return (
                 <div key={key}
                      className="flex items-start gap-4 p-5 bg-surface-container border border-outline-variant/20">
@@ -213,6 +215,7 @@ function OverviewTab({ onGoToFramework }: { onGoToFramework: () => void }) {
 }
 
 function FrameworkTab() {
+  const { layers } = useRarmMeta();
   return (
     <div className="p-8 md:p-12 space-y-12 max-w-7xl mx-auto w-full">
 
@@ -275,7 +278,7 @@ function FrameworkTab() {
 
       <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1">
         {RARM_LAYER_KEYS.map((key) => {
-          const meta = RARM_LAYER_META[key];
+          const meta = layers[key];
           return (
             <div key={key}
                  className="bg-surface-container-low hover:bg-surface-container-high p-8 border-t border-primary/20 transition-colors">

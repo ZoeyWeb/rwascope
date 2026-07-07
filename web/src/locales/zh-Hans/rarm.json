@@ -1,0 +1,10 @@
+{
+  "layers": {
+    "legal_jurisdictional":       { "label": "法律与司法管辖",   "shortLabel": "法律",    "description": "监管分类、投资者权利、可执行性与司法管辖风险。" },
+    "valuation_oracles":          { "label": "估值与预言机",     "shortLabel": "估值",    "description": "NAV 方法论、定价来源、预言机完整性与公允价值可靠性。" },
+    "custody_asset_control":      { "label": "托管与资产控制",   "shortLabel": "托管",    "description": "资产隔离、托管方质量、破产隔离性与审计覆盖。" },
+    "kyc_aml_permissioning":      { "label": "KYC / AML 与准入", "shortLabel": "KYC/AML", "description": "投资者准入控制、制裁筛查与链上转账限制。" },
+    "secondary_market_liquidity": { "label": "二级市场流动性",   "shortLabel": "流动性",  "description": "市场深度、赎回窗口、买卖价差与转账限制。" },
+    "settlement_finality":        { "label": "结算最终性",       "shortLabel": "结算",    "description": "DVP 结算、链上最终性、可逆性风险与争议解决。" }
+  }
+}

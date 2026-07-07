@@ -2,9 +2,10 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import type { Asset, AssetLiveIndex } from '../../types/assets';
 import {
-  aggregateRARM, RARM_LAYER_KEYS, RARM_LAYER_META, RARM_SIGNAL_META,
+  aggregateRARM, RARM_LAYER_KEYS, RARM_SIGNAL_META,
   ASSET_CATEGORY_LABELS, ASSET_STATUS_META,
 } from '../../utils/rarm';
+import { useRarmMeta } from '../../hooks/useRarmMeta';
 import { Eyebrow } from '../../components/Eyebrow';
 import { FilterPill } from '../../components/FilterPill';
 import { RARMBar } from '../../components/RARMBar';
@@ -48,6 +49,7 @@ function TabButton({
 }
 
 function RARMLegend() {
+  const { layers } = useRarmMeta();
   return (
     <div>
       <p className="text-ed-eyebrow text-ed-text-muted uppercase tracking-[0.18em] mb-3">
@@ -57,7 +59,7 @@ function RARMLegend() {
         {RARM_LAYER_KEYS.map((k, i) => (
           <div key={k} className="flex items-center gap-1.5">
             <span className="text-[10px] text-ed-text-faint w-3">{i + 1}</span>
-            <span className="text-ed-meta text-ed-text-secondary">{RARM_LAYER_META[k].label}</span>
+            <span className="text-ed-meta text-ed-text-secondary">{layers[k].label}</span>
           </div>
         ))}
       </div>
@@ -379,6 +381,7 @@ function AllAssetsPanel({
 // ── Asset breakdown card ──────────────────────────────────────────────────────
 
 function AssetBreakdownCard({ asset }: { asset: Asset }) {
+  const { layers } = useRarmMeta();
   const statusMeta = ASSET_STATUS_META[asset.status];
   return (
     <div className="border border-ed-hairline p-6 bg-ed-canvas">
@@ -407,7 +410,7 @@ function AssetBreakdownCard({ asset }: { asset: Asset }) {
             <div key={key}>
               <div className="flex items-center gap-3 pr-1">
                 <div className="text-ed-meta text-ed-text-secondary w-[120px] flex-shrink-0">
-                  {RARM_LAYER_META[key].shortLabel}
+                  {layers[key].shortLabel}
                 </div>
                 <div className="flex-1 h-1 bg-ed-hairline">
                   <div className="h-full" style={{ width: `${pct}%`, background: color }} />

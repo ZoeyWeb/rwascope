@@ -8,30 +8,36 @@ import enFooter from '../locales/en/footer.json';
 import enHome from '../locales/en/home.json';
 import enHkObservation from '../locales/en/hkObservation.json';
 import enIntelligence from '../locales/en/intelligence.json';
+import enAbout from '../locales/en/about.json';
+import enRarm from '../locales/en/rarm.json';
 import zhHansNav from '../locales/zh-Hans/nav.json';
 import zhHansFooter from '../locales/zh-Hans/footer.json';
 import zhHansHome from '../locales/zh-Hans/home.json';
 import zhHansHkObservation from '../locales/zh-Hans/hkObservation.json';
 import zhHansIntelligence from '../locales/zh-Hans/intelligence.json';
+import zhHansAbout from '../locales/zh-Hans/about.json';
+import zhHansRarm from '../locales/zh-Hans/rarm.json';
 import zhHantNav from '../locales/zh-Hant/nav.json';
 import zhHantFooter from '../locales/zh-Hant/footer.json';
 import zhHantHome from '../locales/zh-Hant/home.json';
 import zhHantHkObservation from '../locales/zh-Hant/hkObservation.json';
 import zhHantIntelligence from '../locales/zh-Hant/intelligence.json';
+import zhHantAbout from '../locales/zh-Hant/about.json';
+import zhHantRarm from '../locales/zh-Hant/rarm.json';
 
 i18n
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
     resources: {
-      en:        { nav: enNav,      footer: enFooter,      home: enHome,      hkObservation: enHkObservation,      intelligence: enIntelligence },
-      'zh-Hans': { nav: zhHansNav,  footer: zhHansFooter,  home: zhHansHome,  hkObservation: zhHansHkObservation,  intelligence: zhHansIntelligence },
-      'zh-Hant': { nav: zhHantNav,  footer: zhHantFooter,  home: zhHantHome,  hkObservation: zhHantHkObservation,  intelligence: zhHantIntelligence },
+      en:        { nav: enNav,      footer: enFooter,      home: enHome,      hkObservation: enHkObservation,      intelligence: enIntelligence,      about: enAbout,      rarm: enRarm },
+      'zh-Hans': { nav: zhHansNav,  footer: zhHansFooter,  home: zhHansHome,  hkObservation: zhHansHkObservation,  intelligence: zhHansIntelligence,  about: zhHansAbout,  rarm: zhHansRarm },
+      'zh-Hant': { nav: zhHantNav,  footer: zhHantFooter,  home: zhHantHome,  hkObservation: zhHantHkObservation,  intelligence: zhHantIntelligence,  about: zhHantAbout,  rarm: zhHantRarm },
     },
     fallbackLng: 'en',
     supportedLngs: ['en', 'zh-Hans', 'zh-Hant'],
     defaultNS: 'nav',
-    ns: ['nav', 'footer', 'home', 'hkObservation', 'intelligence'],
+    ns: ['nav', 'footer', 'home', 'hkObservation', 'intelligence', 'about', 'rarm'],
     detection: {
       order: ['cookie', 'localStorage'],
       caches: ['cookie', 'localStorage'],

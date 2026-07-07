@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
-import { RARM_LAYER_KEYS, RARM_LAYER_META, RARM_SIGNAL_META } from '../../utils/rarm';
-import type { RARMSignal } from '../../types/assets';
+import { RARM_LAYER_KEYS, RARM_SIGNAL_META } from '../../utils/rarm';
+import { useRarmMeta } from '../../hooks/useRarmMeta';
+import type { RARMBlock, RARMSignal } from '../../types/assets';
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
@@ -26,7 +27,7 @@ function SignalChip({ signal }: { signal: RARMSignal }) {
 
 // ── Per-layer rubric: green / yellow / red / gray thresholds ─────────────────
 
-const RUBRIC: Record<keyof typeof RARM_LAYER_META, Record<RARMSignal, string>> = {
+const RUBRIC: Record<keyof RARMBlock, Record<RARMSignal, string>> = {
   legal_jurisdictional: {
     green:  'Asset issued under a clear, recognised legal framework in a major regulated jurisdiction. Investor rights, token-holder claims, and asset ownership are legally enforceable and clearly documented. No material pending regulatory proceedings or litigation.',
     yellow: 'Some jurisdictional ambiguity; regulatory classification subject to interpretive uncertainty. Minor pending regulatory matters or unanswered legal questions about investor rights. Legal framework established but with known gaps.',
@@ -68,6 +69,7 @@ const RUBRIC: Record<keyof typeof RARM_LAYER_META, Record<RARMSignal, string>> =
 // ── Main component ────────────────────────────────────────────────────────────
 
 export default function AssetsMethodology() {
+  const { layers } = useRarmMeta();
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8 space-y-10">
 
@@ -113,7 +115,7 @@ export default function AssetsMethodology() {
       <Section title="2. The Six RARM Layers">
         <div className="divide-y divide-[#F1F4F6] rounded-xl border border-[#DBE4E7] overflow-hidden">
           {RARM_LAYER_KEYS.map((k, i) => {
-            const m = RARM_LAYER_META[k];
+            const m = layers[k];
             return (
               <div key={k} className="px-4 py-3 flex items-baseline gap-3">
                 <span className="text-xs font-black text-[#5E5C75] w-6 shrink-0">{i + 1}</span>
@@ -135,7 +137,7 @@ export default function AssetsMethodology() {
         </p>
         <div className="space-y-6">
           {RARM_LAYER_KEYS.map((k, i) => {
-            const m = RARM_LAYER_META[k];
+            const m = layers[k];
             const rubric = RUBRIC[k];
             return (
               <div key={k} className="rounded-xl border border-[#DBE4E7] overflow-hidden">

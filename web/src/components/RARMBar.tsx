@@ -1,7 +1,9 @@
 import type { RARMBlock } from '../types/assets';
-import { RARM_LAYER_KEYS, RARM_LAYER_META, RARM_SIGNAL_META } from '../utils/rarm';
+import { RARM_LAYER_KEYS, RARM_SIGNAL_META } from '../utils/rarm';
+import { useRarmMeta } from '../hooks/useRarmMeta';
 
 export function RARMBar({ rarm, size = 8, gap = 4 }: { rarm: RARMBlock; size?: number; gap?: number }) {
+  const { layers } = useRarmMeta();
   return (
     <div className="flex items-center" style={{ gap }}>
       {RARM_LAYER_KEYS.map(k => {
@@ -12,7 +14,7 @@ export function RARMBar({ rarm, size = 8, gap = 4 }: { rarm: RARMBlock; size?: n
             key={k}
             className="rounded-full inline-block"
             style={{ width: size, height: size, background: meta.dot }}
-            title={`${RARM_LAYER_META[k].shortLabel}: ${meta.label}`}
+            title={`${layers[k].shortLabel}: ${meta.label}`}
           />
         );
       })}

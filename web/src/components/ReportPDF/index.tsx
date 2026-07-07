@@ -24,7 +24,7 @@ import {
   formatTvlM,
 } from '../../utils/reports';
 import { SARM_DIMENSION_KEYS } from '../../utils/sarm';
-import { RARM_LAYER_KEYS, RARM_LAYER_META, ASSET_CATEGORY_LABELS } from '../../utils/rarm';
+import { RARM_LAYER_KEYS, ASSET_CATEGORY_LABELS } from '../../utils/rarm';
 
 // ── Styles ────────────────────────────────────────────────────────────────────
 
@@ -192,7 +192,7 @@ function LicensesPdfSection({ issuers }: { issuers: Issuer[] }) {
   );
 }
 
-function AssetsPdfSection({ assets }: { assets: Asset[] }) {
+function AssetsPdfSection({ assets, rarmLayerLabels }: { assets: Asset[]; rarmLayerLabels: Record<string, string> }) {
   const data = aggregateAssetsData(assets);
   return (
     <View>
@@ -240,7 +240,7 @@ function AssetsPdfSection({ assets }: { assets: Asset[] }) {
           const dist = data.layerSignalDistribution[key] ?? {};
           return (
             <View key={key} style={s.tableRow}>
-              <Text style={[s.tableCell, { flex: 2 }]}>{RARM_LAYER_META[key].label}</Text>
+              <Text style={[s.tableCell, { flex: 2 }]}>{rarmLayerLabels[key]}</Text>
               <Text style={s.tableCell}>{dist.green ?? 0}</Text>
               <Text style={s.tableCell}>{dist.yellow ?? 0}</Text>
               <Text style={s.tableCell}>{dist.red ?? 0}</Text>
@@ -312,9 +312,10 @@ interface ReportDocProps {
   issuers: Issuer[];
   incidents: Incident[];
   assets: Asset[];
+  rarmLayerLabels: Record<string, string>;
 }
 
-function ReportDocument({ report, issuers, incidents, assets }: ReportDocProps) {
+function ReportDocument({ report, issuers, incidents, assets, rarmLayerLabels }: ReportDocProps) {
   const published = new Date(report.publishedAt).toLocaleDateString('en-US', {
     year: 'numeric', month: 'long', day: 'numeric',
   });
@@ -375,7 +376,7 @@ function ReportDocument({ report, issuers, incidents, assets }: ReportDocProps) 
             <LicensesPdfSection issuers={issuers} />
           )}
           {sec.type === 'auto-assets' && (
-            <AssetsPdfSection assets={assets} />
+            <AssetsPdfSection assets={assets} rarmLayerLabels={rarmLayerLabels} />
           )}
           {sec.type === 'auto-incidents' && (
             <IncidentsPdfSection
@@ -437,6 +438,7 @@ export async function generateReportPDF(
   issuers: Issuer[],
   incidents: Incident[],
   assets: Asset[],
+  rarmLayerLabels: Record<string, string>,
 ): Promise<void> {
   const doc = (
     <ReportDocument
@@ -444,6 +446,7 @@ export async function generateReportPDF(
       issuers={issuers}
       incidents={incidents}
       assets={assets}
+      rarmLayerLabels={rarmLayerLabels}
     />
   );
   const blob = await pdf(doc).toBlob();

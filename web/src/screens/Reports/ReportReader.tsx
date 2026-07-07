@@ -15,7 +15,8 @@ import {
   buildCitations,
 } from '../../utils/reports';
 import { SARM_DIMENSION_KEYS } from '../../utils/sarm';
-import { RARM_LAYER_KEYS, RARM_LAYER_META, ASSET_CATEGORY_LABELS } from '../../utils/rarm';
+import { RARM_LAYER_KEYS, ASSET_CATEGORY_LABELS } from '../../utils/rarm';
+import { useRarmMeta } from '../../hooks/useRarmMeta';
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
@@ -195,6 +196,7 @@ function AutoLicensesSection({ issuers, period }: { issuers: Issuer[]; period: s
 }
 
 function AutoAssetsSection({ assets, period }: { assets: Asset[]; period: string }) {
+  const { layers } = useRarmMeta();
   const data = aggregateAssetsData(assets);
 
   const categoryData = Object.entries(data.byCategory).map(([cat, v]) => ({
@@ -212,7 +214,7 @@ function AutoAssetsSection({ assets, period }: { assets: Asset[]; period: string
     }));
 
   const layerData = RARM_LAYER_KEYS.map(key => ({
-    name: RARM_LAYER_META[key].shortLabel,
+    name: layers[key].shortLabel,
     green: data.layerSignalDistribution[key]?.green ?? 0,
     yellow: data.layerSignalDistribution[key]?.yellow ?? 0,
     red: data.layerSignalDistribution[key]?.red ?? 0,
@@ -420,6 +422,7 @@ function ChartBox({ title, children }: { title: string; children: React.ReactNod
 // ── Main component ────────────────────────────────────────────────────────────
 
 export default function ReportReader() {
+  const { layers } = useRarmMeta();
   const { slug } = useParams<{ slug: string }>();
   const [report, setReport] = useState<Report | null | undefined>(undefined);
   const [issuers, setIssuers] = useState<Issuer[]>([]);
@@ -474,7 +477,8 @@ export default function ReportReader() {
     setPdfLoading(true);
     try {
       const { generateReportPDF } = await import('../../components/ReportPDF');
-      await generateReportPDF(report, issuers, incidents, assets);
+      const rarmLayerLabels = Object.fromEntries(RARM_LAYER_KEYS.map(k => [k, layers[k].label]));
+      await generateReportPDF(report, issuers, incidents, assets, rarmLayerLabels);
     } catch (e) {
       console.error('PDF generation failed:', e);
     } finally {

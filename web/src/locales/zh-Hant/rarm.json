@@ -1,0 +1,34 @@
+{
+  "layers": {
+    "legal_jurisdictional": {
+      "label": "法律與司法管轄",
+      "shortLabel": "法律",
+      "description": "監管分類、投資者權利、可執行性與司法管轄風險。"
+    },
+    "valuation_oracles": {
+      "label": "估值與預言機",
+      "shortLabel": "估值",
+      "description": "NAV 方法論、定價來源、預言機完整性與公允價值可靠性。"
+    },
+    "custody_asset_control": {
+      "label": "託管與資產控制",
+      "shortLabel": "託管",
+      "description": "資產隔離、託管方質量、破產隔離性與審計覆蓋。"
+    },
+    "kyc_aml_permissioning": {
+      "label": "KYC / AML 與准入",
+      "shortLabel": "KYC/AML",
+      "description": "投資者准入控制、制裁篩查與鏈上轉賬限制。"
+    },
+    "secondary_market_liquidity": {
+      "label": "二級市場流動性",
+      "shortLabel": "流動性",
+      "description": "市場深度、贖回視窗、買賣價差與轉賬限制。"
+    },
+    "settlement_finality": {
+      "label": "結算最終性",
+      "shortLabel": "結算",
+      "description": "DVP 結算、鏈上最終性、可逆性風險與爭議解決。"
+    }
+  }
+}

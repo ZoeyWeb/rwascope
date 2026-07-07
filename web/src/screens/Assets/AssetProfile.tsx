@@ -2,9 +2,10 @@ import { useState, useEffect } from 'react';
 import { Link, useParams, Navigate } from 'react-router-dom';
 import type { Asset, AssetLiveIndex, RARMSignal } from '../../types/assets';
 import {
-  aggregateRARM, RARM_LAYER_KEYS, RARM_LAYER_META, RARM_SIGNAL_META,
+  aggregateRARM, RARM_LAYER_KEYS, RARM_SIGNAL_META,
   ASSET_CATEGORY_LABELS, ASSET_STATUS_META,
 } from '../../utils/rarm';
+import { useRarmMeta } from '../../hooks/useRarmMeta';
 import DisclaimerBanner from '../../components/DisclaimerBanner';
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
@@ -51,6 +52,7 @@ function SectionTitle({ children }: { children: React.ReactNode }) {
 // ── Main component ────────────────────────────────────────────────────────────
 
 export default function AssetProfile() {
+  const { layers } = useRarmMeta();
   const { slug } = useParams<{ slug: string }>();
   const [asset, setAsset] = useState<Asset | null>(null);
   const [loading, setLoading] = useState(true);
@@ -153,7 +155,7 @@ export default function AssetProfile() {
             <div className="rounded-xl border border-[#DBE4E7] overflow-hidden">
               {RARM_LAYER_KEYS.map((k, i) => {
                 const layer = asset.rarm[k];
-                const meta = RARM_LAYER_META[k];
+                const meta = layers[k];
                 const sigMeta = RARM_SIGNAL_META[layer.signal];
                 return (
                   <div
@@ -382,7 +384,7 @@ export default function AssetProfile() {
                   <div key={k} className="flex items-center justify-between">
                     <div className="flex items-center gap-1.5">
                       <span className="text-[10px] text-[#9E9E9E] w-3 font-black">{i + 1}</span>
-                      <span className="text-xs text-[#737C7F]">{RARM_LAYER_META[k].shortLabel}</span>
+                      <span className="text-xs text-[#737C7F]">{layers[k].shortLabel}</span>
                     </div>
                     <span
                       className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold"
