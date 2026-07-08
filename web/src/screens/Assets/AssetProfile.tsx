@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useParams, Navigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import type { Asset, AssetLiveIndex, RARMSignal } from '../../types/assets';
 import {
   aggregateRARM, RARM_LAYER_KEYS, RARM_SIGNAL_META,
@@ -15,6 +16,10 @@ function formatTvl(n?: number): string {
   if (n >= 1_000_000_000) return `$${(n / 1_000_000_000).toFixed(1)}B`;
   if (n >= 1_000_000)     return `$${(n / 1_000_000).toFixed(0)}M`;
   return `$${n.toLocaleString()}`;
+}
+
+function statusI18nKey(s: string) {
+  return s.replace(/-([a-z])/g, (_, c: string) => c.toUpperCase());
 }
 
 // ── Sub-components ────────────────────────────────────────────────────────────
@@ -53,6 +58,7 @@ function SectionTitle({ children }: { children: React.ReactNode }) {
 // ── Main component ────────────────────────────────────────────────────────────
 
 export default function AssetProfile() {
+  const { t } = useTranslation('assetsMap');
   const { layers, signals } = useRarmMeta();
   const { slug } = useParams<{ slug: string }>();
   const [asset, setAsset] = useState<Asset | null>(null);
@@ -97,7 +103,7 @@ export default function AssetProfile() {
 
       {/* Breadcrumb */}
       <div className="flex items-center gap-2 text-xs text-[#737C7F]">
-        <Link to="/assets" className="hover:text-[#2B3437] transition-colors">Asset Observatory</Link>
+        <Link to="/assets" className="hover:text-[#2B3437] transition-colors">{t('profile.breadcrumb.assetObservatory')}</Link>
         <span className="material-symbols-outlined text-sm">chevron_right</span>
         <span className="text-[#2B3437]">{asset.ticker.split(' ')[0]}</span>
       </div>
@@ -112,10 +118,10 @@ export default function AssetProfile() {
                 className="inline-flex items-center px-2 py-0.5 rounded text-xs font-bold"
                 style={{ color: statusMeta.color, background: statusMeta.bg }}
               >
-                {statusMeta.label}
+                {t(`status.${statusI18nKey(asset.status)}`)}
               </span>
               <span className="text-sm font-semibold text-[#5E5C75] bg-[#EAEFF1] px-2 py-0.5 rounded">
-                {ASSET_CATEGORY_LABELS[asset.assetCategory]}
+                {t(`categoryLabels.${asset.assetCategory}`, { defaultValue: ASSET_CATEGORY_LABELS[asset.assetCategory] ?? asset.assetCategory })}
               </span>
             </div>
             <h1 className="text-lg font-bold text-[#2B3437] mt-1">{asset.name}</h1>
@@ -127,11 +133,11 @@ export default function AssetProfile() {
               to="/assets/methodology"
               className="text-xs text-[#737C7F] hover:text-[#5E5C75] transition-colors underline"
             >
-              RARM guide
+              {t('profile.header.rarmGuide')}
             </Link>
           </div>
         </div>
-        <DisclaimerBanner text="RARM assessments are academic and based solely on publicly available information. They do not constitute investment advice, credit ratings, or legal opinions. Signals will change as more information becomes available." />
+        <DisclaimerBanner text={t('profile.disclaimer')} />
       </div>
 
       {/* Two-column layout */}
@@ -142,16 +148,15 @@ export default function AssetProfile() {
 
           {/* Description */}
           <section className="space-y-3">
-            <SectionTitle>Overview</SectionTitle>
+            <SectionTitle>{t('profile.sections.overview')}</SectionTitle>
             <p className="text-sm text-[#737C7F] leading-relaxed">{asset.description}</p>
           </section>
 
           {/* RARM assessment table */}
           <section className="space-y-3">
-            <SectionTitle>(RARM) — 6 Layers</SectionTitle>
+            <SectionTitle>{t('profile.sections.rarmLayers')}</SectionTitle>
             <p className="text-xs text-[#737C7F]">
-              Each layer is assessed independently based on publicly available information.
-              Gray indicates insufficient public data to assign a signal.
+              {t('profile.rarmTable.sublede')}
             </p>
             <div className="rounded-xl border border-[#DBE4E7] overflow-hidden">
               {RARM_LAYER_KEYS.map((k, i) => {
@@ -198,10 +203,15 @@ export default function AssetProfile() {
             <div className="rounded-xl p-4 flex items-center justify-between" style={{ background: RARM_SIGNAL_META[summary.dominant].bg, border: `1px solid ${RARM_SIGNAL_META[summary.dominant].border}` }}>
               <div>
                 <p className="text-xs font-bold" style={{ color: RARM_SIGNAL_META[summary.dominant].color }}>
-                  Conservative Aggregate Signal
+                  {t('profile.rarmTable.aggregate.label')}
                 </p>
                 <p className="text-xs mt-0.5" style={{ color: RARM_SIGNAL_META[summary.dominant].color }}>
-                  {summary.gray}/6 layers unassessed · {summary.green} green · {summary.yellow} yellow · {summary.red} red
+                  {t('profile.rarmTable.aggregate.layers', {
+                    gray: summary.gray,
+                    green: summary.green,
+                    yellow: summary.yellow,
+                    red: summary.red,
+                  })}
                 </p>
               </div>
               <SignalChip signal={summary.dominant} />
@@ -210,21 +220,21 @@ export default function AssetProfile() {
 
           {/* Underlying asset */}
           <section className="space-y-3">
-            <SectionTitle>Underlying Asset</SectionTitle>
+            <SectionTitle>{t('profile.sections.underlyingAsset')}</SectionTitle>
             <p className="text-sm text-[#737C7F] leading-relaxed">{asset.underlyingAsset}</p>
           </section>
 
           {/* Audit reports */}
           {asset.auditReports && asset.auditReports.length > 0 && (
             <section className="space-y-3">
-              <SectionTitle>Audit Reports</SectionTitle>
+              <SectionTitle>{t('profile.sections.auditReports')}</SectionTitle>
               <div className="space-y-2">
                 {asset.auditReports.map((r, i) => (
                   <div key={i} className="flex items-center justify-between px-4 py-3 rounded-lg border border-[#DBE4E7]">
                     <div>
                       {r.firm && <p className="text-sm font-semibold text-[#2B3437]">{r.firm}</p>}
                       {r.date && <p className="text-xs text-[#737C7F] mt-0.5">{r.date}</p>}
-                      {!r.firm && !r.date && <p className="text-xs text-[#737C7F]">Audit report</p>}
+                      {!r.firm && !r.date && <p className="text-xs text-[#737C7F]">{t('profile.auditStatus.fallback')}</p>}
                     </div>
                     <div className="flex items-center gap-2">
                       <span className={`text-xs font-bold px-2 py-0.5 rounded-full ${
@@ -233,9 +243,10 @@ export default function AssetProfile() {
                         r.status === 'in-progress'          ? 'text-[#5E5C75] bg-[#EDE7F6]' :
                                                               'text-[#424242] bg-[#F5F5F5]'
                       }`}>
-                        {r.status === 'passed'               ? 'Passed' :
-                         r.status === 'passed-with-findings' ? 'Passed (findings)' :
-                         r.status === 'in-progress'          ? 'In Progress' : 'See report'}
+                        {r.status === 'passed'               ? t('profile.auditStatus.passed') :
+                         r.status === 'passed-with-findings' ? t('profile.auditStatus.passedWithFindings') :
+                         r.status === 'in-progress'          ? t('profile.auditStatus.inProgress') :
+                                                               t('profile.auditStatus.seeReport')}
                       </span>
                       {r.url && (
                         <a href={r.url} target="_blank" rel="noopener noreferrer"
@@ -252,7 +263,7 @@ export default function AssetProfile() {
 
           {/* Chains */}
           <section className="space-y-3">
-            <SectionTitle>Blockchain Deployment</SectionTitle>
+            <SectionTitle>{t('profile.sections.blockchainDeployment')}</SectionTitle>
             <div className="flex flex-wrap gap-2">
               {asset.chainOrPlatform.map(c => (
                 <span key={c} className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#F1F4F6] text-[#5E5C75] text-xs font-bold rounded-lg border border-[#DBE4E7]">
@@ -266,7 +277,7 @@ export default function AssetProfile() {
           {/* Related incidents */}
           {asset.crossRefIncidentSlugs.length > 0 && (
             <section className="space-y-3">
-              <SectionTitle>Related Incidents</SectionTitle>
+              <SectionTitle>{t('profile.sections.relatedIncidents')}</SectionTitle>
               <div className="space-y-2">
                 {asset.crossRefIncidentSlugs.map(s => (
                   <Link
@@ -285,7 +296,7 @@ export default function AssetProfile() {
           {/* Related issuers */}
           {asset.crossRefIssuerSlugs.length > 0 && (
             <section className="space-y-3">
-              <SectionTitle>Related Issuers (Licenses Module)</SectionTitle>
+              <SectionTitle>{t('profile.sections.relatedIssuers')}</SectionTitle>
               <div className="space-y-2">
                 {asset.crossRefIssuerSlugs.map(s => (
                   <Link
@@ -304,7 +315,7 @@ export default function AssetProfile() {
           {/* Sources */}
           {asset.sources.length > 0 && (
             <section className="space-y-3">
-              <SectionTitle>Sources</SectionTitle>
+              <SectionTitle>{t('profile.sections.sources')}</SectionTitle>
               <div className="space-y-2">
                 {asset.sources.map((src, i) => (
                   <a
@@ -336,19 +347,19 @@ export default function AssetProfile() {
           {/* Quick facts */}
           <div className="rounded-xl border border-[#DBE4E7] overflow-hidden">
             <div className="bg-[#F8FAFB] px-4 py-3 border-b border-[#DBE4E7]">
-              <h3 className="text-xs font-black text-[#2B3437] uppercase tracking-widest">Quick Facts</h3>
+              <h3 className="text-xs font-black text-[#2B3437] uppercase tracking-widest">{t('profile.sidebar.quickFacts.heading')}</h3>
             </div>
             <div className="px-4 py-3 divide-y divide-[#F1F4F6]">
-              <SidebarRow label="Ticker">{asset.ticker.split(' ')[0]}</SidebarRow>
-              <SidebarRow label="Category">{ASSET_CATEGORY_LABELS[asset.assetCategory]}</SidebarRow>
-              <SidebarRow label="Status">
-                <span style={{ color: statusMeta.color }}>{statusMeta.label}</span>
+              <SidebarRow label={t('profile.sidebar.quickFacts.ticker')}>{asset.ticker.split(' ')[0]}</SidebarRow>
+              <SidebarRow label={t('profile.sidebar.quickFacts.category')}>{t(`categoryLabels.${asset.assetCategory}`, { defaultValue: ASSET_CATEGORY_LABELS[asset.assetCategory] ?? asset.assetCategory })}</SidebarRow>
+              <SidebarRow label={t('profile.sidebar.quickFacts.status')}>
+                <span style={{ color: statusMeta.color }}>{t(`status.${statusI18nKey(asset.status)}`)}</span>
               </SidebarRow>
-              <SidebarRow label="Domicile">{asset.domicile.split('(')[0].trim()}</SidebarRow>
+              <SidebarRow label={t('profile.sidebar.quickFacts.domicile')}>{asset.domicile.split('(')[0].trim()}</SidebarRow>
               {asset.launchDate && (
-                <SidebarRow label="Launch date">{asset.launchDate}</SidebarRow>
+                <SidebarRow label={t('profile.sidebar.quickFacts.launchDate')}>{asset.launchDate}</SidebarRow>
               )}
-              <SidebarRow label="TVL">
+              <SidebarRow label={t('profile.sidebar.quickFacts.tvl')}>
                 <span className="flex items-center gap-1.5 flex-wrap justify-end">
                   {formatTvl(asset.tvlUsd)}
                   {typeof asset.change1d === 'number' && (
@@ -361,7 +372,7 @@ export default function AssetProfile() {
               {asset.tvlUpdatedAt ? (
                 <div className="py-1.5">
                   <p className="text-[10px] text-[#9E9E9E] leading-relaxed">
-                    Updated {asset.tvlUpdatedAt} · {asset.tvlSource ?? 'DeFiLlama'}
+                    {t('profile.sidebar.quickFacts.updatedAt', { date: asset.tvlUpdatedAt, source: asset.tvlSource ?? 'DeFiLlama' })}
                   </p>
                 </div>
               ) : asset.tvlNote ? (
@@ -375,7 +386,7 @@ export default function AssetProfile() {
           {/* RARM summary dots */}
           <div className="rounded-xl border border-[#DBE4E7] overflow-hidden">
             <div className="bg-[#F8FAFB] px-4 py-3 border-b border-[#DBE4E7]">
-              <h3 className="text-xs font-black text-[#2B3437] uppercase tracking-widest">RARM at a glance</h3>
+              <h3 className="text-xs font-black text-[#2B3437] uppercase tracking-widest">{t('profile.sidebar.rarmAtGlance.heading')}</h3>
             </div>
             <div className="px-4 py-3 space-y-2">
               {RARM_LAYER_KEYS.map((k, i) => {
@@ -402,10 +413,9 @@ export default function AssetProfile() {
 
           {/* Cite */}
           <div className="rounded-xl border border-[#DBE4E7] p-4 space-y-2">
-            <p className="text-xs font-bold text-[#2B3437]">Cite this profile</p>
+            <p className="text-xs font-bold text-[#2B3437]">{t('profile.sidebar.cite.heading')}</p>
             <p className="text-[10px] text-[#737C7F] leading-relaxed break-all">
-              RWA-Index. "{asset.name} (RARM Profile)". RWA-Index Tokenized Asset Observatory.
-              Last updated {asset.lastUpdatedAt}. {window.location.href}
+              {t('profile.sidebar.cite.text', { name: asset.name, date: asset.lastUpdatedAt, url: window.location.href })}
             </p>
             <button
               onClick={handleCopy}
@@ -414,7 +424,7 @@ export default function AssetProfile() {
               <span className="material-symbols-outlined text-sm">
                 {copied ? 'check_circle' : 'content_copy'}
               </span>
-              {copied ? 'Copied' : 'Copy URL'}
+              {copied ? t('profile.sidebar.cite.copied') : t('profile.sidebar.cite.copy')}
             </button>
           </div>
 
@@ -425,10 +435,10 @@ export default function AssetProfile() {
       <div className="flex items-center justify-between pt-2 border-t border-[#DBE4E7]">
         <Link to="/assets" className="flex items-center gap-1.5 text-sm text-[#5E5C75] hover:text-[#2B3437] transition-colors">
           <span className="material-symbols-outlined text-base">arrow_back</span>
-          Asset Observatory
+          {t('profile.footer.backLink')}
         </Link>
         <Link to="/assets/methodology" className="flex items-center gap-1.5 text-sm text-[#5E5C75] hover:text-[#2B3437] transition-colors">
-          RARM Methodology
+          {t('profile.footer.methodologyLink')}
           <span className="material-symbols-outlined text-base">arrow_forward</span>
         </Link>
       </div>

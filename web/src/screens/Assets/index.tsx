@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import type { Asset, AssetLiveIndex } from '../../types/assets';
 import {
   aggregateRARM, RARM_LAYER_KEYS, RARM_SIGNAL_META,
@@ -28,6 +29,10 @@ function formatTvl(n?: number): string {
   return `$${n.toLocaleString()}`;
 }
 
+function statusI18nKey(s: string) {
+  return s.replace(/-([a-z])/g, (_, c: string) => c.toUpperCase());
+}
+
 // ── Inline sub-components ─────────────────────────────────────────────────────
 
 
@@ -49,11 +54,12 @@ function TabButton({
 }
 
 function RARMLegend() {
+  const { t } = useTranslation('assetsMap');
   const { layers, signals } = useRarmMeta();
   return (
     <div>
       <p className="text-ed-eyebrow text-ed-text-muted uppercase tracking-[0.18em] mb-3">
-        RARM 6-Layer Framework (left → right)
+        {t('legend.frameworkLabel')}
       </p>
       <div className="flex flex-wrap gap-x-5 gap-y-1.5 mb-3">
         {RARM_LAYER_KEYS.map((k, i) => (
@@ -79,12 +85,10 @@ function RARMLegend() {
 }
 
 function Disclaimer() {
+  const { t } = useTranslation('assetsMap');
   return (
     <p className="text-ed-meta text-ed-text-muted">
-      This observatory is an academic research tool only. RARM assessments reflect publicly
-      available information at the time of review and do not constitute investment advice,
-      credit ratings, or regulatory opinions. All layer signals should be independently
-      verified before making any investment or operational decision.
+      {t('disclaimer')}
     </p>
   );
 }
@@ -98,6 +102,8 @@ function CategoriesPanel({
   categories: CategoryMeta[];
   onSelectCategory: (code: string) => void;
 }) {
+  const { t } = useTranslation('assetsMap');
+  const { signals } = useRarmMeta();
   return (
     <section className="pt-ed-section-sm pb-ed-section-md">
       <div className="max-w-[1400px] mx-auto px-8">
@@ -125,11 +131,11 @@ function CategoriesPanel({
                 {/* Row 3: stats */}
                 <div className="grid grid-cols-2 border-t border-ed-hairline pt-3">
                   <div>
-                    <div className="text-ed-eyebrow text-ed-text-muted">Assets</div>
+                    <div className="text-ed-eyebrow text-ed-text-muted">{t('categoryCard.assetsLabel')}</div>
                     <div className="text-ed-item-h4 text-ed-ink tabular-nums mt-0.5">{inCat.length}</div>
                   </div>
                   <div>
-                    <div className="text-ed-eyebrow text-ed-text-muted">TVL (est.)</div>
+                    <div className="text-ed-eyebrow text-ed-text-muted">{t('categoryCard.tvlLabel')}</div>
                     <div className="text-ed-item-h4 text-ed-ink tabular-nums mt-0.5">{formatTvl(catTvl)}</div>
                   </div>
                 </div>
@@ -137,7 +143,7 @@ function CategoriesPanel({
                 {/* Row 4: RARM signal strip */}
                 {inCat.length > 0 ? (
                   <div className="flex items-center justify-between gap-2 text-ed-meta tabular-nums border-t border-ed-hairline-faint pt-3">
-                    <span className="text-ed-eyebrow text-ed-text-muted">RARM signals</span>
+                    <span className="text-ed-eyebrow text-ed-text-muted">{t('categoryCard.rarmSignals')}</span>
                     <div className="flex items-center gap-3">
                       <span className="flex items-center gap-1"><SignalDot signal="green"  size={7} />{sig.green}</span>
                       <span className="flex items-center gap-1"><SignalDot signal="yellow" size={7} />{sig.yellow}</span>
@@ -147,7 +153,7 @@ function CategoriesPanel({
                   </div>
                 ) : (
                   <div className="text-ed-meta text-ed-text-faint border-t border-ed-hairline-faint pt-3">
-                    No assessed assets yet
+                    {t('categoryCard.noAssetsYet')}
                   </div>
                 )}
               </button>
@@ -168,6 +174,7 @@ function AllAssetsPanel({
   categoryFilter: string;
   onCategoryChange: (code: string) => void;
 }) {
+  const { t } = useTranslation('assetsMap');
   const [chainFilter, setChainFilter] = useState<string>('all');
   const { signals } = useRarmMeta();
 
@@ -187,16 +194,16 @@ function AllAssetsPanel({
 
         {/* Filters */}
         <div className="flex flex-wrap gap-2 items-center mb-ed-section-sm">
-          <span className="text-ed-eyebrow text-ed-text-muted uppercase tracking-[0.18em]">Category</span>
-          <FilterPill active={categoryFilter === 'all'} onClick={() => onCategoryChange('all')}>All</FilterPill>
+          <span className="text-ed-eyebrow text-ed-text-muted uppercase tracking-[0.18em]">{t('filters.categoryLabel')}</span>
+          <FilterPill active={categoryFilter === 'all'} onClick={() => onCategoryChange('all')}>{t('filters.all')}</FilterPill>
           {categories.map(c => (
             <FilterPill key={c} active={categoryFilter === c} onClick={() => onCategoryChange(c)}>
-              {ASSET_CATEGORY_LABELS[c] ?? c}
+              {t(`categoryLabels.${c}`, { defaultValue: ASSET_CATEGORY_LABELS[c] ?? c })}
             </FilterPill>
           ))}
           <span className="w-px h-4 bg-ed-hairline mx-1" />
-          <span className="text-ed-eyebrow text-ed-text-muted uppercase tracking-[0.18em]">Chain</span>
-          <FilterPill active={chainFilter === 'all'} onClick={() => setChainFilter('all')}>All</FilterPill>
+          <span className="text-ed-eyebrow text-ed-text-muted uppercase tracking-[0.18em]">{t('filters.chainLabel')}</span>
+          <FilterPill active={chainFilter === 'all'} onClick={() => setChainFilter('all')}>{t('filters.all')}</FilterPill>
           {['Ethereum', 'Stellar', 'Solana', 'TRON'].map(c => (
             <FilterPill key={c} active={chainFilter === c} onClick={() => setChainFilter(c)}>{c}</FilterPill>
           ))}
@@ -205,7 +212,7 @@ function AllAssetsPanel({
         {/* Desktop table */}
         {filtered.length === 0 ? (
           <div className="text-center py-16 text-ed-text-muted text-ed-body">
-            No assets match your filters.
+            {t('table.noResults')}
           </div>
         ) : (
           <div className="border border-ed-hairline overflow-hidden">
@@ -215,9 +222,16 @@ function AllAssetsPanel({
               <table className="w-full">
                 <thead>
                   <tr className="border-b border-ed-hairline bg-ed-surface-cool">
-                    {['Asset', 'Category', 'Chain / Platform', 'TVL (est.)', 'RARM', ''].map(h => (
+                    {([
+                      t('table.headers.asset'),
+                      t('table.headers.category'),
+                      t('table.headers.chain'),
+                      t('table.headers.tvl'),
+                      t('table.headers.rarm'),
+                      t('table.headers.action'),
+                    ]).map((h, i) => (
                       <th
-                        key={h}
+                        key={i}
                         className="text-left px-5 py-3 text-ed-eyebrow text-ed-text-muted"
                       >
                         {h}
@@ -240,12 +254,12 @@ function AllAssetsPanel({
                             className="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] mt-1"
                             style={{ color: statusMeta.color, background: statusMeta.bg }}
                           >
-                            {statusMeta.label}
+                            {t(`status.${statusI18nKey(asset.status)}`)}
                           </span>
                         </td>
                         <td className="px-5 py-4">
                           <span className="text-ed-meta font-semibold text-primary bg-[#EAEFF1] px-2 py-0.5 rounded">
-                            {ASSET_CATEGORY_LABELS[asset.assetCategory] ?? asset.assetCategory}
+                            {t(`categoryLabels.${asset.assetCategory}`, { defaultValue: ASSET_CATEGORY_LABELS[asset.assetCategory] ?? asset.assetCategory })}
                           </span>
                         </td>
                         <td className="px-5 py-4">
@@ -305,7 +319,7 @@ function AllAssetsPanel({
                             to={`/assets/${asset.slug}`}
                             className="flex items-center gap-1 text-ed-meta text-ed-text-secondary hover:text-ed-ink transition-colors whitespace-nowrap"
                           >
-                            View
+                            {t('table.viewLink')}
                             <span className="material-symbols-outlined text-base">arrow_forward</span>
                           </Link>
                         </td>
@@ -350,7 +364,7 @@ function AllAssetsPanel({
                     </div>
                     <div className="flex flex-wrap gap-1">
                       <span className="text-[10px] bg-[#EAEFF1] text-primary px-1.5 py-0.5 rounded font-semibold">
-                        {ASSET_CATEGORY_LABELS[asset.assetCategory]}
+                        {t(`categoryLabels.${asset.assetCategory}`, { defaultValue: ASSET_CATEGORY_LABELS[asset.assetCategory] ?? asset.assetCategory })}
                       </span>
                       {asset.chainOrPlatform.slice(0, 2).map(c => (
                         <span key={c} className="text-[10px] bg-[#F1F4F6] text-ed-text-secondary px-1.5 py-0.5 rounded">
@@ -369,7 +383,7 @@ function AllAssetsPanel({
         {canLoadMore && (
           <div className="mt-ed-section-sm border-t border-ed-hairline pt-ed-section-sm">
             <button onClick={loadMore} className="text-ed-meta text-ed-ink hover:underline">
-              Load more ({filtered.length - visible.length} remaining) →
+              {t('table.loadMore', { remaining: filtered.length - visible.length })}
             </button>
           </div>
         )}
@@ -382,6 +396,7 @@ function AllAssetsPanel({
 // ── Asset breakdown card ──────────────────────────────────────────────────────
 
 function AssetBreakdownCard({ asset }: { asset: Asset }) {
+  const { t } = useTranslation('assetsMap');
   const { layers } = useRarmMeta();
   const statusMeta = ASSET_STATUS_META[asset.status];
   return (
@@ -397,7 +412,7 @@ function AssetBreakdownCard({ asset }: { asset: Asset }) {
           className="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] flex-shrink-0"
           style={{ color: statusMeta.color, background: statusMeta.bg }}
         >
-          {statusMeta.label}
+          {t(`status.${statusI18nKey(asset.status)}`)}
         </span>
       </div>
 
@@ -432,15 +447,16 @@ function AssetBreakdownCard({ asset }: { asset: Asset }) {
 // ── Panel: RARM Breakdown ─────────────────────────────────────────────────────
 
 function BreakdownPanel({ assets }: { assets: Asset[] }) {
+  const { t } = useTranslation('assetsMap');
   return (
     <section className="w-screen relative left-1/2 -translate-x-1/2 bg-ed-surface-cool py-ed-section-md">
       <div className="max-w-[1400px] mx-auto px-8">
-        <Eyebrow>Per-asset view</Eyebrow>
+        <Eyebrow>{t('breakdown.eyebrow')}</Eyebrow>
         <h2 className="text-2xl md:text-ed-section-h2 text-ed-ink mt-ed-section-sm">
-          RARM breakdown by asset
+          {t('breakdown.h2')}
         </h2>
         <p className="text-ed-body text-ed-text-secondary max-w-[720px] mt-ed-section-sm mb-ed-section-lg">
-          Per-asset signal breakdown across the six RARM layers. Bars indicate qualitative band, not numerical score.
+          {t('breakdown.body')}
         </p>
         <div className="grid md:grid-cols-2 gap-ed-md">
           {assets.map(a => <AssetBreakdownCard key={a.slug} asset={a} />)}
@@ -453,6 +469,7 @@ function BreakdownPanel({ assets }: { assets: Asset[] }) {
 // ── Main component ────────────────────────────────────────────────────────────
 
 export default function AssetsOverview() {
+  const { t } = useTranslation('assetsMap');
   const [assets,         setAssets]         = useState<Asset[]>([]);
   const [categories,     setCategories]     = useState<CategoryMeta[]>([]);
   const [loading,        setLoading]        = useState(true);
@@ -499,23 +516,22 @@ export default function AssetsOverview() {
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
       <section className="pt-ed-section-md pb-ed-section-sm">
         <div className="max-w-[1400px] mx-auto px-8">
-          <Eyebrow>RARM Framework</Eyebrow>
+          <Eyebrow>{t('hero.eyebrow')}</Eyebrow>
           <h1 className="text-4xl md:text-ed-hero-h1 text-ed-ink mt-ed-section-sm">
-            Tokenized Asset Risk Observatory
+            {t('hero.h1')}
           </h1>
           <p className="text-ed-lede text-ed-text-secondary mt-ed-section-sm max-w-3xl">
-            Six-layer risk observation of tokenized real-world assets across treasuries,
-            private credit, commodities, and beyond. Qualitative signals.
+            {t('hero.lede')}
           </p>
         </div>
       </section>
 
       {/* ── Stats ribbon ─────────────────────────────────────────────────── */}
       <BigStatRibbon>
-        <BigStat value={totalAssets}                               label="Assets" />
-        <BigStat value={categoryCount}                             label="Categories" />
-        <BigStat value={activeCount}                               label="Active"               valueColor="#2E7D32" />
-        <BigStat value={`$${(totalTvl / 1e9).toFixed(1)}B`}       label="Aggregate TVL (est.)" />
+        <BigStat value={totalAssets}                               label={t('stats.assets')} />
+        <BigStat value={categoryCount}                             label={t('stats.categories')} />
+        <BigStat value={activeCount}                               label={t('stats.active')}               valueColor="#2E7D32" />
+        <BigStat value={`$${(totalTvl / 1e9).toFixed(1)}B`}       label={t('stats.aggregateTvl')} />
       </BigStatRibbon>
 
       {/* ── Tab strip ────────────────────────────────────────────────────── */}
@@ -523,23 +539,23 @@ export default function AssetsOverview() {
         <div className="max-w-[1400px] mx-auto px-8 flex items-end justify-between">
           <div className="flex gap-12">
             <TabButton active={tab === 'categories'} onClick={() => setTab('categories')}>
-              Categories
+              {t('tabs.categories')}
             </TabButton>
             <TabButton
               active={tab === 'assets'}
               onClick={() => { setTab('assets'); setCategoryFilter('all'); }}
             >
-              All Assets
+              {t('tabs.allAssets')}
             </TabButton>
             <TabButton active={tab === 'breakdown'} onClick={() => setTab('breakdown')}>
-              RARM Breakdown
+              {t('tabs.breakdown')}
             </TabButton>
           </div>
           <Link
             to="/assets/methodology"
             className="text-ed-meta text-ed-text-muted hover:text-ed-ink pb-3 transition-colors"
           >
-            RARM Methodology →
+            {t('tabs.methodology')}
           </Link>
         </div>
       </div>

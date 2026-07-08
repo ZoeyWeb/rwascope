@@ -1,0 +1,105 @@
+{
+  "hero": {
+    "eyebrow": "RARM Framework",
+    "h1": "Tokenized Asset Risk Observatory",
+    "lede": "Six-layer risk observation of tokenized real-world assets across treasuries, private credit, commodities, and beyond. Qualitative signals."
+  },
+  "stats": {
+    "assets": "Assets",
+    "categories": "Categories",
+    "active": "Active",
+    "aggregateTvl": "Aggregate TVL (est.)"
+  },
+  "tabs": {
+    "categories": "Categories",
+    "allAssets": "All Assets",
+    "breakdown": "RARM Breakdown",
+    "methodology": "RARM Methodology →"
+  },
+  "legend": { "frameworkLabel": "RARM 6-Layer Framework (left → right)" },
+  "categoryCard": {
+    "assetsLabel": "Assets",
+    "tvlLabel": "TVL (est.)",
+    "rarmSignals": "RARM signals",
+    "noAssetsYet": "No assessed assets yet"
+  },
+  "filters": { "categoryLabel": "Category", "chainLabel": "Chain", "all": "All" },
+  "table": {
+    "headers": {
+      "asset": "Asset",
+      "category": "Category",
+      "chain": "Chain / Platform",
+      "tvl": "TVL (est.)",
+      "rarm": "RARM",
+      "action": ""
+    },
+    "viewLink": "View",
+    "noResults": "No assets match your filters.",
+    "loadMore": "Load more ({{remaining}} remaining) →"
+  },
+  "breakdown": {
+    "eyebrow": "Per-asset view",
+    "h2": "RARM breakdown by asset",
+    "body": "Per-asset signal breakdown across the six RARM layers. Bars indicate qualitative band, not numerical score."
+  },
+  "disclaimer": "This observatory is an academic research tool only. RARM assessments reflect publicly available information at the time of review and do not constitute investment advice, credit ratings, or regulatory opinions. All layer signals should be independently verified before making any investment or operational decision.",
+  "status": { "active": "Active", "inactive": "Inactive", "underReview": "Under Review" },
+  "categoryLabels": {
+    "tokenized-treasury": "Tokenized Treasury",
+    "tokenized-money-market": "Tokenized Money Market",
+    "tokenized-commodity": "Tokenized Commodity",
+    "tokenized-private-credit": "Tokenized Private Credit",
+    "tokenized-real-estate": "Tokenized Real Estate",
+    "tokenized-equity": "Tokenized Equity",
+    "other": "Other"
+  },
+  "profile": {
+    "breadcrumb": { "assetObservatory": "Asset Observatory" },
+    "header": { "rarmGuide": "RARM guide" },
+    "disclaimer": "RARM assessments are academic and based solely on publicly available information. They do not constitute investment advice, credit ratings, or legal opinions. Signals will change as more information becomes available.",
+    "sections": {
+      "overview": "Overview",
+      "rarmLayers": "(RARM) — 6 Layers",
+      "underlyingAsset": "Underlying Asset",
+      "auditReports": "Audit Reports",
+      "blockchainDeployment": "Blockchain Deployment",
+      "relatedIncidents": "Related Incidents",
+      "relatedIssuers": "Related Issuers (Licenses Module)",
+      "sources": "Sources"
+    },
+    "rarmTable": {
+      "sublede": "Each layer is assessed independently based on publicly available information. Gray indicates insufficient public data to assign a signal.",
+      "aggregate": {
+        "label": "Conservative Aggregate Signal",
+        "layers": "{{gray}}/6 layers unassessed · {{green}} green · {{yellow}} yellow · {{red}} red"
+      }
+    },
+    "auditStatus": {
+      "passed": "Passed",
+      "passedWithFindings": "Passed (findings)",
+      "inProgress": "In Progress",
+      "seeReport": "See report",
+      "fallback": "Audit report"
+    },
+    "sidebar": {
+      "quickFacts": {
+        "heading": "Quick Facts",
+        "ticker": "Ticker",
+        "category": "Category",
+        "status": "Status",
+        "domicile": "Domicile",
+        "launchDate": "Launch date",
+        "tvl": "TVL",
+        "updatedAt": "Updated {{date}} · {{source}}"
+      },
+      "rarmAtGlance": { "heading": "RARM at a glance" },
+      "cite": {
+        "heading": "Cite this profile",
+        "text": "RWA-Index. \"{{name}} (RARM Profile)\". RWA-Index Tokenized Asset Observatory. Last updated {{date}}. {{url}}",
+        "copy": "Copy URL",
+        "copied": "Copied"
+      }
+    },
+    "footer": { "backLink": "Asset Observatory", "methodologyLink": "RARM Methodology" }
+  }
+}

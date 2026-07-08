@@ -1,0 +1,124 @@
+{
+  "hero": {
+    "eyebrow": "RARM 框架",
+    "h1": "代幣化資產風險觀測站",
+    "lede": "對代幣化現實世界資產的六層風險觀測,涵蓋國債、私人信貸、大宗商品等。定性訊號。"
+  },
+  "stats": {
+    "assets": "資產",
+    "categories": "類別",
+    "active": "活躍",
+    "aggregateTvl": "合計 TVL(估算)"
+  },
+  "tabs": {
+    "categories": "類別",
+    "allAssets": "所有資產",
+    "breakdown": "RARM 分項",
+    "methodology": "RARM 方法論 →"
+  },
+  "legend": {
+    "frameworkLabel": "RARM 六層框架(左 → 右)"
+  },
+  "categoryCard": {
+    "assetsLabel": "資產",
+    "tvlLabel": "TVL(估算)",
+    "rarmSignals": "RARM 訊號",
+    "noAssetsYet": "暫無已評估資產"
+  },
+  "filters": {
+    "categoryLabel": "類別",
+    "chainLabel": "鏈",
+    "all": "全部"
+  },
+  "table": {
+    "headers": {
+      "asset": "資產",
+      "category": "類別",
+      "chain": "鏈／平臺",
+      "tvl": "TVL(估算)",
+      "rarm": "RARM",
+      "action": ""
+    },
+    "viewLink": "檢視",
+    "noResults": "無資產符合篩選條件。",
+    "loadMore": "載入更多(剩餘 {{remaining}} 條)→"
+  },
+  "breakdown": {
+    "eyebrow": "逐資產檢視",
+    "h2": "各資產 RARM 分項",
+    "body": "六個 RARM 層的逐資產訊號分項。柱形表示定性區間,而非數值評分。"
+  },
+  "disclaimer": "本觀測站僅為學術研究工具。RARM 評估反映審閱時點的公開資訊,不構成投資建議、信用評級或監管意見。在做出任何投資或運營決策前,應獨立核實所有層訊號。",
+  "status": {
+    "active": "活躍",
+    "inactive": "非活躍",
+    "underReview": "審查中"
+  },
+  "categoryLabels": {
+    "tokenized-treasury": "代幣化國債",
+    "tokenized-money-market": "代幣化貨幣市場",
+    "tokenized-commodity": "代幣化大宗商品",
+    "tokenized-private-credit": "代幣化私人信貸",
+    "tokenized-real-estate": "代幣化房地產",
+    "tokenized-equity": "代幣化股權",
+    "other": "其他"
+  },
+  "profile": {
+    "breadcrumb": {
+      "assetObservatory": "資產觀測站"
+    },
+    "header": {
+      "rarmGuide": "RARM 指南"
+    },
+    "disclaimer": "RARM 評估為學術性質,僅基於公開資訊。不構成投資建議、信用評級或法律意見。隨著更多資訊出現,訊號會發生變化。",
+    "sections": {
+      "overview": "概覽",
+      "rarmLayers": "(RARM)—— 六層",
+      "underlyingAsset": "底層資產",
+      "auditReports": "審計報告",
+      "blockchainDeployment": "區塊鏈部署",
+      "relatedIncidents": "相關事件",
+      "relatedIssuers": "相關發行方(牌照模組)",
+      "sources": "來源"
+    },
+    "rarmTable": {
+      "sublede": "每層基於公開資訊獨立評估。灰色表示公開資料不足,無法賦予訊號。",
+      "aggregate": {
+        "label": "保守彙總訊號",
+        "layers": "{{gray}}/6 層未評估 · {{green}} 綠 · {{yellow}} 黃 · {{red}} 紅"
+      }
+    },
+    "auditStatus": {
+      "passed": "通過",
+      "passedWithFindings": "通過(有發現)",
+      "inProgress": "進行中",
+      "seeReport": "檢視報告",
+      "fallback": "審計報告"
+    },
+    "sidebar": {
+      "quickFacts": {
+        "heading": "速覽",
+        "ticker": "代幣簡稱",
+        "category": "類別",
+        "status": "狀態",
+        "domicile": "註冊地",
+        "launchDate": "上線日期",
+        "tvl": "TVL",
+        "updatedAt": "更新於 {{date}} · {{source}}"
+      },
+      "rarmAtGlance": {
+        "heading": "RARM 一覽"
+      },
+      "cite": {
+        "heading": "引用此檔案",
+        "text": "RWA-Index. \"{{name}} (RARM Profile)\". RWA-Index Tokenized Asset Observatory. Last updated {{date}}. {{url}}",
+        "copy": "複製 URL",
+        "copied": "已複製"
+      }
+    },
+    "footer": {
+      "backLink": "資產觀測站",
+      "methodologyLink": "RARM 方法論"
+    }
+  }
+}
