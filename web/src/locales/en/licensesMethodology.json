@@ -1,0 +1,160 @@
+{
+  "breadcrumb": {
+    "parent": "Licence Tracker",
+    "current": "SARM Methodology"
+  },
+  "title": "SARM — Stablecoin Assessment & Risk Matrix",
+  "lede": "A qualitative traffic-light framework for assessing stablecoin issuers applying under the Hong Kong Stablecoins Ordinance (Cap. 649). Produced for academic research purposes only.",
+  "signals": {
+    "green": {
+      "desc": "Meets or exceeds the standard for this dimension based on publicly available information."
+    },
+    "yellow": {
+      "desc": "Partially meets the standard; conditional, limited, or qualified compliance."
+    },
+    "red": {
+      "desc": "Significant gap identified; materially non-compliant or missing on this dimension."
+    },
+    "gray": {
+      "desc": "Insufficient public information to make an assessment. Not a positive or negative signal — it is a data availability signal."
+    }
+  },
+  "sections": {
+    "s1": {
+      "title": "1. Design Principles",
+      "intro": "SARM is intentionally non-numerical. It does not produce a composite score, letter grade, or ranking. This design reflects the following principles:",
+      "principles": {
+        "regulatory_neutrality": {
+          "heading": "Regulatory neutrality.",
+          "body": "Assigning a numerical score to a licensed or licence-seeking entity creates a pseudo-rating that could influence market participants. SARM avoids this by using qualitative signals only."
+        },
+        "transparency": {
+          "heading": "Transparency of uncertainty.",
+          "body": "Gray explicitly signals “insufficient public information” rather than inferring a positive or negative outcome. All five current applicants are gray across all dimensions because the HKMA licensing process is still ongoing and issuer-specific disclosures are limited."
+        },
+        "source_traceability": {
+          "heading": "Source traceability.",
+          "body": "Every signal is accompanied by a rationale and, where available, a citation to a public source. Assessments cannot be better than the public record."
+        },
+        "separation": {
+          "heading": "Separation of dimensions.",
+          "body": "Dimensions are reported individually. A strong reserve quality does not mask weak governance. Users can identify specific areas of concern without a blended metric obscuring them."
+        }
+      }
+    },
+    "s2": {
+      "title": "2. Signal Definitions"
+    },
+    "s3": {
+      "title": "3. The Six SARM Dimensions",
+      "intro": "SARM evaluates each issuer across six dimensions derived from the HKMA’s regulatory requirements for stablecoin issuers and international best practice (FSB, BIS, MiCA).",
+      "refPrefix": "Ref:",
+      "dimensions": {
+        "capital_adequacy": {
+          "title": "Capital Adequacy",
+          "desc": "Whether the issuer entity is adequately capitalised relative to its outstanding stablecoin obligations. Assessed from public filings, regulatory disclosures, or HKMA announcements.",
+          "ref": "HKMA Stablecoins Consultation Conclusions §4.2; BCBS Basel III Tier 1 Capital principles."
+        },
+        "reserve_quality": {
+          "title": "Reserve Quality",
+          "desc": "Composition, liquidity, and credit quality of assets backing the stablecoin. Evaluated through independent attestation reports and custodian disclosures.",
+          "ref": "FSB High-Level Recommendations for Global Stablecoin Arrangements (2023), Rec. 7; HKMA Cap. 649 §18."
+        },
+        "governance": {
+          "title": "Governance",
+          "desc": "Board independence, AML/CFT compliance officer, audit committee, and publicly disclosed governance charter. Assesses structural safeguards against conflicts of interest.",
+          "ref": "FATF Guidance on Virtual Assets (2023); HKMA Guidelines on Authorization of Virtual Asset Trading Platforms."
+        },
+        "technology": {
+          "title": "Technology & Custody",
+          "desc": "Smart contract code quality and audit coverage. Custody arrangements for reserve assets — whether self-custodied, third-party, or at a regulated financial institution.",
+          "ref": "IOSCO Policy Recommendations for Crypto and Digital Asset Markets (2023), Rec. 16."
+        },
+        "redemption": {
+          "title": "Redemption Mechanics",
+          "desc": "The issuer’s commitment to 1:1 par-value redemption, eligible counterparties, processing timeline, and any suspension rights. Retail vs. institutional-only access is noted.",
+          "ref": "BIS Working Paper No. 1014 (2022) §3; HKMA Cap. 649 §22."
+        },
+        "disclosure": {
+          "title": "Public Disclosure",
+          "desc": "Frequency and quality of public reserve attestations, annual audits, and incident disclosures. Evaluated against a “monthly attestation + annual audit” benchmark.",
+          "ref": "G7 Finance Ministers & Central Bank Governors Stablecoin Principles (2019); MiCA Art. 23 (2024)."
+        }
+      }
+    },
+    "s4": {
+      "title": "4. Assessment Rubric",
+      "intro": "The rubric below defines the criteria for each signal per dimension. Assessors apply the highest signal for which all listed criteria are met based on public sources.",
+      "tableHeaderDimension": "Dimension",
+      "rubric": {
+        "capital_adequacy": {
+          "green": "Published paid-up capital ≥ HKMA minimum; ring-fenced issuer entity clearly capitalised.",
+          "yellow": "Capital disclosed but below published minimum, or parent guarantee without ring-fencing.",
+          "red": "No evidence of adequate capital; issuer entity balance sheet not available.",
+          "gray": "No public disclosure of capital position for the HK issuer entity."
+        },
+        "reserve_quality": {
+          "green": "Independent attestation (≥ monthly); 100% high-quality HKD assets; named custodian.",
+          "yellow": "Attestation published but infrequent (≥ quarterly) or includes lower-quality assets.",
+          "red": "No independent attestation; or reserve assets do not cover circulating supply.",
+          "gray": "Reserve composition and custodian not publicly disclosed."
+        },
+        "governance": {
+          "green": "Independent board; named MLRO/CO; audit committee; publicly disclosed governance charter.",
+          "yellow": "Key officers identified but board independence or audit committee not confirmed.",
+          "red": "No governance disclosures; sole-director structure; potential conflicts of interest.",
+          "gray": "Board composition and compliance structure not publicly documented."
+        },
+        "technology": {
+          "green": "Smart contracts audited by named, reputable firm; custody with regulated institution; results published.",
+          "yellow": "Audit in progress or older audit; custody partially self-managed.",
+          "red": "No published smart contract audit; self-custody without independent verification.",
+          "gray": "Blockchain platform, contract code, and custody arrangements not publicly specified."
+        },
+        "redemption": {
+          "green": "1:1 par redemption guaranteed in writing; T+1 or faster; retail access; no unreasonable minimums.",
+          "yellow": "Par redemption committed but restricted to institutional counterparties or delayed (T+3+).",
+          "red": "No published redemption guarantee; or suspension clauses with broad discretion.",
+          "gray": "Redemption terms, eligible redeemers, and processing timelines not published."
+        },
+        "disclosure": {
+          "green": "Monthly reserve attestation + annual audit + incident disclosure policy — all public.",
+          "yellow": "Quarterly or less frequent attestation; or partial disclosure (reserves but not governance).",
+          "red": "No regular public disclosure; ad hoc announcements only.",
+          "gray": "No transparency reports or regular disclosure schedule published."
+        }
+      }
+    },
+    "s5": {
+      "title": "5. Aggregation — What Is Not Computed",
+      "intro": "SARM deliberately does not aggregate the six dimensions into a composite score or letter grade. The reasons are methodological:",
+      "reasons": [
+        "Weighting six incommensurable dimensions (e.g. capital vs. technology) into a single number requires arbitrary choices that introduce false precision.",
+        "A composite score obscures the specific dimension driving a negative outcome — a high score could mask a red in reserve quality.",
+        "SFC Type 10 compliance considerations for licensed platforms in Hong Kong counsel against generating public ratings that could constitute investment advice."
+      ],
+      "outro": "The platform displays a “dominant signal” on overview cards purely as a navigation convenience (the most frequent non-gray signal, or gray if all dimensions are gray). It carries no analytical weight."
+    },
+    "s6": {
+      "title": "6. Coverage & Scope",
+      "p1": "This tracker covers stablecoin issuers that have publicly applied for, or been included in, the HKMA Stablecoin Issuer Sandbox or the formal licensing regime under the Stablecoins Ordinance (Cap. 649, effective 2025).",
+      "p2": "Issuers are included based on official HKMA press releases and announcements only. Rumoured or unconfirmed applicants are not included until the HKMA publicly confirms their participation.",
+      "p3": "Profiles are updated when new public information becomes available (HKMA decisions, issuer press releases, published attestations). Each profile records the “last reviewed” date and a reviewer note describing the basis for the current signals."
+    },
+    "s7": {
+      "title": "7. Limitations & Disclaimer",
+      "heading": "Important limitations:",
+      "items": [
+        "Assessments are based solely on publicly available information. Non-public regulatory submissions, confidential sandbox reports, and internal governance documents are not accessible.",
+        "Gray is the default signal when public information is absent. Gray does not imply that the issuer fails the standard — only that this cannot be verified from public sources.",
+        "SARM is not a credit rating, risk score, or regulatory opinion. It does not constitute investment advice, legal advice, or compliance certification.",
+        "The framework may be updated as the HKMA’s regulatory requirements evolve. Historical assessments are archived but not retroactively revised.",
+        "RWA-Index is not affiliated with the HKMA, the SFC, or any issuer covered in this tracker."
+      ]
+    }
+  },
+  "nav": {
+    "backLink": "Licence Tracker",
+    "version": "v1.0 · April 2026"
+  }
+}
