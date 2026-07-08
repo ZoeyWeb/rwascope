@@ -58,3 +58,4 @@ web/public/data/assets/assets-live.json
 # ── Browser testing binaries (never commit) ───────────────────────────────────
 web/chrome/
 *.app/
+.claude/worktrees/
