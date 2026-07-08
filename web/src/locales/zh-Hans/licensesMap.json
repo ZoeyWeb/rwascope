@@ -1,0 +1,99 @@
+{
+  "hero": {
+    "eyebrow": "SARM 框架",
+    "title": "稳定币风险观测站",
+    "lede": "对六个司法管辖区的稳定币发行方进行定性红绿灯观测，应用 Structural Adequacy Risk Model（SARM）。定性信号。"
+  },
+  "stats": {
+    "trackingIssuers": "追踪发行方数",
+    "jurisdictions": "司法管辖区",
+    "licensed": "持牌",
+    "underReview": "审查中",
+    "sandbox": "沙盒"
+  },
+  "tabs": { "jurisdictions": "司法管辖区", "issuers": "所有发行方", "sarm": "SARM 分项" },
+  "jurisdictionsTab": {
+    "methodologyLink": "SARM 方法论 →",
+    "total": "合计",
+    "licensed": "持牌",
+    "review": "审查中",
+    "sandbox": "沙盒",
+    "sarmSignals": "SARM 信号",
+    "noAssessedIssuers": "暂无已评估发行方"
+  },
+  "issuersTab": {
+    "jurisdictionLabel": "司法管辖区",
+    "allJurisdictions": "全部",
+    "statusLabel": "状态",
+    "searchPlaceholder": "搜索发行方或代币简称…",
+    "allPegs": "所有锚定货币",
+    "noIssuersMatch": "无发行方符合筛选条件。",
+    "tableHeaders": {
+      "issuer": "发行方",
+      "jurisdiction": "辖区",
+      "ticker": "代币",
+      "peg": "锚定",
+      "type": "类型",
+      "status": "状态",
+      "sarm": "SARM",
+      "applied": "申请日"
+    },
+    "viewAction": "查看",
+    "viewProfile": "查看档案",
+    "loadMore": "加载更多（剩余 {{remaining}} 条）→"
+  },
+  "sarmTab": {
+    "eyebrow": "逐发行方视图",
+    "title": "各发行方 SARM 分项",
+    "description": "六个 SARM 维度的逐发行方信号分项。柱形表示定性区间，而非数值评分。"
+  },
+  "sarmLegend": { "eyebrow": "SARM 信号" },
+  "disclaimer": "本追踪器仅供学术研究之用。评估仅基于公开信息。不构成、也不暗示任何投资、法律或合规建议。SARM 信号为定性判断，而非评分或评级。",
+  "statusFilters": {
+    "all": "全部",
+    "sandbox": "沙盒",
+    "underReview": "审查中",
+    "licensed": "持牌",
+    "withdrawn": "已撤回",
+    "rejected": "已拒绝"
+  },
+  "regimeChips": { "active": "已实施", "developing": "制定中", "proposed": "提案阶段" },
+  "issuerProfile": {
+    "breadcrumb": { "licenceTracker": "牌照追踪" },
+    "pegLabel": "锚定",
+    "applicationDateLabel": "申请日期",
+    "sections": {
+      "applicantOverview": "申请方概览",
+      "sarmAssessment": "SARM 监管评估",
+      "reserveQuality": "储备质量",
+      "governanceAudits": "治理与审计",
+      "technologyCustody": "技术与托管",
+      "redemptionMechanics": "赎回机制",
+      "publicDisclosures": "公开披露",
+      "sourcesAndCitations": "来源与引用"
+    },
+    "infoLabels": {
+      "legalEntity": "法律实体",
+      "parentSponsor": "母公司／担保方",
+      "jurisdiction": "司法管辖区",
+      "pegCurrency": "锚定货币",
+      "stablecoinType": "稳定币类型",
+      "ticker": "代币简称",
+      "licenceStatus": "牌照状态"
+    },
+    "sarmMethodologyText": "信号是仅基于公开信息的定性红绿灯。绿 = 达标 · 黄 = 部分／有条件 · 红 = 重大缺口 · 灰 = 公开数据不足。 ",
+    "methodologyLink": "完整方法论 →",
+    "noSourcesAvailable": "暂无公开来源。",
+    "reviewerNote": "审阅备注：",
+    "lastReviewed": "最近审阅：{{date}}",
+    "navigationAll": "所有发行方",
+    "navigationMethodology": "SARM 方法论",
+    "disclaimer": "⚠️ 仅供学术研究。不构成投资、法律或合规建议。SARM 信号为定性判断，基于公开可查信息，可能无法反映当前的监管或运营状态。",
+    "citationDateLabel": "获取／发布日期：{{date}}",
+    "notFound": {
+      "title": "未找到发行方",
+      "description": "数据库中不存在 slug 为「{{slug}}」的发行方。",
+      "backLink": "← 返回牌照追踪"
+    }
+  }
+}

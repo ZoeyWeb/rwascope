@@ -1,0 +1,111 @@
+{
+  "hero": {
+    "eyebrow": "SARM Framework",
+    "title": "Stablecoin Risk Observatory",
+    "lede": "Qualitative traffic-light observation of stablecoin issuers across six jurisdictions, applying the Structural Adequacy Risk Model (SARM). Qualitative signals."
+  },
+  "stats": {
+    "trackingIssuers": "Issuers Tracked",
+    "jurisdictions": "Jurisdictions",
+    "licensed": "Licensed",
+    "underReview": "Under Review",
+    "sandbox": "Sandbox"
+  },
+  "tabs": {
+    "jurisdictions": "Jurisdictions",
+    "issuers": "All Issuers",
+    "sarm": "SARM Breakdown"
+  },
+  "jurisdictionsTab": {
+    "methodologyLink": "SARM Methodology →",
+    "total": "Total",
+    "licensed": "Licensed",
+    "review": "Review",
+    "sandbox": "Sandbox",
+    "sarmSignals": "SARM signals",
+    "noAssessedIssuers": "No assessed issuers yet"
+  },
+  "issuersTab": {
+    "jurisdictionLabel": "Jurisdiction",
+    "allJurisdictions": "All",
+    "statusLabel": "Status",
+    "searchPlaceholder": "Search issuer or ticker…",
+    "allPegs": "All pegs",
+    "noIssuersMatch": "No issuers match your filters.",
+    "tableHeaders": {
+      "issuer": "Issuer",
+      "jurisdiction": "Jur.",
+      "ticker": "Ticker",
+      "peg": "Peg",
+      "type": "Type",
+      "status": "Status",
+      "sarm": "SARM",
+      "applied": "Applied"
+    },
+    "viewAction": "View",
+    "viewProfile": "View profile",
+    "loadMore": "Load more ({{remaining}} remaining) →"
+  },
+  "sarmTab": {
+    "eyebrow": "Per-issuer view",
+    "title": "SARM breakdown by issuer",
+    "description": "Per-issuer signal breakdown across the six SARM dimensions. Bars indicate qualitative band, not numerical score."
+  },
+  "sarmLegend": {
+    "eyebrow": "SARM signals"
+  },
+  "disclaimer": "This tracker is produced for academic research purposes. Assessments are based solely on publicly available information. No investment, legal, or compliance advice is intended or implied. SARM signals are qualitative judgements, not scores or ratings.",
+  "statusFilters": {
+    "all": "All",
+    "sandbox": "Sandbox",
+    "underReview": "Under Review",
+    "licensed": "Licensed",
+    "withdrawn": "Withdrawn",
+    "rejected": "Rejected"
+  },
+  "regimeChips": {
+    "active": "Active",
+    "developing": "Developing",
+    "proposed": "Proposed"
+  },
+  "issuerProfile": {
+    "breadcrumb": {
+      "licenceTracker": "Licence Tracker"
+    },
+    "pegLabel": "peg",
+    "applicationDateLabel": "Application Date",
+    "sections": {
+      "applicantOverview": "Applicant Overview",
+      "sarmAssessment": "SARM Regulatory Assessment",
+      "reserveQuality": "Reserve Quality",
+      "governanceAudits": "Governance & Audits",
+      "technologyCustody": "Technology & Custody",
+      "redemptionMechanics": "Redemption Mechanics",
+      "publicDisclosures": "Public Disclosures",
+      "sourcesAndCitations": "Sources & Citations"
+    },
+    "infoLabels": {
+      "legalEntity": "Legal Entity",
+      "parentSponsor": "Parent / Sponsor",
+      "jurisdiction": "Jurisdiction",
+      "pegCurrency": "Peg Currency",
+      "stablecoinType": "Stablecoin Type",
+      "ticker": "Ticker",
+      "licenceStatus": "Licence Status"
+    },
+    "sarmMethodologyText": "Signals are qualitative traffic lights based on public information only. Green = meets standard · Yellow = partial / conditional · Red = significant gap · Gray = insufficient public data. ",
+    "methodologyLink": "Full methodology →",
+    "noSourcesAvailable": "No public sources available.",
+    "reviewerNote": "Reviewer note: ",
+    "lastReviewed": "Last reviewed: {{date}}",
+    "navigationAll": "All issuers",
+    "navigationMethodology": "SARM Methodology",
+    "disclaimer": "⚠️ Academic research only. Not investment, legal, or compliance advice. SARM signals are qualitative judgements based on publicly available information and may not reflect current regulatory or operational status.",
+    "citationDateLabel": "Retrieved/published: {{date}}",
+    "notFound": {
+      "title": "Issuer not found",
+      "description": "No issuer with slug \"{{slug}}\" exists in the database.",
+      "backLink": "← Back to Licence Tracker"
+    }
+  }
+}
