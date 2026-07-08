@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import type { Incident } from '../types/incident';
 
 type CiteFormat = 'BibTeX' | 'APA' | 'Chicago';
@@ -27,6 +28,7 @@ function buildChicago(inc: Incident): string {
 }
 
 export default function CiteButton({ incident }: { incident: Incident }) {
+  const { t } = useTranslation('incidentsMap');
   const [open, setOpen] = useState(false);
   const [tab, setTab] = useState<CiteFormat>('BibTeX');
   const [copied, setCopied] = useState(false);
@@ -60,7 +62,7 @@ export default function CiteButton({ incident }: { incident: Incident }) {
         className="inline-flex items-center gap-1.5 text-ed-meta text-ed-accent hover:text-ed-ink transition-colors font-medium"
       >
         <span className="material-symbols-outlined text-[15px]">format_quote</span>
-        Cite
+        {t('rwai.citeButton.trigger')}
         <span className="material-symbols-outlined text-[13px] opacity-60">expand_more</span>
       </button>
 
@@ -96,7 +98,7 @@ export default function CiteButton({ incident }: { incident: Incident }) {
             <span className="material-symbols-outlined text-[15px]">
               {copied ? 'check' : 'content_copy'}
             </span>
-            {copied ? 'Copied!' : 'Copy to clipboard'}
+            {copied ? t('rwai.citeButton.copied') : t('rwai.citeButton.copy')}
           </button>
         </div>
       )}

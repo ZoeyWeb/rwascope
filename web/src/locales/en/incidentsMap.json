@@ -1,0 +1,211 @@
+{
+  "shared": {
+    "severity": {
+      "critical": "Critical",
+      "high": "High",
+      "medium": "Medium",
+      "low": "Low"
+    },
+    "status": {
+      "resolved": "Resolved",
+      "ongoing": "Ongoing",
+      "underInvestigation": "Under Investigation",
+      "litigation": "Litigation",
+      "settled": "Settled"
+    },
+    "scope": {
+      "hk": "HK",
+      "global": "GLOBAL"
+    },
+    "type": {
+      "de-pegging": "De-pegging",
+      "smart-contract-exploit": "Smart Contract Exploit",
+      "custody-incident": "Custody Incident",
+      "redemption-failure": "Redemption Failure",
+      "regulatory-action": "Regulatory Action",
+      "governance-failure": "Governance Failure",
+      "bank-failure-spillover": "Bank Failure Spillover",
+      "sanctions": "Sanctions",
+      "other": "Other"
+    },
+    "assetClass": {
+      "stablecoin": "Stablecoin",
+      "tokenized-treasury": "Tokenized Treasury",
+      "tokenized-real-estate": "Tokenized Real Estate",
+      "tokenized-private-credit": "Tokenized Private Credit",
+      "tokenized-commodity": "Tokenized Commodity",
+      "infrastructure": "Infrastructure",
+      "other": "Other"
+    },
+    "sourceType": {
+      "regulatory-filing": "Regulatory Filing",
+      "court-record": "Court Record",
+      "official-statement": "Official Statement",
+      "major-media": "Major Media",
+      "industry-media": "Industry Media"
+    }
+  },
+  "hero": {
+    "eyebrow": "RWAscope Incident Registry",
+    "h1": "RWA Incident Database",
+    "lede": "Indexed postmortems with permanent RWAI identifiers for academic citation, complemented by a broader incident database covering events across the RWA ecosystem.",
+    "rssSubscribe": "RSS Subscribe"
+  },
+  "stats": {
+    "indexedIncidents": "Indexed incidents",
+    "catastrophic": "Catastrophic",
+    "yearsCovered": "Years covered",
+    "assetClasses": "Asset classes"
+  },
+  "registry": {
+    "eyebrow": "RWAscope · Indexed Registry",
+    "h2": "RWA Incident Registry",
+    "identifierNote": "Identifiers follow the pattern <mono>RWAI-YYYY-NNN</mono>. Each entry is citable and carries a permanent URL.",
+    "methodology": "Methodology"
+  },
+  "database": {
+    "eyebrow": "RWAscope · Broader Corpus",
+    "h2": "Incident Database",
+    "stats": {
+      "incidents": "Incidents",
+      "critical": "Critical",
+      "yearsCovered": "Years covered",
+      "assetClasses": "Asset classes",
+      "assetClassesCount": "{{count}} of 7"
+    },
+    "table": {
+      "date": "Date",
+      "severity": "Severity",
+      "incident": "Incident",
+      "assetClass": "Asset Class",
+      "loss": "Loss (USD)"
+    },
+    "assetClassShort": {
+      "stablecoin": "Stablecoin",
+      "infrastructure": "Infrastructure",
+      "tokenized-real-estate": "Tokenized RE",
+      "tokenized-treasury": "Tokenized Treasury",
+      "tokenized-private-credit": "Private Credit",
+      "tokenized-commodity": "Tokenized Commodity"
+    }
+  },
+  "detail": {
+    "breadcrumb": "Incident Database",
+    "notFound": {
+      "h1": "Incident not found",
+      "description": "No incident with slug \"{{slug}}\" exists in the database.",
+      "backLink": "← Back to Incident Database"
+    },
+    "hkRelevance": "HK relevance:",
+    "sections": {
+      "quickFacts": {
+        "title": "Quick Facts",
+        "date": "Date",
+        "primaryEntity": "Primary Entity",
+        "issuerOperator": "Issuer / Operator",
+        "assetType": "Asset Type",
+        "incidentType": "Incident Type",
+        "estLoss": "Est. Loss (USD)",
+        "affectedParties": "Affected Parties",
+        "jurisdictions": "Jurisdictions",
+        "hkNexus": "HK Nexus",
+        "leadRegulator": "Lead Regulator"
+      },
+      "timeline": "Timeline",
+      "whatHappened": "What Happened",
+      "regulatoryResponse": {
+        "title": "Regulatory Response",
+        "source": "Source",
+        "action": "Action:",
+        "outcome": "Outcome:"
+      },
+      "frameworkMapping": {
+        "title": "Framework Mapping",
+        "sublede": "Each incident is mapped to the SARM (stablecoin) and/or RARM (RWA) analytical frameworks. This is the academic contribution of this database: linking real events to structured risk dimensions.",
+        "sarmDimensions": "SARM Dimensions Implicated",
+        "rarmLayers": "RARM Layers Implicated",
+        "sarm": {
+          "reserve": "Reserve Quality",
+          "redemption": "Redemption Mechanics",
+          "governance": "Governance"
+        },
+        "rarm": {
+          "legal": "Legal & Jurisdictional",
+          "valuation": "Asset Valuation & Oracles",
+          "custody": "Custody & Asset Control",
+          "kyc": "KYC/AML & Permissioning",
+          "liquidity": "Secondary Market Liquidity",
+          "settlement": "Settlement Finality"
+        }
+      },
+      "lessonsPatterns": {
+        "title": "Lessons & Patterns",
+        "relatedIncidents": "Related incidents"
+      },
+      "sources": "Sources & Citations",
+      "disclaimer": {
+        "title": "Disclaimer",
+        "body": "This entry is compiled from publicly available information including regulatory filings, court records, official statements, and media reporting. RWA-Index does not allege wrongdoing beyond what is documented in cited public sources. Where investigations are ongoing, the entry reflects publicly known information at last update date.",
+        "lastUpdated": "Last updated: {{date}}.",
+        "revisionNotes": "Revision notes:"
+      }
+    },
+    "sidebar": {
+      "estimatedLoss": "Estimated Loss",
+      "date": "Date",
+      "primaryEntity": "Primary Entity",
+      "issuerOperator": "Issuer / Operator",
+      "jurisdictions": "Jurisdictions",
+      "relatedIssuers": "Related Issuers",
+      "licenceProfile": "Licence profile: {{slug}}",
+      "relatedIncidents": "Related Incidents"
+    },
+    "cite": {
+      "heading": "Cite this entry",
+      "format": "RWA-Index. ({{year}}). {{title}}. Tokenization Incident Database. Retrieved {{retrievedDate}}, from {{url}}",
+      "copy": "Copy citation",
+      "copied": "Copied!"
+    },
+    "methodologyLink": "Inclusion & severity methodology",
+    "footer": {
+      "backLink": "All incidents",
+      "methodologyLink": "Methodology"
+    }
+  },
+  "rwai": {
+    "breadcrumb": "Incident Registry",
+    "notFound": {
+      "h1": "Incident not found",
+      "description": "No incident with ID \"{{id}}\" exists in the registry.",
+      "backLink": "← Back to Incident Registry"
+    },
+    "metaLabels": {
+      "assetClass": "Asset class",
+      "affectedLayers": "Affected layers",
+      "project": "Project",
+      "cite": "Cite"
+    },
+    "sections": {
+      "outcome": "Outcome",
+      "whatFailed": "What failed",
+      "rarmImplication": "Implication for RARM"
+    },
+    "sidebar": {
+      "severity": "Severity",
+      "incidentDate": "Incident date",
+      "registryId": "Registry ID",
+      "rarmLayersAffected": "RARM layers affected",
+      "citeThisEntry": "Cite this entry",
+      "fullProjectProfile": "Full project profile"
+    },
+    "citeButton": {
+      "trigger": "Cite",
+      "copy": "Copy to clipboard",
+      "copied": "Copied!"
+    },
+    "footer": {
+      "backLink": "Incident Registry",
+      "projectProfile": "Project profile"
+    }
+  }
+}

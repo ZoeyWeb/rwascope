@@ -1,17 +1,25 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Helmet } from 'react-helmet-async';
 import type { Incident, IncidentSeverity, IncidentScope, IncidentStatus, IncidentSource } from '../../types/incidents';
 import {
   SEVERITY_META, INCIDENT_STATUS_META, SCOPE_META,
-  INCIDENT_TYPE_LABELS, INCIDENT_ASSET_LABELS, SOURCE_TYPE_LABELS, formatLossUsd,
+  formatLossUsd,
 } from '../../utils/incidents';
 import DisclaimerBanner from '../../components/DisclaimerBanner';
 import RWAIIncidentDetail from './RWAIIncidentDetail';
 
+// ── Key helpers ───────────────────────────────────────────────────────────────
+
+function statusI18nKey(s: string) {
+  return s.replace(/-([a-z])/g, (_: string, c: string) => c.toUpperCase());
+}
+
 // ── Primitive badges ──────────────────────────────────────────────────────────
 
 function SeverityBadge({ severity }: { severity: IncidentSeverity }) {
+  const { t } = useTranslation('incidentsMap');
   const m = SEVERITY_META[severity];
   return (
     <span
@@ -19,31 +27,33 @@ function SeverityBadge({ severity }: { severity: IncidentSeverity }) {
       style={{ color: m.color, background: m.bg, border: `1px solid ${m.border}` }}
     >
       <span className="inline-block w-2 h-2 rounded-full" style={{ background: m.dot }} />
-      {m.label}
+      {t(`shared.severity.${severity}`)}
     </span>
   );
 }
 
 function ScopeBadge({ scope }: { scope: IncidentScope }) {
+  const { t } = useTranslation('incidentsMap');
   const m = SCOPE_META[scope];
   return (
     <span
       className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-black tracking-wide"
       style={{ color: m.color, background: m.bg, border: `1px solid ${m.border}` }}
     >
-      {m.label}
+      {t(`shared.scope.${scope === 'hk-related' ? 'hk' : 'global'}`)}
     </span>
   );
 }
 
 function StatusBadge({ status }: { status: IncidentStatus }) {
+  const { t } = useTranslation('incidentsMap');
   const m = INCIDENT_STATUS_META[status];
   return (
     <span
       className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold"
       style={{ color: m.color, background: m.bg }}
     >
-      {m.label}
+      {t(`shared.status.${statusI18nKey(status)}`)}
     </span>
   );
 }
@@ -74,9 +84,15 @@ function InfoRow({ label, value }: { label: string; value: React.ReactNode }) {
 // ── Cite-this box ─────────────────────────────────────────────────────────────
 
 function CiteBox({ incident }: { incident: Incident }) {
+  const { t } = useTranslation('incidentsMap');
   const [copied, setCopied] = useState(false);
   const url = `https://rwa-index.com/incidents/${incident.slug}`;
-  const citation = `RWA-Index. (${incident.lastUpdatedAt.slice(0, 4)}). ${incident.title}. Tokenization Incident Database. Retrieved ${new Date().toISOString().slice(0, 10)}, from ${url}`;
+  const citation = t('detail.cite.format', {
+    year: incident.lastUpdatedAt.slice(0, 4),
+    title: incident.title,
+    retrievedDate: new Date().toISOString().slice(0, 10),
+    url,
+  });
 
   const copy = () => {
     navigator.clipboard.writeText(citation).then(() => {
@@ -87,14 +103,14 @@ function CiteBox({ incident }: { incident: Incident }) {
 
   return (
     <div className="bg-[#F8FAFB] rounded-lg border border-[#DBE4E7] p-3 space-y-2">
-      <div className="text-xs font-bold text-[#737C7F] uppercase tracking-wider">Cite this entry</div>
+      <div className="text-xs font-bold text-[#737C7F] uppercase tracking-wider">{t('detail.cite.heading')}</div>
       <p className="text-xs text-[#737C7F] leading-relaxed font-mono break-all">{citation}</p>
       <button
         onClick={copy}
         className="flex items-center gap-1 text-xs text-[#5E5C75] hover:text-[#2B3437] transition-colors font-bold"
       >
         <span className="material-symbols-outlined text-sm">{copied ? 'check' : 'content_copy'}</span>
-        {copied ? 'Copied!' : 'Copy citation'}
+        {copied ? t('detail.cite.copied') : t('detail.cite.copy')}
       </button>
     </div>
   );
@@ -103,6 +119,7 @@ function CiteBox({ incident }: { incident: Incident }) {
 // ── Source list item ──────────────────────────────────────────────────────────
 
 function SourceItem({ src, index }: { src: IncidentSource; index: number }) {
+  const { t } = useTranslation('incidentsMap');
   return (
     <li className="flex items-baseline gap-2 text-sm">
       <span className="text-[#5E5C75] font-bold shrink-0">[{index + 1}]</span>
@@ -121,7 +138,7 @@ function SourceItem({ src, index }: { src: IncidentSource; index: number }) {
         {src.date ? `, ${src.date}` : ''}.
         {' '}
         <span className="text-xs text-[#737C7F] rounded px-1 py-0.5 bg-[#F1F4F6]">
-          {SOURCE_TYPE_LABELS[src.type]}
+          {t(`shared.sourceType.${src.type}`)}
         </span>
       </span>
     </li>
@@ -142,6 +159,7 @@ export default function IncidentDetail() {
 }
 
 function LegacyIncidentDetail({ slug }: { slug: string | undefined }) {
+  const { t } = useTranslation('incidentsMap');
   const [incident, setIncident] = useState<Incident | null>(null);
   const [allIncidents, setAllIncidents] = useState<Incident[]>([]);
   const [loading, setLoading] = useState(true);
@@ -169,9 +187,9 @@ function LegacyIncidentDetail({ slug }: { slug: string | undefined }) {
   if (notFound || !incident) return (
     <div className="max-w-3xl mx-auto px-6 py-16 text-center">
       <div className="text-4xl mb-4">🔍</div>
-      <h1 className="text-xl font-black text-[#2B3437] mb-2">Incident not found</h1>
-      <p className="text-sm text-[#737C7F] mb-6">No incident with slug "{slug}" exists in the database.</p>
-      <Link to="/incidents" className="text-[#5E5C75] underline text-sm">← Back to Incident Database</Link>
+      <h1 className="text-xl font-black text-[#2B3437] mb-2">{t('detail.notFound.h1')}</h1>
+      <p className="text-sm text-[#737C7F] mb-6">{t('detail.notFound.description', { slug })}</p>
+      <Link to="/incidents" className="text-[#5E5C75] underline text-sm">{t('detail.notFound.backLink')}</Link>
     </div>
   );
 
@@ -183,7 +201,7 @@ function LegacyIncidentDetail({ slug }: { slug: string | undefined }) {
 
       {/* ── Breadcrumb ── */}
       <div className="flex items-center gap-2 text-xs text-[#737C7F]">
-        <Link to="/incidents" className="hover:text-[#2B3437] transition-colors">Incident Database</Link>
+        <Link to="/incidents" className="hover:text-[#2B3437] transition-colors">{t('detail.breadcrumb')}</Link>
         <span className="material-symbols-outlined text-sm">chevron_right</span>
         <span className="text-[#2B3437] truncate max-w-xs">{incident.title}</span>
       </div>
@@ -206,20 +224,20 @@ function LegacyIncidentDetail({ slug }: { slug: string | undefined }) {
             {incident.hkRelevance && (
               <div className="flex items-start gap-2 bg-[#FCE4EC] rounded-lg px-3 py-2 border border-[#F48FB1]">
                 <span className="material-symbols-outlined text-[#9e3f4e] text-sm shrink-0 mt-0.5">location_on</span>
-                <p className="text-xs text-[#9e3f4e]"><strong>HK relevance:</strong> {incident.hkRelevance}</p>
+                <p className="text-xs text-[#9e3f4e]"><strong>{t('detail.hkRelevance')}</strong> {incident.hkRelevance}</p>
               </div>
             )}
           </div>
 
           {/* Section 2: Quick Facts */}
-          <Section id="facts" title="Quick Facts" icon="fact_check">
-            <InfoRow label="Date" value={incident.endDate ? `${incident.date} – ${incident.endDate}` : incident.date} />
-            <InfoRow label="Primary Entity" value={<strong>{incident.primaryEntity}</strong>} />
-            {incident.issuerOrOperator && <InfoRow label="Issuer / Operator" value={incident.issuerOrOperator} />}
-            <InfoRow label="Asset Type" value={INCIDENT_ASSET_LABELS[incident.assetClass]} />
-            <InfoRow label="Incident Type" value={INCIDENT_TYPE_LABELS[incident.type]} />
+          <Section id="facts" title={t('detail.sections.quickFacts.title')} icon="fact_check">
+            <InfoRow label={t('detail.sections.quickFacts.date')} value={incident.endDate ? `${incident.date} – ${incident.endDate}` : incident.date} />
+            <InfoRow label={t('detail.sections.quickFacts.primaryEntity')} value={<strong>{incident.primaryEntity}</strong>} />
+            {incident.issuerOrOperator && <InfoRow label={t('detail.sections.quickFacts.issuerOperator')} value={incident.issuerOrOperator} />}
+            <InfoRow label={t('detail.sections.quickFacts.assetType')} value={t(`shared.assetClass.${incident.assetClass}`, { defaultValue: incident.assetClass })} />
+            <InfoRow label={t('detail.sections.quickFacts.incidentType')} value={t(`shared.type.${incident.type}`, { defaultValue: incident.type })} />
             <InfoRow
-              label="Est. Loss (USD)"
+              label={t('detail.sections.quickFacts.estLoss')}
               value={incident.estimatedLossUsd
                 ? <><strong className="text-[#ea580c]">{formatLossUsd(incident.estimatedLossUsd)}</strong>{' '}
                     {incident.estimatedLossNote && <span className="text-xs text-[#737C7F]">— {incident.estimatedLossNote}</span>}
@@ -227,11 +245,11 @@ function LegacyIncidentDetail({ slug }: { slug: string | undefined }) {
                 : <span className="text-[#737C7F] text-xs">{incident.estimatedLossNote ?? '—'}</span>
               }
             />
-            <InfoRow label="Affected Parties" value={incident.affectedParties.join(', ')} />
-            <InfoRow label="Jurisdictions" value={incident.jurisdictions.join(', ')} />
-            {incident.hkRelevance && <InfoRow label="HK Nexus" value={incident.hkRelevance} />}
+            <InfoRow label={t('detail.sections.quickFacts.affectedParties')} value={incident.affectedParties.join(', ')} />
+            <InfoRow label={t('detail.sections.quickFacts.jurisdictions')} value={incident.jurisdictions.join(', ')} />
+            {incident.hkRelevance && <InfoRow label={t('detail.sections.quickFacts.hkNexus')} value={incident.hkRelevance} />}
             <InfoRow
-              label="Lead Regulator"
+              label={t('detail.sections.quickFacts.leadRegulator')}
               value={incident.regulatoryResponse.length > 0
                 ? incident.regulatoryResponse[0].regulator
                 : '—'
@@ -241,7 +259,7 @@ function LegacyIncidentDetail({ slug }: { slug: string | undefined }) {
 
           {/* Section 3: Timeline */}
           {incident.timeline.length > 0 && (
-            <Section id="timeline" title="Timeline" icon="timeline">
+            <Section id="timeline" title={t('detail.sections.timeline')} icon="timeline">
               <div className="relative pl-5 border-l-2 border-[#DBE4E7] space-y-4">
                 {incident.timeline.map((entry, i) => (
                   <div key={i} className="relative">
@@ -267,7 +285,7 @@ function LegacyIncidentDetail({ slug }: { slug: string | undefined }) {
           )}
 
           {/* Section 4: Narrative */}
-          <Section id="narrative" title="What Happened" icon="description">
+          <Section id="narrative" title={t('detail.sections.whatHappened')} icon="description">
             <div className="space-y-3">
               {narrativeParas.map((para, i) => (
                 <p key={i} className="text-sm text-[#737C7F] leading-relaxed">{para}</p>
@@ -277,7 +295,7 @@ function LegacyIncidentDetail({ slug }: { slug: string | undefined }) {
 
           {/* Section 5: Regulatory Response */}
           {incident.regulatoryResponse.length > 0 && (
-            <Section id="regulatory" title="Regulatory Response" icon="gavel">
+            <Section id="regulatory" title={t('detail.sections.regulatoryResponse.title')} icon="gavel">
               <div className="space-y-4">
                 {incident.regulatoryResponse.map((r, i) => (
                   <div key={i} className="border border-[#DBE4E7] rounded-lg p-4 space-y-2">
@@ -293,13 +311,13 @@ function LegacyIncidentDetail({ slug }: { slug: string | undefined }) {
                           rel="noopener noreferrer"
                           className="flex items-center gap-1 text-xs text-[#5E5C75] hover:text-[#2B3437] shrink-0"
                         >
-                          Source
+                          {t('detail.sections.regulatoryResponse.source')}
                           <span className="material-symbols-outlined text-sm">open_in_new</span>
                         </a>
                       )}
                     </div>
-                    <p className="text-xs text-[#737C7F]"><strong>Action:</strong> {r.actionType}</p>
-                    <p className="text-xs text-[#737C7F]"><strong>Outcome:</strong> {r.outcome}</p>
+                    <p className="text-xs text-[#737C7F]"><strong>{t('detail.sections.regulatoryResponse.action')}</strong> {r.actionType}</p>
+                    <p className="text-xs text-[#737C7F]"><strong>{t('detail.sections.regulatoryResponse.outcome')}</strong> {r.outcome}</p>
                   </div>
                 ))}
               </div>
@@ -308,21 +326,20 @@ function LegacyIncidentDetail({ slug }: { slug: string | undefined }) {
 
           {/* Section 6: Framework Mapping */}
           {(incident.frameworkMapping.sarm || incident.frameworkMapping.rarm) && (
-            <Section id="framework" title="Framework Mapping" icon="account_tree">
+            <Section id="framework" title={t('detail.sections.frameworkMapping.title')} icon="account_tree">
               <p className="text-xs text-[#737C7F] bg-[#F8FAFB] rounded-lg px-3 py-2 border border-[#DBE4E7]">
-                Each incident is mapped to the SARM (stablecoin) and/or RARM (RWA) analytical frameworks.
-                This is the academic contribution of this database: linking real events to structured risk dimensions.
+                {t('detail.sections.frameworkMapping.sublede')}
               </p>
 
               {incident.frameworkMapping.sarm && (
                 <div className="space-y-3">
-                  <div className="text-sm font-bold text-[#2B3437]">SARM Dimensions Implicated</div>
+                  <div className="text-sm font-bold text-[#2B3437]">{t('detail.sections.frameworkMapping.sarmDimensions')}</div>
                   <div className="grid grid-cols-3 gap-2">
                     {[
-                      { key: 'reserveImplicated', label: 'Reserve Quality' },
-                      { key: 'redemptionImplicated', label: 'Redemption Mechanics' },
-                      { key: 'governanceImplicated', label: 'Governance' },
-                    ].map(({ key, label }) => {
+                      { key: 'reserveImplicated',    i18nKey: 'detail.sections.frameworkMapping.sarm.reserve' },
+                      { key: 'redemptionImplicated',  i18nKey: 'detail.sections.frameworkMapping.sarm.redemption' },
+                      { key: 'governanceImplicated',  i18nKey: 'detail.sections.frameworkMapping.sarm.governance' },
+                    ].map(({ key, i18nKey }) => {
                       const implicated = incident.frameworkMapping.sarm![key as keyof typeof incident.frameworkMapping.sarm] as boolean;
                       return (
                         <div
@@ -337,7 +354,7 @@ function LegacyIncidentDetail({ slug }: { slug: string | undefined }) {
                           <span className="material-symbols-outlined text-sm">
                             {implicated ? 'warning' : 'check_circle'}
                           </span>
-                          {label}
+                          {t(i18nKey)}
                         </div>
                       );
                     })}
@@ -348,16 +365,16 @@ function LegacyIncidentDetail({ slug }: { slug: string | undefined }) {
 
               {incident.frameworkMapping.rarm && (
                 <div className="space-y-3">
-                  <div className="text-sm font-bold text-[#2B3437]">RARM Layers Implicated</div>
+                  <div className="text-sm font-bold text-[#2B3437]">{t('detail.sections.frameworkMapping.rarmLayers')}</div>
                   <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
                     {[
-                      { key: 'legalJurisdictional', label: 'Legal & Jurisdictional' },
-                      { key: 'assetValuationOracles', label: 'Asset Valuation & Oracles' },
-                      { key: 'custodyAssetControl', label: 'Custody & Asset Control' },
-                      { key: 'kycAmlPermissioning', label: 'KYC/AML & Permissioning' },
-                      { key: 'secondaryMarketLiquidity', label: 'Secondary Market Liquidity' },
-                      { key: 'settlementFinality', label: 'Settlement Finality' },
-                    ].map(({ key, label }) => {
+                      { key: 'legalJurisdictional',     i18nKey: 'detail.sections.frameworkMapping.rarm.legal' },
+                      { key: 'assetValuationOracles',   i18nKey: 'detail.sections.frameworkMapping.rarm.valuation' },
+                      { key: 'custodyAssetControl',      i18nKey: 'detail.sections.frameworkMapping.rarm.custody' },
+                      { key: 'kycAmlPermissioning',      i18nKey: 'detail.sections.frameworkMapping.rarm.kyc' },
+                      { key: 'secondaryMarketLiquidity', i18nKey: 'detail.sections.frameworkMapping.rarm.liquidity' },
+                      { key: 'settlementFinality',       i18nKey: 'detail.sections.frameworkMapping.rarm.settlement' },
+                    ].map(({ key, i18nKey }) => {
                       const implicated = incident.frameworkMapping.rarm![key as keyof typeof incident.frameworkMapping.rarm] as boolean;
                       return (
                         <div
@@ -372,7 +389,7 @@ function LegacyIncidentDetail({ slug }: { slug: string | undefined }) {
                           <span className="material-symbols-outlined text-sm">
                             {implicated ? 'warning' : 'check_circle'}
                           </span>
-                          <span className="leading-tight">{label}</span>
+                          <span className="leading-tight">{t(i18nKey)}</span>
                         </div>
                       );
                     })}
@@ -384,11 +401,11 @@ function LegacyIncidentDetail({ slug }: { slug: string | undefined }) {
           )}
 
           {/* Section 7: Lessons */}
-          <Section id="lessons" title="Lessons &amp; Patterns" icon="lightbulb">
+          <Section id="lessons" title={t('detail.sections.lessonsPatterns.title')} icon="lightbulb">
             <p className="text-sm text-[#737C7F] leading-relaxed">{incident.lessons}</p>
             {relatedIncidents.length > 0 && (
               <div className="space-y-2">
-                <div className="text-xs font-bold text-[#737C7F] uppercase tracking-wider">Related incidents</div>
+                <div className="text-xs font-bold text-[#737C7F] uppercase tracking-wider">{t('detail.sections.lessonsPatterns.relatedIncidents')}</div>
                 <div className="flex flex-col gap-2">
                   {relatedIncidents.map(r => (
                     <Link
@@ -406,7 +423,7 @@ function LegacyIncidentDetail({ slug }: { slug: string | undefined }) {
           </Section>
 
           {/* Section 8: Sources */}
-          <Section id="sources" title="Sources &amp; Citations" icon="menu_book">
+          <Section id="sources" title={t('detail.sections.sources')} icon="menu_book">
             <ol className="space-y-2 list-none">
               {incident.sources.map((src, i) => (
                 <SourceItem key={i} src={src} index={i} />
@@ -416,17 +433,14 @@ function LegacyIncidentDetail({ slug }: { slug: string | undefined }) {
 
           {/* Section 9: Disclaimer */}
           <div className="bg-[#F8FAFB] rounded-xl border border-[#DBE4E7] p-5 space-y-2">
-            <div className="text-xs font-bold text-[#737C7F] uppercase tracking-wider">Disclaimer</div>
+            <div className="text-xs font-bold text-[#737C7F] uppercase tracking-wider">{t('detail.sections.disclaimer.title')}</div>
             <p className="text-xs text-[#737C7F] leading-relaxed">
-              This entry is compiled from publicly available information including regulatory filings, court records,
-              official statements, and media reporting. RWA-Index does not allege wrongdoing beyond what is
-              documented in cited public sources. Where investigations are ongoing, the entry reflects publicly
-              known information at last update date.{' '}
-              <strong>Last updated: {incident.lastUpdatedAt}.</strong>
+              {t('detail.sections.disclaimer.body')}{' '}
+              <strong>{t('detail.sections.disclaimer.lastUpdated', { date: incident.lastUpdatedAt })}</strong>
             </p>
             {incident.revisionNotes && incident.revisionNotes.length > 0 && (
               <div className="pt-2 border-t border-[#DBE4E7] space-y-1">
-                <div className="text-xs font-bold text-[#737C7F]">Revision notes:</div>
+                <div className="text-xs font-bold text-[#737C7F]">{t('detail.sections.disclaimer.revisionNotes')}</div>
                 {incident.revisionNotes.map((n, i) => (
                   <p key={i} className="text-xs text-[#737C7F]">{n.date}: {n.note}</p>
                 ))}
@@ -447,14 +461,14 @@ function LegacyIncidentDetail({ slug }: { slug: string | undefined }) {
             </div>
             {incident.estimatedLossUsd && (
               <div>
-                <div className="text-xs text-[#737C7F] font-bold uppercase tracking-wider mb-1">Estimated Loss</div>
+                <div className="text-xs text-[#737C7F] font-bold uppercase tracking-wider mb-1">{t('detail.sidebar.estimatedLoss')}</div>
                 <div className="text-2xl font-black" style={{ color: SEVERITY_META[incident.severity].color }}>
                   {formatLossUsd(incident.estimatedLossUsd)}
                 </div>
               </div>
             )}
             <div>
-              <div className="text-xs text-[#737C7F] font-bold uppercase tracking-wider mb-1">Date</div>
+              <div className="text-xs text-[#737C7F] font-bold uppercase tracking-wider mb-1">{t('detail.sidebar.date')}</div>
               <div className="text-sm font-bold text-[#2B3437]">
                 {incident.date}{incident.endDate ? ` – ${incident.endDate}` : ''}
               </div>
@@ -463,7 +477,7 @@ function LegacyIncidentDetail({ slug }: { slug: string | undefined }) {
 
           {/* Entities */}
           <div className="bg-white rounded-xl border border-[#DBE4E7] p-4 space-y-2">
-            <div className="text-xs text-[#737C7F] font-bold uppercase tracking-wider">Primary Entity</div>
+            <div className="text-xs text-[#737C7F] font-bold uppercase tracking-wider">{t('detail.sidebar.primaryEntity')}</div>
             <div className="flex flex-wrap gap-1">
               <span className="inline-flex items-center px-2 py-0.5 rounded bg-[#EAEFF1] text-xs text-[#2B3437] font-bold">
                 {incident.primaryEntity}
@@ -471,7 +485,7 @@ function LegacyIncidentDetail({ slug }: { slug: string | undefined }) {
             </div>
             {incident.issuerOrOperator && (
               <>
-                <div className="text-xs text-[#737C7F] font-bold uppercase tracking-wider pt-1">Issuer / Operator</div>
+                <div className="text-xs text-[#737C7F] font-bold uppercase tracking-wider pt-1">{t('detail.sidebar.issuerOperator')}</div>
                 <span className="inline-flex items-center px-2 py-0.5 rounded bg-[#EAEFF1] text-xs text-[#2B3437]">
                   {incident.issuerOrOperator}
                 </span>
@@ -481,7 +495,7 @@ function LegacyIncidentDetail({ slug }: { slug: string | undefined }) {
 
           {/* Jurisdictions */}
           <div className="bg-white rounded-xl border border-[#DBE4E7] p-4 space-y-2">
-            <div className="text-xs text-[#737C7F] font-bold uppercase tracking-wider">Jurisdictions</div>
+            <div className="text-xs text-[#737C7F] font-bold uppercase tracking-wider">{t('detail.sidebar.jurisdictions')}</div>
             <div className="flex flex-wrap gap-1">
               {incident.jurisdictions.map(j => (
                 <span key={j} className="inline-flex items-center px-2 py-0.5 rounded bg-[#EAEFF1] text-xs font-bold text-[#5E5C75]">{j}</span>
@@ -492,7 +506,7 @@ function LegacyIncidentDetail({ slug }: { slug: string | undefined }) {
           {/* Cross-references to Licenses */}
           {incident.relatedIssuerSlugs.length > 0 && (
             <div className="bg-white rounded-xl border border-[#DBE4E7] p-4 space-y-2">
-              <div className="text-xs text-[#737C7F] font-bold uppercase tracking-wider">Related Issuers</div>
+              <div className="text-xs text-[#737C7F] font-bold uppercase tracking-wider">{t('detail.sidebar.relatedIssuers')}</div>
               {incident.relatedIssuerSlugs.map(s => (
                 <Link
                   key={s}
@@ -500,7 +514,7 @@ function LegacyIncidentDetail({ slug }: { slug: string | undefined }) {
                   className="flex items-center gap-1.5 text-xs text-[#5E5C75] hover:text-[#2B3437] transition-colors"
                 >
                   <span className="material-symbols-outlined text-sm">arrow_forward</span>
-                  Licence profile: {s}
+                  {t('detail.sidebar.licenceProfile', { slug: s })}
                 </Link>
               ))}
             </div>
@@ -509,7 +523,7 @@ function LegacyIncidentDetail({ slug }: { slug: string | undefined }) {
           {/* Related incidents */}
           {relatedIncidents.length > 0 && (
             <div className="bg-white rounded-xl border border-[#DBE4E7] p-4 space-y-2">
-              <div className="text-xs text-[#737C7F] font-bold uppercase tracking-wider">Related Incidents</div>
+              <div className="text-xs text-[#737C7F] font-bold uppercase tracking-wider">{t('detail.sidebar.relatedIncidents')}</div>
               {relatedIncidents.map(r => (
                 <Link
                   key={r.slug}
@@ -532,7 +546,7 @@ function LegacyIncidentDetail({ slug }: { slug: string | undefined }) {
             className="flex items-center gap-1.5 text-xs text-[#737C7F] hover:text-[#5E5C75] transition-colors"
           >
             <span className="material-symbols-outlined text-sm">info</span>
-            Inclusion & severity methodology
+            {t('detail.methodologyLink')}
           </Link>
         </div>
       </div>
@@ -541,10 +555,10 @@ function LegacyIncidentDetail({ slug }: { slug: string | undefined }) {
       <div className="flex items-center justify-between pt-2 border-t border-[#DBE4E7]">
         <Link to="/incidents" className="flex items-center gap-1.5 text-sm text-[#5E5C75] hover:text-[#2B3437] transition-colors">
           <span className="material-symbols-outlined text-base">arrow_back</span>
-          All incidents
+          {t('detail.footer.backLink')}
         </Link>
         <Link to="/incidents/methodology" className="flex items-center gap-1.5 text-sm text-[#5E5C75] hover:text-[#2B3437] transition-colors">
-          Methodology
+          {t('detail.footer.methodologyLink')}
           <span className="material-symbols-outlined text-base">arrow_forward</span>
         </Link>
       </div>

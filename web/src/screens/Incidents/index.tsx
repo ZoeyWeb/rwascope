@@ -1,26 +1,11 @@
 import { useMemo } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation, Trans } from 'react-i18next';
 import { Eyebrow } from '../../components/Eyebrow';
 import { BigStat, BigStatRibbon } from '../../components/BigStat';
 import SeverityBadge from '../../components/SeverityBadge';
 import { useIncidents } from '../../hooks/useIncidents';
 import { useIncidentsDatabase } from '../../hooks/useIncidentsDatabase';
-
-function formatAssetClass(raw: string) {
-  return raw.replace(/_/g, ' ');
-}
-
-function assetClassLabel(raw: string): string {
-  const map: Record<string, string> = {
-    'stablecoin':              'Stablecoin',
-    'infrastructure':          'Infrastructure',
-    'tokenized-real-estate':   'Tokenized RE',
-    'tokenized-treasury':      'Tokenized Treasury',
-    'tokenized-private-credit':'Private Credit',
-    'tokenized-commodity':     'Tokenized Commodity',
-  };
-  return map[raw] ?? raw.replace(/-/g, ' ');
-}
 
 const DB_SEVERITY_COLOR: Record<string, string> = {
   critical: '#B91C1C',
@@ -30,6 +15,7 @@ const DB_SEVERITY_COLOR: Record<string, string> = {
 };
 
 export default function IncidentsIndex() {
+  const { t } = useTranslation('incidentsMap');
   const { incidents, loading } = useIncidents();
   const { incidents: dbIncidents, loading: dbLoading } = useIncidentsDatabase();
 
@@ -67,36 +53,35 @@ export default function IncidentsIndex() {
         <section className="pt-ed-section-md pb-ed-section-sm">
           <div className="flex items-start justify-between gap-4">
             <div>
-              <Eyebrow>RWAscope Incident Registry</Eyebrow>
+              <Eyebrow>{t('hero.eyebrow')}</Eyebrow>
               <h1 className="text-4xl md:text-ed-page-h1 text-ed-ink mt-ed-section-sm">
-                RWA Incident Database
+                {t('hero.h1')}
               </h1>
               <p className="text-ed-lede text-ed-text-secondary max-w-[720px] mt-ed-section-sm">
-                Indexed postmortems with permanent RWAI identifiers for academic citation,
-                complemented by a broader incident database covering events across the RWA ecosystem.
+                {t('hero.lede')}
               </p>
             </div>
             <a
               href="/feeds/incidents.xml"
               className="shrink-0 mt-1 text-ed-meta text-ed-text-secondary border border-ed-hairline px-3 py-1 hover:border-ed-ink hover:text-ed-ink transition-colors uppercase tracking-[0.1em]"
             >
-              RSS Subscribe
+              {t('hero.rssSubscribe')}
             </a>
           </div>
         </section>
 
         {/* ── RWAI stats ribbon ── */}
         <BigStatRibbon cols={4}>
-          <BigStat value={stats.total}           label="Indexed incidents" />
-          <BigStat value={stats.catastrophic}    label="Catastrophic" valueColor="#9e3f4e" />
-          <BigStat value={stats.yearsCount}      label="Years covered" />
-          <BigStat value={stats.assetClassCount} label="Asset classes" />
+          <BigStat value={stats.total}           label={t('stats.indexedIncidents')} />
+          <BigStat value={stats.catastrophic}    label={t('stats.catastrophic')} valueColor="#9e3f4e" />
+          <BigStat value={stats.yearsCount}      label={t('stats.yearsCovered')} />
+          <BigStat value={stats.assetClassCount} label={t('stats.assetClasses')} />
         </BigStatRibbon>
 
         {/* ── RWAI Registry section ── */}
         <section className="py-ed-section-md">
-          <Eyebrow>RWAscope · Indexed Registry</Eyebrow>
-          <h2 className="text-ed-section-h2 text-ed-ink mt-ed-section-sm">RWA Incident Registry</h2>
+          <Eyebrow>{t('registry.eyebrow')}</Eyebrow>
+          <h2 className="text-ed-section-h2 text-ed-ink mt-ed-section-sm">{t('registry.h2')}</h2>
 
           <div className="border-t border-ed-hairline mt-ed-section-md">
             {incidents.map(inc => (
@@ -125,7 +110,7 @@ export default function IncidentsIndex() {
                   {/* Asset class + date (mobile) */}
                   <div className="md:col-span-2 text-ed-meta text-ed-text-secondary capitalize flex gap-2 md:block">
                     <span className="md:hidden text-ed-text-muted">{inc.incident_date} ·</span>
-                    {formatAssetClass(inc.primary_asset_class)}
+                    {inc.primary_asset_class.replace(/_/g, ' ')}
                   </div>
                   {/* Severity — desktop only */}
                   <div className="hidden md:block md:col-span-1 text-right">
@@ -138,15 +123,18 @@ export default function IncidentsIndex() {
 
           <div className="py-ed-section-sm flex items-center justify-between">
             <p className="text-ed-meta text-ed-text-muted max-w-xl">
-              Identifiers follow the pattern <span className="font-mono">RWAI-YYYY-NNN</span>.
-              Each entry is citable and carries a permanent URL.
+              <Trans
+                i18nKey="registry.identifierNote"
+                ns="incidentsMap"
+                components={{ mono: <span className="font-mono" /> }}
+              />
             </p>
             <Link
               to="/incidents/methodology"
               className="text-ed-meta text-ed-accent hover:text-ed-ink transition-colors flex items-center gap-1"
             >
               <span className="material-symbols-outlined text-[14px]">info</span>
-              Methodology
+              {t('registry.methodology')}
             </Link>
           </div>
         </section>
@@ -155,23 +143,23 @@ export default function IncidentsIndex() {
       {/* ── Incident Database section ── */}
       <section className="py-ed-section border-t border-ed-hairline">
         <div className="max-w-[1400px] mx-auto px-8">
-          <Eyebrow>RWAscope · Broader Corpus</Eyebrow>
-          <h2 className="text-ed-section-h2 text-ed-ink mt-ed-section-sm">Incident Database</h2>
+          <Eyebrow>{t('database.eyebrow')}</Eyebrow>
+          <h2 className="text-ed-section-h2 text-ed-ink mt-ed-section-sm">{t('database.h2')}</h2>
 
           <BigStatRibbon cols={4}>
-            <BigStat value={dbStats.total}           label="Incidents" />
-            <BigStat value={dbStats.critical}        label="Critical" valueColor="#B91C1C" />
-            <BigStat value={dbStats.yearRange}       label="Years covered" />
-            <BigStat value={`${dbStats.assetClassCount} of 7`} label="Asset classes" />
+            <BigStat value={dbStats.total}           label={t('database.stats.incidents')} />
+            <BigStat value={dbStats.critical}        label={t('database.stats.critical')} valueColor="#B91C1C" />
+            <BigStat value={dbStats.yearRange}       label={t('database.stats.yearsCovered')} />
+            <BigStat value={t('database.stats.assetClassesCount', { count: dbStats.assetClassCount })} label={t('database.stats.assetClasses')} />
           </BigStatRibbon>
 
           {/* Column headers — desktop only */}
           <div className="hidden md:grid md:grid-cols-[140px_120px_1fr_180px_100px] md:gap-6 text-ed-meta text-ed-text-muted uppercase tracking-[0.08em] border-b border-ed-hairline pb-2 mt-ed-section-md">
-            <span>Date</span>
-            <span>Severity</span>
-            <span>Incident</span>
-            <span>Asset Class</span>
-            <span className="text-right">Loss (USD)</span>
+            <span>{t('database.table.date')}</span>
+            <span>{t('database.table.severity')}</span>
+            <span>{t('database.table.incident')}</span>
+            <span>{t('database.table.assetClass')}</span>
+            <span className="text-right">{t('database.table.loss')}</span>
           </div>
 
           {dbLoading ? (
@@ -196,7 +184,9 @@ export default function IncidentsIndex() {
                     </span>
                   </div>
                   <div className="text-ed-item-h4 text-ed-ink">{inc.title}</div>
-                  <div className="text-ed-meta text-ed-text-secondary">{assetClassLabel(inc.assetClass)}</div>
+                  <div className="text-ed-meta text-ed-text-secondary">
+                    {t(`database.assetClassShort.${inc.assetClass}`, { defaultValue: inc.assetClass.replace(/-/g, ' ') })}
+                  </div>
                   <div className="text-ed-meta tabular-nums text-ed-text-secondary md:text-right">
                     {inc.estimatedLossUsd != null
                       ? `$${(inc.estimatedLossUsd / 1_000_000).toFixed(1)}M`

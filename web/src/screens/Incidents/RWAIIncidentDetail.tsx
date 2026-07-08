@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import { useTranslation } from 'react-i18next';
 import { Eyebrow } from '../../components/Eyebrow';
 import SeverityBadge from '../../components/SeverityBadge';
 import CiteButton from '../../components/CiteButton';
@@ -67,6 +68,7 @@ function FailureCard({ f }: { f: { layer: string; layer_name: string; issue: str
 // ── Main component ────────────────────────────────────────────────────────────
 
 export default function RWAIIncidentDetail({ incidentId }: { incidentId: string }) {
+  const { t } = useTranslation('incidentsMap');
   const [incident, setIncident] = useState<Incident | null>(null);
   const [loading, setLoading] = useState(true);
   const [notFound, setNotFound] = useState(false);
@@ -112,12 +114,12 @@ export default function RWAIIncidentDetail({ incidentId }: { incidentId: string 
   if (notFound || !incident) {
     return (
       <div className="max-w-[1400px] mx-auto px-8 py-16 text-center">
-        <h1 className="text-ed-block-h3 text-ed-ink mb-4">Incident not found</h1>
+        <h1 className="text-ed-block-h3 text-ed-ink mb-4">{t('rwai.notFound.h1')}</h1>
         <p className="text-ed-body text-ed-text-secondary mb-6">
-          No incident with ID "{incidentId}" exists in the registry.
+          {t('rwai.notFound.description', { id: incidentId })}
         </p>
         <Link to="/incidents" className="text-ed-meta text-ed-accent hover:text-ed-ink">
-          ← Back to Incident Registry
+          {t('rwai.notFound.backLink')}
         </Link>
       </div>
     );
@@ -154,7 +156,7 @@ export default function RWAIIncidentDetail({ incidentId }: { incidentId: string 
 
         {/* ── Breadcrumb ── */}
         <div className="pt-ed-section-sm flex items-center gap-2 text-ed-meta text-ed-text-muted">
-          <Link to="/incidents" className="hover:text-ed-ink transition-colors">Incident Registry</Link>
+          <Link to="/incidents" className="hover:text-ed-ink transition-colors">{t('rwai.breadcrumb')}</Link>
           <span className="material-symbols-outlined text-[14px]">chevron_right</span>
           <span className="font-mono">{incident.incident_id}</span>
         </div>
@@ -178,22 +180,22 @@ export default function RWAIIncidentDetail({ incidentId }: { incidentId: string 
 
         {/* ── Meta strip ── */}
         <div className="border-y border-ed-hairline grid grid-cols-2 md:grid-cols-4 py-ed-section-sm gap-x-8 gap-y-4">
-          <MetaItem label="Asset class">
+          <MetaItem label={t('rwai.metaLabels.assetClass')}>
             <span className="capitalize">{incident.primary_asset_class.replace(/_/g, ' ')}</span>
           </MetaItem>
-          <MetaItem label="Affected layers">
+          <MetaItem label={t('rwai.metaLabels.affectedLayers')}>
             <div className="flex flex-wrap gap-1 mt-0.5">
               {incident.affected_rarm_layers.map(l => (
                 <LayerChip key={l} layer={l} />
               ))}
             </div>
           </MetaItem>
-          <MetaItem label="Project">
+          <MetaItem label={t('rwai.metaLabels.project')}>
             <Link to={`/projects/${incident.slug}`} className="hover:text-ed-ink transition-colors underline underline-offset-2">
               {incident.name}
             </Link>
           </MetaItem>
-          <MetaItem label="Cite">
+          <MetaItem label={t('rwai.metaLabels.cite')}>
             <div className="mt-0.5">
               <CiteButton incident={incident} />
             </div>
@@ -208,7 +210,7 @@ export default function RWAIIncidentDetail({ incidentId }: { incidentId: string 
 
             {/* Outcome */}
             <section>
-              <Eyebrow>Outcome</Eyebrow>
+              <Eyebrow>{t('rwai.sections.outcome')}</Eyebrow>
               <blockquote className="mt-ed-section-sm text-ed-body-lg text-ed-text-primary leading-relaxed border-l-4 border-ed-hairline pl-5">
                 {postmortem.outcome}
               </blockquote>
@@ -216,7 +218,7 @@ export default function RWAIIncidentDetail({ incidentId }: { incidentId: string 
 
             {/* What failed */}
             <section>
-              <Eyebrow>What failed</Eyebrow>
+              <Eyebrow>{t('rwai.sections.whatFailed')}</Eyebrow>
               <div className="mt-ed-section-sm grid grid-cols-1 md:grid-cols-2 gap-3">
                 {postmortem.what_failed.map((f, i) => (
                   <FailureCard key={i} f={f} />
@@ -226,7 +228,7 @@ export default function RWAIIncidentDetail({ incidentId }: { incidentId: string 
 
             {/* RARM lesson */}
             <section>
-              <Eyebrow>Implication for RARM</Eyebrow>
+              <Eyebrow>{t('rwai.sections.rarmImplication')}</Eyebrow>
               <p className="mt-ed-section-sm text-ed-body text-ed-text-secondary leading-relaxed bg-[#EFF6FB] border border-[#D6E4EE] px-5 py-4">
                 {postmortem.rarm_lesson}
               </p>
@@ -240,22 +242,22 @@ export default function RWAIIncidentDetail({ incidentId }: { incidentId: string 
               {/* Severity + ID card */}
               <div className="border border-ed-hairline p-4 space-y-3">
                 <div>
-                  <div className="text-ed-eyebrow uppercase text-ed-text-muted mb-1">Severity</div>
+                  <div className="text-ed-eyebrow uppercase text-ed-text-muted mb-1">{t('rwai.sidebar.severity')}</div>
                   <SeverityBadge severity={incident.severity} className="text-base" />
                 </div>
                 <div>
-                  <div className="text-ed-eyebrow uppercase text-ed-text-muted mb-1">Incident date</div>
+                  <div className="text-ed-eyebrow uppercase text-ed-text-muted mb-1">{t('rwai.sidebar.incidentDate')}</div>
                   <div className="text-ed-meta font-mono">{incident.incident_date}</div>
                 </div>
                 <div>
-                  <div className="text-ed-eyebrow uppercase text-ed-text-muted mb-1">Registry ID</div>
+                  <div className="text-ed-eyebrow uppercase text-ed-text-muted mb-1">{t('rwai.sidebar.registryId')}</div>
                   <div className="text-ed-meta font-mono">{incident.incident_id}</div>
                 </div>
               </div>
 
               {/* RARM layers */}
               <div className="border border-ed-hairline p-4">
-                <div className="text-ed-eyebrow uppercase text-ed-text-muted mb-3">RARM layers affected</div>
+                <div className="text-ed-eyebrow uppercase text-ed-text-muted mb-3">{t('rwai.sidebar.rarmLayersAffected')}</div>
                 <div className="flex flex-wrap gap-1.5">
                   {incident.affected_rarm_layers.map(l => (
                     <LayerChip key={l} layer={l} />
@@ -265,13 +267,13 @@ export default function RWAIIncidentDetail({ incidentId }: { incidentId: string 
 
               {/* Citation box */}
               <div className="border border-ed-hairline p-4">
-                <div className="text-ed-eyebrow uppercase text-ed-text-muted mb-3">Cite this entry</div>
+                <div className="text-ed-eyebrow uppercase text-ed-text-muted mb-3">{t('rwai.sidebar.citeThisEntry')}</div>
                 <CiteButton incident={incident} />
               </div>
 
               {/* Project link */}
               <div className="border border-ed-hairline p-4">
-                <div className="text-ed-eyebrow uppercase text-ed-text-muted mb-2">Full project profile</div>
+                <div className="text-ed-eyebrow uppercase text-ed-text-muted mb-2">{t('rwai.sidebar.fullProjectProfile')}</div>
                 <Link
                   to={`/projects/${incident.slug}`}
                   className="flex items-center gap-1.5 text-ed-meta text-ed-accent hover:text-ed-ink transition-colors"
@@ -291,13 +293,13 @@ export default function RWAIIncidentDetail({ incidentId }: { incidentId: string 
             className="flex items-center gap-1.5 text-ed-meta text-ed-accent hover:text-ed-ink transition-colors"
           >
             <span className="material-symbols-outlined text-[14px]">arrow_back</span>
-            Incident Registry
+            {t('rwai.footer.backLink')}
           </Link>
           <Link
             to={`/projects/${incident.slug}`}
             className="flex items-center gap-1.5 text-ed-meta text-ed-accent hover:text-ed-ink transition-colors"
           >
-            Project profile
+            {t('rwai.footer.projectProfile')}
             <span className="material-symbols-outlined text-[14px]">arrow_forward</span>
           </Link>
         </div>

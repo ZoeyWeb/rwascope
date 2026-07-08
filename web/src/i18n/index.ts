@@ -18,6 +18,7 @@ import enCompliance from '../locales/en/compliance.json';
 import enComplianceMap from '../locales/en/complianceMap.json';
 import enLicensesMap from '../locales/en/licensesMap.json';
 import enAssetsMap from '../locales/en/assetsMap.json';
+import enIncidentsMap from '../locales/en/incidentsMap.json';
 import zhHansNav from '../locales/zh-Hans/nav.json';
 import zhHansFooter from '../locales/zh-Hans/footer.json';
 import zhHansHome from '../locales/zh-Hans/home.json';
@@ -33,6 +34,7 @@ import zhHansCompliance from '../locales/zh-Hans/compliance.json';
 import zhHansComplianceMap from '../locales/zh-Hans/complianceMap.json';
 import zhHansLicensesMap from '../locales/zh-Hans/licensesMap.json';
 import zhHansAssetsMap from '../locales/zh-Hans/assetsMap.json';
+import zhHansIncidentsMap from '../locales/zh-Hans/incidentsMap.json';
 import zhHantNav from '../locales/zh-Hant/nav.json';
 import zhHantFooter from '../locales/zh-Hant/footer.json';
 import zhHantHome from '../locales/zh-Hant/home.json';
@@ -48,20 +50,21 @@ import zhHantCompliance from '../locales/zh-Hant/compliance.json';
 import zhHantComplianceMap from '../locales/zh-Hant/complianceMap.json';
 import zhHantLicensesMap from '../locales/zh-Hant/licensesMap.json';
 import zhHantAssetsMap from '../locales/zh-Hant/assetsMap.json';
+import zhHantIncidentsMap from '../locales/zh-Hant/incidentsMap.json';
 
 i18n
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
     resources: {
-      en:        { nav: enNav,      footer: enFooter,      home: enHome,      hkObservation: enHkObservation,      intelligence: enIntelligence,      about: enAbout,      rarm: enRarm,      methodology: enMethodology,      assetsMethodology: enAssetsMethodology,      sarm: enSarm,      licensesMethodology: enLicensesMethodology,      compliance: enCompliance,      complianceMap: enComplianceMap,      licensesMap: enLicensesMap,      assetsMap: enAssetsMap },
-      'zh-Hans': { nav: zhHansNav,  footer: zhHansFooter,  home: zhHansHome,  hkObservation: zhHansHkObservation,  intelligence: zhHansIntelligence,  about: zhHansAbout,  rarm: zhHansRarm,  methodology: zhHansMethodology,  assetsMethodology: zhHansAssetsMethodology,  sarm: zhHansSarm,  licensesMethodology: zhHansLicensesMethodology,  compliance: zhHansCompliance,  complianceMap: zhHansComplianceMap,  licensesMap: zhHansLicensesMap,  assetsMap: zhHansAssetsMap },
-      'zh-Hant': { nav: zhHantNav,  footer: zhHantFooter,  home: zhHantHome,  hkObservation: zhHantHkObservation,  intelligence: zhHantIntelligence,  about: zhHantAbout,  rarm: zhHantRarm,  methodology: zhHantMethodology,  assetsMethodology: zhHantAssetsMethodology,  sarm: zhHantSarm,  licensesMethodology: zhHantLicensesMethodology,  compliance: zhHantCompliance,  complianceMap: zhHantComplianceMap,  licensesMap: zhHantLicensesMap,  assetsMap: zhHantAssetsMap },
+      en:        { nav: enNav,      footer: enFooter,      home: enHome,      hkObservation: enHkObservation,      intelligence: enIntelligence,      about: enAbout,      rarm: enRarm,      methodology: enMethodology,      assetsMethodology: enAssetsMethodology,      sarm: enSarm,      licensesMethodology: enLicensesMethodology,      compliance: enCompliance,      complianceMap: enComplianceMap,      licensesMap: enLicensesMap,      assetsMap: enAssetsMap,      incidentsMap: enIncidentsMap },
+      'zh-Hans': { nav: zhHansNav,  footer: zhHansFooter,  home: zhHansHome,  hkObservation: zhHansHkObservation,  intelligence: zhHansIntelligence,  about: zhHansAbout,  rarm: zhHansRarm,  methodology: zhHansMethodology,  assetsMethodology: zhHansAssetsMethodology,  sarm: zhHansSarm,  licensesMethodology: zhHansLicensesMethodology,  compliance: zhHansCompliance,  complianceMap: zhHansComplianceMap,  licensesMap: zhHansLicensesMap,  assetsMap: zhHansAssetsMap,  incidentsMap: zhHansIncidentsMap },
+      'zh-Hant': { nav: zhHantNav,  footer: zhHantFooter,  home: zhHantHome,  hkObservation: zhHantHkObservation,  intelligence: zhHantIntelligence,  about: zhHantAbout,  rarm: zhHantRarm,  methodology: zhHantMethodology,  assetsMethodology: zhHantAssetsMethodology,  sarm: zhHantSarm,  licensesMethodology: zhHantLicensesMethodology,  compliance: zhHantCompliance,  complianceMap: zhHantComplianceMap,  licensesMap: zhHantLicensesMap,  assetsMap: zhHantAssetsMap,  incidentsMap: zhHantIncidentsMap },
     },
     fallbackLng: 'en',
     supportedLngs: ['en', 'zh-Hans', 'zh-Hant'],
     defaultNS: 'nav',
-    ns: ['nav', 'footer', 'home', 'hkObservation', 'intelligence', 'about', 'rarm', 'methodology', 'assetsMethodology', 'sarm', 'licensesMethodology', 'compliance', 'complianceMap', 'licensesMap', 'assetsMap'],
+    ns: ['nav', 'footer', 'home', 'hkObservation', 'intelligence', 'about', 'rarm', 'methodology', 'assetsMethodology', 'sarm', 'licensesMethodology', 'compliance', 'complianceMap', 'licensesMap', 'assetsMap', 'incidentsMap'],
     detection: {
       order: ['cookie', 'localStorage'],
       caches: ['cookie', 'localStorage'],

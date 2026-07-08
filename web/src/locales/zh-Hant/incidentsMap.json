@@ -1,0 +1,211 @@
+{
+  "shared": {
+    "severity": {
+      "critical": "嚴重",
+      "high": "高",
+      "medium": "中",
+      "low": "低"
+    },
+    "status": {
+      "resolved": "已解決",
+      "ongoing": "進行中",
+      "underInvestigation": "調查中",
+      "litigation": "訴訟中",
+      "settled": "已和解"
+    },
+    "scope": {
+      "hk": "HK",
+      "global": "全球"
+    },
+    "type": {
+      "de-pegging": "脫錨",
+      "smart-contract-exploit": "智慧合約漏洞利用",
+      "custody-incident": "託管事件",
+      "redemption-failure": "贖回失敗",
+      "regulatory-action": "監管行動",
+      "governance-failure": "治理失敗",
+      "bank-failure-spillover": "銀行倒閉外溢",
+      "sanctions": "制裁",
+      "other": "其他"
+    },
+    "assetClass": {
+      "stablecoin": "穩定幣",
+      "tokenized-treasury": "代幣化國債",
+      "tokenized-real-estate": "代幣化房地產",
+      "tokenized-private-credit": "代幣化私人信貸",
+      "tokenized-commodity": "代幣化大宗商品",
+      "infrastructure": "基礎設施",
+      "other": "其他"
+    },
+    "sourceType": {
+      "regulatory-filing": "監管申報",
+      "court-record": "法院記錄",
+      "official-statement": "官方宣告",
+      "major-media": "主流媒體",
+      "industry-media": "行業媒體"
+    }
+  },
+  "hero": {
+    "eyebrow": "RWAscope 事件登記冊",
+    "h1": "RWA 事件資料庫",
+    "lede": "帶永久 RWAI 識別符號、供學術引用的索引化事後分析,並輔以覆蓋 RWA 生態各類事件的更廣泛事件資料庫。",
+    "rssSubscribe": "訂閱 RSS"
+  },
+  "stats": {
+    "indexedIncidents": "已索引事件",
+    "catastrophic": "災難性",
+    "yearsCovered": "覆蓋年數",
+    "assetClasses": "資產類別"
+  },
+  "registry": {
+    "eyebrow": "RWAscope · 索引登記冊",
+    "h2": "RWA 事件登記冊",
+    "identifierNote": "識別符號遵循 <mono>RWAI-YYYY-NNN</mono> 格式。每個條目均可引用,並帶有永久 URL。",
+    "methodology": "方法論"
+  },
+  "database": {
+    "eyebrow": "RWAscope · 更廣語料",
+    "h2": "事件資料庫",
+    "stats": {
+      "incidents": "事件",
+      "critical": "嚴重",
+      "yearsCovered": "覆蓋年數",
+      "assetClasses": "資產類別",
+      "assetClassesCount": "{{count}} / 7"
+    },
+    "table": {
+      "date": "日期",
+      "severity": "嚴重性",
+      "incident": "事件",
+      "assetClass": "資產類別",
+      "loss": "損失(USD)"
+    },
+    "assetClassShort": {
+      "stablecoin": "穩定幣",
+      "infrastructure": "基礎設施",
+      "tokenized-real-estate": "代幣化房地產",
+      "tokenized-treasury": "代幣化國債",
+      "tokenized-private-credit": "私人信貸",
+      "tokenized-commodity": "代幣化大宗商品"
+    }
+  },
+  "detail": {
+    "breadcrumb": "事件資料庫",
+    "notFound": {
+      "h1": "未找到事件",
+      "description": "資料庫中不存在 slug 為「{{slug}}」的事件。",
+      "backLink": "← 返回事件資料庫"
+    },
+    "hkRelevance": "HK 相關性:",
+    "sections": {
+      "quickFacts": {
+        "title": "速覽",
+        "date": "日期",
+        "primaryEntity": "主要實體",
+        "issuerOperator": "發行方／運營方",
+        "assetType": "資產型別",
+        "incidentType": "事件型別",
+        "estLoss": "估計損失(USD)",
+        "affectedParties": "受影響方",
+        "jurisdictions": "司法管轄區",
+        "hkNexus": "HK 關聯",
+        "leadRegulator": "主要監管機構"
+      },
+      "timeline": "時間線",
+      "whatHappened": "事件經過",
+      "regulatoryResponse": {
+        "title": "監管回應",
+        "source": "來源",
+        "action": "行動:",
+        "outcome": "結果:"
+      },
+      "frameworkMapping": {
+        "title": "框架對映",
+        "sublede": "每起事件都對映到 SARM(穩定幣)和／或 RARM(RWA)分析框架。這正是本資料庫的學術貢獻:將真實事件與結構化風險維度相連線。",
+        "sarmDimensions": "涉及的 SARM 維度",
+        "rarmLayers": "涉及的 RARM 層",
+        "sarm": {
+          "reserve": "儲備質量",
+          "redemption": "贖回機制",
+          "governance": "治理"
+        },
+        "rarm": {
+          "legal": "法律與司法管轄",
+          "valuation": "資產估值與預言機",
+          "custody": "託管與資產控制",
+          "kyc": "KYC/AML 與准入",
+          "liquidity": "二級市場流動性",
+          "settlement": "結算最終性"
+        }
+      },
+      "lessonsPatterns": {
+        "title": "教訓與模式",
+        "relatedIncidents": "相關事件"
+      },
+      "sources": "來源與引用",
+      "disclaimer": {
+        "title": "免責宣告",
+        "body": "本條目依據公開資訊編纂,包括監管申報、法院記錄、官方宣告與媒體報道。除所引用公開來源已記錄的內容外,RWA-Index 不作任何不當行為的指控。在調查仍在進行的情況下,本條目反映最後更新日期時的公開已知資訊。",
+        "lastUpdated": "最後更新:{{date}}。",
+        "revisionNotes": "修訂說明:"
+      }
+    },
+    "sidebar": {
+      "estimatedLoss": "估計損失",
+      "date": "日期",
+      "primaryEntity": "主要實體",
+      "issuerOperator": "發行方／運營方",
+      "jurisdictions": "司法管轄區",
+      "relatedIssuers": "相關發行方",
+      "licenceProfile": "牌照檔案:{{slug}}",
+      "relatedIncidents": "相關事件"
+    },
+    "cite": {
+      "heading": "引用此條目",
+      "format": "RWA-Index. ({{year}}). {{title}}. Tokenization Incident Database. Retrieved {{retrievedDate}}, from {{url}}",
+      "copy": "複製引用",
+      "copied": "已複製!"
+    },
+    "methodologyLink": "納入與嚴重性方法論",
+    "footer": {
+      "backLink": "所有事件",
+      "methodologyLink": "方法論"
+    }
+  },
+  "rwai": {
+    "breadcrumb": "事件登記冊",
+    "notFound": {
+      "h1": "未找到事件",
+      "description": "登記冊中不存在 ID 為「{{id}}」的事件。",
+      "backLink": "← 返回事件登記冊"
+    },
+    "metaLabels": {
+      "assetClass": "資產類別",
+      "affectedLayers": "受影響層",
+      "project": "專案",
+      "cite": "引用"
+    },
+    "sections": {
+      "outcome": "結果",
+      "whatFailed": "失敗之處",
+      "rarmImplication": "對 RARM 的啟示"
+    },
+    "sidebar": {
+      "severity": "嚴重性",
+      "incidentDate": "事件日期",
+      "registryId": "登記冊 ID",
+      "rarmLayersAffected": "受影響的 RARM 層",
+      "citeThisEntry": "引用此條目",
+      "fullProjectProfile": "完整專案檔案"
+    },
+    "citeButton": {
+      "trigger": "引用",
+      "copy": "複製到剪貼簿",
+      "copied": "已複製!"
+    },
+    "footer": {
+      "backLink": "事件登記冊",
+      "projectProfile": "專案檔案"
+    }
+  }
+}
