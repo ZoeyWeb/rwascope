@@ -1,5 +1,6 @@
 import { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import type { EnforcementAction, EnforcementDataset } from '../../types/enforcement';
 import rawData from '../../../public/data/enforcement/enforcement.json';
 import { Eyebrow } from '../../components/Eyebrow';
@@ -35,9 +36,9 @@ const ACTION_ICONS: Record<string, string> = {
   vacated:    'undo',
 };
 
-const REGULATORS = ['All', 'SEC', 'CFTC', 'NYDFS', 'OFAC', 'MAS', 'SFC'];
+const REGULATORS    = ['All', 'SEC', 'CFTC', 'NYDFS', 'OFAC', 'MAS', 'SFC'];
 const JURISDICTIONS = ['All', 'US', 'HK', 'SG'];
-const STATUSES = ['All', 'ongoing', 'settled', 'closed', 'dismissed'];
+const STATUSES      = ['All', 'ongoing', 'settled', 'closed', 'dismissed'];
 
 function fmt(n: number, note: string | null): string {
   if (n > 0) return '$' + (n >= 1_000_000 ? (n / 1_000_000).toFixed(1) + 'M' : n.toLocaleString());
@@ -45,6 +46,7 @@ function fmt(n: number, note: string | null): string {
 }
 
 export default function EnforcementTracker() {
+  const { t } = useTranslation('enforcementMap');
   const [regulator, setRegulator] = useState('All');
   const [jurisdiction, setJurisdiction] = useState('All');
   const [status, setStatus] = useState('All');
@@ -67,31 +69,48 @@ export default function EnforcementTracker() {
       {/* ── Hero ──────────────────────────────────────────────────────────── */}
       <section className="pt-ed-section-md pb-ed-section-sm">
         <div className="max-w-[1400px] mx-auto px-8">
-          <Eyebrow>Intelligence · Enforcement Tracker</Eyebrow>
+          <Eyebrow>{t('hero.eyebrow')}</Eyebrow>
           <h1 className="text-4xl md:text-ed-hero-h1 text-ed-ink mt-ed-section-sm">
-            Enforcement Tracker
+            {t('hero.h1')}
           </h1>
           <p className="text-ed-lede text-ed-text-secondary max-w-[720px] mt-ed-section-sm">
-            Regulatory and legal actions by SEC, CFTC, SFC, MAS, and other agencies
-            against RWA, stablecoin, and tokenized finance entities.
+            {t('hero.lede')}
           </p>
         </div>
       </section>
 
       {/* ── Stats ribbon ──────────────────────────────────────────────────── */}
       <BigStatRibbon cols={4}>
-        <BigStat value={ENFT_STATS.actionsCount}    label="Actions tracked" />
-        <BigStat value={ENFT_STATS.regulatorsCount} label="Regulators" />
-        <BigStat value={ENFT_STATS.penaltyStr}      label="Penalties (partial)" />
-        <BigStat value={ENFT_STATS.ongoingCount}    label="Ongoing" valueColor="#e09d2b" />
+        <BigStat value={ENFT_STATS.actionsCount}    label={t('stats.actionsTracked')} />
+        <BigStat value={ENFT_STATS.regulatorsCount} label={t('stats.regulators')} />
+        <BigStat value={ENFT_STATS.penaltyStr}      label={t('stats.penaltiesPartial')} />
+        <BigStat value={ENFT_STATS.ongoingCount}    label={t('stats.ongoing')} valueColor="#e09d2b" />
       </BigStatRibbon>
 
       {/* Filters */}
       <div className="bg-white border-b border-[#DBE4E7] sticky top-0 z-10">
         <div className="max-w-[1400px] mx-auto px-8 py-3 flex flex-wrap items-center gap-3">
-          <FilterChips label="Regulator" value={regulator} options={REGULATORS} onChange={setRegulator} />
-          <FilterChips label="Jurisdiction" value={jurisdiction} options={JURISDICTIONS} onChange={setJurisdiction} />
-          <FilterChips label="Status" value={status} options={STATUSES} onChange={setStatus} />
+          <FilterChips
+            label={t('filters.regulator')}
+            value={regulator}
+            options={REGULATORS}
+            onChange={setRegulator}
+            labelFn={v => v === 'All' ? t('filters.allOption') : v}
+          />
+          <FilterChips
+            label={t('filters.jurisdiction')}
+            value={jurisdiction}
+            options={JURISDICTIONS}
+            onChange={setJurisdiction}
+            labelFn={v => v === 'All' ? t('filters.allOption') : v}
+          />
+          <FilterChips
+            label={t('filters.status')}
+            value={status}
+            options={STATUSES}
+            onChange={setStatus}
+            labelFn={v => v === 'All' ? t('filters.allOption') : t('status.' + v)}
+          />
 
           <button
             onClick={() => setRwaOnly(v => !v)}
@@ -102,11 +121,11 @@ export default function EnforcementTracker() {
             }`}
           >
             <span className="material-symbols-outlined text-[14px]">filter_alt</span>
-            RWA-relevant only
+            {t('filters.rwaOnly')}
           </button>
 
           <span className="ml-auto text-xs text-[#737C7F]">
-            {filtered.length} action{filtered.length !== 1 ? 's' : ''}
+            {t('filters.resultCount', { count: filtered.length })}
           </span>
         </div>
       </div>
@@ -114,14 +133,14 @@ export default function EnforcementTracker() {
       {/* Action list */}
       <div className="max-w-[1400px] mx-auto px-8 py-8 space-y-4">
         {filtered.length === 0 && (
-          <p className="text-sm text-[#737C7F] text-center py-12">No actions match the current filters.</p>
+          <p className="text-sm text-[#737C7F] text-center py-12">{t('emptyState')}</p>
         )}
         {filtered.map(action => (
           <ActionCard key={action.slug} action={action} />
         ))}
 
         <p className="text-xs text-[#737C7F] text-center pt-4">
-          {enforcementData.actions.length} actions on record · updated {enforcementData.updated_at}
+          {t('footer.actionsOnRecord', { count: enforcementData.actions.length, date: enforcementData.updated_at })}
         </p>
       </div>
     </div>
@@ -133,11 +152,13 @@ function FilterChips({
   value,
   options,
   onChange,
+  labelFn,
 }: {
   label: string;
   value: string;
   options: string[];
   onChange: (v: string) => void;
+  labelFn?: (v: string) => string;
 }) {
   return (
     <div className="flex items-center gap-1.5 flex-wrap">
@@ -152,7 +173,7 @@ function FilterChips({
               : 'bg-[#F1F4F6] text-[#737C7F] hover:bg-[#DBE4E7]'
           }`}
         >
-          {o}
+          {labelFn ? labelFn(o) : o}
         </button>
       ))}
     </div>
@@ -166,6 +187,7 @@ function normalizeSource(s: SourceItem | string): SourceItem {
 }
 
 function ActionCard({ action }: { action: Action }) {
+  const { t } = useTranslation('enforcementMap');
   const [open, setOpen] = useState(false);
   const icon = ACTION_ICONS[action.action_type] ?? 'gavel';
   const statusCls = STATUS_COLORS[action.status] ?? 'bg-[#F1F4F6] text-[#737C7F]';
@@ -186,20 +208,20 @@ function ActionCard({ action }: { action: Action }) {
               {action.regulator}
             </span>
             <span className="text-xs text-[#737C7F]">{action.jurisdiction}</span>
-            <span className={`text-xs font-medium px-2 py-0.5 rounded-full capitalize ${statusCls}`}>
-              {action.status}
+            <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${statusCls}`}>
+              {t('status.' + action.status)}
             </span>
             {action.rwa_relevant && (
               <span className="text-xs font-medium px-2 py-0.5 rounded-full bg-[#2E7D32]/10 text-[#2E7D32]">
-                RWA
+                {t('card.rwaTag')}
               </span>
             )}
             <span className="text-xs text-[#737C7F] ml-auto">{action.action_date}</span>
           </div>
 
           <div className="text-sm font-semibold text-[#2B3437]">{action.target_entity}</div>
-          <div className="text-xs text-[#737C7F] mt-0.5 capitalize">
-            {action.action_type}
+          <div className="text-xs text-[#737C7F] mt-0.5">
+            {t('actionType.' + action.action_type)}
             {action.penalty_usd > 0 || action.penalty_note
               ? ' · ' + fmt(action.penalty_usd, action.penalty_note)
               : ''}
@@ -222,12 +244,12 @@ function ActionCard({ action }: { action: Action }) {
             <div className="mt-3 flex flex-wrap gap-1.5">
               {action.rarm_layers.map(l => (
                 <span key={l} className="text-xs px-2 py-0.5 rounded bg-[#5E5C75]/10 text-[#5E5C75] font-medium capitalize">
-                  RARM · {l}
+                  {t('card.rarmPrefix')} · {l}
                 </span>
               ))}
               {action.sarm_blocks.map(b => (
                 <span key={b} className="text-xs px-2 py-0.5 rounded bg-[#2B3437]/10 text-[#2B3437] font-medium capitalize">
-                  SARM · {b}
+                  {t('card.sarmPrefix')} · {b}
                 </span>
               ))}
             </div>
@@ -236,7 +258,7 @@ function ActionCard({ action }: { action: Action }) {
           {action.lessons.length > 0 && (
             <div className="mt-4">
               <div className="text-xs font-semibold uppercase tracking-wider text-[#5E5C75] mb-2">
-                Key precedents
+                {t('card.precedentsTitle')}
               </div>
               <ul className="space-y-1.5">
                 {action.lessons.map((l, i) => (
@@ -258,7 +280,7 @@ function ActionCard({ action }: { action: Action }) {
                   className="flex items-center gap-1 text-xs text-[#5E5C75] hover:text-[#2B3437] font-medium border border-[#DBE4E7] px-2.5 py-1 rounded-full transition-colors"
                 >
                   <span className="material-symbols-outlined text-[12px]">link</span>
-                  Related incident →
+                  {t('card.relatedIncident')}
                 </Link>
               ))}
               {action.related_issuer_slugs.map(slug => (
@@ -268,7 +290,7 @@ function ActionCard({ action }: { action: Action }) {
                   className="flex items-center gap-1 text-xs text-[#5E5C75] hover:text-[#2B3437] font-medium border border-[#DBE4E7] px-2.5 py-1 rounded-full transition-colors"
                 >
                   <span className="material-symbols-outlined text-[12px]">account_balance</span>
-                  Same entity in HK Licensing →
+                  {t('card.relatedIssuer')}
                 </Link>
               ))}
             </div>

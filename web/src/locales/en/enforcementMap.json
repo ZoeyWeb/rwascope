@@ -1,0 +1,55 @@
+{
+  "hero": {
+    "eyebrow": "Intelligence · Enforcement Tracker",
+    "h1": "Enforcement Tracker",
+    "lede": "Regulatory and legal actions by SEC, CFTC, SFC, MAS, and other agencies against RWA, stablecoin, and tokenized finance entities."
+  },
+  "stats": {
+    "actionsTracked": "Actions tracked",
+    "regulators": "Regulators",
+    "penaltiesPartial": "Penalties (partial)",
+    "ongoing": "Ongoing"
+  },
+  "filters": {
+    "regulator": "Regulator",
+    "jurisdiction": "Jurisdiction",
+    "status": "Status",
+    "rwaOnly": "RWA-relevant only",
+    "allOption": "All",
+    "resultCount_one": "{{count}} action",
+    "resultCount_other": "{{count}} actions"
+  },
+  "status": {
+    "ongoing": "Ongoing",
+    "settled": "Settled",
+    "closed": "Closed",
+    "dismissed": "Dismissed",
+    "appealed": "Appealed",
+    "overturned": "Overturned"
+  },
+  "actionType": {
+    "order": "Order",
+    "charges": "Charges",
+    "settlement": "Settlement",
+    "conviction": "Conviction",
+    "ban": "Ban",
+    "fine": "Fine",
+    "wells_notice": "Wells Notice",
+    "sanctions": "Sanctions",
+    "investigation": "Investigation",
+    "dismissal": "Dismissal",
+    "vacated": "Vacated"
+  },
+  "card": {
+    "rwaTag": "RWA",
+    "rarmPrefix": "RARM",
+    "sarmPrefix": "SARM",
+    "precedentsTitle": "Key precedents",
+    "relatedIncident": "Related incident →",
+    "relatedIssuer": "Same entity in HK Licensing →"
+  },
+  "emptyState": "No actions match the current filters.",
+  "footer": {
+    "actionsOnRecord": "{{count}} actions on record · updated {{date}}"
+  }
+}

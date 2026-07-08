@@ -1,0 +1,55 @@
+{
+  "hero": {
+    "eyebrow": "情报 · 执法追踪",
+    "h1": "执法追踪",
+    "lede": "SEC、CFTC、SFC、MAS 等机构针对 RWA、稳定币与代币化金融实体的监管与法律行动。"
+  },
+  "stats": {
+    "actionsTracked": "已追踪行动",
+    "regulators": "监管机构",
+    "penaltiesPartial": "处罚金额(部分)",
+    "ongoing": "进行中"
+  },
+  "filters": {
+    "regulator": "监管机构",
+    "jurisdiction": "司法管辖区",
+    "status": "状态",
+    "rwaOnly": "仅 RWA 相关",
+    "allOption": "全部",
+    "resultCount_one": "{{count}} 项行动",
+    "resultCount_other": "{{count}} 项行动"
+  },
+  "status": {
+    "ongoing": "进行中",
+    "settled": "已和解",
+    "closed": "已结案",
+    "dismissed": "已驳回",
+    "appealed": "上诉中",
+    "overturned": "已撤销"
+  },
+  "actionType": {
+    "order": "命令",
+    "charges": "指控",
+    "settlement": "和解",
+    "conviction": "定罪",
+    "ban": "禁令",
+    "fine": "罚款",
+    "wells_notice": "Wells 通知",
+    "sanctions": "制裁",
+    "investigation": "调查",
+    "dismissal": "驳回",
+    "vacated": "撤销"
+  },
+  "card": {
+    "rwaTag": "RWA",
+    "rarmPrefix": "RARM",
+    "sarmPrefix": "SARM",
+    "precedentsTitle": "关键先例",
+    "relatedIncident": "相关事件 →",
+    "relatedIssuer": "HK 牌照中的同一实体 →"
+  },
+  "emptyState": "没有符合当前筛选条件的行动。",
+  "footer": {
+    "actionsOnRecord": "在册 {{count}} 项行动 · 更新于 {{date}}"
+  }
+}
