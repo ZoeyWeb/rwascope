@@ -30,5 +30,11 @@
       "shortLabel": "結算",
       "description": "DVP 結算、鏈上最終性、可逆性風險與爭議解決。"
     }
+  },
+  "signals": {
+    "green": "充分",
+    "yellow": "值得注意的問題",
+    "red": "重大問題",
+    "gray": "資料不足"
   }
 }

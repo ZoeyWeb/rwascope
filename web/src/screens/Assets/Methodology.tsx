@@ -14,6 +14,7 @@ function Section({ title, children }: { title: string; children: React.ReactNode
 }
 
 function SignalChip({ signal }: { signal: RARMSignal }) {
+  const { signals } = useRarmMeta();
   const m = RARM_SIGNAL_META[signal];
   return (
     <span
@@ -21,7 +22,7 @@ function SignalChip({ signal }: { signal: RARMSignal }) {
       style={{ color: m.color, background: m.bg, border: `1px solid ${m.border}` }}
     >
       <span className="inline-block w-2 h-2 rounded-full" style={{ background: m.dot }} />
-      {m.label}
+      {signals[signal].label}
     </span>
   );
 }

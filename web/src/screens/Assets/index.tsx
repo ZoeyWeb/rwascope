@@ -49,7 +49,7 @@ function TabButton({
 }
 
 function RARMLegend() {
-  const { layers } = useRarmMeta();
+  const { layers, signals } = useRarmMeta();
   return (
     <div>
       <p className="text-ed-eyebrow text-ed-text-muted uppercase tracking-[0.18em] mb-3">
@@ -70,7 +70,7 @@ function RARMLegend() {
               className="inline-block w-2.5 h-2.5 rounded-full"
               style={{ background: RARM_SIGNAL_META[sig].dot }}
             />
-            <span className="text-ed-meta text-ed-text-secondary">{RARM_SIGNAL_META[sig].label}</span>
+            <span className="text-ed-meta text-ed-text-secondary">{signals[sig].label}</span>
           </div>
         ))}
       </div>
@@ -169,6 +169,7 @@ function AllAssetsPanel({
   onCategoryChange: (code: string) => void;
 }) {
   const [chainFilter, setChainFilter] = useState<string>('all');
+  const { signals } = useRarmMeta();
 
   const categories = Array.from(new Set(assets.map(a => a.assetCategory)));
 
@@ -295,7 +296,7 @@ function AllAssetsPanel({
                                 className="w-1.5 h-1.5 rounded-full inline-block"
                                 style={{ background: RARM_SIGNAL_META[summary.dominant].dot }}
                               />
-                              {RARM_SIGNAL_META[summary.dominant].label}
+                              {signals[summary.dominant].label}
                             </span>
                           </div>
                         </td>
@@ -343,7 +344,7 @@ function AllAssetsPanel({
                             background: RARM_SIGNAL_META[summary.dominant].bg,
                           }}
                         >
-                          {RARM_SIGNAL_META[summary.dominant].label}
+                          {signals[summary.dominant].label}
                         </span>
                       </div>
                     </div>

@@ -20,6 +20,7 @@ function formatTvl(n?: number): string {
 // ── Sub-components ────────────────────────────────────────────────────────────
 
 function SignalChip({ signal }: { signal: RARMSignal }) {
+  const { signals } = useRarmMeta();
   const m = RARM_SIGNAL_META[signal];
   return (
     <span
@@ -27,7 +28,7 @@ function SignalChip({ signal }: { signal: RARMSignal }) {
       style={{ color: m.color, background: m.bg, border: `1px solid ${m.border}` }}
     >
       <span className="inline-block w-2 h-2 rounded-full" style={{ background: m.dot }} />
-      {m.label}
+      {signals[signal].label}
     </span>
   );
 }
@@ -52,7 +53,7 @@ function SectionTitle({ children }: { children: React.ReactNode }) {
 // ── Main component ────────────────────────────────────────────────────────────
 
 export default function AssetProfile() {
-  const { layers } = useRarmMeta();
+  const { layers, signals } = useRarmMeta();
   const { slug } = useParams<{ slug: string }>();
   const [asset, setAsset] = useState<Asset | null>(null);
   const [loading, setLoading] = useState(true);
@@ -391,7 +392,7 @@ export default function AssetProfile() {
                       style={{ color: sigMeta.color, background: sigMeta.bg }}
                     >
                       <span className="w-1.5 h-1.5 rounded-full" style={{ background: sigMeta.dot }} />
-                      {sigMeta.label}
+                      {signals[sig].label}
                     </span>
                   </div>
                 );
