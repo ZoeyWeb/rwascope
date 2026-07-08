@@ -1,0 +1,71 @@
+{
+  "hero": {
+    "eyebrow": "跨境合規",
+    "h1": "跨境 RWA 合規地圖",
+    "lede": "按轄區與議題梳理香港、中國內地、新加坡、美國與歐盟對代幣化現實世界資產與穩定幣的監管格局概覽。"
+  },
+  "stats": {
+    "cellsPopulated": "已填充格數"
+  },
+  "tabs": {
+    "matrix": "矩陣",
+    "list": "列表",
+    "methodologyLink": "合規方法論 →"
+  },
+  "filters": {
+    "allJurisdictions": "全部轄區",
+    "allSignals": "全部訊號"
+  },
+  "list": {
+    "noResults": "沒有符合所選篩選條件的格子。",
+    "researchPending": "研究待辦 —— 點選檢視佔位頁。",
+    "reviewed": "審閱於 {{date}}"
+  },
+  "legend": {
+    "heading": "圖例",
+    "pendingResearch": "— = 研究待辦"
+  },
+  "meta": {
+    "versionLine": "方法論 · v{{version}} · 編纂於 {{date}}"
+  },
+  "error": {
+    "loadFailed": "載入合規資料失敗。"
+  },
+  "cell": {
+    "breadcrumb": "合規地圖",
+    "loading": "載入中…",
+    "placeholder": {
+      "heading": "研究待辦",
+      "body": "該格子尚未研究。RWA-Index 合規團隊正在填充這一轄區–議題組合。請在後續更新中再來檢視。",
+      "backLink": "← 返回矩陣"
+    },
+    "sections": {
+      "summary": "摘要",
+      "keyRequirements": "關鍵要求",
+      "exemptions": "豁免與安全港",
+      "practitionerNotes": "從業者備註",
+      "references": "參考來源",
+      "citeThisCell": "引用此格"
+    },
+    "lastReviewed": "最後審閱:{{date}}",
+    "citation": {
+      "copy": "複製",
+      "copied": "已複製!"
+    },
+    "sidebar": {
+      "regulators": "監管機構",
+      "primaryLegislation": "主要立法",
+      "otherIssues": "其他議題 —— {{jurisdictionCode}}",
+      "backToMatrix": "返回矩陣"
+    },
+    "refTypes": {
+      "primary-statute": "主要法規",
+      "regulator-guidance": "監管指引",
+      "regulator-register": "監管登記冊",
+      "court-record": "法院記錄",
+      "official-statement": "官方宣告",
+      "major-media": "主流媒體",
+      "industry-media": "行業媒體"
+    }
+  }
+}

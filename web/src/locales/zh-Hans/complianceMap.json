@@ -1,0 +1,52 @@
+{
+  "hero": {
+    "eyebrow": "跨境合规",
+    "h1": "跨境 RWA 合规地图",
+    "lede": "按辖区与议题梳理香港、中国内地、新加坡、美国与欧盟对代币化现实世界资产与稳定币的监管格局概览。"
+  },
+  "stats": { "cellsPopulated": "已填充格数" },
+  "tabs": { "matrix": "矩阵", "list": "列表", "methodologyLink": "合规方法论 →" },
+  "filters": { "allJurisdictions": "全部辖区", "allSignals": "全部信号" },
+  "list": {
+    "noResults": "没有符合所选筛选条件的格子。",
+    "researchPending": "研究待办 —— 点击查看占位页。",
+    "reviewed": "审阅于 {{date}}"
+  },
+  "legend": { "heading": "图例", "pendingResearch": "— = 研究待办" },
+  "meta": { "versionLine": "方法论 · v{{version}} · 编纂于 {{date}}" },
+  "error": { "loadFailed": "加载合规数据失败。" },
+  "cell": {
+    "breadcrumb": "合规地图",
+    "loading": "加载中…",
+    "placeholder": {
+      "heading": "研究待办",
+      "body": "该格子尚未研究。RWA-Index 合规团队正在填充这一辖区–议题组合。请在后续更新中再来查看。",
+      "backLink": "← 返回矩阵"
+    },
+    "sections": {
+      "summary": "摘要",
+      "keyRequirements": "关键要求",
+      "exemptions": "豁免与安全港",
+      "practitionerNotes": "从业者备注",
+      "references": "参考来源",
+      "citeThisCell": "引用此格"
+    },
+    "lastReviewed": "最后审阅:{{date}}",
+    "citation": { "copy": "复制", "copied": "已复制!" },
+    "sidebar": {
+      "regulators": "监管机构",
+      "primaryLegislation": "主要立法",
+      "otherIssues": "其他议题 —— {{jurisdictionCode}}",
+      "backToMatrix": "返回矩阵"
+    },
+    "refTypes": {
+      "primary-statute": "主要法规",
+      "regulator-guidance": "监管指引",
+      "regulator-register": "监管登记册",
+      "court-record": "法院记录",
+      "official-statement": "官方声明",
+      "major-media": "主流媒体",
+      "industry-media": "行业媒体"
+    }
+  }
+}

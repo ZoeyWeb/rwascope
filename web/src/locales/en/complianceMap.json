@@ -1,0 +1,71 @@
+{
+  "hero": {
+    "eyebrow": "Cross-Border Compliance",
+    "h1": "Cross-Border RWA Compliance Map",
+    "lede": "A jurisdiction-by-issue overview of the regulatory landscape for tokenized real-world assets and stablecoins across Hong Kong, Mainland China, Singapore, the United States, and the European Union."
+  },
+  "stats": {
+    "cellsPopulated": "Cells Populated"
+  },
+  "tabs": {
+    "matrix": "Matrix",
+    "list": "List",
+    "methodologyLink": "Compliance Methodology →"
+  },
+  "filters": {
+    "allJurisdictions": "All jurisdictions",
+    "allSignals": "All signals"
+  },
+  "list": {
+    "noResults": "No cells match the selected filters.",
+    "researchPending": "Research pending — click to view placeholder.",
+    "reviewed": "Reviewed {{date}}"
+  },
+  "legend": {
+    "heading": "Legend",
+    "pendingResearch": "— = pending research"
+  },
+  "meta": {
+    "versionLine": "Methodology · v{{version}} · compiled {{date}}"
+  },
+  "error": {
+    "loadFailed": "Failed to load compliance data."
+  },
+  "cell": {
+    "breadcrumb": "Compliance Map",
+    "loading": "Loading…",
+    "placeholder": {
+      "heading": "Research pending",
+      "body": "This cell has not yet been researched. The RWA-Index compliance team is working to populate this jurisdiction–issue combination. Check back in a future update.",
+      "backLink": "← Back to matrix"
+    },
+    "sections": {
+      "summary": "Summary",
+      "keyRequirements": "Key Requirements",
+      "exemptions": "Exemptions & Safe Harbours",
+      "practitionerNotes": "Practitioner Notes",
+      "references": "References",
+      "citeThisCell": "Cite this cell"
+    },
+    "lastReviewed": "Last reviewed: {{date}}",
+    "citation": {
+      "copy": "Copy",
+      "copied": "Copied!"
+    },
+    "sidebar": {
+      "regulators": "Regulators",
+      "primaryLegislation": "Primary legislation",
+      "otherIssues": "Other issues — {{jurisdictionCode}}",
+      "backToMatrix": "Back to matrix"
+    },
+    "refTypes": {
+      "primary-statute": "Primary statute",
+      "regulator-guidance": "Regulator guidance",
+      "regulator-register": "Regulator register",
+      "court-record": "Court record",
+      "official-statement": "Official statement",
+      "major-media": "Major media",
+      "industry-media": "Industry media"
+    }
+  }
+}

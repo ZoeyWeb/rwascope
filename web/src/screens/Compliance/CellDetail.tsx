@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useParams, Navigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import type { ComplianceMatrix, ComplianceCell } from '../../types/compliance';
 import { SIGNAL_META, getCell, getJurisdiction, getIssue, buildCellCitation } from '../../utils/compliance';
 import { useComplianceSignals } from '../../hooks/useComplianceSignals';
@@ -18,17 +19,8 @@ function SignalBadge({ signal }: { signal: ComplianceCell['status_signal'] }) {
   );
 }
 
-const REF_TYPE_LABELS: Record<string, string> = {
-  'primary-statute': 'Primary statute',
-  'regulator-guidance': 'Regulator guidance',
-  'regulator-register': 'Regulator register',
-  'court-record': 'Court record',
-  'official-statement': 'Official statement',
-  'major-media': 'Major media',
-  'industry-media': 'Industry media',
-};
-
 export default function CellDetail() {
+  const { t } = useTranslation('complianceMap');
   const { signals } = useComplianceSignals();
   const { jurisdiction, issue } = useParams<{ jurisdiction: string; issue: string }>();
   const [matrix, setMatrix] = useState<ComplianceMatrix | null>(null);
@@ -48,7 +40,7 @@ export default function CellDetail() {
   if (loading) {
     return (
       <div className="flex items-center justify-center h-64">
-        <span className="text-[#737C7F] text-sm">Loading…</span>
+        <span className="text-[#737C7F] text-sm">{t('cell.loading')}</span>
       </div>
     );
   }
@@ -84,7 +76,7 @@ export default function CellDetail() {
       {/* Breadcrumb */}
       <nav className="text-xs text-slate-500 mb-5 flex items-center gap-1 flex-wrap">
         <Link to="/compliance" className="hover:text-[#2B3437] transition-colors">
-          Compliance Map
+          {t('cell.breadcrumb')}
         </Link>
         <span>›</span>
         <span className="text-[#2B3437] font-medium">{j.name}</span>
@@ -117,17 +109,16 @@ export default function CellDetail() {
                 hourglass_empty
               </span>
               <h2 className="text-base font-semibold text-[#2B3437] mb-2">
-                Research pending
+                {t('cell.placeholder.heading')}
               </h2>
               <p className="text-sm text-[#737C7F] max-w-md mx-auto">
-                This cell has not yet been researched. The RWA-Index compliance team is working
-                to populate this jurisdiction–issue combination. Check back in a future update.
+                {t('cell.placeholder.body')}
               </p>
               <Link
                 to="/compliance"
                 className="inline-block mt-4 text-xs text-[#5E5C75] hover:underline"
               >
-                ← Back to matrix
+                {t('cell.placeholder.backLink')}
               </Link>
             </div>
           ) : (
@@ -136,12 +127,12 @@ export default function CellDetail() {
               {/* Summary */}
               <section>
                 <h2 className="text-sm font-semibold text-[#2B3437] uppercase tracking-wide mb-3">
-                  Summary
+                  {t('cell.sections.summary')}
                 </h2>
                 <p className="text-sm text-[#2B3437] leading-relaxed">{cell.summary}</p>
                 {cell.last_reviewed && (
                   <p className="text-xs text-[#9ca3af] mt-2">
-                    Last reviewed: {cell.last_reviewed}
+                    {t('cell.lastReviewed', { date: cell.last_reviewed })}
                   </p>
                 )}
               </section>
@@ -150,7 +141,7 @@ export default function CellDetail() {
               {cell.key_requirements.length > 0 && (
                 <section>
                   <h2 className="text-sm font-semibold text-[#2B3437] uppercase tracking-wide mb-3">
-                    Key Requirements
+                    {t('cell.sections.keyRequirements')}
                   </h2>
                   <ul className="space-y-2">
                     {cell.key_requirements.map((req, i) => (
@@ -170,7 +161,7 @@ export default function CellDetail() {
               {cell.exemptions.length > 0 && (
                 <section>
                   <h2 className="text-sm font-semibold text-[#2B3437] uppercase tracking-wide mb-3">
-                    Exemptions &amp; Safe Harbours
+                    {t('cell.sections.exemptions')}
                   </h2>
                   <ul className="space-y-2">
                     {cell.exemptions.map((ex, i) => (
@@ -187,7 +178,7 @@ export default function CellDetail() {
               {cell.practitioner_notes && (
                 <section>
                   <h2 className="text-sm font-semibold text-[#2B3437] uppercase tracking-wide mb-3">
-                    Practitioner Notes
+                    {t('cell.sections.practitionerNotes')}
                   </h2>
                   <div className="bg-[#fef3c7] border border-[#fcd34d] rounded-lg p-4">
                     <p className="text-sm text-[#92400e] leading-relaxed">
@@ -201,7 +192,7 @@ export default function CellDetail() {
               {cell.references.length > 0 && (
                 <section>
                   <h2 className="text-sm font-semibold text-[#2B3437] uppercase tracking-wide mb-3">
-                    References
+                    {t('cell.sections.references')}
                   </h2>
                   <div className="space-y-3">
                     {cell.references.map((ref, i) => (
@@ -210,7 +201,7 @@ export default function CellDetail() {
                         className="flex items-start gap-3 p-3 bg-white border border-[#DBE4E7] rounded"
                       >
                         <span className="text-[10px] px-1.5 py-0.5 rounded bg-[#EAEFF1] text-[#586064] flex-shrink-0 mt-0.5">
-                          {REF_TYPE_LABELS[ref.type] ?? ref.type}
+                          {t(`cell.refTypes.${ref.type}`, { defaultValue: ref.type })}
                         </span>
                         <div className="min-w-0">
                           <a
@@ -234,7 +225,7 @@ export default function CellDetail() {
               {/* Citation */}
               <section>
                 <h2 className="text-sm font-semibold text-[#2B3437] uppercase tracking-wide mb-3">
-                  Cite this cell
+                  {t('cell.sections.citeThisCell')}
                 </h2>
                 <div className="bg-[#f8f9fa] border border-[#DBE4E7] rounded p-3 flex items-start gap-3">
                   <code className="text-xs text-[#586064] leading-relaxed flex-1 break-all">
@@ -244,7 +235,7 @@ export default function CellDetail() {
                     onClick={handleCopyCitation}
                     className="text-xs text-[#5E5C75] hover:underline flex-shrink-0 mt-0.5"
                   >
-                    {citationCopied ? 'Copied!' : 'Copy'}
+                    {citationCopied ? t('cell.citation.copied') : t('cell.citation.copy')}
                   </button>
                 </div>
               </section>
@@ -261,7 +252,7 @@ export default function CellDetail() {
             </h3>
             {j.regulators.length > 0 && (
               <div className="mb-3">
-                <p className="text-[10px] text-[#9ca3af] uppercase mb-1.5">Regulators</p>
+                <p className="text-[10px] text-[#9ca3af] uppercase mb-1.5">{t('cell.sidebar.regulators')}</p>
                 {j.regulators.map((r, i) => (
                   <p key={i} className="text-xs text-[#586064] mb-0.5">{r}</p>
                 ))}
@@ -269,7 +260,7 @@ export default function CellDetail() {
             )}
             {j.primary_legislation.length > 0 && (
               <div>
-                <p className="text-[10px] text-[#9ca3af] uppercase mb-1.5">Primary legislation</p>
+                <p className="text-[10px] text-[#9ca3af] uppercase mb-1.5">{t('cell.sidebar.primaryLegislation')}</p>
                 {j.primary_legislation.map((leg, i) => (
                   <p key={i} className="text-xs text-[#586064] mb-0.5">{leg}</p>
                 ))}
@@ -280,7 +271,7 @@ export default function CellDetail() {
           {/* Other issues in this jurisdiction */}
           <div className="bg-white border border-[#DBE4E7] rounded-lg p-4">
             <h3 className="text-xs font-semibold text-[#2B3437] uppercase tracking-wide mb-3">
-              Other issues — {j.code}
+              {t('cell.sidebar.otherIssues', { jurisdictionCode: j.code })}
             </h3>
             <div className="space-y-1">
               {siblingIssues.map((si) => {
@@ -310,7 +301,7 @@ export default function CellDetail() {
             className="flex items-center gap-1 text-xs text-[#5E5C75] hover:underline"
           >
             <span className="material-symbols-outlined text-sm">arrow_back</span>
-            Back to matrix
+            {t('cell.sidebar.backToMatrix')}
           </Link>
         </aside>
       </div>

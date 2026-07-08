@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import type { ComplianceMatrix, ComplianceSignal } from '../../types/compliance';
 import { SIGNAL_META, populatedCellCount } from '../../utils/compliance';
 import { useComplianceSignals } from '../../hooks/useComplianceSignals';
@@ -77,6 +78,7 @@ function MatrixCell({
 }
 
 export default function ComplianceMap() {
+  const { t } = useTranslation('complianceMap');
   const { signals } = useComplianceSignals();
   const [matrix, setMatrix] = useState<ComplianceMatrix | null>(null);
   const [loading, setLoading] = useState(true);
@@ -107,7 +109,7 @@ export default function ComplianceMap() {
   if (!matrix) {
     return (
       <div className="flex items-center justify-center h-64">
-        <span className="text-ed-body text-ed-text-muted">Failed to load compliance data.</span>
+        <span className="text-ed-body text-ed-text-muted">{t('error.loadFailed')}</span>
       </div>
     );
   }
@@ -142,25 +144,23 @@ export default function ComplianceMap() {
 
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
       <section className="pt-ed-section-md pb-ed-section-sm">
-        <Eyebrow>Cross-Border Compliance</Eyebrow>
+        <Eyebrow>{t('hero.eyebrow')}</Eyebrow>
         <h1 className="text-4xl md:text-ed-hero-h1 text-ed-ink mt-ed-section-sm">
-          Cross-Border RWA Compliance Map
+          {t('hero.h1')}
         </h1>
         <p className="text-ed-lede text-ed-text-secondary max-w-[720px] mt-ed-section-sm">
-          A jurisdiction-by-issue overview of the regulatory landscape for tokenized real-world
-          assets and stablecoins across Hong Kong, Mainland China, Singapore, the United States,
-          and the European Union.
+          {t('hero.lede')}
         </p>
       </section>
 
       {/* ── Stats ribbon ─────────────────────────────────────────────────── */}
       <BigStatRibbon>
-        <BigStat value={`${populated} / ${total}`}         label="Cells Populated" />
-        <BigStat value={signalCounts['open']        ?? 0}  label="Open"        valueColor="#2E7D32" />
-        <BigStat value={signalCounts['conditional'] ?? 0}  label="Conditional" valueColor="#e09d2b" />
-        <BigStat value={signalCounts['restricted']  ?? 0}  label="Restricted"  valueColor="#9e3f4e" />
+        <BigStat value={`${populated} / ${total}`}         label={t('stats.cellsPopulated')} />
+        <BigStat value={signalCounts['open']        ?? 0}  label={signals['open'].label}        valueColor="#2E7D32" />
+        <BigStat value={signalCounts['conditional'] ?? 0}  label={signals['conditional'].label} valueColor="#e09d2b" />
+        <BigStat value={signalCounts['restricted']  ?? 0}  label={signals['restricted'].label}  valueColor="#9e3f4e" />
         {(signalCounts['placeholder'] ?? 0) > 0 && (
-          <BigStat value={signalCounts['placeholder']} label="Pending" valueColor="#9ca3af" />
+          <BigStat value={signalCounts['placeholder']} label={signals['placeholder'].label} valueColor="#9ca3af" />
         )}
       </BigStatRibbon>
 
@@ -176,7 +176,7 @@ export default function ComplianceMap() {
                   : 'text-ed-text-secondary hover:text-ed-ink'
               }`}
             >
-              Matrix
+              {t('tabs.matrix')}
             </button>
             <button
               onClick={() => setViewMode('list')}
@@ -186,14 +186,14 @@ export default function ComplianceMap() {
                   : 'text-ed-text-secondary hover:text-ed-ink'
               }`}
             >
-              List
+              {t('tabs.list')}
             </button>
           </div>
           <Link
             to="/compliance/methodology"
             className="text-ed-meta text-ed-text-muted hover:text-ed-ink pb-3 transition-colors"
           >
-            Compliance Methodology →
+            {t('tabs.methodologyLink')}
           </Link>
         </div>
       </div>
@@ -206,7 +206,7 @@ export default function ComplianceMap() {
             onChange={(e) => setFilterJurisdiction(e.target.value)}
             className="border border-ed-hairline px-3 py-2 text-ed-meta bg-ed-surface focus:outline-none focus:ring-1 focus:ring-ed-ink/20"
           >
-            <option value="all">All jurisdictions</option>
+            <option value="all">{t('filters.allJurisdictions')}</option>
             {matrix.jurisdictions.map((j) => (
               <option key={j.code} value={j.code}>{j.name}</option>
             ))}
@@ -216,7 +216,7 @@ export default function ComplianceMap() {
             onChange={(e) => setFilterSignal(e.target.value as ComplianceSignal | 'all')}
             className="border border-ed-hairline px-3 py-2 text-ed-meta bg-ed-surface focus:outline-none focus:ring-1 focus:ring-ed-ink/20"
           >
-            <option value="all">All signals</option>
+            <option value="all">{t('filters.allSignals')}</option>
             {(['open', 'conditional', 'restricted', 'placeholder'] as ComplianceSignal[]).map(
               (sig) => (
                 <option key={sig} value={sig}>{signals[sig].label}</option>
@@ -284,7 +284,7 @@ export default function ComplianceMap() {
         <div className="space-y-2 mt-4">
           {filteredCells.length === 0 && (
             <p className="text-ed-body text-ed-text-muted py-8 text-center">
-              No cells match the selected filters.
+              {t('list.noResults')}
             </p>
           )}
           {filteredCells.map((cell) => {
@@ -307,12 +307,12 @@ export default function ComplianceMap() {
                   </div>
                   <p className="text-ed-meta text-ed-text-secondary line-clamp-2">
                     {cell.status_signal === 'placeholder'
-                      ? 'Research pending — click to view placeholder.'
+                      ? t('list.researchPending')
                       : cell.summary}
                   </p>
                   {cell.last_reviewed && (
                     <span className="text-ed-meta text-ed-text-faint mt-1 block">
-                      Reviewed {cell.last_reviewed}
+                      {t('list.reviewed', { date: cell.last_reviewed })}
                     </span>
                   )}
                 </div>
@@ -329,26 +329,26 @@ export default function ComplianceMap() {
         {/* Legend */}
         <div>
           <div className="text-ed-eyebrow uppercase tracking-[0.18em] text-ed-text-muted mb-3">
-            Legend
+            {t('legend.heading')}
           </div>
           <div className="flex flex-wrap gap-x-6 gap-y-2 text-ed-meta text-ed-text-secondary">
             <span className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full" style={{ background: '#2E7D32' }} />
-              Open
+              {signals['open'].label}
             </span>
             <span className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full" style={{ background: '#e09d2b' }} />
-              Conditional
+              {signals['conditional'].label}
             </span>
             <span className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full" style={{ background: '#9e3f4e' }} />
-              Restricted
+              {signals['restricted'].label}
             </span>
             <span className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full" style={{ background: '#9ca3af' }} />
-              Pending
+              {signals['placeholder'].label}
             </span>
-            <span className="text-ed-text-muted">— = pending research</span>
+            <span className="text-ed-text-muted">{t('legend.pendingResearch')}</span>
           </div>
         </div>
 
@@ -359,7 +359,7 @@ export default function ComplianceMap() {
 
         {/* Meta */}
         <div className="text-ed-meta text-ed-text-muted">
-          Methodology · v{matrix.matrix_version} · compiled {matrix.last_compiled}
+          {t('meta.versionLine', { version: matrix.matrix_version, date: matrix.last_compiled })}
         </div>
 
       </section>
