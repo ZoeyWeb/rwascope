@@ -1,0 +1,8 @@
+{
+  "signals": {
+    "green":  "Satisfactory",
+    "yellow": "Partial",
+    "red":    "Significant Gap",
+    "gray":   "Insufficient Data"
+  }
+}

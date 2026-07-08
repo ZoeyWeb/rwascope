@@ -1,10 +1,12 @@
 import { Link } from 'react-router-dom';
 import type { SARMSignal } from '../../types/licenses';
 import { SIGNAL_META } from '../../utils/sarm';
+import { useSarmSignals } from '../../hooks/useSarmSignals';
 
 // ── Traffic light pill ────────────────────────────────────────────────────────
 function TL({ signal }: { signal: SARMSignal }) {
-  const m = SIGNAL_META[signal];
+  const { signals } = useSarmSignals();
+  const m = signals[signal];
   return (
     <span
       className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold whitespace-nowrap"

@@ -5,6 +5,7 @@ import {
   SIGNAL_META, STATUS_META, TYPE_LABELS,
   SARM_DIMENSION_KEYS, aggregateSARM,
 } from '../../utils/sarm';
+import { useSarmSignals } from '../../hooks/useSarmSignals';
 import SignalDot from '../../components/SignalDot';
 
 // ── Citation Component ────────────────────────────────────────────────────────
@@ -27,7 +28,8 @@ function CitationLink({ cite, index }: { cite: Citation; index: number }) {
 
 // ── Traffic Light Cell ────────────────────────────────────────────────────────
 function TrafficLight({ signal }: { signal: SARMSignal }) {
-  const m = SIGNAL_META[signal];
+  const { signals } = useSarmSignals();
+  const m = signals[signal];
   return (
     <span
       className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold whitespace-nowrap"
@@ -67,6 +69,7 @@ function InfoRow({ label, value }: { label: string; value: React.ReactNode }) {
 
 // ── SARM Detail Table ─────────────────────────────────────────────────────────
 function SARMTable({ issuer }: { issuer: Issuer }) {
+  const { signals } = useSarmSignals();
   const summary = aggregateSARM(issuer.sarm);
   return (
     <div className="space-y-4">
@@ -75,8 +78,8 @@ function SARMTable({ issuer }: { issuer: Issuer }) {
         {(['green', 'yellow', 'red', 'gray'] as SARMSignal[]).map(s => (
           <span key={s} className="flex items-center gap-1.5">
             <SignalDot signal={s} size={8} />
-            <span style={{ color: SIGNAL_META[s].color }} className="font-bold">{summary[s]}</span>
-            {' '}{SIGNAL_META[s].label}
+            <span style={{ color: signals[s].color }} className="font-bold">{summary[s]}</span>
+            {' '}{signals[s].label}
           </span>
         ))}
       </div>
