@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import type { Issuer, Jurisdiction, JurisdictionCode, IssuerStatus, SARMSignal } from '../../types/licenses';
 import { SIGNAL_META, SARM_DIMENSION_KEYS, TYPE_LABELS, getOverallSignal } from '../../utils/sarm';
+import { useSarmSignals } from '../../hooks/useSarmSignals';
 import SignalDot from '../../components/SignalDot';
 import StatusBadge from '../../components/StatusBadge';
 import SARMBar from '../../components/SARMBar';
@@ -15,21 +17,6 @@ import { usePagination } from '../../hooks/usePagination';
 
 type TabId = 'jurisdictions' | 'issuers' | 'sarm';
 
-const TABS: { id: TabId; label: string }[] = [
-  { id: 'jurisdictions', label: 'Jurisdictions'  },
-  { id: 'issuers',       label: 'All Issuers'    },
-  { id: 'sarm',          label: 'SARM Breakdown' },
-];
-
-const STATUS_FILTERS: { value: IssuerStatus | 'all'; label: string }[] = [
-  { value: 'all',          label: 'All'          },
-  { value: 'sandbox',      label: 'Sandbox'      },
-  { value: 'under_review', label: 'Under Review' },
-  { value: 'licensed',     label: 'Licensed'     },
-  { value: 'withdrawn',    label: 'Withdrawn'    },
-  { value: 'rejected',     label: 'Rejected'     },
-];
-
 const JUR_CODES: JurisdictionCode[] = ['HK', 'SG', 'EU', 'UAE', 'US', 'JP'];
 
 const STATUS_SORT_ORDER: Record<IssuerStatus, number> = {
@@ -40,16 +27,34 @@ const STATUS_SORT_ORDER: Record<IssuerStatus, number> = {
   rejected:     4,
 };
 
-const REGIME_CHIP: Record<string, { dot: string; label: string } | null> = {
-  active:     { dot: '#2E7D32', label: 'Active'     },
-  developing: { dot: '#e09d2b', label: 'Developing' },
-  proposed:   { dot: '#A8A29E', label: 'Proposed'   },
-  none:       null,
-};
-
 // ── Main Component ────────────────────────────────────────────────────────────
 
 export default function LicensesOverview() {
+  const { t } = useTranslation('licensesMap');
+  const { signals } = useSarmSignals();
+
+  const TABS: { id: TabId; label: string }[] = [
+    { id: 'jurisdictions', label: t('tabs.jurisdictions') },
+    { id: 'issuers',       label: t('tabs.issuers')       },
+    { id: 'sarm',          label: t('tabs.sarm')          },
+  ];
+
+  const STATUS_FILTERS: { value: IssuerStatus | 'all'; label: string }[] = [
+    { value: 'all',          label: t('statusFilters.all')         },
+    { value: 'sandbox',      label: t('statusFilters.sandbox')     },
+    { value: 'under_review', label: t('statusFilters.underReview') },
+    { value: 'licensed',     label: t('statusFilters.licensed')    },
+    { value: 'withdrawn',    label: t('statusFilters.withdrawn')   },
+    { value: 'rejected',     label: t('statusFilters.rejected')    },
+  ];
+
+  const REGIME_CHIP: Record<string, { dot: string; label: string } | null> = {
+    active:     { dot: '#2E7D32', label: t('regimeChips.active')     },
+    developing: { dot: '#e09d2b', label: t('regimeChips.developing') },
+    proposed:   { dot: '#A8A29E', label: t('regimeChips.proposed')   },
+    none:       null,
+  };
+
   const [issuers,       setIssuers]       = useState<Issuer[]>([]);
   const [jurisdictions, setJurisdictions] = useState<Jurisdiction[]>([]);
   const [loading,       setLoading]       = useState(true);
@@ -111,23 +116,22 @@ export default function LicensesOverview() {
 
       {/* ── Hero (compressed) ────────────────────────────────────────────── */}
       <section className="pt-ed-section-md pb-ed-section-sm">
-        <Eyebrow>SARM Framework</Eyebrow>
+        <Eyebrow>{t('hero.eyebrow')}</Eyebrow>
         <h1 className="text-4xl md:text-ed-hero-h1 text-ed-ink mt-ed-section-sm">
-          Stablecoin Risk Observatory
+          {t('hero.title')}
         </h1>
         <p className="text-ed-lede text-ed-text-secondary max-w-[720px] mt-ed-section-sm">
-          Qualitative traffic-light observation of stablecoin issuers across six jurisdictions,
-          applying the Structural Adequacy Risk Model (SARM). Qualitative signals.
+          {t('hero.lede')}
         </p>
       </section>
 
       {/* ── Stats ribbon ─────────────────────────────────────────────────── */}
       <BigStatRibbon cols={5}>
-        <BigStat value={issuers.length}             label="Issuers Tracked" />
-        <BigStat value={jurisdictions.length}       label="Jurisdictions" />
-        <BigStat value={globalCounts.licensed}      label="Licensed"      valueColor={globalCounts.licensed     > 0 ? '#2E7D32' : '#A8A29E'} />
-        <BigStat value={globalCounts.under_review}  label="Under Review"  valueColor={globalCounts.under_review > 0 ? '#e09d2b' : '#A8A29E'} />
-        <BigStat value={globalCounts.sandbox}       label="Sandbox"       valueColor={globalCounts.sandbox      > 0 ? '#1565C0' : '#A8A29E'} />
+        <BigStat value={issuers.length}             label={t('stats.trackingIssuers')} />
+        <BigStat value={jurisdictions.length}       label={t('stats.jurisdictions')} />
+        <BigStat value={globalCounts.licensed}      label={t('stats.licensed')}      valueColor={globalCounts.licensed     > 0 ? '#2E7D32' : '#A8A29E'} />
+        <BigStat value={globalCounts.under_review}  label={t('stats.underReview')}   valueColor={globalCounts.under_review > 0 ? '#e09d2b' : '#A8A29E'} />
+        <BigStat value={globalCounts.sandbox}       label={t('stats.sandbox')}       valueColor={globalCounts.sandbox      > 0 ? '#1565C0' : '#A8A29E'} />
       </BigStatRibbon>
 
       {/* ── Tab strip ────────────────────────────────────────────────────── */}
@@ -152,7 +156,7 @@ export default function LicensesOverview() {
             to="/licenses/methodology"
             className="hidden md:block text-ed-meta text-ed-text-muted hover:text-ed-ink pb-3 transition-colors"
           >
-            SARM Methodology →
+            {t('jurisdictionsTab.methodologyLink')}
           </Link>
         </div>
       </div>
@@ -204,11 +208,11 @@ export default function LicensesOverview() {
                   {/* Row 3: 4-col counts grid */}
                   <div className="grid grid-cols-2 sm:grid-cols-4 border-t border-ed-hairline pt-3">
                     <div>
-                      <div className="text-ed-eyebrow text-ed-text-muted">Total</div>
+                      <div className="text-ed-eyebrow text-ed-text-muted">{t('jurisdictionsTab.total')}</div>
                       <div className="text-ed-item-h4 text-ed-ink tabular-nums mt-0.5">{counts.total}</div>
                     </div>
                     <div>
-                      <div className="text-ed-eyebrow text-ed-text-muted">Licensed</div>
+                      <div className="text-ed-eyebrow text-ed-text-muted">{t('jurisdictionsTab.licensed')}</div>
                       <div
                         className="text-ed-item-h4 tabular-nums mt-0.5"
                         style={{ color: counts.licensed > 0 ? '#2E7D32' : '#A8A29E' }}
@@ -217,7 +221,7 @@ export default function LicensesOverview() {
                       </div>
                     </div>
                     <div>
-                      <div className="text-ed-eyebrow text-ed-text-muted">Review</div>
+                      <div className="text-ed-eyebrow text-ed-text-muted">{t('jurisdictionsTab.review')}</div>
                       <div
                         className="text-ed-item-h4 tabular-nums mt-0.5"
                         style={{ color: counts.under_review > 0 ? '#e09d2b' : '#A8A29E' }}
@@ -226,7 +230,7 @@ export default function LicensesOverview() {
                       </div>
                     </div>
                     <div>
-                      <div className="text-ed-eyebrow text-ed-text-muted">Sandbox</div>
+                      <div className="text-ed-eyebrow text-ed-text-muted">{t('jurisdictionsTab.sandbox')}</div>
                       <div
                         className="text-ed-item-h4 tabular-nums mt-0.5"
                         style={{ color: counts.sandbox > 0 ? '#1565C0' : '#A8A29E' }}
@@ -239,7 +243,7 @@ export default function LicensesOverview() {
                   {/* Row 4: SARM signal strip */}
                   {counts.total > 0 ? (
                     <div className="flex items-center justify-between gap-2 text-ed-meta text-ed-text-secondary tabular-nums border-t border-ed-hairline-faint pt-3">
-                      <span className="text-ed-eyebrow text-ed-text-muted">SARM signals</span>
+                      <span className="text-ed-eyebrow text-ed-text-muted">{t('jurisdictionsTab.sarmSignals')}</span>
                       <div className="flex items-center gap-3">
                         <span className="flex items-center gap-1"><SignalDot signal="green"  size={7} />{sig.green}</span>
                         <span className="flex items-center gap-1"><SignalDot signal="yellow" size={7} />{sig.yellow}</span>
@@ -249,7 +253,7 @@ export default function LicensesOverview() {
                     </div>
                   ) : (
                     <div className="text-ed-meta text-ed-text-faint border-t border-ed-hairline-faint pt-3">
-                      No assessed issuers yet
+                      {t('jurisdictionsTab.noAssessedIssuers')}
                     </div>
                   )}
                 </button>
@@ -265,8 +269,8 @@ export default function LicensesOverview() {
 
           {/* Jurisdiction filter */}
           <div className="flex items-center gap-2 flex-wrap mb-ed-section-sm">
-            <span className="text-ed-eyebrow text-ed-text-muted">Jurisdiction</span>
-            <FilterPill active={jurFilter === 'All'} onClick={() => setJurFilter('All')}>All</FilterPill>
+            <span className="text-ed-eyebrow text-ed-text-muted">{t('issuersTab.jurisdictionLabel')}</span>
+            <FilterPill active={jurFilter === 'All'} onClick={() => setJurFilter('All')}>{t('issuersTab.allJurisdictions')}</FilterPill>
             {JUR_CODES.map(c => (
               <FilterPill key={c} active={jurFilter === c} onClick={() => setJurFilter(c)}>{c}</FilterPill>
             ))}
@@ -274,7 +278,7 @@ export default function LicensesOverview() {
 
           {/* Status filter */}
           <div className="flex items-center gap-2 flex-wrap mb-ed-section-sm">
-            <span className="text-ed-eyebrow text-ed-text-muted">Status</span>
+            <span className="text-ed-eyebrow text-ed-text-muted">{t('issuersTab.statusLabel')}</span>
             {STATUS_FILTERS.map(f => (
               <FilterPill
                 key={f.value}
@@ -294,7 +298,7 @@ export default function LicensesOverview() {
               </span>
               <input
                 type="text"
-                placeholder="Search issuer or ticker…"
+                placeholder={t('issuersTab.searchPlaceholder')}
                 value={search}
                 onChange={e => setSearch(e.target.value)}
                 className="w-full pl-9 pr-4 py-2 text-ed-body border border-ed-hairline bg-ed-surface focus:outline-none focus:ring-1 focus:ring-ed-ink/20"
@@ -306,7 +310,7 @@ export default function LicensesOverview() {
                 onChange={e => setPegFilter(e.target.value)}
                 className="text-ed-meta border border-ed-hairline px-3 py-2 bg-ed-surface focus:outline-none focus:ring-1 focus:ring-ed-ink/20"
               >
-                <option value="all">All pegs</option>
+                <option value="all">{t('issuersTab.allPegs')}</option>
                 {pegs.map(p => <option key={p} value={p}>{p}</option>)}
               </select>
             )}
@@ -315,7 +319,7 @@ export default function LicensesOverview() {
           {/* Table / empty state */}
           {filtered.length === 0 ? (
             <div className="text-center py-16 text-ed-text-muted text-ed-body">
-              No issuers match your filters.
+              {t('issuersTab.noIssuersMatch')}
             </div>
           ) : (
             <div className="border border-ed-hairline overflow-hidden">
@@ -325,14 +329,14 @@ export default function LicensesOverview() {
                 <table className="w-full">
                   <thead>
                     <tr className="border-b border-ed-hairline bg-ed-surface-cool">
-                      <th className="text-left px-5 py-3 text-ed-eyebrow text-ed-text-muted">Issuer</th>
-                      <th className="text-left px-5 py-3 text-ed-eyebrow text-ed-text-muted">Jur.</th>
-                      <th className="text-left px-5 py-3 text-ed-eyebrow text-ed-text-muted">Ticker</th>
-                      <th className="text-left px-5 py-3 text-ed-eyebrow text-ed-text-muted">Peg</th>
-                      <th className="text-left px-5 py-3 text-ed-eyebrow text-ed-text-muted">Type</th>
-                      <th className="text-left px-5 py-3 text-ed-eyebrow text-ed-text-muted">Status</th>
-                      <th className="text-left px-5 py-3 text-ed-eyebrow text-ed-text-muted">SARM</th>
-                      <th className="text-left px-5 py-3 text-ed-eyebrow text-ed-text-muted">Applied</th>
+                      <th className="text-left px-5 py-3 text-ed-eyebrow text-ed-text-muted">{t('issuersTab.tableHeaders.issuer')}</th>
+                      <th className="text-left px-5 py-3 text-ed-eyebrow text-ed-text-muted">{t('issuersTab.tableHeaders.jurisdiction')}</th>
+                      <th className="text-left px-5 py-3 text-ed-eyebrow text-ed-text-muted">{t('issuersTab.tableHeaders.ticker')}</th>
+                      <th className="text-left px-5 py-3 text-ed-eyebrow text-ed-text-muted">{t('issuersTab.tableHeaders.peg')}</th>
+                      <th className="text-left px-5 py-3 text-ed-eyebrow text-ed-text-muted">{t('issuersTab.tableHeaders.type')}</th>
+                      <th className="text-left px-5 py-3 text-ed-eyebrow text-ed-text-muted">{t('issuersTab.tableHeaders.status')}</th>
+                      <th className="text-left px-5 py-3 text-ed-eyebrow text-ed-text-muted">{t('issuersTab.tableHeaders.sarm')}</th>
+                      <th className="text-left px-5 py-3 text-ed-eyebrow text-ed-text-muted">{t('issuersTab.tableHeaders.applied')}</th>
                       <th className="px-5 py-3" />
                     </tr>
                   </thead>
@@ -376,7 +380,7 @@ export default function LicensesOverview() {
                               to={`/licenses/${issuer.slug}`}
                               className="flex items-center gap-1 text-ed-meta text-ed-text-secondary hover:text-ed-ink transition-colors"
                             >
-                              View
+                              {t('issuersTab.viewAction')}
                               <span className="material-symbols-outlined text-base">arrow_forward</span>
                             </Link>
                           </td>
@@ -417,7 +421,7 @@ export default function LicensesOverview() {
                           to={`/licenses/${issuer.slug}`}
                           className="flex items-center gap-1 text-ed-meta text-ed-text-secondary hover:text-ed-ink"
                         >
-                          View profile
+                          {t('issuersTab.viewProfile')}
                           <span className="material-symbols-outlined text-base">arrow_forward</span>
                         </Link>
                       </div>
@@ -432,7 +436,7 @@ export default function LicensesOverview() {
           {canLoadMore && (
             <div className="mt-ed-section-sm border-t border-ed-hairline pt-ed-section-sm">
               <button onClick={loadMore} className="text-ed-meta text-ed-ink hover:underline">
-                Load more ({filtered.length - visible.length} remaining) →
+                {t('issuersTab.loadMore', { remaining: filtered.length - visible.length })}
               </button>
             </div>
           )}
@@ -443,12 +447,12 @@ export default function LicensesOverview() {
       {activeTab === 'sarm' && (
         <section className="w-screen relative left-1/2 -translate-x-1/2 bg-ed-surface-cool pt-ed-section-sm pb-ed-section-md md:pb-ed-section">
           <div className="max-w-[1400px] mx-auto px-8">
-            <Eyebrow>Per-issuer view</Eyebrow>
+            <Eyebrow>{t('sarmTab.eyebrow')}</Eyebrow>
             <h2 className="text-2xl md:text-ed-section-h2 text-ed-ink mt-ed-section-sm">
-              SARM breakdown by issuer
+              {t('sarmTab.title')}
             </h2>
             <p className="text-ed-body text-ed-text-secondary max-w-[720px] mt-ed-section-sm mb-ed-section-lg">
-              Per-issuer signal breakdown across the six SARM dimensions. Bars indicate qualitative band, not numerical score.
+              {t('sarmTab.description')}
             </p>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-ed-section-sm">
@@ -495,16 +499,14 @@ export default function LicensesOverview() {
       {/* ── Shared footer: legend + disclaimer ──────────────────────────── */}
       <section className="py-ed-section-md border-t border-ed-hairline">
         <div className="flex items-center gap-ed-section-sm flex-wrap text-ed-meta text-ed-text-muted mb-ed-section-sm">
-          <span className="text-ed-eyebrow text-ed-text-muted">SARM signals</span>
-          <span className="flex items-center gap-1.5"><SignalDot signal="green"  size={8} />Satisfactory</span>
-          <span className="flex items-center gap-1.5"><SignalDot signal="yellow" size={8} />Partial</span>
-          <span className="flex items-center gap-1.5"><SignalDot signal="red"    size={8} />Significant Gap</span>
-          <span className="flex items-center gap-1.5"><SignalDot signal="gray"   size={8} />Insufficient Data</span>
+          <span className="text-ed-eyebrow text-ed-text-muted">{t('sarmLegend.eyebrow')}</span>
+          <span className="flex items-center gap-1.5"><SignalDot signal="green"  size={8} />{signals['green'].label}</span>
+          <span className="flex items-center gap-1.5"><SignalDot signal="yellow" size={8} />{signals['yellow'].label}</span>
+          <span className="flex items-center gap-1.5"><SignalDot signal="red"    size={8} />{signals['red'].label}</span>
+          <span className="flex items-center gap-1.5"><SignalDot signal="gray"   size={8} />{signals['gray'].label}</span>
         </div>
         <p className="text-ed-meta text-ed-text-muted leading-relaxed max-w-[900px]">
-          This tracker is produced for academic research purposes. Assessments are based solely on
-          publicly available information. No investment, legal, or compliance advice is intended or
-          implied. SARM signals are qualitative judgements, not scores or ratings.
+          {t('disclaimer')}
         </p>
       </section>
 

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import type { Issuer, SARMSignal, Citation } from '../../types/licenses';
 import {
   SIGNAL_META, STATUS_META, TYPE_LABELS,
@@ -10,6 +11,7 @@ import SignalDot from '../../components/SignalDot';
 
 // ── Citation Component ────────────────────────────────────────────────────────
 function CitationLink({ cite, index }: { cite: Citation; index: number }) {
+  const { t } = useTranslation('licensesMap');
   return (
     <span className="inline-flex items-baseline gap-1 text-xs">
       <sup className="text-[#5E5C75] font-bold">[{index + 1}]</sup>
@@ -110,6 +112,7 @@ function SARMTable({ issuer }: { issuer: Issuer }) {
 
 // ── Main Component ────────────────────────────────────────────────────────────
 export default function IssuerProfile() {
+  const { t } = useTranslation('licensesMap');
   const { slug } = useParams<{ slug: string }>();
   const [issuer, setIssuer] = useState<Issuer | null>(null);
   const [loading, setLoading] = useState(true);
@@ -136,9 +139,9 @@ export default function IssuerProfile() {
   if (notFound || !issuer) return (
     <div className="max-w-3xl mx-auto px-6 py-16 text-center">
       <div className="text-4xl mb-4">🔍</div>
-      <h1 className="text-xl font-black text-[#2B3437] mb-2">Issuer not found</h1>
-      <p className="text-sm text-[#737C7F] mb-6">No issuer with slug "{slug}" exists in the database.</p>
-      <Link to="/licenses" className="text-[#5E5C75] underline text-sm">← Back to Licence Tracker</Link>
+      <h1 className="text-xl font-black text-[#2B3437] mb-2">{t('issuerProfile.notFound.title')}</h1>
+      <p className="text-sm text-[#737C7F] mb-6">{t('issuerProfile.notFound.description', { slug })}</p>
+      <Link to="/licenses" className="text-[#5E5C75] underline text-sm">{t('issuerProfile.notFound.backLink')}</Link>
     </div>
   );
 
@@ -150,7 +153,7 @@ export default function IssuerProfile() {
 
       {/* ── Breadcrumb ── */}
       <div className="flex items-center gap-2 text-xs text-[#737C7F]">
-        <Link to="/licenses" className="hover:text-[#2B3437] transition-colors">Licence Tracker</Link>
+        <Link to="/licenses" className="hover:text-[#2B3437] transition-colors">{t('issuerProfile.breadcrumb.licenceTracker')}</Link>
         <span className="material-symbols-outlined text-sm">chevron_right</span>
         <span className="text-[#2B3437]">{issuer.name}</span>
       </div>
@@ -171,7 +174,7 @@ export default function IssuerProfile() {
             <div className="flex items-center gap-3 flex-wrap text-sm text-[#737C7F]">
               <span className="font-mono font-bold text-[#5E5C75]">{issuer.ticker}</span>
               <span>·</span>
-              <span>{issuer.peg} peg</span>
+              <span>{issuer.peg} {t('issuerProfile.pegLabel')}</span>
               <span>·</span>
               <span>{TYPE_LABELS[issuer.type] ?? issuer.type}</span>
               <span>·</span>
@@ -200,19 +203,19 @@ export default function IssuerProfile() {
       </div>
 
       {/* ── Section 1: Applicant Overview ── */}
-      <Section title="Applicant Overview" icon="business">
-        <InfoRow label="Legal Entity" value={issuer.name} />
-        <InfoRow label="Parent / Sponsor" value={issuer.parent} />
-        <InfoRow label="Jurisdiction" value={issuer.jurisdiction} />
-        <InfoRow label="Peg Currency" value={issuer.peg} />
-        <InfoRow label="Stablecoin Type" value={TYPE_LABELS[issuer.type] ?? issuer.type} />
-        <InfoRow label="Ticker" value={<span className="font-mono font-bold text-[#5E5C75]">{issuer.ticker}</span>} />
+      <Section title={t('issuerProfile.sections.applicantOverview')} icon="business">
+        <InfoRow label={t('issuerProfile.infoLabels.legalEntity')} value={issuer.name} />
+        <InfoRow label={t('issuerProfile.infoLabels.parentSponsor')} value={issuer.parent} />
+        <InfoRow label={t('issuerProfile.infoLabels.jurisdiction')} value={issuer.jurisdiction} />
+        <InfoRow label={t('issuerProfile.infoLabels.pegCurrency')} value={issuer.peg} />
+        <InfoRow label={t('issuerProfile.infoLabels.stablecoinType')} value={TYPE_LABELS[issuer.type] ?? issuer.type} />
+        <InfoRow label={t('issuerProfile.infoLabels.ticker')} value={<span className="font-mono font-bold text-[#5E5C75]">{issuer.ticker}</span>} />
         <InfoRow
-          label="Application Date"
+          label={t('issuerProfile.applicationDateLabel')}
           value={issuer.application_date === 'Unknown' ? '—' : issuer.application_date}
         />
         <InfoRow
-          label="Licence Status"
+          label={t('issuerProfile.infoLabels.licenceStatus')}
           value={
             <span
               className="inline-flex items-center px-2 py-0.5 rounded text-xs font-bold"
@@ -225,44 +228,43 @@ export default function IssuerProfile() {
       </Section>
 
       {/* ── Section 2: SARM Assessment ── */}
-      <Section title="SARM Regulatory Assessment" icon="traffic">
+      <Section title={t('issuerProfile.sections.sarmAssessment')} icon="traffic">
         <div className="text-xs text-[#737C7F] bg-[#F8FAFB] rounded-lg px-4 py-3 border border-[#DBE4E7]">
-          Signals are qualitative traffic lights based on public information only.
-          Green = meets standard · Yellow = partial / conditional · Red = significant gap · Gray = insufficient public data.
-          {' '}<Link to="/licenses/methodology" className="text-[#5E5C75] underline">Full methodology →</Link>
+          {t('issuerProfile.sarmMethodologyText')}
+          <Link to="/licenses/methodology" className="text-[#5E5C75] underline">{t('issuerProfile.methodologyLink')}</Link>
         </div>
         <SARMTable issuer={issuer} />
       </Section>
 
       {/* ── Section 3: Reserve Quality ── */}
-      <Section title="Reserve Quality" icon="account_balance">
+      <Section title={t('issuerProfile.sections.reserveQuality')} icon="account_balance">
         <p className="text-sm text-[#737C7F] leading-relaxed">{issuer.reserve_details}</p>
       </Section>
 
       {/* ── Section 4: Governance & Audits ── */}
-      <Section title="Governance & Audits" icon="gavel">
+      <Section title={t('issuerProfile.sections.governanceAudits')} icon="gavel">
         <p className="text-sm text-[#737C7F] leading-relaxed">{issuer.governance_notes}</p>
       </Section>
 
       {/* ── Section 5: Technology & Custody ── */}
-      <Section title="Technology & Custody" icon="lock">
+      <Section title={t('issuerProfile.sections.technologyCustody')} icon="lock">
         <p className="text-sm text-[#737C7F] leading-relaxed">{issuer.technology_notes}</p>
       </Section>
 
       {/* ── Section 6: Redemption Mechanics ── */}
-      <Section title="Redemption Mechanics" icon="swap_horiz">
+      <Section title={t('issuerProfile.sections.redemptionMechanics')} icon="swap_horiz">
         <p className="text-sm text-[#737C7F] leading-relaxed">{issuer.redemption_notes}</p>
       </Section>
 
       {/* ── Section 7: Public Disclosures ── */}
-      <Section title="Public Disclosures" icon="description">
+      <Section title={t('issuerProfile.sections.publicDisclosures')} icon="description">
         <p className="text-sm text-[#737C7F] leading-relaxed">{issuer.disclosure_notes}</p>
       </Section>
 
       {/* ── Section 8: Sources & Citations ── */}
-      <Section title="Sources & Citations" icon="menu_book">
+      <Section title={t('issuerProfile.sections.sourcesAndCitations')} icon="menu_book">
         {issuer.citations.length === 0 ? (
-          <p className="text-sm text-[#737C7F]">No public sources available.</p>
+          <p className="text-sm text-[#737C7F]">{t('issuerProfile.noSourcesAvailable')}</p>
         ) : (
           <ol className="space-y-2 list-none">
             {issuer.citations.map((cite, i) => (
@@ -278,7 +280,7 @@ export default function IssuerProfile() {
                     {cite.label}
                   </a>
                   {cite.date && (
-                    <span className="text-[#737C7F] ml-2 text-xs">Retrieved/published: {cite.date}</span>
+                    <span className="text-[#737C7F] ml-2 text-xs">{t('issuerProfile.citationDateLabel', { date: cite.date })}</span>
                   )}
                 </span>
               </li>
@@ -291,9 +293,9 @@ export default function IssuerProfile() {
       <div className="bg-[#EAEFF1] rounded-lg p-4 flex items-start gap-3">
         <span className="material-symbols-outlined text-[#737C7F] text-base shrink-0 mt-0.5">rate_review</span>
         <div className="text-xs text-[#737C7F] leading-relaxed">
-          <span className="font-bold text-[#2B3437]">Reviewer note: </span>
+          <span className="font-bold text-[#2B3437]">{t('issuerProfile.reviewerNote')}</span>
           {issuer.reviewer_note}
-          <div className="mt-1">Last reviewed: {issuer.last_reviewed}</div>
+          <div className="mt-1">{t('issuerProfile.lastReviewed', { date: issuer.last_reviewed })}</div>
         </div>
       </div>
 
@@ -304,22 +306,20 @@ export default function IssuerProfile() {
           className="flex items-center gap-1.5 text-sm text-[#5E5C75] hover:text-[#2B3437] transition-colors"
         >
           <span className="material-symbols-outlined text-base">arrow_back</span>
-          All issuers
+          {t('issuerProfile.navigationAll')}
         </Link>
         <Link
           to="/licenses/methodology"
           className="flex items-center gap-1.5 text-sm text-[#5E5C75] hover:text-[#2B3437] transition-colors"
         >
-          SARM Methodology
+          {t('issuerProfile.navigationMethodology')}
           <span className="material-symbols-outlined text-base">arrow_forward</span>
         </Link>
       </div>
 
       {/* ── Disclaimer ── */}
       <p className="text-xs text-[#737C7F] italic border-t border-[#DBE4E7] pt-4">
-        ⚠️ Academic research only. Not investment, legal, or compliance advice. SARM signals are
-        qualitative judgements based on publicly available information and may not reflect current
-        regulatory or operational status.
+        {t('issuerProfile.disclaimer')}
       </p>
     </div>
   );

@@ -1,0 +1,111 @@
+{
+  "hero": {
+    "eyebrow": "SARM 框架",
+    "title": "穩定幣風險觀測站",
+    "lede": "對六個司法管轄區的穩定幣發行方進行定性紅綠燈觀測，應用 Structural Adequacy Risk Model（SARM）。定性訊號。"
+  },
+  "stats": {
+    "trackingIssuers": "追蹤發行方數",
+    "jurisdictions": "司法管轄區",
+    "licensed": "持牌",
+    "underReview": "審查中",
+    "sandbox": "沙盒"
+  },
+  "tabs": {
+    "jurisdictions": "司法管轄區",
+    "issuers": "所有發行方",
+    "sarm": "SARM 分項"
+  },
+  "jurisdictionsTab": {
+    "methodologyLink": "SARM 方法論 →",
+    "total": "合計",
+    "licensed": "持牌",
+    "review": "審查中",
+    "sandbox": "沙盒",
+    "sarmSignals": "SARM 訊號",
+    "noAssessedIssuers": "暫無已評估發行方"
+  },
+  "issuersTab": {
+    "jurisdictionLabel": "司法管轄區",
+    "allJurisdictions": "全部",
+    "statusLabel": "狀態",
+    "searchPlaceholder": "搜尋發行方或代幣簡稱…",
+    "allPegs": "所有錨定貨幣",
+    "noIssuersMatch": "無發行方符合篩選條件。",
+    "tableHeaders": {
+      "issuer": "發行方",
+      "jurisdiction": "轄區",
+      "ticker": "代幣",
+      "peg": "錨定",
+      "type": "型別",
+      "status": "狀態",
+      "sarm": "SARM",
+      "applied": "申請日"
+    },
+    "viewAction": "檢視",
+    "viewProfile": "檢視檔案",
+    "loadMore": "載入更多（剩餘 {{remaining}} 條）→"
+  },
+  "sarmTab": {
+    "eyebrow": "逐發行方檢視",
+    "title": "各發行方 SARM 分項",
+    "description": "六個 SARM 維度的逐發行方訊號分項。柱形表示定性區間，而非數值評分。"
+  },
+  "sarmLegend": {
+    "eyebrow": "SARM 訊號"
+  },
+  "disclaimer": "本追蹤器僅供學術研究之用。評估僅基於公開資訊。不構成、也不暗示任何投資、法律或合規建議。SARM 訊號為定性判斷，而非評分或評級。",
+  "statusFilters": {
+    "all": "全部",
+    "sandbox": "沙盒",
+    "underReview": "審查中",
+    "licensed": "持牌",
+    "withdrawn": "已撤回",
+    "rejected": "已拒絕"
+  },
+  "regimeChips": {
+    "active": "已實施",
+    "developing": "制定中",
+    "proposed": "提案階段"
+  },
+  "issuerProfile": {
+    "breadcrumb": {
+      "licenceTracker": "牌照追蹤"
+    },
+    "pegLabel": "錨定",
+    "applicationDateLabel": "申請日期",
+    "sections": {
+      "applicantOverview": "申請方概覽",
+      "sarmAssessment": "SARM 監管評估",
+      "reserveQuality": "儲備質量",
+      "governanceAudits": "治理與審計",
+      "technologyCustody": "技術與託管",
+      "redemptionMechanics": "贖回機制",
+      "publicDisclosures": "公開披露",
+      "sourcesAndCitations": "來源與引用"
+    },
+    "infoLabels": {
+      "legalEntity": "法律實體",
+      "parentSponsor": "母公司／擔保方",
+      "jurisdiction": "司法管轄區",
+      "pegCurrency": "錨定貨幣",
+      "stablecoinType": "穩定幣型別",
+      "ticker": "代幣簡稱",
+      "licenceStatus": "牌照狀態"
+    },
+    "sarmMethodologyText": "訊號是僅基於公開資訊的定性紅綠燈。綠 = 達標 · 黃 = 部分／有條件 · 紅 = 重大缺口 · 灰 = 公開資料不足。 ",
+    "methodologyLink": "完整方法論 →",
+    "noSourcesAvailable": "暫無公開來源。",
+    "reviewerNote": "審閱備註：",
+    "lastReviewed": "最近審閱：{{date}}",
+    "navigationAll": "所有發行方",
+    "navigationMethodology": "SARM 方法論",
+    "disclaimer": "⚠️ 僅供學術研究。不構成投資、法律或合規建議。SARM 訊號為定性判斷，基於公開可查資訊，可能無法反映當前的監管或運營狀態。",
+    "citationDateLabel": "獲取／釋出日期：{{date}}",
+    "notFound": {
+      "title": "未找到發行方",
+      "description": "資料庫中不存在 slug 為「{{slug}}」的發行方。",
+      "backLink": "← 返回牌照追蹤"
+    }
+  }
+}
