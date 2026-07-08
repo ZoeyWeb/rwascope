@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
+import { useComplianceSignals } from '../../hooks/useComplianceSignals';
 
 export default function ComplianceMethodology() {
+  const { signals } = useComplianceSignals();
   return (
     <div className="max-w-3xl mx-auto px-4 py-10">
       <nav className="text-xs text-slate-500 mb-4 flex items-center gap-1">
@@ -52,7 +54,7 @@ export default function ComplianceMethodology() {
                   <td className="py-2 pr-4">
                     <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium bg-[#d1fae5] text-[#065f46] border border-[#6ee7b7]">
                       <span className="w-1.5 h-1.5 rounded-full bg-[#10b981]" />
-                      Open
+                      {signals.open.label}
                     </span>
                   </td>
                   <td className="py-2 pr-4 text-[#586064]">
@@ -66,7 +68,7 @@ export default function ComplianceMethodology() {
                   <td className="py-2 pr-4">
                     <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium bg-[#fef3c7] text-[#92400e] border border-[#fcd34d]">
                       <span className="w-1.5 h-1.5 rounded-full bg-[#f59e0b]" />
-                      Conditional
+                      {signals.conditional.label}
                     </span>
                   </td>
                   <td className="py-2 pr-4 text-[#586064]">
@@ -82,7 +84,7 @@ export default function ComplianceMethodology() {
                   <td className="py-2 pr-4">
                     <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium bg-[#fee2e2] text-[#991b1b] border border-[#fca5a5]">
                       <span className="w-1.5 h-1.5 rounded-full bg-[#ef4444]" />
-                      Restricted
+                      {signals.restricted.label}
                     </span>
                   </td>
                   <td className="py-2 pr-4 text-[#586064]">
@@ -97,7 +99,7 @@ export default function ComplianceMethodology() {
                   <td className="py-2 pr-4">
                     <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium bg-[#f3f4f6] text-[#6b7280] border border-[#d1d5db]">
                       <span className="w-1.5 h-1.5 rounded-full bg-[#9ca3af]" />
-                      Pending
+                      {signals.placeholder.label}
                     </span>
                   </td>
                   <td className="py-2 pr-4 text-[#586064]">

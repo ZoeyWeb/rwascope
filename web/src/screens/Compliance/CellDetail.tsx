@@ -2,9 +2,11 @@ import { useState, useEffect } from 'react';
 import { Link, useParams, Navigate } from 'react-router-dom';
 import type { ComplianceMatrix, ComplianceCell } from '../../types/compliance';
 import { SIGNAL_META, getCell, getJurisdiction, getIssue, buildCellCitation } from '../../utils/compliance';
+import { useComplianceSignals } from '../../hooks/useComplianceSignals';
 
 function SignalBadge({ signal }: { signal: ComplianceCell['status_signal'] }) {
-  const meta = SIGNAL_META[signal];
+  const { signals } = useComplianceSignals();
+  const meta = signals[signal];
   return (
     <span
       className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-sm font-medium"
@@ -27,6 +29,7 @@ const REF_TYPE_LABELS: Record<string, string> = {
 };
 
 export default function CellDetail() {
+  const { signals } = useComplianceSignals();
   const { jurisdiction, issue } = useParams<{ jurisdiction: string; issue: string }>();
   const [matrix, setMatrix] = useState<ComplianceMatrix | null>(null);
   const [loading, setLoading] = useState(true);
@@ -283,7 +286,7 @@ export default function CellDetail() {
               {siblingIssues.map((si) => {
                 const sibCell = getCell(matrix, jurisdiction, si.code);
                 const sig = sibCell?.status_signal ?? 'placeholder';
-                const meta = SIGNAL_META[sig];
+                const meta = signals[sig];
                 return (
                   <Link
                     key={si.code}

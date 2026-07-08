@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import type { ComplianceMatrix, ComplianceSignal } from '../../types/compliance';
 import { SIGNAL_META, populatedCellCount } from '../../utils/compliance';
+import { useComplianceSignals } from '../../hooks/useComplianceSignals';
 import { Eyebrow } from '../../components/Eyebrow';
 import { BigStat, BigStatRibbon } from '../../components/BigStat';
 
@@ -18,7 +19,8 @@ const JURISDICTIONS_ORDER = ['HK', 'CN', 'SG', 'US', 'EU'];
 type ViewMode = 'matrix' | 'list';
 
 function SignalChip({ signal }: { signal: ComplianceSignal }) {
-  const meta = SIGNAL_META[signal];
+  const { signals } = useComplianceSignals();
+  const meta = signals[signal];
   return (
     <span
       className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium"
@@ -42,7 +44,8 @@ function MatrixCell({
   jurisdiction: string;
   issue: string;
 }) {
-  const meta = SIGNAL_META[signal];
+  const { signals } = useComplianceSignals();
+  const meta = signals[signal];
   const isPlaceholder = signal === 'placeholder';
 
   return (
@@ -74,6 +77,7 @@ function MatrixCell({
 }
 
 export default function ComplianceMap() {
+  const { signals } = useComplianceSignals();
   const [matrix, setMatrix] = useState<ComplianceMatrix | null>(null);
   const [loading, setLoading] = useState(true);
   const [viewMode, setViewMode] = useState<ViewMode>('matrix');
@@ -215,7 +219,7 @@ export default function ComplianceMap() {
             <option value="all">All signals</option>
             {(['open', 'conditional', 'restricted', 'placeholder'] as ComplianceSignal[]).map(
               (sig) => (
-                <option key={sig} value={sig}>{SIGNAL_META[sig].label}</option>
+                <option key={sig} value={sig}>{signals[sig].label}</option>
               )
             )}
           </select>

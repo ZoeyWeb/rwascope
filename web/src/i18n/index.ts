@@ -14,6 +14,7 @@ import enMethodology from '../locales/en/methodology.json';
 import enAssetsMethodology from '../locales/en/assetsMethodology.json';
 import enSarm from '../locales/en/sarm.json';
 import enLicensesMethodology from '../locales/en/licensesMethodology.json';
+import enCompliance from '../locales/en/compliance.json';
 import zhHansNav from '../locales/zh-Hans/nav.json';
 import zhHansFooter from '../locales/zh-Hans/footer.json';
 import zhHansHome from '../locales/zh-Hans/home.json';
@@ -25,6 +26,7 @@ import zhHansMethodology from '../locales/zh-Hans/methodology.json';
 import zhHansAssetsMethodology from '../locales/zh-Hans/assetsMethodology.json';
 import zhHansSarm from '../locales/zh-Hans/sarm.json';
 import zhHansLicensesMethodology from '../locales/zh-Hans/licensesMethodology.json';
+import zhHansCompliance from '../locales/zh-Hans/compliance.json';
 import zhHantNav from '../locales/zh-Hant/nav.json';
 import zhHantFooter from '../locales/zh-Hant/footer.json';
 import zhHantHome from '../locales/zh-Hant/home.json';
@@ -36,20 +38,21 @@ import zhHantMethodology from '../locales/zh-Hant/methodology.json';
 import zhHantAssetsMethodology from '../locales/zh-Hant/assetsMethodology.json';
 import zhHantSarm from '../locales/zh-Hant/sarm.json';
 import zhHantLicensesMethodology from '../locales/zh-Hant/licensesMethodology.json';
+import zhHantCompliance from '../locales/zh-Hant/compliance.json';
 
 i18n
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
     resources: {
-      en:        { nav: enNav,      footer: enFooter,      home: enHome,      hkObservation: enHkObservation,      intelligence: enIntelligence,      about: enAbout,      rarm: enRarm,      methodology: enMethodology,      assetsMethodology: enAssetsMethodology,      sarm: enSarm,      licensesMethodology: enLicensesMethodology },
-      'zh-Hans': { nav: zhHansNav,  footer: zhHansFooter,  home: zhHansHome,  hkObservation: zhHansHkObservation,  intelligence: zhHansIntelligence,  about: zhHansAbout,  rarm: zhHansRarm,  methodology: zhHansMethodology,  assetsMethodology: zhHansAssetsMethodology,  sarm: zhHansSarm,  licensesMethodology: zhHansLicensesMethodology },
-      'zh-Hant': { nav: zhHantNav,  footer: zhHantFooter,  home: zhHantHome,  hkObservation: zhHantHkObservation,  intelligence: zhHantIntelligence,  about: zhHantAbout,  rarm: zhHantRarm,  methodology: zhHantMethodology,  assetsMethodology: zhHantAssetsMethodology,  sarm: zhHantSarm,  licensesMethodology: zhHantLicensesMethodology },
+      en:        { nav: enNav,      footer: enFooter,      home: enHome,      hkObservation: enHkObservation,      intelligence: enIntelligence,      about: enAbout,      rarm: enRarm,      methodology: enMethodology,      assetsMethodology: enAssetsMethodology,      sarm: enSarm,      licensesMethodology: enLicensesMethodology,      compliance: enCompliance },
+      'zh-Hans': { nav: zhHansNav,  footer: zhHansFooter,  home: zhHansHome,  hkObservation: zhHansHkObservation,  intelligence: zhHansIntelligence,  about: zhHansAbout,  rarm: zhHansRarm,  methodology: zhHansMethodology,  assetsMethodology: zhHansAssetsMethodology,  sarm: zhHansSarm,  licensesMethodology: zhHansLicensesMethodology,  compliance: zhHansCompliance },
+      'zh-Hant': { nav: zhHantNav,  footer: zhHantFooter,  home: zhHantHome,  hkObservation: zhHantHkObservation,  intelligence: zhHantIntelligence,  about: zhHantAbout,  rarm: zhHantRarm,  methodology: zhHantMethodology,  assetsMethodology: zhHantAssetsMethodology,  sarm: zhHantSarm,  licensesMethodology: zhHantLicensesMethodology,  compliance: zhHantCompliance },
     },
     fallbackLng: 'en',
     supportedLngs: ['en', 'zh-Hans', 'zh-Hant'],
     defaultNS: 'nav',
-    ns: ['nav', 'footer', 'home', 'hkObservation', 'intelligence', 'about', 'rarm', 'methodology', 'assetsMethodology', 'sarm', 'licensesMethodology'],
+    ns: ['nav', 'footer', 'home', 'hkObservation', 'intelligence', 'about', 'rarm', 'methodology', 'assetsMethodology', 'sarm', 'licensesMethodology', 'compliance'],
     detection: {
       order: ['cookie', 'localStorage'],
       caches: ['cookie', 'localStorage'],

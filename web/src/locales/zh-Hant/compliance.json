@@ -1,0 +1,8 @@
+{
+  "signals": {
+    "open": "開放",
+    "conditional": "有條件",
+    "restricted": "受限",
+    "placeholder": "待研究"
+  }
+}
