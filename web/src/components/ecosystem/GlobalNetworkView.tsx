@@ -101,6 +101,7 @@ function buildCrossRegionEntities(
 function buildGraph(
   regions: Region[],
   allData: Record<string, EcosystemData>,
+  getName?: (id: string, fallback: string) => string,
 ): { nodes: NetworkNode[]; links: NetworkLink[] } {
   const activeRegions = regions.filter(r => r.status !== 'planned' && allData[r.id]);
   const crossEntities = buildCrossRegionEntities(allData);
@@ -111,7 +112,7 @@ function buildGraph(
     return {
       id: r.id,
       label: r.id,
-      fullName: r.name,
+      fullName: getName ? getName(r.id, r.name) : r.name,
       color: REGION_COLORS[r.id] ?? '#737C7F',
       participantCount: count,
     };
@@ -277,7 +278,8 @@ export default function GlobalNetworkView({ regions, projectCount, assetClassCou
   useEffect(() => {
     if (!svgRef.current || !allData || loading || isMobile) return;
 
-    const { nodes, links } = buildGraph(regions, allData);
+    const { nodes, links } = buildGraph(regions, allData,
+      (id, fallback) => t('shared.regionName.' + id, { defaultValue: fallback }));
     if (nodes.length === 0) return;
 
     const el = svgRef.current;
@@ -553,7 +555,7 @@ export default function GlobalNetworkView({ regions, projectCount, assetClassCou
                 className="w-3 h-3 rounded-full shrink-0"
                 style={{ background: REGION_COLORS[r.id] ?? '#737C7F' }}
               />
-              {r.name}
+              {t('shared.regionName.' + r.id, { defaultValue: r.name })}
             </div>
           ))}
       </div>

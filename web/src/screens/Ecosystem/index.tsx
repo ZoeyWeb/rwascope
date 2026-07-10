@@ -187,12 +187,14 @@ function Layer3DCard({
   layer,
   gaps,
   isLast,
+  regionId,
 }: {
   layer: EcosystemLayer;
   gaps: EcosystemGap[];
   isActive: boolean;
   onClick: () => void;
   isLast?: boolean;
+  regionId: string;
 }) {
   const { t } = useTranslation('ecosystemMap');
   const navigate = useNavigate();
@@ -212,8 +214,8 @@ function Layer3DCard({
 
         {/* Col 2: label + description */}
         <div>
-          <h3 className="text-ed-block-h3 text-ed-text-primary">{layer.label}</h3>
-          <div className="text-ed-meta text-ed-text-secondary mt-1">{layer.sublabel}</div>
+          <h3 className="text-ed-block-h3 text-ed-text-primary">{t('shared.layerLabel.' + layer.id, { defaultValue: layer.label })}</h3>
+          <div className="text-ed-meta text-ed-text-secondary mt-1">{t('shared.layerSublabel.' + regionId + '.' + layer.id, { defaultValue: layer.sublabel })}</div>
           <p className="text-ed-body text-ed-text-secondary mt-ed-section-sm leading-relaxed">
             {layer.description}
           </p>
@@ -409,7 +411,7 @@ export default function EcosystemMap() {
           <div>
             <div className="text-ed-eyebrow uppercase text-ed-text-muted">{t('hero.eyebrow')}</div>
             <h1 className="text-4xl md:text-ed-hero-h1 text-ed-text-primary mt-4">
-              {currentRegion?.name ?? t('hero.h1Fallback')}
+              {currentRegion ? t('shared.regionName.' + currentRegion.id, { defaultValue: currentRegion.name }) : t('hero.h1Fallback')}
             </h1>
             <p className="text-ed-lede text-ed-text-secondary mt-ed-section-sm max-w-3xl">
               {t('hero.lede')}
@@ -444,7 +446,7 @@ export default function EcosystemMap() {
                         {layer.participants.length}
                       </div>
                       <div className="hidden md:block text-ed-meta text-ed-text-secondary w-40 truncate">
-                        {layer.label}
+                        {t('shared.layerLabel.' + layer.id, { defaultValue: layer.label })}
                       </div>
                     </div>
                   ))}
@@ -525,7 +527,7 @@ export default function EcosystemMap() {
                     const totalParticipants = sortedLayers.reduce((acc, l) => acc + l.participants.length, 0);
                     const secondary = (featured_stats ?? []).map(s => ({
                       value: stats[s.key],
-                      label: s.label,
+                      label: t('shared.statKey.' + s.key, { defaultValue: s.label }),
                     }));
                     const numericValues = secondary.map(s => s.value).filter((v): v is number => typeof v === 'number');
                     const maxStat = numericValues.length > 0 ? Math.max(...numericValues) : 0;
@@ -596,6 +598,7 @@ export default function EcosystemMap() {
                         isActive={false}
                         onClick={() => {}}
                         isLast={idx === sortedLayers.length - 1}
+                        regionId={selectedRegion.toLowerCase()}
                       />
                     ))}
                   </div>
@@ -619,6 +622,7 @@ export default function EcosystemMap() {
                           textAnchor="end"
                           interval={0}
                           dy={6}
+                          tickFormatter={(val: string) => t('shared.chartCategory.' + val.replace(/ /g, '_'), { defaultValue: val })}
                         />
                         <YAxis tick={{ fill: '#78716C', fontSize: 11 }} allowDecimals={false} width={28} />
                         <Tooltip content={<ChartTooltip />} cursor={{ fill: '#1A1A2E08' }} />
@@ -633,7 +637,7 @@ export default function EcosystemMap() {
                       {participant_type_chart.map(e => (
                         <div key={e.category} className="flex items-center gap-1.5 text-ed-eyebrow uppercase text-ed-text-muted">
                           <span className="w-2 h-2" style={{ background: e.color }} />
-                          {e.category}
+                          {t('shared.chartCategory.' + e.category.replace(/ /g, '_'), { defaultValue: e.category })}
                         </div>
                       ))}
                     </div>

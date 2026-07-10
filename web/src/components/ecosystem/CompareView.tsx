@@ -126,7 +126,7 @@ function MiniLayerCard({ layer }: { layer: EcosystemLayer }) {
           {String(layer.order).padStart(2, '0')}
         </div>
         <div className="flex-1 min-w-0">
-          <div className="text-ed-meta text-ed-text-primary leading-tight">{layer.label}</div>
+          <div className="text-ed-meta text-ed-text-primary leading-tight">{t('shared.layerLabel.' + layer.id, { defaultValue: layer.label })}</div>
           <div className="text-ed-eyebrow text-ed-text-muted mt-0.5">{t('compare.column.participantCount', { count: layer.participants.length })}</div>
         </div>
         <span
@@ -216,6 +216,7 @@ function SharedEntitiesStrip({
 
 // ── Region column ─────────────────────────────────────────────────────────────
 function RegionColumn({
+  id,
   data,
   regions,
   activeId,
@@ -253,7 +254,7 @@ function RegionColumn({
               </button>
             ))}
         </div>
-        <h2 className="text-ed-block-h3 text-ed-text-primary">{data.meta.title}</h2>
+        <h2 className="text-ed-block-h3 text-ed-text-primary">{t('meta.title', { region: t('shared.regionName.' + id, { defaultValue: data.meta.title }) })}</h2>
         <div className="text-ed-meta text-ed-text-muted mt-1 tabular-nums">
           {t('compare.column.versionDate', {
             version: data.meta.version,
@@ -332,8 +333,8 @@ export default function CompareView({
   }, [regionBId, regions]);
 
   const loading = loadingA || loadingB;
-  const regionAName = regions.find(r => r.id === regionAId)?.name ?? regionAId;
-  const regionBName = regions.find(r => r.id === regionBId)?.name ?? regionBId;
+  const regionAName = t('shared.regionName.' + regionAId, { defaultValue: regions.find(r => r.id === regionAId)?.name ?? regionAId });
+  const regionBName = t('shared.regionName.' + regionBId, { defaultValue: regions.find(r => r.id === regionBId)?.name ?? regionBId });
   const sharedEntities = dataA && dataB ? findSharedEntities(dataA, dataB) : [];
 
   return (

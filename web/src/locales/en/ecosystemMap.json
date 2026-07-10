@@ -16,7 +16,18 @@
       "broker": "Broker-Dealer",
       "compliance_provider": "Compliance",
       "legal_firm": "Legal",
-      "audit_firm": "Audit"
+      "audit_firm": "Audit",
+      "audit": "Audit",
+      "blockchain": "Blockchain Network",
+      "cbdc": "CBDC",
+      "compliance": "Compliance Provider",
+      "developer": "Developer",
+      "infrastructure": "Infrastructure Provider",
+      "issuer": "Issuer",
+      "legal": "Legal Firm",
+      "oracle": "Oracle",
+      "platform": "Platform",
+      "virtual_bank": "Virtual Bank"
     },
     "gapType": {
       "data_gap": "Data Gap",
@@ -28,6 +39,103 @@
       "medium": "Medium",
       "high": "High",
       "critical": "Critical"
+    },
+    "layerLabel": {
+      "regulatory": "Regulatory Oversight",
+      "financial_institutions": "Financial Institutions",
+      "infrastructure": "Infrastructure",
+      "issuance": "Issuance Platforms",
+      "market_access": "Market Access",
+      "enablers": "Professional Enablers"
+    },
+    "layerSublabel": {
+      "hk": {
+        "regulatory": "Licensing & Policy",
+        "financial_institutions": "Banks & Stablecoin Issuers",
+        "infrastructure": "CBDC, Custody & Blockchain",
+        "issuance": "Tokenization Protocols",
+        "market_access": "Licensed VATPs & Broker-Dealers",
+        "enablers": "Compliance · Legal · Audit"
+      },
+      "sg": {
+        "regulatory": "Licensing & Policy",
+        "financial_institutions": "Banks & Tokenization Participants",
+        "infrastructure": "Settlement & Blockchain Networks",
+        "issuance": "Tokenization Protocols",
+        "market_access": "Licensed Exchanges & Broker-Dealers",
+        "enablers": "Compliance · Custody · Audit"
+      },
+      "ae": {
+        "regulatory": "Licensing & Policy",
+        "financial_institutions": "Banks & Real Estate Developers",
+        "infrastructure": "Settlement & Blockchain Networks",
+        "issuance": "Tokenization Protocols",
+        "market_access": "Licensed Exchanges & VASPs",
+        "enablers": "Compliance · Custody · Audit · Legal"
+      },
+      "ch": {
+        "regulatory": "Licensing & Policy",
+        "financial_institutions": "Banks & Asset Managers",
+        "infrastructure": "Settlement & Blockchain Networks",
+        "issuance": "Tokenization Protocols",
+        "market_access": "Licensed Exchanges & Brokers",
+        "enablers": "Compliance · Custody · Audit · Legal"
+      },
+      "us": {
+        "regulatory": "Licensing & Policy",
+        "financial_institutions": "Banks & Asset Managers",
+        "infrastructure": "Settlement & Blockchain Networks",
+        "issuance": "Tokenization Protocols",
+        "market_access": "Licensed Exchanges & DeFi",
+        "enablers": "Compliance · Custody · Audit · Legal"
+      },
+      "jp": {
+        "regulatory": "Licensing & Policy",
+        "financial_institutions": "Banks & Securities Houses",
+        "infrastructure": "Settlement & Blockchain Networks",
+        "issuance": "Tokenization Protocols",
+        "market_access": "Licensed Exchanges & Trading Venues",
+        "enablers": "Custody · Legal · Audit"
+      },
+      "eu": {
+        "regulatory": "Licensing & Policy",
+        "financial_institutions": "Banks & Corporate Issuers",
+        "infrastructure": "Settlement & Blockchain Networks",
+        "issuance": "Tokenization Protocols",
+        "market_access": "Licensed Exchanges & Trading Venues",
+        "enablers": "Custody · Legal · Audit"
+      }
+    },
+    "statKey": {
+      "licensed_stablecoin_issuers": "Licensed Issuers",
+      "ensembletx_institutions": "EnsembleTX",
+      "licensed_vatps": "Licensed VATPs",
+      "stablecoin_applicants": "Stablecoin Applicants",
+      "project_guardian_institutions": "Project Guardian",
+      "rwa_protocols": "RWA Protocols",
+      "regulators": "Regulators",
+      "real_estate_tokenization_platforms": "Real Estate Platforms",
+      "licensed_digital_asset_banks": "Digital Asset Banks",
+      "issuance_platforms": "Issuance Platforms",
+      "professional_enablers": "Professional Enablers",
+      "financial_institutions": "Financial Institutions"
+    },
+    "chartCategory": {
+      "Regulators": "Regulators",
+      "Financial_Institutions": "Financial Institutions",
+      "Infrastructure": "Infrastructure",
+      "Issuance_Platforms": "Issuance Platforms",
+      "Market_Access": "Market Access",
+      "Enablers": "Enablers"
+    },
+    "regionName": {
+      "HK": "Hong Kong",
+      "SG": "Singapore",
+      "AE": "UAE",
+      "CH": "Switzerland",
+      "US": "United States",
+      "JP": "Japan",
+      "EU": "European Union"
     }
   },
   "hero": {
@@ -140,5 +248,8 @@
     },
     "unavailable": "Network data unavailable.",
     "footnote": "Links represent entities operating in multiple jurisdictions. Thickness proportional to shared entity count. Data compiled from public official sources only."
+  },
+  "meta": {
+    "title": "{{region}} RWA Ecosystem Map"
   }
 }

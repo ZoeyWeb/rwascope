@@ -16,7 +16,18 @@
       "broker": "經紀自營商",
       "compliance_provider": "合規",
       "legal_firm": "法律",
-      "audit_firm": "審計"
+      "audit_firm": "審計",
+      "audit": "審計",
+      "blockchain": "區塊鏈網路",
+      "cbdc": "CBDC",
+      "compliance": "合規服務商",
+      "developer": "開發方",
+      "infrastructure": "基礎設施提供方",
+      "issuer": "發行方",
+      "legal": "律師事務所",
+      "oracle": "預言機",
+      "platform": "平臺",
+      "virtual_bank": "虛擬銀行"
     },
     "gapType": {
       "data_gap": "資料缺口",
@@ -28,6 +39,103 @@
       "medium": "中",
       "high": "高",
       "critical": "嚴重"
+    },
+    "layerLabel": {
+      "regulatory": "監管框架",
+      "financial_institutions": "金融機構",
+      "infrastructure": "基礎設施",
+      "issuance": "發行平臺",
+      "market_access": "市場準入",
+      "enablers": "專業服務"
+    },
+    "layerSublabel": {
+      "hk": {
+        "regulatory": "許可與政策",
+        "financial_institutions": "銀行與穩定幣發行人",
+        "infrastructure": "CBDC、託管與區塊鏈",
+        "issuance": "代幣化協議",
+        "market_access": "持牌 VATP 與經紀自營商",
+        "enablers": "合規 · 法律 · 審計"
+      },
+      "sg": {
+        "regulatory": "許可與政策",
+        "financial_institutions": "銀行與代幣化參與者",
+        "infrastructure": "結算與區塊鏈網路",
+        "issuance": "代幣化協議",
+        "market_access": "持牌交易所與經紀自營商",
+        "enablers": "合規 · 託管 · 審計"
+      },
+      "ae": {
+        "regulatory": "許可與政策",
+        "financial_institutions": "銀行與房地產開發商",
+        "infrastructure": "結算與區塊鏈網路",
+        "issuance": "代幣化協議",
+        "market_access": "持牌交易所與 VASP",
+        "enablers": "合規 · 託管 · 審計 · 法律"
+      },
+      "ch": {
+        "regulatory": "許可與政策",
+        "financial_institutions": "銀行與資產管理機構",
+        "infrastructure": "結算與區塊鏈網路",
+        "issuance": "代幣化協議",
+        "market_access": "持牌交易所與經紀商",
+        "enablers": "合規 · 託管 · 審計 · 法律"
+      },
+      "us": {
+        "regulatory": "許可與政策",
+        "financial_institutions": "銀行與資產管理機構",
+        "infrastructure": "結算與區塊鏈網路",
+        "issuance": "代幣化協議",
+        "market_access": "持牌交易所與 DeFi",
+        "enablers": "合規 · 託管 · 審計 · 法律"
+      },
+      "jp": {
+        "regulatory": "許可與政策",
+        "financial_institutions": "銀行與證券公司",
+        "infrastructure": "結算與區塊鏈網路",
+        "issuance": "代幣化協議",
+        "market_access": "持牌交易所與交易場所",
+        "enablers": "託管 · 法律 · 審計"
+      },
+      "eu": {
+        "regulatory": "許可與政策",
+        "financial_institutions": "銀行與企業發行人",
+        "infrastructure": "結算與區塊鏈網路",
+        "issuance": "代幣化協議",
+        "market_access": "持牌交易所與交易場所",
+        "enablers": "託管 · 法律 · 審計"
+      }
+    },
+    "statKey": {
+      "licensed_stablecoin_issuers": "持牌發行人",
+      "ensembletx_institutions": "EnsembleTX",
+      "licensed_vatps": "持牌 VATP",
+      "stablecoin_applicants": "穩定幣申請人",
+      "project_guardian_institutions": "Project Guardian",
+      "rwa_protocols": "RWA 協議",
+      "regulators": "監管機構",
+      "real_estate_tokenization_platforms": "房地產平臺",
+      "licensed_digital_asset_banks": "數字資產銀行",
+      "issuance_platforms": "發行平臺",
+      "professional_enablers": "專業服務",
+      "financial_institutions": "金融機構"
+    },
+    "chartCategory": {
+      "Regulators": "監管機構",
+      "Financial_Institutions": "金融機構",
+      "Infrastructure": "基礎設施",
+      "Issuance_Platforms": "發行平臺",
+      "Market_Access": "市場準入",
+      "Enablers": "專業服務"
+    },
+    "regionName": {
+      "HK": "香港",
+      "SG": "新加坡",
+      "AE": "阿聯酋",
+      "CH": "瑞士",
+      "US": "美國",
+      "JP": "日本",
+      "EU": "歐盟"
     }
   },
   "hero": {
@@ -140,5 +248,8 @@
     },
     "unavailable": "網路資料不可用。",
     "footnote": "連線代表在多個司法管轄區運營的實體。粗細與共有實體數量成正比。資料僅編纂自公開官方來源。"
+  },
+  "meta": {
+    "title": "{{region}} RWA 生態地圖"
   }
 }

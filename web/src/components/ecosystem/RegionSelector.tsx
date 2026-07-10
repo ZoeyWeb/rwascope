@@ -25,7 +25,7 @@ export default function RegionSelector({ regions, activeRegion, onChange }: Regi
               disabled
               className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[#2B3437] text-xs text-slate-600 cursor-not-allowed select-none"
             >
-              {region.name}
+              {t('shared.regionName.' + region.id, { defaultValue: region.name })}
               <span className="text-[9px] bg-[#1A1A2E] text-slate-600 px-1.5 py-0.5 rounded-full font-semibold uppercase tracking-wide">
                 {t('regionSelector.comingSoon')}
               </span>
@@ -44,7 +44,7 @@ export default function RegionSelector({ regions, activeRegion, onChange }: Regi
                 : 'border-[#2B3437] text-slate-400 hover:border-slate-500 hover:text-slate-300'
             }`}
           >
-            {region.name}
+            {t('shared.regionName.' + region.id, { defaultValue: region.name })}
             {region.status === 'beta' && (
               <span className="text-[9px] bg-amber-900/60 text-amber-400 px-1.5 py-0.5 rounded-full font-bold uppercase tracking-wide">
                 {t('regionSelector.beta')}
