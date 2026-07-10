@@ -1,0 +1,181 @@
+{
+  "assetClass": {
+    "gov_bond": "政府債券",
+    "real_estate": "房地產",
+    "commodity": "大宗商品",
+    "private_credit": "私人信貸",
+    "other": "其他",
+    "stablecoin_algorithmic": "演算法穩定幣",
+    "stablecoin_fiat_backed": "法幣支援穩定幣",
+    "fintech_wrapper": "金融科技封裝",
+    "ip_revenue": "智慧財產權／收入",
+    "infrastructure": "基礎設施",
+    "insurance": "保險"
+  },
+  "status": {
+    "active": "活躍",
+    "pilot": "試點",
+    "announced": "已公佈",
+    "inactive": "非活躍",
+    "failed": "已失敗",
+    "paused": "已暫停"
+  },
+  "entityType": {
+    "asset_manager": "資產管理機構",
+    "bank": "銀行",
+    "l1": "L1 鏈",
+    "l2": "L2 鏈",
+    "oracle": "預言機",
+    "law": "律師事務所",
+    "legal": "律師事務所",
+    "audit": "審計機構",
+    "regulator": "監管機構",
+    "custodian": "託管方",
+    "trust": "信託公司",
+    "other": "其他"
+  },
+  "riskFlag": {
+    "de_peg": "脫錨",
+    "regulatory_action": "監管行動",
+    "audit_issue": "審計問題",
+    "paused": "已暫停",
+    "failed": "已失敗",
+    "historical_pool_defaults": "歷史資金池違約",
+    "early_underwriting_issues": "早期承銷問題",
+    "silicon_valley_bank_exposure": "SVB 敞口",
+    "regulatory_uncertainty": "監管不確定性",
+    "real_estate_liquidity_crisis": "房地產流動性危機",
+    "illiquid_backing": "支援資產流動性差",
+    "defi_integration_risk": "DeFi 整合風險",
+    "mim_liquidation_cascade": "MIM 清算連鎖",
+    "governance_conflict": "治理衝突",
+    "low_volume": "低交易量",
+    "nft_liquidity_risk": "NFT 流動性",
+    "legal_uncertainty": "法律不確定性",
+    "algorithmic_peg_failure": "演算法錨定失效",
+    "reflexive_collateral": "反身性抵押品",
+    "bank_run_dynamics": "擠兌動態",
+    "yield_sustainability": "收益可持續性",
+    "ponzi_dynamics": "龐氏動態",
+    "custody_risk": "託管風險",
+    "undercollateralisation": "抵押不足",
+    "pool_default": "資金池違約",
+    "inadequate_disclosure": "披露不足"
+  },
+  "region": {
+    "all": "全部",
+    "HongKong": "香港",
+    "Singapore": "新加坡",
+    "UnitedStates": "美國",
+    "EuropeanUnion": "歐盟",
+    "UAE": "阿聯酋",
+    "Switzerland": "瑞士",
+    "Japan": "日本",
+    "Australia": "澳大利亞",
+    "Brazil": "巴西",
+    "India": "印度",
+    "OtherEmerging": "其他"
+  },
+  "hero": {
+    "eyebrow": "專案",
+    "h1": "RWA 專案庫",
+    "lede": "對領先 RWA 代幣化專案的結構化剖析 —— 實體圖譜、RARM 參考評估與監管背景。整理自公開披露。"
+  },
+  "stats": {
+    "totalProfiles": "檔案總數",
+    "active": "活躍",
+    "jurisdictions": "司法管轄區",
+    "assetClasses": "資產類別"
+  },
+  "tabs": {
+    "activeProjects": "活躍專案",
+    "lessonsLearned": "經驗教訓"
+  },
+  "lessonsContext": "通過 RARM 框架分析歷史上的 RWA 與穩定幣失敗案例。每份檔案指出哪些 RARM 層失效,以及哪些結構性保障本可預防或減輕該事件。",
+  "filter": {
+    "searchPlaceholder": "搜尋專案…",
+    "assetClassLabel": "資產類別",
+    "statusLabel": "狀態",
+    "regionLabel": "區域",
+    "riskLabel": "風險標記",
+    "allOption": "全部",
+    "clearFilters": "清除篩選",
+    "riskClean": "無標記",
+    "riskFlagged": "有標記"
+  },
+  "card": {
+    "incidentBadge": "事件",
+    "lessonsLearnedBadge": "經驗教訓",
+    "peakTvl": "峰值 TVL {{value}}"
+  },
+  "pagination": {
+    "loadMore": "載入更多",
+    "remaining": "剩餘 {{count}}"
+  },
+  "emptyState": "沒有符合當前篩選條件的專案。",
+  "error": {
+    "loadFailed": "載入專案資料失敗。"
+  },
+  "footer": {
+    "sourcesNote": "檔案來源於官方專案網站、監管申報與 DeFiLlama。覆蓋範圍持續擴大。",
+    "disclaimerNote": "並非平臺評級或投資建議。使用<workbookLink>盡職調查工作簿</workbookLink>構建你自己的私密 RARM 評估。"
+  },
+  "detail": {
+    "breadcrumb": "專案",
+    "disclaimer": "專案檔案僅基於公開披露。無平臺生成的評分或評級 —— RARM 評估可通過盡職調查工作簿私密獲取。",
+    "launchedAt": "啟動:{{date}}",
+    "officialSite": "官方網站",
+    "viewRarmAssessment": "在資產模組檢視完整 RARM 評估 →",
+    "notFound": "未找到專案。",
+    "backToProjects": "← 返回專案",
+    "backToProjectsShort": "返回專案",
+    "lastUpdated": "最後更新:{{date}}",
+    "rarm": {
+      "sectionTitle": "RARM 盡職調查框架",
+      "sectionLede": "基於公開披露的六層剖析。無確認資料的層予以省略。",
+      "l1": "法律基礎",
+      "l2": "資產質量",
+      "l3": "交易對手",
+      "l4": "代幣與市場",
+      "l5": "技術",
+      "l6": "治理",
+      "field": {
+        "issuer": "發行方",
+        "regulator": "監管機構",
+        "legalCounsel": "法律顧問",
+        "jurisdiction": "司法管轄區",
+        "underlyingAsset": "底層資產",
+        "reserveComposition": "儲備構成",
+        "custodian": "託管方",
+        "auditor": "審計機構",
+        "chain": "鏈",
+        "tokenStandard": "代幣標準",
+        "tvl": "TVL",
+        "tvlValue": "~${{amount}}M USD(近似值 —— 請在 DeFiLlama 核實)",
+        "minInvestment": "最低投資額",
+        "secondaryMarket": "二級市場",
+        "oracleProvider": "預言機提供方",
+        "smartContractAudit": "智慧合約審計",
+        "chainInfra": "鏈基礎設施",
+        "redemptionMechanism": "贖回機制",
+        "upgradeAuthority": "升級許可權",
+        "viewReport": "檢視報告"
+      }
+    },
+    "timeline": {
+      "title": "時間線"
+    },
+    "sources": {
+      "title": "來源"
+    },
+    "postmortem": {
+      "title": "事後分析",
+      "incidentBadge": "事件:{{date}}",
+      "viewAsIncident": "作為事件檢視",
+      "rootCause": "根本原因",
+      "whatFailed": "失敗之處",
+      "outcome": "結果",
+      "rarmLesson": "對 RARM AFI 的啟示"
+    }
+  }
+}

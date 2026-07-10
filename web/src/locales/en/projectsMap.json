@@ -1,0 +1,177 @@
+{
+  "assetClass": {
+    "gov_bond": "Gov Bond",
+    "real_estate": "Real Estate",
+    "commodity": "Commodity",
+    "private_credit": "Private Credit",
+    "other": "Other",
+    "stablecoin_algorithmic": "Algorithmic Stablecoin",
+    "stablecoin_fiat_backed": "Fiat-backed Stablecoin",
+    "fintech_wrapper": "Fintech Wrapper",
+    "ip_revenue": "IP / Revenue",
+    "infrastructure": "Infrastructure",
+    "insurance": "Insurance"
+  },
+  "status": {
+    "active": "Active",
+    "pilot": "Pilot",
+    "announced": "Announced",
+    "inactive": "Inactive",
+    "failed": "Failed",
+    "paused": "Paused"
+  },
+  "entityType": {
+    "asset_manager": "Asset Manager",
+    "bank": "Bank",
+    "l1": "L1 Chain",
+    "l2": "L2 Chain",
+    "oracle": "Oracle",
+    "law": "Law Firm",
+    "legal": "Law Firm",
+    "audit": "Auditor",
+    "regulator": "Regulator",
+    "custodian": "Custodian",
+    "trust": "Trust Company",
+    "other": "Other"
+  },
+  "riskFlag": {
+    "de_peg": "De-peg",
+    "regulatory_action": "Regulatory Action",
+    "audit_issue": "Audit Issue",
+    "paused": "Paused",
+    "failed": "Failed",
+    "historical_pool_defaults": "Historical Pool Defaults",
+    "early_underwriting_issues": "Early Underwriting Issues",
+    "silicon_valley_bank_exposure": "SVB Exposure",
+    "regulatory_uncertainty": "Regulatory Uncertainty",
+    "real_estate_liquidity_crisis": "RE Liquidity Crisis",
+    "illiquid_backing": "Illiquid Backing",
+    "defi_integration_risk": "DeFi Integration Risk",
+    "mim_liquidation_cascade": "MIM Liquidation Cascade",
+    "governance_conflict": "Governance Conflict",
+    "low_volume": "Low Volume",
+    "nft_liquidity_risk": "NFT Liquidity",
+    "legal_uncertainty": "Legal Uncertainty",
+    "algorithmic_peg_failure": "Algorithmic Peg Failure",
+    "reflexive_collateral": "Reflexive Collateral",
+    "bank_run_dynamics": "Bank Run Dynamics",
+    "yield_sustainability": "Yield Sustainability",
+    "ponzi_dynamics": "Ponzi Dynamics",
+    "custody_risk": "Custody Risk",
+    "undercollateralisation": "Undercollateralisation",
+    "pool_default": "Pool Default",
+    "inadequate_disclosure": "Inadequate Disclosure"
+  },
+  "region": {
+    "all": "All",
+    "HongKong": "Hong Kong",
+    "Singapore": "Singapore",
+    "UnitedStates": "United States",
+    "EuropeanUnion": "EU",
+    "UAE": "UAE",
+    "Switzerland": "Switzerland",
+    "Japan": "Japan",
+    "Australia": "Australia",
+    "Brazil": "Brazil",
+    "India": "India",
+    "OtherEmerging": "Other"
+  },
+  "hero": {
+    "eyebrow": "Projects",
+    "h1": "RWA Project Library",
+    "lede": "Structured anatomy of leading RWA tokenization projects — entity maps, RARM reference assessments, and regulatory context. Curated from public disclosures."
+  },
+  "stats": {
+    "totalProfiles": "Total Profiles",
+    "active": "Active",
+    "jurisdictions": "Jurisdictions",
+    "assetClasses": "Asset Classes"
+  },
+  "tabs": {
+    "activeProjects": "Active Projects",
+    "lessonsLearned": "Lessons Learned"
+  },
+  "lessonsContext": "Historical RWA and stablecoin failures analysed through the RARM framework. Each profile identifies which RARM layers failed and what structural safeguards could have prevented or mitigated the incident.",
+  "filter": {
+    "searchPlaceholder": "Search projects…",
+    "assetClassLabel": "Asset class",
+    "statusLabel": "Status",
+    "regionLabel": "Region",
+    "riskLabel": "Risk flags",
+    "allOption": "All",
+    "clearFilters": "Clear filters",
+    "riskClean": "No flags",
+    "riskFlagged": "Flagged"
+  },
+  "card": {
+    "incidentBadge": "Incident",
+    "lessonsLearnedBadge": "Lessons Learned",
+    "peakTvl": "Peak TVL {{value}}"
+  },
+  "pagination": {
+    "loadMore": "Load more",
+    "remaining": "{{count}} remaining"
+  },
+  "emptyState": "No projects match the current filters.",
+  "error": {
+    "loadFailed": "Failed to load projects data."
+  },
+  "footer": {
+    "sourcesNote": "Profiles sourced from official project websites, regulator filings, and DeFiLlama. Coverage expanding.",
+    "disclaimerNote": "Not a platform rating or investment recommendation. Use the <workbookLink>Due Diligence Workbook</workbookLink> to build your own private RARM assessment."
+  },
+  "detail": {
+    "breadcrumb": "Projects",
+    "disclaimer": "Project profiles are based on public disclosures only. No platform-generated scores or ratings — RARM assessment is available privately via the Due Diligence workbook.",
+    "launchedAt": "Launched: {{date}}",
+    "officialSite": "Official site",
+    "viewRarmAssessment": "View full RARM assessment in Assets module →",
+    "notFound": "Project not found.",
+    "backToProjects": "← Back to Projects",
+    "backToProjectsShort": "Back to Projects",
+    "lastUpdated": "Last updated: {{date}}",
+    "rarm": {
+      "sectionTitle": "RARM Due Diligence Framework",
+      "sectionLede": "Six-layer anatomy based on public disclosures. Layers without confirmed data are omitted.",
+      "l1": "Legal Foundation",
+      "l2": "Asset Quality",
+      "l3": "Counterparty",
+      "l4": "Token & Market",
+      "l5": "Technology",
+      "l6": "Governance",
+      "field": {
+        "issuer": "Issuer",
+        "regulator": "Regulator",
+        "legalCounsel": "Legal Counsel",
+        "jurisdiction": "Jurisdiction",
+        "underlyingAsset": "Underlying Asset",
+        "reserveComposition": "Reserve Composition",
+        "custodian": "Custodian",
+        "auditor": "Auditor",
+        "chain": "Chain",
+        "tokenStandard": "Token Standard",
+        "tvl": "TVL",
+        "tvlValue": "~${{amount}}M USD (approximate — verify at DeFiLlama)",
+        "minInvestment": "Minimum Investment",
+        "secondaryMarket": "Secondary Market",
+        "oracleProvider": "Oracle Provider",
+        "smartContractAudit": "Smart Contract Audit",
+        "chainInfra": "Chain Infrastructure",
+        "redemptionMechanism": "Redemption Mechanism",
+        "upgradeAuthority": "Upgrade Authority",
+        "viewReport": "View report"
+      }
+    },
+    "timeline": { "title": "Timeline" },
+    "sources": { "title": "Sources" },
+    "postmortem": {
+      "title": "Postmortem",
+      "incidentBadge": "Incident: {{date}}",
+      "viewAsIncident": "View as incident",
+      "rootCause": "Root Cause",
+      "whatFailed": "What Failed",
+      "outcome": "Outcome",
+      "rarmLesson": "Implication for RARM AFI"
+    }
+  }
+}

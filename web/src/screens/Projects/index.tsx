@@ -1,33 +1,14 @@
 import { useState, useEffect, useMemo } from 'react';
 import { usePagination } from '../../hooks/usePagination';
 import { Link, useSearchParams } from 'react-router-dom';
+import { useTranslation, Trans } from 'react-i18next';
 import type { Project, ProjectAssetClass, ProjectStatus } from '../../types/projects';
 import { ASSET_CLASS_META, STATUS_META } from '../../types/projects';
 import { projectsApi } from '../../api/client';
 import { BigStat, BigStatRibbon } from '../../components/BigStat';
 
-const RISK_FLAG_LABELS: Record<string, string> = {
-  de_peg: 'De-peg', regulatory_action: 'Regulatory Action', audit_issue: 'Audit Issue',
-  paused: 'Paused', failed: 'Failed', historical_pool_defaults: 'Historical Pool Defaults',
-  early_underwriting_issues: 'Early Underwriting Issues', silicon_valley_bank_exposure: 'SVB Exposure',
-  regulatory_uncertainty: 'Regulatory Uncertainty', real_estate_liquidity_crisis: 'RE Liquidity Crisis',
-  illiquid_backing: 'Illiquid Backing', defi_integration_risk: 'DeFi Integration Risk',
-  mim_liquidation_cascade: 'MIM Liquidation Cascade', governance_conflict: 'Governance Conflict',
-  low_volume: 'Low Volume', nft_liquidity_risk: 'NFT Liquidity', legal_uncertainty: 'Legal Uncertainty',
-  algorithmic_peg_failure: 'Algorithmic Peg Failure', reflexive_collateral: 'Reflexive Collateral',
-  bank_run_dynamics: 'Bank Run Dynamics', yield_sustainability: 'Yield Sustainability',
-  ponzi_dynamics: 'Ponzi Dynamics', custody_risk: 'Custody Risk',
-  undercollateralisation: 'Undercollateralisation', pool_default: 'Pool Default',
-  inadequate_disclosure: 'Inadequate Disclosure',
-};
-
 type RegionFilter = 'all' | 'HongKong' | 'Singapore' | 'UnitedStates' | 'EuropeanUnion' | 'UAE' | 'Switzerland' | 'Japan' | 'Australia' | 'Brazil' | 'India' | 'OtherEmerging';
 const ALL_REGIONS: RegionFilter[] = ['all', 'HongKong', 'Singapore', 'UnitedStates', 'EuropeanUnion', 'UAE', 'Switzerland', 'Japan', 'Australia', 'Brazil', 'India', 'OtherEmerging'];
-const REGION_LABELS: Record<RegionFilter, string> = {
-  all: 'All', HongKong: 'Hong Kong', Singapore: 'Singapore', UnitedStates: 'United States',
-  EuropeanUnion: 'EU', UAE: 'UAE', Switzerland: 'Switzerland', Japan: 'Japan',
-  Australia: 'Australia', Brazil: 'Brazil', India: 'India', OtherEmerging: 'Other',
-};
 
 type RiskFilter = 'all' | 'clean' | 'flagged';
 
@@ -96,9 +77,9 @@ function ProjectLogo({ website, shortName, assetColor }: { website: string; shor
 // ── Active project card ───────────────────────────────────────────────────────
 
 function ActiveCard({ project }: { project: Project }) {
+  const { t } = useTranslation('projectsMap');
   const isBoth = project.lessons_visibility === 'both';
   const assetMeta = ASSET_CLASS_META[project.asset_class] ?? { label: project.asset_class, color: '#78716C' };
-  const statusMeta = STATUS_META[project.status] ?? { label: project.status };
 
   return (
     <Link
@@ -115,17 +96,17 @@ function ActiveCard({ project }: { project: Project }) {
               className="text-ed-eyebrow uppercase tracking-[0.10em] font-medium text-[10px]"
               style={{ color: assetMeta.color }}
             >
-              {assetMeta.label}
+              {t('assetClass.' + project.asset_class)}
             </span>
             <span className="text-ed-text-faint text-[10px]">·</span>
             <span className="text-ed-eyebrow uppercase tracking-[0.10em] font-medium text-[10px] text-ed-text-muted">
-              {statusMeta.label}
+              {t('status.' + project.status)}
             </span>
             {isBoth && (
               <>
                 <span className="text-ed-text-faint text-[10px]">·</span>
                 <span className="text-ed-eyebrow uppercase tracking-[0.10em] font-medium text-[10px] text-ed-incident">
-                  Incident
+                  {t('card.incidentBadge')}
                 </span>
               </>
             )}
@@ -156,6 +137,7 @@ function ActiveCard({ project }: { project: Project }) {
 // ── Lessons Learned card ──────────────────────────────────────────────────────
 
 function LessonsCard({ project }: { project: Project }) {
+  const { t } = useTranslation('projectsMap');
   const flags = project.risk_flags ?? [];
   const visibleFlags = flags.slice(0, 3);
   const extraCount = flags.length - 3;
@@ -183,21 +165,21 @@ function LessonsCard({ project }: { project: Project }) {
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2 flex-wrap mb-1">
             <span className="text-ed-eyebrow uppercase tracking-[0.10em] font-medium text-[10px] text-ed-incident">
-              Lessons Learned
+              {t('card.lessonsLearnedBadge')}
             </span>
             <span className="text-ed-text-faint text-[10px]">·</span>
             <span
               className="text-ed-eyebrow uppercase tracking-[0.10em] font-medium text-[10px]"
               style={{ color: assetMeta.color }}
             >
-              {assetMeta.label}
+              {t('assetClass.' + project.asset_class)}
             </span>
           </div>
           <h3 className="text-ed-item-h4 font-semibold text-ed-text-primary group-hover:text-ed-incident leading-tight">
             {project.short_name}
           </h3>
           {peakTvl && (
-            <p className="text-[11px] text-ed-text-faint mt-0.5">Peak TVL {peakTvl}</p>
+            <p className="text-[11px] text-ed-text-faint mt-0.5">{t('card.peakTvl', { value: peakTvl })}</p>
           )}
         </div>
       </div>
@@ -210,7 +192,7 @@ function LessonsCard({ project }: { project: Project }) {
               key={flag}
               className="px-2 py-0.5 text-[10px] font-medium border border-ed-incident/25 text-ed-incident bg-ed-incident/5"
             >
-              {RISK_FLAG_LABELS[flag] ?? flag}
+              {t('riskFlag.' + flag, { defaultValue: flag })}
             </span>
           ))}
           {extraCount > 0 && (
@@ -263,6 +245,7 @@ const ALL_STATUSES: Array<ProjectStatus | 'all'> = [
 ];
 
 export default function ProjectsList() {
+  const { t } = useTranslation('projectsMap');
   const [searchParams, setSearchParams] = useSearchParams();
   const view = (searchParams.get('view') ?? 'active') as 'active' | 'lessons';
 
@@ -302,10 +285,10 @@ export default function ProjectsList() {
         fetch('/data/projects/projects.json')
           .then(r => r.json())
           .then((data: Project[]) => setProjects(data))
-          .catch(() => setError('Failed to load projects data.'))
+          .catch(() => setError(t('error.loadFailed')))
       )
       .finally(() => setLoading(false));
-  }, []);
+  }, [t]);
 
   const activeProjects = useMemo(() =>
     projects.filter(p => {
@@ -384,23 +367,22 @@ export default function ProjectsList() {
       {/* ── Hero ──────────────────────────────────────────────────────────── */}
       <section className="max-w-[1400px] mx-auto px-8 pt-16 pb-12">
         <p className="text-ed-eyebrow uppercase tracking-[0.18em] font-medium text-ed-text-muted mb-4">
-          Projects
+          {t('hero.eyebrow')}
         </p>
         <h1 className="text-4xl md:text-ed-hero-h1 font-semibold text-ed-text-primary leading-none mb-5 max-w-3xl">
-          RWA Project Library
+          {t('hero.h1')}
         </h1>
         <p className="text-ed-lede text-ed-text-secondary leading-relaxed max-w-2xl mb-2">
-          Structured anatomy of leading RWA tokenization projects — entity maps, RARM reference
-          assessments, and regulatory context. Curated from public disclosures.
+          {t('hero.lede')}
         </p>
       </section>
 
       {/* ── Stats ribbon ─────────────────────────────────────────────────── */}
       <BigStatRibbon>
-        <BigStat value={glanceStats.total}        label="Total Profiles" />
-        <BigStat value={glanceStats.active}       label="Active"         valueColor="#2E7D32" />
-        <BigStat value={glanceStats.jurisdictions} label="Jurisdictions" />
-        <BigStat value={glanceStats.assetClasses} label="Asset Classes"  />
+        <BigStat value={glanceStats.total}         label={t('stats.totalProfiles')} />
+        <BigStat value={glanceStats.active}        label={t('stats.active')}        valueColor="#2E7D32" />
+        <BigStat value={glanceStats.jurisdictions} label={t('stats.jurisdictions')} />
+        <BigStat value={glanceStats.assetClasses}  label={t('stats.assetClasses')}  />
       </BigStatRibbon>
 
       {/* ── Directory ─────────────────────────────────────────────────────── */}
@@ -418,7 +400,7 @@ export default function ProjectsList() {
                     : 'border-transparent text-ed-text-muted hover:text-ed-text-primary'
                 }`}
               >
-                Active Projects
+                {t('tabs.activeProjects')}
                 <span className="ml-2 text-ed-meta text-ed-text-faint tabular-nums">
                   {activeProjects.length}
                 </span>
@@ -431,7 +413,7 @@ export default function ProjectsList() {
                     : 'border-transparent text-ed-text-muted hover:text-ed-text-primary'
                 }`}
               >
-                Lessons Learned
+                {t('tabs.lessonsLearned')}
                 <span className="ml-2 text-ed-meta text-ed-text-faint tabular-nums">
                   {lessonsProjects.length}
                 </span>
@@ -444,9 +426,7 @@ export default function ProjectsList() {
         {view === 'lessons' && (
           <div className="mb-8 border-l-2 border-ed-incident pl-4">
             <p className="text-ed-body text-ed-text-secondary leading-relaxed">
-              Historical RWA and stablecoin failures analysed through the RARM framework.
-              Each profile identifies which RARM layers failed and what structural safeguards
-              could have prevented or mitigated the incident.
+              {t('lessonsContext')}
             </p>
           </div>
         )}
@@ -460,7 +440,7 @@ export default function ProjectsList() {
             </span>
             <input
               type="text"
-              placeholder="Search projects…"
+              placeholder={t('filter.searchPlaceholder')}
               value={search}
               onChange={e => setSearch(e.target.value)}
               className="w-full border border-ed-hairline bg-ed-surface pl-9 pr-4 py-2 text-ed-body text-ed-text-primary placeholder-ed-text-faint focus:outline-none focus:border-ed-ink transition-colors"
@@ -470,12 +450,12 @@ export default function ProjectsList() {
           {/* Asset class */}
           <div className="flex items-center gap-2 flex-wrap">
             <span className="text-ed-eyebrow uppercase tracking-[0.12em] text-ed-text-faint w-24 shrink-0">
-              Asset class
+              {t('filter.assetClassLabel')}
             </span>
             <div className="flex flex-wrap gap-1.5">
               {ALL_ASSET_CLASSES.map(c => (
                 <Pill key={c} active={filterClass === c} onClick={() => setFilter('class', c)}>
-                  {c === 'all' ? 'All' : ASSET_CLASS_META[c].label}
+                  {c === 'all' ? t('filter.allOption') : t('assetClass.' + c)}
                 </Pill>
               ))}
             </div>
@@ -484,12 +464,12 @@ export default function ProjectsList() {
           {/* Status */}
           <div className="flex items-center gap-2 flex-wrap">
             <span className="text-ed-eyebrow uppercase tracking-[0.12em] text-ed-text-faint w-24 shrink-0">
-              Status
+              {t('filter.statusLabel')}
             </span>
             <div className="flex flex-wrap gap-1.5">
               {ALL_STATUSES.map(s => (
                 <Pill key={s} active={filterStatus === s} onClick={() => setFilter('status', s)}>
-                  {s === 'all' ? 'All' : STATUS_META[s].label}
+                  {s === 'all' ? t('filter.allOption') : t('status.' + s)}
                 </Pill>
               ))}
             </div>
@@ -498,12 +478,12 @@ export default function ProjectsList() {
           {/* Region */}
           <div className="flex items-center gap-2 flex-wrap">
             <span className="text-ed-eyebrow uppercase tracking-[0.12em] text-ed-text-faint w-24 shrink-0">
-              Region
+              {t('filter.regionLabel')}
             </span>
             <div className="flex flex-wrap gap-1.5">
               {ALL_REGIONS.map(r => (
                 <Pill key={r} active={filterRegion === r} onClick={() => setFilter('region', r)}>
-                  {REGION_LABELS[r]}
+                  {t('region.' + r)}
                 </Pill>
               ))}
             </div>
@@ -513,19 +493,14 @@ export default function ProjectsList() {
           {view !== 'lessons' && (
             <div className="flex items-center gap-2 flex-wrap">
               <span className="text-ed-eyebrow uppercase tracking-[0.12em] text-ed-text-faint w-24 shrink-0">
-                Risk flags
+                {t('filter.riskLabel')}
               </span>
               <div className="flex flex-wrap gap-1.5">
-                {(['all', 'clean', 'flagged'] as RiskFilter[]).map(r => {
-                  const labels: Record<RiskFilter, string> = {
-                    all: 'All', clean: 'No flags', flagged: 'Flagged',
-                  };
-                  return (
-                    <Pill key={r} active={filterRisk === r} onClick={() => setFilter('risk', r)}>
-                      {labels[r]}
-                    </Pill>
-                  );
-                })}
+                {(['all', 'clean', 'flagged'] as RiskFilter[]).map(r => (
+                  <Pill key={r} active={filterRisk === r} onClick={() => setFilter('risk', r)}>
+                    {r === 'all' ? t('filter.allOption') : r === 'clean' ? t('filter.riskClean') : t('filter.riskFlagged')}
+                  </Pill>
+                ))}
               </div>
             </div>
           )}
@@ -538,7 +513,7 @@ export default function ProjectsList() {
                 className="text-ed-meta text-ed-text-muted hover:text-ed-text-primary flex items-center gap-1 transition-colors"
               >
                 <span className="material-symbols-outlined text-[12px]">close</span>
-                Clear filters
+                {t('filter.clearFilters')}
               </button>
             </div>
           )}
@@ -547,7 +522,7 @@ export default function ProjectsList() {
         {/* Card list */}
         {filtered.length === 0 ? (
           <div className="py-20 text-center text-ed-body text-ed-text-muted">
-            No projects match the current filters.
+            {t('emptyState')}
           </div>
         ) : (
           <>
@@ -564,9 +539,9 @@ export default function ProjectsList() {
                   onClick={loadMore}
                   className="px-6 py-2.5 text-ed-body text-ed-text-muted border border-ed-hairline hover:border-ed-ink hover:text-ed-text-primary transition-colors"
                 >
-                  Load more
+                  {t('pagination.loadMore')}
                   <span className="ml-2 text-ed-meta text-ed-text-faint tabular-nums">
-                    {filtered.length - visible.length} remaining
+                    {t('pagination.remaining', { count: filtered.length - visible.length })}
                   </span>
                 </button>
               </div>
@@ -577,13 +552,13 @@ export default function ProjectsList() {
         {/* Footer note */}
         <div className="mt-16 pt-8 border-t border-ed-hairline">
           <p className="text-ed-meta text-ed-text-faint">
-            Profiles sourced from official project websites, regulator filings, and DeFiLlama.
-            Coverage expanding.
+            {t('footer.sourcesNote')}
           </p>
           <p className="text-ed-meta text-ed-text-secondary max-w-[860px] mt-3">
-            Not a platform rating or investment recommendation. Use the{' '}
-            <Link to="/score" className="underline">Due Diligence Workbook</Link>{' '}
-            to build your own private RARM assessment.
+            <Trans
+              i18nKey="projectsMap:footer.disclaimerNote"
+              components={{ workbookLink: <Link to="/score" className="underline" /> }}
+            />
           </p>
         </div>
 

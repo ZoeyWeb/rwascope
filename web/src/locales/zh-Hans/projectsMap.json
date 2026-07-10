@@ -1,0 +1,177 @@
+{
+  "assetClass": {
+    "gov_bond": "政府债券",
+    "real_estate": "房地产",
+    "commodity": "大宗商品",
+    "private_credit": "私人信贷",
+    "other": "其他",
+    "stablecoin_algorithmic": "算法稳定币",
+    "stablecoin_fiat_backed": "法币支持稳定币",
+    "fintech_wrapper": "金融科技封装",
+    "ip_revenue": "知识产权／收入",
+    "infrastructure": "基础设施",
+    "insurance": "保险"
+  },
+  "status": {
+    "active": "活跃",
+    "pilot": "试点",
+    "announced": "已公布",
+    "inactive": "非活跃",
+    "failed": "已失败",
+    "paused": "已暂停"
+  },
+  "entityType": {
+    "asset_manager": "资产管理机构",
+    "bank": "银行",
+    "l1": "L1 链",
+    "l2": "L2 链",
+    "oracle": "预言机",
+    "law": "律师事务所",
+    "legal": "律师事务所",
+    "audit": "审计机构",
+    "regulator": "监管机构",
+    "custodian": "托管方",
+    "trust": "信托公司",
+    "other": "其他"
+  },
+  "riskFlag": {
+    "de_peg": "脱锚",
+    "regulatory_action": "监管行动",
+    "audit_issue": "审计问题",
+    "paused": "已暂停",
+    "failed": "已失败",
+    "historical_pool_defaults": "历史资金池违约",
+    "early_underwriting_issues": "早期承销问题",
+    "silicon_valley_bank_exposure": "SVB 敞口",
+    "regulatory_uncertainty": "监管不确定性",
+    "real_estate_liquidity_crisis": "房地产流动性危机",
+    "illiquid_backing": "支持资产流动性差",
+    "defi_integration_risk": "DeFi 集成风险",
+    "mim_liquidation_cascade": "MIM 清算连锁",
+    "governance_conflict": "治理冲突",
+    "low_volume": "低交易量",
+    "nft_liquidity_risk": "NFT 流动性",
+    "legal_uncertainty": "法律不确定性",
+    "algorithmic_peg_failure": "算法锚定失效",
+    "reflexive_collateral": "反身性抵押品",
+    "bank_run_dynamics": "挤兑动态",
+    "yield_sustainability": "收益可持续性",
+    "ponzi_dynamics": "庞氏动态",
+    "custody_risk": "托管风险",
+    "undercollateralisation": "抵押不足",
+    "pool_default": "资金池违约",
+    "inadequate_disclosure": "披露不足"
+  },
+  "region": {
+    "all": "全部",
+    "HongKong": "香港",
+    "Singapore": "新加坡",
+    "UnitedStates": "美国",
+    "EuropeanUnion": "欧盟",
+    "UAE": "阿联酋",
+    "Switzerland": "瑞士",
+    "Japan": "日本",
+    "Australia": "澳大利亚",
+    "Brazil": "巴西",
+    "India": "印度",
+    "OtherEmerging": "其他"
+  },
+  "hero": {
+    "eyebrow": "项目",
+    "h1": "RWA 项目库",
+    "lede": "对领先 RWA 代币化项目的结构化剖析 —— 实体图谱、RARM 参考评估与监管背景。整理自公开披露。"
+  },
+  "stats": {
+    "totalProfiles": "档案总数",
+    "active": "活跃",
+    "jurisdictions": "司法管辖区",
+    "assetClasses": "资产类别"
+  },
+  "tabs": {
+    "activeProjects": "活跃项目",
+    "lessonsLearned": "经验教训"
+  },
+  "lessonsContext": "通过 RARM 框架分析历史上的 RWA 与稳定币失败案例。每份档案指出哪些 RARM 层失效,以及哪些结构性保障本可预防或减轻该事件。",
+  "filter": {
+    "searchPlaceholder": "搜索项目…",
+    "assetClassLabel": "资产类别",
+    "statusLabel": "状态",
+    "regionLabel": "区域",
+    "riskLabel": "风险标记",
+    "allOption": "全部",
+    "clearFilters": "清除筛选",
+    "riskClean": "无标记",
+    "riskFlagged": "有标记"
+  },
+  "card": {
+    "incidentBadge": "事件",
+    "lessonsLearnedBadge": "经验教训",
+    "peakTvl": "峰值 TVL {{value}}"
+  },
+  "pagination": {
+    "loadMore": "加载更多",
+    "remaining": "剩余 {{count}}"
+  },
+  "emptyState": "没有符合当前筛选条件的项目。",
+  "error": {
+    "loadFailed": "加载项目数据失败。"
+  },
+  "footer": {
+    "sourcesNote": "档案来源于官方项目网站、监管申报与 DeFiLlama。覆盖范围持续扩大。",
+    "disclaimerNote": "并非平台评级或投资建议。使用<workbookLink>尽职调查工作簿</workbookLink>构建你自己的私密 RARM 评估。"
+  },
+  "detail": {
+    "breadcrumb": "项目",
+    "disclaimer": "项目档案仅基于公开披露。无平台生成的评分或评级 —— RARM 评估可通过尽职调查工作簿私密获取。",
+    "launchedAt": "启动:{{date}}",
+    "officialSite": "官方网站",
+    "viewRarmAssessment": "在资产模块查看完整 RARM 评估 →",
+    "notFound": "未找到项目。",
+    "backToProjects": "← 返回项目",
+    "backToProjectsShort": "返回项目",
+    "lastUpdated": "最后更新:{{date}}",
+    "rarm": {
+      "sectionTitle": "RARM 尽职调查框架",
+      "sectionLede": "基于公开披露的六层剖析。无确认数据的层予以省略。",
+      "l1": "法律基础",
+      "l2": "资产质量",
+      "l3": "交易对手",
+      "l4": "代币与市场",
+      "l5": "技术",
+      "l6": "治理",
+      "field": {
+        "issuer": "发行方",
+        "regulator": "监管机构",
+        "legalCounsel": "法律顾问",
+        "jurisdiction": "司法管辖区",
+        "underlyingAsset": "底层资产",
+        "reserveComposition": "储备构成",
+        "custodian": "托管方",
+        "auditor": "审计机构",
+        "chain": "链",
+        "tokenStandard": "代币标准",
+        "tvl": "TVL",
+        "tvlValue": "~${{amount}}M USD(近似值 —— 请在 DeFiLlama 核实)",
+        "minInvestment": "最低投资额",
+        "secondaryMarket": "二级市场",
+        "oracleProvider": "预言机提供方",
+        "smartContractAudit": "智能合约审计",
+        "chainInfra": "链基础设施",
+        "redemptionMechanism": "赎回机制",
+        "upgradeAuthority": "升级权限",
+        "viewReport": "查看报告"
+      }
+    },
+    "timeline": { "title": "时间线" },
+    "sources": { "title": "来源" },
+    "postmortem": {
+      "title": "事后分析",
+      "incidentBadge": "事件:{{date}}",
+      "viewAsIncident": "作为事件查看",
+      "rootCause": "根本原因",
+      "whatFailed": "失败之处",
+      "outcome": "结果",
+      "rarmLesson": "对 RARM AFI 的启示"
+    }
+  }
+}

@@ -1,5 +1,6 @@
 import { useState, useEffect, type ReactNode } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import type { Project, EntityEntry, TimelineEvent, Postmortem, ProjectSource } from '../../types/projects';
 import {
   ASSET_CLASS_META,
@@ -8,16 +9,6 @@ import {
 } from '../../types/projects';
 import DisclaimerBanner from '../../components/DisclaimerBanner';
 import { projectsApi } from '../../api/client';
-
-// ── Risk flag labels ──────────────────────────────────────────────────────────
-
-const RISK_FLAG_LABELS: Record<string, string> = {
-  de_peg:            'De-peg',
-  regulatory_action: 'Regulatory Action',
-  audit_issue:       'Audit Issue',
-  paused:            'Paused',
-  failed:            'Failed',
-};
 
 // ── RARM 6-layer section ─────────────────────────────────────────────────────
 
@@ -70,6 +61,7 @@ function RARMLayerCard({ layer, title, fields }: { layer: number; title: string;
 }
 
 function EntityValue({ entity }: { entity: EntityEntry }) {
+  const { t } = useTranslation('projectsMap');
   const typeMeta = ENTITY_TYPE_META[entity.type];
   return (
     <span className="inline-flex flex-col gap-0">
@@ -88,13 +80,14 @@ function EntityValue({ entity }: { entity: EntityEntry }) {
         <span className="text-sm text-[#2B3437]">{entity.name}</span>
       )}
       {typeMeta && (
-        <span className="text-[10px] text-[#737C7F]">{typeMeta.label}</span>
+        <span className="text-[10px] text-[#737C7F]">{t('entityType.' + entity.type)}</span>
       )}
     </span>
   );
 }
 
 function RARMLayersSection({ project }: { project: Project }) {
+  const { t } = useTranslation('projectsMap');
   const { entity_map } = project;
 
   const auditValue = project.smart_contract_audit
@@ -108,7 +101,7 @@ function RARMLayersSection({ project }: { project: Project }) {
             rel="noopener noreferrer"
             className="text-[11px] text-[#5E5C75] hover:underline inline-flex items-center gap-0.5"
           >
-            View report
+            {t('detail.rarm.field.viewReport')}
             <span className="material-symbols-outlined text-[10px]">open_in_new</span>
           </a>
         )}
@@ -119,66 +112,66 @@ function RARMLayersSection({ project }: { project: Project }) {
   const layers = [
     {
       layer: 1,
-      title: 'Legal Foundation',
+      title: t('detail.rarm.l1'),
       fields: [
-        { label: 'Issuer',        value: entity_map.issuer    ? <EntityValue entity={entity_map.issuer} />    : null },
-        { label: 'Regulator',     value: entity_map.regulator ? <EntityValue entity={entity_map.regulator} /> : null },
-        { label: 'Legal Counsel', value: entity_map.law_firm  ? <EntityValue entity={entity_map.law_firm} />  : null },
-        { label: 'Jurisdiction',  value: project.jurisdiction },
+        { label: t('detail.rarm.field.issuer'),      value: entity_map.issuer    ? <EntityValue entity={entity_map.issuer} />    : null },
+        { label: t('detail.rarm.field.regulator'),   value: entity_map.regulator ? <EntityValue entity={entity_map.regulator} /> : null },
+        { label: t('detail.rarm.field.legalCounsel'), value: entity_map.law_firm ? <EntityValue entity={entity_map.law_firm} />  : null },
+        { label: t('detail.rarm.field.jurisdiction'), value: project.jurisdiction },
       ],
     },
     {
       layer: 2,
-      title: 'Asset Quality',
+      title: t('detail.rarm.l2'),
       fields: [
-        { label: 'Underlying Asset',    value: project.underlying_asset },
-        { label: 'Reserve Composition', value: project.reserve_composition },
+        { label: t('detail.rarm.field.underlyingAsset'),    value: project.underlying_asset },
+        { label: t('detail.rarm.field.reserveComposition'), value: project.reserve_composition },
       ],
     },
     {
       layer: 3,
-      title: 'Counterparty',
+      title: t('detail.rarm.l3'),
       fields: [
-        { label: 'Custodian', value: entity_map.custodian ? <EntityValue entity={entity_map.custodian} /> : null },
-        { label: 'Auditor',   value: entity_map.auditor   ? <EntityValue entity={entity_map.auditor} />   : null },
+        { label: t('detail.rarm.field.custodian'), value: entity_map.custodian ? <EntityValue entity={entity_map.custodian} /> : null },
+        { label: t('detail.rarm.field.auditor'),   value: entity_map.auditor   ? <EntityValue entity={entity_map.auditor} />   : null },
       ],
     },
     {
       layer: 4,
-      title: 'Token & Market',
+      title: t('detail.rarm.l4'),
       fields: [
-        { label: 'Chain',              value: project.chain },
-        { label: 'Token Standard',     value: entity_map.token_standard },
+        { label: t('detail.rarm.field.chain'),          value: project.chain },
+        { label: t('detail.rarm.field.tokenStandard'),  value: entity_map.token_standard },
         {
-          label: 'TVL',
+          label: t('detail.rarm.field.tvl'),
           value: project.tvl_usd
-            ? `~$${(project.tvl_usd / 1e6).toFixed(0)}M USD (approximate — verify at DeFiLlama)`
+            ? t('detail.rarm.field.tvlValue', { amount: (project.tvl_usd / 1e6).toFixed(0) })
             : null,
         },
         {
-          label: 'Minimum Investment',
+          label: t('detail.rarm.field.minInvestment'),
           value: project.min_investment_usd
             ? `$${project.min_investment_usd.toLocaleString('en-US')}`
             : null,
         },
-        { label: 'Secondary Market', value: project.secondary_market },
+        { label: t('detail.rarm.field.secondaryMarket'), value: project.secondary_market },
       ],
     },
     {
       layer: 5,
-      title: 'Technology',
+      title: t('detail.rarm.l5'),
       fields: [
-        { label: 'Oracle Provider',       value: project.oracle_provider },
-        { label: 'Smart Contract Audit',  value: auditValue },
-        { label: 'Chain Infrastructure',  value: entity_map.chain_infra ? <EntityValue entity={entity_map.chain_infra} /> : null },
+        { label: t('detail.rarm.field.oracleProvider'),     value: project.oracle_provider },
+        { label: t('detail.rarm.field.smartContractAudit'), value: auditValue },
+        { label: t('detail.rarm.field.chainInfra'),         value: entity_map.chain_infra ? <EntityValue entity={entity_map.chain_infra} /> : null },
       ],
     },
     {
       layer: 6,
-      title: 'Governance',
+      title: t('detail.rarm.l6'),
       fields: [
-        { label: 'Redemption Mechanism', value: project.redemption_mechanism },
-        { label: 'Upgrade Authority',    value: project.upgrade_authority },
+        { label: t('detail.rarm.field.redemptionMechanism'), value: project.redemption_mechanism },
+        { label: t('detail.rarm.field.upgradeAuthority'),    value: project.upgrade_authority },
       ],
     },
   ];
@@ -186,10 +179,10 @@ function RARMLayersSection({ project }: { project: Project }) {
   return (
     <div>
       <h2 className="text-[10px] font-bold text-[#737C7F] uppercase tracking-widest mb-1">
-        RARM Due Diligence Framework
+        {t('detail.rarm.sectionTitle')}
       </h2>
       <p className="text-xs text-[#737C7F] mb-4 leading-relaxed">
-        Six-layer anatomy based on public disclosures. Layers without confirmed data are omitted.
+        {t('detail.rarm.sectionLede')}
       </p>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
         {layers.map(l => (
@@ -203,12 +196,13 @@ function RARMLayersSection({ project }: { project: Project }) {
 // ── Timeline section ──────────────────────────────────────────────────────────
 
 function TimelineSection({ timeline }: { timeline?: TimelineEvent[] }) {
+  const { t } = useTranslation('projectsMap');
   if (!timeline || timeline.length === 0) return null;
 
   return (
     <div className="rounded-xl border border-[#DBE4E7] bg-white p-5">
       <h2 className="text-[10px] font-bold text-[#737C7F] uppercase tracking-widest mb-5">
-        Timeline
+        {t('detail.timeline.title')}
       </h2>
       <div className="relative">
         <div className="absolute left-[7px] top-1 bottom-1 w-px bg-[#DBE4E7]" />
@@ -234,10 +228,11 @@ function TimelineSection({ timeline }: { timeline?: TimelineEvent[] }) {
 // ── Sources section ───────────────────────────────────────────────────────────
 
 function SourcesSection({ sources }: { sources: Array<string | ProjectSource> }) {
+  const { t } = useTranslation('projectsMap');
   return (
     <div className="rounded-xl border border-[#DBE4E7] bg-white p-5">
       <h2 className="text-[10px] font-bold text-[#737C7F] uppercase tracking-widest mb-3">
-        Sources
+        {t('detail.sources.title')}
       </h2>
       <ul className="space-y-2">
         {sources.map((src, i) => {
@@ -277,19 +272,20 @@ const LAYER_BORDER: Record<string, string> = {
 };
 
 function PostmortemSection({ postmortem, incidentId }: { postmortem: Postmortem; incidentId?: string }) {
+  const { t } = useTranslation('projectsMap');
   return (
     <div className="rounded-xl border border-red-200 bg-white p-5">
       {/* Section header */}
       <div className="flex items-center justify-between gap-3 mb-5">
         <div className="flex items-center gap-3">
           <h2 className="text-[10px] font-bold text-[#737C7F] uppercase tracking-widest">
-            Postmortem
+            {t('detail.postmortem.title')}
           </h2>
           <span
             className="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold"
             style={{ background: '#FEE2E2', color: '#9e3f4e' }}
           >
-            Incident: {postmortem.incident_date}
+            {t('detail.postmortem.incidentBadge', { date: postmortem.incident_date })}
           </span>
         </div>
         {incidentId && (
@@ -297,7 +293,7 @@ function PostmortemSection({ postmortem, incidentId }: { postmortem: Postmortem;
             to={`/incidents/${incidentId}`}
             className="flex items-center gap-1 text-[10px] font-bold text-[#5E5C75] hover:text-[#2B3437] transition-colors shrink-0"
           >
-            View as incident
+            {t('detail.postmortem.viewAsIncident')}
             <span className="material-symbols-outlined text-[12px]">arrow_forward</span>
           </Link>
         )}
@@ -306,7 +302,7 @@ function PostmortemSection({ postmortem, incidentId }: { postmortem: Postmortem;
       {/* Root Cause */}
       <div className="mb-5">
         <div className="text-[10px] font-bold text-[#737C7F] uppercase tracking-wider mb-1.5">
-          Root Cause
+          {t('detail.postmortem.rootCause')}
         </div>
         <p className="text-sm text-[#2B3437] leading-relaxed">{postmortem.root_cause}</p>
       </div>
@@ -314,7 +310,7 @@ function PostmortemSection({ postmortem, incidentId }: { postmortem: Postmortem;
       {/* What Failed grid */}
       <div className="mb-5">
         <div className="text-[10px] font-bold text-[#737C7F] uppercase tracking-wider mb-3">
-          What Failed
+          {t('detail.postmortem.whatFailed')}
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           {postmortem.what_failed.map((f, i) => {
@@ -344,7 +340,7 @@ function PostmortemSection({ postmortem, incidentId }: { postmortem: Postmortem;
       {/* Outcome */}
       <div className="mb-5">
         <div className="text-[10px] font-bold text-[#737C7F] uppercase tracking-wider mb-1.5">
-          Outcome
+          {t('detail.postmortem.outcome')}
         </div>
         <blockquote className="text-sm text-[#2B3437] leading-relaxed bg-[#F1F4F6] rounded-lg px-4 py-3 border-l-4 border-[#737C7F]">
           {postmortem.outcome}
@@ -354,7 +350,7 @@ function PostmortemSection({ postmortem, incidentId }: { postmortem: Postmortem;
       {/* RARM Lesson */}
       <div>
         <div className="text-[10px] font-bold text-[#737C7F] uppercase tracking-wider mb-1.5">
-          Implication for RARM AFI
+          {t('detail.postmortem.rarmLesson')}
         </div>
         <blockquote className="text-sm italic text-[#0C447C] leading-relaxed bg-blue-50 rounded-lg px-4 py-3 border-l-4 border-[#0C447C]">
           {postmortem.rarm_lesson}
@@ -367,6 +363,7 @@ function PostmortemSection({ postmortem, incidentId }: { postmortem: Postmortem;
 // ── Main screen ───────────────────────────────────────────────────────────────
 
 export default function ProjectDetail() {
+  const { t } = useTranslation('projectsMap');
   const { slug } = useParams<{ slug: string }>();
   const [project, setProject] = useState<Project | null>(null);
   const [loading, setLoading] = useState(true);
@@ -376,9 +373,9 @@ export default function ProjectDetail() {
     if (!slug) return;
     projectsApi.get(slug)
       .then(setProject)
-      .catch(() => setError('Project not found.'))
+      .catch(() => setError(t('detail.notFound')))
       .finally(() => setLoading(false));
-  }, [slug]);
+  }, [slug, t]);
 
   if (loading) {
     return (
@@ -393,9 +390,9 @@ export default function ProjectDetail() {
   if (error || !project) {
     return (
       <div className="max-w-3xl mx-auto px-4 py-12 text-center">
-        <p className="text-red-600 text-sm mb-4">{error ?? 'Project not found.'}</p>
+        <p className="text-red-600 text-sm mb-4">{error ?? t('detail.notFound')}</p>
         <Link to="/projects" className="text-xs text-[#5E5C75] hover:text-[#2B3437] transition-colors">
-          ← Back to Projects
+          {t('detail.backToProjects')}
         </Link>
       </div>
     );
@@ -409,8 +406,8 @@ export default function ProjectDetail() {
     pilot:     { bg: '#FAEEDA', color: '#854F0B' },
     announced: { bg: '#EEEDFE', color: '#3C3489' },
     inactive:  { bg: '#F1F4F6', color: '#737C7F' },
-    failed:    { bg: '#FEE2E2', color: '#9e3f4e' }, // red
-    paused:    { bg: '#F1F4F6', color: '#64748b' }, // gray
+    failed:    { bg: '#FEE2E2', color: '#9e3f4e' },
+    paused:    { bg: '#F1F4F6', color: '#64748b' },
   };
   const CLASS_LIGHT: Record<string, { bg: string; color: string }> = {
     gov_bond:               { bg: '#E6F1FB', color: '#0C447C' },
@@ -418,9 +415,9 @@ export default function ProjectDetail() {
     commodity:              { bg: '#FAEEDA', color: '#854F0B' },
     private_credit:         { bg: '#FBEAF0', color: '#9e3f4e' },
     other:                  { bg: '#F1F4F6', color: '#737C7F' },
-    stablecoin_algorithmic: { bg: '#FFF0E6', color: '#c2410c' }, // orange
-    stablecoin_fiat_backed: { bg: '#EFF6FF', color: '#1d4ed8' }, // blue
-    fintech_wrapper:        { bg: '#F5F3FF', color: '#7c3aed' }, // purple
+    stablecoin_algorithmic: { bg: '#FFF0E6', color: '#c2410c' },
+    stablecoin_fiat_backed: { bg: '#EFF6FF', color: '#1d4ed8' },
+    fintech_wrapper:        { bg: '#F5F3FF', color: '#7c3aed' },
   };
   const DEFAULT_BADGE = { bg: '#F1F4F6', color: '#737C7F' };
   const sBadge = STATUS_LIGHT[project.status] ?? DEFAULT_BADGE;
@@ -430,13 +427,13 @@ export default function ProjectDetail() {
     <div className="max-w-screen-2xl mx-auto px-6 py-8">
       {/* Breadcrumb */}
       <div className="flex items-center gap-2 text-xs text-[#737C7F] mb-5">
-        <Link to="/projects" className="hover:text-[#2B3437] transition-colors">Projects</Link>
+        <Link to="/projects" className="hover:text-[#2B3437] transition-colors">{t('detail.breadcrumb')}</Link>
         <span className="material-symbols-outlined text-[12px]">chevron_right</span>
         <span className="text-[#2B3437]">{project.short_name}</span>
       </div>
 
       <DisclaimerBanner
-        text="Project profiles are based on public disclosures only. No platform-generated scores or ratings — RARM assessment is available privately via the Due Diligence workbook."
+        text={t('detail.disclaimer')}
         className="mb-6"
       />
 
@@ -450,13 +447,13 @@ export default function ProjectDetail() {
                 style={{ color: sBadge.color, borderColor: sBadge.color + '50', background: sBadge.bg }}
               >
                 <span className="w-1.5 h-1.5 rounded-full mr-1.5" style={{ background: sBadge.color }} />
-                {statusMeta.label}
+                {t('status.' + project.status, { defaultValue: statusMeta.label })}
               </span>
               <span
                 className="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-medium border"
                 style={{ color: cBadge.color, borderColor: cBadge.color + '40', background: cBadge.bg }}
               >
-                {classMeta.label}
+                {t('assetClass.' + project.asset_class, { defaultValue: classMeta.label })}
               </span>
               <span className="text-[10px] text-[#737C7F] font-mono">
                 {project.jurisdiction} · {project.chain}
@@ -466,7 +463,7 @@ export default function ProjectDetail() {
             <p className="text-sm text-[#737C7F] mt-0.5">{project.name}</p>
             {project.launched_at && (
               <p className="text-[11px] text-[#737C7F] mt-1">
-                Launched: {project.launched_at}
+                {t('detail.launchedAt', { date: project.launched_at })}
               </p>
             )}
           </div>
@@ -477,7 +474,7 @@ export default function ProjectDetail() {
             className="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg border border-[#DBE4E7] bg-white text-xs text-[#737C7F] hover:text-[#2B3437] hover:border-[#5E5C75] transition-all"
           >
             <span className="material-symbols-outlined text-[14px]">open_in_new</span>
-            Official site
+            {t('detail.officialSite')}
           </a>
         </div>
 
@@ -490,7 +487,7 @@ export default function ProjectDetail() {
               className="inline-flex items-center gap-1.5 text-xs text-[#5E5C75] hover:text-[#2B3437] transition-colors"
             >
               <span className="material-symbols-outlined text-[13px]">link</span>
-              View full RARM assessment in Assets module →
+              {t('detail.viewRarmAssessment')}
             </Link>
           </div>
         )}
@@ -504,7 +501,7 @@ export default function ProjectDetail() {
                 style={{ background: '#FEE2E2', color: '#9e3f4e' }}
               >
                 <span className="material-symbols-outlined text-[12px]">warning</span>
-                {RISK_FLAG_LABELS[flag] ?? flag}
+                {t('riskFlag.' + flag, { defaultValue: flag })}
               </span>
             ))}
           </div>
@@ -535,9 +532,9 @@ export default function ProjectDetail() {
         <div className="flex items-center justify-between text-xs text-[#737C7F]">
           <Link to="/projects" className="inline-flex items-center gap-1 hover:text-[#2B3437] transition-colors">
             <span className="material-symbols-outlined text-[13px]">arrow_back</span>
-            Back to Projects
+            {t('detail.backToProjectsShort')}
           </Link>
-          <span>Last updated: {project.updated_at}</span>
+          <span>{t('detail.lastUpdated', { date: project.updated_at })}</span>
         </div>
       </div>
     </div>
