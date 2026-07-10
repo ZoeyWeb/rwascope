@@ -1,0 +1,45 @@
+{
+  "hero": {
+    "eyebrow": "情報 · 發行方披露",
+    "h1": "發行方披露",
+    "lede": "機構 RWA 發行方的 NAV 報告、鑑證、招股說明書與 SEC 申報 —— 經索引以支援可追溯的盡職調查。"
+  },
+  "stats": {
+    "documentsIndexed": "已索引文件",
+    "issuersTracked": "已追蹤發行方",
+    "lastUpdated": "最後更新",
+    "documentTypes": "文件型別"
+  },
+  "filters": {
+    "issuer": "發行方",
+    "type": "型別",
+    "allOption": "全部",
+    "resultCount_one": "{{count}} 份文件",
+    "resultCount_other": "{{count}} 份文件"
+  },
+  "docType": {
+    "nav_report": "NAV 報告",
+    "attestation": "鑑證",
+    "sec_filing": "SEC 申報",
+    "prospectus_update": "招股說明書",
+    "issuance_document": "發行檔案",
+    "annual_report": "年度報告",
+    "reserve_report": "儲備報告",
+    "incident_disclosure": "事件披露"
+  },
+  "status": {
+    "live": "生效",
+    "superseded": "已被取代",
+    "pending": "待定",
+    "retired": "已停用"
+  },
+  "row": {
+    "arrangedBy": "· 由 {{arranger}} 安排",
+    "filingPdf": "申報 PDF",
+    "issuerPage": "發行方頁面"
+  },
+  "emptyState": "沒有符合當前篩選條件的文件。",
+  "footer": {
+    "documentsOnRecord": "在冊 {{count}} 份文件 · 更新於 {{date}}"
+  }
+}

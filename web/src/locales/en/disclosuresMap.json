@@ -1,0 +1,45 @@
+{
+  "hero": {
+    "eyebrow": "Intelligence · Issuer Disclosures",
+    "h1": "Issuer Disclosures",
+    "lede": "NAV reports, attestations, prospectuses, and SEC filings from institutional RWA issuers — indexed for traceable due diligence."
+  },
+  "stats": {
+    "documentsIndexed": "Documents indexed",
+    "issuersTracked": "Issuers tracked",
+    "lastUpdated": "Last updated",
+    "documentTypes": "Document types"
+  },
+  "filters": {
+    "issuer": "Issuer",
+    "type": "Type",
+    "allOption": "All",
+    "resultCount_one": "{{count}} document",
+    "resultCount_other": "{{count}} documents"
+  },
+  "docType": {
+    "nav_report": "NAV Report",
+    "attestation": "Attestation",
+    "sec_filing": "SEC Filing",
+    "prospectus_update": "Prospectus",
+    "issuance_document": "Issuance",
+    "annual_report": "Annual Report",
+    "reserve_report": "Reserve Report",
+    "incident_disclosure": "Incident Disclosure"
+  },
+  "status": {
+    "live": "Live",
+    "superseded": "Superseded",
+    "pending": "Pending",
+    "retired": "Retired"
+  },
+  "row": {
+    "arrangedBy": "· arranged by {{arranger}}",
+    "filingPdf": "Filing PDF",
+    "issuerPage": "Issuer page"
+  },
+  "emptyState": "No documents match the current filters.",
+  "footer": {
+    "documentsOnRecord": "{{count}} documents on record · updated {{date}}"
+  }
+}

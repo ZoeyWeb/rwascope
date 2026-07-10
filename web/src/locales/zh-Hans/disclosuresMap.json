@@ -1,0 +1,45 @@
+{
+  "hero": {
+    "eyebrow": "情报 · 发行方披露",
+    "h1": "发行方披露",
+    "lede": "机构 RWA 发行方的 NAV 报告、鉴证、招股说明书与 SEC 申报 —— 经索引以支持可追溯的尽职调查。"
+  },
+  "stats": {
+    "documentsIndexed": "已索引文档",
+    "issuersTracked": "已追踪发行方",
+    "lastUpdated": "最后更新",
+    "documentTypes": "文档类型"
+  },
+  "filters": {
+    "issuer": "发行方",
+    "type": "类型",
+    "allOption": "全部",
+    "resultCount_one": "{{count}} 份文档",
+    "resultCount_other": "{{count}} 份文档"
+  },
+  "docType": {
+    "nav_report": "NAV 报告",
+    "attestation": "鉴证",
+    "sec_filing": "SEC 申报",
+    "prospectus_update": "招股说明书",
+    "issuance_document": "发行文件",
+    "annual_report": "年度报告",
+    "reserve_report": "储备报告",
+    "incident_disclosure": "事件披露"
+  },
+  "status": {
+    "live": "生效",
+    "superseded": "已被取代",
+    "pending": "待定",
+    "retired": "已停用"
+  },
+  "row": {
+    "arrangedBy": "· 由 {{arranger}} 安排",
+    "filingPdf": "申报 PDF",
+    "issuerPage": "发行方页面"
+  },
+  "emptyState": "没有符合当前筛选条件的文档。",
+  "footer": {
+    "documentsOnRecord": "在册 {{count}} 份文档 · 更新于 {{date}}"
+  }
+}

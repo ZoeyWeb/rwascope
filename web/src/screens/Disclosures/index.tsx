@@ -1,20 +1,10 @@
 import { useState, useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import disclosuresData from '../../../public/data/disclosures/disclosures.json';
 import { Eyebrow } from '../../components/Eyebrow';
 import { BigStat, BigStatRibbon } from '../../components/BigStat';
 
 type Disclosure = (typeof disclosuresData.disclosures)[number];
-
-const DOC_TYPE_LABELS: Record<string, string> = {
-  nav_report:          'NAV Report',
-  attestation:         'Attestation',
-  sec_filing:          'SEC Filing',
-  prospectus_update:   'Prospectus',
-  issuance_document:   'Issuance',
-  annual_report:       'Annual Report',
-  reserve_report:      'Reserve Report',
-  incident_disclosure: 'Incident Disclosure',
-};
 
 const DOC_TYPE_ICONS: Record<string, string> = {
   nav_report:          'bar_chart',
@@ -27,7 +17,7 @@ const DOC_TYPE_ICONS: Record<string, string> = {
   incident_disclosure: 'warning',
 };
 
-const ISSUERS = ['All', ...Array.from(new Set(disclosuresData.disclosures.map(d => d.issuer))).sort()];
+const ISSUERS   = ['All', ...Array.from(new Set(disclosuresData.disclosures.map(d => d.issuer))).sort()];
 const DOC_TYPES = ['All', 'nav_report', 'attestation', 'sec_filing', 'prospectus_update', 'issuance_document', 'annual_report', 'reserve_report', 'incident_disclosure'];
 
 const STATS = {
@@ -38,6 +28,7 @@ const STATS = {
 };
 
 export default function DisclosuresTracker() {
+  const { t } = useTranslation('disclosuresMap');
   const [issuer, setIssuer] = useState('All');
   const [docType, setDocType] = useState('All');
 
@@ -56,30 +47,29 @@ export default function DisclosuresTracker() {
       {/* ── Hero ──────────────────────────────────────────────────────────── */}
       <section className="pt-ed-section-md pb-ed-section-sm">
         <div className="max-w-[1400px] mx-auto px-8">
-          <Eyebrow>Intelligence · Issuer Disclosures</Eyebrow>
+          <Eyebrow>{t('hero.eyebrow')}</Eyebrow>
           <h1 className="text-4xl md:text-ed-hero-h1 text-ed-ink mt-ed-section-sm">
-            Issuer Disclosures
+            {t('hero.h1')}
           </h1>
           <p className="text-ed-lede text-ed-text-secondary max-w-[720px] mt-ed-section-sm">
-            NAV reports, attestations, prospectuses, and SEC filings from institutional
-            RWA issuers — indexed for traceable due diligence.
+            {t('hero.lede')}
           </p>
         </div>
       </section>
 
       {/* ── Stats ribbon ──────────────────────────────────────────────────── */}
       <BigStatRibbon cols={4}>
-        <BigStat value={STATS.totalDocs}    label="Documents indexed" />
-        <BigStat value={STATS.issuersCount} label="Issuers tracked" />
-        <BigStat value={STATS.lastUpdate}   label="Last updated" />
-        <BigStat value={STATS.typesCount}   label="Document types" />
+        <BigStat value={STATS.totalDocs}    label={t('stats.documentsIndexed')} />
+        <BigStat value={STATS.issuersCount} label={t('stats.issuersTracked')} />
+        <BigStat value={STATS.lastUpdate}   label={t('stats.lastUpdated')} />
+        <BigStat value={STATS.typesCount}   label={t('stats.documentTypes')} />
       </BigStatRibbon>
 
       {/* Filters */}
       <div className="bg-white border-b border-[#DBE4E7] sticky top-0 z-10">
         <div className="max-w-[1400px] mx-auto px-8 py-3 flex flex-wrap items-center gap-4">
           <div className="flex items-center gap-1.5 flex-wrap">
-            <span className="text-xs text-[#737C7F]">Issuer:</span>
+            <span className="text-xs text-[#737C7F]">{t('filters.issuer')}:</span>
             {ISSUERS.map(o => (
               <button
                 key={o}
@@ -90,13 +80,13 @@ export default function DisclosuresTracker() {
                     : 'bg-[#F1F4F6] text-[#737C7F] hover:bg-[#DBE4E7]'
                 }`}
               >
-                {o}
+                {o === 'All' ? t('filters.allOption') : o}
               </button>
             ))}
           </div>
 
           <div className="flex items-center gap-1.5 flex-wrap">
-            <span className="text-xs text-[#737C7F]">Type:</span>
+            <span className="text-xs text-[#737C7F]">{t('filters.type')}:</span>
             {DOC_TYPES.map(o => (
               <button
                 key={o}
@@ -107,13 +97,13 @@ export default function DisclosuresTracker() {
                     : 'bg-[#F1F4F6] text-[#737C7F] hover:bg-[#DBE4E7]'
                 }`}
               >
-                {o === 'All' ? 'All' : DOC_TYPE_LABELS[o] ?? o}
+                {o === 'All' ? t('filters.allOption') : t('docType.' + o)}
               </button>
             ))}
           </div>
 
           <span className="ml-auto text-xs text-[#737C7F]">
-            {filtered.length} document{filtered.length !== 1 ? 's' : ''}
+            {t('filters.resultCount', { count: filtered.length })}
           </span>
         </div>
       </div>
@@ -121,14 +111,14 @@ export default function DisclosuresTracker() {
       {/* List */}
       <div className="max-w-[1400px] mx-auto px-8 py-8 space-y-3">
         {filtered.length === 0 && (
-          <p className="text-sm text-[#737C7F] text-center py-12">No documents match the current filters.</p>
+          <p className="text-sm text-[#737C7F] text-center py-12">{t('emptyState')}</p>
         )}
         {filtered.map(doc => (
           <DisclosureRow key={doc.slug} doc={doc} />
         ))}
 
         <p className="text-xs text-[#737C7F] text-center pt-4">
-          {disclosuresData.disclosures.length} documents on record · updated {disclosuresData.updated_at}
+          {t('footer.documentsOnRecord', { count: disclosuresData.disclosures.length, date: disclosuresData.updated_at })}
         </p>
       </div>
     </div>
@@ -136,22 +126,23 @@ export default function DisclosuresTracker() {
 }
 
 function StatusBadge({ status }: { status: string }) {
+  const { t } = useTranslation('disclosuresMap');
   if (status === 'superseded') return (
-    <span className="text-[11px] font-medium text-[#737C7F] line-through">Superseded</span>
+    <span className="text-[11px] font-medium text-[#737C7F] line-through">{t('status.superseded')}</span>
   );
   if (status === 'pending') return (
-    <span className="text-[11px] font-medium text-[#e09d2b]">Pending</span>
+    <span className="text-[11px] font-medium text-[#e09d2b]">{t('status.pending')}</span>
   );
   if (status === 'retired') return (
-    <span className="text-[11px] font-medium text-[#9ca3af]">Retired</span>
+    <span className="text-[11px] font-medium text-[#9ca3af]">{t('status.retired')}</span>
   );
-  return <span className="text-[11px] font-medium text-[#737C7F]">Live</span>;
+  return <span className="text-[11px] font-medium text-[#737C7F]">{t('status.live')}</span>;
 }
 
 function DisclosureRow({ doc }: { doc: Disclosure }) {
+  const { t } = useTranslation('disclosuresMap');
   const [open, setOpen] = useState(false);
   const icon = DOC_TYPE_ICONS[doc.doc_type] ?? 'description';
-  const label = DOC_TYPE_LABELS[doc.doc_type] ?? doc.doc_type;
 
   return (
     <div className="bg-white border border-[#DBE4E7] rounded-lg overflow-hidden">
@@ -168,7 +159,7 @@ function DisclosureRow({ doc }: { doc: Disclosure }) {
             <span className="text-xs font-bold text-[#2B3437] bg-[#F1F4F6] px-2 py-0.5 rounded">
               {doc.issuer}
               {doc.arranger && (
-                <span className="font-normal text-[#737C7F]"> · arranged by {doc.arranger}</span>
+                <span className="font-normal text-[#737C7F]"> {t('row.arrangedBy', { arranger: doc.arranger })}</span>
               )}
             </span>
             {doc.regulator && (
@@ -176,7 +167,7 @@ function DisclosureRow({ doc }: { doc: Disclosure }) {
                 {doc.regulator}
               </span>
             )}
-            <span className="text-xs text-[#5E5C75] font-medium">{label}</span>
+            <span className="text-xs text-[#5E5C75] font-medium">{t('docType.' + doc.doc_type)}</span>
             {doc.period_covered && (
               <span className="text-xs text-[#737C7F]">{doc.period_covered}</span>
             )}
@@ -208,7 +199,7 @@ function DisclosureRow({ doc }: { doc: Disclosure }) {
                 className="flex items-center gap-1 text-xs text-[#5E5C75] hover:text-[#2B3437] transition-colors font-medium"
               >
                 <span className="material-symbols-outlined text-[13px]">picture_as_pdf</span>
-                Filing PDF
+                {t('row.filingPdf')}
               </a>
             )}
             <a
@@ -218,7 +209,7 @@ function DisclosureRow({ doc }: { doc: Disclosure }) {
               className="flex items-center gap-1 text-xs text-[#737C7F] hover:text-[#2B3437] transition-colors"
             >
               <span className="material-symbols-outlined text-[13px]">open_in_new</span>
-              Issuer page
+              {t('row.issuerPage')}
             </a>
           </div>
         </div>
