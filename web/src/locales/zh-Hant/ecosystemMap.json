@@ -1,0 +1,144 @@
+{
+  "shared": {
+    "participantType": {
+      "regulator": "監管機構",
+      "exchange": "交易所",
+      "bank": "銀行",
+      "consortium": "聯盟",
+      "asset_manager": "資產管理機構",
+      "vatp": "VATP",
+      "international_org": "國際組織",
+      "sovereign_bond": "主權債券",
+      "commodity": "大宗商品",
+      "fund": "基金",
+      "custody": "託管方",
+      "issuance_platform": "發行平臺",
+      "broker": "經紀自營商",
+      "compliance_provider": "合規",
+      "legal_firm": "法律",
+      "audit_firm": "審計"
+    },
+    "gapType": {
+      "data_gap": "資料缺口",
+      "market_gap": "市場缺口",
+      "research_gap": "研究缺口"
+    },
+    "severity": {
+      "low": "低",
+      "medium": "中",
+      "high": "高",
+      "critical": "嚴重"
+    }
+  },
+  "hero": {
+    "eyebrow": "區域生態",
+    "h1Fallback": "生態地圖",
+    "lede": "涵蓋監管機構、託管方、發行方與基礎設施的六層參與者地圖。",
+    "layerPrefix": "L{{order}}",
+    "participantsPerLayer": "每層參與者"
+  },
+  "viewTabs": {
+    "singleRegion": "單一區域",
+    "compare": "對比",
+    "globalNetwork": "全球網路"
+  },
+  "regionSelector": {
+    "comingSoon": "即將推出",
+    "beta": "測試版"
+  },
+  "stats": {
+    "totalParticipants": "參與者總數",
+    "acrossLayers": "跨 {{count}} 個生態層"
+  },
+  "innerTabs": {
+    "architecture": "架構",
+    "distribution": "分佈"
+  },
+  "participantChip": {
+    "confidenceLevel": "{{level}} 置信度",
+    "issuerProfile": "發行方檔案",
+    "assetProfile": "資產檔案",
+    "website": "網站"
+  },
+  "layer": {
+    "launchedPrefix": "啟動於",
+    "structuralGaps_one": "{{count}} 個結構性缺口",
+    "structuralGaps_other": "{{count}} 個結構性缺口"
+  },
+  "chart": {
+    "eyebrow": "參與者分佈",
+    "h2": "按類別",
+    "tooltip": {
+      "participantLabel_one": "參與者",
+      "participantLabel_other": "參與者"
+    }
+  },
+  "observation": {
+    "eyebrow": "觀察",
+    "attribution": "RWAscope · 區域分析",
+    "regions": {
+      "hk": "香港的生態在持牌基礎設施上領先,但仍高度集中 —— 十家 EnsembleTX 機構之下是單薄的發行方基礎。",
+      "sg": "新加坡的 Project Guardian 網路產生的跨境試點多於任何其他司法管轄區,但零售准入仍受限制。",
+      "ae": "阿聯酋將激進的自由區發牌與主權級託管夥伴相結合,形成了深度但缺乏零售廣度。",
+      "ch": "瑞士的 DLT Act 使其擁有歐洲最清晰的法律層,但代幣化規模仍落後於基礎設施能力。",
+      "us": "美國擁有全球最多的發行方數量,集中於代幣化國債 —— 其他資產類別的監管明確性仍待確立。",
+      "jp": "日本修訂後的 Payment Services Act 允許日元穩定幣,但僅限銀行發行使發行方群體保持狹窄。",
+      "eu": "MiCA 賦予歐盟最具規範性的框架,但代幣化活動集中在盧森堡與德國,而非均勻分佈。"
+    }
+  },
+  "gaps": {
+    "eyebrow": "結構性缺口",
+    "h2": "生態尚不完整之處"
+  },
+  "dataSources": {
+    "label": "資料來源",
+    "lastCompiled": "最後編纂:{{date}} · 版本 {{version}}"
+  },
+  "error": {
+    "loadFailed": "載入生態資料失敗"
+  },
+  "compare": {
+    "eyebrow": "跨區域分析",
+    "lede": "對監管機構、發行方、基礎設施與市場準入的並排生態對映。",
+    "sharedEntities": {
+      "eyebrow": "共有實體",
+      "presentIn": "同時存在於 {{regionA}} 與 {{regionB}}"
+    },
+    "column": {
+      "regulators": "監管機構",
+      "participants": "參與者",
+      "gaps": "缺口",
+      "versionDate": "v{{version}} · {{date}}",
+      "participantCount_one": "{{count}} 個參與者",
+      "participantCount_other": "{{count}} 個參與者"
+    }
+  },
+  "network": {
+    "heroBanner": {
+      "eyebrow": "全球 RWA 生態",
+      "regions": "個區域",
+      "assetClasses": "個資產類別",
+      "projects": "個專案",
+      "attribution": "由 HKUST Crypto Fintech Lab 構建 · RARM/SARM 框架",
+      "crossRegionEntities": "個跨區域實體"
+    },
+    "graph": {
+      "title": "跨區域實體網路",
+      "instruction": "點選節點或連線 · 拖動節點重新排列"
+    },
+    "sidebar": {
+      "fullName": "全稱",
+      "publicParticipants_one": "{{count}} 個公開參與者",
+      "publicParticipants_other": "{{count}} 個公開參與者",
+      "sharedEntity_one": "{{count}} 個共有實體",
+      "sharedEntity_other": "{{count}} 個共有實體",
+      "linkTitle_one": "{{src}} ↔ {{tgt}} —— {{count}} 個共有實體",
+      "linkTitle_other": "{{src}} ↔ {{tgt}} —— {{count}} 個共有實體"
+    },
+    "mobileList": {
+      "crossRegionCount": "{{count}} 個實體跨多個區域運營。"
+    },
+    "unavailable": "網路資料不可用。",
+    "footnote": "連線代表在多個司法管轄區運營的實體。粗細與共有實體數量成正比。資料僅編纂自公開官方來源。"
+  }
+}

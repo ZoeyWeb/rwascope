@@ -4,6 +4,7 @@
  */
 
 import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import type { EcosystemData, EcosystemLayer, EcosystemParticipant } from '../../types/ecosystem';
 import type { Region } from './RegionSelector';
 
@@ -108,6 +109,7 @@ function MiniParticipantChip({ p }: { p: EcosystemParticipant }) {
 
 // ── Mini layer accordion row ──────────────────────────────────────────────────
 function MiniLayerCard({ layer }: { layer: EcosystemLayer }) {
+  const { t } = useTranslation('ecosystemMap');
   const [expanded, setExpanded] = useState(false);
   return (
     <div className="border-t border-ed-hairline">
@@ -125,7 +127,7 @@ function MiniLayerCard({ layer }: { layer: EcosystemLayer }) {
         </div>
         <div className="flex-1 min-w-0">
           <div className="text-ed-meta text-ed-text-primary leading-tight">{layer.label}</div>
-          <div className="text-ed-eyebrow text-ed-text-muted mt-0.5">{layer.participants.length} participants</div>
+          <div className="text-ed-eyebrow text-ed-text-muted mt-0.5">{t('compare.column.participantCount', { count: layer.participants.length })}</div>
         </div>
         <span
           className="material-symbols-outlined text-[14px] text-ed-text-muted mr-2"
@@ -158,6 +160,7 @@ function SharedEntitiesStrip({
   regionAName: string;
   regionBName: string;
 }) {
+  const { t } = useTranslation('ecosystemMap');
   const [openCard, setOpenCard] = useState<string | null>(null);
 
   if (entities.length === 0) return null;
@@ -168,12 +171,12 @@ function SharedEntitiesStrip({
         <div className="flex flex-col gap-6 md:grid md:grid-cols-[auto_1fr] md:gap-12 md:items-start">
           {/* Left: count + label */}
           <div>
-            <div className="text-ed-eyebrow uppercase text-ed-text-muted">Shared Entities</div>
+            <div className="text-ed-eyebrow uppercase text-ed-text-muted">{t('compare.sharedEntities.eyebrow')}</div>
             <div className="text-[64px] leading-none font-semibold text-ed-text-primary mt-3 tabular-nums">
               {entities.length}
             </div>
             <div className="text-ed-meta text-ed-text-muted mt-2 max-w-[180px]">
-              Present in both {regionAName} and {regionBName}
+              {t('compare.sharedEntities.presentIn', { regionA: regionAName, regionB: regionBName })}
             </div>
           </div>
 
@@ -225,6 +228,7 @@ function RegionColumn({
   activeId: string;
   onChange: (id: string) => void;
 }) {
+  const { t } = useTranslation('ecosystemMap');
   const sortedLayers = [...data.layers].sort((a, b) => a.order - b.order);
   const totalParticipants = data.layers.reduce((s, l) => s + l.participants.length, 0);
 
@@ -251,22 +255,25 @@ function RegionColumn({
         </div>
         <h2 className="text-ed-block-h3 text-ed-text-primary">{data.meta.title}</h2>
         <div className="text-ed-meta text-ed-text-muted mt-1 tabular-nums">
-          v{data.meta.version} · {new Date(data.meta.last_compiled).toLocaleDateString('en-US', { year: 'numeric', month: 'short' })}
+          {t('compare.column.versionDate', {
+            version: data.meta.version,
+            date: new Date(data.meta.last_compiled).toLocaleDateString('en-US', { year: 'numeric', month: 'short' }),
+          })}
         </div>
       </div>
 
       {/* Stats */}
       <div className="grid grid-cols-3 gap-4 md:gap-6 py-ed-section-sm border-b border-ed-hairline mb-0">
         <div>
-          <div className="text-ed-eyebrow uppercase text-ed-text-muted">Regulators</div>
+          <div className="text-ed-eyebrow uppercase text-ed-text-muted">{t('compare.column.regulators')}</div>
           <div className="text-2xl md:text-ed-section-h2 text-ed-text-primary mt-2 tabular-nums">{data.stats.regulators}</div>
         </div>
         <div>
-          <div className="text-ed-eyebrow uppercase text-ed-text-muted">Participants</div>
+          <div className="text-ed-eyebrow uppercase text-ed-text-muted">{t('compare.column.participants')}</div>
           <div className="text-2xl md:text-ed-section-h2 text-ed-text-primary mt-2 tabular-nums">{totalParticipants}</div>
         </div>
         <div>
-          <div className="text-ed-eyebrow uppercase text-ed-text-muted">Gaps</div>
+          <div className="text-ed-eyebrow uppercase text-ed-text-muted">{t('compare.column.gaps')}</div>
           <div className="text-2xl md:text-ed-section-h2 text-ed-text-primary mt-2 tabular-nums">{data.gaps?.length ?? 0}</div>
         </div>
       </div>
@@ -298,6 +305,7 @@ export default function CompareView({
   onRegionAChange,
   onRegionBChange,
 }: CompareViewProps) {
+  const { t } = useTranslation('ecosystemMap');
   const [dataA, setDataA] = useState<EcosystemData | null>(null);
   const [dataB, setDataB] = useState<EcosystemData | null>(null);
   const [loadingA, setLoadingA] = useState(true);
@@ -332,14 +340,14 @@ export default function CompareView({
     <div>
       {/* Hero */}
       <section className="py-ed-section-md md:py-ed-hero">
-        <div className="text-ed-eyebrow uppercase text-ed-text-muted">Cross-Region Analysis</div>
+        <div className="text-ed-eyebrow uppercase text-ed-text-muted">{t('compare.eyebrow')}</div>
         <h1 className="text-4xl md:text-ed-hero-h1 text-ed-text-primary mt-4">
           {regionAName}
           <span className="mx-3 text-ed-text-secondary">↔</span>
           {regionBName}
         </h1>
         <p className="text-ed-lede text-ed-text-secondary mt-ed-section-sm max-w-3xl">
-          Side-by-side ecosystem mapping across regulators, issuers, infrastructure and market access.
+          {t('compare.lede')}
         </p>
       </section>
 

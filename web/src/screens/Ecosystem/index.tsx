@@ -11,6 +11,7 @@
 
 import { useState, useEffect } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import {
   BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell,
 } from 'recharts';
@@ -37,25 +38,6 @@ type ViewMode = 'single' | 'compare' | 'network';
 
 // ── Label maps ────────────────────────────────────────────────────────────────
 
-const TYPE_LABEL: Record<string, string> = {
-  regulator: 'Regulator',
-  exchange: 'Exchange',
-  bank: 'Bank',
-  consortium: 'Consortium',
-  asset_manager: 'Asset Manager',
-  vatp: 'VATP',
-  international_org: 'International Org',
-  sovereign_bond: 'Sovereign Bond',
-  commodity: 'Commodity',
-  fund: 'Fund',
-  custody: 'Custodian',
-  issuance_platform: 'Issuance Platform',
-  broker: 'Broker-Dealer',
-  compliance_provider: 'Compliance',
-  legal_firm: 'Legal',
-  audit_firm: 'Audit',
-};
-
 const RARM_COLOR: Record<string, string> = {
   green: '#4ade80',
   yellow: '#facc15',
@@ -69,11 +51,6 @@ const GAP_ICON: Record<string, string> = {
   research_gap: 'warning',
 };
 
-const GAP_LABEL: Record<string, string> = {
-  data_gap: 'Data Gap',
-  market_gap: 'Market Gap',
-  research_gap: 'Research Gap',
-};
 
 const GAP_SEVERITY_STYLE: Record<string, string> = {
   low: 'border-blue-800 bg-blue-950/50 text-blue-300',
@@ -82,15 +59,6 @@ const GAP_SEVERITY_STYLE: Record<string, string> = {
   critical: 'border-red-700 bg-red-950/50 text-red-300',
 };
 
-const REGION_OBSERVATION: Record<string, string> = {
-  hk: "Hong Kong's ecosystem leads on licensed infrastructure but remains concentrated — ten EnsembleTX institutions sit above a thin issuer base.",
-  sg: "Singapore's Project Guardian network has produced more cross-border pilots than any other jurisdiction, yet retail access remains gated.",
-  ae: "The UAE pairs aggressive free-zone licensing with sovereign-scale custody partners, creating depth without retail breadth.",
-  ch: "Switzerland's DLT Act gives it the cleanest legal layer in Europe, but tokenization volume still trails infrastructure capacity.",
-  us: "The US holds the largest issuer count globally, concentrated in tokenized treasuries — regulatory clarity for other asset classes remains pending.",
-  jp: "Japan's revised Payment Services Act enables yen-stablecoins but bank-only issuance keeps the issuer set narrow.",
-  eu: "MiCA gives EU the most prescriptive framework, though tokenization activity clusters in Luxembourg and Germany rather than spreading evenly.",
-};
 
 // ── Sub-components ─────────────────────────────────────────────────────────────
 
@@ -105,6 +73,7 @@ function StatCard({ value, label, sub }: { value: number | string; label: string
 }
 
 function GapBadge({ gap }: { gap: EcosystemGap }) {
+  const { t } = useTranslation('ecosystemMap');
   const isHigh = gap.severity === 'high' || gap.severity === 'critical';
   return (
     <div className={`flex items-start gap-3 border-t border-ed-hairline py-3 ${isHigh ? 'text-ed-incident' : 'text-ed-text-secondary'}`}>
@@ -113,7 +82,7 @@ function GapBadge({ gap }: { gap: EcosystemGap }) {
       </span>
       <div>
         <span className="text-ed-eyebrow uppercase block mb-1">
-          {GAP_LABEL[gap.type]} · {gap.severity}
+          {t(`shared.gapType.${gap.type}`)} · {t(`shared.severity.${gap.severity}`)}
         </span>
         <p className="text-ed-meta text-ed-text-primary font-medium leading-snug">{gap.title}</p>
         <p className="text-ed-meta text-ed-text-secondary leading-snug mt-0.5">{gap.description}</p>
@@ -131,6 +100,7 @@ function ParticipantChip({
   accentColor?: string;
   onNavigate?: () => void;
 }) {
+  const { t } = useTranslation('ecosystemMap');
   const [open, setOpen] = useState(false);
 
   return (
@@ -156,20 +126,20 @@ function ParticipantChip({
           <div className="text-ed-meta font-semibold text-ed-text-primary mb-1">{p.full_name}</div>
           <div className="flex items-center gap-2 mb-2">
             <span className="text-ed-eyebrow uppercase text-ed-text-muted">
-              {TYPE_LABEL[p.type] ?? p.type}
+              {t(`shared.participantType.${p.type}`, { defaultValue: p.type })}
             </span>
             {p.confidence_level && p.confidence_level !== 'high' && (
               <span className="text-ed-eyebrow uppercase text-ed-warn-text">
-                {p.confidence_level} confidence
+                {t('participantChip.confidenceLevel', { level: p.confidence_level })}
               </span>
             )}
           </div>
           <p className="text-ed-meta text-ed-text-secondary leading-relaxed mb-3">{p.role}</p>
           {p.tags.length > 0 && (
             <div className="flex flex-wrap gap-1 mb-3">
-              {p.tags.map(t => (
-                <span key={t} className="text-ed-eyebrow uppercase px-1.5 py-0.5 bg-ed-surface-cool text-ed-text-muted">
-                  {t}
+              {p.tags.map(tag => (
+                <span key={tag} className="text-ed-eyebrow uppercase px-1.5 py-0.5 bg-ed-surface-cool text-ed-text-muted">
+                  {tag}
                 </span>
               ))}
             </div>
@@ -181,7 +151,7 @@ function ParticipantChip({
                 className="text-ed-eyebrow uppercase text-ed-accent hover:text-ed-ink transition-colors flex items-center gap-1"
               >
                 <span className="material-symbols-outlined text-[11px]">open_in_new</span>
-                Issuer Profile
+                {t('participantChip.issuerProfile')}
               </button>
             )}
             {p.asset_slug && (
@@ -190,7 +160,7 @@ function ParticipantChip({
                 className="text-ed-eyebrow uppercase text-ed-accent hover:text-ed-ink transition-colors flex items-center gap-1"
               >
                 <span className="material-symbols-outlined text-[11px]">open_in_new</span>
-                Asset Profile
+                {t('participantChip.assetProfile')}
               </button>
             )}
             {p.url && (
@@ -201,7 +171,7 @@ function ParticipantChip({
                 className="text-ed-eyebrow uppercase text-ed-accent hover:text-ed-ink transition-colors flex items-center gap-1"
               >
                 <span className="material-symbols-outlined text-[11px]">language</span>
-                Website
+                {t('participantChip.website')}
               </a>
             )}
           </div>
@@ -224,6 +194,7 @@ function Layer3DCard({
   onClick: () => void;
   isLast?: boolean;
 }) {
+  const { t } = useTranslation('ecosystemMap');
   const navigate = useNavigate();
 
   return (
@@ -248,14 +219,14 @@ function Layer3DCard({
           </p>
           {layer.launched_at && (
             <div className="text-ed-eyebrow text-ed-text-muted mt-ed-section-sm">
-              Launched{' '}
+              {t('layer.launchedPrefix')}{' '}
               {new Date(layer.launched_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long' })}
               {layer.source && ` · ${layer.source}`}
             </div>
           )}
           {gaps.length > 0 && (
             <div className="text-ed-eyebrow text-ed-incident mt-2">
-              {gaps.length} structural gap{gaps.length !== 1 ? 's' : ''}
+              {t('layer.structuralGaps', { count: gaps.length })}
             </div>
           )}
           {(layer.participants_note || layer.applicants_note) && (
@@ -290,13 +261,14 @@ function ChartTooltip({ active, payload }: {
   active?: boolean;
   payload?: { payload: { category: string; count: number; color: string } }[];
 }) {
+  const { t } = useTranslation('ecosystemMap');
   if (!active || !payload?.length) return null;
   const d = payload[0].payload;
   return (
     <div className="bg-[#1A1A2E] border border-[#2B3437] rounded px-3 py-2 text-xs shadow-lg">
       <div className="font-bold text-white">{d.category}</div>
       <div className="text-slate-400 mt-0.5">
-        <span style={{ color: d.color }}>{d.count}</span> participant{d.count !== 1 ? 's' : ''}
+        <span style={{ color: d.color }}>{d.count}</span> {t('chart.tooltip.participantLabel', { count: d.count })}
       </div>
     </div>
   );
@@ -333,6 +305,7 @@ function ViewTab({
 // ── Main screen ───────────────────────────────────────────────────────────────
 
 export default function EcosystemMap() {
+  const { t } = useTranslation('ecosystemMap');
   const [searchParams, setSearchParams] = useSearchParams();
 
   // Derive view mode + compare params from URL
@@ -386,7 +359,7 @@ export default function EcosystemMap() {
         const sorted = [...d.layers].sort((a, b) => a.order - b.order);
         if (sorted.length > 0) setActiveLayerId(sorted[0].id);
       })
-      .catch((e: Error) => setError(e.message))
+      .catch(() => setError(t('error.loadFailed')))
       .finally(() => setLoading(false));
   }, [selectedRegion, viewMode, regions]);
 
@@ -434,12 +407,12 @@ export default function EcosystemMap() {
       <section className="py-ed-section-md md:py-ed-hero">
         <div className="grid grid-cols-1 md:grid-cols-[1.2fr_1fr] gap-8 md:gap-16 items-start">
           <div>
-            <div className="text-ed-eyebrow uppercase text-ed-text-muted">Regional Ecosystem</div>
+            <div className="text-ed-eyebrow uppercase text-ed-text-muted">{t('hero.eyebrow')}</div>
             <h1 className="text-4xl md:text-ed-hero-h1 text-ed-text-primary mt-4">
-              {currentRegion?.name ?? 'Ecosystem Map'}
+              {currentRegion?.name ?? t('hero.h1Fallback')}
             </h1>
             <p className="text-ed-lede text-ed-text-secondary mt-ed-section-sm max-w-3xl">
-              Six-layer participant map across regulators, custodians, issuers, and infrastructure.
+              {t('hero.lede')}
             </p>
             {regions.length > 0 && (
               <div className="mt-ed-section-md">
@@ -459,7 +432,7 @@ export default function EcosystemMap() {
                   {sortedLayers.map((layer) => (
                     <div key={layer.id} className="flex items-center gap-3">
                       <div className="text-ed-eyebrow uppercase text-ed-text-muted w-7 tabular-nums">
-                        L{layer.order}
+                        {t('hero.layerPrefix', { order: layer.order })}
                       </div>
                       <div className="flex-1 h-1.5 bg-ed-hairline-faint relative">
                         <div
@@ -476,7 +449,7 @@ export default function EcosystemMap() {
                     </div>
                   ))}
                   <div className="text-ed-eyebrow uppercase text-ed-text-muted pt-4 border-t border-ed-hairline-faint">
-                    Participants per layer
+                    {t('hero.participantsPerLayer')}
                   </div>
                 </>
               );
@@ -490,19 +463,19 @@ export default function EcosystemMap() {
         <ViewTab
           active={viewMode === 'single'}
           icon="layers"
-          label="Single Region"
+          label={t('viewTabs.singleRegion')}
           onClick={() => setViewMode('single')}
         />
         <ViewTab
           active={viewMode === 'compare'}
           icon="compare"
-          label="Compare"
+          label={t('viewTabs.compare')}
           onClick={() => setViewMode('compare')}
         />
         <ViewTab
           active={viewMode === 'network'}
           icon="hub"
-          label="Global Network"
+          label={t('viewTabs.globalNetwork')}
           onClick={() => setViewMode('network')}
         />
       </div>
@@ -559,12 +532,12 @@ export default function EcosystemMap() {
                     return (
                       <div className="max-w-[1400px] mx-auto px-8 grid grid-cols-2 md:grid-cols-5 gap-12">
                         <div className="col-span-2 md:col-span-2 md:border-r md:border-ed-hairline md:pr-12">
-                          <div className="text-ed-eyebrow uppercase text-ed-text-muted">Total Participants</div>
+                          <div className="text-ed-eyebrow uppercase text-ed-text-muted">{t('stats.totalParticipants')}</div>
                           <div className="text-[80px] leading-[0.95] font-semibold text-ed-text-primary mt-3 tabular-nums">
                             {totalParticipants}
                           </div>
                           <div className="text-ed-meta text-ed-text-muted mt-2">
-                            Across {sortedLayers.length} ecosystem layers
+                            {t('stats.acrossLayers', { count: sortedLayers.length })}
                           </div>
                         </div>
                         {secondary.map(({ value, label }) => (
@@ -597,7 +570,7 @@ export default function EcosystemMap() {
                     }`}
                   >
                     <span className="material-symbols-outlined text-base align-middle">account_tree</span>
-                    Architecture
+                    {t('innerTabs.architecture')}
                   </button>
                   <button
                     onClick={() => setActiveTab('chart')}
@@ -608,7 +581,7 @@ export default function EcosystemMap() {
                     }`}
                   >
                     <span className="material-symbols-outlined text-base align-middle">bar_chart</span>
-                    Distribution
+                    {t('innerTabs.distribution')}
                   </button>
                 </div>
 
@@ -631,8 +604,8 @@ export default function EcosystemMap() {
                 {/* Participant distribution chart */}
                 {activeTab === 'chart' && (
                   <div className="py-ed-section-md">
-                    <div className="text-ed-eyebrow uppercase text-ed-text-muted mb-1">Participant Distribution</div>
-                    <h2 className="text-ed-block-h3 text-ed-text-primary mb-6">By Category</h2>
+                    <div className="text-ed-eyebrow uppercase text-ed-text-muted mb-1">{t('chart.eyebrow')}</div>
+                    <h2 className="text-ed-block-h3 text-ed-text-primary mb-6">{t('chart.h2')}</h2>
                     <ResponsiveContainer width="100%" height={280}>
                       <BarChart
                         data={participant_type_chart}
@@ -668,15 +641,15 @@ export default function EcosystemMap() {
                 )}
 
                 {/* Pull observation */}
-                {REGION_OBSERVATION[selectedRegion.toLowerCase()] && (
+                {t(`observation.regions.${selectedRegion.toLowerCase()}`, { defaultValue: '' }) && (
                   <section className="w-screen left-1/2 -translate-x-1/2 relative bg-ed-surface-cool border-y border-ed-hairline py-ed-section-md md:py-ed-section mt-ed-section-md md:mt-ed-section">
                     <div className="max-w-[1100px] mx-auto px-8">
-                      <div className="text-ed-eyebrow uppercase text-ed-text-muted">Observation</div>
+                      <div className="text-ed-eyebrow uppercase text-ed-text-muted">{t('observation.eyebrow')}</div>
                       <p className="text-xl md:text-ed-section-h2-light text-ed-text-primary mt-6 leading-tight">
-                        {REGION_OBSERVATION[selectedRegion.toLowerCase()]}
+                        {t(`observation.regions.${selectedRegion.toLowerCase()}`)}
                       </p>
                       <div className="text-ed-meta text-ed-text-muted mt-6">
-                        RWAscope · Regional Analysis
+                        {t('observation.attribution')}
                       </div>
                     </div>
                   </section>
@@ -686,9 +659,9 @@ export default function EcosystemMap() {
                 {gaps && gaps.length > 0 && (
                   <section className="w-screen relative left-1/2 -translate-x-1/2 bg-ed-surface-sunken border-y border-ed-hairline py-ed-section-md md:py-ed-section mt-ed-section-md md:mt-ed-section">
                     <div className="max-w-[1400px] mx-auto px-8">
-                      <div className="text-ed-eyebrow uppercase text-ed-text-muted">Structural Gaps</div>
+                      <div className="text-ed-eyebrow uppercase text-ed-text-muted">{t('gaps.eyebrow')}</div>
                       <h2 className="text-2xl md:text-ed-section-h2 text-ed-text-primary mt-3">
-                        Where the ecosystem is incomplete
+                        {t('gaps.h2')}
                       </h2>
                       <div className="mt-ed-section-md">
                         {gaps.map(gap => <GapBadge key={gap.id} gap={gap} />)}
@@ -700,7 +673,7 @@ export default function EcosystemMap() {
 
                 {/* Data sources footer */}
                 <div className="mt-ed-section-lg border-t border-ed-hairline pt-ed-section-md">
-                  <div className="text-ed-eyebrow uppercase text-ed-text-muted mb-3">Data Sources</div>
+                  <div className="text-ed-eyebrow uppercase text-ed-text-muted mb-3">{t('dataSources.label')}</div>
                   <ul className="grid md:grid-cols-2 gap-1">
                     {meta.sources.map((src, i) => (
                       <li key={i} className="text-ed-meta text-ed-text-secondary flex gap-2">
@@ -710,8 +683,10 @@ export default function EcosystemMap() {
                     ))}
                   </ul>
                   <p className="text-ed-eyebrow text-ed-text-faint mt-3">
-                    Last compiled: {new Date(meta.last_compiled).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
-                    {' · '}Version {meta.version}
+                    {t('dataSources.lastCompiled', {
+                      date: new Date(meta.last_compiled).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
+                      version: meta.version,
+                    })}
                   </p>
                 </div>
 

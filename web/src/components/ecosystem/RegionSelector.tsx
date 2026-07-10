@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next';
+
 export interface Region {
   id: string;
   name: string;
@@ -12,6 +14,7 @@ interface RegionSelectorProps {
 }
 
 export default function RegionSelector({ regions, activeRegion, onChange }: RegionSelectorProps) {
+  const { t } = useTranslation('ecosystemMap');
   return (
     <div className="flex items-center gap-2 flex-wrap">
       {regions.map(region => {
@@ -24,7 +27,7 @@ export default function RegionSelector({ regions, activeRegion, onChange }: Regi
             >
               {region.name}
               <span className="text-[9px] bg-[#1A1A2E] text-slate-600 px-1.5 py-0.5 rounded-full font-semibold uppercase tracking-wide">
-                Coming Soon
+                {t('regionSelector.comingSoon')}
               </span>
             </button>
           );
@@ -44,7 +47,7 @@ export default function RegionSelector({ regions, activeRegion, onChange }: Regi
             {region.name}
             {region.status === 'beta' && (
               <span className="text-[9px] bg-amber-900/60 text-amber-400 px-1.5 py-0.5 rounded-full font-bold uppercase tracking-wide">
-                Beta
+                {t('regionSelector.beta')}
               </span>
             )}
           </button>

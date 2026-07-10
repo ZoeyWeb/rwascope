@@ -4,6 +4,7 @@
  */
 
 import { useEffect, useRef, useState, useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
 import * as d3 from 'd3';
 import type { EcosystemData } from '../../types/ecosystem';
 import type { Region } from './RegionSelector';
@@ -143,6 +144,7 @@ function buildGraph(
 // ── Sidebar panel ─────────────────────────────────────────────────────────────
 
 function SidePanel({ sidebar, onClose }: { sidebar: SidebarState; onClose: () => void }) {
+  const { t } = useTranslation('ecosystemMap');
   return (
     <div className="absolute top-0 right-0 h-full w-72 bg-[#0D0F18] border-l border-[#2B3437] overflow-y-auto z-10 flex flex-col">
       <div className="flex items-center justify-between px-4 py-3 border-b border-[#2B3437]">
@@ -154,15 +156,15 @@ function SidePanel({ sidebar, onClose }: { sidebar: SidebarState; onClose: () =>
       <div className="flex-1 p-4 space-y-3 overflow-y-auto">
         {sidebar.type === 'node' && sidebar.nodeInfo && (
           <div>
-            <div className="text-xs text-slate-400 mb-1">Full name</div>
+            <div className="text-xs text-slate-400 mb-1">{t('network.sidebar.fullName')}</div>
             <div className="text-sm text-white font-medium">{sidebar.nodeInfo.fullName}</div>
-            <div className="text-xs text-slate-500 mt-2">{sidebar.nodeInfo.participantCount} public participants</div>
+            <div className="text-xs text-slate-500 mt-2">{t('network.sidebar.publicParticipants', { count: sidebar.nodeInfo.participantCount })}</div>
           </div>
         )}
         {sidebar.type === 'link' && sidebar.entities && (
           <>
             <div className="text-[10px] text-slate-500 uppercase tracking-wider mb-2">
-              {sidebar.entities.length} shared entit{sidebar.entities.length === 1 ? 'y' : 'ies'}
+              {t('network.sidebar.sharedEntity', { count: sidebar.entities.length })}
             </div>
             {sidebar.entities.map(e => (
               <div key={e.normalisedName} className="rounded-lg border border-[#2B3437] p-3">
@@ -192,11 +194,12 @@ function SidePanel({ sidebar, onClose }: { sidebar: SidebarState; onClose: () =>
 // ── Mobile fallback: simple entity list ───────────────────────────────────────
 
 function MobileList({ allData, regions }: { allData: Record<string, EcosystemData>; regions: Region[] }) {
+  const { t } = useTranslation('ecosystemMap');
   const crossEntities = buildCrossRegionEntities(allData);
   return (
     <div className="space-y-3">
       <p className="text-xs text-slate-500 mb-4">
-        {crossEntities.length} entities operate across multiple regions.
+        {t('network.mobileList.crossRegionCount', { count: crossEntities.length })}
       </p>
       {crossEntities.map(e => (
         <div key={e.normalisedName} className="rounded-lg border border-[#2B3437] p-3">
@@ -230,6 +233,7 @@ interface GlobalNetworkViewProps {
 }
 
 export default function GlobalNetworkView({ regions, projectCount, assetClassCount }: GlobalNetworkViewProps) {
+  const { t } = useTranslation('ecosystemMap');
   const svgRef = useRef<SVGSVGElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const simulationRef = useRef<d3.Simulation<NetworkNode, NetworkLink> | null>(null);
@@ -325,7 +329,7 @@ export default function GlobalNetworkView({ regions, projectCount, assetClassCou
         const tgt = typeof d.target === 'string' ? d.target : (d.target as NetworkNode).id;
         setSidebar({
           type: 'link',
-          title: `${src} ↔ ${tgt} — ${d.weight} shared entit${d.weight === 1 ? 'y' : 'ies'}`,
+          title: t('network.sidebar.linkTitle', { src, tgt, count: d.weight }),
           entities: d.entities,
         });
       });
@@ -477,7 +481,7 @@ export default function GlobalNetworkView({ regions, projectCount, assetClassCou
   }
 
   if (!allData) {
-    return <div className="p-8 text-slate-400">Network data unavailable.</div>;
+    return <div className="p-8 text-slate-400">{t('network.unavailable')}</div>;
   }
 
   const activeRegionCount = Object.keys(allData).length;
@@ -491,26 +495,26 @@ export default function GlobalNetworkView({ regions, projectCount, assetClassCou
       >
         <div>
           <div className="text-xs font-bold text-[#5E5C75] uppercase tracking-widest mb-1.5">
-            Global RWA Ecosystem
+            {t('network.heroBanner.eyebrow')}
           </div>
           <div className="text-lg font-bold text-white font-headline">
             <span className="text-[#ef4444]">{activeRegionCount}</span>
-            <span className="text-slate-400 mx-1.5">regions</span>
+            <span className="text-slate-400 mx-1.5">{t('network.heroBanner.regions')}</span>
             <span className="text-[#737C7F] mx-1">×</span>
             <span className="text-[#f97316] mx-1.5">{assetClassCount}</span>
-            <span className="text-slate-400 mr-1.5">asset classes</span>
+            <span className="text-slate-400 mr-1.5">{t('network.heroBanner.assetClasses')}</span>
             <span className="text-[#737C7F] mx-1">×</span>
             <span className="text-[#3b82f6] mx-1.5">{projectCount}</span>
-            <span className="text-slate-400">projects</span>
+            <span className="text-slate-400">{t('network.heroBanner.projects')}</span>
           </div>
           <div className="text-[11px] text-slate-600 mt-1">
-            Built at HKUST Crypto Fintech Lab · RARM/SARM frameworks
+            {t('network.heroBanner.attribution')}
           </div>
         </div>
         <div className="flex gap-4 shrink-0">
           <div className="text-center">
             <div className="text-xl font-bold text-white">{crossCount}</div>
-            <div className="text-[10px] text-slate-500">cross-region<br />entities</div>
+            <div className="text-[10px] text-slate-500">{t('network.heroBanner.crossRegionEntities')}</div>
           </div>
         </div>
       </div>
@@ -519,9 +523,9 @@ export default function GlobalNetworkView({ regions, projectCount, assetClassCou
       <div className="rounded-xl border border-[#2B3437] bg-[#0D0F18] overflow-hidden">
         <div className="px-5 py-3 border-b border-[#2B3437] flex items-center gap-2">
           <span className="material-symbols-outlined text-[#5E5C75]">hub</span>
-          <span className="text-sm font-bold text-white">Cross-Region Entity Network</span>
+          <span className="text-sm font-bold text-white">{t('network.graph.title')}</span>
           <span className="ml-auto text-[10px] text-slate-600">
-            Click node or link · Drag nodes to rearrange
+            {t('network.graph.instruction')}
           </span>
         </div>
 
@@ -555,8 +559,7 @@ export default function GlobalNetworkView({ regions, projectCount, assetClassCou
       </div>
 
       <p className="text-[10px] text-slate-700">
-        Links represent entities operating in multiple jurisdictions. Thickness proportional
-        to shared entity count. Data compiled from public official sources only.
+        {t('network.footnote')}
       </p>
     </div>
   );
