@@ -79,9 +79,9 @@ export default function CellDetail() {
           {t('cell.breadcrumb')}
         </Link>
         <span>›</span>
-        <span className="text-[#2B3437] font-medium">{j.name}</span>
+        <span className="text-[#2B3437] font-medium">{t(`jurisdictions.${j.code}`)}</span>
         <span>›</span>
-        <span className="text-[#2B3437] font-medium">{iss.title}</span>
+        <span className="text-[#2B3437] font-medium">{t(`issues.${iss.code}`)}</span>
       </nav>
 
       <div className="flex gap-8 items-start">
@@ -94,9 +94,9 @@ export default function CellDetail() {
                 <span className="text-xs font-semibold bg-[#EAEFF1] text-[#2B3437] px-1.5 py-0.5 rounded">
                   {j.code}
                 </span>
-                <span className="text-xs text-[#737C7F]">{j.name}</span>
+                <span className="text-xs text-[#737C7F]">{t(`jurisdictions.${j.code}`)}</span>
               </div>
-              <h1 className="text-2xl font-bold text-[#2B3437] font-headline">{iss.title}</h1>
+              <h1 className="text-2xl font-bold text-[#2B3437] font-headline">{t(`issues.${iss.code}`)}</h1>
               <p className="text-sm text-[#737C7F] mt-1">{iss.description}</p>
             </div>
             <SignalBadge signal={cell.status_signal} />
@@ -248,7 +248,7 @@ export default function CellDetail() {
           {/* Jurisdiction card */}
           <div className="bg-white border border-[#DBE4E7] rounded-lg p-4">
             <h3 className="text-xs font-semibold text-[#2B3437] uppercase tracking-wide mb-3">
-              {j.name}
+              {t(`jurisdictions.${j.code}`)}
             </h3>
             {j.regulators.length > 0 && (
               <div className="mb-3">
@@ -288,7 +288,7 @@ export default function CellDetail() {
                       className="w-2 h-2 rounded-full flex-shrink-0"
                       style={{ background: meta.dot }}
                     />
-                    <span className="text-xs text-[#586064]">{si.title}</span>
+                    <span className="text-xs text-[#586064]">{t(`issues.${si.code}`)}</span>
                   </Link>
                 );
               })}

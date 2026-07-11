@@ -208,7 +208,7 @@ export default function ComplianceMap() {
           >
             <option value="all">{t('filters.allJurisdictions')}</option>
             {matrix.jurisdictions.map((j) => (
-              <option key={j.code} value={j.code}>{j.name}</option>
+              <option key={j.code} value={j.code}>{t(`jurisdictions.${j.code}`)}</option>
             ))}
           </select>
           <select
@@ -233,7 +233,7 @@ export default function ComplianceMap() {
             <thead>
               <tr>
                 <th className="py-2 pr-4 text-left text-xs font-medium text-[#737C7F] w-44">
-                  Issue ↓ / Jurisdiction →
+                  {t('matrixHeader')}
                 </th>
                 {jurisdictions.map((j) => (
                   <th
@@ -242,7 +242,7 @@ export default function ComplianceMap() {
                   >
                     {j.code}
                     <div className="text-[10px] font-normal text-[#737C7F] whitespace-nowrap">
-                      {j.name}
+                      {t(`jurisdictions.${j.code}`)}
                     </div>
                   </th>
                 ))}
@@ -252,7 +252,7 @@ export default function ComplianceMap() {
               {issues.map((issue) => (
                 <tr key={issue.code}>
                   <td className="py-2 pr-4 align-top">
-                    <div className="text-xs font-medium text-[#2B3437]">{issue.title}</div>
+                    <div className="text-xs font-medium text-[#2B3437]">{t(`issues.${issue.code}`)}</div>
                     <div className="text-[10px] text-[#9ca3af] mt-0.5 leading-tight max-w-[160px]">
                       {issue.description}
                     </div>

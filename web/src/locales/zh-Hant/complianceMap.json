@@ -65,7 +65,25 @@
       "court-record": "法院記錄",
       "official-statement": "官方宣告",
       "major-media": "主流媒體",
-      "industry-media": "行業媒體"
+      "industry-media": "行業媒體",
+      "legislation": "立法",
+      "court-ruling": "法院裁決",
+      "international-standard": "國際標準"
     }
-  }
+  },
+  "issues": {
+    "rwa_issuance": "RWA 發行",
+    "stablecoin_issuance": "穩定幣發行",
+    "vasp_licensing": "VASP／交易所牌照",
+    "cross_border": "跨境分發",
+    "retail_access": "零售准入"
+  },
+  "jurisdictions": {
+    "HK": "香港特別行政區",
+    "CN": "中國內地",
+    "SG": "新加坡",
+    "US": "美國",
+    "EU": "歐盟"
+  },
+  "matrixHeader": "議題 ↓ / 轄區 →"
 }

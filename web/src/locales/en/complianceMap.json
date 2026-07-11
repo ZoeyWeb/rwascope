@@ -65,7 +65,25 @@
       "court-record": "Court record",
       "official-statement": "Official statement",
       "major-media": "Major media",
-      "industry-media": "Industry media"
+      "industry-media": "Industry media",
+      "legislation": "Legislation",
+      "court-ruling": "Court Ruling",
+      "international-standard": "International Standard"
     }
-  }
+  },
+  "issues": {
+    "rwa_issuance": "RWA Issuance",
+    "stablecoin_issuance": "Stablecoin Issuance",
+    "vasp_licensing": "VASP / Exchange Licensing",
+    "cross_border": "Cross-Border Distribution",
+    "retail_access": "Retail Access"
+  },
+  "jurisdictions": {
+    "HK": "Hong Kong SAR",
+    "CN": "Mainland China",
+    "SG": "Singapore",
+    "US": "United States",
+    "EU": "European Union"
+  },
+  "matrixHeader": "Issue ↓ / Jurisdiction →"
 }
