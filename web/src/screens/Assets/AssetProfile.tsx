@@ -329,7 +329,7 @@ export default function AssetProfile() {
                     <div>
                       <p className="text-sm font-semibold text-[#2B3437]">{src.title}</p>
                       <p className="text-xs text-[#737C7F] mt-0.5">
-                        {src.type.replace(/-/g, ' ')}
+                        {t('sourceTypes.' + src.type, { defaultValue: src.type.replace(/-/g, ' ') })}
                         {src.date ? ` · ${src.date}` : ''}
                       </p>
                     </div>

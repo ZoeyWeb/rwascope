@@ -107,5 +107,10 @@
       "description": "No issuer with slug \"{{slug}}\" exists in the database.",
       "backLink": "← Back to Licence Tracker"
     }
+  },
+  "typeLabels": {
+    "fiat_backed": "Fiat-backed",
+    "commodity_backed": "Commodity-backed",
+    "algorithmic": "Algorithmic"
   }
 }

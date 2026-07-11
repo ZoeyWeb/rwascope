@@ -16,14 +16,20 @@
     "breakdown": "RARM 分项",
     "methodology": "RARM 方法论 →"
   },
-  "legend": { "frameworkLabel": "RARM 六层框架(左 → 右)" },
+  "legend": {
+    "frameworkLabel": "RARM 六层框架(左 → 右)"
+  },
   "categoryCard": {
     "assetsLabel": "资产",
     "tvlLabel": "TVL(估算)",
     "rarmSignals": "RARM 信号",
     "noAssetsYet": "暂无已评估资产"
   },
-  "filters": { "categoryLabel": "类别", "chainLabel": "链", "all": "全部" },
+  "filters": {
+    "categoryLabel": "类别",
+    "chainLabel": "链",
+    "all": "全部"
+  },
   "table": {
     "headers": {
       "asset": "资产",
@@ -43,7 +49,11 @@
     "body": "六个 RARM 层的逐资产信号分项。柱形表示定性区间,而非数值评分。"
   },
   "disclaimer": "本观测站仅为学术研究工具。RARM 评估反映审阅时点的公开信息,不构成投资建议、信用评级或监管意见。在做出任何投资或运营决策前,应独立核实所有层信号。",
-  "status": { "active": "活跃", "inactive": "非活跃", "underReview": "审查中" },
+  "status": {
+    "active": "活跃",
+    "inactive": "非活跃",
+    "underReview": "审查中"
+  },
   "categoryLabels": {
     "tokenized-treasury": "代币化国债",
     "tokenized-money-market": "代币化货币市场",
@@ -54,8 +64,12 @@
     "other": "其他"
   },
   "profile": {
-    "breadcrumb": { "assetObservatory": "资产观测站" },
-    "header": { "rarmGuide": "RARM 指南" },
+    "breadcrumb": {
+      "assetObservatory": "资产观测站"
+    },
+    "header": {
+      "rarmGuide": "RARM 指南"
+    },
     "disclaimer": "RARM 评估为学术性质,仅基于公开信息。不构成投资建议、信用评级或法律意见。随着更多信息出现,信号会发生变化。",
     "sections": {
       "overview": "概览",
@@ -92,7 +106,9 @@
         "tvl": "TVL",
         "updatedAt": "更新于 {{date}} · {{source}}"
       },
-      "rarmAtGlance": { "heading": "RARM 一览" },
+      "rarmAtGlance": {
+        "heading": "RARM 一览"
+      },
       "cite": {
         "heading": "引用此档案",
         "text": "RWA-Index. \"{{name}} (RARM Profile)\". RWA-Index Tokenized Asset Observatory. Last updated {{date}}. {{url}}",
@@ -100,6 +116,16 @@
         "copied": "已复制"
       }
     },
-    "footer": { "backLink": "资产观测站", "methodologyLink": "RARM 方法论" }
+    "footer": {
+      "backLink": "资产观测站",
+      "methodologyLink": "RARM 方法论"
+    }
+  },
+  "sourceTypes": {
+    "official-statement": "官方声明",
+    "regulatory-filing": "监管申报",
+    "whitepaper": "白皮书",
+    "industry-media": "行业媒体",
+    "major-media": "主流媒体"
   }
 }

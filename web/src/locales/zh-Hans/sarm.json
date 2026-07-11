@@ -1,8 +1,16 @@
 {
   "signals": {
-    "green":  "达标",
+    "green": "达标",
     "yellow": "部分达标",
-    "red":    "重大缺口",
-    "gray":   "数据不足"
+    "red": "重大缺口",
+    "gray": "数据不足"
+  },
+  "dimensions": {
+    "capital_adequacy": "资本充足性",
+    "reserve_quality": "储备质量",
+    "governance": "治理",
+    "technology": "技术与托管",
+    "redemption": "赎回机制",
+    "disclosure": "公开披露"
   }
 }

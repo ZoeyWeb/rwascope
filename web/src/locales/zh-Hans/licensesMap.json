@@ -11,7 +11,11 @@
     "underReview": "审查中",
     "sandbox": "沙盒"
   },
-  "tabs": { "jurisdictions": "司法管辖区", "issuers": "所有发行方", "sarm": "SARM 分项" },
+  "tabs": {
+    "jurisdictions": "司法管辖区",
+    "issuers": "所有发行方",
+    "sarm": "SARM 分项"
+  },
   "jurisdictionsTab": {
     "methodologyLink": "SARM 方法论 →",
     "total": "合计",
@@ -47,7 +51,9 @@
     "title": "各发行方 SARM 分项",
     "description": "六个 SARM 维度的逐发行方信号分项。柱形表示定性区间，而非数值评分。"
   },
-  "sarmLegend": { "eyebrow": "SARM 信号" },
+  "sarmLegend": {
+    "eyebrow": "SARM 信号"
+  },
   "disclaimer": "本追踪器仅供学术研究之用。评估仅基于公开信息。不构成、也不暗示任何投资、法律或合规建议。SARM 信号为定性判断，而非评分或评级。",
   "statusFilters": {
     "all": "全部",
@@ -57,9 +63,15 @@
     "withdrawn": "已撤回",
     "rejected": "已拒绝"
   },
-  "regimeChips": { "active": "已实施", "developing": "制定中", "proposed": "提案阶段" },
+  "regimeChips": {
+    "active": "已实施",
+    "developing": "制定中",
+    "proposed": "提案阶段"
+  },
   "issuerProfile": {
-    "breadcrumb": { "licenceTracker": "牌照追踪" },
+    "breadcrumb": {
+      "licenceTracker": "牌照追踪"
+    },
     "pegLabel": "锚定",
     "applicationDateLabel": "申请日期",
     "sections": {
@@ -95,5 +107,10 @@
       "description": "数据库中不存在 slug 为「{{slug}}」的发行方。",
       "backLink": "← 返回牌照追踪"
     }
+  },
+  "typeLabels": {
+    "fiat_backed": "法币支持",
+    "commodity_backed": "商品支持",
+    "algorithmic": "算法型"
   }
 }

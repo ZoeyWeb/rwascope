@@ -107,5 +107,10 @@
       "description": "資料庫中不存在 slug 為「{{slug}}」的發行方。",
       "backLink": "← 返回牌照追蹤"
     }
+  },
+  "typeLabels": {
+    "fiat_backed": "法幣支援",
+    "commodity_backed": "商品支援",
+    "algorithmic": "演算法型"
   }
 }

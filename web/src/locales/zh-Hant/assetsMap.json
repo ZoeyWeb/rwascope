@@ -120,5 +120,12 @@
       "backLink": "資產觀測站",
       "methodologyLink": "RARM 方法論"
     }
+  },
+  "sourceTypes": {
+    "official-statement": "官方宣告",
+    "regulatory-filing": "監管申報",
+    "whitepaper": "白皮書",
+    "industry-media": "行業媒體",
+    "major-media": "主流媒體"
   }
 }

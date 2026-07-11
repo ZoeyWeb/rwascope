@@ -368,7 +368,7 @@ export default function LicensesOverview() {
                           </td>
                           <td className="px-5 py-4 text-ed-body text-ed-ink">{issuer.peg}</td>
                           <td className="px-5 py-4 text-ed-body text-ed-text-muted">
-                            {TYPE_LABELS[issuer.type] ?? issuer.type}
+                            {t('typeLabels.' + issuer.type, { defaultValue: TYPE_LABELS[issuer.type] ?? issuer.type })}
                           </td>
                           <td className="px-5 py-4"><StatusBadge status={issuer.status} /></td>
                           <td className="px-5 py-4"><SARMBar sarm={issuer.sarm} /></td>
@@ -413,7 +413,7 @@ export default function LicensesOverview() {
                       <div className="flex items-center gap-4 text-ed-meta text-ed-text-muted">
                         <span className="font-mono text-ed-text-secondary">{issuer.ticker}</span>
                         <span>{issuer.peg}</span>
-                        <span>{TYPE_LABELS[issuer.type]}</span>
+                        <span>{t('typeLabels.' + issuer.type, { defaultValue: TYPE_LABELS[issuer.type] ?? issuer.type })}</span>
                       </div>
                       <div className="flex items-center justify-between">
                         <SARMBar sarm={issuer.sarm} />

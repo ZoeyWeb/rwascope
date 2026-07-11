@@ -1,8 +1,16 @@
 {
   "signals": {
-    "green":  "Satisfactory",
+    "green": "Satisfactory",
     "yellow": "Partial",
-    "red":    "Significant Gap",
-    "gray":   "Insufficient Data"
+    "red": "Significant Gap",
+    "gray": "Insufficient Data"
+  },
+  "dimensions": {
+    "capital_adequacy": "Capital Adequacy",
+    "reserve_quality": "Reserve Quality",
+    "governance": "Governance",
+    "technology": "Technology & Custody",
+    "redemption": "Redemption Mechanics",
+    "disclosure": "Public Disclosure"
   }
 }

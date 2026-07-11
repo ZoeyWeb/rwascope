@@ -9,6 +9,11 @@ import {
 import { useSarmSignals } from '../../hooks/useSarmSignals';
 import SignalDot from '../../components/SignalDot';
 
+function statusT(status: string, t: (k: string, opts?: Record<string, unknown>) => string, fallback: string) {
+  const key = status.replace(/_([a-z])/g, (_, c) => c.toUpperCase());
+  return t(`statusFilters.${key}`, { defaultValue: fallback });
+}
+
 // ── Citation Component ────────────────────────────────────────────────────────
 function CitationLink({ cite, index }: { cite: Citation; index: number }) {
   const { t } = useTranslation('licensesMap');
@@ -71,6 +76,7 @@ function InfoRow({ label, value }: { label: string; value: React.ReactNode }) {
 
 // ── SARM Detail Table ─────────────────────────────────────────────────────────
 function SARMTable({ issuer }: { issuer: Issuer }) {
+  const { t: tSarm } = useTranslation('sarm');
   const { signals } = useSarmSignals();
   const summary = aggregateSARM(issuer.sarm);
   return (
@@ -92,7 +98,7 @@ function SARMTable({ issuer }: { issuer: Issuer }) {
           const dim = issuer.sarm[key];
           return (
             <div key={key} className="py-4 grid grid-cols-1 sm:grid-cols-[180px_120px_1fr] gap-2 sm:gap-4 items-start">
-              <div className="font-bold text-sm text-[#2B3437]">{dim.label}</div>
+              <div className="font-bold text-sm text-[#2B3437]">{tSarm('dimensions.' + key, { defaultValue: dim.label })}</div>
               <div><TrafficLight signal={dim.signal} /></div>
               <div className="space-y-2">
                 <p className="text-sm text-[#737C7F]">{dim.rationale}</p>
@@ -168,7 +174,7 @@ export default function IssuerProfile() {
                 className="inline-flex items-center px-2.5 py-0.5 rounded text-xs font-bold"
                 style={{ color: statusMeta.color, background: statusMeta.bg }}
               >
-                {statusMeta.label}
+                {statusT(issuer.status, t, statusMeta.label)}
               </span>
             </div>
             <div className="flex items-center gap-3 flex-wrap text-sm text-[#737C7F]">
@@ -176,7 +182,7 @@ export default function IssuerProfile() {
               <span>·</span>
               <span>{issuer.peg} {t('issuerProfile.pegLabel')}</span>
               <span>·</span>
-              <span>{TYPE_LABELS[issuer.type] ?? issuer.type}</span>
+              <span>{t('typeLabels.' + issuer.type, { defaultValue: TYPE_LABELS[issuer.type] ?? issuer.type })}</span>
               <span>·</span>
               <span>{issuer.jurisdiction}</span>
             </div>
@@ -208,7 +214,7 @@ export default function IssuerProfile() {
         <InfoRow label={t('issuerProfile.infoLabels.parentSponsor')} value={issuer.parent} />
         <InfoRow label={t('issuerProfile.infoLabels.jurisdiction')} value={issuer.jurisdiction} />
         <InfoRow label={t('issuerProfile.infoLabels.pegCurrency')} value={issuer.peg} />
-        <InfoRow label={t('issuerProfile.infoLabels.stablecoinType')} value={TYPE_LABELS[issuer.type] ?? issuer.type} />
+        <InfoRow label={t('issuerProfile.infoLabels.stablecoinType')} value={t('typeLabels.' + issuer.type, { defaultValue: TYPE_LABELS[issuer.type] ?? issuer.type })} />
         <InfoRow label={t('issuerProfile.infoLabels.ticker')} value={<span className="font-mono font-bold text-[#5E5C75]">{issuer.ticker}</span>} />
         <InfoRow
           label={t('issuerProfile.applicationDateLabel')}
@@ -221,7 +227,7 @@ export default function IssuerProfile() {
               className="inline-flex items-center px-2 py-0.5 rounded text-xs font-bold"
               style={{ color: statusMeta.color, background: statusMeta.bg }}
             >
-              {statusMeta.label}
+              {statusT(issuer.status, t, statusMeta.label)}
             </span>
           }
         />

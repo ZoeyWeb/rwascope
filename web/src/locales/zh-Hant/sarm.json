@@ -4,5 +4,13 @@
     "yellow": "部分達標",
     "red": "重大缺口",
     "gray": "資料不足"
+  },
+  "dimensions": {
+    "capital_adequacy": "資本充足性",
+    "reserve_quality": "儲備質量",
+    "governance": "治理",
+    "technology": "技術與託管",
+    "redemption": "贖回機制",
+    "disclosure": "公開披露"
   }
 }
