@@ -245,7 +245,7 @@ function LegacyIncidentDetail({ slug }: { slug: string | undefined }) {
                 : <span className="text-[#737C7F] text-xs">{incident.estimatedLossNote ?? '—'}</span>
               }
             />
-            <InfoRow label={t('detail.sections.quickFacts.affectedParties')} value={incident.affectedParties.join(', ')} />
+            <InfoRow label={t('detail.sections.quickFacts.affectedParties')} value={incident.affectedParties.map(p => t(`shared.affectedParties.${p}`)).join('、')} />
             <InfoRow label={t('detail.sections.quickFacts.jurisdictions')} value={incident.jurisdictions.join(', ')} />
             {incident.hkRelevance && <InfoRow label={t('detail.sections.quickFacts.hkNexus')} value={incident.hkRelevance} />}
             <InfoRow

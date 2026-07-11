@@ -43,6 +43,24 @@
       "official-statement": "Official Statement",
       "major-media": "Major Media",
       "industry-media": "Industry Media"
+    },
+    "rwaiSeverity": {
+      "catastrophic": "Catastrophic",
+      "critical": "Critical",
+      "major": "Major"
+    },
+    "rarmLayer": {
+      "audit": "Audit",
+      "custody": "Custody",
+      "issuer": "Issuer",
+      "jurisdiction": "Jurisdiction",
+      "oracle": "Oracle",
+      "redemption": "Redemption"
+    },
+    "affectedParties": {
+      "both": "Both",
+      "institutional": "Institutional",
+      "retail": "Retail"
     }
   },
   "hero": {
@@ -86,7 +104,8 @@
       "tokenized-real-estate": "Tokenized RE",
       "tokenized-treasury": "Tokenized Treasury",
       "tokenized-private-credit": "Private Credit",
-      "tokenized-commodity": "Tokenized Commodity"
+      "tokenized-commodity": "Tokenized Commodity",
+      "other": "Other"
     }
   },
   "detail": {
@@ -206,6 +225,15 @@
     "footer": {
       "backLink": "Incident Registry",
       "projectProfile": "Project profile"
+    },
+    "assetClass": {
+      "algorithmic_stablecoin": "Algorithmic Stablecoin",
+      "fiat_stablecoin": "Fiat Stablecoin",
+      "infrastructure": "Infrastructure",
+      "tokenized_credit": "Tokenized Credit",
+      "tokenized_real_estate": "Tokenized Real Estate",
+      "tokenized_royalty": "Tokenized Royalty",
+      "tokenized_treasury": "Tokenized Treasury"
     }
   }
 }

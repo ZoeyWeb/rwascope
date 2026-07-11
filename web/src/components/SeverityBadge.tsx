@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import type { IncidentSeverity } from '../types/incident';
 
 const SEVERITY_COLOR: Record<IncidentSeverity, string> = {
@@ -12,12 +13,13 @@ interface Props {
 }
 
 export default function SeverityBadge({ severity, className = '' }: Props) {
+  const { t } = useTranslation('incidentsMap');
   return (
     <span
       className={`text-ed-meta uppercase tracking-[0.1em] font-medium ${className}`}
       style={{ color: SEVERITY_COLOR[severity] }}
     >
-      {severity}
+      {t(`shared.rwaiSeverity.${severity}`)}
     </span>
   );
 }

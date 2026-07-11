@@ -43,6 +43,24 @@
       "official-statement": "官方宣告",
       "major-media": "主流媒體",
       "industry-media": "行業媒體"
+    },
+    "rwaiSeverity": {
+      "catastrophic": "災難性",
+      "critical": "嚴重",
+      "major": "重大"
+    },
+    "rarmLayer": {
+      "audit": "審計",
+      "custody": "託管",
+      "issuer": "發行方",
+      "jurisdiction": "司法管轄",
+      "oracle": "預言機",
+      "redemption": "贖回"
+    },
+    "affectedParties": {
+      "both": "兩者",
+      "institutional": "機構",
+      "retail": "零售"
     }
   },
   "hero": {
@@ -86,7 +104,8 @@
       "tokenized-real-estate": "代幣化房地產",
       "tokenized-treasury": "代幣化國債",
       "tokenized-private-credit": "私人信貸",
-      "tokenized-commodity": "代幣化大宗商品"
+      "tokenized-commodity": "代幣化大宗商品",
+      "other": "其他"
     }
   },
   "detail": {
@@ -206,6 +225,15 @@
     "footer": {
       "backLink": "事件登記冊",
       "projectProfile": "專案檔案"
+    },
+    "assetClass": {
+      "algorithmic_stablecoin": "演算法穩定幣",
+      "fiat_stablecoin": "法幣穩定幣",
+      "infrastructure": "基礎設施",
+      "tokenized_credit": "代幣化信貸",
+      "tokenized_real_estate": "代幣化房地產",
+      "tokenized_royalty": "代幣化版稅",
+      "tokenized_treasury": "代幣化國債"
     }
   }
 }

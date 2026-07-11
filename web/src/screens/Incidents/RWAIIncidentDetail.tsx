@@ -31,13 +31,14 @@ const LAYER_COLORS: Record<string, string> = {
 };
 
 function LayerChip({ layer }: { layer: string }) {
+  const { t } = useTranslation('incidentsMap');
   const color = LAYER_COLORS[layer] ?? '#737C7F';
   return (
     <span
       className="inline-flex items-center px-2 py-0.5 text-ed-meta font-medium border"
       style={{ color, borderColor: color + '40', background: color + '0D' }}
     >
-      {layer}
+      {t(`shared.rarmLayer.${layer}`)}
     </span>
   );
 }
@@ -45,6 +46,7 @@ function LayerChip({ layer }: { layer: string }) {
 // ── RARM failure card ─────────────────────────────────────────────────────────
 
 function FailureCard({ f }: { f: { layer: string; layer_name: string; issue: string } }) {
+  const { t } = useTranslation('incidentsMap');
   const color = LAYER_COLORS[f.layer.toLowerCase()] ?? '#9e3f4e';
   return (
     <div
@@ -56,7 +58,7 @@ function FailureCard({ f }: { f: { layer: string; layer_name: string; issue: str
           className="text-[10px] font-bold px-1.5 py-0.5 border"
           style={{ color, borderColor: color + '50', background: color + '12' }}
         >
-          {f.layer}
+          {t(`shared.rarmLayer.${f.layer}`)}
         </span>
         <span className="text-ed-meta font-medium text-ed-ink">{f.layer_name}</span>
       </div>
@@ -181,7 +183,7 @@ export default function RWAIIncidentDetail({ incidentId }: { incidentId: string 
         {/* ── Meta strip ── */}
         <div className="border-y border-ed-hairline grid grid-cols-2 md:grid-cols-4 py-ed-section-sm gap-x-8 gap-y-4">
           <MetaItem label={t('rwai.metaLabels.assetClass')}>
-            <span className="capitalize">{incident.primary_asset_class.replace(/_/g, ' ')}</span>
+            <span>{t(`rwai.assetClass.${incident.primary_asset_class}`)}</span>
           </MetaItem>
           <MetaItem label={t('rwai.metaLabels.affectedLayers')}>
             <div className="flex flex-wrap gap-1 mt-0.5">

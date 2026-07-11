@@ -104,13 +104,13 @@ export default function IncidentsIndex() {
                   <div className="md:col-span-5">
                     <div className="text-ed-item-h4 text-ed-ink">{inc.citation_meta.short_title}</div>
                     <div className="text-ed-meta text-ed-text-muted mt-1">
-                      {inc.affected_rarm_layers.join(' · ')}
+                      {inc.affected_rarm_layers.map(l => t(`shared.rarmLayer.${l}`)).join(' · ')}
                     </div>
                   </div>
                   {/* Asset class + date (mobile) */}
                   <div className="md:col-span-2 text-ed-meta text-ed-text-secondary capitalize flex gap-2 md:block">
                     <span className="md:hidden text-ed-text-muted">{inc.incident_date} ·</span>
-                    {inc.primary_asset_class.replace(/_/g, ' ')}
+                    {t(`rwai.assetClass.${inc.primary_asset_class}`)}
                   </div>
                   {/* Severity — desktop only */}
                   <div className="hidden md:block md:col-span-1 text-right">
@@ -180,7 +180,7 @@ export default function IncidentsIndex() {
                       className="text-ed-meta uppercase tracking-[0.08em] font-medium"
                       style={{ color: DB_SEVERITY_COLOR[inc.severity] ?? '#737C7F' }}
                     >
-                      {inc.severity}
+                      {t(`shared.severity.${inc.severity}`)}
                     </span>
                   </div>
                   <div className="text-ed-item-h4 text-ed-ink">{inc.title}</div>

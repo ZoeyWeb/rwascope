@@ -1,6 +1,11 @@
 {
   "shared": {
-    "severity": { "critical": "严重", "high": "高", "medium": "中", "low": "低" },
+    "severity": {
+      "critical": "严重",
+      "high": "高",
+      "medium": "中",
+      "low": "低"
+    },
     "status": {
       "resolved": "已解决",
       "ongoing": "进行中",
@@ -8,7 +13,10 @@
       "litigation": "诉讼中",
       "settled": "已和解"
     },
-    "scope": { "hk": "HK", "global": "全球" },
+    "scope": {
+      "hk": "HK",
+      "global": "全球"
+    },
     "type": {
       "de-pegging": "脱锚",
       "smart-contract-exploit": "智能合约漏洞利用",
@@ -35,6 +43,24 @@
       "official-statement": "官方声明",
       "major-media": "主流媒体",
       "industry-media": "行业媒体"
+    },
+    "rwaiSeverity": {
+      "catastrophic": "灾难性",
+      "critical": "严重",
+      "major": "重大"
+    },
+    "rarmLayer": {
+      "audit": "审计",
+      "custody": "托管",
+      "issuer": "发行方",
+      "jurisdiction": "司法管辖",
+      "oracle": "预言机",
+      "redemption": "赎回"
+    },
+    "affectedParties": {
+      "both": "两者",
+      "institutional": "机构",
+      "retail": "零售"
     }
   },
   "hero": {
@@ -78,7 +104,8 @@
       "tokenized-real-estate": "代币化房地产",
       "tokenized-treasury": "代币化国债",
       "tokenized-private-credit": "私人信贷",
-      "tokenized-commodity": "代币化大宗商品"
+      "tokenized-commodity": "代币化大宗商品",
+      "other": "其他"
     }
   },
   "detail": {
@@ -198,6 +225,15 @@
     "footer": {
       "backLink": "事件登记册",
       "projectProfile": "项目档案"
+    },
+    "assetClass": {
+      "algorithmic_stablecoin": "算法稳定币",
+      "fiat_stablecoin": "法币稳定币",
+      "infrastructure": "基础设施",
+      "tokenized_credit": "代币化信贷",
+      "tokenized_real_estate": "代币化房地产",
+      "tokenized_royalty": "代币化版税",
+      "tokenized_treasury": "代币化国债"
     }
   }
 }
