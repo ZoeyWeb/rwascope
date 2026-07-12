@@ -1,0 +1,98 @@
+{
+  "breadcrumb": {
+    "parent": "Compliance Map",
+    "current": "Methodology"
+  },
+  "title": "Compliance Map Methodology",
+  "lede": "How the Cross-Border RWA Compliance Map is researched, structured, and maintained.",
+  "sections": {
+    "s1": {
+      "title": "1. Purpose",
+      "p1": "The Cross-Border RWA Compliance Map provides a concise, jurisdiction-by-issue overview of the regulatory landscape for tokenized real-world assets (RWAs) and stablecoins. It is designed to give practitioners and researchers a navigable starting point for cross-jurisdictional analysis — not a substitute for legal advice.",
+      "p2": "The matrix covers five jurisdictions: Hong Kong SAR (HK), Mainland China (CN), Singapore (SG), the United States (US), and the European Union (EU). It tracks five issue categories: RWA Issuance, Stablecoin Issuance, VASP / Exchange Licensing, Cross-Border Distribution, and Retail Access."
+    },
+    "s2": {
+      "title": "2. Signal Definitions",
+      "intro": "Each cell in the matrix carries one of four signals:",
+      "tableHeaders": {
+        "signal": "Signal",
+        "meaning": "Meaning",
+        "typical": "Typical conditions"
+      },
+      "rows": {
+        "open": {
+          "meaning": "A clear regulatory pathway exists; requirements are defined and achievable.",
+          "typical": "Licensing regime published; regulator has approved at least one entity."
+        },
+        "conditional": {
+          "meaning": "A pathway exists but is subject to material conditions, pending guidance, or requires case-by-case regulatory engagement.",
+          "typical": "Transitional provisions in effect; licensing regime enacted but no licences yet issued; sandbox or no-action letter required."
+        },
+        "restricted": {
+          "meaning": "The activity is prohibited or practically unavailable to most participants.",
+          "typical": "Statutory ban; no licensing regime exists; regulator has issued blanket prohibition notices."
+        },
+        "placeholder": {
+          "meaning": "This cell has not yet been researched.",
+          "typical": "No information displayed; cell navigates to a placeholder page."
+        }
+      },
+      "footnote": "Signals reflect the state of the primary regulatory framework at the date of last review. They do not account for fact-specific circumstances, contractual structures, or ongoing regulatory proceedings."
+    },
+    "s3": {
+      "title": "3. Research Process",
+      "intro": "Each cell is researched against the following source hierarchy:",
+      "sources": {
+        "statutes": {
+          "heading": "Primary statutes",
+          "body": "— the text of the relevant ordinance, act, or regulation as published by the official legislative body."
+        },
+        "guidance": {
+          "heading": "Regulator guidance",
+          "body": "— supervisory policy manuals, consultation papers, circulars, and FAQs issued by the named regulator."
+        },
+        "registers": {
+          "heading": "Regulator registers",
+          "body": "— public lists of licensed, registered, or sanctioned entities maintained by the regulator."
+        },
+        "statements": {
+          "heading": "Official statements",
+          "body": "— speeches, press releases, and testimony by senior officials of the named regulator."
+        },
+        "court": {
+          "heading": "Court records",
+          "body": "— published judicial decisions interpreting the relevant statute."
+        },
+        "media": {
+          "heading": "Major media / industry media",
+          "body": "— used only to corroborate or provide context; never as a sole source for a signal determination."
+        }
+      }
+    },
+    "s4": {
+      "title": "4. Update Policy",
+      "p1": "Each cell records a <code>last_reviewed</code> date. Cells are prioritised for re-review when:",
+      "triggers": [
+        "A relevant statute or regulation is amended or enacted.",
+        "The named regulator publishes new guidance, a licensing decision, or a prohibition notice.",
+        "A court publishes a decision that materially re-characterises the legal position.",
+        "Six months have elapsed since the last review."
+      ],
+      "p2": "The matrix version number (<code>matrix_version</code>) is incremented with each substantive change to any cell. Minor corrections (e.g., typographical fixes) do not increment the version."
+    },
+    "s5": {
+      "title": "5. Limitations",
+      "items": [
+        "The matrix covers jurisdiction-level frameworks. Sub-national, state-level, or sectoral variations (e.g., US state money-transmitter licensing) are noted in practitioner notes where material but are not captured as separate rows.",
+        "Signals reflect the primary regulatory characterisation of the activity. A single real-world transaction may attract multiple regulatory overlays (e.g., securities law AND AML requirements) — each overlay is addressed in the relevant issue row, but the interaction between rows is the practitioner's responsibility to analyse.",
+        "Cells in \"Conditional\" status cover a wide range of practical difficulty. A cell showing Conditional in one jurisdiction may be trivially achievable; in another it may require multi-year regulatory engagement. Read the cell narrative carefully.",
+        "This matrix does not cover tax treatment, accounting standards, or private-law enforceability of smart contracts."
+      ]
+    },
+    "s6": {
+      "title": "6. Corrections",
+      "body": "To report an error or outdated signal, contact <a>research@rwa-index.com</a> with the subject line \"Compliance Map — [jurisdiction]-[issue]\" and a supporting primary source. We aim to acknowledge within 5 business days."
+    }
+  },
+  "disclaimer": "This matrix is published for educational and research purposes only. It does not constitute legal advice, regulatory opinion, or a legal opinion in any jurisdiction. RWA-Index Research is not a law firm and does not provide legal services. Practitioners must obtain qualified legal advice before structuring any transaction."
+}

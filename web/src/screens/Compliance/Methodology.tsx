@@ -1,52 +1,44 @@
 import { Link } from 'react-router-dom';
+import { Trans, useTranslation } from 'react-i18next';
 import { useComplianceSignals } from '../../hooks/useComplianceSignals';
 
 export default function ComplianceMethodology() {
+  const { t } = useTranslation('complianceMethodology');
   const { signals } = useComplianceSignals();
   return (
     <div className="max-w-3xl mx-auto px-4 py-10">
       <nav className="text-xs text-slate-500 mb-4 flex items-center gap-1">
         <Link to="/compliance" className="hover:text-[#2B3437] transition-colors">
-          Compliance Map
+          {t('breadcrumb.parent')}
         </Link>
         <span>›</span>
-        <span className="text-[#2B3437]">Methodology</span>
+        <span className="text-[#2B3437]">{t('breadcrumb.current')}</span>
       </nav>
 
       <h1 className="text-2xl font-bold text-[#2B3437] font-headline mb-2">
-        Compliance Map Methodology
+        {t('title')}
       </h1>
       <p className="text-[#737C7F] text-sm mb-8">
-        How the Cross-Border RWA Compliance Map is researched, structured, and maintained.
+        {t('lede')}
       </p>
 
       <div className="space-y-10 text-sm text-[#2B3437] leading-relaxed">
         {/* 1 */}
-        <Section title="1. Purpose">
-          <p>
-            The Cross-Border RWA Compliance Map provides a concise, jurisdiction-by-issue overview of
-            the regulatory landscape for tokenized real-world assets (RWAs) and stablecoins. It is
-            designed to give practitioners and researchers a navigable starting point for
-            cross-jurisdictional analysis — not a substitute for legal advice.
-          </p>
-          <p className="mt-2">
-            The matrix covers five jurisdictions: Hong Kong SAR (HK), Mainland China (CN),
-            Singapore (SG), the United States (US), and the European Union (EU). It tracks five
-            issue categories: RWA Issuance, Stablecoin Issuance, VASP / Exchange Licensing,
-            Cross-Border Distribution, and Retail Access.
-          </p>
+        <Section title={t('sections.s1.title')}>
+          <p>{t('sections.s1.p1')}</p>
+          <p className="mt-2">{t('sections.s1.p2')}</p>
         </Section>
 
         {/* 2 */}
-        <Section title="2. Signal Definitions">
-          <p>Each cell in the matrix carries one of four signals:</p>
+        <Section title={t('sections.s2.title')}>
+          <p>{t('sections.s2.intro')}</p>
           <div className="overflow-x-auto mt-3">
             <table className="w-full text-xs border-collapse">
               <thead>
                 <tr className="border-b border-[#DBE4E7]">
-                  <th className="text-left py-2 pr-4 text-[#737C7F] font-medium">Signal</th>
-                  <th className="text-left py-2 pr-4 text-[#737C7F] font-medium">Meaning</th>
-                  <th className="text-left py-2 text-[#737C7F] font-medium">Typical conditions</th>
+                  <th className="text-left py-2 pr-4 text-[#737C7F] font-medium">{t('sections.s2.tableHeaders.signal')}</th>
+                  <th className="text-left py-2 pr-4 text-[#737C7F] font-medium">{t('sections.s2.tableHeaders.meaning')}</th>
+                  <th className="text-left py-2 text-[#737C7F] font-medium">{t('sections.s2.tableHeaders.typical')}</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-[#DBE4E7]">
@@ -58,10 +50,10 @@ export default function ComplianceMethodology() {
                     </span>
                   </td>
                   <td className="py-2 pr-4 text-[#586064]">
-                    A clear regulatory pathway exists; requirements are defined and achievable.
+                    {t('sections.s2.rows.open.meaning')}
                   </td>
                   <td className="py-2 text-[#586064]">
-                    Licensing regime published; regulator has approved at least one entity.
+                    {t('sections.s2.rows.open.typical')}
                   </td>
                 </tr>
                 <tr>
@@ -72,12 +64,10 @@ export default function ComplianceMethodology() {
                     </span>
                   </td>
                   <td className="py-2 pr-4 text-[#586064]">
-                    A pathway exists but is subject to material conditions, pending guidance, or
-                    requires case-by-case regulatory engagement.
+                    {t('sections.s2.rows.conditional.meaning')}
                   </td>
                   <td className="py-2 text-[#586064]">
-                    Transitional provisions in effect; licensing regime enacted but no licences yet
-                    issued; sandbox or no-action letter required.
+                    {t('sections.s2.rows.conditional.typical')}
                   </td>
                 </tr>
                 <tr>
@@ -88,11 +78,10 @@ export default function ComplianceMethodology() {
                     </span>
                   </td>
                   <td className="py-2 pr-4 text-[#586064]">
-                    The activity is prohibited or practically unavailable to most participants.
+                    {t('sections.s2.rows.restricted.meaning')}
                   </td>
                   <td className="py-2 text-[#586064]">
-                    Statutory ban; no licensing regime exists; regulator has issued blanket
-                    prohibition notices.
+                    {t('sections.s2.rows.restricted.typical')}
                   </td>
                 </tr>
                 <tr>
@@ -103,117 +92,99 @@ export default function ComplianceMethodology() {
                     </span>
                   </td>
                   <td className="py-2 pr-4 text-[#586064]">
-                    This cell has not yet been researched.
+                    {t('sections.s2.rows.placeholder.meaning')}
                   </td>
                   <td className="py-2 text-[#586064]">
-                    No information displayed; cell navigates to a placeholder page.
+                    {t('sections.s2.rows.placeholder.typical')}
                   </td>
                 </tr>
               </tbody>
             </table>
           </div>
           <p className="mt-3 text-xs text-[#737C7F]">
-            Signals reflect the state of the primary regulatory framework at the date of last review.
-            They do not account for fact-specific circumstances, contractual structures, or
-            ongoing regulatory proceedings.
+            {t('sections.s2.footnote')}
           </p>
         </Section>
 
         {/* 3 */}
-        <Section title="3. Research Process">
-          <p>Each cell is researched against the following source hierarchy:</p>
+        <Section title={t('sections.s3.title')}>
+          <p>{t('sections.s3.intro')}</p>
           <ol className="list-decimal pl-5 mt-2 space-y-1.5 text-[#586064]">
             <li>
-              <strong className="text-[#2B3437]">Primary statutes</strong> — the text of the
-              relevant ordinance, act, or regulation as published by the official legislative body.
+              <strong className="text-[#2B3437]">{t('sections.s3.sources.statutes.heading')}</strong>{' '}
+              {t('sections.s3.sources.statutes.body')}
             </li>
             <li>
-              <strong className="text-[#2B3437]">Regulator guidance</strong> — supervisory policy
-              manuals, consultation papers, circulars, and FAQs issued by the named regulator.
+              <strong className="text-[#2B3437]">{t('sections.s3.sources.guidance.heading')}</strong>{' '}
+              {t('sections.s3.sources.guidance.body')}
             </li>
             <li>
-              <strong className="text-[#2B3437]">Regulator registers</strong> — public lists of
-              licensed, registered, or sanctioned entities maintained by the regulator.
+              <strong className="text-[#2B3437]">{t('sections.s3.sources.registers.heading')}</strong>{' '}
+              {t('sections.s3.sources.registers.body')}
             </li>
             <li>
-              <strong className="text-[#2B3437]">Official statements</strong> — speeches, press
-              releases, and testimony by senior officials of the named regulator.
+              <strong className="text-[#2B3437]">{t('sections.s3.sources.statements.heading')}</strong>{' '}
+              {t('sections.s3.sources.statements.body')}
             </li>
             <li>
-              <strong className="text-[#2B3437]">Court records</strong> — published judicial
-              decisions interpreting the relevant statute.
+              <strong className="text-[#2B3437]">{t('sections.s3.sources.court.heading')}</strong>{' '}
+              {t('sections.s3.sources.court.body')}
             </li>
             <li>
-              <strong className="text-[#2B3437]">Major media / industry media</strong> — used only
-              to corroborate or provide context; never as a sole source for a signal determination.
+              <strong className="text-[#2B3437]">{t('sections.s3.sources.media.heading')}</strong>{' '}
+              {t('sections.s3.sources.media.body')}
             </li>
           </ol>
         </Section>
 
         {/* 4 */}
-        <Section title="4. Update Policy">
+        <Section title={t('sections.s4.title')}>
           <p>
-            Each cell records a <code className="bg-[#EAEFF1] px-1 rounded">last_reviewed</code> date.
-            Cells are prioritised for re-review when:
+            <Trans
+              i18nKey="sections.s4.p1"
+              ns="complianceMethodology"
+              components={{ code: <code className="bg-[#EAEFF1] px-1 rounded" /> }}
+            />
           </p>
           <ul className="list-disc pl-5 mt-2 space-y-1 text-[#586064]">
-            <li>A relevant statute or regulation is amended or enacted.</li>
-            <li>The named regulator publishes new guidance, a licensing decision, or a
-              prohibition notice.</li>
-            <li>A court publishes a decision that materially re-characterises the legal position.</li>
-            <li>Six months have elapsed since the last review.</li>
+            {(t('sections.s4.triggers', { returnObjects: true }) as string[]).map((item, i) => (
+              <li key={i}>{item}</li>
+            ))}
           </ul>
           <p className="mt-2">
-            The matrix version number (<code className="bg-[#EAEFF1] px-1 rounded">matrix_version</code>)
-            is incremented with each substantive change to any cell. Minor corrections (e.g.,
-            typographical fixes) do not increment the version.
+            <Trans
+              i18nKey="sections.s4.p2"
+              ns="complianceMethodology"
+              components={{ code: <code className="bg-[#EAEFF1] px-1 rounded" /> }}
+            />
           </p>
         </Section>
 
         {/* 5 */}
-        <Section title="5. Limitations">
+        <Section title={t('sections.s5.title')}>
           <ul className="list-disc pl-5 mt-2 space-y-1.5 text-[#586064]">
-            <li>
-              The matrix covers jurisdiction-level frameworks. Sub-national, state-level, or
-              sectoral variations (e.g., US state money-transmitter licensing) are noted in
-              practitioner notes where material but are not captured as separate rows.
-            </li>
-            <li>
-              Signals reflect the primary regulatory characterisation of the activity. A single
-              real-world transaction may attract multiple regulatory overlays (e.g., securities law
-              AND AML requirements) — each overlay is addressed in the relevant issue row, but
-              the interaction between rows is the practitioner's responsibility to analyse.
-            </li>
-            <li>
-              Cells in "Conditional" status cover a wide range of practical difficulty. A cell
-              showing Conditional in one jurisdiction may be trivially achievable; in another it
-              may require multi-year regulatory engagement. Read the cell narrative carefully.
-            </li>
-            <li>
-              This matrix does not cover tax treatment, accounting standards, or private-law
-              enforceability of smart contracts.
-            </li>
+            {(t('sections.s5.items', { returnObjects: true }) as string[]).map((item, i) => (
+              <li key={i}>{item}</li>
+            ))}
           </ul>
         </Section>
 
         {/* 6 */}
-        <Section title="6. Corrections">
+        <Section title={t('sections.s6.title')}>
           <p>
-            To report an error or outdated signal, contact{' '}
-            <a href="mailto:research@rwa-index.com" className="text-[#5E5C75] hover:underline">
-              research@rwa-index.com
-            </a>{' '}
-            with the subject line "Compliance Map — [jurisdiction]-[issue]" and a supporting
-            primary source. We aim to acknowledge within 5 business days.
+            <Trans
+              i18nKey="sections.s6.body"
+              ns="complianceMethodology"
+              components={{
+                a: <a href="mailto:research@rwa-index.com" className="text-[#5E5C75] hover:underline" />,
+              }}
+            />
           </p>
         </Section>
 
         {/* Disclaimer */}
         <div className="pt-6 border-t border-[#DBE4E7] text-xs text-[#737C7F] leading-relaxed">
-          This matrix is published for educational and research purposes only. It does not
-          constitute legal advice, regulatory opinion, or a legal opinion in any jurisdiction.
-          RWA-Index Research is not a law firm and does not provide legal services. Practitioners
-          must obtain qualified legal advice before structuring any transaction.
+          {t('disclaimer')}
         </div>
       </div>
     </div>
