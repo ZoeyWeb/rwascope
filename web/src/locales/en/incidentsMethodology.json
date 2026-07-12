@@ -1,0 +1,122 @@
+{
+  "breadcrumb": {
+    "database": "Incident Database",
+    "current": "Methodology"
+  },
+  "title": "Incident Database — Methodology & Inclusion Criteria",
+  "lede": "How incidents are selected, classified, and described in the RWA-Index Tokenization Incident Database.",
+  "sections": {
+    "purpose": {
+      "title": "1. Purpose",
+      "p1": "The Tokenization Incident Database is a structured factual record of incidents affecting stablecoins, tokenized real-world assets, and tokenization infrastructure. Its purpose is academic: to provide researchers, practitioners, and policymakers with a systematically organised reference for understanding historical failure modes in tokenized asset markets.",
+      "p2": "The database does not investigate, accuse, or make legal determinations. All entries are based on publicly available information including regulatory filings, court records, official statements, and reporting from established media outlets. Where facts are disputed, the database records the dispute and does not resolve it.",
+      "p3": "The unique analytical contribution of this database is the mapping of each incident to the SARM (stablecoin) and RARM (tokenized RWA) analytical frameworks developed by RWA-Index. This mapping identifies which risk dimensions were implicated in each event, enabling cross-incident pattern analysis."
+    },
+    "inclusionCriteria": {
+      "title": "2. Inclusion Criteria",
+      "hk": {
+        "title": "HK-Related Incidents",
+        "intro": "Included if the incident involves <em>any</em> of:",
+        "bullets": [
+          "An issuer or operator licensed, incorporated, or operating from Hong Kong",
+          "A distributor or service provider targeting Hong Kong residents",
+          "Regulatory action by the SFC, HKMA, or HK Police",
+          "Reported losses by Hong Kong residents or institutions",
+          "A Hong Kong regulatory precedent or policy change resulting from the incident"
+        ],
+        "note": "No severity threshold — all severities included with HK nexus."
+      },
+      "global": {
+        "title": "Global Reference Incidents",
+        "intro": "Included only if the incident meets <em>at least one</em> of:",
+        "bullets": [
+          "Estimated financial loss ≥ USD 100 million",
+          "Triggered multi-jurisdictional regulatory response",
+          "Demonstrably shifted industry practice or regulatory approach in two or more jurisdictions"
+        ],
+        "note": "Global incidents without HK nexus are included for comparative context only."
+      }
+    },
+    "severityRubric": {
+      "title": "3. Severity Rubric",
+      "intro": "Severity is assigned based on the highest applicable threshold. Where impact is estimated from a range, the upper bound is used unless a single verified figure is available from regulatory or court records.",
+      "tableHeaders": {
+        "level": "Level",
+        "threshold": "Threshold"
+      }
+    },
+    "incidentTypes": {
+      "title": "4. Incident Type Definitions",
+      "definitions": {
+        "de-pegging": "A stablecoin or pegged asset trades materially and persistently below its target peg on secondary markets. Includes both algorithmic and fiat-backed stablecoins.",
+        "smart-contract-exploit": "Funds are lost or misappropriated through a vulnerability in a smart contract or on-chain protocol, including bridges, vaults, and liquidity pools.",
+        "custody-incident": "Assets held in custody by an exchange, custodian, or bridge are lost, misappropriated, or made inaccessible through operational, security, or governance failure.",
+        "redemption-failure": "A token or instrument issuer is unable or unwilling to honour redemption requests at par value within the committed timeframe.",
+        "regulatory-action": "A regulatory body takes enforcement, licensing, or supervisory action against an issuer, platform, or individual that materially disrupts operations or imposes financial penalties.",
+        "governance-failure": "An incident arising from failures in internal governance, including board dysfunction, management misconduct, inadequate internal controls, or fraud by principals.",
+        "bank-failure-spillover": "An incident in a traditional banking institution that causes secondary stress to a tokenized asset or stablecoin, for example through custody concentration or reserve impairment.",
+        "sanctions": "A regulatory or governmental sanctions designation that disrupts the operation or use of a tokenized asset, stablecoin, or associated infrastructure.",
+        "other": "Incidents not clearly classifiable under the above types. The specific nature is described in the incident entry."
+      }
+    },
+    "statusDefs": {
+      "title": "5. Status Definitions",
+      "definitions": {
+        "resolved": "The incident has concluded and all regulatory or legal proceedings are finalised.",
+        "ongoing": "The incident is actively developing; operations or recovery efforts are still in progress.",
+        "under-investigation": "The incident is under active investigation by a regulator or law enforcement body. No charges or findings yet.",
+        "litigation": "Civil or criminal proceedings are actively underway; no final judgment or settlement has been reached.",
+        "settled": "Proceedings have concluded through a settlement, consent judgment, or plea agreement. The case is closed."
+      }
+    },
+    "sourceHierarchy": {
+      "title": "6. Source Hierarchy",
+      "intro": "Sources are ranked in the following priority order. Lower-tier sources are used only when higher-tier sources are unavailable for a specific claim. All claims requiring a source include a direct citation.",
+      "tableHeaders": {
+        "tier": "Tier",
+        "type": "Type",
+        "examples": "Examples"
+      },
+      "tierExamples": {
+        "1": "SFC enforcement notices, OFAC designations, SEC complaints, court indictments",
+        "2": "Bankruptcy filings, judgments, settlement orders, indictments",
+        "3": "Issuer press releases, company blog posts, protocol post-mortems",
+        "4": "Reuters, Bloomberg, Financial Times, South China Morning Post",
+        "5": "CoinDesk, The Block, Decrypt — for facts not covered in higher-tier sources"
+      }
+    },
+    "updatePolicy": {
+      "title": "7. Update Policy",
+      "p1": "Entries are updated when new public information becomes available, including regulatory findings, court judgments, revised loss estimates from official proceedings, or corrections to previously published figures.",
+      "p2": "All material revisions are recorded in the entry's revision notes field with a date and description. Prior text is not deleted; the current entry reflects the most accurate publicly available information.",
+      "p3": "Where loss estimates are revised by courts or regulators, the database uses the most recent verified figure and notes the revision. Earlier estimates are preserved in revision notes for traceability."
+    },
+    "scopeLimitations": {
+      "title": "8. Scope Limitations",
+      "header": "This database does NOT:",
+      "bullets": [
+        "Investigate incidents beyond publicly available information",
+        "Allege wrongdoing beyond what is established in cited public sources",
+        "Make predictions about ongoing proceedings (\"will likely be found guilty\")",
+        "Consolidate multiple distinct events into a single entry — each major event has its own slug",
+        "Include rumoured or unverified loss figures; uncertain figures are described as estimates with source notes",
+        "Provide investment advice or commentary",
+        "Include incidents below the global threshold unless they have an HK nexus"
+      ]
+    },
+    "submissions": {
+      "title": "9. Submissions & Corrections",
+      "body": "To submit a new incident for consideration, or to flag a factual error or update in an existing entry, please email <email>research@rwa-index.com</email> with the subject line \"Incident Database: [submission/correction]\". Please include the incident name or slug, the specific claim in question, and a link to the public source supporting the correction."
+    }
+  },
+  "severityThresholds": {
+    "critical": "≥ USD 1 billion impact OR systemic financial system effect",
+    "high": "USD 100 million – 1 billion impact OR multi-jurisdictional regulatory action",
+    "medium": "USD 10 million – 100 million impact OR formal single-jurisdiction enforcement action",
+    "low": "Below USD 10 million impact, contained, no formal enforcement action"
+  },
+  "nav": {
+    "backLink": "Incident Database",
+    "version": "v1.0 · April 2026"
+  }
+}
