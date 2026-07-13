@@ -1,0 +1,70 @@
+{
+  "breadcrumb": { "parent": "Ensemble", "current": "方法论" },
+  "title": "追踪器方法论",
+  "lede": "Project Ensemble 公开追踪器如何被研究、组织与维护。",
+  "disclaimer": "本追踪器是一款独立的研究工具。它与香港金融管理局(HKMA)无隶属、无背书、无关联。RWA-Index 无法获取非公开的 Ensemble 或 EnsembleTX 数据。",
+  "sections": {
+    "whatItIs": {
+      "title": "1. 本追踪器是什么",
+      "p1": "Project Ensemble 公开追踪器是一份独立的第三方结构化档案,汇集 HKMA 关于 Project Ensemble 及其后续试点阶段 EnsembleTX 的公开信息。其目的是让公开信息对研究者、从业者与政策制定者更易导航、更便于交叉引用。",
+      "p2": "本追踪器维护一份结构化记录,涵盖 HKMA 公开披露的里程碑、用例与参与机构。追踪器中的每个条目都链接到至少一个公开的一手或二手来源。"
+    },
+    "whatItIsNot": {
+      "title": "2. 本追踪器不是什么",
+      "items": [
+        {
+          "label": "并非实时数据源。",
+          "desc": "本追踪器不从 HKMA 系统拉取实时数据。它在发布新的公开披露时手动更新。"
+        },
+        {
+          "label": "与 HKMA 无隶属关系。",
+          "desc": "本追踪器由 RWA-Index Research 制作,与香港金融管理局无关联、无背书、未获其批准。"
+        },
+        {
+          "label": "无法获取结算数据。",
+          "desc": "本追踪器不包含交易量、结算金额、银行间流动性数据,或任何其它来自 EnsembleTX 的非公开运营数据。"
+        },
+        {
+          "label": "无法获取非公开的参与方名单。",
+          "desc": "机构登记仅反映可从 HKMA 新闻稿、Annex 披露与已报道的主流媒体核实的参与方。若 Annex A 与 Annex B 的完整名单未进入公共领域,则不予反映。"
+        },
+        {
+          "label": "并非投资评论。",
+          "desc": "本追踪器不对 HKMA 的做法、代币化的商业前景,或任何参与机构的表现作出评估。"
+        }
+      ]
+    },
+    "sourceHierarchy": {
+      "title": "3. 来源层级",
+      "intro": "追踪器的所有内容按以下来源层级进行研究:",
+      "items": [
+        { "label": "HKMA 新闻稿", "desc": "所有里程碑与机构记录的主要来源。在每个条目中直接链接。" },
+        { "label": "HKMA 演讲与公开声明", "desc": "用于佐证时间、范围与术语。" },
+        { "label": "监管咨询文件", "desc": "用于框架与政策背景。" },
+        { "label": "主流财经媒体", "desc": "仅用于佐证 HKMA 一手来源,绝不作为重大事实的唯一来源。" },
+        { "label": "行业媒体", "desc": "仅用于补充背景;引用时明确标注。" }
+      ],
+      "footnote": "当某项信息无法从上述任何来源核实时,予以省略。当 HKMA 已确认某活动但未披露细节时,明确记录为 \"Not publicly disclosed\"。"
+    },
+    "scope": {
+      "title": "4. 范围",
+      "p1": "本追踪器涵盖自 2024 年 3 月 7 日公开启动的 Project Ensemble,及自 2025 年 11 月 13 日启动的后续试点阶段 EnsembleTX。它追踪里程碑、用例与公开披露的参与方。",
+      "p2": "本追踪器不涵盖 HKMA 的其它金融科技倡议,如 e-HKD+、Project mBridge 或基于 Cyberport 的金融科技项目,<em>除非</em>它们在 HKMA 关于 Project Ensemble 的公开信息中被明确提及(例如 MOU 中提及的 Banque de France 跨境结算工作)。"
+    },
+    "updatePolicy": {
+      "title": "5. 更新政策",
+      "intro": "当 HKMA 发布新的公开披露时,追踪器将更新。更新包括:",
+      "bullets": [
+        "提及 Project Ensemble 或 EnsembleTX 的新 HKMA 新闻稿。",
+        "新的机构披露(例如新增的 Annex A/B 条目进入公开领域)。",
+        "阶段转换(例如若宣布 EnsembleTX 之后的新阶段)。"
+      ],
+      "p2": "数据文件中的 <code>last_compiled</code> 日期记录最近一次实质性更新。轻微的编辑更正不更新此日期。"
+    },
+    "corrections": {
+      "title": "6. 更正",
+      "body": "如需报告事实错误,或告知我们应纳入的新 HKMA 公开披露,请联系 <email>research@rwa-index.com</email>,主题行注明 \"EnsembleTracker — [item]\",并附一手来源链接。我们力争在 5 个工作日内回复。"
+    }
+  },
+  "footer": "本追踪器仅为教育与研究目的发布。它不构成投资建议、金融产品披露或监管意见。RWA-Index Research 与香港金融管理局无隶属关系。"
+}
