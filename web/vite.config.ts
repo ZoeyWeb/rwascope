@@ -7,6 +7,7 @@ export default defineConfig({
     drop: ['console'],
   },
   build: {
+    assetsDir: 'static',
     rollupOptions: {
       output: {
         manualChunks(id) {
